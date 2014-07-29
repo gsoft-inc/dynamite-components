@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ Copyright		: GSoft @2014
+ Project		: GSoft Dynamite Portal
+ File           : TimerJobs.xml.template
+ Description	: Timer Jobs Scheduling configuration
+
+-->
+<Configuration>
+	<WebApplication Url="[[DSP_PortalWebAppUrl]]">
+		<Jobs>
+			<!-- Variations Propagate List Items Job Definition -->
+			<Job Guid="02cac8e4-3e5d-4ad5-9f55-bdac0dbf8687" Schedule="Every 5 minutes" Description="Variations Propagate List Items"/>
+		</Jobs>
+	</WebApplication>
+</Configuration>

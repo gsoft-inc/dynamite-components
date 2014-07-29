@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ Copyright		: GSoft @2013
+ Project		  : Agropur Intranet
+ File         : SearchResultSources.xml.template
+ Description	: Search Result Sources configuration
+
+-->
+<Configuration SearchServiceApplication="[[DSP_SearchServiceAppName]]">
+  <!-- Attributes
+      Name: Name of the result source
+      SearchObjectLevel: SPWeb,	SPSite, SPSiteSubscription,	Ssa
+      SortDirection (optionnal): Ascending or Descending
+      SortField (optionnal): The internal name column
+      Query: KQL search query
+    -->
+
+  <!-- Single Content Item -->
+  <Source Name="Single Content Item" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} owstaxIdPortalNavigation:{Term} ListItemID={URLToken.2} ItemLanguageOWSTEXT:{Page.PortalPageLanguage}</Query>
+  </Source>
+  
+  <!-- Single News Item -->
+  <Source Name="Single News Item" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} owstaxIdPortalNavigation:{Term} ListItemID={URLToken.2} PortalDateSlugOWSTEXT:{URLToken.3} ItemLanguageOWSTEXT:{Page.PortalPageLanguage}</Query>
+  </Source>
+  
+  <!-- All navigation Items -->
+  <Source Name="Parent navigation items" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>
+      {?{searchTerms} -ContentClass=urn:content-class:SPSPeople} ContentTypeId:0x0100F39089C4394B43D29606F78A48696B4401010101* ItemLanguageOWSTEXT:{Page.PortalPageLanguage}
+    </Query>
+  </Source>
+  
+  <!-- All Category News -->
+  <Source Name="All Category Items" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="Descending" SortField="">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} GP0|{Term.ID} ContentTypeId:0x0100F39089C4394B43D29606F78A48696B4401010101* ItemLanguageOWSTEXT:{Page.PortalPageLanguage}</Query>
+  </Source>
+  
+  <!-- All News -->
+  <Source Name="All News" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="Descending" SortField="ArticleStartDateOWSDATE">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} GP0|#c9651769-8165-40fc-b0c7-6a572f323172 ContentTypeId:0x0100F39089C4394B43D29606F78A48696B440101010103* ItemLanguageOWSTEXT:{Page.PortalPageLanguage}</Query>
+  </Source>
+  
+  <!-- Items from a category -->
+  <Source Name="Items from a Category" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>{SearchBoxQuery} GPP|{Term.ID} ItemLanguageOWSTEXT:{Page.PortalPageLanguage}</Query>
+  </Source>
+  
+  <!-- Same Category Items -->
+  <Source Name="Same Category Items" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} GPP|{Term.IdWithChildren} ItemLanguageOWSTEXT:{Page.PortalPageLanguage} -PortalSlugOWSTEXT:{URLToken.1} -ListItemID:{URLToken.2}</Query>
+  </Source>
+  
+  <!-- Single Node Description -->
+  <Source Name="Single Node Description" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} ContentTypeId:0x0100F39089C4394B43D29606F78A48696B44010102*  GP0|{Term} ItemLanguageOWSTEXT:{Page.PortalPageLanguage}</Query>
+  </Source>
+
+  <!-- All menu items-->
+  <Source Name="All menu items" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} ContentTypeId:0x0100F39089C4394B43D29606F78A48696B4401010101* ItemLanguageOWSTEXT:{Page.PortalPageLanguage} IsNavigationMenuItemOWSBOOL:true</Query>
+  </Source>
+  
+  <!-- Search - Portal Content -->
+  <Source Name="Search - Portal Content" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>
+      {SearchBoxQuery} ItemLanguageOWSTEXT:{Page.PortalPageLanguage}
+      -ContentTypeId:0x0100F39089C4394B43D29606F78A48696B44010102*
+      -ContentTypeId:0x0100F39089C4394B43D29606F78A48696B440100CE2BD4E591874D76A659488854DFDB09*
+    </Query>
+  </Source>
+  <!-- Related Content -->
+  <Source Name="All Related Content" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="" SortField="">
+    <Query>
+      ItemLanguageOWSTEXT:{Page.PortalPageLanguage}
+      ContentTypeId:0x0100F39089C4394B43D29606F78A48696B4401010101*
+      -ContentTypeId:0x0100F39089C4394B43D29606F78A48696B440101010102*
+      -ContentTypeId:0x0100F39089C4394B43D29606F78A48696B440101010105*
+      {SearchTerms}
+    </Query>
+  </Source>
+  
+  
+  <!-- All featured items-->
+  <Source Name="All top news but news" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="Ascending" SortField="TopNewsOrderOWSINTG">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} ContentTypeId:0x0100F39089C4394B43D29606F78A48696B4401010101* -ContentTypeId:0x0100F39089C4394B43D29606F78A48696B440101010103* ItemLanguageOWSTEXT:{Page.PortalPageLanguage} IsTopNewsOWSBOOL:true</Query>
+  </Source>
+  <Source Name="All news top news" SearchObjectLevel="Ssa" ContextWeb="[[DSP_PortalPublishingHostNamePath]]" SortDirection="Ascending" SortField="TopNewsOrderOWSINTG">
+    <Query>{?{searchTerms} -ContentClass=urn:content-class:SPSPeople} ContentTypeId:0x0100F39089C4394B43D29606F78A48696B440101010103* ItemLanguageOWSTEXT:{Page.PortalPageLanguage} IsTopNewsOWSBOOL:true</Query>
+  </Source>
+</Configuration>

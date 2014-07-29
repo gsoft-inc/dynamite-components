@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Properties>
+  <Property Name="ContentAssociationKeyOWSGUID" Type="1" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_GUID_ContentAssociationKey" Type="1"/>
+      <CrawledProperty Name="ows_ContentAssociationKey" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="ItemLanguageOWSTEXT" Type="1" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_TEXT_ItemLanguage" Type="1"/>
+      <CrawledProperty Name="ows_ItemLanguage" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <!-- Type 5: YesNo; Force creation -->
+  <Property Name="IsNavigationMenuItemOWSBOOL" Type="5" ForceCreation="true" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_IsNavigationMenuItem" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="PortalSummaryOWSMTXT" Type="1" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties Behavior="">
+      <CrawledProperty Name="ows_r_MTXT_PortalSummary" Type="1"/>
+      <CrawledProperty Name="ows_PortalSummary" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="PortalSubjectOWSTEXT" Type="1" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties Behavior="">
+      <CrawledProperty Name="ows_PortalSubject" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="PortalSlugOWSTEXT" Type="1" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_TEXT_PortalSlug" Type="1"/>
+      <CrawledProperty Name="ows_PortalSlug" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="PortalDateSlugOWSTEXT" Type="1" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_TEXT_PortalDateSlug" Type="1"/>
+      <CrawledProperty Name="ows_PortalDateSlug" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="PortalNavigationOWSTEXT" Type="1" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_PortalNavigation" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <!-- Type 4: DateTime; Force creation -->
+  <Property Name="SchedulingStartDateOWSDATE" Type="4" ForceCreation="true" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_DATE_SchedulingStartDate" Type="4"/>
+      <CrawledProperty Name="ows_SchedulingStartDate" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <!-- Type 4: DateTime; Force creation -->
+  <Property Name="SchedulingEndDateOWSDATE" Type="4" ForceCreation="true" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_DATE_SchedulingEndDate" Type="4"/>
+      <CrawledProperty Name="ows_SchedulingEndDate" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <!-- Type 4: DateTime; Force creation -->
+  <Property Name="ArticleStartDateOWSDATE" Type="4" ForceCreation="true" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true" Sortable="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_DATE_ArticleStartDate" Type="4"/>
+      <CrawledProperty Name="ows_ArticleStartDate" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="ItemLanguageOWSTEXT" Type="1" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_TEXT_ItemLanguage" Type="1"/>
+      <CrawledProperty Name="ows_ItemLanguage" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="BodyOWSMTXT" Type="2" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_r_MTXT_Body" Type="2"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="IsTopNewsOWSBOOL" Type="5" ForceCreation="true" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true">
+    <CrawledProperties>
+      <CrawledProperty Name="ows_IsTopNews" Type="1"/>
+      <CrawledProperty Name="ows_q_BOOL_IsTopNews" Type="1"/>
+    </CrawledProperties>
+  </Property>
+  <Property Name="TopNewsOrderOWSINTG" Type="2" FullTextQueriable="true" Queryable="true" Retrievable="true" Searchable="true" Refinable="true" SafeForAnonymous="true" RespectPriority="true" Sortable="true" >
+    <CrawledProperties>
+      <CrawledProperty Name="ows_q_INTG_TopNewsOrder" Type="2"/>
+      <CrawledProperty Name="ows_TopNewsOrder" Type="1"/>
+    </CrawledProperties>
+  </Property>
+</Properties>

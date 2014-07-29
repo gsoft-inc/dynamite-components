@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="PublishingPageLayouts" Url="_catalogs/masterpage" Path="PageLayouts" RootWebOnly="true">
+    <File Path="One.aspx" Url="One.aspx" Type="GhostableInLibrary" ReplaceContent="True">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Portal.Global,PageLayout_CatalogItem_Title;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Portal.Global,PageLayout_CatalogItem_Description;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="PublishingPreviewImage" Value="~SiteCollection/_catalogs/masterpage/$Resources:core,Culture;/Preview Images/ArticleLeft.png, ~SiteCollection/_catalogs/masterpage/$Resources:core,Culture;/Preview Images/ArticleLeft.png" />
+      <Property Name="PublishingAssociatedContentType" Value="$Resources:GSoft.Dynamite.Portal.Global,ContentType_ContentPage_Name;;#0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF390101;#"/>
+    </File>
+    <File Path="Many.aspx" Url="Many.aspx" Type="GhostableInLibrary" ReplaceContent="True">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Portal.Global,PageLayout_CatalogCategory_Title;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Portal.Global,PageLayout_CatalogCategory_Description;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="PublishingPreviewImage" Value="~SiteCollection/_catalogs/masterpage/$Resources:core,Culture;/Preview Images/ArticleLeft.png, ~SiteCollection/_catalogs/masterpage/$Resources:core,Culture;/Preview Images/ArticleLeft.png" />
+      <Property Name="PublishingAssociatedContentType" Value="$Resources:GSoft.Dynamite.Portal.Global,ContentType_ContentPage_Name;;#0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF390101;#"/>
+    </File>
+    <File Path="HomeThreeRows.aspx" Url="HomeThreeRows.aspx"  Type="GhostableInLibrary" ReplaceContent="True">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Portal.Global,PageLayout_CatalogCategory_Title;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Portal.Global,PageLayout_CatalogCategory_Description;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="PublishingPreviewImage" Value="~SiteCollection/_catalogs/masterpage/$Resources:core,Culture;/Preview Images/ArticleLeft.png, ~SiteCollection/_catalogs/masterpage/$Resources:core,Culture;/Preview Images/ArticleLeft.png" />
+      <Property Name="PublishingAssociatedContentType" Value="$Resources:GSoft.Dynamite.Portal.Global,ContentType_ContentPage_Name;;#0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF390101;#"/>
+    </File>
+  </Module>
+</Elements>

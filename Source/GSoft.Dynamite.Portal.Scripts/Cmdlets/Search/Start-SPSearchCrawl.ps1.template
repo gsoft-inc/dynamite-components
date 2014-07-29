@@ -1,0 +1,8 @@
+# -----------------------------------------------------------------------
+# Copyright		: GSoft @2014
+# Project		: GSoft Dynamite Portal
+# File          : Start-SPSearchCrawl.ps1.template
+# Description	: Starts and waits for a search crawl to finish
+# -----------------------------------------------------------------------
+
+Start-DSPContentSourceCrawl -ContentSourceName "[[DSP_SearchContentSourceName]]" -SearchServiceApplicationName "[[DSP_SearchServiceAppName]]" -FullCrawl | Wait-DSPContentSourceCrawl

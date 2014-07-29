@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="2ae1c14a-01fe-4938-ac71-b63deb274b70" solutionId="2ae1c14a-01fe-4938-ac71-b63deb274b70" resetWebServer="false" sharePointProductVersion="15.0" name="gsoft.dynamite.portal.sp.global" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Portal.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Portal.Contracts\GSoft.Dynamite.Portal.Contracts.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Portal.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Portal.Core\GSoft.Dynamite.Portal.Core.csproj" />
+  </assemblies>
+  <features>
+    <featureReference itemId="876a4826-f62b-4476-baa1-bfccc6ddf41d" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="a466a47b-ac64-494c-a9d2-0c4b13297271" />
+  </projectItems>
+</package>

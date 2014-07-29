@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Project		  : GSoft Dynamite Portal
+ File         : Navigation.xml.template
+ Description	: Navigation configuration
+-->
+<Configuration>
+  <Web Url="[[DSP_PortalPublishingUrlFR]]">
+    <!-- Default term store is 'Managed Metadata Service'.  This can be replaced with the use of the TermStoreName attribute. -->
+    <ManagedNavigation AddNewPagesToNavigation="false" CreateFriendlyUrlsForNewsPages="false" TermGroupName="[[DSP_PortalNavigationTermStoreGroup]]" TermSetName="[[DSP_PortalNavigationTermSetNameFR]]" PreserveTaggingOnTermSet="true" />
+  </Web>
+  <Web Url="[[DSP_PortalPublishingUrlEN]]">
+    <!-- Default term store is 'Managed Metadata Service'.  This can be replaced with the use of the TermStoreName attribute. -->
+    <ManagedNavigation AddNewPagesToNavigation="false" CreateFriendlyUrlsForNewsPages="false" TermGroupName="[[DSP_PortalNavigationTermStoreGroup]]" TermSetName="[[DSP_PortalNavigationTermSetNameEN]]" PreserveTaggingOnTermSet="true" />
+  </Web>
+</Configuration>

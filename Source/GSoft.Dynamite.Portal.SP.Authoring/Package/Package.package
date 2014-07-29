@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="bc0fe7e3-af74-4f6b-9a0c-c8d832ba9d63" solutionId="bc0fe7e3-af74-4f6b-9a0c-c8d832ba9d63" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Portal.SP.Authoring" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="2d640043-0ae0-4609-aa75-52f1b2ba670a" />
+    <featureReference itemId="80181285-6701-486b-9eca-8da7421c63e9" />
+    <featureReference itemId="2e192fbe-2ef3-4e15-937f-db24fbf81caa" />
+    <featureReference itemId="5ebf54cf-2776-4767-bb81-ab91db549aeb" />
+  </features>
+</package>

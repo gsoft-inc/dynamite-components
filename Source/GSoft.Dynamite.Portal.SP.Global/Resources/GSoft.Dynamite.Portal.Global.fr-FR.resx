@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Columns_Group" xml:space="preserve">
+    <value>Colonnes du portail</value>
+  </data>
+  <data name="ContentTypes_Group" xml:space="preserve">
+    <value>Types de contenu du Portail</value>
+  </data>
+  <data name="ContentType_BrowsableItem_Description" xml:space="preserve">
+    <value>Créer un nouvel élément navigable</value>
+  </data>
+  <data name="ContentType_BrowsableItem_Name" xml:space="preserve">
+    <value>Élément navigable</value>
+  </data>
+  <data name="ContentType_ContentItem_Description" xml:space="preserve">
+    <value>Un type de contenu item pour la publication de pages de contenu.</value>
+  </data>
+  <data name="ContentType_ContentItem_Name" xml:space="preserve">
+    <value>Item de contenu</value>
+  </data>
+  <data name="ContentType_FeaturedItem_Description" xml:space="preserve">
+    <value>Représente un élément de navigation et en vedette</value>
+  </data>
+  <data name="ContentType_FeaturedItem_Name" xml:space="preserve">
+    <value>Élément de contenu de navigation et en vedette</value>
+  </data>
+  <data name="ContentType_NewsItem_Description" xml:space="preserve">
+    <value>Créer un nouvel élément affichable dans le menu principal</value>
+  </data>
+  <data name="ContentType_NewsItem_Name" xml:space="preserve">
+    <value>Item de nouvelles</value>
+  </data>
+  <data name="ContentType_SchedulableItem_Description" xml:space="preserve">
+    <value>Créer un nouvel élément planifiable dans le temps</value>
+  </data>
+  <data name="ContentType_SchedulableItem_Name" xml:space="preserve">
+    <value>Élément planifiable</value>
+  </data>
+  <data name="ContentType_TranslatableItem_Description" xml:space="preserve">
+    <value>Représente un élément traduisible</value>
+  </data>
+  <data name="ContentType_TranslatableItem_Name" xml:space="preserve">
+    <value>Élément traduisible</value>
+  </data>
+  <data name="Field_ContentAssociationKey_Description" xml:space="preserve">
+    <value>Clé d'association de contenu de différentes langues</value>
+  </data>
+  <data name="Field_ContentAssociationKey_Name" xml:space="preserve">
+    <value>Clé d'association du contenu</value>
+  </data>
+  <data name="Field_IsNavMenuItem_Description" xml:space="preserve">
+    <value>Indique si l'élément doit se retrouver dans le méga menu</value>
+  </data>
+  <data name="Field_IsNavMenuItem_Name" xml:space="preserve">
+    <value>Élément du menu principal</value>
+  </data>
+  <data name="Field_ItemLanguage_Description" xml:space="preserve">
+    <value>Langue de l'item fixée par l'étiquette de la variation parent.  La valeur de la langue est agnostique aux paramètres régionaux.</value>
+  </data>
+  <data name="Field_ItemLanguage_Name" xml:space="preserve">
+    <value>Langue de l'item</value>
+  </data>
+  <data name="Field_PortalDateSlug_Description" xml:space="preserve">
+    <value>Texte qui est créé à partir de la date de publication pour produire une URL lisible.</value>
+  </data>
+  <data name="Field_PortalDateSlug_Name" xml:space="preserve">
+    <value>Jeton d'URL de date convivial</value>
+  </data>
+  <data name="Field_PortalNavigation_Description" xml:space="preserve">
+    <value>Définit à quel endroit se trouve l'item dans la navigation du site.</value>
+  </data>
+  <data name="Field_PortalNavigation_Name" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="Field_PortalSlug_Description" xml:space="preserve">
+    <value>Texte qui est créé à partir du titre qui pour produire une URL lisible.</value>
+  </data>
+  <data name="Field_PortalSlug_Name" xml:space="preserve">
+    <value>Jeton d'URL convivial</value>
+  </data>
+  <data name="Field_PortalSubject_Description" xml:space="preserve">
+    <value>Indique les sujets relatifs au contenu</value>
+  </data>
+  <data name="Field_PortalSubject_Name" xml:space="preserve">
+    <value>Sujets relatifs</value>
+  </data>
+  <data name="Field_PortalSummary_Description" xml:space="preserve">
+    <value>Sommaire du contenu de la page.</value>
+  </data>
+  <data name="Field_PortalSummary_Name" xml:space="preserve">
+    <value>Sommaire</value>
+  </data>
+  <data name="Field_SchedulingEndDate_Description" xml:space="preserve">
+    <value>Indique la date à partir de laquelle ce contenu ne sera plus visible</value>
+  </data>
+  <data name="Field_SchedulingEndDate_Name" xml:space="preserve">
+    <value>Date de fin de publication</value>
+  </data>
+  <data name="Field_SchedulingStartDate_Description" xml:space="preserve">
+    <value>Indique la date à partir de laquelle ce contenu peut être visible</value>
+  </data>
+  <data name="Field_SchedulingStartDate_Name" xml:space="preserve">
+    <value>Date de début de publication</value>
+  </data>
+  <data name="ContentType_ContentPage_Description" xml:space="preserve">
+    <value>Page de contenu (hérite du type de contenu page traduisible).</value>
+  </data>
+  <data name="ContentType_ContentPage_Name" xml:space="preserve">
+    <value>Page de contenu</value>
+  </data>
+  <data name="ContentType_NewsPage_Description" xml:space="preserve">
+    <value>Un type de contenu pour la publication de nouvelles.</value>
+  </data>
+  <data name="ContentType_NewsPage_Name" xml:space="preserve">
+    <value>Page de nouvelles</value>
+  </data>
+  <data name="ContentType_TranslatablePage_Description" xml:space="preserve">
+    <value>Représente une page traduisible</value>
+  </data>
+  <data name="ContentType_TranslatablePage_Name" xml:space="preserve">
+    <value>Page traduisible</value>
+  </data>
+  <data name="Field_IsTopNews_Description" xml:space="preserve">
+    <value>Champs pour déterminer si un élément est en vedette</value>
+  </data>
+  <data name="Field_IsTopNews_Name" xml:space="preserve">
+    <value>Est en vedette</value>
+  </data>
+  <data name="Field_TopNewsOrder_Description" xml:space="preserve">
+    <value>L'ordre d'un item dans le composant vedette</value>
+  </data>
+  <data name="Field_TopNewsOrder_Name" xml:space="preserve">
+    <value>Ordre de vedette</value>
+  </data>
+  <data name="PageLayout_CatalogCategory_Description" xml:space="preserve">
+    <value>Gabarit de page pour l'agrégation d'items dans un catalog</value>
+  </data>
+  <data name="PageLayout_CatalogCategory_Title" xml:space="preserve">
+    <value>Gabarit de page d'agrégateur d'item</value>
+  </data>
+  <data name="PageLayout_CatalogItem_Description" xml:space="preserve">
+    <value>Gabarit de page pour les items d'un catalog</value>
+  </data>
+  <data name="PageLayout_CatalogItem_Title" xml:space="preserve">
+    <value>Gabarit de page d'item</value>
+  </data>
+  <data name="ContentType_NodeDescriptionItem_Description" xml:space="preserve">
+    <value>Un type de contenu pour la description des nœuds</value>
+  </data>
+  <data name="ContentType_NodeDescriptionItem_Name" xml:space="preserve">
+    <value>Elément de description d'un nœud</value>
+  </data>
+</root>

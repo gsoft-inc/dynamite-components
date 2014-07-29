@@ -1,0 +1,55 @@
+<Configuration>
+  <Web Url="[[DSP_PortalAuthoringUrlFR]]">
+    <List WebRelativeUrl="/Lists/News">
+       <!--News Content Type ID--> 
+      <ContentType ID="0x0100F39089C4394B43D29606F78A48696B440101010103" NumberOfItems="10">
+        <TextFields SampleFolder="[[DSP_DataTextFieldsFolderFR]]">
+          <Field InternalName="Title"/>
+          <Field InternalName="PortalSummary"/>
+        </TextFields>
+        <ImageFields SampleFolder="[[DSP_DataImageFieldsFolderFR]]">
+          <Field InternalName="PublishingPageImage"/>
+        </ImageFields>
+        <TaxonomyFields SampleFolder="[[DSP_DataTaxonomyFieldsFolderNewsFR]]" >
+          <Field InternalName="PortalNavigation" AssociatedTermSetGroup="Portal - Navigation" AssociatedTermSet="Navigation FR"/>
+        </TaxonomyFields>
+        <HTMLFields SampleFolder="[[DSP_DataHTMLFieldsFolderFR]]">
+          <Field InternalName="PublishingPageContent"/>
+        </HTMLFields>
+        <NumberFields>
+          <Field InternalName="TopNewsOrder"/>
+        </NumberFields>
+        <BooleanFields>
+          <Field InternalName="IsTopNews" />
+        </BooleanFields>
+        <DateTimeFields>
+          <Field InternalName="ArticleStartDate" DateTime="8/20/2014 07:00:00"/>
+        </DateTimeFields>
+      </ContentType>    
+    </List>
+    <List WebRelativeUrl="/Lists/Content">
+       <!--Content Content Type ID--> 
+      <ContentType ID="0x0100F39089C4394B43D29606F78A48696B4401010101" NumberOfItems="15">
+        <TextFields SampleFolder="[[DSP_DataTextFieldsFolderFR]]">
+          <Field InternalName="Title"/>
+          <Field InternalName="PortalSummary"/>
+        </TextFields>
+        <ImageFields SampleFolder="[[DSP_DataImageFieldsFolderFR]]">
+          <Field InternalName="PublishingPageImage"/>
+        </ImageFields>
+        <TaxonomyFields SampleFolder="[[DSP_DataTaxonomyFieldsFolderStaticFR]]" >
+          <Field InternalName="PortalNavigation" AssociatedTermSetGroup="Portal - Navigation" AssociatedTermSet="Navigation FR"/>
+        </TaxonomyFields>
+        <HTMLFields SampleFolder="[[DSP_DataHTMLFieldsFolderFR]]">
+          <Field InternalName="PublishingPageContent"/>
+        </HTMLFields>
+        <NumberFields>
+          <Field InternalName="TopNewsOrder"/>
+        </NumberFields>
+        <BooleanFields>
+          <Field InternalName="IsTopNews" />
+        </BooleanFields>
+      </ContentType>
+    </List>
+  </Web>
+</Configuration>

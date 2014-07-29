@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70E4F867-DFA0-45DD-B5AF-E8AA4494CBA7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GSoft.Dynamite.Portal.SP.Publishing</RootNamespace>
+    <AssemblyName>GSoft.Dynamite.Portal.SP.Publishing</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\GSoft.Dynamite.Portal.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="GSoft.Dynamite">
+      <HintPath>..\..\Libraries\GSoft.Dynamite.1.0.1-pre10008\lib\net45\GSoft.Dynamite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\PortalAdditionalPageHead.ascx.cs">
+      <DependentUpon>PortalAdditionalPageHead.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\PortalAdditionalPageHead.ascx.designer.cs">
+      <DependentUpon>PortalAdditionalPageHead.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishingContainerProxy.cs" />
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\MainMenu.ascx.cs">
+      <DependentUpon>MainMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\MainMenu.ascx.designer.cs">
+      <DependentUpon>MainMenu.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\ContentTypes\ContentTypes.EventReceiver.cs">
+      <DependentUpon>ContentTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PagesLibrary\PagesLibrary.EventReceiver.cs">
+      <DependentUpon>PagesLibrary.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationModules\PortalPublishingRegistrationModule.cs" />
+    <Compile Include="WebParts\ContentBySearchSchedule\ContentBySearchSchedule.cs" />
+    <Compile Include="WebParts\ContextualNavigation\ContextualNavigation.ascx.cs">
+      <DependentUpon>ContextualNavigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebParts\ContextualNavigation\ContextualNavigation.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextualNavigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebParts\ChildNodes\ChildNodes.ascx.cs">
+      <DependentUpon>ChildNodes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebParts\ChildNodes\ChildNodes.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChildNodes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebParts\ResultScriptSchedule\ResultScriptSchedule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\GSoft.Dynamite.Portal.snk">
+      <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
+    </None>
+    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a5877569-17d1-4e9b-926a-93b5c031a3fd}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\PagesLibrary\PagesLibrary.feature">
+      <FeatureId>{8eeef785-641b-40ca-b8e3-bcb03db04efc}</FeatureId>
+    </None>
+    <None Include="Features\WebParts\WebParts.feature">
+      <FeatureId>{5bf4416c-19ff-4781-a09e-e0bb0a565985}</FeatureId>
+    </None>
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8dd2457e-ce5c-4ce5-949c-6a598a92a0ef}</SharePointProjectItemId>
+    </None>
+    <None Include="Modules\PageLayouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{209f3351-553e-41b0-8cdd-7842d0e418ee}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\ContentTypes\ContentTypes.feature">
+      <FeatureId>{3405297e-984d-4090-9d2c-5747c0b42459}</FeatureId>
+    </None>
+    <None Include="Features\PageLayouts\PageLayouts.feature">
+      <FeatureId>{b8f2fcc4-38ee-4a3b-8beb-e8efca679c86}</FeatureId>
+    </None>
+    <None Include="Modules\PortalAdditionalPageHead\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ede80e5d-5138-4d6f-80b4-60c8b2030bbf}</SharePointProjectItemId>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{a3bb9896-d5d9-4630-b3a4-df1ba9e11f3f}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="WebParts\ContentBySearchSchedule\ContentBySearchSchedule.webpart" />
+    <None Include="WebParts\ContentBySearchSchedule\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{00e2c61c-95cb-4a33-afe7-22876e33f996}</SharePointProjectItemId>
+    </None>
+    <None Include="WebParts\ContextualNavigation\ContextualNavigation.webpart" />
+    <None Include="WebParts\ContextualNavigation\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{21368752-e149-419c-b750-ce9b94dd90bd}</SharePointProjectItemId>
+    </None>
+    <None Include="WebParts\ChildNodes\ChildNodes.webpart" />
+    <None Include="WebParts\ChildNodes\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bd1bf92c-bae7-48ac-848c-b7b7d7edd4f0}</SharePointProjectItemId>
+    </None>
+    <None Include="WebParts\ResultScriptSchedule\ResultScriptSchedule.webpart" />
+    <None Include="WebParts\ResultScriptSchedule\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d29952db-7bf8-480f-aa46-238f70f81727}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Portal.Contracts\GSoft.Dynamite.Portal.Contracts.csproj">
+      <Project>{08ee6647-4f71-4367-a8d0-b6da71d29ff8}</Project>
+      <Name>GSoft.Dynamite.Portal.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\MainMenu.ascx" />
+    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\PortalAdditionalPageHead.ascx" />
+    <Content Include="Features\PagesLibrary\PagesLibrary.Template.xml">
+      <DependentUpon>PagesLibrary.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\WebParts\WebParts.Template.xml">
+      <DependentUpon>WebParts.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Portal\GSoft.Dynamite.Portal.js" />
+    <Content Include="Modules\PageLayouts\HomeThreeRows.aspx" />
+    <Content Include="Modules\PageLayouts\Many.aspx" />
+    <Content Include="Modules\PageLayouts\One.aspx" />
+    <Content Include="Modules\PageLayouts\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Features\ContentTypes\ContentTypes.Template.xml">
+      <DependentUpon>ContentTypes.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\PageLayouts\PageLayouts.Template.xml">
+      <DependentUpon>PageLayouts.feature</DependentUpon>
+    </Content>
+    <Content Include="Modules\PortalAdditionalPageHead\Elements.xml" />
+    <Content Include="Modules\PortalAdditionalPageHead\Sample.txt" />
+    <Content Include="WebParts\ContentBySearchSchedule\Elements.xml" />
+    <Content Include="WebParts\ContextualNavigation\ContextualNavigation.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ContextualNavigation.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="WebParts\ContextualNavigation\Elements.xml" />
+    <Content Include="WebParts\ChildNodes\Elements.xml" />
+    <Content Include="WebParts\ChildNodes\ChildNodes.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ChildNodes.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="WebParts\ResultScriptSchedule\Elements.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

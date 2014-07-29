@@ -1,0 +1,32 @@
+# -----------------------------------------------------------------------
+# Copyright		: GSoft @2014
+# Project		: GSoft Dynamite Portal
+# File          : Remove-SPTermGroups.ps1.template
+# Description	: Removes Taxonomy term set groups from the term store
+# -----------------------------------------------------------------------
+
+# ------------------------ Log Init -------------------------------------
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+$ScriptName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
+
+$LogFolder = $CommandDirectory + "\Logs"
+if(!(Test-Path -Path $logFolder )){
+    New-Item -ItemType directory -Path $LogFolder
+}
+
+$LogTime = Get-Date -Format "MM-dd-yyyy_hh-mm-ss"
+$LogFile = $CommandDirectory + "\Logs\" +  $ScriptName +"_Portal_"+$LogTime +".log"
+
+# Stat log transcript
+Start-Transcript -Path $LogFile
+# -----------------------------------------------------------------------
+
+Remove-DSPTermGroup -GroupName "[[DSP_PortalContentTermStoreGroup]]"
+Remove-DSPTermGroup -GroupName "[[DSP_PortalCatalogTermStoreGroup]]"
+Remove-DSPTermGroup -GroupName "[[DSP_PortalNavigationTermStoreGroup]]"
+
+# ------------------------ Log End --------------------------------------
+# Stop log transcript
+Stop-Transcript
+# -----------------------------------------------------------------------

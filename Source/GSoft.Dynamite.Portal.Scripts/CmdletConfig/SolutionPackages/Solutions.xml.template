@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Project		  : GSoft Dynamite Portal
+ File         : Solutions.xml.template
+ Description	: Solution deployment configuration
+-->
+<Solutions>
+  <Solution Path="CmdletConfig\SolutionPackages\GSoft.Dynamite.wsp" UpgradeExisting="false" Force="true">
+    <WebApplications>
+      <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
+    </WebApplications>
+  </Solution>
+  <Solution Path="CmdletConfig\SolutionPackages\GSoft.Dynamite.Portal.SP.Global.wsp" UpgradeExisting="false" Force="true">
+    <WebApplications>
+      <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
+    </WebApplications>
+  </Solution>
+  <Solution Path="CmdletConfig\SolutionPackages\GSoft.Dynamite.Portal.SP.Authoring.wsp" UpgradeExisting="false" Force="true">
+    <WebApplications>
+      <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
+    </WebApplications>
+  </Solution>
+  <Solution Path="CmdletConfig\SolutionPackages\GSoft.Dynamite.Portal.SP.Publishing.wsp" UpgradeExisting="false" Force="true">
+    <WebApplications>
+      <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
+    </WebApplications>
+  </Solution>
+</Solutions>
+
+

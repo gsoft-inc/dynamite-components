@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="a3bb9896-d5d9-4630-b3a4-df1ba9e11f3f" solutionId="a3bb9896-d5d9-4630-b3a4-df1ba9e11f3f" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Portal.SP.Publishing" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="3405297e-984d-4090-9d2c-5747c0b42459" />
+    <featureReference itemId="b8f2fcc4-38ee-4a3b-8beb-e8efca679c86" />
+    <featureReference itemId="5bf4416c-19ff-4781-a09e-e0bb0a565985" />
+    <featureReference itemId="8eeef785-641b-40ca-b8e3-bcb03db04efc" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="a5877569-17d1-4e9b-926a-93b5c031a3fd" />
+    <projectItemReference itemId="8dd2457e-ce5c-4ce5-949c-6a598a92a0ef" />
+  </projectItems>
+</package>

@@ -1,0 +1,12 @@
+# -----------------------------------------------------------------------
+# Copyright		: GSoft @2014
+# Project		: GSoft Dynamite Portal
+# File          : New-SPCatalogConnections.ps1.template
+# Description	: Creates catalog connections for web sites.
+# -----------------------------------------------------------------------
+
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+
+$inputFile = $CommandDirectory + "\..\..\" + "[[DSP_CatalogConnectionsConfigFile]]"
+New-DSPCatalogConnection $inputFile -Overwrite

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>GSoft.Dynamite.Portal.Contracts</id>
+    <version>0.0.0</version>
+    <title>GSoft.Dynamite.Portal.Contracts</title>
+    <authors>GSoft</authors>
+    <owners>GSoft</owners>
+    <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
+    <iconUrl>https://avatars3.githubusercontent.com/u/5606578?s=140</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Interfaces and constants DLL that can be used to collaborate with services provided by the GSoft.Dynamite.Portal components. Be sure to deploy the GSoft.Dynamite.Portal.Dependencies WSP package to your environment and to go through a ISharePointServiceLocator for dependency injection.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>SharePoint</tags>
+    <dependencies>
+      <dependency id="GSoft.Dynamite" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\GSoft.Dynamite.Portal.Contracts.dll" target="lib\net45" />
+  </files>
+</package>

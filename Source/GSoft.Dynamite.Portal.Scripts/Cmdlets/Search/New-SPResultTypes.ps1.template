@@ -1,0 +1,19 @@
+# -----------------------------------------------------------------------
+#
+# Copyright		: GSoft @2013
+# Project		: GSoft Dynamite Portal
+# File          : New-SPResultTypes.ps1.template
+# Description	: Create new result types in the SharePoint structure
+#
+# -----------------------------------------------------------------------
+
+# Define working directory
+
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+
+$inputFile = $CommandDirectory + "\..\..\" + "[[DSP_ResultTypesConfigFile]]"
+[xml]$webXml = Get-Content $inputFile
+
+# Create result types
+Set-DSPResultTypesByXml $inputFile

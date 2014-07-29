@@ -1,0 +1,16 @@
+# -----------------------------------------------------------------------
+#
+# Copyright		: GSoft @2013
+# Project		: GSoft Dynamite Portal
+# File          : New-SPResultSources.ps1.template
+# Description	: Set the search result sources configuration
+#
+# -----------------------------------------------------------------------
+
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+
+$inputFile = $CommandDirectory + "\..\..\" + "[[DSP_ResultSourcesConfigFile]]"
+
+New-DSPResultSources $inputFile -Overwrite
+

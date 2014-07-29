@@ -1,0 +1,14 @@
+﻿# -----------------------------------------------------------------------
+# Copyright		: GSoft @2014
+# Project		: GSoft Dynamite Portal
+# File          : Enable-SPBlobCache.ps1.template
+# Description	: Enables the BLOB cache for the Web Application
+# -----------------------------------------------------------------------
+
+# Remove previous BLOB cache modifications (so we don't clog up the web config modifications API)
+Disable-DSPBlobCache -WebApplication "[[DSP_PortalPublishingHostNamePath]]"
+
+# Configure and enable the BLOB cache
+Enable-DSPBlobCache -WebApplication "[[DSP_PortalPublishingHostNamePath]]"
+
+Write-Host "Done configuring the BLOB cache."
