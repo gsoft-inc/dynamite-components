@@ -79,6 +79,7 @@
     <Compile Include="Constants\PortalResources.cs" />
     <Compile Include="Constants\PortalResultSources.cs" />
     <Compile Include="Factories\IContentTypeFactory.cs" />
+    <Compile Include="Factories\IPortalPageFactory.cs" />
     <Compile Include="Factories\ITranslatableItemEventReceiverAssemblyDetails.cs" />
     <Compile Include="Factories\IListViewFactory.cs" />
     <Compile Include="Factories\IWebPartFactory.cs" />

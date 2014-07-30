@@ -44,10 +44,12 @@
         <Web Url="[[DSP_PortalPublishingUrlFR]]">
           <!-- Publishing - Pages Library config -->
           <Feature GUID="145947de-2b0b-48e5-b7f5-778a2c83ddb4" Name="GSoft.Dynamite.Portal.SP.Publishing.PagesLibrary" />
+          <Feature GUID="f2eefd51-34e4-4f38-b611-dcb2aa25a047" Name="GSoft.Dynamite.Portal.SP.Publishing.PageTemplatesAndInstances" />
         </Web>
         <Web Url="[[DSP_PortalPublishingUrlEN]]">
           <!-- Publishing - Pages Library config -->
           <Feature GUID="145947de-2b0b-48e5-b7f5-778a2c83ddb4" Name="GSoft.Dynamite.Portal.SP.Publishing.PagesLibrary" />
+          <Feature GUID="f2eefd51-34e4-4f38-b611-dcb2aa25a047" Name="GSoft.Dynamite.Portal.SP.Publishing.PageTemplatesAndInstances" />
         </Web>
       </Webs>
     </Site>

@@ -276,4 +276,22 @@
   <data name="List_StaticContentCatalog_Title" xml:space="preserve">
     <value>Static content</value>
   </data>
+  <data name="PageInstance_AllNews_FileName" xml:space="preserve">
+    <value>AllNews</value>
+  </data>
+  <data name="PageInstance_Home_FileName" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="PageInstance_Search_FileName" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="PageTemplate_News_FileName" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="PageTemplate_NodeDescription_FileName" xml:space="preserve">
+    <value>Node</value>
+  </data>
+  <data name="PageTemplate_StaticContent_FileName" xml:space="preserve">
+    <value>Content</value>
+  </data>
 </root>

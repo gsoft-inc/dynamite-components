@@ -72,6 +72,7 @@
     <Compile Include="Config\DefaultCatalogConfig.cs" />
     <Compile Include="Config\DefaultTermStoreConfig.cs" />
     <Compile Include="Factories\ContentTypeFactory.cs" />
+    <Compile Include="Factories\DefaultPortalPageFactory.cs" />
     <Compile Include="Factories\ListViewFactory.cs" />
     <Compile Include="Factories\WebPartFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

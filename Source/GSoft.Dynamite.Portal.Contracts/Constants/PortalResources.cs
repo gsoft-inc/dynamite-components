@@ -284,5 +284,21 @@ namespace GSoft.Dynamite.Portal.Contracts.Constants
         public static readonly string ListNodeDescriptionCatalogTitle = "List_NodeDescriptionCatalog_Title";
 
         #endregion
+
+        #region Pages
+
+        public static readonly string PageInstanceHomeFileName = "PageInstance_Home_FileName";
+
+        public static readonly string PageInstanceAllNewsFileName = "PageInstance_AllNews_FileName";
+        
+        public static readonly string PageInstanceSearchFileName = "PageInstance_Search_FileName";
+
+        public static readonly string PageTemplateNewsFileName = "PageTemplate_News_FileName";
+
+        public static readonly string PageTemplateNodeDescriptionFileName = "PageTemplate_NodeDescription_FileName";
+
+        public static readonly string PageTemplateStaticContentFileName = "PageTemplate_StaticContent_FileName";
+
+        #endregion
     }
 }

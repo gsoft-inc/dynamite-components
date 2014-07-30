@@ -81,6 +81,9 @@
     <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\PortalAdditionalPageHead.ascx.designer.cs">
       <DependentUpon>PortalAdditionalPageHead.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\PageTemplatesAndInstances\PageTemplatesAndInstances.EventReceiver.cs">
+      <DependentUpon>PageTemplatesAndInstances.feature</DependentUpon>
+    </Compile>
     <Compile Include="PublishingContainerProxy.cs" />
     <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\MainMenu.ascx.cs">
       <DependentUpon>MainMenu.ascx</DependentUpon>
@@ -122,6 +125,9 @@
     </None>
     <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a5877569-17d1-4e9b-926a-93b5c031a3fd}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\PageTemplatesAndInstances\PageTemplatesAndInstances.feature">
+      <FeatureId>{cb54f346-a2df-416c-8eff-fa1faa441db8}</FeatureId>
     </None>
     <None Include="Features\PagesLibrary\PagesLibrary.feature">
       <FeatureId>{8eeef785-641b-40ca-b8e3-bcb03db04efc}</FeatureId>
@@ -177,6 +183,9 @@
   <ItemGroup>
     <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\MainMenu.ascx" />
     <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Portal\PortalAdditionalPageHead.ascx" />
+    <Content Include="Features\PageTemplatesAndInstances\PageTemplatesAndInstances.Template.xml">
+      <DependentUpon>PageTemplatesAndInstances.feature</DependentUpon>
+    </Content>
     <Content Include="Features\PagesLibrary\PagesLibrary.Template.xml">
       <DependentUpon>PagesLibrary.feature</DependentUpon>
     </Content>
@@ -197,7 +206,6 @@
       <DependentUpon>PageLayouts.feature</DependentUpon>
     </Content>
     <Content Include="Modules\PortalAdditionalPageHead\Elements.xml" />
-    <Content Include="Modules\PortalAdditionalPageHead\Sample.txt" />
     <Content Include="WebParts\ContentBySearchSchedule\Elements.xml" />
     <Content Include="WebParts\ContextualNavigation\ContextualNavigation.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>

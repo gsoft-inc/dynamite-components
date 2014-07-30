@@ -31,6 +31,7 @@ namespace GSoft.Dynamite.Portal.Core.RegistrationModules
             // Overridable default Portal config (i.e. plugin hooks and slots, with sensible defaults)
             builder.RegisterType<DefaultTermStoreConfig>().As<IPortalTermStoreConfig>();
             builder.RegisterType<DefaultCatalogConfig>().As<IPortalCatalogConfig>();
+            builder.RegisterType<DefaultPortalPageFactory>().As<IPortalPageFactory>();
 
             // Portal Utils
             builder.RegisterType<ContentTypeFactory>().As<IContentTypeFactory>();

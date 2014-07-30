@@ -3,6 +3,8 @@ using GSoft.Dynamite.Portal.Contracts.Factories;
 using GSoft.Dynamite.WebParts;
 using Microsoft.Office.Server.Search.WebControls;
 using Microsoft.SharePoint;
+using GSoft.Dynamite.Portal.Contracts.WebParts;
+using System;
 
 namespace GSoft.Dynamite.Portal.Core.Factories
 {
@@ -12,14 +14,27 @@ namespace GSoft.Dynamite.Portal.Core.Factories
     public class WebPartFactory : IWebPartFactory
     {
         private readonly WebPartHelper webPartHelper;
+        private readonly Func<IContentBySearchSchedule> contentBySearchScheduleFactoryMethod;
+        private readonly Func<IContextualNavigation> contextualNavigationFactoryMethod;
+        private readonly Func<IChildNodes> childNodesFactoryMethod;
+        private readonly Func<IResultScriptSchedule> resultScriptScheduleFactoryMethod;
 
         /// <summary>
         /// The constructor
         /// </summary>
         /// <param name="webPartHelper">The web part helper</param>
-        public WebPartFactory(WebPartHelper webPartHelper)
+        public WebPartFactory(WebPartHelper webPartHelper,
+            Func<IContentBySearchSchedule> contentBySearchScheduleFactoryMethod,
+            Func<IContextualNavigation> contextualNavigationFactoryMethod,
+            Func<IChildNodes> childNodesFactoryMethod,
+            Func<IResultScriptSchedule> resultScriptScheduleFactoryMethod
+            )
         {
             this.webPartHelper = webPartHelper;
+            this.contentBySearchScheduleFactoryMethod = contentBySearchScheduleFactoryMethod;
+            this.contextualNavigationFactoryMethod = contextualNavigationFactoryMethod;
+            this.childNodesFactoryMethod = childNodesFactoryMethod;
+            this.resultScriptScheduleFactoryMethod = resultScriptScheduleFactoryMethod;
         }
 
         /// <summary>
@@ -57,6 +72,26 @@ namespace GSoft.Dynamite.Portal.Core.Factories
             NodeDescriptionPart.DataProviderJSON = querySettings.PropertiesJson;
 
             this.webPartHelper.AddWebPartToZone(listItem, NodeDescriptionPart, webPartZoneName, webPartZoneIndex);
+        }
+
+        public IContentBySearchSchedule CreateContentBySearchScheduleWebPart()
+        {
+            return this.contentBySearchScheduleFactoryMethod();
+        }
+
+        public IContextualNavigation CreateContextualNavigationWebPart()
+        {
+            return this.contextualNavigationFactoryMethod();
+        }
+
+        public IChildNodes CreateChildNodesWebPart()
+        {
+            return this.childNodesFactoryMethod();
+        }
+
+        public IResultScriptSchedule CreateResultScriptScheduleWebPart()
+        {
+            return this.resultScriptScheduleFactoryMethod();
         }
     }
 }

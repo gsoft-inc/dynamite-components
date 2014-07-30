@@ -7,7 +7,7 @@
 -->
 <TermStore Name="[[DSP_TaxonomyServiceAppName]]">
   <TermGroup Name="Portal - Global">
-    <TermSet Name="Navigation (fr)">
+    <TermSet Name="Navigation FR">
       <Terms>
         <Term Name="News">
           <!-- 	sortBy: 1 = "name" 

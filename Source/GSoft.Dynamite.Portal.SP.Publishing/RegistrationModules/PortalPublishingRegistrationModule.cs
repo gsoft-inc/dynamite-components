@@ -23,10 +23,10 @@ namespace GSoft.Dynamite.Portal.SP.Publishing.RegistrationModules
         protected override void Load(ContainerBuilder builder)
         {
             // WebParts
-            builder.RegisterType<ContentBySearchSchedule>().As<IContentBySearchSchedule>().ExternallyOwned();
-            builder.RegisterType<ResultScriptSchedule>().As<IResultScriptSchedule>().ExternallyOwned();
-            builder.RegisterType<ContextualNavigation>().As<IContextualNavigation>().ExternallyOwned();
-            builder.RegisterType<ChildNodes>().As<IChildNodes>().ExternallyOwned();
+            builder.RegisterType<ContentBySearchSchedule>().As<IContentBySearchSchedule>();
+            builder.RegisterType<ResultScriptSchedule>().As<IResultScriptSchedule>();
+            builder.RegisterType<ContextualNavigation>().As<IContextualNavigation>();
+            builder.RegisterType<ChildNodes>().As<IChildNodes>();
         }
     }
 }
