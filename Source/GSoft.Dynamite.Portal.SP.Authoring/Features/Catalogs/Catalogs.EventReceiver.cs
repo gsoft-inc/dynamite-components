@@ -35,97 +35,15 @@ namespace GSoft.Dynamite.Portal.SP.Authoring.Features.Catalogs
                 var catalogBuilder = featureScope.Resolve<CatalogBuilder>();
                 var listViewFactory = featureScope.Resolve<IListViewFactory>();
                 var termStoreConfig = featureScope.Resolve<IPortalTermStoreConfig>();
+                var catalogConfig = featureScope.Resolve<IPortalCatalogConfig>();
 
-                // Content Catalog
-                var genericCatalog = new Catalog()
-                {
-                    RootFolderUrl = PortalLists.ContentRootUrl,
-                    Overwrite = true,
-                    RemoveDefaultContentType = true,
-                    DisplayName = "Contenu",
-                    Description = string.Empty,
-                    ListTemplate = SPListTemplateType.GenericList,
-                    TaxonomyFieldMap = PortalFields.Navigation.InternalName,
-                    DraftVisibilityType = DraftVisibilityType.Approver,
-                    HasDraftVisibilityType = true,
-                    EnableRatings = false,
-                    WriteSecurity = WriteSecurityOptions.OwnerOnly,
-                    ContentTypeIds = new List<SPContentTypeId>() { PortalContentTypes.ContentItemContentTypeId },
-                    Segments = new List<SiteColumnField>()
-                    {
-                        new TaxoField()
-                        {
-                            InternalName = PortalFields.Navigation.InternalName,
-                            DisplayName = string.Empty,
-                            Description = string.Empty,
-                            IsRequired = true,
-                            Group = "Portal",
-                            IsMultiple = false,
-                            IsOpen = false,
-                            TermSetGroupName = termStoreConfig.PortalNavigationTermSetGroup,
-                            TermSetName = web.Language == Language.English.Culture.LCID ? termStoreConfig.NavigationENTermSet : termStoreConfig.NavigationFRTermSet,
-                            TermSubsetName = "Members",
-                        }
-                    },
-                    ManagedProperties = new List<string>() { PortalManagedProperties.PortalDateSlug, PortalManagedProperties.ListItemID, PortalManagedProperties.PortalSlug },
-                };
-                catalogBuilder.ProcessCatalog(web, genericCatalog);
-                listViewFactory.CreateContentCatalogView(web, genericCatalog);
+                var currentWebCatalogConfigs = catalogConfig.CatalogDefinitionsForWeb(web);
 
-                // News Catalog
-                genericCatalog.RootFolderUrl = PortalLists.NewsRootUrl;
-                genericCatalog.DisplayName = "Actualités";
-                genericCatalog.ContentTypeIds = new List<SPContentTypeId>() { PortalContentTypes.NewsItemContentTypeId };
-                genericCatalog.Segments[0] = new TaxoField()
+                foreach (var catalog in currentWebCatalogConfigs)
                 {
-                    InternalName = PortalFields.Navigation.InternalName,
-                    DisplayName = string.Empty,
-                    Description = string.Empty,
-                    IsRequired = true,
-                    Group = "Portal",
-                    IsMultiple = false,
-                    IsOpen = false,
-                    TermSetGroupName = termStoreConfig.PortalNavigationTermSetGroup,
-                    TermSetName = web.Language == Language.English.Culture.LCID ? termStoreConfig.NavigationENTermSet : termStoreConfig.NavigationFRTermSet,
-                    TermSubsetName = termStoreConfig.CatalogNewsSubSet,
-                };
-                genericCatalog.DefaultValues = new List<SiteColumnField>()
-                {
-                    new TaxoField()
-                    {
-                        InternalName = PortalFields.Navigation.InternalName,
-                        TermSetGroupName = termStoreConfig.PortalNavigationTermSetGroup,
-                        TermSetName = web.Language == Language.English.Culture.LCID ? termStoreConfig.NavigationENTermSet : termStoreConfig.NavigationFRTermSet,
-                        TermSubsetName = termStoreConfig.CatalogNewsSubSet,
-                        DefaultValues = new List<string>() {"News"}
-                    }
-                };
-
-                var newsList = catalogBuilder.ProcessCatalog(web, genericCatalog);
-                listViewFactory.CreateNewsCatalogView(web, genericCatalog);
-
-                // Mode Description Catalog
-                genericCatalog.RootFolderUrl = PortalLists.NodeDescriptionRootUrl;
-                genericCatalog.DisplayName = "Descriptions de noeud";
-                genericCatalog.TaxonomyFieldMap = string.Empty;
-                genericCatalog.ContentTypeIds = new List<SPContentTypeId>() { PortalContentTypes.NodeDescriptionItemContentTypeId };
-                genericCatalog.Segments[0] = new TaxoField()
-                {
-                    InternalName = PortalFields.Navigation.InternalName,
-                    DisplayName = string.Empty,
-                    Description = string.Empty,
-                    IsRequired = true,
-                    Group = "Portal",
-                    IsMultiple = false,
-                    IsOpen = false,
-                    TermSetGroupName = termStoreConfig.PortalCatalogsTermSetGroup,
-                    TermSetName = termStoreConfig.CatalogGlobalTermSet,
-                    TermSubsetName = string.Empty
-                };
-                genericCatalog.DefaultValues = null;
-                genericCatalog.ManagedProperties = null;
-                catalogBuilder.ProcessCatalog(web, genericCatalog);
-                listViewFactory.CreateNodeDescriptionCatalogView(web, genericCatalog);
+                    catalogBuilder.ProcessCatalog(web, catalog);
+                    listViewFactory.CreateContentCatalogView(web, catalog);
+                }
             }
         }
     }

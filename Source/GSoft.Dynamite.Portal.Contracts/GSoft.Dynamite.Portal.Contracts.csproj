@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\IPortalCatalogConfig.cs" />
     <Compile Include="Config\IPortalTermStoreConfig.cs" />
     <Compile Include="Constants\PortalContentTypes.cs" />
     <Compile Include="Constants\PortalFieldCollections.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Constants\PortalResources.cs" />
     <Compile Include="Constants\PortalResultSources.cs" />
     <Compile Include="Factories\IContentTypeFactory.cs" />
+    <Compile Include="Factories\ITranslatableItemEventReceiverAssemblyDetails.cs" />
     <Compile Include="Factories\IListViewFactory.cs" />
     <Compile Include="Factories\IWebPartFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

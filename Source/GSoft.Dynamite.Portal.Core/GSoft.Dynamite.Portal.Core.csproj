@@ -69,7 +69,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\DefaultPortalTermStoreConfig.cs" />
+    <Compile Include="Config\DefaultCatalogConfig.cs" />
+    <Compile Include="Config\DefaultTermStoreConfig.cs" />
     <Compile Include="Factories\ContentTypeFactory.cs" />
     <Compile Include="Factories\ListViewFactory.cs" />
     <Compile Include="Factories\WebPartFactory.cs" />

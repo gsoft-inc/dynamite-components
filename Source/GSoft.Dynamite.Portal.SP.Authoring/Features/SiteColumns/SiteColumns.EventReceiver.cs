@@ -36,24 +36,16 @@ namespace GSoft.Dynamite.Portal.SP.Authoring.Features.SiteColumns
                     taxonomyHelper.AssignTermSetToSiteColumn(
                         site.RootWeb,
                         PortalFields.Navigation.ID,
-                        termStoreConfig.PortalNavigationTermSetGroup,
-                        termStoreConfig.NavigationFRTermSet,
+                        termStoreConfig.NavigationGroup,
+                        termStoreConfig.GetNavigationTermSetNameByLCID(Language.French.Culture.LCID),
                         string.Empty);
 
                     // Subject
                     taxonomyHelper.AssignTermSetToSiteColumn(
                         site.RootWeb,
                         PortalFields.Subject.ID,
-                        termStoreConfig.PortalContentTermSetGroup,
-                        termStoreConfig.SubjectTermSet,
-                        string.Empty);
-
-                    // Node Title
-                    taxonomyHelper.AssignTermSetToSiteColumn(
-                        site.RootWeb,
-                        PortalFields.Navigation.ID,
-                        termStoreConfig.PortalNavigationTermSetGroup,
-                        termStoreConfig.NavigationFRTermSet,
+                        termStoreConfig.GeneralGroup,
+                        termStoreConfig.RelatedSubjectsTermSet,
                         string.Empty);
                 }
             }

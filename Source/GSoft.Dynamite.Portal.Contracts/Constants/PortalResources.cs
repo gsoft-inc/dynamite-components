@@ -265,5 +265,24 @@ namespace GSoft.Dynamite.Portal.Contracts.Constants
         public static readonly string PageLayoutCatalogItemDescription = "PageLayout_CatalogItem_Description";
 
         #endregion
+
+        #region Lists
+
+        /// <summary>
+        /// The static content catalog list title
+        /// </summary>
+        public static readonly string ListStaticContentCatalogTitle = "List_StaticContentCatalog_Title";
+
+        /// <summary>
+        /// The static content catalog list title
+        /// </summary>
+        public static readonly string ListNewsCatalogTitle = "List_NewsCatalog_Title";
+
+        /// <summary>
+        /// The static content catalog list title
+        /// </summary>
+        public static readonly string ListNodeDescriptionCatalogTitle = "List_NodeDescriptionCatalog_Title";
+
+        #endregion
     }
 }

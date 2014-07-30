@@ -11,38 +11,38 @@ namespace GSoft.Dynamite.Portal.Contracts.Config
         /// <summary>
         /// Term set group for global term sets
         /// </summary>
-        public string NavigationGroup { get; }
+        string NavigationGroup { get; }
 
         /// <summary>
         /// Term set group for Catalogs term sets
         /// </summary>
-        public string CatalogsGroup { get; }
+        string CatalogsGroup { get; }
 
         /// <summary>
         /// The term set for static content catalogs
         /// </summary>
-        public string StaticContentCatalogTermSet { get; }
+        string StaticContentCatalogTermSet { get; }
 
         /// <summary>
         /// The news catalog term set
         /// </summary>
-        public string NewsCatalogTermSet { get; }
+        string NewsCatalogTermSet { get; }
 
         /// <summary>
         /// Term set group for General Content term sets
         /// </summary>
-        public string GeneralGroup { get; }
+        string GeneralGroup { get; }
 
         /// <summary>
         /// The related subject (free tagging) term set
         /// </summary>
-        public string RelatedSubjectTermSet { get; }
+        string RelatedSubjectsTermSet { get; }
 
         /// <summary>
         /// Fetches the term set name for the specified culture's site navigation
         /// </summary>
         /// <param name="lcid">The culture we want to navigate in</param>
         /// <returns>The name of the term set (which should be part of the NavigationGroup</returns>
-        public string GetNavigationTermSetNameByLCID(uint lcid);
+        string GetNavigationTermSetNameByLCID(int lcid);
     }
 }

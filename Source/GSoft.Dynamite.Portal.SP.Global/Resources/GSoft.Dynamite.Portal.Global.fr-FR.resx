@@ -267,4 +267,13 @@
   <data name="ContentType_NodeDescriptionItem_Name" xml:space="preserve">
     <value>Elément de description d'un nœud</value>
   </data>
+  <data name="List_NewsCatalog_Title" xml:space="preserve">
+    <value>Actualités</value>
+  </data>
+  <data name="List_NodeDescriptionCatalog_Title" xml:space="preserve">
+    <value>Descriptions de noeuds</value>
+  </data>
+  <data name="List_StaticContentCatalog_Title" xml:space="preserve">
+    <value>Contenu statique</value>
+  </data>
 </root>

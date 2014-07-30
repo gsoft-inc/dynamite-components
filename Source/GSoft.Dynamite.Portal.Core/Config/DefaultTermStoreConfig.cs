@@ -10,7 +10,7 @@ namespace GSoft.Dynamite.Portal.Core.Config
     /// <summary>
     /// Default term store configuration for Portal
     /// </summary>
-    public class DefaultPortalTermStoreConfig : IPortalTermStoreConfig
+    public class DefaultTermStoreConfig : IPortalTermStoreConfig
     {
         /// <summary>
         /// Term set group for global term sets
@@ -70,7 +70,7 @@ namespace GSoft.Dynamite.Portal.Core.Config
         /// <summary>
         /// The related subject (free tagging) term set
         /// </summary>
-        public string RelatedSubjectTermSet
+        public string RelatedSubjectsTermSet
         {
             get 
             {
@@ -83,7 +83,7 @@ namespace GSoft.Dynamite.Portal.Core.Config
         /// </summary>
         /// <param name="lcid">The culture we want to navigate in</param>
         /// <returns>The name of the term set (which should be part of the NavigationGroup</returns>
-        public string GetNavigationTermSetNameByLCID(uint lcid)
+        public string GetNavigationTermSetNameByLCID(int lcid)
         {
             string termSetName = string.Empty;
 

@@ -25,6 +25,7 @@ namespace GSoft.Dynamite.Portal.Core.Factories
         private readonly ContentTypeBuilder contentTypeBuilder;
         private readonly ILogger logger;
         private readonly IResourceLocator resourceLocator;
+        private readonly ITranslatableItemEventReceiverAssemblyDetails eventReceiverTypeInfo;
 
         /// <summary>
         /// Constructor for the ContentTypes class
@@ -32,11 +33,12 @@ namespace GSoft.Dynamite.Portal.Core.Factories
         /// <param name="contentTypeHelper">A ContentTypeHelper object.</param>
         /// <param name="logger">The logger.</param>
         /// <param name="resourceLocator">The resource locator</param>
-        public ContentTypeFactory(ContentTypeBuilder contentTypeHelper, ILogger logger, IResourceLocator resourceLocator)
+        public ContentTypeFactory(ContentTypeBuilder contentTypeHelper, ILogger logger, IResourceLocator resourceLocator, ITranslatableItemEventReceiverAssemblyDetails eventReceiverTypeInfo)
         {
             this.contentTypeBuilder = contentTypeHelper;
             this.logger = logger;
             this.resourceLocator = resourceLocator;
+            this.eventReceiverTypeInfo = eventReceiverTypeInfo;
         }
 
         /// <summary>
@@ -87,15 +89,15 @@ namespace GSoft.Dynamite.Portal.Core.Factories
             this.contentTypeBuilder.AddEventReceiverDefinition(
                 contentType,
                 SPEventReceiverType.ItemAdded,
-                "GSoft.Dynamite.Portal.SP.Authoring, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1e3bb3fbc94d83df",
-                "GSoft.Dynamite.Portal.SP.Authoring.Events.TranslatableItemEventReceiver");
+                this.eventReceiverTypeInfo.AssemblyFullName,
+                this.eventReceiverTypeInfo.EventReceiverTypeName);
 
             //// Add event receiver association for item updated
             this.contentTypeBuilder.AddEventReceiverDefinition(
                 contentType,
                 SPEventReceiverType.ItemUpdated,
-                "GSoft.Dynamite.Portal.SP.Authoring, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1e3bb3fbc94d83df",
-                "GSoft.Dynamite.Portal.SP.Authoring.Events.TranslatableItemEventReceiver");
+                this.eventReceiverTypeInfo.AssemblyFullName,
+                this.eventReceiverTypeInfo.EventReceiverTypeName);
 
             // Update with changes and update inheritance
             contentType.Update(true);
