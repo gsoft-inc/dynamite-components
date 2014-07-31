@@ -22,9 +22,9 @@ $LogFile = $CommandDirectory + "\Logs\" +  $ScriptName +"_Portal_"+$LogTime +".l
 Start-Transcript -Path $LogFile
 # -----------------------------------------------------------------------
 
-Remove-DSPTermGroup -GroupName "[[DSP_PortalContentTermStoreGroup]]"
-Remove-DSPTermGroup -GroupName "[[DSP_PortalCatalogTermStoreGroup]]"
-Remove-DSPTermGroup -GroupName "[[DSP_PortalNavigationTermStoreGroup]]"
+Remove-DSPTermGroup -GroupName "[[DSP_PortalGeneralTermGroup]]"
+Remove-DSPTermGroup -GroupName "[[DSP_PortalCatalogsTermGroup]]"
+Remove-DSPTermGroup -GroupName "[[DSP_PortalNavigationTermGroup]]"
 
 # ------------------------ Log End --------------------------------------
 # Stop log transcript

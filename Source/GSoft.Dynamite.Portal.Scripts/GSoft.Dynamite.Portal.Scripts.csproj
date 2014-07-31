@@ -54,6 +54,7 @@
     <None Include="CmdletConfig\Util\TimerJobs.xml.template" />
     <None Include="CmdletConfig\Search\WebSearchSettings.xml.template" />
     <None Include="Configure-PortalSitesAndInfrastructure.ps1" />
+    <None Include="Tokens\Tokens.sp2013tao.ps1" />
     <None Include="Uninstall-PortalSolutions.ps1" />
     <None Include="Install-PortalSolutions.ps1" />
     <None Include="Cmdlets\SolutionPackages\Deploy-SPSolutions.ps1.template" />

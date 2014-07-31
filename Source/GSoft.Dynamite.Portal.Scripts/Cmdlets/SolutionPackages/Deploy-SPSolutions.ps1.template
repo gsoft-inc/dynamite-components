@@ -12,10 +12,15 @@ param([switch] $RemoveOnly=$false)
 # Get current working directory
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-$TargetDirectory = $CommandDirectory + "\Solutions\"
-$SolutionDirectory = (Get-Item $CommandDirectory).Parent.FullName
 
-$inputFile = $CommandDirectory+ "\..\..\" + "[[DSP_SolutionsConfigFile]]"
+$inputFile = $CommandDirectory + "\..\..\" + "[[DSP_SolutionsConfigFile]]"
+
+Write-Host $inputFile
+
 $xmlInput = Get-Content $inputFile
 
-Deploy-DSPSolution -Config $xmlInput -RemoveOnly $RemoveOnly
+if ($RemoveOnly) {
+	Deploy-DSPSolution -Config $xmlInput -RemoveOnly
+} else {
+	Deploy-DSPSolution -Config $xmlInput
+}

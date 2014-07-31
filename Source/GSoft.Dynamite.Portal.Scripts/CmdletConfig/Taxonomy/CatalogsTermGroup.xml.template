@@ -1,4 +1,4 @@
-<Group Id="B86A854B-E342-46A3-A2C5-BDD24BE9F4B5" Name="Portal - Catalogs" Description="" CreatedDate="7/11/2014 5:58:02 PM" LastModifiedDate="7/11/2014 5:58:02 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
+<Group Id="B86A854B-E342-46A3-A2C5-BDD24BE9F4B5" Name="[[DSP_PortalCatalogsTermGroup]]" Description="" CreatedDate="7/11/2014 5:58:02 PM" LastModifiedDate="7/11/2014 5:58:02 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
   <TermSets>
     <TermSet Id="3501083B-26C1-406A-B8EA-0CCE2AC84D40" Name="Catalog-StaticContent" Description="" CreatedDate="7/11/2014 5:58:02 PM" LastModifiedDate="7/11/2014 6:09:01 PM" Contact="" Owner="[[DSP_PortalAdmin]]" IsAvailableForTagging="True" IsOpenForTermCreation="False" CustomSortOrder="">
       <Terms>

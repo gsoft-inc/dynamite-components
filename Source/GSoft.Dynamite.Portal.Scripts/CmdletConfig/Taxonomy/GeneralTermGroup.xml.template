@@ -1,4 +1,4 @@
-<Group Id="A4B74C81-CB4C-42DA-8C5F-4DBDBED5327E" Name="Portal - General" Description="" CreatedDate="7/2/2014 10:06:07 PM" LastModifiedDate="7/2/2014 10:06:07 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
+<Group Id="A4B74C81-CB4C-42DA-8C5F-4DBDBED5327E" Name="[[DSP_PortalGeneralTermGroup]]" Description="" CreatedDate="7/2/2014 10:06:07 PM" LastModifiedDate="7/2/2014 10:06:07 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
   <TermSets>
     <TermSet Id="44939C8F-515B-4136-BA94-8B90116298AF" Name="Related Subjects" Description="" CreatedDate="7/2/2014 10:06:11 PM" LastModifiedDate="7/2/2014 10:06:13 PM" Contact="" Owner="[[DSP_PortalAdmin]]" IsAvailableForTagging="True" IsOpenForTermCreation="False" CustomSortOrder="">
       <Terms>

@@ -11,9 +11,6 @@
       <TargetUrlForChildTerms>~site/Pages/Terme.aspx</TargetUrlForChildTerms>
       <CatalogTargetUrlForChildTerms>~site/Pages/Contenu.aspx</CatalogTargetUrlForChildTerms>
       <Terms>
-        <Term Name="Home">
-          <TargetUrl>~site/Pages/Accueil.aspx</TargetUrl>
-        </Term>
         <Term Name="News">
           <TargetUrl>~site/Pages/ToutesActualites.aspx</TargetUrl>
           <TargetUrlForChildTerms>~site/Pages/ToutesActualites.aspx</TargetUrlForChildTerms>
@@ -30,12 +27,6 @@
       <TargetUrlForChildTerms>~site/Pages/Term.aspx</TargetUrlForChildTerms>
       <CatalogTargetUrlForChildTerms>~site/Pages/Content.aspx</CatalogTargetUrlForChildTerms>
       <Terms>
-        <Term Name="Home">
-          <TargetUrl>~site/Pages/Home.aspx</TargetUrl>
-          <TargetUrlForChildTerms>~site/Pages/Term.aspx</TargetUrlForChildTerms>
-          <CatalogTargetUrl>~site/Pages/Content.aspx</CatalogTargetUrl>
-          <CatalogTargetUrlForChildTerms>~site/Pages/Content.aspx</CatalogTargetUrlForChildTerms>
-        </Term>
         <Term Name="News">
           <TargetUrl>~site/Pages/AllNews.aspx</TargetUrl>
           <TargetUrlForChildTerms>~site/Pages/AllNews.aspx</TargetUrlForChildTerms>

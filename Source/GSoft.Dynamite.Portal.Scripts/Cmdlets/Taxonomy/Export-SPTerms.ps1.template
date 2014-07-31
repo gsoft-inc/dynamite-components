@@ -9,16 +9,16 @@ $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
 $PortalNavigationTermGroupConfigFile = $CommandDirectory + "\..\..\" + "[[DSP_PortalNavigationTermGroupConfigFile]]"
-$PortalContentTermGroupConfigFile = $CommandDirectory + "\..\..\" + "[[DSP_PortalContentTermGroupConfigFile]]"
-$PortalCatalogTermGroupConfigFile = $CommandDirectory + "\..\..\" + "[[DSP_PortalCatalogTermGroupConfigFile]]"
+$PortalGeneralTermGroupConfigFile = $CommandDirectory + "\..\..\" + "[[DSP_PortalGeneralTermGroupConfigFile]]"
+$PortalCatalogsTermGroupConfigFile = $CommandDirectory + "\..\..\" + "[[DSP_PortalCatalogsTermGroupConfigFile]]"
 
 ##### Portal Navigation TermGroup
 Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingUrl]]").TermStores[0].Groups["[[DSP_PortalNavigationTermStoreGroup]]"] -OutputFile $PortalNavigationTermGroupConfigFile
 
-##### Portal Content TermGroup
-Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingUrl]]").TermStores[0].Groups["[[DSP_PortalContentTermStoreGroup]]"] -OutputFile $PortalContentTermGroupConfigFile
+##### Portal General TermGroup
+Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingUrl]]").TermStores[0].Groups["[[DSP_PortalContentTermStoreGroup]]"] -OutputFile $PortalGeneralTermGroupConfigFile
 
 ##### Portal Catalog TermGroup
-Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingUrl]]").TermStores[0].Groups["[[DSP_PortalCatalogTermStoreGroup]]"] -OutputFile $PortalCatalogTermGroupConfigFile
+Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingUrl]]").TermStores[0].Groups["[[DSP_PortalCatalogTermStoreGroup]]"] -OutputFile $PortalCatalogsTermGroupConfigFile
 
 

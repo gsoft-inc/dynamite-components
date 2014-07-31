@@ -1,4 +1,4 @@
-<Group Id="214DD8D4-62E5-4F8E-9690-BBCDC154105F" Name="Portal - Navigation" Description="" CreatedDate="6/25/2014 6:05:34 PM" LastModifiedDate="6/25/2014 6:05:34 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
+<Group Id="214DD8D4-62E5-4F8E-9690-BBCDC154105F" Name="[[DSP_PortalNavigationTermGroup]]" Description="" CreatedDate="6/25/2014 6:05:34 PM" LastModifiedDate="6/25/2014 6:05:34 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
   <TermSets>
     <!-- The English Nav term set: holds the Source terms for all reuses (pinned in Navigation FR term set, reused partially in the Portal - Catalogs term sets -->
     <TermSet Id="B5E65349-66B3-4909-8897-FF3ED2F9B389" Name="Navigation EN" Description="" CreatedDate="6/25/2014 6:05:34 PM" LastModifiedDate="6/25/2014 6:30:06 PM" Contact="" Owner="[[DSP_PortalAdmin]]" IsAvailableForTagging="True" IsOpenForTermCreation="False" CustomSortOrder="">

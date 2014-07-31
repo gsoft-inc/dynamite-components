@@ -1,8 +1,8 @@
 # --------------------------------------------------------------------------
 # Copyright		: GSoft @2014
 # Project		: GSoft Dynamite Portal
-# File          : Tokens.YOUR-MACHINE-NAME-HERE.ps1
-# Description	: Deployment configuration file for YOUR-MACHINE-NAME-HERE
+# File          : Tokens.sp2013tao.ps1
+# Description	: Deployment configuration file for Tom's dev VM
 # --------------------------------------------------------------------------
 
 # ******************************************
@@ -13,7 +13,7 @@
 # ******************************************
 # Application Configuration 
 # ******************************************
-$DSP_PortalWebAppUrl = "http://your.web.app"
+$DSP_PortalWebAppUrl = "http://sp2013tao"
 $DSP_PortalPublishingHostNamePath = "http://www.portal.com"
 $DSP_PortalAuthoringHostNamePath = "http://authoring.portal.com"
 $DSP_PortalDocumentHostNamePath = "http://docs.portal.com"
@@ -24,7 +24,7 @@ $DSP_PortalAuthoringUrl = "http://authoring.portal.com"
 $DSP_PortalAuthoringUrlEN = "http://authoring.portal.com/en"
 $DSP_PortalAuthoringUrlFR = "http://authoring.portal.com/fr"
 $DSP_PortalDocumentUrl = "http://docs.portal.com"
-$DSP_PortalAdmin = "office\your.username"
+$DSP_PortalAdmin = "office\thomasantoine.oneill"
 $DSP_PortalDatabaseName = "SP2013_Content_Portal"
 
 # ******************************************
