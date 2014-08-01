@@ -11,16 +11,19 @@
 Write-Host "Setting Common Tokens"
 
 # SolutionPackages
-$DSP_SolutionsConfigFile = ".\CmdletConfig\SolutionPackages\Solutions.xml"
+$DSP_SolutionsConfigFile = "CmdletConfig\SolutionPackages\Solutions.xml"
 
 # SitesAndFeatures
 $DSP_SiteStructureConfigFile = ".\CmdletConfig\SitesAndFeatures\SiteStructure.xml"
 $DSP_FeaturesConfigFile = ".\CmdletConfig\SitesAndFeatures\Features.xml"
 
 # Taxonomy
-$DSP_PortalNavigationTermGroupConfigFile = ".\CmdletConfig\Taxonomy\PortalNavigationTermGroup.xml"
-$DSP_PortalCatalogTermGroupConfigFile = ".\CmdletConfig\Taxonomy\PortalCatalogTermGroup.xml"
-$DSP_PortalContentTermGroupConfigFile = ".\CmdletConfig\PortalContentTermGroup.xml"
+$DSP_PortalNavigationTermGroup = "Portal - Navigation"
+$DSP_PortalCatalogsTermGroup = "Portal - Catalogs"
+$DSP_PortalGeneralTermGroup = "Portal - General"
+$DSP_PortalNavigationTermGroupConfigFile = ".\CmdletConfig\Taxonomy\NavigationTermGroup.xml"
+$DSP_PortalCatalogsTermGroupConfigFile = ".\CmdletConfig\Taxonomy\CatalogsTermGroup.xml"
+$DSP_PortalGeneralTermGroupConfigFile = ".\CmdletConfig\Taxonomy\GeneralTermGroup.xml"
 
 # Navigation
 $DSP_CatalogConnectionsConfigFile = ".\CmdletConfig\Navigation\CatalogConnections.xml"
@@ -36,7 +39,7 @@ $DSP_QueryRulesConfigFile = ".\CmdletConfig\Search\QueryRules.xml"
 $DSP_SearchSchemaConfigFile = ".\CmdletConfig\Search\SearchSchema.xml"
 
 # Util
-$DSP_TimerJobsConfigFile = ".\Configuration\TimerJobs.xml"
+$DSP_TimerJobsConfigFile = ".\CmdletConfig\Util\TimerJobs.xml"
 
 # SampleContent
 $DSP_DataTextFieldsFolderFR = ".\CmdletConfig\SampleContent\Data\FR\TextFields"
