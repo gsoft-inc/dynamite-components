@@ -120,3 +120,4 @@ UpgradeLog*.XML
 Source/GSoft.Dynamite.Portal.Scripts/Cmdlets/*/*.ps1
 Source/GSoft.Dynamite.Portal.Scripts/CmdletConfig/*/*.xml
 Source/GSoft.Dynamite.Portal.Scripts/CmdletConfig/*/*.wsp
+Libraries/
