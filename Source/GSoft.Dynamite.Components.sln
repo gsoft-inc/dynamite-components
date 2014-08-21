@@ -44,6 +44,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamite.Demo.Intranet.ServiceLocator", "Dynamite.Demo.Intranet.ServiceLocator\Dynamite.Demo.Intranet.ServiceLocator.csproj", "{54D3FDDF-C707-472B-A529-B507C12BB97D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamite.Demo.Intranet.SP", "Dynamite.Demo.Intranet.SP\Dynamite.Demo.Intranet.SP.csproj", "{77014ADE-3589-4F16-B597-9995AE82A8F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AAD0094C-6782-44F9-B12C-FBEF909DF01F} = {AAD0094C-6782-44F9-B12C-FBEF909DF01F}
+		{47C2BE9D-06EF-4943-92B0-3BC51759EFF3} = {47C2BE9D-06EF-4943-92B0-3BC51759EFF3}
+		{54D3FDDF-C707-472B-A529-B507C12BB97D} = {54D3FDDF-C707-472B-A529-B507C12BB97D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,12 +3,12 @@ using GSoft.Dynamite.Definitions;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants
 {
-    public class Client1Fields
+    public class DynamiteDemoFieldInfoValues
     {
         #region Field prefix
 
         // ReSharper disable once ConvertToConstant.Local
-        private static readonly string FieldPrefix = "Client1";
+        private static readonly string FieldPrefix = "DynamiteDemo";
 
         #endregion
 
