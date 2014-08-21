@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ Copyright    : GSoft @2014
+ Project      : GSoft Dynamite Portal
+ File         : Features.xml.template
+ Description  : Features activation configuration file    
+-->
+<Configuration>
+  <Sites>
+    <Site Url="http://authoring.dynamite.com">
+      <!-- Cross Site Publishing CMS - Publishing Module -->
+      <Feature GUID="9fa388a7-b686-44f2-9a61-c07162052c81" Name="GSoft.Dynamite.Publishing.SP.Global.Business_Publishing_CrossSitePublishingCMS" />
+    </Site>
+  </Sites>
+</Configuration>

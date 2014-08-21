@@ -1,0 +1,60 @@
+﻿<Group Id="6bc049f7-be55-4430-93e9-f41cb993a6da" Name="Portal - Navigation" Description="" CreatedDate="8/19/2014 5:36:29 PM" LastModifiedDate="8/19/2014 5:36:29 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
+  <TermSets>
+    <TermSet Id="f92bc16f-f73b-4568-b6af-f8dd87044653" Name="Navigation (EN)" Description="" CreatedDate="8/19/2014 5:36:42 PM" LastModifiedDate="8/19/2014 5:36:42 PM" Contact="" Owner="OFFICE\franck.cornu" IsAvailableForTagging="True" IsOpenForTermCreation="False" CustomSortOrder="">
+      <Terms>
+        <Term Id="870c52df-0ef0-4297-b9e8-0e965ac7c7c2" Name="About" CreatedDate="8/19/2014 5:36:53 PM" LastModifiedDate="8/19/2014 5:37:09 PM" Owner="OFFICE\franck.cornu" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="False" IsRoot="True" IsSourceTerm="True" CustomSortOrder="" SourceTerm="870c52df-0ef0-4297-b9e8-0e965ac7c7c2|About">
+          <Descriptions>
+            <Description Language="1033" Value="" />
+            <Description Language="1036" Value="" />
+            <Description Language="3084" Value="" />
+            <Description Language="4105" Value="" />
+          </Descriptions>
+          <CustomProperties />
+          <Labels>
+            <Label Value="About" Language="1033" IsDefaultForLanguage="True" />
+            <Label Value="À propos" Language="1036" IsDefaultForLanguage="True" />
+          </Labels>
+        </Term>
+        <Term Id="a681794e-c2bc-4145-b95a-3122388d65bf" Name="News" CreatedDate="8/19/2014 5:36:57 PM" LastModifiedDate="8/19/2014 7:08:00 PM" Owner="OFFICE\franck.cornu" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="True" IsRoot="True" IsSourceTerm="True" CustomSortOrder="" SourceTerm="a681794e-c2bc-4145-b95a-3122388d65bf|News">
+          <Descriptions>
+            <Description Language="1033" Value="" />
+            <Description Language="1036" Value="" />
+            <Description Language="3084" Value="" />
+            <Description Language="4105" Value="" />
+          </Descriptions>
+          <CustomProperties />
+          <Labels>
+            <Label Value="News" Language="1033" IsDefaultForLanguage="True" />
+            <Label Value="Nouvelles" Language="1036" IsDefaultForLanguage="True" />
+          </Labels>
+          <Terms>
+            <Term Id="61639a70-1c62-42a4-a265-7533d27bbf65" Name="Financial" CreatedDate="8/19/2014 7:07:33 PM" LastModifiedDate="8/19/2014 7:08:00 PM" Owner="OFFICE\franck.cornu" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="True" IsRoot="False" IsSourceTerm="True" CustomSortOrder="" SourceTerm="61639a70-1c62-42a4-a265-7533d27bbf65|Financial">
+              <Descriptions>
+                <Description Language="1033" Value="" />
+                <Description Language="1036" Value="" />
+                <Description Language="3084" Value="" />
+                <Description Language="4105" Value="" />
+              </Descriptions>
+              <CustomProperties />
+              <Labels>
+                <Label Value="Financial" Language="1033" IsDefaultForLanguage="True" />
+              </Labels>
+            </Term>
+            <Term Id="27881a50-e5cc-43f0-b366-54802a3b7d91" Name="HR" CreatedDate="8/19/2014 7:07:24 PM" LastModifiedDate="8/19/2014 7:08:00 PM" Owner="OFFICE\franck.cornu" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="True" IsRoot="False" IsSourceTerm="True" CustomSortOrder="" SourceTerm="27881a50-e5cc-43f0-b366-54802a3b7d91|HR">
+              <Descriptions>
+                <Description Language="1033" Value="" />
+                <Description Language="1036" Value="" />
+                <Description Language="3084" Value="" />
+                <Description Language="4105" Value="" />
+              </Descriptions>
+              <CustomProperties />
+              <Labels>
+                <Label Value="HR" Language="1033" IsDefaultForLanguage="True" />
+              </Labels>
+            </Term>
+          </Terms>
+        </Term>
+      </Terms>
+    </TermSet>
+  </TermSets>
+</Group>

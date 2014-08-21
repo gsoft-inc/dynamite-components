@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Model  		  : Cross Site Publishing CMS
+ File         : Custom-Solutions.xml.template
+ Description	: SharePoint solutions configuration file    
+-->
+<Solutions>
+  <Solution Path="Solutions\Packages\Dynamite.Demo.Intranet.SP.wsp" UpgradeExisting="false" Force="true">
+    <WebApplications>
+      <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
+    </WebApplications>
+  </Solution>
+</Solutions>
+
+
