@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8955DA4-DBB6-4AA2-9B75-7B014F55EDB5}"
 	ProjectSection(SolutionItems) = preProject
 		GSoft.Dynamite.Portal.snk = GSoft.Dynamite.Portal.snk
@@ -23,6 +25,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{ADC8FC
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Portal.SP.Global", "GSoft.Dynamite.Portal.SP.Global\GSoft.Dynamite.Portal.SP.Global.csproj", "{22F1326A-AA63-4A44-BAFB-6E3CF5CD0543}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Publishing.Contracts", "GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj", "{80D89ED1-4BB2-4020-B51B-97D3D376C36F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Publishing.Core", "GSoft.Dynamite.Publishing.Core\GSoft.Dynamite.Publishing.Core.csproj", "{1484F2A1-E3D0-4372-9692-6759D64846EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Publishing.SP", "GSoft.Dynamite.Publishing.SP\GSoft.Dynamite.Publishing.SP.csproj", "{B221EF54-8FA2-4563-B5BD-D3EE1255E199}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1484F2A1-E3D0-4372-9692-6759D64846EA} = {1484F2A1-E3D0-4372-9692-6759D64846EA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Models.CrossSitePublishingCMS", "GSoft.Dynamite.CrossSitePublishingCMS\GSoft.Dynamite.Models.CrossSitePublishingCMS.csproj", "{97A8751B-F336-4E83-AEE8-3E54150DEDAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamite.Demo.Intranet.Contracts", "Dynamite.Demo.Intranet.Contracts\Dynamite.Demo.Intranet.Contracts.csproj", "{AAD0094C-6782-44F9-B12C-FBEF909DF01F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamite.Demo.Intranet.Core", "Dynamite.Demo.Intranet.Core\Dynamite.Demo.Intranet.Core.csproj", "{47C2BE9D-06EF-4943-92B0-3BC51759EFF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamite.Demo.Intranet.ServiceLocator", "Dynamite.Demo.Intranet.ServiceLocator\Dynamite.Demo.Intranet.ServiceLocator.csproj", "{54D3FDDF-C707-472B-A529-B507C12BB97D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamite.Demo.Intranet.SP", "Dynamite.Demo.Intranet.SP\Dynamite.Demo.Intranet.SP.csproj", "{77014ADE-3589-4F16-B597-9995AE82A8F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +81,42 @@ Global
 		{22F1326A-AA63-4A44-BAFB-6E3CF5CD0543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F1326A-AA63-4A44-BAFB-6E3CF5CD0543}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22F1326A-AA63-4A44-BAFB-6E3CF5CD0543}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{80D89ED1-4BB2-4020-B51B-97D3D376C36F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D89ED1-4BB2-4020-B51B-97D3D376C36F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D89ED1-4BB2-4020-B51B-97D3D376C36F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D89ED1-4BB2-4020-B51B-97D3D376C36F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1484F2A1-E3D0-4372-9692-6759D64846EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1484F2A1-E3D0-4372-9692-6759D64846EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1484F2A1-E3D0-4372-9692-6759D64846EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1484F2A1-E3D0-4372-9692-6759D64846EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B221EF54-8FA2-4563-B5BD-D3EE1255E199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B221EF54-8FA2-4563-B5BD-D3EE1255E199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B221EF54-8FA2-4563-B5BD-D3EE1255E199}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B221EF54-8FA2-4563-B5BD-D3EE1255E199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B221EF54-8FA2-4563-B5BD-D3EE1255E199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B221EF54-8FA2-4563-B5BD-D3EE1255E199}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{97A8751B-F336-4E83-AEE8-3E54150DEDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A8751B-F336-4E83-AEE8-3E54150DEDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A8751B-F336-4E83-AEE8-3E54150DEDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A8751B-F336-4E83-AEE8-3E54150DEDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD0094C-6782-44F9-B12C-FBEF909DF01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD0094C-6782-44F9-B12C-FBEF909DF01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD0094C-6782-44F9-B12C-FBEF909DF01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD0094C-6782-44F9-B12C-FBEF909DF01F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C2BE9D-06EF-4943-92B0-3BC51759EFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C2BE9D-06EF-4943-92B0-3BC51759EFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C2BE9D-06EF-4943-92B0-3BC51759EFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C2BE9D-06EF-4943-92B0-3BC51759EFF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54D3FDDF-C707-472B-A529-B507C12BB97D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54D3FDDF-C707-472B-A529-B507C12BB97D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54D3FDDF-C707-472B-A529-B507C12BB97D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54D3FDDF-C707-472B-A529-B507C12BB97D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
