@@ -8,7 +8,8 @@
 <Configuration>
   <Sites>
     <Site Url="[[DSP_PortalAuthoringHostNamePath]]">
-      <Feature GUID="f0faec13-d835-4e9b-a3e9-9d85ce38ae8f" Name="Dynamite Custom Configuration" />
+      <!-- Dynamite Common CMS - Publishing Module - Columns -->
+      <Feature GUID="97a3a3ef-5989-46f0-a117-6f489f58a26b" Name="Dynamite Common CMS - Publishing Module - Columns" />
     </Site>
   </Sites>
 </Configuration>

@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Portal.SP.Publishing;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Factories;
 using GSoft.Dynamite.Publishing.Contracts.Keys;
 using Microsoft.SharePoint;
 using GSoft.Dynamite.Taxonomy;
@@ -32,27 +32,15 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
             {
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var contentTypeFactory = featureScope.Resolve<IBaseContentTypeInfoFactory>();
+                    var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
                     var baseContentTypeConfig = featureScope.Resolve<IBaseContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes();
                     var logger = featureScope.Resolve<ILogger>();
-                    var taxonomyHelper = featureScope.Resolve<TaxonomyHelper>();
-                    var termStoreConfig = featureScope.Resolve<IBaseTaxonomyConfig>();
-
-                    var termGroups = termStoreConfig.TermGroups();
-
-                    // Navigation Column
-                    taxonomyHelper.AssignTermSetToSiteColumn(
-                        site.RootWeb,
-                        BaseFieldInfoValues.Navigation.ID,
-                        termGroups[BaseTermGroupInfoKeys.NavigationTermGroup].Name,
-                        termGroups[BaseTermGroupInfoKeys.NavigationTermGroup].TermSets[BaseTermSetInfoKeys.GlobalNavigationTermSet].Labels[Language.English.Culture.LCID],
-                        string.Empty);
 
                     // Create base content types
                     foreach (KeyValuePair<string, ContentTypeInfo> contentType in baseContentTypes)
                     {
-                        contentTypeFactory.CreateContentType(site.RootWeb.ContentTypes, contentType.Value);
+                        contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType.Value);
                     }
 
                     // Create additionnal custom content types
@@ -63,7 +51,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                         
                         foreach (KeyValuePair<string, ContentTypeInfo> contentType in customContentTypes)
                         {
-                            contentTypeFactory.CreateContentType(site.RootWeb.ContentTypes, contentType.Value);
+                            contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType.Value);
                         }
                     }
                     else
@@ -74,11 +62,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
             }
         }
 
-
-        // Uncomment the method below to handle the event raised before a feature is deactivated.
-
-        //public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        //{
-        //}
+        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
+        {   
+            // TODO: To implement
+        }
     }
 }

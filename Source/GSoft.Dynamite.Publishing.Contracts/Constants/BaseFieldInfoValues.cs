@@ -54,17 +54,31 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// The navigation field information
         /// </summary>
-        public static readonly FieldInfo Navigation = new FieldInfo(NavigationFieldName, new Guid("{256DF203-3855-497F-B514-4C99D5BE79C9}"));
+        public static readonly TaxonomyFieldInfo Navigation = new TaxonomyFieldInfo()
+        {
+            InternalName = NavigationFieldName,
+            Id =new Guid("{256DF203-3855-497F-B514-4C99D5BE79C9}")  ,
+        };
 
         /// <summary>
         /// The summary field information
         /// </summary>
-        public static readonly FieldInfo Summary = new FieldInfo(SummaryFieldName, new Guid("{BEA301A1-9285-4DC9-9ADF-77E5559B63ED}"));
+        public static readonly TextFieldInfo Summary = new TextFieldInfo()
+        {
+            InternalName = SummaryFieldName,
+            Id = new Guid("{BEA301A1-9285-4DC9-9ADF-77E5559B63ED}"),
+            IsMultiLine = true
+        };
 
         /// <summary>
         /// The summary field information
         /// </summary>
-        public static readonly FieldInfo ImageDescription = new FieldInfo(SummaryFieldName, new Guid("{23E12444-CD39-4604-B1B2-8D7F99A0836C}"));
+        public static readonly TextFieldInfo ImageDescription = new TextFieldInfo()
+        {
+            InternalName = ImageDescriptionFieldName,
+            Id = new Guid("{23E12444-CD39-4604-B1B2-8D7F99A0836C}"),
+            IsMultiLine = true
+        };
 
         #endregion
 

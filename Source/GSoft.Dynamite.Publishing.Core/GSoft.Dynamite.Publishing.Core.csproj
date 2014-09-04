@@ -61,9 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\BaseCatalogInfoConfig.cs" />
     <Compile Include="Configuration\BaseContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\BaseFieldInfoConfig.cs" />
     <Compile Include="Configuration\BaseTaxonomyConfig.cs" />
-    <Compile Include="Factories\BaseContentTypeInfoFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\PublishingRegistrationModule.cs" />
   </ItemGroup>

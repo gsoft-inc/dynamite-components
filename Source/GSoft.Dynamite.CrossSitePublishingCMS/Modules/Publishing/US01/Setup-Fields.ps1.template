@@ -1,8 +1,8 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
 # Model  		: Cross Site Publishing CMS
-# File          : Setup-ContentTypes.ps1.template
-# Description	: Create content types structure
+# File          : Setup-Fields.ps1.template
+# Description	: Create fields
 # -----------------------------------------------------------------------
 param([string] $LogFolderPath)
 
@@ -23,8 +23,7 @@ $VerbosePreference ="Continue"
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
-$DefaultConfigurationFile = "./Default/Default-ContentTypes.xml"
-
+$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalFieldsConfigurationFile]]"
 $ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
 
 Write-Warning "Applying default configuration..."

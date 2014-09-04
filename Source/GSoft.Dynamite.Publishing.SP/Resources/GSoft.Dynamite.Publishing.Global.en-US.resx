@@ -135,12 +135,6 @@
   <data name="ContentType_PortalGroup_Name" xml:space="preserve">
     <value>GSoft Portal Content Types</value>
   </data>
-  <data name="Feature_Business_Publishing_CrossSitePublishingCMS_Desc" xml:space="preserve">
-    <value>Deploys Publishing Module Features &amp; Artefacts</value>
-  </data>
-  <data name="Feature_Business_Publishing_CrossSitePublishingCMS_Name" xml:space="preserve">
-    <value>Cross Site Publishing CMS - Publishing Module - Content Types</value>
-  </data>
   <data name="ContentType_CatalogContentItem_Description" xml:space="preserve">
     <value>Creates a new Catalog Content Item</value>
   </data>
@@ -188,5 +182,23 @@
   </data>
   <data name="Field_PortalSummary_Name" xml:space="preserve">
     <value>Summary</value>
+  </data>
+  <data name="Feature_CommonCMS_ContentTypes_Desc" xml:space="preserve">
+    <value>Deploys content types for common CMS solutions</value>
+  </data>
+  <data name="Feature_CommonCMS_ContentTypes_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Content Types</value>
+  </data>
+  <data name="Feature_CommonCMS_Fields_Desc" xml:space="preserve">
+    <value>Deploys columns for common CMS solutions</value>
+  </data>
+  <data name="Feature_CommonCMS_Fields_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Columns</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Catalogs_Desc" xml:space="preserve">
+    <value>Deploys content catalogs for Cross Site Publishing based CMS solutions</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Catalogs_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Catalogs</value>
   </data>
 </root>

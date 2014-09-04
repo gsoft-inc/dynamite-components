@@ -2,7 +2,12 @@
 # STEP 1: Create structure
 # ============================================
 
+#### SITES
+
 $DSP_CUSTOM_PortalSitesConfigurationFile = ""
+
+#### WEBS
+
 $DSP_CUSTOM_PortalWebsConfigurationFile = ""
 
 # ============================================
@@ -16,7 +21,3 @@ $DSP_CUSTOM_PortalRestrictedConfigurationFile = ""
 
 $DSP_CUSTOM_PortalNavigationTermGroup = ""
 $DSP_CUSTOM_PortalRestrictedTermGroup = ""
-
-#### CONTENT TYPES
-
-$DSP_CUSTOM_PortalContentTypesConfigurationFile = "./Custom/Custom-ContentTypes.xml"

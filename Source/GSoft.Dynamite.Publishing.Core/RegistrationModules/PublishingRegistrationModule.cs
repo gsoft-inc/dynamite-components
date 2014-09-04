@@ -2,9 +2,7 @@
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Portal.Core.Resources;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Factories;
 using GSoft.Dynamite.Publishing.Core.Configuration;
-using GSoft.Dynamite.Publishing.Core.Factories;
 
 namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 {
@@ -28,7 +26,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<BaseContentTypeInfoConfig>().As<IBaseContentTypeInfoConfig>();
 
             // Content Types Factory
-            builder.RegisterType<BaseContentTypeInfoFactory>().As<IBaseContentTypeInfoFactory>();
+            builder.RegisterType<BaseFieldInfoConfig>().As<IBaseFieldInfoConfig>();
 
             // Term Sets
             builder.RegisterType<BaseTaxonomyConfig>().As<IBaseTaxonomyConfig>();

@@ -7,8 +7,8 @@
     <ProjectGuid>{97A8751B-F336-4E83-AEE8-3E54150DEDAF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GSoft.Dynamite.CrossSitePublishingCMS</RootNamespace>
-    <AssemblyName>GSoft.Dynamite.CrossSitePublishingCMS</AssemblyName>
+    <RootNamespace>GSoft.Dynamite.Models.CrossSitePublishingCMS</RootNamespace>
+    <AssemblyName>GSoft.Dynamite.Models.CrossSitePublishingCMS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,11 +42,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\US01\Custom\Custom-ContentTypes.xml.template" />
     <None Include="Modules\Publishing\US01\Default\Default-ContentTypes.xml.template" />
     <None Include="Modules\Publishing\US01\Default\Default-RestrictedTermGroup.xml.template" />
     <None Include="Modules\Publishing\US01\Export-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\US01\Import-TermGroups.ps1.template" />
+    <None Include="Modules\Publishing\US01\Install-US01.ps1" />
     <None Include="Modules\Publishing\US01\Remove-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\US01\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Publishing\US01\Setup-Sites.ps1.template" />
@@ -67,6 +67,7 @@
     <Folder Include="Modules\Lifecycle\" />
     <Folder Include="Modules\Multilinguism\" />
     <Folder Include="Modules\Navigation\" />
+    <Folder Include="Modules\Publishing\US01\Custom\" />
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
@@ -81,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Modules\Publishing\US01\Default\Default-NavigationTermGroup.xml.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Modules\Publishing\US01\Setup-Fields.ps1.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Modules\Publishing\US01\Default\Default-Fields.xml.template" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

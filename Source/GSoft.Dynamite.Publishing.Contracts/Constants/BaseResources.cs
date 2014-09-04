@@ -10,6 +10,11 @@
         #region Fields
 
         /// <summary>
+        /// The content type group
+        /// </summary>
+        public static readonly string FieldGroup = "Columns_Group";
+
+        /// <summary>
         /// The field Portal Navigation Name
         /// </summary>
         public static readonly string FieldPortalNavigationName = "Field_PortalNavigation_Name";
@@ -18,6 +23,26 @@
         /// The field Portal Navigation Description
         /// </summary>
         public static readonly string FieldPortalNavigationDescription = "Field_PortalNavigation_Description";
+
+        /// <summary>
+        /// The field Portal Navigation Name
+        /// </summary>
+        public static readonly string FieldPortalSummaryName = "Field_PortalSummary_Name";
+
+        /// <summary>
+        /// The field Portal Navigation Description
+        /// </summary>
+        public static readonly string FieldPortalSummaryDescription = "Field_PortalSummary_Description";
+
+        /// <summary>
+        /// The field Portal Navigation Name
+        /// </summary>
+        public static readonly string FieldPortalImageDescriptionName = "Field_PortalImageDescription_Name";
+
+        /// <summary>
+        /// The field Portal Navigation Description
+        /// </summary>
+        public static readonly string FieldPortalImageDescriptionDescription = "Field_PortalImageDescription_Description";
   
         #endregion
 

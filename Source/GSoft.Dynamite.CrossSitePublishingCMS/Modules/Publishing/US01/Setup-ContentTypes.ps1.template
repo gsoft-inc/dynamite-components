@@ -24,22 +24,6 @@ $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
 $DefaultConfigurationFile = "[[DSP_DEFAULT_PortalContentTypesConfigurationFile]]"
-$CustomConfigurationFile = "[[DSP_CUSTOM_PortalContentTypesConfigurationFile]]"
-
-if(![string]::IsNullOrEmpty($CustomConfigurationFile))
-{
-	$ConfigurationFilePath = $CommandDirectory + ".\" + $CustomConfigurationFile
-
-	# Apply custom site columns creation
-	[xml]$featureXml = Get-Content $ConfigurationFilePath
-
-	# Activate features
-	Initialize-DSPSiteCollectionsFeatures $featureXml $true
-}
-else
-{
-	Write-Warning "No custom site columns creation found!"
-}
 
 $ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
 

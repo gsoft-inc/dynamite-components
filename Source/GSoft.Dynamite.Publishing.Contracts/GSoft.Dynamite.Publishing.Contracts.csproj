@@ -58,16 +58,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\Extensions\ICustomCatalogInfoConfig.cs" />
+    <Compile Include="Configuration\Extensions\ICustomFieldInfoConfig.cs" />
+    <Compile Include="Configuration\IBaseCatalogInfoConfig.cs" />
     <Compile Include="Configuration\IBaseContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\Extensions\ICustomContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\IBaseFieldInfoConfig.cs" />
     <Compile Include="Configuration\IBaseTaxonomyConfig.cs" />
+    <Compile Include="Constants\BaseCatalogInfoValues.cs" />
     <Compile Include="Constants\BaseContentTypeInfoValues.cs" />
     <Compile Include="Constants\BaseFieldInfoValues.cs" />
     <Compile Include="Constants\BaseResources.cs" />
     <Compile Include="Constants\BaseTermGroupInfoValues.cs" />
     <Compile Include="Constants\BaseTermSetInfoValues.cs" />
-    <Compile Include="Factories\IBaseContentTypeInfoFactory.cs" />
+    <Compile Include="Keys\BaseCatalogInfoKeys.cs" />
     <Compile Include="Keys\BaseContentTypeInfoKeys.cs" />
+    <Compile Include="Keys\BaseFieldInfoKeys.cs" />
     <Compile Include="Keys\BaseTermGroupInfoKeys.cs" />
     <Compile Include="Keys\BaseTermSetInfoKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

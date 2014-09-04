@@ -64,8 +64,11 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\Internal_ItemContentTypes\Internal_ItemContentTypes.EventReceiver.cs">
-      <DependentUpon>Internal_ItemContentTypes.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
@@ -75,10 +78,10 @@
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
     <None Include="app.config" />
-    <None Include="Features\Business_Publishing_CrossSitePublishingCMS_ContentTypes\Business_Publishing_CrossSitePublishingCMS_ContentTypes.feature">
-      <FeatureId>{eff23f49-1a2d-40a9-86dc-c731582497e7}</FeatureId>
+    <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
+      <FeatureId>{0ccccbeb-e932-4b6a-a336-c85c3dfdf2e2}</FeatureId>
     </None>
-    <None Include="Features\Internal_ItemContentTypes\Internal_ItemContentTypes.feature">
+    <None Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.feature">
       <FeatureId>{d5129c90-3ad4-4f5a-aaae-c2ed6d09c23f}</FeatureId>
     </None>
     <None Include="key.snk" />
@@ -103,11 +106,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Features\Business_Publishing_CrossSitePublishingCMS_ContentTypes\Business_Publishing_CrossSitePublishingCMS_ContentTypes.Template.xml">
-      <DependentUpon>Business_Publishing_CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
-    <Content Include="Features\Internal_ItemContentTypes\Internal_ItemContentTypes.Template.xml">
-      <DependentUpon>Internal_ItemContentTypes.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.Template.xml">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Content>
     <Content Include="Artefacts\Common_SiteColumns\Elements.xml" />
   </ItemGroup>

@@ -7,9 +7,9 @@
 -->
 <Configuration>
   <Sites>
-    <Site Url="[[DSP_PortalAuthoringHostNamePath]]">
-      <!-- Dynamite Common CMS - Publishing Module - Content Types -->
-      <Feature GUID="88d32ecd-2a4c-4cff-ad09-b74ab5aca18c" Name="Dynamite Common CMS - Publishing Module - Content Types" />
+    <Site Url="http://authoring.dynamite.com">
+      <!-- Dynamite Common CMS - Publishing Module - Columns -->
+      <Feature GUID="97a3a3ef-5989-46f0-a117-6f489f58a26b" Name="Dynamite Common CMS - Publishing Module - Columns" />
     </Site>
   </Sites>
 </Configuration>

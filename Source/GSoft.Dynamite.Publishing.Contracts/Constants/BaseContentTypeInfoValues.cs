@@ -15,10 +15,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 BaseFieldInfoValues.Navigation
             },
 
-            ContentTypeId = new SPContentTypeId(BrowsableItemContentType),
-            ContentGroupResourceKey = BaseResources.ContentTypeGroup,
-            DescriptionResourceKey = BaseResources.ContentTypeBrowsableItemDescription,
-            TitleResourceKey = BaseResources.ContentTypeBrowsableItemTitle
+            ContentTypeId = BrowsableItemContentType,
+
         };
 
         #endregion
@@ -29,10 +27,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             Fields = new List<FieldInfo>(){},
 
-            ContentTypeId = new SPContentTypeId(TranslatableItemContentType),
-            ContentGroupResourceKey = BaseResources.ContentTypeGroup,
-            DescriptionResourceKey = BaseResources.ContentTypeTranslatableItemDescription,
-            TitleResourceKey = BaseResources.ContentTypeTranslatableItemTitle
+            ContentTypeId = TranslatableItemContentType,
         };
 
         #endregion
@@ -46,10 +41,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 BaseFieldInfoValues.PublishingPageContent
             },
 
-            ContentTypeId = new SPContentTypeId(DefaultItemContentType),
-            ContentGroupResourceKey = BaseResources.ContentTypeGroup,
-            DescriptionResourceKey = BaseResources.ContentTypeDefaultItemDescription,
-            TitleResourceKey = BaseResources.ContentTypeDefaultItemTitle
+            ContentTypeId = DefaultItemContentType,
         };
 
         #endregion
@@ -60,10 +52,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             Fields = new List<FieldInfo>() { },
 
-            ContentTypeId = new SPContentTypeId(CatalogContentItemContentType),
-            ContentGroupResourceKey = BaseResources.ContentTypeGroup,
-            DescriptionResourceKey = BaseResources.ContentTypeContentItemDescription,
-            TitleResourceKey = BaseResources.ContentTypeCatalogContentItemTitle
+            ContentTypeId = CatalogContentItemContentType,
         };
 
         #endregion
@@ -74,10 +63,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             Fields = new List<FieldInfo>() { },
 
-            ContentTypeId = new SPContentTypeId(TargetContentItemContentType),
-            ContentGroupResourceKey = BaseResources.ContentTypeGroup,
-            DescriptionResourceKey = BaseResources.ContentTypeTargetContentItemDescription,
-            TitleResourceKey = BaseResources.ContentTypeTargetContentItemTitle
+            ContentTypeId = TargetContentItemContentType,
         };
 
         #endregion
@@ -88,10 +74,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             Fields = new List<FieldInfo>() { },
 
-            ContentTypeId = new SPContentTypeId(ContentItemContentType),
-            ContentGroupResourceKey = BaseResources.ContentTypeGroup,
-            DescriptionResourceKey = BaseResources.ContentTypeContentItemDescription,
-            TitleResourceKey = BaseResources.ContentTypeContentItemTitle
+            ContentTypeId = ContentItemContentType,
         };
 
         #endregion
@@ -107,10 +90,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 BaseFieldInfoValues.ImageDescription
             },
 
-            ContentTypeId = new SPContentTypeId(NewsItemContentType),
-            ContentGroupResourceKey = BaseResources.ContentTypeGroup,
-            DescriptionResourceKey = BaseResources.ContentTypeNewsItemDescription,
-            TitleResourceKey = BaseResources.ContentTypeNewsItemTitle
+            ContentTypeId = NewsItemContentType,
         };
 
         #endregion
