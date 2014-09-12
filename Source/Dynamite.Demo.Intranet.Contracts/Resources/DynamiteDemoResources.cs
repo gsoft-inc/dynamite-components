@@ -45,5 +45,19 @@
 
 
         #endregion
+
+        #region Lists
+
+        /// <summary>
+        /// The News Pages list name
+        /// </summary>
+        public static readonly string DynamiteCatalogTitle = "List_DynamitePages_Name";
+
+        /// <summary>
+        /// The News Pages list description 
+        /// </summary>
+        public static readonly string DynamiteCatalogDescription = "List_DynamitePages_Desc";
+
+        #endregion
     }
 }

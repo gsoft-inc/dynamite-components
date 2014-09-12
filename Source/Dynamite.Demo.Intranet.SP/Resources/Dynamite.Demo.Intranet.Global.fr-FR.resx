@@ -138,4 +138,10 @@
   <data name="Fields_DynamiteDemoGroup_Name" xml:space="preserve">
     <value>Colonnes de demo Dynamite</value>
   </data>
+  <data name="List_DynamitePages_Desc" xml:space="preserve">
+    <value>Catalogue de demo Dynamite</value>
+  </data>
+  <data name="List_DynamitePages_Name" xml:space="preserve">
+    <value>Catalogue de demo Dynamite</value>
+  </data>
 </root>

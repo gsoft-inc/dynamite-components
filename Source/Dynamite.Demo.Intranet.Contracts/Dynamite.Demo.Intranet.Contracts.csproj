@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\DynamiteDemoCatalogInfoValues.cs" />
     <Compile Include="Constants\DynamiteDemoContentTypeInfoValues.cs" />
     <Compile Include="Constants\DynamiteDemoFieldInfoValues.cs" />
     <Compile Include="Resources\DynamiteDemoResources.cs" />

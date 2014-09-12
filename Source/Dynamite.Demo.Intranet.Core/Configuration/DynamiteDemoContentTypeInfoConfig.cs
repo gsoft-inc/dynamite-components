@@ -20,7 +20,7 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
         {
             var contentTypes = new Dictionary<string, ContentTypeInfo>
             {
-                {DynamiteDemoContentTypesKeys.DynamiteItem, _contentTypeInfoValues.DynamiteItem()},
+                {DynamiteDemoContentTypesInfoKeys.DynamiteItem, _contentTypeInfoValues.DynamiteItem()},
             };
 
             return contentTypes;

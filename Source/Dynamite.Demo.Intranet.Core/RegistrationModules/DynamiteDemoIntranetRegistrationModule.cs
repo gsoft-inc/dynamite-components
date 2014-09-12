@@ -23,10 +23,12 @@ namespace Dynamite.Demo.Intranet.Core.RegistrationModules
             // Overridable default Portal config (i.e. plugin hooks and slots, with sensible defaults)
             builder.RegisterType<DynamiteDemoContentTypeInfoConfig>().As<ICustomContentTypeInfoConfig>();
             builder.RegisterType<DynamiteDemoFieldInfoConfig>().As<ICustomFieldInfoConfig>();
-
+            builder.RegisterType<DynamiteDemoCatalogInfoConfig>().As<ICustomCatalogInfoConfig>();
+            
             // Configuration Values
             builder.RegisterType<DynamiteDemoFieldInfoValues>();
             builder.RegisterType<DynamiteDemoContentTypeInfoValues>();
+            builder.RegisterType<DynamiteDemoCatalogInfoValues>(); 
         }
     }
 }
