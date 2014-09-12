@@ -1,8 +1,8 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
 # Model  		: Cross Site Publishing CMS
-# File          : Setup-Fields.ps1.template
-# Description	: Create fields
+# File          : Setup-Catalogs.ps1.template
+# Description	: Create catalogs
 # -----------------------------------------------------------------------
 param([string] $LogFolderPath)
 
@@ -23,20 +23,19 @@ $VerbosePreference ="Continue"
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
-$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalFieldsConfigurationFile]]"
+$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalCatalogsConfigurationFile]]"
+
 $ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
 
-Write-Warning "Applying Fields configuration..."
+Write-Warning "Applying Catalogs configuration..."
 
 # Apply default site columns creation and content types
 [xml]$featureXml = Get-Content $ConfigurationFilePath
 
 # Activate features
-Initialize-DSPSiteCollectionsFeatures $featureXml $true
+Initialize-DSPWebFeatures $featureXml $true
 
 # ------------------------ Log End --------------------------------------
 # Stop log transcript
 Stop-Transcript
 # -----------------------------------------------------------------------
-
-

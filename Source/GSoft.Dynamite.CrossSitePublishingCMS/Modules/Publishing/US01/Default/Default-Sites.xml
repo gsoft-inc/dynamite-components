@@ -10,5 +10,7 @@
   <Site Name="Publishing Site" HostNamePath="http://intranet.dynamite.com" RelativePath="" IsAnonymous="True"  OwnerAlias="OFFICE\franck.cornu" Language="1033" Template="BLANKINTERNET#0" ContentDatabase="SP2013_Content_Portal">
   </Site>
   <Site Name="Authoring Site" HostNamePath="http://authoring.dynamite.com" RelativePath="" OwnerAlias="OFFICE\franck.cornu" Language="1033" Template="BLANKINTERNET#0" ContentDatabase="SP2013_Content_Portal">
+    <!-- Cross-site publishing -->
+    <Feature GUID="151d22d9-95a8-4904-a0a3-22e4db85d1e0" Name="CrossSiteCollectionPublishing" />
   </Site>
 </WebApplication>

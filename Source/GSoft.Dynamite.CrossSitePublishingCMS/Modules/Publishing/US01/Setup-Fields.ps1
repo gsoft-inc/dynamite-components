@@ -26,7 +26,7 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $DefaultConfigurationFile = "./Default/Default-Fields.xml"
 $ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
 
-Write-Warning "Applying default configuration..."
+Write-Warning "Applying Fields configuration..."
 
 # Apply default site columns creation and content types
 [xml]$featureXml = Get-Content $ConfigurationFilePath
@@ -38,7 +38,5 @@ Initialize-DSPSiteCollectionsFeatures $featureXml $true
 # Stop log transcript
 Stop-Transcript
 # -----------------------------------------------------------------------
-
-
 
 

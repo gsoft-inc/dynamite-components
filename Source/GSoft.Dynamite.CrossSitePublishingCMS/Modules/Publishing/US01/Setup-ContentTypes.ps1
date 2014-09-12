@@ -27,7 +27,7 @@ $DefaultConfigurationFile = "./Default/Default-ContentTypes.xml"
 
 $ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
 
-Write-Warning "Applying default configuration..."
+Write-Warning "Applying Content Types configuration..."
 
 # Apply default site columns creation and content types
 [xml]$featureXml = Get-Content $ConfigurationFilePath

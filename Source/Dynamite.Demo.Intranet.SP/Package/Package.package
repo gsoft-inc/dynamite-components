@@ -5,9 +5,6 @@
     <projectOutputAssembly location="Dynamite.Demo.Intranet.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\Dynamite.Demo.Intranet.Core\Dynamite.Demo.Intranet.Core.csproj" />
     <projectOutputAssembly location="Dynamite.Demo.Intranet.ServiceLocator.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\Dynamite.Demo.Intranet.ServiceLocator\Dynamite.Demo.Intranet.ServiceLocator.csproj" />
   </assemblies>
-  <features>
-    <featureReference itemId="c6e126de-6a0a-4ce3-a8b6-cc2212788792" />
-  </features>
   <projectItems>
     <projectItemReference itemId="811c34e3-b767-4827-9443-50c3139043c5" />
   </projectItems>

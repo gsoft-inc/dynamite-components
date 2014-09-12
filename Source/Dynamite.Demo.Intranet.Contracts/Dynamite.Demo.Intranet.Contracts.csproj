@@ -64,7 +64,7 @@
   <ItemGroup>
     <Compile Include="Constants\DynamiteDemoContentTypeInfoValues.cs" />
     <Compile Include="Constants\DynamiteDemoFieldInfoValues.cs" />
-    <Compile Include="Constants\DynamiteDemoResources.cs" />
+    <Compile Include="Resources\DynamiteDemoResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

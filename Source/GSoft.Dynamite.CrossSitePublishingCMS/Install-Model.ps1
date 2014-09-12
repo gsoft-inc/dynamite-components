@@ -31,7 +31,7 @@ Start-Transcript -Path $LogFile
 
 ./Solutions/Copy-Solutions.ps1
 
-#./Solutions/Deploy-Solutions.ps1
+#./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
 
 # ********** PUBLISHING MODULE ********** #
 

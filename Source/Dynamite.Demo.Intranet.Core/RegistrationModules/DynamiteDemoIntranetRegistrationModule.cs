@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Dynamite.Demo.Intranet.Contracts.Constants;
 using Dynamite.Demo.Intranet.Core.Configuration;
 using Dynamite.Demo.Intranet.Core.Resources;
 using GSoft.Dynamite.Globalization;
@@ -20,8 +21,12 @@ namespace Dynamite.Demo.Intranet.Core.RegistrationModules
             builder.RegisterType<DynamiteDemoResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Overridable default Portal config (i.e. plugin hooks and slots, with sensible defaults)
-            builder.RegisterType<DynamiteDemoContentTypesConfig>().As<ICustomContentTypeInfoConfig>();
+            builder.RegisterType<DynamiteDemoContentTypeInfoConfig>().As<ICustomContentTypeInfoConfig>();
+            builder.RegisterType<DynamiteDemoFieldInfoConfig>().As<ICustomFieldInfoConfig>();
 
+            // Configuration Values
+            builder.RegisterType<DynamiteDemoFieldInfoValues>();
+            builder.RegisterType<DynamiteDemoContentTypeInfoValues>();
         }
     }
 }

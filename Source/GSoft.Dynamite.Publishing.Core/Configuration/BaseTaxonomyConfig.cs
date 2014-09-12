@@ -9,11 +9,18 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
     public class BaseTaxonomyConfig : IBaseTaxonomyConfig
     {
+        private readonly BaseTermGroupInfoValues _termGroupInfoValues;
+
+        public BaseTaxonomyConfig(BaseTermGroupInfoValues termGroupInfoValues)
+        {
+            _termGroupInfoValues = termGroupInfoValues;
+        }
+
         public IDictionary<string, TermGroupInfo> TermGroups()
         {
             var termGroups = new Dictionary<string, TermGroupInfo>
             {
-                {BaseTermGroupInfoKeys.NavigationTermGroup, BaseTermGroupInfoValues.Navigation}
+                {BaseTermGroupInfoKeys.NavigationTermGroup, _termGroupInfoValues.Navigation()}
             };
 
             return termGroups;

@@ -42,12 +42,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Modules\Publishing\US01\Default\Default-Catalogs.xml.template" />
     <None Include="Modules\Publishing\US01\Default\Default-ContentTypes.xml.template" />
     <None Include="Modules\Publishing\US01\Default\Default-RestrictedTermGroup.xml.template" />
     <None Include="Modules\Publishing\US01\Export-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\US01\Import-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\US01\Install-US01.ps1" />
     <None Include="Modules\Publishing\US01\Remove-TermGroups.ps1.template" />
+    <None Include="Modules\Publishing\US01\Setup-Catalogs.ps1.template" />
     <None Include="Modules\Publishing\US01\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Publishing\US01\Setup-Sites.ps1.template" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />

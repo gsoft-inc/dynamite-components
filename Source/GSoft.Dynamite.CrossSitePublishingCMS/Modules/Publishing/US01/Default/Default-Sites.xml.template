@@ -10,5 +10,7 @@
   <Site Name="Publishing Site" HostNamePath="[[DSP_PortalPublishingHostNamePath]]" RelativePath="" IsAnonymous="True"  OwnerAlias="[[DSP_PortalAdmin]]" Language="[[DSP_PortalDefaultLanguage]]" Template="BLANKINTERNET#0" ContentDatabase="[[DSP_PortalDatabaseName]]">
   </Site>
   <Site Name="Authoring Site" HostNamePath="[[DSP_PortalAuthoringHostNamePath]]" RelativePath="" OwnerAlias="[[DSP_PortalAdmin]]" Language="[[DSP_PortalDefaultLanguage]]" Template="BLANKINTERNET#0" ContentDatabase="[[DSP_PortalDatabaseName]]">
+    <!-- Cross-site publishing -->
+    <Feature GUID="151d22d9-95a8-4904-a0a3-22e4db85d1e0" Name="CrossSiteCollectionPublishing" />
   </Site>
 </WebApplication>

@@ -1,34 +1,62 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
-    public static class BaseTermGroupInfoValues
+    /// <summary>
+    /// Base TermGroupInfo values
+    /// </summary>
+    public  class BaseTermGroupInfoValues
     {
+        private BaseTermSetInfoValues _termSetInfoValues;
+
+        public BaseTermGroupInfoValues(BaseTermSetInfoValues termSetInfoValues)
+        {
+            _termSetInfoValues = termSetInfoValues;
+        }
+
+
         #region Navigation Term Group
 
-        public static readonly TermGroupInfo Navigation = new TermGroupInfo()
+        /// <summary>
+        /// The navigation term group
+        /// </summary>
+        /// <returns>The term group</returns>
+        public TermGroupInfo Navigation ()
         {
-            Name = "Portal - Navigation",
-            TermSets = new Dictionary<string, TermSetInfo>()
+            return new TermGroupInfo()
             {
-                {BaseTermSetInfoKeys.GlobalNavigationTermSet,BaseTermSetInfoValues.GlobalNavigation}
-            }
-        };
+                Id = new Guid("6c3fb5cb-ea19-4a77-9c39-dc1583523f97"),
+                Name = "Portal - Navigation",
+                TermSets = new Dictionary<string, TermSetInfo>()
+                {
+                    {BaseTermSetInfoKeys.GlobalNavigationTermSet,_termSetInfoValues.GlobalNavigation()}
+                }
+            };
+        }
 
         #endregion
 
         #region Restricted Term Group
 
-        public static readonly TermGroupInfo Restricted = new TermGroupInfo()
+        /// <summary>
+        /// The restricted term group
+        /// </summary>
+        /// <returns>The term group</returns>
+        public TermGroupInfo Restricted()
         {
-            Name = "Portal - Restricted",
-            TermSets = new Dictionary<string, TermSetInfo>()
+            return new TermGroupInfo()
             {
-                {BaseTermSetInfoKeys.RestrictedNewsTermSet,BaseTermSetInfoValues.RestrictedNews}
-            }
-        };
+                Id = new Guid("5a4b4147-be07-4f1e-9b90-262ae89cd5d3"),
+                Name = "Portal - Restricted",
+                TermSets = new Dictionary<string, TermSetInfo>()
+                {
+                    {BaseTermSetInfoKeys.RestrictedNewsTermSet, _termSetInfoValues.RestrictedNews()}
+                }
+            };
+        }
 
         #endregion
     }

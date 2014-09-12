@@ -2,6 +2,7 @@
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Portal.Core.Resources;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Core.Configuration;
 
 namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
@@ -31,6 +32,16 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             // Term Sets
             builder.RegisterType<BaseTaxonomyConfig>().As<IBaseTaxonomyConfig>();
 
+            // Catalogs
+            builder.RegisterType<BaseCatalogInfoConfig>().As<IBaseCatalogInfoConfig>();
+
+            // Configuration Values
+            builder.RegisterType<BaseContentTypeInfoValues>();
+            builder.RegisterType<BaseFieldInfoValues>();
+            builder.RegisterType<BaseCatalogInfoValues>();
+            builder.RegisterType<BaseTermGroupInfoValues>();
+            builder.RegisterType<BaseTermSetInfoValues>();
+            builder.RegisterType<BaseTermInfoValues>();
         }
     }
 }

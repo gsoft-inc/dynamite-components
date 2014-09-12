@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
@@ -39,24 +40,12 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Internal_Fields
                     var baseFieldInfoConfig = featureScope.Resolve<IBaseFieldInfoConfig>();
                     var baseFields = baseFieldInfoConfig.Fields();
                     var logger = featureScope.Resolve<ILogger>();
-                    var taxonomyHelper = featureScope.Resolve<TaxonomyHelper>();
-                    var termStoreConfig = featureScope.Resolve<IBaseTaxonomyConfig>();
 
                     // Create base Fields
                     foreach (KeyValuePair<string, FieldInfo> field in baseFields)
                     {
                         fieldHelper.EnsureField(site.RootWeb.Fields, field.Value);
                     }
-
-                    var termGroups = termStoreConfig.TermGroups();
-
-                    // Navigation Column
-                    taxonomyHelper.AssignTermSetToSiteColumn(
-                        site.RootWeb,
-                        BaseFieldInfoValues.Navigation.Id,
-                        termGroups[BaseTermGroupInfoKeys.NavigationTermGroup].Name,
-                        termGroups[BaseTermGroupInfoKeys.NavigationTermGroup].TermSets[BaseTermSetInfoKeys.GlobalNavigationTermSet].Labels[Language.English.Culture.LCID],
-                        string.Empty);
 
                     // Create additionnal custom fields
                     ICustomFieldInfoConfig customContentTypeConfig = null;

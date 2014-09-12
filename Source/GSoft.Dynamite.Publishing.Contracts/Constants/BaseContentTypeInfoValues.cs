@@ -1,97 +1,272 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using GSoft.Dynamite.Definitions;
-using Microsoft.SharePoint;
+using GSoft.Dynamite.Globalization;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
-    public static class BaseContentTypeInfoValues
+    /// <summary>
+    /// Base ContentTypeInfo values
+    /// </summary>
+    public class BaseContentTypeInfoValues
     {
+        private readonly IResourceLocator _resourceLocator;
+        private readonly string _resourceFileName = BaseResources.Global;
+        private readonly BaseFieldInfoValues _fieldInfoValues;
+
+        /// <summary>
+        /// The BaseContentTypeInfoValues constructor
+        /// </summary>
+        /// <param name="resourceLocator">The resource locator instance</param>
+        /// <param name="fieldInfoValues">The field info instance</param>
+        public BaseContentTypeInfoValues(IResourceLocator resourceLocator, BaseFieldInfoValues fieldInfoValues)
+        {
+            _resourceLocator = resourceLocator;
+            _fieldInfoValues = fieldInfoValues;
+        }
+
         #region Browsable Item
 
-        public static readonly ContentTypeInfo BrowsableItem = new ContentTypeInfo()
+        /// <summary>
+        /// The browsable item content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public  ContentTypeInfo BrowsableItem()
         {
-            Fields = new List<FieldInfo>()
+            return new ContentTypeInfo()
             {
-                BaseFieldInfoValues.Navigation
-            },
+                Fields = new List<FieldInfo>()
+                {
+                    _fieldInfoValues.Navigation()
+                },
 
-            ContentTypeId = BrowsableItemContentType,
+                ContentTypeId = BrowsableItemContentType,
 
-        };
+                // Default content type name
+                DisplayName = _resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeBrowsableItemTitle,new CultureInfo(1033)),
+
+                TitleResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeBrowsableItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeBrowsableItemTitle,new CultureInfo(1036))}
+                },
+
+                DescriptionResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeBrowsableItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeBrowsableItemDescription,new CultureInfo(1036))}
+                },
+
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.ContentTypeGroup)
+            };
+        }
 
         #endregion
 
         #region Translatable Item
 
-        public static readonly ContentTypeInfo TranslatableItem = new ContentTypeInfo()
+        /// <summary>
+        /// The translatable item content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo TranslatableItem()
         {
-            Fields = new List<FieldInfo>(){},
+            return new ContentTypeInfo()
+            {
+                Fields = new List<FieldInfo>() {},
 
-            ContentTypeId = TranslatableItemContentType,
-        };
+                ContentTypeId = TranslatableItemContentType,
+                DisplayName = _resourceLocator.Find(_resourceFileName, BaseResources.ContentTypeTranslatableItemTitle, new CultureInfo(1033)),
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.ContentTypeGroup),
+
+                TitleResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeTranslatableItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeTranslatableItemTitle,new CultureInfo(1036))}
+                },
+
+                DescriptionResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeTranslatableItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeTranslatableItemDescription,new CultureInfo(1036))}
+                },
+            };
+        }
 
         #endregion
 
         #region Default Item
 
-        public static readonly ContentTypeInfo DefaultItem = new ContentTypeInfo()
+        /// <summary>
+        /// The default item content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo DefaultItem()
         {
-            Fields = new List<FieldInfo>()
+            return new ContentTypeInfo()
             {
-                BaseFieldInfoValues.PublishingPageContent
-            },
+                 Fields = new List<FieldInfo>()
+                {
+                    _fieldInfoValues.PublishingPageContent()
+                },
 
-            ContentTypeId = DefaultItemContentType,
-        };
+                ContentTypeId = DefaultItemContentType,
+
+                DisplayName = _resourceLocator.Find(_resourceFileName, BaseResources.ContentTypeDefaultItemTitle, new CultureInfo(1033)),
+
+                TitleResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeDefaultItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeDefaultItemTitle,new CultureInfo(1036))}
+                },
+
+                 DescriptionResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeDefaultItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeDefaultItemDescription,new CultureInfo(1036))}
+                },
+
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.ContentTypeGroup)
+            };
+           
+        }
 
         #endregion
 
         #region Catalog Content Item
 
-        public static readonly ContentTypeInfo CatalogContentItem = new ContentTypeInfo()
+        /// <summary>
+        /// The catalog content item content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo CatalogContentItem()
         {
-            Fields = new List<FieldInfo>() { },
+            return new ContentTypeInfo()
+            {
+                Fields = new List<FieldInfo>() { },
 
-            ContentTypeId = CatalogContentItemContentType,
-        };
+                ContentTypeId = CatalogContentItemContentType,
+                DisplayName = _resourceLocator.Find(_resourceFileName, BaseResources.ContentCatalogTitle, new CultureInfo(1033)),
+
+                TitleResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentCatalogTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentCatalogTitle,new CultureInfo(1036))}
+                },
+
+                DescriptionResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentCatalogDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentCatalogDescription,new CultureInfo(1036))}
+                },
+
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.ContentTypeGroup)
+            };
+
+        }
 
         #endregion
 
         #region Target Content Item
 
-        public static readonly ContentTypeInfo TargetContentItem = new ContentTypeInfo()
+        /// <summary>
+        /// The target content item content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo TargetContentItem()
         {
-            Fields = new List<FieldInfo>() { },
+            return new ContentTypeInfo()
+            {
+                Fields = new List<FieldInfo>() { },
 
-            ContentTypeId = TargetContentItemContentType,
-        };
+                ContentTypeId = TargetContentItemContentType,
+                DisplayName = _resourceLocator.Find(_resourceFileName, BaseResources.ContentTypeTargetContentItemTitle, new CultureInfo(1033)),
+
+                TitleResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeTargetContentItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeTargetContentItemTitle,new CultureInfo(1036))}
+                },
+
+                DescriptionResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeTargetContentItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeTargetContentItemDescription,new CultureInfo(1036))}
+                },
+
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.ContentTypeGroup)
+            };
+        }
 
         #endregion
 
         #region Content Item
 
-        public static readonly ContentTypeInfo ContentItem = new ContentTypeInfo()
+        /// <summary>
+        /// The content item content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo ContentItem()
         {
-            Fields = new List<FieldInfo>() { },
+            return new ContentTypeInfo()
+            {
+                Fields = new List<FieldInfo>() {},
+                ContentTypeId = ContentItemContentType,
+                DisplayName = _resourceLocator.Find(_resourceFileName, BaseResources.ContentTypeContentItemTitle, new CultureInfo(1033)),
 
-            ContentTypeId = ContentItemContentType,
-        };
+                TitleResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeContentItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeContentItemTitle,new CultureInfo(1036))}
+                },
+
+                DescriptionResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeContentItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeContentItemDescription,new CultureInfo(1036))}
+                },
+
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.ContentTypeGroup)
+            };
+        }
 
         #endregion
 
         #region News Item
 
-        public static readonly ContentTypeInfo NewsItem = new ContentTypeInfo()
+        /// <summary>
+        /// The news item content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo NewsItem()
         {
-            Fields = new List<FieldInfo>()
+            return new ContentTypeInfo()
             {
-                BaseFieldInfoValues.Summary,
-                BaseFieldInfoValues.PublishingPageImage,
-                BaseFieldInfoValues.ImageDescription
-            },
+                DisplayName = _resourceLocator.Find(_resourceFileName, BaseResources.ContentTypeNewsItemTitle, new CultureInfo(1033)),
 
-            ContentTypeId = NewsItemContentType,
-        };
+                TitleResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeNewsItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeNewsItemTitle,new CultureInfo(1036))}
+                },
+
+                DescriptionResources = new Dictionary<CultureInfo, string>()
+                {
+                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeNewsItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BaseResources.ContentTypeNewsItemDescription,new CultureInfo(1036))}
+                },
+
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.ContentTypeGroup),
+
+                Fields = new List<FieldInfo>()
+                {
+                    _fieldInfoValues.Summary(),
+                    _fieldInfoValues.PublishingPageImage(),
+                    _fieldInfoValues.ImageDescription()
+                },
+                ContentTypeId = NewsItemContentType,
+            };
+        }
 
         #endregion
 

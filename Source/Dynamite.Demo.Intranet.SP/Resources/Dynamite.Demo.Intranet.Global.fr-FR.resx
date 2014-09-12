@@ -117,22 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ContentType_DynamiteDemoContentItem_Description" xml:space="preserve">
-    <value>Custom Content Item</value>
+  <data name="ContentType_DynamiteDemoContentItem_Desc" xml:space="preserve">
+    <value>Élément Dynamite</value>
   </data>
   <data name="ContentType_DynamiteDemoContentItem_Name" xml:space="preserve">
-    <value>Custom Content Item</value>
+    <value>Élément Dynamite</value>
   </data>
   <data name="ContentType_DynamiteDemoGroup_Name" xml:space="preserve">
-    <value>Dynamite Content Types Group</value>
+    <value>Types de contenus Dynamite</value>
   </data>
   <data name="DynamiteDemo_Columns_Group" xml:space="preserve">
     <value>Dynamite Demo Columns Group</value>
   </data>
-  <data name="Field_DynamiteDemoMyColumn_Desc" xml:space="preserve">
-    <value>Custom Column </value>
+  <data name="Fields_DynamiteDemoColumnTitlte_Desc" xml:space="preserve">
+    <value>Colonne de demo Dynamite</value>
   </data>
-  <data name="Field_DynamiteDemoMyColumn_Name" xml:space="preserve">
-    <value>Custom Column</value>
+  <data name="Fields_DynamiteDemoColumnTitlte_Name" xml:space="preserve">
+    <value>Colonne de demo Dynamite</value>
+  </data>
+  <data name="Fields_DynamiteDemoGroup_Name" xml:space="preserve">
+    <value>Colonnes de demo Dynamite</value>
   </data>
 </root>

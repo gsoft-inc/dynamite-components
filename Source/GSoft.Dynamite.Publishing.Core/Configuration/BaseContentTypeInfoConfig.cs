@@ -15,55 +15,24 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
     public class BaseContentTypeInfoConfig: IBaseContentTypeInfoConfig
     {
-        private readonly IResourceLocator _resourceLocator;
+        private readonly BaseContentTypeInfoValues _contentTypeInfoValues;
 
-        public BaseContentTypeInfoConfig(IResourceLocator resourceLocator)
+        public BaseContentTypeInfoConfig(BaseContentTypeInfoValues contentTypeInfoValues)
         {
-            _resourceLocator = resourceLocator;
+            _contentTypeInfoValues = contentTypeInfoValues;
         }
 
         public IDictionary<string, ContentTypeInfo> ContentTypes()
         {
-            var resourceFileName = BaseResources.Global;
-
-            // Get resources strings
-            BaseContentTypeInfoValues.TranslatableItem.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeTranslatableItemTitle);
-            BaseContentTypeInfoValues.TranslatableItem.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeTranslatableItemDescription);
-            BaseContentTypeInfoValues.TranslatableItem.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeGroup);
-
-            BaseContentTypeInfoValues.CatalogContentItem.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeCatalogContentItemTitle);
-            BaseContentTypeInfoValues.CatalogContentItem.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeCatalogContentItemDescription);
-            BaseContentTypeInfoValues.CatalogContentItem.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeGroup);
-
-            BaseContentTypeInfoValues.TargetContentItem.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeTargetContentItemTitle);
-            BaseContentTypeInfoValues.TargetContentItem.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeTargetContentItemDescription);
-            BaseContentTypeInfoValues.TargetContentItem.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeGroup);
-
-            BaseContentTypeInfoValues.BrowsableItem.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeBrowsableItemTitle);
-            BaseContentTypeInfoValues.BrowsableItem.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeBrowsableItemDescription);
-            BaseContentTypeInfoValues.BrowsableItem.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeGroup);
-
-            BaseContentTypeInfoValues.DefaultItem.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeDefaultItemTitle);
-            BaseContentTypeInfoValues.DefaultItem.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeDefaultItemDescription);
-            BaseContentTypeInfoValues.DefaultItem.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeGroup);
-
-            BaseContentTypeInfoValues.NewsItem.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeNewsItemTitle);
-            BaseContentTypeInfoValues.NewsItem.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeNewsItemDescription);
-            BaseContentTypeInfoValues.NewsItem.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeGroup);
-
-            BaseContentTypeInfoValues.ContentItem.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeContentItemTitle);
-            BaseContentTypeInfoValues.ContentItem.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeContentItemDescription);
-            BaseContentTypeInfoValues.ContentItem.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.ContentTypeGroup);
-
             var contentTypes = new Dictionary<string, ContentTypeInfo>
             {
-                {BaseContentTypeInfoKeys.TranslatableItem, BaseContentTypeInfoValues.TranslatableItem},
-                {BaseContentTypeInfoKeys.BrowsableItem, BaseContentTypeInfoValues.BrowsableItem},
-                {BaseContentTypeInfoKeys.DefaultItem, BaseContentTypeInfoValues.DefaultItem},
-                {BaseContentTypeInfoKeys.CatalogContentItem, BaseContentTypeInfoValues.CatalogContentItem},
-                {BaseContentTypeInfoKeys.TargetContentItem, BaseContentTypeInfoValues.TargetContentItem},
-                {BaseContentTypeInfoKeys.NewsItem, BaseContentTypeInfoValues.NewsItem},
-                {BaseContentTypeInfoKeys.ContentItem, BaseContentTypeInfoValues.ContentItem}
+                {BaseContentTypeInfoKeys.TranslatableItem, _contentTypeInfoValues.TranslatableItem()},
+                {BaseContentTypeInfoKeys.BrowsableItem, _contentTypeInfoValues.BrowsableItem()},
+                {BaseContentTypeInfoKeys.DefaultItem, _contentTypeInfoValues.DefaultItem()},
+                {BaseContentTypeInfoKeys.CatalogContentItem, _contentTypeInfoValues.CatalogContentItem()},
+                {BaseContentTypeInfoKeys.TargetContentItem, _contentTypeInfoValues.TargetContentItem()},
+                {BaseContentTypeInfoKeys.NewsItem, _contentTypeInfoValues.NewsItem()},
+                {BaseContentTypeInfoKeys.ContentItem, _contentTypeInfoValues.ContentItem()}
             };
 
             return contentTypes;

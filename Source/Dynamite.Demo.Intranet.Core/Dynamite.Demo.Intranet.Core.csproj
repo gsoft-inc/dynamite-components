@@ -61,8 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\DynamiteDemoContentTypesConfig.cs" />
+    <Compile Include="Configuration\DynamiteDemoContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\DynamiteDemoFieldInfoConfig.cs" />
     <Compile Include="Keys\DynamiteDemoContentTypesKeys.cs" />
+    <Compile Include="Keys\DynamiteDemoFieldInfoKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\DynamiteDemoIntranetRegistrationModule.cs" />
     <Compile Include="Resources\DynamiteDemoResourceLocatorConfig.cs" />

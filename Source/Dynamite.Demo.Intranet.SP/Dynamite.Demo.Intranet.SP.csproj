@@ -70,12 +70,6 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
-    <None Include="Features\SiteColumns\SiteColumns.feature">
-      <FeatureId>{c6e126de-6a0a-4ce3-a8b6-cc2212788792}</FeatureId>
-    </None>
-    <None Include="Modules\SiteColumns\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{009e0e25-e60b-4789-b783-79b0035c10fa}</SharePointProjectItemId>
-    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{39597410-18d5-43b9-a1d1-b363b1902673}</PackageId>
@@ -87,12 +81,10 @@
       <SharePointProjectItemId>{811c34e3-b767-4827-9443-50c3139043c5}</SharePointProjectItemId>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Features\SiteColumns\SiteColumns.Template.xml">
-      <DependentUpon>SiteColumns.feature</DependentUpon>
-    </Content>
-    <Content Include="Modules\SiteColumns\Elements.xml" />
+    <Folder Include="Features\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Resources\Dynamite.Demo.Intranet.Global.fr-FR.resx" />
   </ItemGroup>
   <ItemGroup>

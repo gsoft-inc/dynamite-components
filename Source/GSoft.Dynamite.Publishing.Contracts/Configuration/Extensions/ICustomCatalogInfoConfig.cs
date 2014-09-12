@@ -5,6 +5,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions
 {
     public interface ICustomCatalogInfoConfig
     {
+        /// <summary>
+        /// Catalogs definition
+        /// </summary>
+        /// <returns>The catalog configuration</returns>
         IDictionary<string, CatalogInfo> Catalogs();
     }
 }

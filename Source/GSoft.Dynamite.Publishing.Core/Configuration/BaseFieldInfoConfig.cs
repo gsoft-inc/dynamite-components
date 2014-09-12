@@ -14,35 +14,20 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
     public class BaseFieldInfoConfig: IBaseFieldInfoConfig
     {
-        private readonly IResourceLocator _resourceLocator; 
+        private readonly BaseFieldInfoValues _fieldInfoValues;
 
-        public BaseFieldInfoConfig(IResourceLocator resourceLocator)
+        public BaseFieldInfoConfig(BaseFieldInfoValues fieldInfoValues)
         {
-            _resourceLocator = resourceLocator;
+            _fieldInfoValues = fieldInfoValues;
         }
 
         public IDictionary<string, FieldInfo> Fields()
         {
-            var resourceFileName = BaseResources.Global;
-
-            // Get resources strings
-            BaseFieldInfoValues.Navigation.DisplayName = _resourceLocator.GetResourceString(resourceFileName,BaseResources.FieldPortalNavigationName);
-            BaseFieldInfoValues.Navigation.Description = _resourceLocator.GetResourceString(resourceFileName,BaseResources.FieldPortalNavigationDescription);
-            BaseFieldInfoValues.Navigation.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.FieldGroup);
-
-            BaseFieldInfoValues.Summary.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.FieldPortalSummaryName);
-            BaseFieldInfoValues.Summary.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.FieldPortalSummaryDescription);
-            BaseFieldInfoValues.Summary.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.FieldGroup);
-
-            BaseFieldInfoValues.ImageDescription.DisplayName = _resourceLocator.GetResourceString(resourceFileName, BaseResources.FieldPortalImageDescriptionName);
-            BaseFieldInfoValues.ImageDescription.Description = _resourceLocator.GetResourceString(resourceFileName, BaseResources.FieldPortalImageDescriptionDescription);
-            BaseFieldInfoValues.ImageDescription.Group = _resourceLocator.GetResourceString(resourceFileName, BaseResources.FieldGroup);
-
             var fields = new Dictionary<string, FieldInfo>
             {
-                {BaseFieldInfoKeys.Navigation,BaseFieldInfoValues.Navigation},
-                {BaseFieldInfoKeys.Summary,BaseFieldInfoValues.Summary},
-                {BaseFieldInfoKeys.ImageDescription,BaseFieldInfoValues.ImageDescription},
+                {BaseFieldInfoKeys.Navigation,_fieldInfoValues.Navigation()},
+                {BaseFieldInfoKeys.Summary,_fieldInfoValues.Summary()},
+                {BaseFieldInfoKeys.ImageDescription,_fieldInfoValues.ImageDescription()},
             };
 
             return fields;

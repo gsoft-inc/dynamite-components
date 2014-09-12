@@ -29,3 +29,7 @@ $DSP_DEFAULT_PortalContentTypesConfigurationFile = "./Default/Default-ContentTyp
 #### FIELDS
 
 $DSP_DEFAULT_PortalFieldsConfigurationFile = "./Default/Default-Fields.xml"
+
+#### CATALOGS
+
+$DSP_DEFAULT_PortalCatalogsConfigurationFile = "./Default/Default-Catalogs.xml"

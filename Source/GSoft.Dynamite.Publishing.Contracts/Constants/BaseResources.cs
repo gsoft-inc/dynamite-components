@@ -1,5 +1,8 @@
 ﻿namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
+    /// <summary>
+    /// Base resources
+    /// </summary>
     public static class BaseResources
     {
         /// <summary>
@@ -22,7 +25,7 @@
         /// <summary>
         /// The field Portal Navigation Description
         /// </summary>
-        public static readonly string FieldPortalNavigationDescription = "Field_PortalNavigation_Description";
+        public static readonly string FieldPortalNavigationDescription = "Field_PortalNavigation_Desc";
 
         /// <summary>
         /// The field Portal Navigation Name
@@ -32,7 +35,7 @@
         /// <summary>
         /// The field Portal Navigation Description
         /// </summary>
-        public static readonly string FieldPortalSummaryDescription = "Field_PortalSummary_Description";
+        public static readonly string FieldPortalSummaryDescription = "Field_PortalSummary_Desc";
 
         /// <summary>
         /// The field Portal Navigation Name
@@ -42,7 +45,7 @@
         /// <summary>
         /// The field Portal Navigation Description
         /// </summary>
-        public static readonly string FieldPortalImageDescriptionDescription = "Field_PortalImageDescription_Description";
+        public static readonly string FieldPortalImageDescriptionDescription = "Field_PortalImageDescription_Desc";
   
         #endregion
 
@@ -121,6 +124,31 @@
         /// The content type Target Content Item Description
         /// </summary>
         public static readonly string ContentTypeNewsItemDescription = "ContentType_NewsItem_Description";
+
+        #endregion
+
+        #region Lists
+
+        /// <summary>
+        /// The News Pages list name
+        /// </summary>
+        public static readonly string NewsCatalogTitle = "List_NewsPages_Name";
+
+        /// <summary>
+        /// The News Pages list description 
+        /// </summary>
+        public static readonly string NewsCatalogDescription = "List_NewsPages_Desc";
+
+        /// <summary>
+        /// The News Pages list name
+        /// </summary>
+        public static readonly string ContentCatalogTitle = "List_ContentPages_Name";
+
+        /// <summary>
+        /// The News Pages list description 
+        /// </summary>
+        public static readonly string ContentCatalogDescription = "List_ContentPages_Desc";
+
 
         #endregion
     }

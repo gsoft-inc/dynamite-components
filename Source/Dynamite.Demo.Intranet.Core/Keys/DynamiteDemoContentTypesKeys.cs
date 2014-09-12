@@ -2,6 +2,6 @@
 {
     public static class DynamiteDemoContentTypesKeys
     {
-        public static readonly string MyContentItem = "MyContentItem";
+        public static readonly string DynamiteItem = "DynamiteItem";
     }
 }

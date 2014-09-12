@@ -1,15 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Definitions.Values;
+using GSoft.Dynamite.Globalization;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
-    public static class BaseFieldInfoValues
+    /// <summary>
+    /// Base FieldInfo values
+    /// </summary>
+    public class BaseFieldInfoValues
     {
+        private readonly IResourceLocator _resourceLocator;
+        private readonly string _resourceFileName = BaseResources.Global;
+        private readonly BaseTermGroupInfoValues _termGroupInfoValues;
+        private readonly BaseTermSetInfoValues _termSetInfoValues;
+
+        public BaseFieldInfoValues(IResourceLocator resourceLocator, BaseTermGroupInfoValues termGroupInfoValues, BaseTermSetInfoValues termSetInfoValues)
+        {
+            _termGroupInfoValues = termGroupInfoValues;
+            _termSetInfoValues = termSetInfoValues;
+            _resourceLocator = resourceLocator;
+
+        }
+
         #region Field prefix
 
         // ReSharper disable once ConvertToConstant.Local
@@ -54,31 +69,60 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// The navigation field information
         /// </summary>
-        public static readonly TaxonomyFieldInfo Navigation = new TaxonomyFieldInfo()
+        /// <returns>The Navigation field</returns>
+        public TaxonomyFieldInfo Navigation()
         {
-            InternalName = NavigationFieldName,
-            Id =new Guid("{256DF203-3855-497F-B514-4C99D5BE79C9}")  ,
-        };
+            return new TaxonomyFieldInfo()
+            {
+                DisplayName = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldPortalNavigationName),
+                Description = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldPortalNavigationDescription),
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldGroup),
+                InternalName = NavigationFieldName,
+                Id =new Guid("{256DF203-3855-497F-B514-4C99D5BE79C9}"),
+                // Default managed metadata mapping configuration
+                DefaultValue = new TaxonomyFieldInfoValue()
+                {
+                    TermGroup = _termGroupInfoValues.Navigation(),
+                    TermSet = _termSetInfoValues.GlobalNavigation()
+                },
+                RequiredType = RequiredTypes.Required
+            };
+        }
 
         /// <summary>
         /// The summary field information
         /// </summary>
-        public static readonly TextFieldInfo Summary = new TextFieldInfo()
+        /// <returns>The Summary field</returns>
+        public TextFieldInfo Summary()
         {
-            InternalName = SummaryFieldName,
-            Id = new Guid("{BEA301A1-9285-4DC9-9ADF-77E5559B63ED}"),
-            IsMultiLine = true
-        };
+            return new TextFieldInfo()
+            {
+
+                DisplayName = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldPortalSummaryName),
+                Description = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldPortalSummaryDescription),
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldGroup),
+                InternalName = SummaryFieldName,
+                Id = new Guid("{BEA301A1-9285-4DC9-9ADF-77E5559B63ED}"),
+                IsMultiLine = true,
+            };
+        }
 
         /// <summary>
-        /// The summary field information
+        /// The image description field
         /// </summary>
-        public static readonly TextFieldInfo ImageDescription = new TextFieldInfo()
+        /// <returns>The ImageDescription field</returns>
+        public TextFieldInfo ImageDescription()
         {
-            InternalName = ImageDescriptionFieldName,
-            Id = new Guid("{23E12444-CD39-4604-B1B2-8D7F99A0836C}"),
-            IsMultiLine = true
-        };
+            return new TextFieldInfo()
+            {
+                DisplayName = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldPortalImageDescriptionName),
+                Description = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldPortalImageDescriptionDescription),
+                Group = _resourceLocator.GetResourceString(_resourceFileName, BaseResources.FieldGroup),
+                InternalName = ImageDescriptionFieldName,
+                Id = new Guid("{23E12444-CD39-4604-B1B2-8D7F99A0836C}"),
+                IsMultiLine = true
+            };
+        }
 
         #endregion
 
@@ -87,32 +131,38 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// The title field information
         /// </summary>
-        public static readonly FieldInfo Title = new FieldInfo(TitleFieldName, SPBuiltInFieldId.Title);
+        /// <returns>The field definition</returns>
+        public FieldInfo Title(){ return new FieldInfo(TitleFieldName, SPBuiltInFieldId.Title); }
 
         /// <summary>
         /// The publishing page content field information
         /// </summary>
-        public static readonly FieldInfo PublishingPageContent = new FieldInfo(PublishingPageContentFieldName, new Guid("{F55C4D88-1F2E-4ad9-AAA8-819AF4EE7EE8}"));
+        /// <returns>The field definition</returns>
+        public FieldInfo PublishingPageContent(){ return new FieldInfo(PublishingPageContentFieldName, new Guid("{F55C4D88-1F2E-4ad9-AAA8-819AF4EE7EE8}"));}
 
         /// <summary>
         /// The publishing page image field information
         /// </summary>
-        public static readonly FieldInfo PublishingPageImage = new FieldInfo(PublishingPageImageFieldName, new Guid("{3DE94B06-4120-41A5-B907-88773E493458}"));
+        /// <returns>The field definition</returns>
+        public FieldInfo PublishingPageImage(){ return new FieldInfo(PublishingPageImageFieldName, new Guid("{3DE94B06-4120-41A5-B907-88773E493458}"));}
 
         /// <summary>
         /// The publishing start date field information
         /// </summary>
-        public static readonly FieldInfo PublishingStartDate = new FieldInfo(PublishingStartDateFieldName, new Guid("{51D39414-03DC-4BD0-B777-D3E20CB350F7}"));
+        /// <returns>The field definition</returns>
+        public FieldInfo PublishingStartDate(){ return new FieldInfo(PublishingStartDateFieldName, new Guid("{51D39414-03DC-4BD0-B777-D3E20CB350F7}"));}
 
         /// <summary>
         /// The publishing end date field information
         /// </summary>
-        public static readonly FieldInfo PublishingEndDate = new FieldInfo(PublishingEndDateFieldName, new Guid("{A990E64F-FAA3-49C1-AAFA-885FDA79DE62}"));
+        /// <returns>The field definition</returns>
+        public FieldInfo PublishingEndDate(){ return new FieldInfo(PublishingEndDateFieldName, new Guid("{A990E64F-FAA3-49C1-AAFA-885FDA79DE62}"));}
 
         /// <summary>
         /// The URL field information
         /// </summary>
-        public static readonly FieldInfo Url = new FieldInfo(UrlFieldName, SPBuiltInFieldId.URL);
+        /// <returns>The field definition</returns>
+        public FieldInfo Url(){ return new FieldInfo(UrlFieldName, SPBuiltInFieldId.URL);}
 
         #endregion
     }

@@ -1,4 +1,5 @@
 ﻿using Dynamite.Demo.Intranet.Contracts.Constants;
+using Dynamite.Demo.Intranet.Contracts.Resources;
 using GSoft.Dynamite.Globalization;
 
 namespace Dynamite.Demo.Intranet.Core.Resources

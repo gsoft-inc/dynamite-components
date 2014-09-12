@@ -126,7 +126,7 @@
   <data name="ContentType_BrowsableItem_Name" xml:space="preserve">
     <value>Browsable Item</value>
   </data>
-  <data name="Field_PortalNavigation_Description" xml:space="preserve">
+  <data name="Field_PortalNavigation_Desc" xml:space="preserve">
     <value>Defines where the item will be in the site navigation</value>
   </data>
   <data name="Field_PortalNavigation_Name" xml:space="preserve">
@@ -200,5 +200,17 @@
   </data>
   <data name="Feature_CrossSitePublishingCMS_Catalogs_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Publishing Module - Catalogs</value>
+  </data>
+  <data name="List_ContentPages_Desc" xml:space="preserve">
+    <value>Content Pages list</value>
+  </data>
+  <data name="List_ContentPages_Name" xml:space="preserve">
+    <value>Content Pages</value>
+  </data>
+  <data name="List_NewsPages_Desc" xml:space="preserve">
+    <value>News Pages list</value>
+  </data>
+  <data name="List_NewsPages_Name" xml:space="preserve">
+    <value>News Pages</value>
   </data>
 </root>

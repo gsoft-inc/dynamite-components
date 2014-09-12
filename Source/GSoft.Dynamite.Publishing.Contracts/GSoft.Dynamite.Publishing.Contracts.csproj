@@ -70,6 +70,7 @@
     <Compile Include="Constants\BaseFieldInfoValues.cs" />
     <Compile Include="Constants\BaseResources.cs" />
     <Compile Include="Constants\BaseTermGroupInfoValues.cs" />
+    <Compile Include="Constants\BaseTermInfoValues.cs" />
     <Compile Include="Constants\BaseTermSetInfoValues.cs" />
     <Compile Include="Keys\BaseCatalogInfoKeys.cs" />
     <Compile Include="Keys\BaseContentTypeInfoKeys.cs" />

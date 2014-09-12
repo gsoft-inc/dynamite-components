@@ -126,7 +126,7 @@
   <data name="ContentType_BrowsableItem_Name" xml:space="preserve">
     <value>Élément navigable</value>
   </data>
-  <data name="Field_PortalNavigation_Description" xml:space="preserve">
+  <data name="Field_PortalNavigation_Desc" xml:space="preserve">
     <value>Définit la position de l'élément dans la hiérarchie de navigation</value>
   </data>
   <data name="Field_PortalNavigation_Name" xml:space="preserve">
@@ -200,5 +200,17 @@
   </data>
   <data name="Feature_CommonCMS_Fields_Name" xml:space="preserve">
     <value>Dynamite CMS de base - Module de publication - Colonnes</value>
+  </data>
+  <data name="List_ContentPages_Desc" xml:space="preserve">
+    <value>Liste des pages de contenu</value>
+  </data>
+  <data name="List_ContentPages_Name" xml:space="preserve">
+    <value>Pages de contenu</value>
+  </data>
+  <data name="List_NewsPages_Desc" xml:space="preserve">
+    <value>Liste des pages de nouvelles</value>
+  </data>
+  <data name="List_NewsPages_Name" xml:space="preserve">
+    <value>Pages de nouvelles</value>
   </data>
 </root>
