@@ -6,8 +6,8 @@
  Description	: Base SharePoint sites structure configuration file    
 -->
 <Webs>
-  <!-- Authoring: Communications -->
-  <Web Name="Authoring Default Web" Path="default" Template="STS#0">
+  <!-- Authoring Default Web -->
+  <Web Name="[[DSP_PortalAuthoringDefaultWebName]]" Path="default" Template="STS#0">
     <Features>
       <Feature GUID="94c94ca6-b32f-4da9-a9e3-1f3d343d7ecb" Name="Publishing Web" />
     </Features>

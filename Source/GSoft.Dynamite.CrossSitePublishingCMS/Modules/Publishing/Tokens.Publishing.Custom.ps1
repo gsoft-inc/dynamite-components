@@ -21,3 +21,9 @@ $DSP_CUSTOM_PortalRestrictedConfigurationFile = ""
 
 $DSP_CUSTOM_PortalNavigationTermGroup = ""
 $DSP_CUSTOM_PortalRestrictedTermGroup = ""
+
+# ============================================
+# STEP 3: Define security
+# ============================================
+
+$DSP_CUSTOM_PortalPermissionsConfigurationFile = ""

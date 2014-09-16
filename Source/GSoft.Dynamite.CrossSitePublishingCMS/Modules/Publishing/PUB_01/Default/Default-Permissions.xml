@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Model  		  : Cross Site Publishing CMS
+ File         : Setup-Permissions.xml.template
+ Description	: Base SharePoint sites and webs permissions
+-->
+<Configuration>
+  <!-- Publishing: Default -->
+  <Web Name="http://intranet.dynamite.com" BreakRoleInheritance="false">
+	  <Groups>
+      <Group Name="Default - Visitors" OwnerName="OFFICE\franck.cornu" IsAssociatedVisitorGroup="true">
+        <PermissionLevels>
+          <PermissionLevel Name="Read"/>
+        </PermissionLevels>
+        <Users>
+          <!-- Add all users -->
+          <User>NT Authority\Authenticated Users</User>
+        </Users>
+      </Group>
+      <Group Name="Default - Members" OwnerName="OFFICE\franck.cornu">
+        <PermissionLevels>
+          <PermissionLevel Name="Contribute"/>
+        </PermissionLevels>
+        <Users>
+          <User>OFFICE\franck.cornu</User>
+        </Users>
+      </Group>
+      <Group Name="Default - Owners" OwnerName="OFFICE\franck.cornu" IsAssociatedOwnerGroup="true">
+        <PermissionLevels>
+          <PermissionLevel Name="Full Control"/>
+        </PermissionLevels>
+        <Users>
+          <User>OFFICE\franck.cornu</User>
+        </Users>
+      </Group>
+	  </Groups>
+  </Web>
+  <!-- Authoring: Default -->
+  <Web Name="http://authoring.dynamite.com/default/" BreakRoleInheritance="true">
+    <Groups>
+      <Group Name="Default - Visitors" OwnerName="OFFICE\franck.cornu" IsAssociatedVisitorGroup="true">
+        <PermissionLevels>
+          <PermissionLevel Name="Read"/>
+        </PermissionLevels>
+        <Users>
+          	<User>dev\danb</User>
+	<User>dev\ibent</User>
+        </Users>
+      </Group>
+      <Group Name="Default - Members" OwnerName="OFFICE\franck.cornu">
+        <PermissionLevels>
+          <PermissionLevel Name="Contribute"/>
+        </PermissionLevels>
+        <Users>
+          [[$DSP_DefaultMembersGroupUsers]]
+        </Users>
+      </Group>
+      <Group Name="Default - Owners" OwnerName="OFFICE\franck.cornu" IsAssociatedOwnerGroup="true">
+        <PermissionLevels>
+          <PermissionLevel Name="Full Control"/>
+        </PermissionLevels>
+        <Users>
+          <User>OFFICE\franck.cornu</User>
+        </Users>
+      </Group>
+    </Groups>
+  </Web>
+</Configuration>

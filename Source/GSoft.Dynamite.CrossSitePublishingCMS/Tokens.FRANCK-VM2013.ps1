@@ -31,3 +31,4 @@ $DSP_PortalDefaultLanguage = "1033"
 ##### Webs
 
 $DSP_PortalAuthoringDefaultWebUrl = "http://authoring.dynamite.com/default/"
+$DSP_PortalAuthoringDefaultWebName = "Authoring Default Web"

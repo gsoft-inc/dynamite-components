@@ -91,9 +91,6 @@
       <FeatureId>{8319fe48-49ff-4a7d-86e1-4ebfc7786b4d}</FeatureId>
     </None>
     <None Include="key.snk" />
-    <None Include="Artefacts\Common_SiteColumns\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{29648c63-de99-435c-ac13-c25ae94e92af}</SharePointProjectItemId>
-    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{39449225-6dec-4063-a39a-dea11765218e}</PackageId>
@@ -118,7 +115,6 @@
     <Content Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.Template.xml">
       <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Content>
-    <Content Include="Artefacts\Common_SiteColumns\Elements.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.Template.xml">

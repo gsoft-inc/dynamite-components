@@ -1,5 +1,5 @@
 ﻿# ----------------------------------------
-# US01: CREATE, UPDATE AND DELETE AN ITEM
+# PUB 01: CREATE, UPDATE AND DELETE AN ITEM
 # ----------------------------------------
 
 param([string] $LogFolderPath=".")
@@ -9,7 +9,7 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
 ##### STEP 1: CREATE STRUCTURE
 $Script = $CommandDirectory + '/Setup-Sites.ps1 -Force'
-Start-Process powershell.exe -ArgumentList $Script -Wait
+Start-Process powershell.exe -ArgumentList $Script -Wait -NoNewWindow
 
 $Script = $CommandDirectory + '/Setup-Webs.ps1'
 Start-Process powershell.exe -ArgumentList $Script, $LogFolderPath -Wait
@@ -30,3 +30,7 @@ Start-Process powershell.exe -ArgumentList $Script, $LogFolderPath -Wait
 
 $Script = $CommandDirectory + '/Setup-Catalogs.ps1'
 Start-Process powershell.exe -ArgumentList $Script, $LogFolderPath -Wait
+
+$Script = $CommandDirectory + '/Setup-Permissions.ps1'
+Start-Process powershell.exe -ArgumentList $Script -Wait -NoNewWindow
+

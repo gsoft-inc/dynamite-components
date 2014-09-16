@@ -33,3 +33,20 @@ $DSP_DEFAULT_PortalFieldsConfigurationFile = "./Default/Default-Fields.xml"
 #### CATALOGS
 
 $DSP_DEFAULT_PortalCatalogsConfigurationFile = "./Default/Default-Catalogs.xml"
+
+# ============================================
+# STEP 3: Define security
+# ============================================
+
+$DSP_DEFAULT_PortalPermissionsConfigurationFile = "./Default/Default-Permissions.xml"
+
+#### USERS
+
+$DSP_DefaultVisitorsGroupUsers = @"
+	<User>dev\danb</User>
+	<User>dev\ibent</User>
+"@
+
+$DSP_DefaultMembersGroupUsers = @"
+	<User>dev\arturol</User>
+"@

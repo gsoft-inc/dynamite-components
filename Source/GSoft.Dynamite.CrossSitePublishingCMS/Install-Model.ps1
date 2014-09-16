@@ -36,7 +36,7 @@ Start-Transcript -Path $LogFile
 # ********** PUBLISHING MODULE ********** #
 
 ##### US 01
-./Modules/Publishing/US01/Install-US01.ps1 $LogFolderPath
+./Modules/Publishing/PUB_01/Install-PUB01.ps1 $LogFolderPath
 
 # ------------------------ Log End --------------------------------------
 # Stop log transcript

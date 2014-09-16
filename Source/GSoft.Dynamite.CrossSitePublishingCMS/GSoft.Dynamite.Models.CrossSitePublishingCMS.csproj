@@ -42,19 +42,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\US01\Default\Default-Catalogs.xml.template" />
-    <None Include="Modules\Publishing\US01\Default\Default-ContentTypes.xml.template" />
-    <None Include="Modules\Publishing\US01\Default\Default-RestrictedTermGroup.xml.template" />
-    <None Include="Modules\Publishing\US01\Export-TermGroups.ps1.template" />
-    <None Include="Modules\Publishing\US01\Import-TermGroups.ps1.template" />
-    <None Include="Modules\Publishing\US01\Install-US01.ps1" />
-    <None Include="Modules\Publishing\US01\Remove-TermGroups.ps1.template" />
-    <None Include="Modules\Publishing\US01\Setup-Catalogs.ps1.template" />
-    <None Include="Modules\Publishing\US01\Setup-ContentTypes.ps1.template" />
-    <None Include="Modules\Publishing\US01\Setup-Sites.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Default\Default-Catalogs.xml.template" />
+    <None Include="Modules\Publishing\PUB_01\Default\Default-ContentTypes.xml.template" />
+    <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
+    <None Include="Modules\Publishing\PUB_01\Export-TermGroups.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Import-TermGroups.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Install-PUB01.ps1" />
+    <None Include="Modules\Publishing\PUB_01\Remove-TermGroups.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Setup-Catalogs.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Setup-ContentTypes.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Setup-Permissions.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Setup-Sites.ps1.template" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
-    <None Include="Modules\Publishing\US01\Setup-Webs.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Setup-Webs.ps1.template" />
     <None Include="Solutions\Copy-Solutions.ps1.template" />
     <None Include="Solutions\Custom\Custom-Solutions.xml.template" />
     <None Include="Solutions\Default\Default-Solutions.xml.template" />
@@ -69,7 +70,7 @@
     <Folder Include="Modules\Lifecycle\" />
     <Folder Include="Modules\Multilinguism\" />
     <Folder Include="Modules\Navigation\" />
-    <Folder Include="Modules\Publishing\US01\Custom\" />
+    <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
@@ -77,19 +78,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Install-Model.ps1" />
-    <None Include="Modules\Publishing\US01\Default\Default-Sites.xml.template" />
+    <None Include="Modules\Publishing\PUB_01\Default\Default-Sites.xml.template" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\US01\Default\Default-Webs.xml.template" />
+    <None Include="Modules\Publishing\PUB_01\Default\Default-Webs.xml.template" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\US01\Default\Default-NavigationTermGroup.xml.template" />
+    <None Include="Modules\Publishing\PUB_01\Default\Default-NavigationTermGroup.xml.template" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\US01\Setup-Fields.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Setup-Fields.ps1.template" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\US01\Default\Default-Fields.xml.template" />
+    <None Include="Modules\Publishing\PUB_01\Default\Default-Fields.xml.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Modules\Publishing\PUB_01\Default\Default-Permissions.xml.template" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
