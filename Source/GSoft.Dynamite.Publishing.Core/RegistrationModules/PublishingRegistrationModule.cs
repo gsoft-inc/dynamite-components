@@ -24,24 +24,28 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Content Types
-            builder.RegisterType<BaseContentTypeInfoConfig>().As<IBaseContentTypeInfoConfig>();
+            builder.RegisterType<BasePublishingContentTypeInfoConfig>().As<IBasePublishingContentTypeInfoConfig>();
 
             // Content Types Factory
-            builder.RegisterType<BaseFieldInfoConfig>().As<IBaseFieldInfoConfig>();
+            builder.RegisterType<BasePublishingFieldInfoConfig>().As<IBasePublishingFieldInfoConfig>();
 
             // Term Sets
-            builder.RegisterType<BaseTaxonomyConfig>().As<IBaseTaxonomyConfig>();
+            builder.RegisterType<BasePublishingTaxonomyConfig>().As<IBasePublishingTaxonomyConfig>();
 
             // Catalogs
-            builder.RegisterType<BaseCatalogInfoConfig>().As<IBaseCatalogInfoConfig>();
+            builder.RegisterType<BasePublishingCatalogInfoConfig>().As<IBasePublishingCatalogInfoConfig>();
+
+            // Result Sources
+            builder.RegisterType<BasePublishingResultSourceInfoConfig>().As<IBasePublishingResultSourceInfoConfig>();
 
             // Configuration Values
-            builder.RegisterType<BaseContentTypeInfoValues>();
-            builder.RegisterType<BaseFieldInfoValues>();
-            builder.RegisterType<BaseCatalogInfoValues>();
-            builder.RegisterType<BaseTermGroupInfoValues>();
-            builder.RegisterType<BaseTermSetInfoValues>();
-            builder.RegisterType<BaseTermInfoValues>();
+            builder.RegisterType<BasePublishingContentTypeInfos>();
+            builder.RegisterType<BasePublishingFieldInfos>();
+            builder.RegisterType<BasePublishingCatalogInfos>();
+            builder.RegisterType<BasePublishingTermGroupInfos>();
+            builder.RegisterType<BasePublishingTermSetInfos>();
+            builder.RegisterType<BasePublishingTermInfos>();
+            builder.RegisterType<BasePublishingResultSourceInfos>();
         }
     }
 }

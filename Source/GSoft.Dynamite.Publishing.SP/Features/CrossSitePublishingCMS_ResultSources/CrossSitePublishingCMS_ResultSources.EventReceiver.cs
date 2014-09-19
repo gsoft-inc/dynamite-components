@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
@@ -10,13 +9,10 @@ using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Portal.SP.Publishing;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
-using GSoft.Dynamite.Taxonomy;
+using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
-using Microsoft.SharePoint.BusinessData.MetadataModel;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.Internal_Fields
+namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSources
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -25,9 +21,11 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Internal_Fields
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
 
-    [Guid("9611ef57-7a3a-4016-ad86-c0bae58b4e0c")]
-    public class Internal_FieldsEventReceiver : SPFeatureReceiver
+    [Guid("c6ad3235-45eb-4993-b21c-1d6a90a4f343")]
+    public class CrossSitePublishingCMS_ResultSourcesEventReceiver : SPFeatureReceiver
     {
+        // Uncomment the method below to handle the event raised after a feature has been activated.
+
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -36,31 +34,35 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Internal_Fields
             {
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var fieldHelper = featureScope.Resolve<FieldHelper>();
-                    var baseFieldInfoConfig = featureScope.Resolve<IBasePublishingFieldInfoConfig>();
-                    var baseFields = baseFieldInfoConfig.Fields();
                     var logger = featureScope.Resolve<ILogger>();
+                    var searchHelper = featureScope.Resolve<SearchHelper>();
+                    var baseResultSourceInfoConfig = featureScope.Resolve<IBasePublishingResultSourceInfoConfig>();
 
-                    // Create base Fields
-                    foreach (KeyValuePair<string, FieldInfo> field in baseFields)
+                    IDictionary<string, ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
+
+                    // Create base result sources
+                    foreach (KeyValuePair<string, ResultSourceInfo> resultSource in resultSources)
                     {
-                        fieldHelper.EnsureField(site.RootWeb.Fields, field.Value);
+                        searchHelper.EnsureResultSource(site, resultSource.Value);
                     }
 
-                    // Create additionnal custom fields
-                    ICustomPublishingFieldInfoConfig customContentTypeConfig = null;
-                    if (featureScope.TryResolve(out customContentTypeConfig))
+                    // Check if custom configuration is present
+                    ICustomPublishingResultSourceInfoConfig customResultSourceInfoConfig = null;
+                    if (featureScope.TryResolve(out customResultSourceInfoConfig))
                     {
-                        var customFields = customContentTypeConfig.Fields();
+                        logger.Info("Custom result sources configuration override found!");
+                        resultSources = customResultSourceInfoConfig.ResultSources();
 
-                        foreach (KeyValuePair<string, FieldInfo> field in customFields)
+                        // Create base result sources
+                        foreach (KeyValuePair<string, ResultSourceInfo> resultSource in resultSources)
                         {
-                            fieldHelper.EnsureField(site.RootWeb.Fields, field.Value);
+                            searchHelper.EnsureResultSource(site, resultSource.Value);
                         }
                     }
                     else
                     {
-                        logger.Info("No custom fields override found!");
+                        logger.Info("No custom catalogs configuration override found!");
+                        
                     }
                 }
             }
@@ -69,10 +71,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Internal_Fields
 
         // Uncomment the method below to handle the event raised before a feature is deactivated.
 
-        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        {
-            // TODO: To implement
-        }
+        //public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
+        //{
+        //}
 
 
         // Uncomment the method below to handle the event raised after a feature has been installed.

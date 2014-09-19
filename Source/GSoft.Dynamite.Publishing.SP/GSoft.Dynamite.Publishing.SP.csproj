@@ -73,6 +73,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
   </ItemGroup>
@@ -89,6 +92,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.feature">
       <FeatureId>{8319fe48-49ff-4a7d-86e1-4ebfc7786b4d}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
+      <FeatureId>{740401de-77f4-4e5e-8ef5-7ac745b1600d}</FeatureId>
     </None>
     <None Include="key.snk" />
     <None Include="packages.config" />
@@ -119,6 +125,9 @@
   <ItemGroup>
     <Content Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Publishing.Global.en-US.resx">
       <SubType>Designer</SubType>

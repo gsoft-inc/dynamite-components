@@ -36,10 +36,10 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
 
                     var logger = featureScope.Resolve<ILogger>();
                     var catalogHelper = featureScope.Resolve<CatalogHelper>();
-                    var baseCatalogInfoConfig = featureScope.Resolve<IBaseCatalogInfoConfig>();
+                    var baseCatalogInfoConfig = featureScope.Resolve<IBasePublishingCatalogInfoConfig>();
 
                     // Check if custom configuration is present
-                    ICustomCatalogInfoConfig customCatalogInfoConfig = null;
+                    ICustomPublishingCatalogInfoConfig customCatalogInfoConfig = null;
                     if (featureScope.TryResolve(out customCatalogInfoConfig))
                     {
                         logger.Info("Custom catalogs configuration override found!");

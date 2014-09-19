@@ -33,7 +33,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
-                    var baseContentTypeConfig = featureScope.Resolve<IBaseContentTypeInfoConfig>();
+                    var baseContentTypeConfig = featureScope.Resolve<IBasePublishingContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes();
                     var logger = featureScope.Resolve<ILogger>();
 
@@ -44,7 +44,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                     }
 
                     // Create additionnal custom content types
-                    ICustomContentTypeInfoConfig customContentTypeConfig = null;
+                    ICustomPublishingContentTypeInfoConfig customContentTypeConfig = null;
                     if (featureScope.TryResolve(out customContentTypeConfig))
                     {
                         var customContentTypes = customContentTypeConfig.ContentTypes();
