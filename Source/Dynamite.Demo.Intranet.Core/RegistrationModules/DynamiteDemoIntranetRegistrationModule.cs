@@ -21,9 +21,9 @@ namespace Dynamite.Demo.Intranet.Core.RegistrationModules
             builder.RegisterType<DynamiteDemoResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Overridable default Portal config (i.e. plugin hooks and slots, with sensible defaults)
-            builder.RegisterType<DynamiteDemoPublishingContentTypeInfoConfig>().As<ICustomContentTypeInfoConfig>();
-            builder.RegisterType<DynamiteDemoPublishingFieldInfoConfig>().As<ICustomFieldInfoConfig>();
-            builder.RegisterType<DynamiteDemoPublishingCatalogInfoConfig>().As<ICustomCatalogInfoConfig>();
+            builder.RegisterType<DynamiteDemoPublishingContentTypeInfoConfig>().As<ICustomPublishingContentTypeInfoConfig>();
+            builder.RegisterType<DynamiteDemoPublishingFieldInfoConfig>().As<ICustomPublishingFieldInfoConfig>();
+            builder.RegisterType<DynamiteDemoPublishingCatalogInfoConfig>().As<ICustomPublishingCatalogInfoConfig>();
             
             // Configuration Values
             builder.RegisterType<DynamiteDemoPublishingFieldInfoValues>();

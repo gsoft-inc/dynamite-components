@@ -10,7 +10,7 @@ using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration
 {
-    public class DynamiteDemoPublishingFieldInfoConfig : ICustomFieldInfoConfig
+    public class DynamiteDemoPublishingFieldInfoConfig : ICustomPublishingFieldInfoConfig
     {
         private readonly DynamiteDemoPublishingFieldInfoValues _fieldInfoValues;
 
