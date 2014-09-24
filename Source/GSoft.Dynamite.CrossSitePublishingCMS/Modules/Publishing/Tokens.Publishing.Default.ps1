@@ -62,4 +62,20 @@ $DSP_DefaultMembersGroupUsers = @"
 # ----------------------------------------
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+# ============================================
+# STEP 1: Create Result Sources
+# ============================================
+
 $DSP_DEFAULT_PortalResultSourcesConfigurationFile = "./Default/Default-ResultSources.xml"
+
+# ============================================
+# STEP 2: Create Page Layouts
+# ============================================
+
+$DSP_DEFAULT_PortalPageLayoutsConfigurationFile = "./Default/Default-PageLayouts.xml"
+
+# ============================================
+# STEP 3: Create Pages
+# ============================================
+
+$DSP_DEFAULT_PortalPagesConfigurationFile = "./Default/Default-Pages.xml"

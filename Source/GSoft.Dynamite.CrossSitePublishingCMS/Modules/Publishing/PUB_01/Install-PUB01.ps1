@@ -32,5 +32,5 @@ $Script = $CommandDirectory + '/Setup-Catalogs.ps1'
 Start-Process powershell.exe -ArgumentList $Script, $LogFolderPath -Wait
 
 $Script = $CommandDirectory + '/Setup-Permissions.ps1'
-Start-Process powershell.exe -ArgumentList $Script -Wait -NoNewWindow
+Start-Process powershell.exe -ArgumentList $Script, $LogFolderPath -Wait -NoNewWindow
 

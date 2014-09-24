@@ -65,7 +65,11 @@
     <None Include="Modules\Publishing\PUB_01\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.ps1.template" />
+    <None Include="Modules\Publishing\PUB_02\Default\Default-PageLayouts.xml.template" />
+    <None Include="Modules\Publishing\PUB_02\Default\Default-Pages.xml.template" />
     <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
+    <None Include="Modules\Publishing\PUB_02\Setup-PageLayouts.ps1.template" />
+    <None Include="Modules\Publishing\PUB_02\Setup-Pages.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
@@ -86,7 +90,6 @@
     <Folder Include="Modules\Multilinguism\" />
     <Folder Include="Modules\Navigation\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
-    <Folder Include="Modules\Publishing\PUB_02\Custom\" />
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
