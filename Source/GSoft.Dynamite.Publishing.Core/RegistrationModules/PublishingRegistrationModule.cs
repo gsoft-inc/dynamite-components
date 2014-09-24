@@ -38,6 +38,9 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             // Result Sources
             builder.RegisterType<BasePublishingResultSourceInfoConfig>().As<IBasePublishingResultSourceInfoConfig>();
 
+            // Folders
+            builder.RegisterType<BasePublishingFolderInfoConfig>().As<IBasePublishingFolderInfoConfig>();
+            
             // Configuration Values
             builder.RegisterType<BasePublishingContentTypeInfos>();
             builder.RegisterType<BasePublishingFieldInfos>();
@@ -46,6 +49,9 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<BasePublishingTermSetInfos>();
             builder.RegisterType<BasePublishingTermInfos>();
             builder.RegisterType<BasePublishingResultSourceInfos>();
+            builder.RegisterType<BasePublishingPageInfos>();
+            builder.RegisterType<BasePublishingPageLayoutInfo>();
+            builder.RegisterType<BasePublishingFolderInfos>().InstancePerLifetimeScope().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies);
         }
     }
 }

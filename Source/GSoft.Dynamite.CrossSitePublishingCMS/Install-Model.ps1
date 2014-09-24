@@ -13,7 +13,7 @@ $ScriptName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyComm
 $LogFolderPath = ((Get-Location).Path + "\Logs")
 
 if(!(Test-Path -Path $LogFolderPath)){
-    New-Item -ItemType directory -Path $LogFolderPath
+	New-Item -ItemType directory -Path $LogFolderPath
 }
 else
 {
@@ -35,8 +35,11 @@ Start-Transcript -Path $LogFile
 
 # ********** PUBLISHING MODULE ********** #
 
-##### US 01
+##### PUB 01
 ./Modules/Publishing/PUB_01/Install-PUB01.ps1 $LogFolderPath
+
+##### PUB 02
+#./Modules/Publishing/PUB_02/Install-PUB02.ps1 $LogFolderPath
 
 # ------------------------ Log End --------------------------------------
 # Stop log transcript

@@ -21,8 +21,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <param name="fieldInfoValues">The field info instance</param>
         public BasePublishingContentTypeInfos(IResourceLocator resourceLocator, BasePublishingFieldInfos fieldInfoValues)
         {
-            _resourceLocator = resourceLocator;
-            _fieldInfoValues = fieldInfoValues;
+            this._resourceLocator = resourceLocator;
+            this._fieldInfoValues = fieldInfoValues;
         }
 
         #region Browsable Item
@@ -37,27 +37,27 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Fields = new List<FieldInfo>()
                 {
-                    _fieldInfoValues.Navigation()
+                   this._fieldInfoValues.Navigation()
                 },
 
                 ContentTypeId = BrowsableItemContentType,
 
                 // Default content type name
-                DisplayName = _resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1033)),
+                DisplayName = this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1033)),
 
                 TitleResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1036))}
                 },
 
                 DescriptionResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeBrowsableItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeBrowsableItemDescription,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemDescription,new CultureInfo(1036))}
                 },
 
-                Group = _resourceLocator.GetResourceString(_resourceFileName, BasePublishingResources.ContentTypeGroup)
+                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
             };
         }
 
@@ -76,19 +76,19 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Fields = new List<FieldInfo>() {},
 
                 ContentTypeId = TranslatableItemContentType,
-                DisplayName = _resourceLocator.Find(_resourceFileName, BasePublishingResources.ContentTypeTranslatableItemTitle, new CultureInfo(1033)),
-                Group = _resourceLocator.GetResourceString(_resourceFileName, BasePublishingResources.ContentTypeGroup),
+                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeTranslatableItemTitle, new CultureInfo(1033)),
+                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup),
 
                 TitleResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeTranslatableItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeTranslatableItemTitle,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTranslatableItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTranslatableItemTitle,new CultureInfo(1036))}
                 },
 
                 DescriptionResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeTranslatableItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeTranslatableItemDescription,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTranslatableItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTranslatableItemDescription,new CultureInfo(1036))}
                 },
             };
         }
@@ -107,26 +107,26 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                  Fields = new List<FieldInfo>()
                 {
-                    _fieldInfoValues.PublishingPageContent()
+                    this._fieldInfoValues.PublishingPageContent()
                 },
 
                 ContentTypeId = DefaultItemContentType,
 
-                DisplayName = _resourceLocator.Find(_resourceFileName, BasePublishingResources.ContentTypeDefaultItemTitle, new CultureInfo(1033)),
+                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeDefaultItemTitle, new CultureInfo(1033)),
 
                 TitleResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeDefaultItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeDefaultItemTitle,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeDefaultItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeDefaultItemTitle,new CultureInfo(1036))}
                 },
 
                  DescriptionResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeDefaultItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeDefaultItemDescription,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeDefaultItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeDefaultItemDescription,new CultureInfo(1036))}
                 },
 
-                Group = _resourceLocator.GetResourceString(_resourceFileName, BasePublishingResources.ContentTypeGroup)
+                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
             };
            
         }
@@ -146,21 +146,21 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Fields = new List<FieldInfo>() { },
 
                 ContentTypeId = CatalogContentItemContentType,
-                DisplayName = _resourceLocator.Find(_resourceFileName, BasePublishingResources.ContentCatalogTitle, new CultureInfo(1033)),
+                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentCatalogTitle, new CultureInfo(1033)),
 
                 TitleResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentCatalogTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentCatalogTitle,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentCatalogTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentCatalogTitle,new CultureInfo(1036))}
                 },
 
                 DescriptionResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentCatalogDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentCatalogDescription,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentCatalogDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentCatalogDescription,new CultureInfo(1036))}
                 },
 
-                Group = _resourceLocator.GetResourceString(_resourceFileName, BasePublishingResources.ContentTypeGroup)
+                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
             };
 
         }
@@ -180,21 +180,21 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Fields = new List<FieldInfo>() { },
 
                 ContentTypeId = TargetContentItemContentType,
-                DisplayName = _resourceLocator.Find(_resourceFileName, BasePublishingResources.ContentTypeTargetContentItemTitle, new CultureInfo(1033)),
+                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeTargetContentItemTitle, new CultureInfo(1033)),
 
                 TitleResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeTargetContentItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeTargetContentItemTitle,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTargetContentItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTargetContentItemTitle,new CultureInfo(1036))}
                 },
 
                 DescriptionResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeTargetContentItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeTargetContentItemDescription,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTargetContentItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTargetContentItemDescription,new CultureInfo(1036))}
                 },
 
-                Group = _resourceLocator.GetResourceString(_resourceFileName, BasePublishingResources.ContentTypeGroup)
+                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
             };
         }
 
@@ -212,21 +212,21 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Fields = new List<FieldInfo>() {},
                 ContentTypeId = ContentItemContentType,
-                DisplayName = _resourceLocator.Find(_resourceFileName, BasePublishingResources.ContentTypeContentItemTitle, new CultureInfo(1033)),
+                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeContentItemTitle, new CultureInfo(1033)),
 
                 TitleResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeContentItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeContentItemTitle,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeContentItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeContentItemTitle,new CultureInfo(1036))}
                 },
 
                 DescriptionResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeContentItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeContentItemDescription,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeContentItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeContentItemDescription,new CultureInfo(1036))}
                 },
 
-                Group = _resourceLocator.GetResourceString(_resourceFileName, BasePublishingResources.ContentTypeGroup)
+                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
             };
         }
 
@@ -242,29 +242,45 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new ContentTypeInfo()
             {
-                DisplayName = _resourceLocator.Find(_resourceFileName, BasePublishingResources.ContentTypeNewsItemTitle, new CultureInfo(1033)),
+                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeNewsItemTitle, new CultureInfo(1033)),
 
                 TitleResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeNewsItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeNewsItemTitle,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeNewsItemTitle,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeNewsItemTitle,new CultureInfo(1036))}
                 },
 
                 DescriptionResources = new Dictionary<CultureInfo, string>()
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeNewsItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,BasePublishingResources.ContentTypeNewsItemDescription,new CultureInfo(1036))}
+                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeNewsItemDescription,new CultureInfo(1033))},
+                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeNewsItemDescription,new CultureInfo(1036))}
                 },
 
-                Group = _resourceLocator.GetResourceString(_resourceFileName, BasePublishingResources.ContentTypeGroup),
+                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup),
 
                 Fields = new List<FieldInfo>()
                 {
-                    _fieldInfoValues.Summary(),
-                    _fieldInfoValues.PublishingPageImage(),
-                    _fieldInfoValues.ImageDescription()
+                    this._fieldInfoValues.Summary(),
+                    this._fieldInfoValues.PublishingPageImage(),
+                    this._fieldInfoValues.ImageDescription()
                 },
                 ContentTypeId = NewsItemContentType,
+            };
+        }
+
+        #endregion
+
+        #region SharePoint Content Types
+
+        /// <summary>
+        /// The SharePoint Page Content Type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo Page()
+        {
+            return new ContentTypeInfo()
+            {
+                ContentTypeId = "0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39"
             };
         }
 

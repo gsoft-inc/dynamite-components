@@ -10,13 +10,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public  class BasePublishingTermGroupInfos
     {
-        private BasePublishingTermSetInfos _termSetInfoValues;
+        private readonly BasePublishingTermSetInfos _termSetInfoValues;
 
         public BasePublishingTermGroupInfos(BasePublishingTermSetInfos termSetInfoValues)
         {
-            _termSetInfoValues = termSetInfoValues;
+            this._termSetInfoValues = termSetInfoValues;
         }
-
 
         #region Navigation Term Group
 
@@ -32,7 +31,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "Portal - Navigation",
                 TermSets = new Dictionary<string, TermSetInfo>()
                 {
-                    {BasePublishingTermSetInfoKeys.GlobalNavigationTermSet,_termSetInfoValues.GlobalNavigation()}
+                    {BasePublishingTermSetInfoKeys.GlobalNavigationTermSet,this._termSetInfoValues.GlobalNavigation()}
                 }
             };
         }
@@ -53,7 +52,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "Portal - Restricted",
                 TermSets = new Dictionary<string, TermSetInfo>()
                 {
-                    {BasePublishingTermSetInfoKeys.RestrictedNewsTermSet, _termSetInfoValues.RestrictedNews()}
+                    {BasePublishingTermSetInfoKeys.RestrictedNewsTermSet, this._termSetInfoValues.RestrictedNews()}
                 }
             };
         }

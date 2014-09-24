@@ -63,7 +63,7 @@ namespace GSoft.Dynamite.Portal.SP.Publishing
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginFeatureLifetimeScope(SPFeature feature)
         {
-            return innerLocator.BeginFeatureLifetimeScope(feature);
+            return innerLocator.BeginLifetimeScope(feature);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace GSoft.Dynamite.Portal.SP.Publishing
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginWebLifetimeScope(SPWeb web)
         {
-            return innerLocator.BeginWebLifetimeScope(web);
+            return innerLocator.BeginLifetimeScope(web);
         }
     }
 }

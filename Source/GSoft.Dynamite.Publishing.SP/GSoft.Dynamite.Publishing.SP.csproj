@@ -48,8 +48,9 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.1.2.0-pre10030\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10031\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -58,6 +59,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
@@ -69,6 +71,9 @@
     </Compile>
     <Compile Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.EventReceiver.cs">
       <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_Pages.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
@@ -84,6 +89,9 @@
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
     <None Include="app.config" />
+    <None Include="Artefacts\PageLayouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{621e215b-d2d9-4c78-85a2-f38af1a379eb}</SharePointProjectItemId>
+    </None>
     <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
       <FeatureId>{0ccccbeb-e932-4b6a-a336-c85c3dfdf2e2}</FeatureId>
     </None>
@@ -95,6 +103,12 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
       <FeatureId>{740401de-77f4-4e5e-8ef5-7ac745b1600d}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.feature">
+      <FeatureId>{32341c87-bf6e-4fb5-a67a-58eacd99f905}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.feature">
+      <FeatureId>{2ed25122-4f2b-4176-af28-ae32fb8b1e39}</FeatureId>
     </None>
     <None Include="key.snk" />
     <None Include="packages.config" />
@@ -115,6 +129,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artefacts\PageLayouts\CatalogItemPageLayout.aspx" />
+    <Content Include="Artefacts\PageLayouts\Elements.xml" />
+    <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
       <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
@@ -128,6 +145,12 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_Pages.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.Template.xml">
+      <DependentUpon>CommonCMS_PageLayouts.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Publishing.Global.en-US.resx">
       <SubType>Designer</SubType>
