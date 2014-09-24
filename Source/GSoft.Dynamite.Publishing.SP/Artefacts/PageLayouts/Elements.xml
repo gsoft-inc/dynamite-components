@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="PublishingPageLayouts" Url="_catalogs/masterpage" Path="PageLayouts" RootWebOnly="TRUE">
+    <File Path="TargetItemPageLayout.aspx" Url="TargetItemPageLayout.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_TargetItemPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_TargetItemPageLayout_Desc;" />
+    </File>
+    <File Path="CatalogItemPageLayout.aspx" Url="CatalogItemPageLayout.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_CatalogItemPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_CatalogItemPageLayout_Desc;" />
+    </File>
+  </Module>
+</Elements>

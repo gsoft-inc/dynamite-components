@@ -63,7 +63,7 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginFeatureLifetimeScope(SPFeature feature)
         {
-            return innerServiceLocator.BeginFeatureLifetimeScope(feature);
+            return innerServiceLocator.BeginLifetimeScope(feature);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginWebLifetimeScope(SPWeb web)
         {
-            return innerServiceLocator.BeginWebLifetimeScope(web);
+            return innerServiceLocator.BeginLifetimeScope(web);
         }
 
         ISharePointServiceLocator ISharePointServiceLocatorAccessor.ServiceLocatorInstance

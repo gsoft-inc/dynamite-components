@@ -219,4 +219,28 @@
   <data name="Feature_CrossSitePublishingCMS_ResultSources_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Publishing Module - Result Sources</value>
   </data>
+  <data name="Feature_CommonCMS_PageLayouts_Desc" xml:space="preserve">
+    <value>Deploys page layouts for common CMS solutions</value>
+  </data>
+  <data name="Feature_CommonCMS_PageLayouts_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Page Layouts</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Pages_Desc" xml:space="preserve">
+    <value>Deploys page templates for Cross Site Publishing based CMS solutions</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Pages_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Page Templates</value>
+  </data>
+  <data name="PageLayout_CatalogItemPageLayout_Desc" xml:space="preserve">
+    <value>Catalog Item Page Layout</value>
+  </data>
+  <data name="PageLayout_CatalogItemPageLayout_Name" xml:space="preserve">
+    <value>Catalog Item Page Layout</value>
+  </data>
+  <data name="PageLayout_TargetItemPageLayout_Desc" xml:space="preserve">
+    <value>Target Item Page Layout</value>
+  </data>
+  <data name="PageLayout_TargetItemPageLayout_Name" xml:space="preserve">
+    <value>Target Item Page Layout</value>
+  </data>
 </root>

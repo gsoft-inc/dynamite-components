@@ -29,12 +29,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             BasePublishingTermSetInfos termSetInfoValues
             )
         {
-            _resourceLocator = resourceLocator;
-            _contentTypeInfoValues = contentTypeInfoValues;
-            _fieldInfoValues = fieldInfoValues;
-            _termGroupValues = termGroupValues;
-            _termInfoValues = termInfoValues;
-            _termSetInfoValues = termSetInfoValues;
+            this._resourceLocator = resourceLocator;
+            this._contentTypeInfoValues = contentTypeInfoValues;
+            this._fieldInfoValues = fieldInfoValues;
+            this._termGroupValues = termGroupValues;
+            this._termInfoValues = termInfoValues;
+            this._termSetInfoValues = termSetInfoValues;
         }
 
         #region News Pages Catalog
@@ -79,15 +79,20 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
                 DefaultViewFields = new List<FieldInfo>()
                 {
-                    {_fieldInfoValues.Navigation()}
+                    {this._fieldInfoValues.Navigation()}
                 },
 
                 DefaultValues = new Dictionary<FieldInfo, IFieldInfoValue>()
                 {
-                    {_fieldInfoValues.Navigation(), new TaxonomyFieldInfoValue()
+                    {this._fieldInfoValues.Navigation(), new TaxonomyFieldInfoValue()
                         {
                             TermGroup = _termGroupValues.Restricted(),
-                            TermSet = _termSetInfoValues.RestrictedNews()
+                            TermSet = _termSetInfoValues.RestrictedNews(),
+                            Values = new TermInfo[]
+                            {
+                                new TermInfo(){Name = "Financial"}
+                            
+                            }
                         }
                     }
                 },
@@ -118,7 +123,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
                 ContentTypes = new List<ContentTypeInfo>()
                 {
-                    {_contentTypeInfoValues.ContentItem()}
+                    {this._contentTypeInfoValues.ContentItem()}
                 },
 
                 RootFolderUrl = "ContentPages",
@@ -141,7 +146,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
                 DefaultViewFields = new List<FieldInfo>()
                 {
-                    {_fieldInfoValues.Navigation()}
+                    {this._fieldInfoValues.Navigation()}
                 },
 
                 IsAnonymous = true

@@ -19,9 +19,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         public BasePublishingFieldInfos(IResourceLocator resourceLocator, BasePublishingTermGroupInfos termGroupInfoValues, BasePublishingTermSetInfos termSetInfoValues)
         {
-            _termGroupInfoValues = termGroupInfoValues;
-            _termSetInfoValues = termSetInfoValues;
-            _resourceLocator = resourceLocator;
+            this._termGroupInfoValues = termGroupInfoValues;
+            this._termSetInfoValues = termSetInfoValues;
+            this._resourceLocator = resourceLocator;
 
         }
 
@@ -83,7 +83,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 DefaultValue = new TaxonomyFieldInfoValue()
                 {
                     TermGroup = _termGroupInfoValues.Navigation(),
-                    TermSet = _termSetInfoValues.GlobalNavigation()
+                    TermSet = _termSetInfoValues.GlobalNavigation(),
                 },
                 RequiredType = RequiredTypes.Required
             };

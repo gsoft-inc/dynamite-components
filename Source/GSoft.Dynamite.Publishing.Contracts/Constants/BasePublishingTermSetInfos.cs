@@ -14,7 +14,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         public BasePublishingTermSetInfos(BasePublishingTermInfos termInfoValues)
         {
-            _termInfoValues = termInfoValues;
+            this._termInfoValues = termInfoValues;
         }
 
         #region Global Navigation Term Set
@@ -54,7 +54,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 },
                 Terms = new Dictionary<string, TermInfo>
                 {
-                    {"NewsLabel", _termInfoValues.NewsLabel()}
+                    {"NewsLabel", this._termInfoValues.NewsLabel()}
                 }
             };
         }

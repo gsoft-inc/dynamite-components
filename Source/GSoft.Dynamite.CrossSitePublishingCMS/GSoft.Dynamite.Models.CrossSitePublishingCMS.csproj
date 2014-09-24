@@ -30,6 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10031\lib\net45\GSoft.Dynamite.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,9 +65,16 @@
     <None Include="Modules\Publishing\PUB_01\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.ps1.template" />
+    <None Include="Modules\Publishing\PUB_02\Default\Default-PageLayouts.xml.template" />
+    <None Include="Modules\Publishing\PUB_02\Default\Default-Pages.xml.template" />
+    <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
+    <None Include="Modules\Publishing\PUB_02\Setup-PageLayouts.ps1.template" />
+    <None Include="Modules\Publishing\PUB_02\Setup-Pages.ps1.template" />
+    <None Include="Modules\Publishing\PUB_02\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Webs.ps1.template" />
+    <None Include="packages.config" />
     <None Include="Solutions\Copy-Solutions.ps1.template" />
     <None Include="Solutions\Custom\Custom-Solutions.xml.template" />
     <None Include="Solutions\Default\Default-Solutions.xml.template" />
@@ -95,6 +114,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Modules\Publishing\PUB_01\Default\Default-Permissions.xml.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Modules\Publishing\PUB_02\Default\Default-ResultSources.xml.template" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

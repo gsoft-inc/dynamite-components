@@ -42,7 +42,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.1.2.0-pre10030\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10031\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
@@ -66,11 +66,15 @@
     <Compile Include="Configuration\IBasePublishingContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\Extensions\ICustomPublishingContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingFieldInfoConfig.cs" />
+    <Compile Include="Configuration\IBasePublishingFolderInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingTaxonomyConfig.cs" />
     <Compile Include="Constants\BasePublishingCatalogInfos.cs" />
     <Compile Include="Constants\BasePublishingContentTypeInfos.cs" />
     <Compile Include="Constants\BasePublishingFieldInfos.cs" />
+    <Compile Include="Constants\BasePublishingFolderInfos.cs" />
+    <Compile Include="Constants\BasePublishingPageInfos.cs" />
+    <Compile Include="Constants\BasePublishingPageLayoutInfo.cs" />
     <Compile Include="Constants\BasePublishingResources.cs" />
     <Compile Include="Constants\BasePublishingResultSourceInfos.cs" />
     <Compile Include="Constants\BasePublishingTermGroupInfos.cs" />
@@ -79,6 +83,7 @@
     <Compile Include="Keys\BasePublishingCatalogInfoKeys.cs" />
     <Compile Include="Keys\BasePublishingContentTypeInfoKeys.cs" />
     <Compile Include="Keys\BasePublishingFieldInfoKeys.cs" />
+    <Compile Include="Keys\BasePublishingPageInfoKeys.cs" />
     <Compile Include="Keys\BasePublishingResultSourceInfoKeys.cs" />
     <Compile Include="Keys\BasePublishingTermGroupInfoKeys.cs" />
     <Compile Include="Keys\BasePublishingTermSetInfoKeys.cs" />
