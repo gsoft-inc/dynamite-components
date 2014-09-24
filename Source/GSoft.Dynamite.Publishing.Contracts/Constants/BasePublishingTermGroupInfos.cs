@@ -23,17 +23,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// The navigation term group
         /// </summary>
         /// <returns>The term group</returns>
-        public TermGroupInfo Navigation ()
+        public TermGroupInfo Navigation()
         {
-            return new TermGroupInfo()
-            {
-                Id = new Guid("6c3fb5cb-ea19-4a77-9c39-dc1583523f97"),
-                Name = "Portal - Navigation",
-                TermSets = new Dictionary<string, TermSetInfo>()
-                {
-                    {BasePublishingTermSetInfoKeys.GlobalNavigationTermSet,this._termSetInfoValues.GlobalNavigation()}
-                }
-            };
+            return new TermGroupInfo(
+                new Guid("6c3fb5cb-ea19-4a77-9c39-dc1583523f97"),
+                "Portal - Navigation");
         }
 
         #endregion
@@ -46,15 +40,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The term group</returns>
         public TermGroupInfo Restricted()
         {
-            return new TermGroupInfo()
-            {
-                Id = new Guid("5a4b4147-be07-4f1e-9b90-262ae89cd5d3"),
-                Name = "Portal - Restricted",
-                TermSets = new Dictionary<string, TermSetInfo>()
-                {
-                    {BasePublishingTermSetInfoKeys.RestrictedNewsTermSet, this._termSetInfoValues.RestrictedNews()}
-                }
-            };
+            return new TermGroupInfo(
+                new Guid("5a4b4147-be07-4f1e-9b90-262ae89cd5d3"),
+                "Portal - Restricted");
         }
 
         #endregion

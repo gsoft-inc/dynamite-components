@@ -35,30 +35,17 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo DynamiteItem()
         {
-            return new ContentTypeInfo()
-            {
-                Fields = new List<FieldInfo>()
+            return new ContentTypeInfo(
+                    _baseContentTypeValues.NewsItem().ContentTypeId +"01",
+                    DynamiteDemoResources.ContentTypeDynamiteItemTitle,
+                    DynamiteDemoResources.ContentTypeDynamiteItemDescription,
+                    DynamiteDemoResources.ContentTypeGroup)
                 {
-                    _fieldInfoValues.DynamiteDemoColumn()
-                },
-
-                ContentTypeId = _baseContentTypeValues.NewsItem().ContentTypeId +"01",
-                DisplayName = _resourceLocator.Find(_resourceFileName, DynamiteDemoResources.ContentTypeDynamiteItemTitle, new CultureInfo(1033)),
-
-                TitleResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,DynamiteDemoResources.ContentTypeDynamiteItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,DynamiteDemoResources.ContentTypeDynamiteItemTitle,new CultureInfo(1036))}
-                },
-
-                DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,DynamiteDemoResources.ContentTypeDynamiteItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,DynamiteDemoResources.ContentTypeDynamiteItemDescription,new CultureInfo(1036))}
-                },
-
-                Group = _resourceLocator.GetResourceString(_resourceFileName, DynamiteDemoResources.ContentTypeGroup)
-            };
+                    Fields = new List<IFieldInfo>()
+                    {
+                        _fieldInfoValues.DynamiteDemoColumn()
+                    }
+                };
         }
         #endregion
     }

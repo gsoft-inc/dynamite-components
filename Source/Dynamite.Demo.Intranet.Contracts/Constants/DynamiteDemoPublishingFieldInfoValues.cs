@@ -2,9 +2,9 @@
 using Dynamite.Demo.Intranet.Contracts.Resources;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Definitions.Values;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.SiteColumns;
+using GSoft.Dynamite.FieldTypes;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants
 {
@@ -39,24 +39,16 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
         /// <returns>The Navigation field</returns>
         public TextFieldInfo DynamiteDemoColumn()
         {
-            return new TextFieldInfo()
+            return new TextFieldInfo(
+                DynamiteDemoColumnFieldName,
+                new Guid("{3FBEC11F-DBCF-40E4-BD93-485BA321F564}"),
+                DynamiteDemoResources.FieldDynamiteDemoColumnTitle,
+                DynamiteDemoResources.FieldDynamiteDemoColumnDescription,
+                DynamiteDemoResources.FieldGroup
+                )
             {
-                DisplayName =
-                    _resourceLocator.GetResourceString(_resourceFileName,
-                        DynamiteDemoResources.FieldDynamiteDemoColumnTitle),
-                Description =
-                    _resourceLocator.GetResourceString(_resourceFileName,
-                        DynamiteDemoResources.FieldDynamiteDemoColumnDescription),
-                Group = _resourceLocator.GetResourceString(_resourceFileName, DynamiteDemoResources.FieldGroup),
-                InternalName = DynamiteDemoColumnFieldName,
-                Id = new Guid("{3FBEC11F-DBCF-40E4-BD93-485BA321F564}"),
-                // Default managed metadata mapping configuration
-                DefaultValue = new TextFieldInfoValue()
-                {
-                    Values = new[] {"Demo"}
-                },
-
-                RequiredType = RequiredTypes.Required
+                DefaultValue = "Demo",
+                Required = RequiredTypes.Required
             };
         }
 

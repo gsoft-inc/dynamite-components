@@ -42,9 +42,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Internal_Fields
                     var logger = featureScope.Resolve<ILogger>();
 
                     // Create base Fields
-                    foreach (KeyValuePair<string, FieldInfo> field in baseFields)
+                    foreach (IFieldInfo field in baseFields.Values)
                     {
-                        fieldHelper.EnsureField(site.RootWeb.Fields, field.Value);
+                        fieldHelper.EnsureField(site.RootWeb.Fields, field);
                     }
 
                     // Create additionnal custom fields
@@ -53,9 +53,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Internal_Fields
                     {
                         var customFields = customContentTypeConfig.Fields();
 
-                        foreach (KeyValuePair<string, FieldInfo> field in customFields)
+                        foreach (IFieldInfo field in customFields.Values)
                         {
-                            fieldHelper.EnsureField(site.RootWeb.Fields, field.Value);
+                            fieldHelper.EnsureField(site.RootWeb.Fields, field);
                         }
                     }
                     else

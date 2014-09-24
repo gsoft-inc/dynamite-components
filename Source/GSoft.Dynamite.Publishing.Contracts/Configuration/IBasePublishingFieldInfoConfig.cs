@@ -5,6 +5,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
 {
     public interface IBasePublishingFieldInfoConfig
     {
-        IDictionary<string, FieldInfo> Fields();
+        IDictionary<string, IFieldInfo> Fields();
     }
 }

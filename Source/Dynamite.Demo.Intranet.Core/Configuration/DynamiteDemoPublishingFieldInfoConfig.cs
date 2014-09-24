@@ -19,11 +19,11 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
             _fieldInfoValues = fieldInfoValues;
         }
 
-        public IDictionary<string, FieldInfo> Fields()
+        public IDictionary<string, IFieldInfo> Fields()
         {
-            var fields = new Dictionary<string, FieldInfo>
+            var fields = new Dictionary<string, IFieldInfo>
             {
-                {DynamiteDemoFieldInfoKeys.DynamiteDemoColumn,_fieldInfoValues.DynamiteDemoColumn()},
+                {DynamiteDemoFieldInfoKeys.DynamiteDemoColumn, _fieldInfoValues.DynamiteDemoColumn()},
             };
 
             return fields;

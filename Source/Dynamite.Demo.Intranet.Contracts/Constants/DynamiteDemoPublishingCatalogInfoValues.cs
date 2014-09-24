@@ -33,50 +33,35 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
 
         public CatalogInfo DynamiteCatalog()
         {
-            return new CatalogInfo()
-            {
-                TitleResources = new Dictionary<CultureInfo, string>()
+            return new CatalogInfo(
+                    "DynamitePages",
+                    DynamiteDemoResources.DynamiteCatalogTitle,
+                    DynamiteDemoResources.DynamiteCatalogDescription)
                 {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,DynamiteDemoResources.DynamiteCatalogTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,DynamiteDemoResources.DynamiteCatalogTitle,new CultureInfo(1036))}
-                },
-
-                DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),_resourceLocator.Find(_resourceFileName,DynamiteDemoResources.DynamiteCatalogDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),_resourceLocator.Find(_resourceFileName,DynamiteDemoResources.DynamiteCatalogDescription,new CultureInfo(1036))}
-                },
-
-                ContentTypes = new List<ContentTypeInfo>()
-                {
-                    {_contentTypeInfoValues.DynamiteItem()}
-                },
-
-                RootFolderUrl = "DynamitePages",
-                DraftVisibilityType = DraftVisibilityType.Approver,
-                EnableRatings = false,
-                ListTemplate = SPListTemplateType.GenericList,
-                Overwrite = false,
-                RemoveDefaultContentType = true,
-                TaxonomyFieldMap = _fieldInfoValues.Navigation(),
-                EnforceUniqueNavigationValues = false,
-                WriteSecurity = WriteSecurityOptions.AllUser,
-                HasDraftVisibilityType = true,
-
-                ManagedProperties = new List<ManagedPropertyInfo>()
-                {
-                    {new ManagedPropertyInfo("ListItemID")}
-                },
-
-                AddToQuickLaunch = true,
-
-                DefaultViewFields = new List<FieldInfo>()
-                {
-                    {_fieldInfoValues.Navigation()}
-                },
-
-                IsAnonymous = true
-            };
+                    ContentTypes = new List<ContentTypeInfo>()
+                    {
+                        _contentTypeInfoValues.DynamiteItem()
+                    },
+                    DraftVisibilityType = DraftVisibilityType.Approver,
+                    EnableRatings = false,
+                    ListTemplate = SPListTemplateType.GenericList,
+                    Overwrite = false,
+                    RemoveDefaultContentType = true,
+                    TaxonomyFieldMap = _fieldInfoValues.Navigation(),
+                    EnforceUniqueNavigationValues = false,
+                    WriteSecurity = WriteSecurityOptions.AllUser,
+                    HasDraftVisibilityType = true,
+                    ManagedProperties = new List<ManagedPropertyInfo>()
+                    {
+                        new ManagedPropertyInfo("ListItemID")
+                    },
+                    AddToQuickLaunch = true,
+                    DefaultViewFields = new List<IFieldInfo>()
+                    {
+                        _fieldInfoValues.Navigation()
+                    },
+                    IsAnonymous = true
+                };
         }
 
         #endregion

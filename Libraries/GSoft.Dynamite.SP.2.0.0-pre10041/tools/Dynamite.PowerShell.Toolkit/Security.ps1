@@ -57,10 +57,17 @@ function Set-DSPWebPermissionInheritance() {
 	if ($Break)
 	{	
 		$SPWeb = $Web.Read()
-		$SPWeb.BreakRoleInheritance($true)
-		Write-Verbose ([string]::Format("Role Inheritance was broken for {0}", $SPWeb.Url))
-		$SPWeb.Update()
-		$SPWeb.Dispose()
+		if ($SPWeb.IsRootWeb) 
+		{
+			Write-Verbose ([string]::Format("Cannot break role inheritance for root web {0}", $SPWeb.Url))
+		}
+		else
+		{
+			$SPWeb.BreakRoleInheritance($true)
+			Write-Verbose ([string]::Format("Role Inheritance was broken for {0}", $SPWeb.Url))
+			$SPWeb.Update()
+			$SPWeb.Dispose()
+		}
 	}
 }
 
@@ -193,10 +200,14 @@ function Set-DSPWebPermissions()
 
 		$web = $_.Name
 
+		if([System.Convert]::ToBoolean($_.BreakRoleInheritance) -eq $true)
+		{			
+			Set-DSPWebPermissionInheritance -Web $web -Break
+		}
+
 		# Groups
 		if ($_.Groups -ne $null)
 		{
-			Set-DSPWebPermissionInheritance -Web $web -Break
 			Add-DSPGroupByXml -Web $web -Group $_.Groups
 		}
 	}

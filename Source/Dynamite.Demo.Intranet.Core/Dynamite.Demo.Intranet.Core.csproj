@@ -36,20 +36,14 @@
     <AssemblyOriginatorKeyFile>..\GSoft.Dynamite.Portal.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="Autofac">
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10031\lib\net45\GSoft.Dynamite.dll</HintPath>
-    </Reference>
-    <Reference Include="GSoft.Dynamite.Publishing.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1e3bb3fbc94d83df, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\GSoft.Dynamite.Publishing.Contracts\bin\Debug\GSoft.Dynamite.Publishing.Contracts.dll</HintPath>
+    <Reference Include="GSoft.Dynamite">
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10041\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -75,6 +69,10 @@
     <ProjectReference Include="..\Dynamite.Demo.Intranet.Contracts\Dynamite.Demo.Intranet.Contracts.csproj">
       <Project>{aad0094c-6782-44f9-b12c-fbef909df01f}</Project>
       <Name>Dynamite.Demo.Intranet.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
+      <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
+      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

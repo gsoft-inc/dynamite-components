@@ -21,9 +21,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             _fieldInfoValues = fieldInfoValues;
         }
 
-        public IDictionary<string, FieldInfo> Fields()
+        public IDictionary<string, IFieldInfo> Fields()
         {
-            var fields = new Dictionary<string, FieldInfo>
+            var fields = new Dictionary<string, IFieldInfo>
             {
                 {BasePublishingFieldInfoKeys.Navigation,_fieldInfoValues.Navigation()},
                 {BasePublishingFieldInfoKeys.Summary,_fieldInfoValues.Summary()},

@@ -33,31 +33,17 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public  ContentTypeInfo BrowsableItem()
         {
-            return new ContentTypeInfo()
+            return new ContentTypeInfo(
+                BrowsableItemContentType,
+                BasePublishingResources.ContentTypeBrowsableItemTitle,
+                BasePublishingResources.ContentTypeBrowsableItemDescription,
+                BasePublishingResources.ContentTypeGroup
+                )
             {
-                Fields = new List<FieldInfo>()
+                Fields = new List<IFieldInfo>()
                 {
                    this._fieldInfoValues.Navigation()
-                },
-
-                ContentTypeId = BrowsableItemContentType,
-
-                // Default content type name
-                DisplayName = this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1033)),
-
-                TitleResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemTitle,new CultureInfo(1036))}
-                },
-
-                DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeBrowsableItemDescription,new CultureInfo(1036))}
-                },
-
-                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
+                }
             };
         }
 
@@ -71,26 +57,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo TranslatableItem()
         {
-            return new ContentTypeInfo()
-            {
-                Fields = new List<FieldInfo>() {},
-
-                ContentTypeId = TranslatableItemContentType,
-                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeTranslatableItemTitle, new CultureInfo(1033)),
-                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup),
-
-                TitleResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTranslatableItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTranslatableItemTitle,new CultureInfo(1036))}
-                },
-
-                DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTranslatableItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTranslatableItemDescription,new CultureInfo(1036))}
-                },
-            };
+            return new ContentTypeInfo(
+                TranslatableItemContentType,
+                BasePublishingResources.ContentTypeTranslatableItemTitle,
+                BasePublishingResources.ContentTypeTranslatableItemDescription,
+                BasePublishingResources.ContentTypeGroup
+                );
         }
 
         #endregion
@@ -103,30 +75,16 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo DefaultItem()
         {
-            return new ContentTypeInfo()
+            return new ContentTypeInfo(
+                DefaultItemContentType,
+                BasePublishingResources.ContentTypeDefaultItemTitle,
+                BasePublishingResources.ContentTypeDefaultItemDescription,
+                BasePublishingResources.ContentTypeGroup)
             {
-                 Fields = new List<FieldInfo>()
+                Fields = new List<IFieldInfo>()
                 {
-                    this._fieldInfoValues.PublishingPageContent()
-                },
-
-                ContentTypeId = DefaultItemContentType,
-
-                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeDefaultItemTitle, new CultureInfo(1033)),
-
-                TitleResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeDefaultItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeDefaultItemTitle,new CultureInfo(1036))}
-                },
-
-                 DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeDefaultItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeDefaultItemDescription,new CultureInfo(1036))}
-                },
-
-                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
+                    PublishingFields.PublishingPageContent
+                }
             };
            
         }
@@ -141,28 +99,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo CatalogContentItem()
         {
-            return new ContentTypeInfo()
-            {
-                Fields = new List<FieldInfo>() { },
-
-                ContentTypeId = CatalogContentItemContentType,
-                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentCatalogTitle, new CultureInfo(1033)),
-
-                TitleResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentCatalogTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentCatalogTitle,new CultureInfo(1036))}
-                },
-
-                DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentCatalogDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentCatalogDescription,new CultureInfo(1036))}
-                },
-
-                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
-            };
-
+            return new ContentTypeInfo(
+                CatalogContentItemContentType,
+                BasePublishingResources.ContentCatalogTitle,
+                BasePublishingResources.ContentCatalogDescription,
+                BasePublishingResources.ContentTypeGroup);
         }
 
         #endregion
@@ -175,27 +116,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo TargetContentItem()
         {
-            return new ContentTypeInfo()
-            {
-                Fields = new List<FieldInfo>() { },
-
-                ContentTypeId = TargetContentItemContentType,
-                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeTargetContentItemTitle, new CultureInfo(1033)),
-
-                TitleResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTargetContentItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTargetContentItemTitle,new CultureInfo(1036))}
-                },
-
-                DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTargetContentItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeTargetContentItemDescription,new CultureInfo(1036))}
-                },
-
-                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
-            };
+            return new ContentTypeInfo(
+                TargetContentItemContentType,
+                BasePublishingResources.ContentTypeTargetContentItemTitle,
+                BasePublishingResources.ContentTypeTargetContentItemDescription,
+                BasePublishingResources.ContentTypeGroup);
         }
 
         #endregion
@@ -208,26 +133,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo ContentItem()
         {
-            return new ContentTypeInfo()
-            {
-                Fields = new List<FieldInfo>() {},
-                ContentTypeId = ContentItemContentType,
-                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeContentItemTitle, new CultureInfo(1033)),
-
-                TitleResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeContentItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeContentItemTitle,new CultureInfo(1036))}
-                },
-
-                DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeContentItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeContentItemDescription,new CultureInfo(1036))}
-                },
-
-                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup)
-            };
+            return new ContentTypeInfo(
+                ContentItemContentType,
+                BasePublishingResources.ContentTypeContentItemTitle,
+                BasePublishingResources.ContentTypeContentItemDescription,
+                BasePublishingResources.ContentTypeGroup);
         }
 
         #endregion
@@ -240,31 +150,18 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo NewsItem()
         {
-            return new ContentTypeInfo()
+            return new ContentTypeInfo(
+                NewsItemContentType,
+                BasePublishingResources.ContentTypeNewsItemTitle,
+                BasePublishingResources.ContentTypeNewsItemDescription,
+                BasePublishingResources.ContentTypeGroup)
             {
-                DisplayName = this._resourceLocator.Find(this._resourceFileName, BasePublishingResources.ContentTypeNewsItemTitle, new CultureInfo(1033)),
-
-                TitleResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeNewsItemTitle,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeNewsItemTitle,new CultureInfo(1036))}
-                },
-
-                DescriptionResources = new Dictionary<CultureInfo, string>()
-                {
-                    {new CultureInfo(1033),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeNewsItemDescription,new CultureInfo(1033))},
-                    {new CultureInfo(1036),this._resourceLocator.Find(this._resourceFileName,BasePublishingResources.ContentTypeNewsItemDescription,new CultureInfo(1036))}
-                },
-
-                Group = this._resourceLocator.GetResourceString(this._resourceFileName, BasePublishingResources.ContentTypeGroup),
-
-                Fields = new List<FieldInfo>()
+                Fields = new List<IFieldInfo>()
                 {
                     this._fieldInfoValues.Summary(),
-                    this._fieldInfoValues.PublishingPageImage(),
+                    PublishingFields.PublishingPageImage,
                     this._fieldInfoValues.ImageDescription()
                 },
-                ContentTypeId = NewsItemContentType,
             };
         }
 
@@ -278,10 +175,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo Page()
         {
-            return new ContentTypeInfo()
-            {
-                ContentTypeId = "0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39"
-            };
+            return new ContentTypeInfo("0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39", string.Empty, string.Empty, string.Empty);
         }
 
         #endregion

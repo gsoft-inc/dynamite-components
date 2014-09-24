@@ -10,11 +10,14 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public class BasePublishingTermSetInfos
     {
-        private readonly BasePublishingTermInfos _termInfoValues;
+        private BasePublishingTermGroupInfos termGroupInfos;
 
-        public BasePublishingTermSetInfos(BasePublishingTermInfos termInfoValues)
+        /// <summary>
+        /// 
+        /// </summary>
+        public BasePublishingTermSetInfos(BasePublishingTermGroupInfos termGroupInfos)
         {
-            this._termInfoValues = termInfoValues;
+            this.termGroupInfos = termGroupInfos;
         }
 
         #region Global Navigation Term Set
@@ -25,14 +28,13 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The term set</returns>
         public TermSetInfo GlobalNavigation()
         {   
-            return new TermSetInfo()
-            {
-                Id = new Guid("f92bc16f-f73b-4568-b6af-f8dd87044653"),
-                Labels = new Dictionary<CultureInfo, string>{           
-                    {new CultureInfo(Language.French.Culture.LCID), "Navigation (EN)"},
+            return new TermSetInfo(
+                new Guid("f92bc16f-f73b-4568-b6af-f8dd87044653"),
+                new Dictionary<CultureInfo, string>{           
+                    {new CultureInfo(Language.French.Culture.LCID), "Navigation (FR)"},
                     {new CultureInfo(Language.English.Culture.LCID), "Navigation (EN)"}
-                }
-            };
+                },
+                this.termGroupInfos.Navigation());
         }
 
         #endregion
@@ -45,18 +47,14 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The term set</returns>
         public TermSetInfo RestrictedNews()
         {
-            return new TermSetInfo()
-            {
-                Id = new Guid("700c0057-26b7-455c-a1de-7b5b7c4c0f71"),
-                Labels = new Dictionary<CultureInfo, string>{           
+            return new TermSetInfo(
+                new Guid("700c0057-26b7-455c-a1de-7b5b7c4c0f71"),
+                new Dictionary<CultureInfo, string>{           
                     {new CultureInfo(Language.French.Culture.LCID), "Défault - Nouvelles"},
-                    {new CultureInfo(Language.English.Culture.LCID), "Default - News"}
+                    {new CultureInfo(Language.English.Culture.LCID), "Default - News"},
                 },
-                Terms = new Dictionary<string, TermInfo>
-                {
-                    {"NewsLabel", this._termInfoValues.NewsLabel()}
-                }
-            };
+                this.termGroupInfos.Restricted()
+                );
         }
         
         #endregion
