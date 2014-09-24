@@ -121,3 +121,10 @@ Source/GSoft.Dynamite.Portal.Scripts/Cmdlets/*/*.ps1
 Source/GSoft.Dynamite.Portal.Scripts/CmdletConfig/*/*.xml
 Source/GSoft.Dynamite.Portal.Scripts/CmdletConfig/*/*.wsp
 Libraries/
+Source/GSoft.Dynamite.CrossSitePublishingCMS/Modules/Publishing/PUB_01/Default/Default-NavigationTermGroup.xml
+Source/GSoft.Dynamite.CrossSitePublishingCMS/Modules/Publishing/PUB_01/Default/Default-Permissions.xml
+Source/GSoft.Dynamite.CrossSitePublishingCMS/Modules/Publishing/PUB_01/Default/Default-RestrictedTermGroup.xml
+Source/GSoft.Dynamite.CrossSitePublishingCMS/Modules/Publishing/PUB_01/Default/Default-Sites.xml
+Source/GSoft.Dynamite.CrossSitePublishingCMS/Solutions/Copy-Solutions.ps1
+Source/GSoft.Dynamite.CrossSitePublishingCMS/Solutions/Custom/Custom-Solutions.xml
+Source/GSoft.Dynamite.CrossSitePublishingCMS/Solutions/Default/Default-Solutions.xml
