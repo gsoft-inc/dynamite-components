@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
@@ -10,13 +6,9 @@ using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Portal.SP.Publishing;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
-using GSoft.Dynamite.Taxonomy;
 using Microsoft.SharePoint;
-using Microsoft.SharePoint.BusinessData.MetadataModel;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.Internal_Fields
+namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.

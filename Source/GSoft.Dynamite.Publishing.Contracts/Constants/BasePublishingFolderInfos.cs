@@ -6,10 +6,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     public class BasePublishingFolderInfos
     {
-        public BasePublishingFolderInfos FolderInfos { get; set; }
         private readonly BasePublishingPageInfos _pageInfos;
 
-        public BasePublishingFolderInfos( BasePublishingPageInfos pageInfos)
+        public BasePublishingFolderInfos(BasePublishingPageInfos pageInfos)
         {
             this._pageInfos = pageInfos;
         }
@@ -22,7 +21,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "RootFolder",
                 SubFolders = new FolderInfo[]
                 {
-                    this.FolderInfos.FolderTest()
+                    this.FolderTest()
                 },
                 Pages = new Dictionary<string, PageInfo>()
                 {
@@ -39,7 +38,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "Folder1",
                 SubFolders = new FolderInfo[]
                 {
-                    this.FolderInfos.FolderTest2()
+                    this.FolderTest2()
                 },
             };
         }

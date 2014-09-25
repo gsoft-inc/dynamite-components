@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Configuration\BasePublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\BasePublishingContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\BasePublishingDisplayTemplateInfoConfig.cs" />
     <Compile Include="Configuration\BasePublishingFieldInfoConfig.cs" />
     <Compile Include="Configuration\BasePublishingFolderInfoConfig.cs" />
     <Compile Include="Configuration\BasePublishingResultSourceInfoConfig.cs" />
