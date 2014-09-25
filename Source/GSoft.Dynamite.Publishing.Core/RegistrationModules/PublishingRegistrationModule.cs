@@ -51,7 +51,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<BasePublishingResultSourceInfos>();
             builder.RegisterType<BasePublishingPageInfos>();
             builder.RegisterType<BasePublishingPageLayoutInfo>();
-            builder.RegisterType<BasePublishingFolderInfos>().InstancePerLifetimeScope().PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies);
+            builder.RegisterType<BasePublishingFolderInfos>();
         }
     }
 }
