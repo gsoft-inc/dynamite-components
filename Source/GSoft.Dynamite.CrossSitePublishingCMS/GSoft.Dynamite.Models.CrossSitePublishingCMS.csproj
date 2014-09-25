@@ -69,6 +69,7 @@
     <None Include="Solutions\Deploy-Solutions.ps1.template" />
     <None Include="Solutions\Tokens.Solutions.Custom.ps1" />
     <None Include="Solutions\Tokens.Solutions.Default.ps1" />
+    <None Include="Tokens.sp2013tao.ps1" />
     <None Include="Tokens.VMDEVSP2013.ps1" />
     <None Include="Tokens.FRANCK-VM2013.ps1" />
     <None Include="Tokens\Tokens.Common.ps1" />
