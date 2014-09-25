@@ -16,9 +16,9 @@
     <tags>SharePoint</tags>
   </metadata>
   <files>
-	<file src="GSoft.Dynamite.CrossSitePublishingCMS\Modules\*" target="content\Module" />
-	<file src="GSoft.Dynamite.CrossSitePublishingCMS\Solutions\*" target="content\Solutions" />
-	<file src="GSoft.Dynamite.CrossSitePublishingCMS\Tokens\*" target="content\Tokens" />
-	<file src="GSoft.Dynamite.CrossSitePublishingCMS\Logs\" target="content\Logs" />
+	<file src="Modules\*" target="content\Module" />
+	<file src="Solutions\*" target="content\Solutions" />
+	<file src="Tokens\*" target="content\Tokens" />
+	<file src="Logs\" target="content\Logs" />
   </files>
 </package>
