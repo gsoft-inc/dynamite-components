@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Dynamite.Demo.Intranet.Contracts.Constants;
-using Dynamite.Demo.Intranet.Core.Keys;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration
 {
@@ -21,11 +14,11 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
             _catalogInfoValues = catalogInfoValues;
         }
 
-        public IDictionary<string, CatalogInfo> Catalogs()
+        public IList<CatalogInfo> Catalogs()
         {
-            var catalogs = new Dictionary<string, CatalogInfo>
+            var catalogs = new List<CatalogInfo>
             {
-                {DynamiteDemoCatalogInfoKeys.DynamiteDemoPagesCatalog, _catalogInfoValues.DynamiteCatalog()},
+                {_catalogInfoValues.DynamiteCatalog()},
             };
 
             return catalogs;

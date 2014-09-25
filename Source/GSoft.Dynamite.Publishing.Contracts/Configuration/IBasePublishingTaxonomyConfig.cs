@@ -5,6 +5,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
 {
     public interface IBasePublishingTaxonomyConfig
     {
-        IDictionary<string, TermGroupInfo> TermGroups();
+        IList<TermGroupInfo> TermGroups();
     }
 }

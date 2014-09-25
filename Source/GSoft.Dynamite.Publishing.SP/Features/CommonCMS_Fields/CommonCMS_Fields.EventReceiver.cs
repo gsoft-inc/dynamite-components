@@ -34,7 +34,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                     var logger = featureScope.Resolve<ILogger>();
 
                     // Create base Fields
-                    foreach (IFieldInfo field in baseFields.Values)
+                    foreach (IFieldInfo field in baseFields)
                     {
                         fieldHelper.EnsureField(site.RootWeb.Fields, field);
                     }
@@ -45,7 +45,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                     {
                         var customFields = customContentTypeConfig.Fields();
 
-                        foreach (IFieldInfo field in customFields.Values)
+                        foreach (IFieldInfo field in customFields)
                         {
                             fieldHelper.EnsureField(site.RootWeb.Fields, field);
                         }

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {

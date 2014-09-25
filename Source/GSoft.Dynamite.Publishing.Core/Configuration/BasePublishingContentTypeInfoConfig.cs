@@ -2,7 +2,6 @@
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
@@ -15,17 +14,17 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             _contentTypeInfoValues = contentTypeInfoValues;
         }
 
-        public IDictionary<string, ContentTypeInfo> ContentTypes()
+        public IList<ContentTypeInfo> ContentTypes()
         {
-            var contentTypes = new Dictionary<string, ContentTypeInfo>
+            var contentTypes = new List<ContentTypeInfo>
             {
-                {BasePublishingContentTypeInfoKeys.TranslatableItem, _contentTypeInfoValues.TranslatableItem()},
-                {BasePublishingContentTypeInfoKeys.BrowsableItem, _contentTypeInfoValues.BrowsableItem()},
-                {BasePublishingContentTypeInfoKeys.DefaultItem, _contentTypeInfoValues.DefaultItem()},
-                {BasePublishingContentTypeInfoKeys.CatalogContentItem, _contentTypeInfoValues.CatalogContentItem()},
-                {BasePublishingContentTypeInfoKeys.TargetContentItem, _contentTypeInfoValues.TargetContentItem()},
-                {BasePublishingContentTypeInfoKeys.NewsItem, _contentTypeInfoValues.NewsItem()},
-                {BasePublishingContentTypeInfoKeys.ContentItem, _contentTypeInfoValues.ContentItem()}
+                {_contentTypeInfoValues.TranslatableItem()},
+                {_contentTypeInfoValues.BrowsableItem()},
+                {_contentTypeInfoValues.DefaultItem()},
+                {_contentTypeInfoValues.CatalogContentItem()},
+                {_contentTypeInfoValues.TargetContentItem()},
+                {_contentTypeInfoValues.NewsItem()},
+                {_contentTypeInfoValues.ContentItem()}
             };
 
             return contentTypes;

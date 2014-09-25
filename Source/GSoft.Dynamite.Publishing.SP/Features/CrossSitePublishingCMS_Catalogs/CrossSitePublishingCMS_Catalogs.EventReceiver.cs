@@ -32,7 +32,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
             {
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    IDictionary<string, CatalogInfo> baseCatalogs;
+                    IList<CatalogInfo> baseCatalogs;
 
                     var logger = featureScope.Resolve<ILogger>();
                     var catalogHelper = featureScope.Resolve<CatalogHelper>();
@@ -52,9 +52,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                     }
 
                     // Create catalogs
-                    foreach (KeyValuePair<string, CatalogInfo> catalog in baseCatalogs)
+                    foreach (var catalog in baseCatalogs)
                     {
-                        catalogHelper.EnsureCatalog(web, catalog.Value);
+                        catalogHelper.EnsureCatalog(web, catalog);
                     }
                 }
             }

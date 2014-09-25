@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
@@ -23,10 +22,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {
                     this.FolderTest()
                 },
-                Pages = new Dictionary<string, PageInfo>()
+                Pages = new List<PageInfo>()
                 {
-                    {BasePublishingPageInfoKeys.TargetItemPageTemplate,this._pageInfos.TargetItemPageTemplate()},
-                    {BasePublishingPageInfoKeys.CatalogItemPageTemplate,this._pageInfos.CatalogItemPageTemplate()}
+                    {this._pageInfos.TargetItemPageTemplate()},
+                    {this._pageInfos.CatalogItemPageTemplate()}
                 }
             };
         }
@@ -48,10 +47,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             return new FolderInfo()
             {
                 Name = "Folder2",
-                Pages = new Dictionary<string, PageInfo>()
+                Pages = new List<PageInfo>()
                 {
-                    {BasePublishingPageInfoKeys.TargetItemPageTemplate,this._pageInfos.TargetItemPageTemplate()},
-                    {BasePublishingPageInfoKeys.CatalogItemPageTemplate,this._pageInfos.CatalogItemPageTemplate()}
+                    {this._pageInfos.TargetItemPageTemplate()},
+                    {this._pageInfos.CatalogItemPageTemplate()}
                 }
             };
 

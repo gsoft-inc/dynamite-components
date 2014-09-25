@@ -8,7 +8,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions
         /// <summary>
         /// Catalogs definition
         /// </summary>
-        /// <returns>The catalog configuration</returns>
-        IDictionary<string, CatalogInfo> Catalogs();
+        IList<CatalogInfo> Catalogs();
     }
 }

@@ -5,6 +5,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
 {
     public interface IBasePublishingCatalogInfoConfig
     {
-        IDictionary<string, CatalogInfo> Catalogs();
+        IList<CatalogInfo> Catalogs();
     }
 }
