@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
-    public class BasePublishingDisplayTemplateInfoConfig
+    public class BasePublishingDisplayTemplateInfoConfig : IBasePublishingDisplayTemplateInfoConfig
     {
         private readonly BasePublishingDisplayTemplateInfos _displayTemplateInfos;
 

@@ -40,6 +40,9 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Folders
             builder.RegisterType<BasePublishingFolderInfoConfig>().As<IBasePublishingFolderInfoConfig>();
+
+            // Display Templates
+            builder.RegisterType<BasePublishingDisplayTemplateInfoConfig>().As<IBasePublishingDisplayTemplateInfoConfig>();
             
             // Configuration Values
             builder.RegisterType<BasePublishingContentTypeInfos>();
@@ -52,6 +55,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<BasePublishingPageInfos>();
             builder.RegisterType<BasePublishingPageLayoutInfo>();
             builder.RegisterType<BasePublishingFolderInfos>();
+            builder.RegisterType<BasePublishingDisplayTemplateInfos>();
         }
     }
 }

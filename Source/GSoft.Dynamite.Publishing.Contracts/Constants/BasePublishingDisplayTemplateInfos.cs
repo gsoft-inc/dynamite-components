@@ -16,7 +16,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         public DisplayTemplateInfo ItemSingleContentItem()
         {
-            return new DisplayTemplateInfo("tem_SingleContentItem", DisplayTemplateCategory.Search);
+            return new DisplayTemplateInfo("Item_SingleContentItem", DisplayTemplateCategory.Search);
         }
     }
 }

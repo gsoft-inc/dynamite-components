@@ -243,4 +243,10 @@
   <data name="PageLayout_TargetItemPageLayout_Name" xml:space="preserve">
     <value>Target Item Page Layout</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_DisplayTemplates_Desc" xml:space="preserve">
+    <value>Deploys search display templates for Cross Site Publishing based CMS solutions</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_DisplayTemplates_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Search Display Templates</value>
+  </data>
 </root>
