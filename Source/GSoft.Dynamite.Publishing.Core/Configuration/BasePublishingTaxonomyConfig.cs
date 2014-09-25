@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
@@ -16,11 +14,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             _termGroupInfoValues = termGroupInfoValues;
         }
 
-        public IDictionary<string, TermGroupInfo> TermGroups()
+        public IList<TermGroupInfo> TermGroups()
         {
-            var termGroups = new Dictionary<string, TermGroupInfo>
+            var termGroups = new List<TermGroupInfo>
             {
-                {BasePublishingTermGroupInfoKeys.NavigationTermGroup, _termGroupInfoValues.Navigation()}
+                {_termGroupInfoValues.Navigation()}
             };
 
             return termGroups;

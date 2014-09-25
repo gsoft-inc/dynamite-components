@@ -2,7 +2,6 @@
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
@@ -15,12 +14,12 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             this._resultSourceValues = resultSourceValues;
         }
 
-        public IDictionary<string, ResultSourceInfo> ResultSources()
+        public IList<ResultSourceInfo> ResultSources()
         {
-            var resultSources = new Dictionary<string, ResultSourceInfo>
+            var resultSources = new List<ResultSourceInfo>
             {
-                {BasePublishingResultSourceInfoKeys.SingleTargetItem, _resultSourceValues.SingleTargetItem()},
-                {BasePublishingResultSourceInfoKeys.SingleCatalogItem, _resultSourceValues.SingleCatalogItem()}
+                {_resultSourceValues.SingleTargetItem()},
+                {_resultSourceValues.SingleCatalogItem()}
             };
 
             return resultSources;

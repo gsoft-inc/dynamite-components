@@ -5,6 +5,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions
 {
     public interface ICustomPublishingContentTypeInfoConfig
     {
-        IDictionary<string, ContentTypeInfo> ContentTypes();
+        IList<ContentTypeInfo> ContentTypes();
     }
 }

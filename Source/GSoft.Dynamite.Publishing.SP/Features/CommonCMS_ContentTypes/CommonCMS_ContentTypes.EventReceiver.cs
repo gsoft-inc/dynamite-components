@@ -7,10 +7,7 @@ using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Portal.SP.Publishing;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 using Microsoft.SharePoint;
-using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
 {
@@ -38,9 +35,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                     var logger = featureScope.Resolve<ILogger>();
 
                     // Create base content types
-                    foreach (KeyValuePair<string, ContentTypeInfo> contentType in baseContentTypes)
+                    foreach (var contentType in baseContentTypes)
                     {
-                        contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType.Value);
+                        contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                     }
 
                     // Create additionnal custom content types
@@ -49,9 +46,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                     {
                         var customContentTypes = customContentTypeConfig.ContentTypes();
                         
-                        foreach (KeyValuePair<string, ContentTypeInfo> contentType in customContentTypes)
+                        foreach (var contentType in customContentTypes)
                         {
-                            contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType.Value);
+                            contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                         }
                     }
                     else

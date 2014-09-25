@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
@@ -21,13 +14,13 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             _fieldInfoValues = fieldInfoValues;
         }
 
-        public IDictionary<string, IFieldInfo> Fields()
+        public IList<IFieldInfo> Fields()
         {
-            var fields = new Dictionary<string, IFieldInfo>
+            var fields = new List<IFieldInfo>
             {
-                {BasePublishingFieldInfoKeys.Navigation,_fieldInfoValues.Navigation()},
-                {BasePublishingFieldInfoKeys.Summary,_fieldInfoValues.Summary()},
-                {BasePublishingFieldInfoKeys.ImageDescription,_fieldInfoValues.ImageDescription()},
+                {_fieldInfoValues.Navigation()},
+                {_fieldInfoValues.Summary()},
+                {_fieldInfoValues.ImageDescription()},
             };
 
             return fields;

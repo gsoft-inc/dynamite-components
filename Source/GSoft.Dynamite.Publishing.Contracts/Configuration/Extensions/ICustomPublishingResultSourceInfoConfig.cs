@@ -5,6 +5,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions
 {
     public interface ICustomPublishingResultSourceInfoConfig
     {
-        IDictionary<string, ResultSourceInfo> ResultSources();
+        IList<ResultSourceInfo> ResultSources();
     }
 }

@@ -38,12 +38,12 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                     var searchHelper = featureScope.Resolve<SearchHelper>();
                     var baseResultSourceInfoConfig = featureScope.Resolve<IBasePublishingResultSourceInfoConfig>();
 
-                    IDictionary<string, ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
+                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
 
                     // Create base result sources
-                    foreach (KeyValuePair<string, ResultSourceInfo> resultSource in resultSources)
+                    foreach (var resultSource in resultSources)
                     {
-                        searchHelper.EnsureResultSource(site, resultSource.Value);
+                        searchHelper.EnsureResultSource(site, resultSource);
                     }
 
                     // Check if custom configuration is present
@@ -54,9 +54,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                         resultSources = customResultSourceInfoConfig.ResultSources();
 
                         // Create base result sources
-                        foreach (KeyValuePair<string, ResultSourceInfo> resultSource in resultSources)
+                        foreach (var resultSource in resultSources)
                         {
-                            searchHelper.EnsureResultSource(site, resultSource.Value);
+                            searchHelper.EnsureResultSource(site, resultSource);
                         }
                     }
                     else

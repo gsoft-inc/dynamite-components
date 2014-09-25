@@ -243,4 +243,10 @@
   <data name="PageLayout_TargetItemPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page pour un élément de contenu</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_DisplayTemplates_Desc" xml:space="preserve">
+    <value>Déploie les modèles d'affichage des résultats de recherche du module de publication pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_DisplayTemplates_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de publication - Modèles d'affichage des résultats de recherche</value>
+  </data>
 </root>

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Dynamite.Demo.Intranet.Contracts.Constants;
-using Dynamite.Demo.Intranet.Core.Keys;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 
@@ -19,11 +14,11 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
             _fieldInfoValues = fieldInfoValues;
         }
 
-        public IDictionary<string, IFieldInfo> Fields()
+        public IList<IFieldInfo> Fields()
         {
-            var fields = new Dictionary<string, IFieldInfo>
+            var fields = new List<IFieldInfo>
             {
-                {DynamiteDemoFieldInfoKeys.DynamiteDemoColumn, _fieldInfoValues.DynamiteDemoColumn()},
+                {_fieldInfoValues.DynamiteDemoColumn()},
             };
 
             return fields;

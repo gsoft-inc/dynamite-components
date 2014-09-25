@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using Dynamite.Demo.Intranet.Contracts.Constants;
-using Dynamite.Demo.Intranet.Core.Keys;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration
 {
@@ -16,11 +14,11 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
             _contentTypeInfoValues = contentTypeInfoValues;
         }
 
-        public IDictionary<string, ContentTypeInfo> ContentTypes()
+        public IList<ContentTypeInfo> ContentTypes()
         {
-            var contentTypes = new Dictionary<string, ContentTypeInfo>
+            var contentTypes = new List<ContentTypeInfo>
             {
-                {DynamiteDemoContentTypesInfoKeys.DynamiteItem, _contentTypeInfoValues.DynamiteItem()},
+                {_contentTypeInfoValues.DynamiteItem()},
             };
 
             return contentTypes;

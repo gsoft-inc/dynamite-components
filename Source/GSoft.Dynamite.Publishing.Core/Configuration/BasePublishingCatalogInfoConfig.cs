@@ -1,7 +1,6 @@
 ﻿using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 using System.Collections.Generic;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
@@ -15,12 +14,12 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             _catalogInfoValues = catalogInfoValues;
         }
 
-        public IDictionary<string, CatalogInfo> Catalogs()
+        public IList<CatalogInfo> Catalogs()
         {
-            var catalogs = new Dictionary<string, CatalogInfo>
+            var catalogs = new List<CatalogInfo>
             {
-                {BasePublishingCatalogInfoKeys.NewsPagesCatalog, _catalogInfoValues.NewsPages()},
-                {BasePublishingCatalogInfoKeys.ContentPagesCatalog, _catalogInfoValues.ContentPages()}
+                {_catalogInfoValues.NewsPages()},
+                {_catalogInfoValues.ContentPages()}
             };
 
             return catalogs;

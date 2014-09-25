@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Publishing.Contracts.Keys;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     public class BasePublishingFolderInfos
     {
-        public BasePublishingFolderInfos FolderInfos { get; set; }
         private readonly BasePublishingPageInfos _pageInfos;
 
-        public BasePublishingFolderInfos( BasePublishingPageInfos pageInfos)
+        public BasePublishingFolderInfos(BasePublishingPageInfos pageInfos)
         {
             this._pageInfos = pageInfos;
         }
@@ -22,12 +20,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "RootFolder",
                 SubFolders = new FolderInfo[]
                 {
-                    this.FolderInfos.FolderTest()
+                    this.FolderTest()
                 },
-                Pages = new Dictionary<string, PageInfo>()
+                Pages = new List<PageInfo>()
                 {
-                    {BasePublishingPageInfoKeys.TargetItemPageTemplate,this._pageInfos.TargetItemPageTemplate()},
-                    {BasePublishingPageInfoKeys.CatalogItemPageTemplate,this._pageInfos.CatalogItemPageTemplate()}
+                    {this._pageInfos.TargetItemPageTemplate()},
+                    {this._pageInfos.CatalogItemPageTemplate()}
                 }
             };
         }
@@ -39,7 +37,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "Folder1",
                 SubFolders = new FolderInfo[]
                 {
-                    this.FolderInfos.FolderTest2()
+                    this.FolderTest2()
                 },
             };
         }
@@ -49,10 +47,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             return new FolderInfo()
             {
                 Name = "Folder2",
-                Pages = new Dictionary<string, PageInfo>()
+                Pages = new List<PageInfo>()
                 {
-                    {BasePublishingPageInfoKeys.TargetItemPageTemplate,this._pageInfos.TargetItemPageTemplate()},
-                    {BasePublishingPageInfoKeys.CatalogItemPageTemplate,this._pageInfos.CatalogItemPageTemplate()}
+                    {this._pageInfos.TargetItemPageTemplate()},
+                    {this._pageInfos.CatalogItemPageTemplate()}
                 }
             };
 
