@@ -51,17 +51,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\Extensions\ICustomPublishingCatalogInfoConfig.cs" />
+    <Compile Include="Configuration\Extensions\ICustomPublishingDisplayTemplateConfig.cs" />
     <Compile Include="Configuration\Extensions\ICustomPublishingFieldInfoConfig.cs" />
     <Compile Include="Configuration\Extensions\ICustomPublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\Extensions\ICustomPublishingContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\IBasePublishingDisplayTemplateInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingFieldInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingFolderInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\IBasePublishingTaxonomyConfig.cs" />
     <Compile Include="Constants\BasePublishingCatalogInfos.cs" />
     <Compile Include="Constants\BasePublishingContentTypeInfos.cs" />
+    <Compile Include="Constants\BasePublishingDisplayTemplateInfos.cs" />
     <Compile Include="Constants\BasePublishingFieldInfos.cs" />
     <Compile Include="Constants\BasePublishingFolderInfos.cs" />
     <Compile Include="Constants\BasePublishingPageInfos.cs" />
