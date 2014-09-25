@@ -10,13 +10,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public  class BasePublishingTermGroupInfos
     {
-        private readonly BasePublishingTermSetInfos _termSetInfoValues;
-
-        public BasePublishingTermGroupInfos(BasePublishingTermSetInfos termSetInfoValues)
-        {
-            this._termSetInfoValues = termSetInfoValues;
-        }
-
         #region Navigation Term Group
 
         /// <summary>
