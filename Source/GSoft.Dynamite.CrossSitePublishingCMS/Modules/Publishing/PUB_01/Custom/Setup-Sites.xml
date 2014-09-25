@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Project		  : GSoft Dynamite Publishing
+ File         : Setup-Sites.xml.template
+ Description	: Base SharePoint sites structure configuration file    
+-->
+<WebApplication Url="http://franck-vm2013/">
+  <!-- Be careful for the relative path ! Empty means root and there is no "/" at start and end -->
+  <Site Name="Publishing Site" HostNamePath="http://portal.com" RelativePath="" IsAnonymous="True"  OwnerAlias="[[DSP_Admin]]" Language="1036" Template="BLANKINTERNET#0" ContentDatabase="[[DSP_DatabaseName]]">
+  </Site>
+  <Site Name="Authoring Site" HostNamePath="http://authoring.portal.com" RelativePath="" OwnerAlias="[[DSP_Admin]]" Language="1036" Template="CMSPUBLISHING#0" ContentDatabase="[[DSP_DatabaseName]]">
+  </Site>
+</WebApplication>

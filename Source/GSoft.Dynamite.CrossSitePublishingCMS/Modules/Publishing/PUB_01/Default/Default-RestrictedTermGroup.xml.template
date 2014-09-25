@@ -1,0 +1,47 @@
+﻿<Group Id="900d8b4a-08fe-425b-ad34-f4ff3b5a1561" Name="Portal - Restricted" Description="" CreatedDate="6/1/2014 2:14:34 AM" LastModifiedDate="8/5/2014 3:13:07 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
+  <TermSets>
+    <TermSet Id="700c0057-26b7-455c-a1de-7b5b7c4c0f71" Name="Default - News" Description="" CreatedDate="8/19/2014 7:06:48 PM" LastModifiedDate="8/19/2014 7:06:48 PM" Contact="" Owner="[[DSP_PortalAdmin]]" IsAvailableForTagging="True" IsOpenForTermCreation="False" CustomSortOrder="">
+      <Terms>
+        <Term Id="a681794e-c2bc-4145-b95a-3122388d65bf" Name="News" CreatedDate="8/19/2014 5:36:57 PM" LastModifiedDate="8/19/2014 7:08:00 PM" Owner="[[DSP_PortalAdmin]]" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="True" IsRoot="True" IsSourceTerm="False" CustomSortOrder="" SourceTerm="a681794e-c2bc-4145-b95a-3122388d65bf|News">
+          <Descriptions>
+            <Description Language="1033" Value="" />
+            <Description Language="1036" Value="" />
+            <Description Language="3084" Value="" />
+            <Description Language="4105" Value="" />
+          </Descriptions>
+          <CustomProperties />
+          <Labels>
+            <Label Value="News" Language="1033" IsDefaultForLanguage="True" />
+            <Label Value="Nouvelles" Language="1036" IsDefaultForLanguage="True" />
+          </Labels>
+          <Terms>
+            <Term Id="61639a70-1c62-42a4-a265-7533d27bbf65" Name="Financial" CreatedDate="8/19/2014 7:07:33 PM" LastModifiedDate="8/19/2014 7:08:00 PM" Owner="[[DSP_PortalAdmin]]" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="True" IsRoot="False" IsSourceTerm="False" CustomSortOrder="" SourceTerm="61639a70-1c62-42a4-a265-7533d27bbf65|Financial">
+              <Descriptions>
+                <Description Language="1033" Value="" />
+                <Description Language="1036" Value="" />
+                <Description Language="3084" Value="" />
+                <Description Language="4105" Value="" />
+              </Descriptions>
+              <CustomProperties />
+              <Labels>
+                <Label Value="Financial" Language="1033" IsDefaultForLanguage="True" />
+              </Labels>
+            </Term>
+            <Term Id="27881a50-e5cc-43f0-b366-54802a3b7d91" Name="HR" CreatedDate="8/19/2014 7:07:24 PM" LastModifiedDate="8/19/2014 7:08:00 PM" Owner="[[DSP_PortalAdmin]]" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="True" IsRoot="False" IsSourceTerm="False" CustomSortOrder="" SourceTerm="27881a50-e5cc-43f0-b366-54802a3b7d91|HR">
+              <Descriptions>
+                <Description Language="1033" Value="" />
+                <Description Language="1036" Value="" />
+                <Description Language="3084" Value="" />
+                <Description Language="4105" Value="" />
+              </Descriptions>
+              <CustomProperties />
+              <Labels>
+                <Label Value="HR" Language="1033" IsDefaultForLanguage="True" />
+              </Labels>
+            </Term>
+          </Terms>
+        </Term>
+      </Terms>
+    </TermSet>
+  </TermSets>
+</Group>

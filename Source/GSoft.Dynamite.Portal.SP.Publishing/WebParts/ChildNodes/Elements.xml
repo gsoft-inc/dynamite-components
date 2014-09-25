@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
-  <Module Name="ChildNodes" List="113" Url="_catalogs/wp">
-    <File Path="ChildNodes\ChildNodes.webpart" Url="GSoft.Dynamite.Portal.SP.Publishing_ChildNodes.webpart" Type="GhostableInLibrary" >
-      <Property Name="Group" Value="Custom" />
-    </File>
-  </Module>
-</Elements>

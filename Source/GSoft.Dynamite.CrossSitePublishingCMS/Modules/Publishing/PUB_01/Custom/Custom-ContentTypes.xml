@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ Copyright    : GSoft @2014
+ Project      : GSoft Dynamite Portal
+ File         : Features.xml.template
+ Description  : Features activation configuration file    
+-->
+<Configuration>
+  <Sites>
+    <Site Url="http://authoring.dynamite.com">
+      <Feature GUID="f0faec13-d835-4e9b-a3e9-9d85ce38ae8f" Name="Dynamite Custom Configuration" />
+    </Site>
+  </Sites>
+</Configuration>

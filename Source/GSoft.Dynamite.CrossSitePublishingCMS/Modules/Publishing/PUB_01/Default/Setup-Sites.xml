@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Model  		  : Cross Site Publishing CMS
+ File         : Setup-Sites.xml.template
+ Description	: Base SharePoint sites structure configuration file    
+-->
+<WebApplication Url="http://franck-vm2013/">
+  <!-- Be careful for the relative path ! Empty means root and there is no "/" at start and end -->
+  <Site Name="Publishing Site" HostNamePath="http://intranet.dynamite.com" RelativePath="" IsAnonymous="True"  OwnerAlias="OFFICE\franck.cornu" Language="1033" Template="BLANKINTERNET#0" ContentDatabase="SP2013_Content_Portal">
+  </Site>
+  <Site Name="Authoring Site" HostNamePath="http://authoring.dynamite.com" RelativePath="" OwnerAlias="OFFICE\franck.cornu" Language="1033" Template="BLANKINTERNET#0" ContentDatabase="SP2013_Content_Portal">
+  </Site>
+</WebApplication>

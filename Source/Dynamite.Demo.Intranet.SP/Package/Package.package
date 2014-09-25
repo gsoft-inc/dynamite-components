@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="39597410-18d5-43b9-a1d1-b363b1902673" solutionId="39597410-18d5-43b9-a1d1-b363b1902673" resetWebServer="false" sharePointProductVersion="15.0" name="Dynamite.Demo.Intranet.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="Dynamite.Demo.Intranet.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\Dynamite.Demo.Intranet.Contracts\Dynamite.Demo.Intranet.Contracts.csproj" />
+    <projectOutputAssembly location="Dynamite.Demo.Intranet.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\Dynamite.Demo.Intranet.Core\Dynamite.Demo.Intranet.Core.csproj" />
+    <projectOutputAssembly location="Dynamite.Demo.Intranet.ServiceLocator.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\Dynamite.Demo.Intranet.ServiceLocator\Dynamite.Demo.Intranet.ServiceLocator.csproj" />
+  </assemblies>
+  <projectItems>
+    <projectItemReference itemId="811c34e3-b767-4827-9443-50c3139043c5" />
+  </projectItems>
+</package>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="39449225-6dec-4063-a39a-dea11765218e" solutionId="39449225-6dec-4063-a39a-dea11765218e" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Publishing.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Publishing.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Publishing.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Publishing.Core\GSoft.Dynamite.Publishing.Core.csproj" />
+  </assemblies>
+  <features>
+    <featureReference itemId="d5129c90-3ad4-4f5a-aaae-c2ed6d09c23f" />
+    <featureReference itemId="0ccccbeb-e932-4b6a-a336-c85c3dfdf2e2" />
+    <featureReference itemId="8319fe48-49ff-4a7d-86e1-4ebfc7786b4d" />
+    <featureReference itemId="740401de-77f4-4e5e-8ef5-7ac745b1600d" />
+    <featureReference itemId="32341c87-bf6e-4fb5-a67a-58eacd99f905" />
+    <featureReference itemId="2ed25122-4f2b-4176-af28-ae32fb8b1e39" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="6bcc4923-18a8-4804-b127-0aeb964e9c50" />
+  </projectItems>
+</package>

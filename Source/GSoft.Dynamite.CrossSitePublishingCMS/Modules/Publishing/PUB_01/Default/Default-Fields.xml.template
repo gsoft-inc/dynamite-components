@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ Copyright    : GSoft @2014
+ Project      : GSoft Dynamite Portal
+ File         : Features.xml.template
+ Description  : Features activation configuration file    
+-->
+<Configuration>
+  <Sites>
+    <Site Url="[[DSP_PortalAuthoringHostNamePath]]">
+      <!-- Dynamite Common CMS - Publishing Module - Columns -->
+      <Feature GUID="97a3a3ef-5989-46f0-a117-6f489f58a26b" Name="Dynamite Common CMS - Publishing Module - Columns" />
+    </Site>
+  </Sites>
+</Configuration>
