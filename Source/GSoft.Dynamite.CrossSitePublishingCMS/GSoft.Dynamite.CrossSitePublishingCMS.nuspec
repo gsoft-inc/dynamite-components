@@ -21,6 +21,6 @@
 	<file src="Tokens\**" target="content\Tokens" />
 	<file src="Install-Model.ps1" target="content" />
 	<file src="Tokens.HOSTNAME.ps1" target="content" />
-	<file src="Setup-Token.ps1" target="content\Setup-Token.ps1" />
+	<file src="Install.ps1" target="tools\Install.ps1" />
   </files>
 </package>
