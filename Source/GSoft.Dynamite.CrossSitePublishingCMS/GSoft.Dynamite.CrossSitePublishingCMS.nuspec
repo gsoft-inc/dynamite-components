@@ -16,11 +16,14 @@
     <tags>SharePoint</tags>
   </metadata>
   <files>
-	<file src="Modules\**" target="content\Module" />
+	<file src="Modules\**\Tokens.*.ps1" target="content\Tokens" />
 	<file src="Solutions\**" target="content\Solutions" />
 	<file src="Tokens\**" target="content\Tokens" />
+	<file src="Modules\**" target="tools\Module" />
+	<file src="Solutions\**" target="tools\Solutions" />
+	<file src="Tokens\**" target="tools\Tokens" />
 	<file src="Install-Model.ps1" target="content" />
 	<file src="Tokens.HOSTNAME.ps1" target="content" />
-	<file src="Install.ps1" target="tools\Install.ps1" />
+	<file src="Nuget\Install.ps1" target="tools\Install.ps1" />
   </files>
 </package>
