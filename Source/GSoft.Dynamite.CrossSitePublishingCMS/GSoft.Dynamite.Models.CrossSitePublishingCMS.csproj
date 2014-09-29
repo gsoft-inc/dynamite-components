@@ -63,12 +63,14 @@
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Webs.ps1.template" />
     <None Include="packages.config" />
+    <None Include="Setup-Token.ps1" />
     <None Include="Solutions\Copy-Solutions.ps1.template" />
     <None Include="Solutions\Custom\Custom-Solutions.xml.template" />
     <None Include="Solutions\Default\Default-Solutions.xml.template" />
     <None Include="Solutions\Deploy-Solutions.ps1.template" />
     <None Include="Solutions\Tokens.Solutions.Custom.ps1" />
     <None Include="Solutions\Tokens.Solutions.Default.ps1" />
+    <None Include="Tokens.HOSTNAME.ps1" />
     <None Include="Tokens.sp2013tao.ps1" />
     <None Include="Tokens.VMDEVSP2013.ps1" />
     <None Include="Tokens.FRANCK-VM2013.ps1" />
