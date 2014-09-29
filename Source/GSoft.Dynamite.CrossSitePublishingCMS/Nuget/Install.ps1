@@ -1,15 +1,21 @@
 ﻿param($installPath, $toolsPath, $package, $project)
 
 $hostname = [System.Net.Dns]::GetHostName()
-
-New-Item .\log.txt -type file
-Add-Content .\log.txt (Get-Location)
-
 $hostnameFilename = "Tokens.HOSTNAME.ps1"
 
-$tokensFile = $project.ProjectItems | where {$_.Name -like $hostnameFilename}
-$tokensFile.Name = $hostnameFilename.Replace("HOSTNAME", $hostname)
+$genericTokensFile = $project.ProjectItems | where {$_.Name -like $hostnameFilename}
 
-#if (Test-Path .\Tokens.HOSTNAME.ps1 -and Test-Path .\Tokens.HOSTNAME.ps1) {
-#    Rename-Item .\Tokens.HOSTNAME.ps1 .\Tokens.$hostname.ps1
-#}
+# Token file
+if ($project.ProjectItems | where {$_.Name -like $hostnameFilename.Replace("HOSTNAME", $hostname)}) 
+{
+    # Remove the HOSTNAME file if the tokens file exist.
+    $genericTokensFile.Remove()
+}
+else 
+{
+    # Rename the HOSTNAME file if no tokens exists
+    $genericTokensFile.Name = $hostnameFilename.Replace("HOSTNAME", $hostname)
+}
+
+# Modules Folders
+$moduleFolder = $project.ProjectItems.AddFolder("Modules")
