@@ -3,12 +3,13 @@
 $hostname = [System.Net.Dns]::GetHostName()
 
 New-Item .\log.txt -type file
-Add-Content .\log.txt $hostname
-Add-Content .\log.txt $installPath
-Add-Content .\log.txt $toolsPath
-Add-Content .\log.txt $package
-Add-Content .\log.txt $project
+Add-Content .\log.txt (Get-Location)
 
-if (Test-Path $installPath\Tokens.HOSTNAME.ps1 -and Test-Path $installPath\Tokens.HOSTNAME.ps1) {
-    Rename-Item $installPath\Tokens.HOSTNAME.ps1 $installPath\Tokens.$hostname.ps1
-}
+$hostnameFilename = "Tokens.HOSTNAME.ps1"
+
+$tokensFile = $project.ProjectItems | where {$_.Name -like $hostnameFilename}
+$tokensFile.Name = $hostnameFilename.Replace("HOSTNAME", $hostname)
+
+#if (Test-Path .\Tokens.HOSTNAME.ps1 -and Test-Path .\Tokens.HOSTNAME.ps1) {
+#    Rename-Item .\Tokens.HOSTNAME.ps1 .\Tokens.$hostname.ps1
+#}
