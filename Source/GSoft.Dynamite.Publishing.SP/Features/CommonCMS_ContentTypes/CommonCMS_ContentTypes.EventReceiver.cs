@@ -36,7 +36,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
 
                     // Create base content types
                     foreach (var contentType in baseContentTypes)
-                    {
+                    {   
                         contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                     }
 

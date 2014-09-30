@@ -5,22 +5,6 @@
 # Description	: Create a SharePoint SPWebs structure
 # -----------------------------------------------------------------------
 
-param([string] $LogFolderPath)
-
-# ------------------------ Log Init -------------------------------------
-
-$ScriptName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
-
-$LogTime = Get-Date -Format "MM-dd-yyyy_hh-mm-ss"
-$LogFile = $LogFolderPath + "\" + $ScriptName +"_Dynamite_"+$LogTime +".log"
-
-# Stat log transcript
-Start-Transcript -Path $LogFile
-# -----------------------------------------------------------------------
-
-# Verbose preference
-$VerbosePreference ="Continue"
-
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
@@ -38,8 +22,3 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 
 # Create the new SharePoint Web structure
 New-DSPWebXml -Webs $webXml.Webs -ParentUrl "[[DSP_PortalAuthoringHostNamePath]]" -UseParentTopNav -Overwrite
-
-# ------------------------ Log End --------------------------------------
-# Stop log transcript
-Stop-Transcript
-# -----------------------------------------------------------------------

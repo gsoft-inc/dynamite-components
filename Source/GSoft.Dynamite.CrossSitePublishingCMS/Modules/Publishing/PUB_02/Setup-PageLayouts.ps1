@@ -4,18 +4,6 @@
 # File          : Setup-PageLayouts.ps1.template
 # Description	: Create page layouts
 # -----------------------------------------------------------------------
-param([string] $LogFolderPath)
-
-# ------------------------ Log Init -------------------------------------
-
-$ScriptName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
-
-$LogTime = Get-Date -Format "MM-dd-yyyy_hh-mm-ss"
-$LogFile = $LogFolderPath + "\" + $ScriptName +"_Dynamite_"+$LogTime +".log"
-
-# Stat log transcript
-Start-Transcript -Path $LogFile
-# -----------------------------------------------------------------------
 
 # Verbose preference
 $VerbosePreference ="Continue"
@@ -34,8 +22,3 @@ Write-Warning "Applying Page Layouts configuration..."
 
 # Activate features
 Initialize-DSPSiteCollectionsFeatures $featureXml $true
-
-# ------------------------ Log End --------------------------------------
-# Stop log transcript
-Stop-Transcript
-# -----------------------------------------------------------------------

@@ -5,19 +5,6 @@
 # Description	: Remove Portal Taxonomy
 # -----------------------------------------------------------------------
 
-param([string] $LogFolderPath)
-
-# ------------------------ Log Init -------------------------------------
-
-$ScriptName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
-
-$LogTime = Get-Date -Format "MM-dd-yyyy_hh-mm-ss"
-$LogFile = $LogFolderPath + "\" + $ScriptName +"_Dynamite_"+$LogTime +".log"
-
-# Stat log transcript
-Start-Transcript -Path $LogFile
-# -----------------------------------------------------------------------
-
 # Define working directory
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -44,8 +31,3 @@ if(![string]::IsNullOrEmpty($CustomRestrictedTermGroup))
 
 Remove-DSPTermGroup -GroupName "$RestrictedTermGroup"
 Remove-DSPTermGroup -GroupName "$NavigationTermGroup"
-
-# ------------------------ Log End --------------------------------------
-# Stop log transcript
-Stop-Transcript
-# -----------------------------------------------------------------------

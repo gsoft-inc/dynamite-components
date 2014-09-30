@@ -14,7 +14,6 @@ param([switch] $Force=$false)
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
-
 $DefaultConfigurationFile = "./Default/Default-Sites.xml"
 $CustomConfigurationFile = ""
 
