@@ -4,7 +4,14 @@ $VerbosePreference ="Continue"
 # Unblock files if they're from another computer
 gci -Recurse | Unblock-File
 
-Update-DSPTokens -UseHostName
+# Build Package Path
+$packagePath = Join-Path (Get-Location).ToString() "../package"
+
+# Make Path if not exist
+$packageDirectory = New-Item -ItemType Directory -Force -Path $packagePath
+
+# Update Tokens and shit in that path
+Update-DSPTokens -PackagePath $packageDirectory.FullName
 
 # ********** LOG INIT ********** #
 
