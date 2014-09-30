@@ -13,6 +13,9 @@ $packageDirectory = New-Item -ItemType Directory -Force -Path $packagePath
 # Update Tokens and shit in that path
 Update-DSPTokens -PackagePath $packageDirectory.FullName
 
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+
 # ********** LOG INIT ********** #
 
 $ScriptName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
@@ -38,17 +41,21 @@ Start-Transcript -Path $LogFile
 
 ./Solutions/Copy-Solutions.ps1
 
-./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
+#./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
+
+$values = @{"Solution Model: " = "[CrossSitePublishingCMS]";}
+New-HeaderDrawing -Values $Values
 
 # ********** PUBLISHING MODULE ********** #
 
 ##### PUB 01
-./Modules/Publishing/PUB_01/Install-PUB01.ps1 $LogFolderPath
+$Script = $Script = $CommandDirectory + "\Modules\Publishing\PUB_01\Install-PUB01.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 ##### PUB 02
-./Modules/Publishing/PUB_02/Install-PUB02.ps1 $LogFolderPath
+$Script = $Script = $CommandDirectory + "\Modules\Publishing\PUB_02\Install-PUB02.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
-# ------------------------ Log End --------------------------------------
+# ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript
-# -----------------------------------------------------------------------

@@ -4,21 +4,6 @@
 # File          : Setup-ContentTypes.ps1.template
 # Description	: Create content types structure
 # -----------------------------------------------------------------------
-param([string] $LogFolderPath)
-
-# ------------------------ Log Init -------------------------------------
-
-$ScriptName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
-
-$LogTime = Get-Date -Format "MM-dd-yyyy_hh-mm-ss"
-$LogFile = $LogFolderPath + "\" + $ScriptName +"_Dynamite_"+$LogTime +".log"
-
-# Stat log transcript
-Start-Transcript -Path $LogFile
-# -----------------------------------------------------------------------
-
-# Verbose preference
-$VerbosePreference ="Continue"
 
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -34,11 +19,6 @@ Write-Warning "Applying Content Types configuration..."
 
 # Activate features
 Initialize-DSPSiteCollectionsFeatures $featureXml $true
-
-# ------------------------ Log End --------------------------------------
-# Stop log transcript
-Stop-Transcript
-# -----------------------------------------------------------------------
 
 
 
