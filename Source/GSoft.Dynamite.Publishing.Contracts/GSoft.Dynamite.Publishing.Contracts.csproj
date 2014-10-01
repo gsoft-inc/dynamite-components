@@ -83,6 +83,7 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
+    <None Include="GSoft.Dynamite.Publising.Contracts.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
