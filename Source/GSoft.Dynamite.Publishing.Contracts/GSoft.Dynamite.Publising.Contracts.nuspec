@@ -19,6 +19,6 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="bin\%configuration%\GSoft.Dynamite.Publishing.Contracts.dll" target="lib\net45" />
+        <file src="bin\$configuration$\GSoft.Dynamite.Publishing.Contracts.dll" target="lib\net45" />
     </files>
 </package>
