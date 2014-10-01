@@ -16,11 +16,8 @@
     <tags>SharePoint</tags>
   </metadata>
   <files>
-    <file src="Modules\**" target="content\Module" />
-	<file src="Modules\**\Tokens.*.ps1" target="content\Tokens" />
-	<file src="Solutions\**" target="content\Solutions" exclude="Solution\**\Tokens.*.ps1" />
-	<file src="Solutions\**\Tokens.*.ps1" target="content\Tokens" />
-	<file src="Tokens\**" target="content\Tokens" />
+	<file src="Modules\**\Tokens.*.ps1" target="content\Modules" />
+	<file src="Solutions\Custom\**" target="content\Solutions\Custom\" />
 	<file src="Modules\**" target="tools\Module" />
 	<file src="Solutions\**" target="tools\Solutions" />
 	<file src="Tokens\**" target="tools\Tokens" />

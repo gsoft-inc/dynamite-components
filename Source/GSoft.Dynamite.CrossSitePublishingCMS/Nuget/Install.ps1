@@ -9,7 +9,9 @@ $genericTokensFile = $project.ProjectItems | where {$_.Name -like $hostnameFilen
 if ($project.ProjectItems | where {$_.Name -like $hostnameFilename.Replace("HOSTNAME", $hostname)}) 
 {
     # Remove the HOSTNAME file if the tokens file exist.
+    $fullName = $genericTokensFile.Properties.Item("FullPath").Value
     $genericTokensFile.Remove()
+    Remove-Item $fullName
 }
 else 
 {
@@ -18,4 +20,4 @@ else
 }
 
 # Modules Folders
-$moduleFolder = $project.ProjectItems.AddFolder("Modules")
+# $moduleFolder = $project.ProjectItems.AddFolder("Modules")
