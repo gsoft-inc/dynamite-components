@@ -20,5 +20,30 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 
 [xml]$webXml = Get-Content $ConfigurationFilePath
 
+
+# Check Multilingual settings
+$IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
+
+$ParentWebUrl = "[[DSP_PortalAuthoringHostNamePath]]"
+
+if($IsMultilingual)
+{
+	# Create webs under the source label root site
+	$ParentWebUrl += "/" + "[[DSP_SourceLabel]]"
+}
+
 # Create the new SharePoint Web structure
-New-DSPWebXml -Webs $webXml.Webs -ParentUrl "[[DSP_PortalAuthoringHostNamePath]]" -UseParentTopNav -Overwrite
+New-DSPWebXml -Webs $webXml.Webs -ParentUrl $ParentWebUrl -UseParentTopNav -Overwrite | ForEach-Object{
+	if($IsMultilingual)
+	{
+		$Web = $_
+		$DSP_TargetLabels | ForEach-Object {
+
+			# Sync webs for all taget labels
+			Sync-DSPWeb -SourceWeb $Web -LabelToSync $_
+		}
+
+		$webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
+		Wait-SPTimerJob -Name "VariationsSpawnSites" -WebApplication $webApplication
+	}
+}
