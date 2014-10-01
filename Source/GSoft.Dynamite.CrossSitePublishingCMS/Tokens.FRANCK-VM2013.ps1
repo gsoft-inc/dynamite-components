@@ -32,3 +32,11 @@ $DSP_PortalDefaultLanguage = "1033"
 
 $DSP_PortalAuthoringDefaultWebUrl = "http://authoring.dynamite.com/default/"
 $DSP_PortalAuthoringDefaultWebName = "Authoring Default Web"
+
+# ******************************************
+# Multilingualism Configuration 
+# ******************************************
+
+$DSP_IsMultilingual = $false
+$DSP_SourceLabel = "en"
+$DSP_TargetLabels = @("fr")

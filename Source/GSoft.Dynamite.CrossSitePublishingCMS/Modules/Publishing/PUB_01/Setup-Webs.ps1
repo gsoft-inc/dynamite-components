@@ -8,8 +8,8 @@
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
-$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalWebsConfigurationFile]]"
-$CustomConfigurationFile = "[[DSP_CUSTOM_PortalWebsConfigurationFile]]"
+$DefaultConfigurationFile = "./Default/Default-Webs.xml"
+$CustomConfigurationFile = ""
 
 $ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
 
@@ -22,14 +22,14 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 
 
 # Check Multilingual settings
-$IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
+$IsMultilingual = [System.Convert]::ToBoolean("False")
 
-$ParentWebUrl = "[[DSP_PortalAuthoringHostNamePath]]"
+$ParentWebUrl = "http://authoring.dynamite.com"
 
 if($IsMultilingual)
 {
 	# Create webs under the source label root site
-	$ParentWebUrl += "/" + "[[DSP_SourceLabel]]"
+	$ParentWebUrl += "/" + "en"
 }
 
 # Create the new SharePoint Web structure
@@ -43,7 +43,7 @@ New-DSPWebXml -Webs $webXml.Webs -ParentUrl $ParentWebUrl -UseParentTopNav -Over
 			Sync-DSPWeb -SourceWeb $Web -LabelToSync $_
 		}
 
-		$webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
+		$webApplication = Get-SPWebApplication "http://franck-vm2013/"
 		Wait-SPTimerJob -Name "VariationsSpawnSites" -WebApplication $webApplication
 	}
 }

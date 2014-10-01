@@ -93,7 +93,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     {
                        customizedNavigationField
                     },                
-                    IsAnonymous = true
+                    IsAnonymous = true,
+
                 };
         }
 
