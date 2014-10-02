@@ -7,9 +7,9 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
 {
     public class DynamiteDemoPublishingCatalogInfoConfig : ICustomPublishingCatalogInfoConfig
     {
-        private readonly DynamiteDemoPublishingCatalogInfoValues _catalogInfoValues;
+        private readonly DynamiteDemoPublishingCatalogInfos _catalogInfoValues;
 
-        public DynamiteDemoPublishingCatalogInfoConfig(DynamiteDemoPublishingCatalogInfoValues catalogInfoValues)
+        public DynamiteDemoPublishingCatalogInfoConfig(DynamiteDemoPublishingCatalogInfos catalogInfoValues)
         {
             _catalogInfoValues = catalogInfoValues;
         }

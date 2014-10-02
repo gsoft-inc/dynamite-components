@@ -5,13 +5,15 @@ $VerbosePreference ="Continue"
 gci -Recurse | Unblock-File
 
 # Build Package Path
-$packagePath = Join-Path (Get-Location).ToString() "../package"
+#$packagePath = Join-Path (Get-Location).ToString() "../package"
 
 # Make Path if not exist
-$packageDirectory = New-Item -ItemType Directory -Force -Path $packagePath
+#$packageDirectory = New-Item -ItemType Directory -Force -Path $packagePath
 
 # Update Tokens and shit in that path
-Update-DSPTokens -PackagePath $packageDirectory.FullName
+#Update-DSPTokens -PackagePath $packageDirectory.FullName
+
+Update-DSPTokens -UseHostName
 
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -39,7 +41,7 @@ Start-Transcript -Path $LogFile
 
 # ******** SOLUTIONS DEPLOYMENT ********* #
 
-./Solutions/Copy-Solutions.ps1
+#./Solutions/Copy-Solutions.ps1
 
 #./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
 

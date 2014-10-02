@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8955DA4-DBB6-4AA2-9B75-7B014F55EDB5}"
 	ProjectSection(SolutionItems) = preProject
@@ -36,6 +36,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamite.Demo.Intranet.SP",
 		{AAD0094C-6782-44F9-B12C-FBEF909DF01F} = {AAD0094C-6782-44F9-B12C-FBEF909DF01F}
 		{47C2BE9D-06EF-4943-92B0-3BC51759EFF3} = {47C2BE9D-06EF-4943-92B0-3BC51759EFF3}
 		{54D3FDDF-C707-472B-A529-B507C12BB97D} = {54D3FDDF-C707-472B-A529-B507C12BB97D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Multilingualism.Contracts", "GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj", "{13C3CFC3-4328-4047-9B62-15B19E2E5922}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Multilingualism.Core", "GSoft.Dynamite.Multilingualism.Core\GSoft.Dynamite.Multilingualism.Core.csproj", "{38DB42C0-8DF2-41A4-9718-C852D627AC0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Multilingualism.SP", "GSoft.Dynamite.Multilingualism.SP\GSoft.Dynamite.Multilingualism.SP.csproj", "{927AD4A4-6261-4B14-B206-290B2B574708}"
+	ProjectSection(ProjectDependencies) = postProject
+		{38DB42C0-8DF2-41A4-9718-C852D627AC0B} = {38DB42C0-8DF2-41A4-9718-C852D627AC0B}
 	EndProjectSection
 EndProject
 Global
@@ -80,6 +89,20 @@ Global
 		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{77014ADE-3589-4F16-B597-9995AE82A8F8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{13C3CFC3-4328-4047-9B62-15B19E2E5922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C3CFC3-4328-4047-9B62-15B19E2E5922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C3CFC3-4328-4047-9B62-15B19E2E5922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C3CFC3-4328-4047-9B62-15B19E2E5922}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38DB42C0-8DF2-41A4-9718-C852D627AC0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38DB42C0-8DF2-41A4-9718-C852D627AC0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38DB42C0-8DF2-41A4-9718-C852D627AC0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38DB42C0-8DF2-41A4-9718-C852D627AC0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927AD4A4-6261-4B14-B206-290B2B574708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{927AD4A4-6261-4B14-B206-290B2B574708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{927AD4A4-6261-4B14-B206-290B2B574708}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{927AD4A4-6261-4B14-B206-290B2B574708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{927AD4A4-6261-4B14-B206-290B2B574708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{927AD4A4-6261-4B14-B206-290B2B574708}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

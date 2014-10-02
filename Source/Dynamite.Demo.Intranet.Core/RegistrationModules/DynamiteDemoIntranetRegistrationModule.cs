@@ -3,6 +3,7 @@ using Dynamite.Demo.Intranet.Contracts.Constants;
 using Dynamite.Demo.Intranet.Core.Configuration;
 using Dynamite.Demo.Intranet.Core.Resources;
 using GSoft.Dynamite.Globalization;
+using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 
 namespace Dynamite.Demo.Intranet.Core.RegistrationModules
@@ -24,11 +25,12 @@ namespace Dynamite.Demo.Intranet.Core.RegistrationModules
             builder.RegisterType<DynamiteDemoPublishingContentTypeInfoConfig>().As<ICustomPublishingContentTypeInfoConfig>();
             builder.RegisterType<DynamiteDemoPublishingFieldInfoConfig>().As<ICustomPublishingFieldInfoConfig>();
             builder.RegisterType<DynamiteDemoPublishingCatalogInfoConfig>().As<ICustomPublishingCatalogInfoConfig>();
+            builder.RegisterType<DynamiteDemoMultilingualismVariationsConfig>().As<IBaseMultilingualismVariationsConfig>();
             
             // Configuration Values
-            builder.RegisterType<DynamiteDemoPublishingFieldInfoValues>();
-            builder.RegisterType<DynamiteDemoPublishingContentTypeInfoValues>();
-            builder.RegisterType<DynamiteDemoPublishingCatalogInfoValues>(); 
+            builder.RegisterType<DynamiteDemoPublishingFieldInfos>();
+            builder.RegisterType<DynamiteDemoPublishingContentTypeInfos>();
+            builder.RegisterType<DynamiteDemoPublishingCatalogInfos>(); 
         }
     }
 }

@@ -13,8 +13,8 @@ $DSP_IsDistributedEnvironment = "$false"
 # Deployment Configuration 
 # ******************************************
 
-$DSP_NugetSolutionsScanRootPath = "C:\Dev\Dynamite-Components\Libraries"
-$DSP_CustomSolutionsScanRootPath = "C:\Dev\Dynamite-Components\Source"
+$DSP_NugetSolutionsScanRootPath = "D:\dev\Dynamite-Components\Libraries"
+$DSP_CustomSolutionsScanRootPath = "D:\dev\Dynamite-Components\Source"
 
 $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.xml"
 
@@ -24,11 +24,30 @@ $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.x
 $DSP_PortalWebAppUrl = "http://vmdevsp2013/"
 $DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
 $DSP_PortalAuthoringHostNamePath = "http://authoring.dynamite.com"
+
+$DSP_PortalAuthoringRootWebUrl = $DSP_PortalAuthoringHostNamePath 
+
 $DSP_PortalAdmin = "OFFICE\philippe.lavoie"
 $DSP_PortalDatabaseName = "SP2013_Content_Portal"
 $DSP_PortalDefaultLanguage = "1033"
 
-##### Webs
+# ******************************************
+# Multilingualism Configuration 
+# ******************************************
 
-$DSP_PortalAuthoringDefaultWebUrl = "http://authoring.dynamite.com/default/"
+$DSP_IsMultilingual = $true
+$DSP_SourceLabel = "en"
+$DSP_TargetLabels = "@('fr')"
+
+if($DSP_IsMultilingual)
+{
+	# Create webs under the source label root site
+	$DSP_PortalAuthoringRootWebUrl += "/" + $DSP_SourceLabel
+}
+
+# ******************************************
+# Webs Configuration 
+# ******************************************
+
+$DSP_PortalAuthoringDefaultWebUrl = $DSP_PortalAuthoringRootWebUrl + "/default/"
 $DSP_PortalAuthoringDefaultWebName = "Authoring Default Web"

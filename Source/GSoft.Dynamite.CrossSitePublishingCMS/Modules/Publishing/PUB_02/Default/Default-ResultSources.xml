@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ Copyright    : GSoft @2014
+ Project      : GSoft Dynamite Portal
+ File         : Default-ResultSources.xml.template
+ Description  : Search Result Sources creation    
+-->
+<Configuration>
+  <Sites>
+    <Site Url="http://intranet.dynamite.com">
+      <!-- Dynamite Cross Site Publishing CMS - Publishing Module - Result Sources -->
+      <Feature GUID="8d99c11b-135e-48e3-ad8f-e04e06d8b654" Name="Dynamite Cross Site Publishing CMS - Publishing Module - Result Sources" />
+    </Site>
+  </Sites>
+</Configuration>

@@ -8,11 +8,11 @@ using Microsoft.SharePoint;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants
 {
-    public class DynamiteDemoPublishingContentTypeInfoValues
+    public class DynamiteDemoPublishingContentTypeInfos
     {
         private readonly IResourceLocator _resourceLocator;
         private readonly string _resourceFileName = DynamiteDemoResources.Global;
-        private readonly DynamiteDemoPublishingFieldInfoValues _fieldInfoValues;
+        private readonly DynamiteDemoPublishingFieldInfos _fieldInfoValues;
         private readonly BasePublishingContentTypeInfos _baseContentTypeValues;
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
         /// </summary>
         /// <param name="resourceLocator">The resource locator instance</param>
         /// <param name="fieldInfoValues">The field info instance</param>
-        public DynamiteDemoPublishingContentTypeInfoValues(IResourceLocator resourceLocator, DynamiteDemoPublishingFieldInfoValues fieldInfoValues, BasePublishingContentTypeInfos baseContentTypeValues)
+        public DynamiteDemoPublishingContentTypeInfos(IResourceLocator resourceLocator, DynamiteDemoPublishingFieldInfos fieldInfoValues, BasePublishingContentTypeInfos baseContentTypeValues)
         {
             _resourceLocator = resourceLocator;
             _fieldInfoValues = fieldInfoValues;

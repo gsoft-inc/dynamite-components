@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="52a58289-27ce-4705-ac67-9a4c05ba9558" solutionId="52a58289-27ce-4705-ac67-9a4c05ba9558" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Multilingualism.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Multilingualism.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Multilingualism.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Multilingualism.Core\GSoft.Dynamite.Multilingualism.Core.csproj" />
+  </assemblies>
+  <features>
+    <featureReference itemId="0edab4c6-dc30-4e56-9478-230e3a582255" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="9f95b340-1d15-4e98-a355-0060a268159e" />
+  </projectItems>
+</package>
