@@ -7,9 +7,9 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
 {
     public class DynamiteDemoPublishingContentTypeInfoConfig: ICustomPublishingContentTypeInfoConfig
     {
-        private readonly DynamiteDemoPublishingContentTypeInfoValues _contentTypeInfoValues;
+        private readonly DynamiteDemoPublishingContentTypeInfos _contentTypeInfoValues;
 
-        public DynamiteDemoPublishingContentTypeInfoConfig(DynamiteDemoPublishingContentTypeInfoValues contentTypeInfoValues)
+        public DynamiteDemoPublishingContentTypeInfoConfig(DynamiteDemoPublishingContentTypeInfos contentTypeInfoValues)
         {
             _contentTypeInfoValues = contentTypeInfoValues;
         }

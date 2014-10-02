@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ Copyright    : GSoft @2014
+ Project      : GSoft Dynamite Portal
+ File         : Default-Pages.xml.template
+ Description  : Pages provisioning file    
+-->
+<Configuration>
+  <Sites>
+    <Site Url="http://intranet.dynamite.com">
+      <Webs>
+        <Web Url="http://intranet.dynamite.com">
+          <!-- Dynamite Cross Site Publishing CMS - Publishing Module - Page Templates -->
+          <Feature GUID="c0dbca2d-b477-4d91-bb55-b342f6458221" Name="Dynamite Cross Site Publishing CMS - Publishing Module - Page Templates" />
+        </Web>
+      </Webs>
+    </Site>
+  </Sites>
+</Configuration>

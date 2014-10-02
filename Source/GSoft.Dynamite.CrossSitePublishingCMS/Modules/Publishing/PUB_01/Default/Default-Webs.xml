@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Model  		  : Cross Site Publishing CMS
+ File         : Setup-Sites.xml.template
+ Description	: Base SharePoint sites structure configuration file    
+-->
+<Webs>
+  <!-- Authoring Default Web -->
+  <Web Name="Authoring Default Web" Path="default" Template="STS#0">
+    <Features>
+      <Feature GUID="94c94ca6-b32f-4da9-a9e3-1f3d343d7ecb" Name="Publishing Web" />
+    </Features>
+  </Web>
+</Webs>

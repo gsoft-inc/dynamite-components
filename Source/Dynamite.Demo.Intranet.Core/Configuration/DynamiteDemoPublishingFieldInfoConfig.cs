@@ -7,9 +7,9 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
 {
     public class DynamiteDemoPublishingFieldInfoConfig : ICustomPublishingFieldInfoConfig
     {
-        private readonly DynamiteDemoPublishingFieldInfoValues _fieldInfoValues;
+        private readonly DynamiteDemoPublishingFieldInfos _fieldInfoValues;
 
-        public DynamiteDemoPublishingFieldInfoConfig(DynamiteDemoPublishingFieldInfoValues fieldInfoValues)
+        public DynamiteDemoPublishingFieldInfoConfig(DynamiteDemoPublishingFieldInfos fieldInfoValues)
         {
             _fieldInfoValues = fieldInfoValues;
         }

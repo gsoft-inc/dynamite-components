@@ -13,15 +13,15 @@ using Microsoft.SharePoint;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants
 {
-    public class DynamiteDemoPublishingCatalogInfoValues
+    public class DynamiteDemoPublishingCatalogInfos
     {
         private readonly IResourceLocator _resourceLocator;
         private readonly string _resourceFileName = DynamiteDemoResources.Global;
-        private readonly DynamiteDemoPublishingContentTypeInfoValues _contentTypeInfoValues;
+        private readonly DynamiteDemoPublishingContentTypeInfos _contentTypeInfoValues;
         private readonly BasePublishingFieldInfos _fieldInfoValues;
 
-        public DynamiteDemoPublishingCatalogInfoValues(IResourceLocator resourceLocator,
-            DynamiteDemoPublishingContentTypeInfoValues contentTypeInfoValues,
+        public DynamiteDemoPublishingCatalogInfos(IResourceLocator resourceLocator,
+            DynamiteDemoPublishingContentTypeInfos contentTypeInfoValues,
             BasePublishingFieldInfos fieldInfoValues)
         {
             _resourceLocator = resourceLocator;

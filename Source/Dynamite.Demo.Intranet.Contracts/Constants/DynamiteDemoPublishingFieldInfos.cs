@@ -8,12 +8,12 @@ using GSoft.Dynamite.FieldTypes;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants
 {
-    public class DynamiteDemoPublishingFieldInfoValues
+    public class DynamiteDemoPublishingFieldInfos
     {
         private readonly IResourceLocator _resourceLocator;
         private readonly string _resourceFileName = DynamiteDemoResources.Global;
 
-        public DynamiteDemoPublishingFieldInfoValues(IResourceLocator resourceLocator)
+        public DynamiteDemoPublishingFieldInfos(IResourceLocator resourceLocator)
         {
             _resourceLocator = resourceLocator;
         }
