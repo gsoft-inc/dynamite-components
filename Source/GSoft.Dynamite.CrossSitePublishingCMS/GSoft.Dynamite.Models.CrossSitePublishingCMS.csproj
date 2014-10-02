@@ -42,6 +42,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-Catalogs.xml.template" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-ContentTypes.xml.template" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
