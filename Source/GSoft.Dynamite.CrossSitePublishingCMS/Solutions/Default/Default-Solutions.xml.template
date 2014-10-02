@@ -6,21 +6,19 @@
  Description	: SharePoint solutions configuration file    
 -->
 <Solutions>
-  <Solution Path="Solutions\Packages\GSoft.Dynamite.wsp" UpgradeExisting="false" Force="true">
+  <Solution Path="Solutions\WSP\GSoft.Dynamite.wsp" UpgradeExisting="false" Force="true">
     <WebApplications>
       <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
     </WebApplications>
   </Solution>
-  <Solution Path="Solutions\Packages\GSoft.Dynamite.Publishing.SP.wsp" UpgradeExisting="false" Force="true">
+  <Solution Path="Solutions\WSP\GSoft.Dynamite.Publishing.SP.wsp" UpgradeExisting="false" Force="true">
     <WebApplications>
       <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
     </WebApplications>
   </Solution>
-  <Solution Path="Solutions\Packages\Lapointe.SharePoint.PowerShell.wsp" UpgradeExisting="false" Force="true">
+  <Solution Path="Solutions\WSP\Lapointe.SharePoint.PowerShell.wsp" UpgradeExisting="false" Force="true">
     <WebApplications>
       <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
     </WebApplications>
   </Solution>
 </Solutions>
-
-
