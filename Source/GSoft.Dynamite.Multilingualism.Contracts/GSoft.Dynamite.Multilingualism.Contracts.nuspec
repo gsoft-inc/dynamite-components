@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>GSoft.Dynamite.Multilingualism.Contracts</id>
+        <version>0.0.0</version>
+        <title>GSoft.Dynamite.Multilingualism.Contracts</title>
+        <authors>GSoft</authors>
+        <owners>GSoft</owners>
+        <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/GSoft-SharePoint/Dynamite/</projectUrl>
+        <iconUrl>https://avatars3.githubusercontent.com/u/5606578?s=140</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Interfaces for the Multilingualism Module in the Dynamite.Components schema</description>
+        <releaseNotes></releaseNotes>
+        <copyright>Copyright 2014</copyright>
+        <tags>SharePoint</tags>
+        <dependencies>
+            <dependency id="GSoft.Dynamite" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\$configuration$\GSoft.Dynamite.Multilingualism.Contracts.dll" target="lib\net45" />
+    </files>
+</package>
