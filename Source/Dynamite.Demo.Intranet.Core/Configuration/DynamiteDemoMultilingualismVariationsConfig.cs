@@ -6,9 +6,9 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
 {
     public class DynamiteDemoMultilingualismVariationsConfig : IBaseMultilingualismVariationsConfig
     {
-        private BaseMultilingualismVariationLabelInfos _baseVariationsSettingsInfo;
+        private BaseMultilingualismVariationSettingsInfos _baseVariationsSettingsInfo;
 
-        public DynamiteDemoMultilingualismVariationsConfig(BaseMultilingualismVariationLabelInfos baseVariationsSettingsInfo)
+        public DynamiteDemoMultilingualismVariationsConfig(BaseMultilingualismVariationSettingsInfos baseVariationsSettingsInfo)
         {
             this._baseVariationsSettingsInfo = baseVariationsSettingsInfo;
         }
