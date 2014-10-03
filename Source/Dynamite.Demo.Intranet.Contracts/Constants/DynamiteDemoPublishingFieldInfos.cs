@@ -25,12 +25,6 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
 
         #endregion
 
-        #region Field internal names
-
-        private static readonly string DynamiteDemoColumnFieldName = FieldPrefix + "DynamiteDemo";
-
-        #endregion
-
         #region FieldInfo reference objects
 
         /// <summary>
@@ -40,7 +34,7 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
         public TextFieldInfo DynamiteDemoColumn()
         {
             return new TextFieldInfo(
-                DynamiteDemoColumnFieldName,
+                FieldPrefix,
                 new Guid("{3FBEC11F-DBCF-40E4-BD93-485BA321F564}"),
                 DynamiteDemoResources.FieldDynamiteDemoColumnTitle,
                 DynamiteDemoResources.FieldDynamiteDemoColumnDescription,
