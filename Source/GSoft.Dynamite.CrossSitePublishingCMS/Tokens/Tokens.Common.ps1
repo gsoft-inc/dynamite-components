@@ -39,6 +39,13 @@ $DSP_PublishingSourceRootWebUrls = "@("
 $DSP_AuthoringTargetRootWebUrls = "@("
 $DSP_PublishingTargetRootWebUrls = "@("
 
+# Check if there is sub webs configuration
+$DSP_HasSubWebs = $false
+if($DSP_PortalAuthoringRootWebs.Length -gt 0)
+{
+	$DSP_HasSubWebs = $true
+}
+
 if($DSP_IsMultilingual)
 {
 	# Set the source variation site url for authoring site
@@ -51,18 +58,33 @@ if($DSP_IsMultilingual)
 		$label = $_
 
 		# Authoring
-		$DSP_PortalAuthoringRootWebs | Foreach-Object{
+		if ($DSP_HasSubWebs)
+		{
+			# Means there is at least one sub web
+			$DSP_PortalAuthoringRootWebs | Foreach-Object{
 	
-            if($label -eq $DSP_SourceLabel)
-            {
-               $DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label + "/" + $_ +"'") + ","
-            }
-            else
-            {
-               $DSP_AuthoringTargetRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label + "/" + $_ +"'") + ","
-            }		
-		}   
-		
+				if($label -eq $DSP_SourceLabel)
+				{
+				   $DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label + "/" + $_ +"'") + ","
+				}
+				else
+				{
+				   $DSP_AuthoringTargetRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label + "/" + $_ +"'") + ","
+				}		
+			}   
+		}
+		else
+		{
+			if($label -eq $DSP_SourceLabel)
+			{
+				$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'")
+			}
+			else
+			{
+				$DSP_AuthoringTargetRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'")
+			}	
+		}	
+
 		# Publishing    
 		if($label -eq $DSP_SourceLabel)
         {
@@ -78,10 +100,18 @@ else
 {
     $DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringHostNamePath
 
-	$DSP_PortalAuthoringRootWebs | Foreach-Object{
+	if ($DSP_HasSubWebs)
+	{
+		# Means there is at least one sub web
+		$DSP_PortalAuthoringRootWebs | Foreach-Object{
 	
-		$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $_ + "'") + ","
-	}	
+			$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $_ + "'") + ","
+		}
+	}
+	else
+	{
+		$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "'")
+	}
 }
 
 

@@ -36,7 +36,7 @@ $DSP_SourceLabel = "en"
 # Webs Configuration 
 # ******************************************
 
-$DSP_PortalAuthoringRootWebs = @('rh','com')
+$DSP_PortalAuthoringRootWebs = @()
 
 # ------------------------------------------
 # Common Tokens

@@ -5,26 +5,30 @@
 # Description	: Create a SharePoint SPWebs structure
 # -----------------------------------------------------------------------
 
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalWebsConfigurationFile]]"
-$CustomConfigurationFile = "[[DSP_CUSTOM_PortalWebsConfigurationFile]]"
-
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
-if(![string]::IsNullOrEmpty($CustomConfigurationFile))
+# Check the web configuration
+if ([System.Convert]::ToBoolean("[[DSP_HasSubWebs]]"))
 {
-	$ConfigurationFilePath = $CommandDirectory + ".\" + $CustomConfigurationFile
-}
+	$0 = $myInvocation.MyCommand.Definition
+	$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
-[xml]$webXml = Get-Content $ConfigurationFilePath
+	$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalWebsConfigurationFile]]"
+	$CustomConfigurationFile = "[[DSP_CUSTOM_PortalWebsConfigurationFile]]"
+
+	$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
+
+	if(![string]::IsNullOrEmpty($CustomConfigurationFile))
+	{
+		$ConfigurationFilePath = $CommandDirectory + ".\" + $CustomConfigurationFile
+	}
+
+	[xml]$webXml = Get-Content $ConfigurationFilePath
+
+	# Create the new SharePoint Web structure
+	New-DSPWebXml -Webs $webXml.Webs -ParentUrl "[[DSP_PortalAuthoringSourceWebUrl]]" -UseParentTopNav -Overwrite
+}
 
 # Check Multilingual settings
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
-
-# Create the new SharePoint Web structure
-New-DSPWebXml -Webs $webXml.Webs -ParentUrl "[[DSP_PortalAuthoringSourceWebUrl]]" -UseParentTopNav -Overwrite
 
 if($IsMultilingual)
 {
