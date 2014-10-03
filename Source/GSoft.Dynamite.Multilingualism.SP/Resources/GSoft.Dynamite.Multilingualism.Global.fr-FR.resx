@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Feature_CommonCMS_SyncCatalogs_Desc" xml:space="preserve">
+    <value>Synchronise les catalogues du site existant. Vous aurez besoin de lancer le travail du minuteur "Variations Propagate Sites and Lists Timer Job" après activation pour compléter la synchronisation.</value>
+  </data>
+  <data name="Feature_CommonCMS_SyncCatalogs_Name" xml:space="preserve">
+    <value>Dynamite CMS de base - Module de multilinguisme - Synchronisation des catalogues</value>
+  </data>
+  <data name="Feature_CommonCMS_SyncWeb_Desc" xml:space="preserve">
+    <value>Synchronise le site courant selon les paramètres de variantes. Vous aurez besoin de lancer le travail du minuteur "Variations Propagate Sites and Lists Timer Job" après activation pour compléter la synchronisation.</value>
+  </data>
+  <data name="Feature_CommonCMS_SyncWeb_Name" xml:space="preserve">
+    <value>Dynamite CMS de base - Module de multilinguisme - Synchronisation du site</value>
+  </data>
   <data name="Feature_CommonCMS_VariationsHierarchies_Desc" xml:space="preserve">
     <value>Créer la hiérarchie de variantes pour la collection de sites</value>
   </data>

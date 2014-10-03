@@ -24,17 +24,24 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 
 # Create the new SharePoint Web structure
-New-DSPWebXml -Webs $webXml.Webs -ParentUrl "[[DSP_PortalAuthoringRootWebUrl]]" -UseParentTopNav -Overwrite | ForEach-Object{
-	if($IsMultilingual)
-	{
-		$Web = $_
-		[[DSP_TargetLabels]] | ForEach-Object {
+New-DSPWebXml -Webs $webXml.Webs -ParentUrl "[[DSP_PortalAuthoringSourceWebUrl]]" -UseParentTopNav -Overwrite
 
-			# Sync webs for all taget labels
-			Sync-DSPWeb -SourceWeb $Web -LabelToSync $_
-		}
+if($IsMultilingual)
+{
+	Write-Warning "Applying Variations configuration..."
 
-		$webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
-		Wait-SPTimerJob -Name "VariationsSpawnSites" -WebApplication $webApplication
+	# Activate features on source sites - Authoring side
+	[[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object{
+
+		Switch-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_SyncWeb]]"
 	}
+
+	# Activate features on source sites - Publishing side
+	[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
+
+		Switch-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_SyncWeb]]"
+	}
+
+	$webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
+	Wait-SPTimerJob -Name "VariationsSpawnSites" -WebApplication $webApplication
 }

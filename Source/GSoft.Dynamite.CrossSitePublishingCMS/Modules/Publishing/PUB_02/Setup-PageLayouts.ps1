@@ -5,20 +5,7 @@
 # Description	: Create page layouts
 # -----------------------------------------------------------------------
 
-# Verbose preference
-$VerbosePreference ="Continue"
-
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "./Default/Default-PageLayouts.xml"
-
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
 Write-Warning "Applying Page Layouts configuration..."
 
-# Apply default site columns creation and content types
-[xml]$featureXml = Get-Content $ConfigurationFilePath
-
-# Activate features
-Initialize-DSPSiteCollectionsFeatures $featureXml $true
+# Activate feature on the root web on the authoring site collection
+Switch-DSPFeature -Url http://intranet.dynamite.com  -Id 374b7569-9e11-4ecd-8771-da59be52141e

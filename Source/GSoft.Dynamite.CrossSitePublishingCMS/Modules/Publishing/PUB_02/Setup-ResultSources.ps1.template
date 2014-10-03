@@ -5,20 +5,7 @@
 # Description	: Create search result sources
 # -----------------------------------------------------------------------
 
-# Verbose preference
-$VerbosePreference ="Continue"
+Write-Warning "Applying Result Sources configuration..."
 
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalResultSourcesConfigurationFile]]"
-
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
-Write-Warning "Applying Search Result Sources configuration..."
-
-# Apply default site columns creation and content types
-[xml]$featureXml = Get-Content $ConfigurationFilePath
-
-# Activate features
-Initialize-DSPSiteCollectionsFeatures $featureXml $true
+# Activate feature on the root web on the authoring site collection
+Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_ResultSources]]

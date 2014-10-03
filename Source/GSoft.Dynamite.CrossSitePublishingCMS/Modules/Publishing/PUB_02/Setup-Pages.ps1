@@ -5,20 +5,7 @@
 # Description	: Create page instances
 # -----------------------------------------------------------------------
 
-# Verbose preference
-$VerbosePreference ="Continue"
+Write-Warning "Applying Page instances configuration..."
 
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "./Default/Default-Pages.xml"
-
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
-Write-Warning "Applying Pages configuration..."
-
-# Apply default site columns creation and content types
-[xml]$featureXml = Get-Content $ConfigurationFilePath
-
-# Activate features
-Initialize-DSPWebFeatures $featureXml $true
+# Activate feature on the root web on the authoring site collection
+Switch-DSPFeature -Url http://intranet.dynamite.com  -Id c0dbca2d-b477-4d91-bb55-b342f6458221

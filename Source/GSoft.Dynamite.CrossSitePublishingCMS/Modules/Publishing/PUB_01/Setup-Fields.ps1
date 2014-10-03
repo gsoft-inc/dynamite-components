@@ -5,17 +5,9 @@
 # Description	: Create fields
 # -----------------------------------------------------------------------
 
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "./Default/Default-Fields.xml"
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
 Write-Warning "Applying Fields configuration..."
 
-# Apply default site columns creation and content types
-[xml]$featureXml = Get-Content $ConfigurationFilePath
+# Activate feature on the root web on the authoring site collection
+Switch-DSPFeature -Url http://authoring.dynamite.com  -Id 97a3a3ef-5989-46f0-a117-6f489f58a26b
 
-# Activate features
-Initialize-DSPSiteCollectionsFeatures $featureXml $true
 

@@ -24,6 +24,9 @@ Start-Transcript -Path $LogFile
 
 # ***************************** #
 
+# Verbose preference
+$VerbosePreference ="Continue"
+
 $UserStory = "PUB_02"
 
 ##### STEP 1: CREATE SEARCH RESULT SOURCES

@@ -5,20 +5,7 @@
 # Description	: Create page layouts
 # -----------------------------------------------------------------------
 
-# Verbose preference
-$VerbosePreference ="Continue"
-
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalPageLayoutsConfigurationFile]]"
-
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
 Write-Warning "Applying Page Layouts configuration..."
 
-# Apply default site columns creation and content types
-[xml]$featureXml = Get-Content $ConfigurationFilePath
-
-# Activate features
-Initialize-DSPSiteCollectionsFeatures $featureXml $true
+# Activate feature on the root web on the authoring site collection
+Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_PageLayouts]]

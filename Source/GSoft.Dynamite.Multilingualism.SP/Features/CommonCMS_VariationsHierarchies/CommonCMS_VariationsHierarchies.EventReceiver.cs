@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
-using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Multilingualism.SP.Features.Feature1
+namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_VariationsHierarchies
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -20,10 +15,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.Feature1
     /// </remarks>
 
     [Guid("63800021-8d04-45d0-9c74-bff6bcc6d3d8")]
-    public class Feature1EventReceiver : SPFeatureReceiver
+    public class CommonCmsVariationsHierarchiesventReceiver : SPFeatureReceiver
     {
-        // Uncomment the method below to handle the event raised after a feature has been activated.
-
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;

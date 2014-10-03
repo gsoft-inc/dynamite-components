@@ -5,20 +5,7 @@
 # Description	: Create search result sources
 # -----------------------------------------------------------------------
 
-# Verbose preference
-$VerbosePreference ="Continue"
+Write-Warning "Applying Result Sources configuration..."
 
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "./Default/Default-ResultSources.xml"
-
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
-Write-Warning "Applying Search Result Sources configuration..."
-
-# Apply default site columns creation and content types
-[xml]$featureXml = Get-Content $ConfigurationFilePath
-
-# Activate features
-Initialize-DSPSiteCollectionsFeatures $featureXml $true
+# Activate feature on the root web on the authoring site collection
+Switch-DSPFeature -Url http://intranet.dynamite.com  -Id 8d99c11b-135e-48e3-ad8f-e04e06d8b654

@@ -58,6 +58,12 @@ Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 $Script = $Script = $CommandDirectory + "\Modules\Publishing\PUB_02\Install-PUB02.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
+# ********** MULTILINGUALISM MODULE ********** #
+
+##### LANG 01
+$Script = $Script = $CommandDirectory + "\Modules\Multilingualism\LANG_01\Install-LANG01.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

@@ -5,17 +5,10 @@
 # Description	: Create catalogs
 # -----------------------------------------------------------------------
 
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "./Default/Default-Catalogs.xml"
-
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
 Write-Warning "Applying Catalogs configuration..."
 
-# Apply default site columns creation and content types
-[xml]$featureXml = Get-Content $ConfigurationFilePath
+# Activate features on source sites (if the solution is multilingual). If not there is only one source site
+@('http://authoring.dynamite.com/en/rh','http://authoring.dynamite.com/en/com') | Foreach-Object{
 
-# Activate features
-Initialize-DSPWebFeatures $featureXml $true
+	Switch-DSPFeature -Url $_ -Id "04643c76-8b9a-4f70-9df4-7565d76e2e8a"
+}

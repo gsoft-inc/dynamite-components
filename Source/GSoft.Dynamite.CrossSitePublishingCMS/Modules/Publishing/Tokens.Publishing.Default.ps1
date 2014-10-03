@@ -27,18 +27,6 @@ $DSP_DEFAULT_PortalRestrictedConfigurationFile = "./Default/Default-RestrictedTe
 $DSP_DEFAULT_PortalNavigationTermGroup = "Portal - Navigation"
 $DSP_DEFAULT_PortalRestrictedTermGroup = "Portal - Restricted"
 
-#### CONTENT TYPES
-
-$DSP_DEFAULT_PortalContentTypesConfigurationFile = "./Default/Default-ContentTypes.xml"
-
-#### FIELDS
-
-$DSP_DEFAULT_PortalFieldsConfigurationFile = "./Default/Default-Fields.xml"
-
-#### CATALOGS
-
-$DSP_DEFAULT_PortalCatalogsConfigurationFile = "./Default/Default-Catalogs.xml"
-
 # ============================================
 # STEP 3: Define security
 # ============================================

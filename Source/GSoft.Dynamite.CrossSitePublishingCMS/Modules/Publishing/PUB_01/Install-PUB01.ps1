@@ -25,6 +25,9 @@ Start-Transcript -Path $LogFile
 
 # ***************************** #
 
+# Verbose preference
+$VerbosePreference ="Continue"
+
 $UserStory = "PUB_01"
 
 $0 = $myInvocation.MyCommand.Definition
@@ -46,6 +49,12 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Webs.ps1'
 & $Script 
+
+$values = @{"Step: " = "#8 Setup Permissions"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Permissions.ps1'
+& $Script
 
 ##### STEP 2: CATEGORIZE CONTENTS
 
@@ -78,12 +87,6 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Catalogs.ps1'
 & $Script 
-
-$values = @{"Step: " = "#8 Setup Permissions"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-Permissions.ps1'
-& $Script
 
 # ********** LOG END ********** #
 # Stop log transcript

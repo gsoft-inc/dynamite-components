@@ -37,7 +37,7 @@
 	  </Groups>
   </Web>
   <!-- Authoring: Default -->
-  <Web Name="[[DSP_PortalAuthoringDefaultWebUrl]]" BreakRoleInheritance="true">
+  <Web Name="[[DSP_PortalAuthoringSourceWebUrl]]" BreakRoleInheritance="true">
     <Groups>
       <Group Name="Default - Visitors" OwnerName="[[DSP_PortalAdmin]]" IsAssociatedVisitorGroup="true">
         <PermissionLevels>

@@ -5,21 +5,7 @@
 # Description	: Create content types structure
 # -----------------------------------------------------------------------
 
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
-
-$DefaultConfigurationFile = "[[DSP_DEFAULT_PortalContentTypesConfigurationFile]]"
-
-$ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
-
 Write-Warning "Applying Content Types configuration..."
 
-# Apply default site columns creation and content types
-[xml]$featureXml = Get-Content $ConfigurationFilePath
-
-# Activate features
-Initialize-DSPSiteCollectionsFeatures $featureXml $true
-
-
-
-
+# Activate feature on the root web on the authoring site collection
+Switch-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]]  -Id [[DSP_CommonCMS_ContentTypes]]

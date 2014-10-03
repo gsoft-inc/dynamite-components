@@ -9,7 +9,7 @@
   <Sites>
     <Site Url="http://authoring.dynamite.com">
       <Webs>
-        <Web Url="http://authoring.dynamite.com/en/default/">
+        <Web Url="[[DSP_PortalAuthoringDefaultWebUrl]]">
           <!-- Dynamite Common CMS - Publishing Module - Catalogs -->
           <Feature GUID="04643c76-8b9a-4f70-9df4-7565d76e2e8a" Name="Dynamite Common CMS - Publishing Module - Catalogs" />
         </Web>

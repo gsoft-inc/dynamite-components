@@ -43,8 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
-    <None Include="Modules\Publishing\PUB_01\Default\Default-Catalogs.xml.template" />
-    <None Include="Modules\Publishing\PUB_01\Default\Default-ContentTypes.xml.template" />
+    <None Include="Modules\Multilingualism\LANG_01\Install-LANG01.ps1" />
+    <None Include="Modules\Multilingualism\LANG_01\Setup-CatalogsSync.ps1.template" />
+    <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
     <None Include="Modules\Publishing\PUB_01\Export-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Import-TermGroups.ps1.template" />
@@ -54,8 +55,6 @@
     <None Include="Modules\Publishing\PUB_01\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.ps1.template" />
-    <None Include="Modules\Publishing\PUB_02\Default\Default-PageLayouts.xml.template" />
-    <None Include="Modules\Publishing\PUB_02\Default\Default-Pages.xml.template" />
     <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
     <None Include="Modules\Publishing\PUB_02\Setup-PageLayouts.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Setup-Pages.ps1.template" />
@@ -80,7 +79,6 @@
   <ItemGroup>
     <Folder Include="Modules\Design\" />
     <Folder Include="Modules\Lifecycle\" />
-    <Folder Include="Modules\Multilinguism\" />
     <Folder Include="Modules\Navigation\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Search\" />
@@ -102,13 +100,7 @@
     <None Include="Modules\Publishing\PUB_01\Setup-Fields.ps1.template" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\PUB_01\Default\Default-Fields.xml.template" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Modules\Publishing\PUB_01\Default\Default-Permissions.xml.template" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Modules\Publishing\PUB_02\Default\Default-ResultSources.xml.template" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

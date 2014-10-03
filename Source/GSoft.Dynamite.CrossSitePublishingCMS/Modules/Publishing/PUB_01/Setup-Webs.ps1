@@ -24,17 +24,24 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 $IsMultilingual = [System.Convert]::ToBoolean("True")
 
 # Create the new SharePoint Web structure
-New-DSPWebXml -Webs $webXml.Webs -ParentUrl "http://authoring.dynamite.com/en" -UseParentTopNav -Overwrite | ForEach-Object{
-	if($IsMultilingual)
-	{
-		$Web = $_
-		@('fr') | ForEach-Object {
+New-DSPWebXml -Webs $webXml.Webs -ParentUrl "http://authoring.dynamite.com/en" -UseParentTopNav -Overwrite
 
-			# Sync webs for all taget labels
-			Sync-DSPWeb -SourceWeb $Web -LabelToSync $_
-		}
+if($IsMultilingual)
+{
+	Write-Warning "Applying Variations configuration..."
 
-		$webApplication = Get-SPWebApplication "http://franck-vm2013/"
-		Wait-SPTimerJob -Name "VariationsSpawnSites" -WebApplication $webApplication
+	# Activate features on source sites - Authoring side
+	@('http://authoring.dynamite.com/en/rh','http://authoring.dynamite.com/en/com') | Foreach-Object{
+
+		Switch-DSPFeature -Url $_ -Id "630a68f6-f722-4ba8-85ba-8daf2f8fcf53"
 	}
+
+	# Activate features on source sites - Publishing side
+	@('http://intranet.dynamite.com/en') | Foreach-Object{
+
+		Switch-DSPFeature -Url $_ -Id "630a68f6-f722-4ba8-85ba-8daf2f8fcf53"
+	}
+
+	$webApplication = Get-SPWebApplication "http://franck-vm2013/"
+	Wait-SPTimerJob -Name "VariationsSpawnSites" -WebApplication $webApplication
 }
