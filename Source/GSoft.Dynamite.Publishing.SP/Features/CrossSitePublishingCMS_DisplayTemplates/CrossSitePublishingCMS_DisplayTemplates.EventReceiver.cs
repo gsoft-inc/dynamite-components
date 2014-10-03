@@ -4,7 +4,6 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Helpers;
-using GSoft.Dynamite.Portal.SP.Publishing;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 

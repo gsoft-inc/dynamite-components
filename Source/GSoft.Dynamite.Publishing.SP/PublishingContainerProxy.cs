@@ -1,13 +1,8 @@
 ﻿using Autofac;
 using GSoft.Dynamite.ServiceLocator;
 using Microsoft.SharePoint;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GSoft.Dynamite.Portal.SP.Publishing
+namespace GSoft.Dynamite.Publishing.SP
 {
     /// <summary>
     /// Proxy service locator for the Dynamite Portal Publishing components

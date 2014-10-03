@@ -3,7 +3,6 @@ using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Extensions;
 using GSoft.Dynamite.Helpers;
-using GSoft.Dynamite.Portal.SP.Publishing;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
