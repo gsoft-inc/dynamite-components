@@ -14,13 +14,15 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
         /// The container builder.
         /// </param>
         protected override void Load(ContainerBuilder builder)
-        {        
-            // Variations Configuration
-            builder.RegisterType<BaseMultilingualismVariationsConfig>().As<IBaseMultilingualismVariationsConfig>();
-
+        {
             // Configuration Values
             builder.RegisterType<BaseMultilingualismVariationLabelInfos>();
             builder.RegisterType<BaseMultilingualismVariationSettingsInfos>();
+
+            // Variations Configuration
+            builder.RegisterType<BaseMultilingualismVariationsConfig>().As<IBaseMultilingualismVariationsConfig>();
+
+
         }
     }
 }
