@@ -36,18 +36,11 @@ $DSP_PortalDefaultLanguage = "1033"
 # ******************************************
 
 $DSP_IsMultilingual = $true
+$DSP_VariationsLabels = @('en','fr')
 $DSP_SourceLabel = "en"
-$DSP_TargetLabels = "@('fr')"
-
-if($DSP_IsMultilingual)
-{
-	# Create webs under the source label root site
-	$DSP_PortalAuthoringRootWebUrl += "/" + $DSP_SourceLabel
-}
 
 # ******************************************
 # Webs Configuration 
 # ******************************************
 
-$DSP_PortalAuthoringDefaultWebUrl = $DSP_PortalAuthoringRootWebUrl + "/default/"
-$DSP_PortalAuthoringDefaultWebName = "Authoring Default Web"
+$DSP_PortalAuthoringRootWebs = @('rh','com')
