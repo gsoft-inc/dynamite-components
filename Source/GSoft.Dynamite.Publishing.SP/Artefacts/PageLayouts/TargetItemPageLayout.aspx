@@ -40,6 +40,7 @@
 		</div>
 		<div class="article-content">
 			<PublishingWebControls:RichHtmlField FieldName="PublishingPageContent" HasInitialFocus="True" MinimumEditHeight="400px" runat="server"/>
+            <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Header%>" ID="Main"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
 		</div>
 		<PublishingWebControls:EditModePanel runat="server" CssClass="edit-mode-panel roll-up">
 			<PublishingWebControls:RichImageField FieldName="PublishingRollupImage" AllowHyperLinks="false" runat="server" />

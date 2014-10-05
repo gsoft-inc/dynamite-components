@@ -15,7 +15,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new PageLayoutInfo()
             {
-                Name = "TargetItemPageLayout.aspx"
+                Name = "TargetItemPageLayout.aspx"          
             };
         }
         #endregion

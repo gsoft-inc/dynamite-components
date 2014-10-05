@@ -11,11 +11,13 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     {
         private readonly BasePublishingPageLayoutInfo _pageLayoutInfo;
         private readonly BasePublishingContentTypeInfos _contentTypeInfo;
+        private readonly BasePublishingWebPartInfos _webPartInfos;
 
-        public BasePublishingPageInfos(BasePublishingPageLayoutInfo pageLayoutInfo, BasePublishingContentTypeInfos contentTypeInfo)
+        public BasePublishingPageInfos(BasePublishingPageLayoutInfo pageLayoutInfos, BasePublishingContentTypeInfos contentTypeInfos, BasePublishingWebPartInfos webaPartInfos)
         {
-            this._pageLayoutInfo = pageLayoutInfo;
-            this._contentTypeInfo = contentTypeInfo;
+            this._pageLayoutInfo = pageLayoutInfos;
+            this._contentTypeInfo = contentTypeInfos;
+            this._webPartInfos = webaPartInfos;
         }
 
         #region Target Item Page Template
@@ -27,7 +29,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 FileName = "ItemTargetPageTemplate",
                 Title = "Target Item Page Template",
                 PageLayout = this._pageLayoutInfo.TargetItemPageLayout(),
-                ContentTypeId = this._contentTypeInfo.Page().ContentTypeId
+                ContentTypeId = this._contentTypeInfo.Page().ContentTypeId,
+                WebParts = new Dictionary<string, WebPartInfo>()
+                {
+                    {"Main",this._webPartInfos.ItemContentWebPart()}
+                }
             };
         }
 
