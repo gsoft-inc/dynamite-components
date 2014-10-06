@@ -77,11 +77,11 @@ if($DSP_IsMultilingual)
 		{
 			if($label -eq $DSP_SourceLabel)
 			{
-				$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'") +"'") + ","
+				$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'") + ","
 			}
 			else
 			{
-				$DSP_AuthoringTargetRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'") +"'") + ","
+				$DSP_AuthoringTargetRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'") + ","
 			}	
 		}	
 

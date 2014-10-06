@@ -29,7 +29,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 WebPart = new ResultScriptWebPart()
                 {
                     DataProviderJSON = querySettings.PropertiesJson,
-                    ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
+                    //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
                     ChromeType = PartChromeType.None
                 }
             };
