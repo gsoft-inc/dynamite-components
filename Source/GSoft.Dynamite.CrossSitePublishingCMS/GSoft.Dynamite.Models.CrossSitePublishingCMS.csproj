@@ -45,6 +45,7 @@
     <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
     <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogsSync.ps1.template" />
+    <None Include="Modules\Multilingualism\LANG_02\Setup-LanguageSwitcher.ps1.template" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
     <None Include="Modules\Publishing\PUB_01\Export-TermGroups.ps1.template" />

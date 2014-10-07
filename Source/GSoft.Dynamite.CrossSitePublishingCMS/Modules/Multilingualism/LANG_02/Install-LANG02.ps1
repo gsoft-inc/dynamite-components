@@ -37,6 +37,9 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-CatalogsSync.ps1'
 & $Script
 
+$Script = $CommandDirectory + '\Setup-LanguageSwitcher.ps1'
+& $Script
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript
