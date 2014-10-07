@@ -7,23 +7,26 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
     public class BasePublishingFieldInfoConfig: IBasePublishingFieldInfoConfig
     {
-        private readonly BasePublishingFieldInfos _fieldInfoValues;
+        private readonly BasePublishingFieldInfos fieldInfoValues;
 
         public BasePublishingFieldInfoConfig(BasePublishingFieldInfos fieldInfoValues)
         {
-            _fieldInfoValues = fieldInfoValues;
+            this.fieldInfoValues = fieldInfoValues;
         }
 
-        public IList<IFieldInfo> Fields()
+        public IList<IFieldInfo> Fields
         {
-            var fields = new List<IFieldInfo>
+            get
             {
-                {_fieldInfoValues.Navigation()},
-                {_fieldInfoValues.Summary()},
-                {_fieldInfoValues.ImageDescription()},
-            };
+                var fields = new List<IFieldInfo>
+                {
+                    { this.fieldInfoValues.Navigation() },
+                    { this.fieldInfoValues.Summary() },
+                    { this.fieldInfoValues.ImageDescription() },
+                };
 
-            return fields;
+                return fields;
+            }
         }
     }
 }

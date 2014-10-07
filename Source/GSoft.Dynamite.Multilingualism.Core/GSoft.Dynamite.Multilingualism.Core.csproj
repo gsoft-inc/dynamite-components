@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\BaseMultilingualismContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\BaseMultilingualismFieldInfoConfig.cs" />
     <Compile Include="Configuration\BaseMultilingualismVariationsConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\MultilingualismRegistrationModule.cs" />

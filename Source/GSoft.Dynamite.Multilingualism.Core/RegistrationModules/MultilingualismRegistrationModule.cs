@@ -36,6 +36,9 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
                 c.Resolve<BasePublishingContentTypeInfos>(),
                 c.Resolve<BaseMultilingualismFieldInfos>())).As<IBasePublishingContentTypeInfoConfig>();
 
+            builder.Register(c => new BaseMultilingualismFieldInfoConfig(
+               c.ResolveNamed<IBasePublishingFieldInfoConfig>("implementor"),
+               c.Resolve<BaseMultilingualismFieldInfos>())).As<IBasePublishingFieldInfoConfig>();
         }
     }
 }
