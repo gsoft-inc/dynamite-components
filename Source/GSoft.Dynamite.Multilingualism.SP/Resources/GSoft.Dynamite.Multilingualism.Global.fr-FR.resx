@@ -141,4 +141,10 @@
   <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Contrôle de changement de langue</value>
   </data>
+  <data name="Field_ContentAssociationKey_Description" xml:space="preserve">
+    <value>Colonne utilisé pour l'association de contenu de différentes langues</value>
+  </data>
+  <data name="Field_ContentAssociationKey_Name" xml:space="preserve">
+    <value>Clef d'association de contenu</value>
+  </data>
 </root>

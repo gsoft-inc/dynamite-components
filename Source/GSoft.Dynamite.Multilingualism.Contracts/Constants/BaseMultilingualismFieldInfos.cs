@@ -37,7 +37,11 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 BasePublishingResources.FieldGroup
                 )
             {
-                Required = RequiredTypes.NotRequired
+                Required = RequiredTypes.NotRequired,
+                IsHiddenInDisplayForm = true,
+                IsHiddenInEditForm = true,
+                IsHiddenInListSettings = true,
+                IsHiddenInNewForm = true
             };
         }
     }
