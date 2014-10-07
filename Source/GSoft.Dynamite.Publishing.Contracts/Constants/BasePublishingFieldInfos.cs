@@ -14,23 +14,22 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public class BasePublishingFieldInfos
     {
-        private readonly IResourceLocator _resourceLocator;
-        private readonly string _resourceFileName = BasePublishingResources.Global;
-        private readonly BasePublishingTermGroupInfos _termGroupInfoValues;
-        private readonly BasePublishingTermSetInfos _termSetInfoValues;
+        private readonly IResourceLocator resourceLocator;
+        private readonly string resourceFileName = BasePublishingResources.Global;
+        private readonly BasePublishingTermGroupInfos termGroupInfoValues;
+        private readonly BasePublishingTermSetInfos termSetInfoValues;
 
         public BasePublishingFieldInfos(IResourceLocator resourceLocator, BasePublishingTermGroupInfos termGroupInfoValues, BasePublishingTermSetInfos termSetInfoValues)
         {
-            this._termGroupInfoValues = termGroupInfoValues;
-            this._termSetInfoValues = termSetInfoValues;
-            this._resourceLocator = resourceLocator;
+            this.termGroupInfoValues = termGroupInfoValues;
+            this.termSetInfoValues = termSetInfoValues;
+            this.resourceLocator = resourceLocator;
 
         }
 
         #region Field prefix
 
-        // ReSharper disable once ConvertToConstant.Local
-        private static readonly string FieldPrefix = "Dynamite";
+        public static readonly string FieldPrefix = "Dynamite";
 
         #endregion
 
@@ -62,8 +61,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 TermStoreMapping = new TaxonomyContext()
                 {
-                    Group = _termGroupInfoValues.Navigation(),
-                    TermSet = _termSetInfoValues.GlobalNavigation()
+                    Group = termGroupInfoValues.Navigation(),
+                    TermSet = termSetInfoValues.GlobalNavigation()
                 },
                 /*DefaultValue = new TaxonomyFullValue()
                 {

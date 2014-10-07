@@ -5,29 +5,32 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
-    public class BasePublishingContentTypeInfoConfig: IBasePublishingContentTypeInfoConfig
+    public class BasePublishingContentTypeInfoConfig : IBasePublishingContentTypeInfoConfig
     {
-        private readonly BasePublishingContentTypeInfos _contentTypeInfoValues;
+        private readonly BasePublishingContentTypeInfos contentTypeInfoValues;
 
         public BasePublishingContentTypeInfoConfig(BasePublishingContentTypeInfos contentTypeInfoValues)
         {
-            _contentTypeInfoValues = contentTypeInfoValues;
+            this.contentTypeInfoValues = contentTypeInfoValues;
         }
 
-        public IList<ContentTypeInfo> ContentTypes()
+        public IList<ContentTypeInfo> ContentTypes
         {
-            var contentTypes = new List<ContentTypeInfo>
+            get
             {
-                {_contentTypeInfoValues.TranslatableItem()},
-                {_contentTypeInfoValues.BrowsableItem()},
-                {_contentTypeInfoValues.DefaultItem()},
-                {_contentTypeInfoValues.CatalogContentItem()},
-                {_contentTypeInfoValues.TargetContentItem()},
-                {_contentTypeInfoValues.NewsItem()},
-                {_contentTypeInfoValues.ContentItem()}
-            };
+                var contentTypes = new List<ContentTypeInfo>
+                {
+                    {this.contentTypeInfoValues.TranslatableItem()},
+                    {this.contentTypeInfoValues.BrowsableItem()},
+                    {this.contentTypeInfoValues.DefaultItem()},
+                    {this.contentTypeInfoValues.CatalogContentItem()},
+                    {this.contentTypeInfoValues.TargetContentItem()},
+                    {this.contentTypeInfoValues.NewsItem()},
+                    {this.contentTypeInfoValues.ContentItem()}
+                };
 
-            return contentTypes;
+                return contentTypes;
+            }
         }
     }
 }

@@ -60,8 +60,8 @@ Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 # ********** MULTILINGUALISM MODULE ********** #
 
-##### LANG 01
-$Script = $Script = $CommandDirectory + "\Modules\Multilingualism\LANG_01\Install-LANG01.ps1"
+##### LANG 02
+$Script = $Script = $CommandDirectory + "\Modules\Multilingualism\LANG_02\Install-LANG02.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 # ********** LOG END ********** #

@@ -5,23 +5,26 @@ using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration
 {
-    public class DynamiteDemoPublishingContentTypeInfoConfig: ICustomPublishingContentTypeInfoConfig
+    public class DynamiteDemoPublishingContentTypeInfoConfig : ICustomPublishingContentTypeInfoConfig
     {
-        private readonly DynamiteDemoPublishingContentTypeInfos _contentTypeInfoValues;
+        private readonly DynamiteDemoPublishingContentTypeInfos contentTypeInfoValues;
 
         public DynamiteDemoPublishingContentTypeInfoConfig(DynamiteDemoPublishingContentTypeInfos contentTypeInfoValues)
         {
-            _contentTypeInfoValues = contentTypeInfoValues;
+            this.contentTypeInfoValues = contentTypeInfoValues;
         }
 
-        public IList<ContentTypeInfo> ContentTypes()
+        public IList<ContentTypeInfo> ContentTypes
         {
-            var contentTypes = new List<ContentTypeInfo>
+            get
             {
-                {_contentTypeInfoValues.DynamiteItem()},
-            };
+                var contentTypes = new List<ContentTypeInfo>
+                {
+                    {this.contentTypeInfoValues.DynamiteItem()},
+                };
 
-            return contentTypes;
+                return contentTypes;
+            }
         }
     }
 }

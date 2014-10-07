@@ -25,6 +25,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Content Types
             builder.RegisterType<BasePublishingContentTypeInfoConfig>().As<IBasePublishingContentTypeInfoConfig>();
+            builder.RegisterType<BasePublishingContentTypeInfoConfig>().Named<IBasePublishingContentTypeInfoConfig>("implementor");
 
             // Content Types Factory
             builder.RegisterType<BasePublishingFieldInfoConfig>().As<IBasePublishingFieldInfoConfig>();

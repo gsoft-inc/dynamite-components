@@ -135,4 +135,10 @@
   <data name="Feature_CommonCMS_VariationsHierarchies_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Multilingualism Module - Variations Hierarchies Creation</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Desc" xml:space="preserve">
+    <value>Add a control to switch the language.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Language switcher control</value>
+  </data>
 </root>

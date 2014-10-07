@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
-    <None Include="Modules\Multilingualism\LANG_02\Install-LANG01.ps1" />
+    <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogsSync.ps1.template" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
