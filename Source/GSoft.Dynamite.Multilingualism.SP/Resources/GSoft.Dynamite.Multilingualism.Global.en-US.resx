@@ -135,4 +135,16 @@
   <data name="Feature_CommonCMS_VariationsHierarchies_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Multilingualism Module - Variations Hierarchies Creation</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Desc" xml:space="preserve">
+    <value>Add a control to switch the language.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Language switcher control</value>
+  </data>
+  <data name="Field_ContentAssociationKey_Description" xml:space="preserve">
+    <value>Column used to associate content together</value>
+  </data>
+  <data name="Field_ContentAssociationKey_Name" xml:space="preserve">
+    <value>Content Association Key</value>
+  </data>
 </root>

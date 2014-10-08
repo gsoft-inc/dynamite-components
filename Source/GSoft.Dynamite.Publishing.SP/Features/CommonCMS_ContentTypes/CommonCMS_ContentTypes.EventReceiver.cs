@@ -30,7 +30,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                 {
                     var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
                     var baseContentTypeConfig = featureScope.Resolve<IBasePublishingContentTypeInfoConfig>();
-                    var baseContentTypes = baseContentTypeConfig.ContentTypes();
+                    var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();
 
                     // Create base content types
@@ -43,7 +43,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                     ICustomPublishingContentTypeInfoConfig customContentTypeConfig = null;
                     if (featureScope.TryResolve(out customContentTypeConfig))
                     {
-                        var customContentTypes = customContentTypeConfig.ContentTypes();
+                        var customContentTypes = customContentTypeConfig.ContentTypes;
                         
                         foreach (var contentType in customContentTypes)
                         {

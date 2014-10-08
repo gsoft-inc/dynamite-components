@@ -26,7 +26,7 @@ Start-Transcript -Path $LogFile
 
 # ***************************** #
 
-$UserStory = "LANG_01"
+$UserStory = "LANG_02"
 
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -35,6 +35,9 @@ $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-CatalogsSync.ps1'
+& $Script
+
+$Script = $CommandDirectory + '\Setup-LanguageSwitcher.ps1'
 & $Script
 
 # ********** LOG END ********** #

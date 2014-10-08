@@ -29,7 +29,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                 {
                     var fieldHelper = featureScope.Resolve<FieldHelper>();
                     var baseFieldInfoConfig = featureScope.Resolve<IBasePublishingFieldInfoConfig>();
-                    var baseFields = baseFieldInfoConfig.Fields();
+                    var baseFields = baseFieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();
 
                     // Create base Fields
@@ -42,7 +42,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                     ICustomPublishingFieldInfoConfig customContentTypeConfig = null;
                     if (featureScope.TryResolve(out customContentTypeConfig))
                     {
-                        var customFields = customContentTypeConfig.Fields();
+                        var customFields = customContentTypeConfig.Fields;
 
                         foreach (IFieldInfo field in customFields)
                         {

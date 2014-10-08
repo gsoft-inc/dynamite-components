@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Columns_Group" xml:space="preserve">
-    <value>Colonnes du portail GSoft</value>
+    <value>Dynamite.Components Colonne du CMS</value>
   </data>
   <data name="ContentType_BrowsableItem_Description" xml:space="preserve">
     <value>Créer un nouvel élément navigable</value>
@@ -133,7 +133,7 @@
     <value>Navigation</value>
   </data>
   <data name="ContentType_PortalGroup_Name" xml:space="preserve">
-    <value>Types de contenus de portail GSoft</value>
+    <value>Dynamite.Components Types de contenu</value>
   </data>
   <data name="Feature_CommonCMS_ContentTypes_Desc" xml:space="preserve">
     <value>Déploie les types de contenu du module de publication pour une solution de type CMS générique.</value>

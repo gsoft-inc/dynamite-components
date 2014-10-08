@@ -7,21 +7,24 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
 {
     public class DynamiteDemoPublishingFieldInfoConfig : ICustomPublishingFieldInfoConfig
     {
-        private readonly DynamiteDemoPublishingFieldInfos _fieldInfoValues;
+        private readonly DynamiteDemoPublishingFieldInfos fieldInfoValues;
 
         public DynamiteDemoPublishingFieldInfoConfig(DynamiteDemoPublishingFieldInfos fieldInfoValues)
         {
-            _fieldInfoValues = fieldInfoValues;
+           this.fieldInfoValues = fieldInfoValues;
         }
 
-        public IList<IFieldInfo> Fields()
+        public IList<IFieldInfo> Fields
         {
-            var fields = new List<IFieldInfo>
+            get
             {
-                {_fieldInfoValues.DynamiteDemoColumn()},
-            };
+                var fields = new List<IFieldInfo>
+                {
+                    { this.fieldInfoValues.DynamiteDemoColumn() },
+                };
 
-            return fields;
+                return fields;
+            }
         }
     }
 }

@@ -5,6 +5,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions
 {
     public interface ICustomPublishingFieldInfoConfig
     {
-        IList<IFieldInfo> Fields();
+        IList<IFieldInfo> Fields { get; }
     }
 }
