@@ -71,20 +71,20 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// </summary>
         protected override void CreateChildControls()
         {
-            // If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
-            // shared search results from the Content by Search Web Part
+             //If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
+             //shared search results from the Content by Search Web Part
             //if (CatalogNavigationContext.Current.Type == CatalogNavigationType.ItemPage)
             //{
-            //    var catalogItemWebPart = new CatalogItemReuseWebPart()
-            //    {
-            //        ID = CatalogItemReuseWebPartId,
-            //        NumberOfItems = 1,
-            //        UseSharedDataProvider = true,
-            //        QueryGroupName = "Default",
-            //        SelectedPropertiesJson = string.Format("['{0}']", PortalManagedProperties.ContentAssociationKey),
-            //    };
+                var catalogItemWebPart = new CatalogItemReuseWebPart()
+                {
+                    ID = CatalogItemReuseWebPartId,
+                    NumberOfItems = 1,
+                    UseSharedDataProvider = true,
+                    QueryGroupName = "Default",
+                    SelectedPropertiesJson = string.Format("['{0}']", "ContentAssociationKeyOWSGUID"/*PortalManagedProperties.ContentAssociationKey*/),
+                };
 
-            //    Controls.Add(catalogItemWebPart);
+                Controls.Add(catalogItemWebPart);
             //}
         }
 

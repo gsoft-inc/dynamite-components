@@ -8,6 +8,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LanguageSwitcher.ascx.cs" Inherits="GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Multilingualism.LanguageSwitcher" %>
 
 <script type="text/javascript">
+    console.log("LanguageSwitcher");
     if (typeof Dynamite !== 'undefined' && typeof Dynamite.Multilingualism !== 'undefined') {
         Dynamite.Multilingualism.initialize("#language-swtcher-control");
     }

@@ -31,25 +31,20 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
             {
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    IList<CatalogInfo> baseCatalogs;
-
                     var logger = featureScope.Resolve<ILogger>();
                     var catalogHelper = featureScope.Resolve<CatalogHelper>();
                     var baseCatalogInfoConfig = featureScope.Resolve<IBasePublishingCatalogInfoConfig>();
 
+                    List<CatalogInfo> baseCatalogs = baseCatalogInfoConfig.Catalogs() as List<CatalogInfo>;
+                    
                     // Check if custom configuration is present
                     ICustomPublishingCatalogInfoConfig customCatalogInfoConfig = null;
                     if (featureScope.TryResolve(out customCatalogInfoConfig))
                     {
                         logger.Info("Custom catalogs configuration override found!");
-                        baseCatalogs = customCatalogInfoConfig.Catalogs();
+                        baseCatalogs.AddRange(customCatalogInfoConfig.Catalogs());
                     }
-                    else
-                    {
-                        logger.Info("No custom catalogs configuration override found!");
-                        baseCatalogs = baseCatalogInfoConfig.Catalogs();
-                    }
-
+                   
                     // Create catalogs
                     foreach (var catalog in baseCatalogs)
                     {
