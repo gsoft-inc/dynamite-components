@@ -48,16 +48,13 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10064\lib\net45\GSoft.Dynamite.dll</HintPath>
-    </Reference>
-    <Reference Include="GSoft.Dynamite.Publishing.Contracts, Version=15.0.0.0, Culture=neutral, PublicKeyToken=1e3bb3fbc94d83df, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.Publishing.Contracts.2.0.0-pre10019\lib\net45\GSoft.Dynamite.Publishing.Contracts.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10066\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -74,6 +71,13 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Multilingualism\CssImports.ascx.cs">
+      <DependentUpon>CssImports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Multilingualism\CssImports.ascx.designer.cs">
+      <DependentUpon>CssImports.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Multilingualism\LanguageSwitcher.ascx.cs">
       <DependentUpon>LanguageSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -97,6 +101,9 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
+    <None Include="Artefacts\CssImports\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{993e07ea-ba18-49ff-bd22-856b9c6d5c4c}</SharePointProjectItemId>
+    </None>
     <None Include="Artefacts\LanguageSwitcher\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a0903270-b062-484d-95ff-f1a049ff2781}</SharePointProjectItemId>
     </None>
@@ -115,6 +122,16 @@
     <None Include="Features\CrossSitePublishingCMS_LanguageSwitcher\CrossSitePublishingCMS_LanguageSwitcher.feature">
       <FeatureId>{058d4a42-7b65-40a4-8067-b83113f6644d}</FeatureId>
     </None>
+    <None Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.css.map">
+      <DependentUpon>GSoft.Dynamite.Multilingualism.css</DependentUpon>
+    </None>
+    <None Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.less" />
+    <None Include="Layouts\GSoft.Dynamite.Multilingualism\GSoft.Dynamite.Multilingualism.min.js.map">
+      <DependentUpon>GSoft.Dynamite.Multilingualism.min.js</DependentUpon>
+    </None>
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{206714ec-42d1-4624-9749-e7076de5cc9d}</SharePointProjectItemId>
+    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{52a58289-27ce-4705-ac67-9a4c05ba9558}</PackageId>
@@ -127,7 +144,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artefacts\CssImports\Elements.xml" />
     <Content Include="Artefacts\LanguageSwitcher\Elements.xml" />
+    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Multilingualism\CssImports.ascx" />
     <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Multilingualism\LanguageSwitcher.ascx" />
     <Content Include="Features\CommonCMS_VariationsHierarchies\CommonCMS_VariationsHierarchies.Template.xml">
       <DependentUpon>CommonCMS_VariationsHierarchies.feature</DependentUpon>
@@ -141,6 +160,10 @@
       <Project>{13c3cfc3-4328-4047-9b62-15b19e2e5922}</Project>
       <Name>GSoft.Dynamite.Multilingualism.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
+      <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
+      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.Template.xml">
@@ -148,6 +171,16 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_LanguageSwitcher\CrossSitePublishingCMS_LanguageSwitcher.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_LanguageSwitcher.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.css">
+      <DependentUpon>GSoft.Dynamite.Multilingualism.less</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.min.css">
+      <DependentUpon>GSoft.Dynamite.Multilingualism.css</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Multilingualism\GSoft.Dynamite.Multilingualism.js" />
+    <Content Include="Layouts\GSoft.Dynamite.Multilingualism\GSoft.Dynamite.Multilingualism.min.js">
+      <DependentUpon>GSoft.Dynamite.Multilingualism.js</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.en-US.resx" />
   </ItemGroup>

@@ -1,12 +1,18 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
+using Autofac;
+using GSoft.Dynamite.Exceptions;
+using GSoft.Dynamite.Globalization;
+using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.Office.Server.Search.WebControls;
+using Microsoft.SharePoint;
+using Microsoft.SharePoint.Publishing;
 
 namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Multilingualism
 {
@@ -21,22 +27,6 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// The view model.
         /// </value>
         public ILanguageSwitcherService LanguageSwitcherService { get; private set; }
-
-        /// <summary>
-        /// Gets or sets the label text.
-        /// </summary>
-        /// <value>
-        /// The label text.
-        /// </value>
-        public string LabelText { get; set; }
-
-        /// <summary>
-        /// Gets or sets the label URL.
-        /// </summary>
-        /// <value>
-        /// The label URL.
-        /// </value>
-        public string LabelUrl { get; set; }
 
         private string AssociationKey
         {
@@ -71,25 +61,62 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// </summary>
         protected override void CreateChildControls()
         {
-             //If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
-             //shared search results from the Content by Search Web Part
+            //If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
+            //shared search results from the Content by Search Web Part
             //if (CatalogNavigationContext.Current.Type == CatalogNavigationType.ItemPage)
             //{
-                var catalogItemWebPart = new CatalogItemReuseWebPart()
-                {
-                    ID = CatalogItemReuseWebPartId,
-                    NumberOfItems = 1,
-                    UseSharedDataProvider = true,
-                    QueryGroupName = "Default",
-                    SelectedPropertiesJson = string.Format("['{0}']", "ContentAssociationKeyOWSGUID"/*PortalManagedProperties.ContentAssociationKey*/),
-                };
+            var catalogItemWebPart = new CatalogItemReuseWebPart()
+            {
+                ID = CatalogItemReuseWebPartId,
+                NumberOfItems = 1,
+                UseSharedDataProvider = true,
+                QueryGroupName = "Default",
+                SelectedPropertiesJson = string.Format("['{0}']", BaseMultilingualismManagedProperties.ContentAssociationKey),
+            };
 
-                Controls.Add(catalogItemWebPart);
+            Controls.Add(catalogItemWebPart);
             //}
+        }
+
+        /// <summary>
+        /// Sends server control content to a provided <see cref="T:System.Web.UI.HtmlTextWriter" /> object, which writes the content to be rendered on the client.
+        /// </summary>
+        /// <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter" /> object that receives the server control content.</param>
+        protected override void Render(HtmlTextWriter writer)
+        {
+            MultilingualismContainerProxy.Current.Resolve<ICatchAllExceptionHandler>().Execute(SPContext.Current.Web, () =>
+            {
+                var catalogNavigation = MultilingualismContainerProxy.Current.Resolve<ICatalogNavigation>();
+                var currentWebUrl = new Uri(SPContext.Current.Web.Url);
+                var labels = this.LanguageSwitcherService.GetPeerVariationLabels(currentWebUrl, Variations.Current, SPContext.Current.Web.CurrentUser);
+
+                if (labels != null && labels.Any())
+                {
+                    if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
+                    {
+                        catalogNavigation.LanguageManagedPropertyName = BaseMultilingualismManagedProperties.ItemLanguage;
+                        catalogNavigation.CatalogNavigationTermManagedPropertyName = BasePublishingManagedProperties.Navigation;
+                        catalogNavigation.AssociationKeyManagedPropertyName = BaseMultilingualismManagedProperties.ContentAssociationKey;
+                        catalogNavigation.AssociationKeyValue = this.AssociationKey;
+                    }
+
+                    var formattedLabels = labels.Select(label => new
+                    {
+                        Title = Languages.TwoLetterISOLanguageNameToFullName(label.Title),
+                        Url = this.LanguageSwitcherService.GetPeerUrl(label, catalogNavigation).ToString()
+                    }).ToList();
+
+                    this.LabelsRepeater.DataSource = formattedLabels;
+                    this.LabelsRepeater.DataBind();
+                }
+            });
+
+            base.Render(writer);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.LanguageSwitcherService = MultilingualismContainerProxy.Current.Resolve<ILanguageSwitcherService>();
         }
     }
 }
