@@ -64,6 +64,7 @@
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Webs.ps1.template" />
     <None Include="Nuget\Install.ps1" />
+    <None Include="PackageAndInstall.ps1" />
     <None Include="packages.config" />
     <None Include="Solutions\Copy-Solutions.ps1.template" />
     <None Include="Solutions\Custom\Custom-Solutions.xml.template" />
