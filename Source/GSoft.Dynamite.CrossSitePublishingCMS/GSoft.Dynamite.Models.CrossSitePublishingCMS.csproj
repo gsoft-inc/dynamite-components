@@ -87,6 +87,7 @@
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
+    <Folder Include="PostDeployment\" />
     <Folder Include="Solutions\Packages\" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Modules\Publishing\PUB_01\Default\Default-Permissions.xml.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Execute-PostDeploymentScript.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

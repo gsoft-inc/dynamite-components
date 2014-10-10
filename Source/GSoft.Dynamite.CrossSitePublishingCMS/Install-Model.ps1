@@ -64,6 +64,10 @@ Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 $Script = $Script = $CommandDirectory + "\Modules\Multilingualism\LANG_02\Install-LANG02.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
+# ********** CUSTOM SCRIPTS ********** #
+$Script = $Script = $CommandDirectory + "Execute-PostDeploymentScript.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript
