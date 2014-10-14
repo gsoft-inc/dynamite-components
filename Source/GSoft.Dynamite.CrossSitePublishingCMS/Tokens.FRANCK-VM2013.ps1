@@ -36,7 +36,7 @@ $DSP_SourceLabel = "en"
 # Webs Configuration 
 # ******************************************
 
-# Specify an empty array "@()" if there are not subsites
+# Specify an empty array "@()" if there are no subsites
 $DSP_PortalAuthoringRootWebs = @()
 
 # ------------------------------------------
