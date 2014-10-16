@@ -18,6 +18,8 @@ $DSP_CommonCMS_PageLayouts = "374b7569-9e11-4ecd-8771-da59be52141e"
 $DSP_CrossSitePublishingCMS_Pages = "c0dbca2d-b477-4d91-bb55-b342f6458221"
 $DSP_CrossSitePublishingCMS_ResultSources = "8d99c11b-135e-48e3-ad8f-e04e06d8b654"
 $DSP_CommonCMS_SyncWeb = "630a68f6-f722-4ba8-85ba-8daf2f8fcf53"
+$DSP_CrossSitePublishingCMS_DisplayTemplates = "d96b6f0d-8536-4367-bf3f-4a4a9fa286cb"
+$DSP_CrossSitePublishingCMS_ResultTypes = "990b925b-fe6e-41ea-ae6a-3011308a303e"
 
 # ******************************************
 # Publishing Module tokens

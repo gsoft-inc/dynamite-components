@@ -52,6 +52,22 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-Pages.ps1'
 & $Script -Force
 
+##### STEP 4: CREATE DISPLAY TEMPLATES
+
+$values = @{"Step: " = "Create Display Templates";"User Story: " = $UserStory}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-DisplayTemplates.ps1'
+& $Script
+
+##### STEP 5: CREATE SEARCH RESULT TYPES
+
+$values = @{"Step: " = "Create Result Types";"User Story: " = $UserStory}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ResultTypes.ps1'
+& $Script
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

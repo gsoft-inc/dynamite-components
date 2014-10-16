@@ -94,9 +94,9 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 {
                     if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
                     {
-                        catalogNavigation.LanguageManagedPropertyName = BaseMultilingualismManagedProperties.ItemLanguage;
-                        catalogNavigation.CatalogNavigationTermManagedPropertyName = BasePublishingManagedProperties.Navigation;
-                        catalogNavigation.AssociationKeyManagedPropertyName = BaseMultilingualismManagedProperties.ContentAssociationKey;
+                        catalogNavigation.LanguageManagedPropertyName = BaseMultilingualismManagedProperties.ItemLanguage.Name;
+                        catalogNavigation.CatalogNavigationTermManagedPropertyName = BasePublishingManagedPropertyInfo.Navigation.Name;
+                        catalogNavigation.AssociationKeyManagedPropertyName = BaseMultilingualismManagedProperties.ContentAssociationKey.Name;
                         catalogNavigation.AssociationKeyValue = this.AssociationKey;
                     }
 

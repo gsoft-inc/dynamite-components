@@ -48,7 +48,11 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10066\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10068\lib\net45\GSoft.Dynamite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -84,6 +88,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
   </ItemGroup>
@@ -118,6 +125,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_DisplayTemplates\CrossSitePublishingCMS_DisplayTemplates.feature">
       <FeatureId>{eac65967-fbf1-44e7-93e5-c3532230b3f9}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.feature">
+      <FeatureId>{65b1a649-5c6d-4ca5-93e1-6c3bd34e9618}</FeatureId>
     </None>
     <None Include="key.snk" />
     <None Include="packages.config" />
@@ -167,6 +177,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_DisplayTemplates\CrossSitePublishingCMS_DisplayTemplates.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_DisplayTemplates.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Publishing.Global.en-US.resx">
       <SubType>Designer</SubType>

@@ -18,33 +18,13 @@
 <asp:Content ContentPlaceHolderId="PlaceHolderTitleBreadcrumb" runat="server"> 
 	<SharePointWebControls:ListSiteMapPath runat="server" SiteMapProviders="CurrentNavigationSwitchableProvider" RenderCurrentNodeAsLink="false" PathSeparator="" CssClass="s4-breadcrumb" NodeStyle-CssClass="s4-breadcrumbNode" CurrentNodeStyle-CssClass="s4-breadcrumbCurrentNode" RootNodeStyle-CssClass="s4-breadcrumbRootNode" NodeImageOffsetX=0 NodeImageOffsetY=289 NodeImageWidth=16 NodeImageHeight=16 NodeImageUrl="/_layouts/15/images/fgimg.png?rev=23" HideInteriorRootNodes="true" SkipLinkText=""/> </asp:Content>
 <asp:Content ContentPlaceholderID="PlaceHolderMain" runat="server">
-	<div class="article article-right">
-		<PublishingWebControls:EditModePanel runat="server" CssClass="edit-mode-panel title-edit">
-			<SharePointWebControls:TextField runat="server" FieldName="Title"/>
-		</PublishingWebControls:EditModePanel>
-		<div class="captioned-image">
-			<div class="image">
-				<PublishingWebControls:RichImageField FieldName="PublishingPageImage" runat="server"/>
-			</div>
-			<div class="caption">
-				<PublishingWebControls:RichHtmlField FieldName="PublishingImageCaption"  AllowTextMarkup="false" AllowTables="false" AllowLists="false" AllowHeadings="false" AllowStyles="false" AllowFontColorsMenu="false" AllowParagraphFormatting="false" AllowFonts="false" AllowInsert="false" AllowEmbedding="false" PreviewValueSize="Small" AllowDragDrop="false" runat="server"/>
-			</div>
-		</div>
-		<div class="article-header">
-			<div class="date-line">
-				<SharePointWebControls:DateTimeField FieldName="ArticleStartDate" runat="server"/>
-			</div>
-			<div class="by-line">
-				<SharePointWebControls:TextField FieldName="ArticleByLine" runat="server"/>
-			</div>
-		</div>
-		<div class="article-content">
-			<PublishingWebControls:RichHtmlField FieldName="PublishingPageContent" HasInitialFocus="True" MinimumEditHeight="400px" runat="server"/>
-            <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Header%>" ID="Main"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
-		</div>
-		<PublishingWebControls:EditModePanel runat="server" CssClass="edit-mode-panel roll-up">
-			<PublishingWebControls:RichImageField FieldName="PublishingRollupImage" AllowHyperLinks="false" runat="server" />
-			<asp:Label text="<%$Resources:cms,Article_rollup_image_text15%>" CssClass="ms-textSmall" runat="server" />
-		</PublishingWebControls:EditModePanel>
+	<div class="row">
+	    <div class="col-md-9">
+			<WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Header%>" ID="Main"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	    </div>
+	    <div class="col-md-3">
+	    	<WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Right%>" ID="RightColumn" Orientation="Vertical"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	    </div>
 	</div>
 </asp:Content>
+

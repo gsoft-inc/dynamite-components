@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
@@ -32,7 +28,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 ContentTypeId = this._contentTypeInfo.Page().ContentTypeId,
                 WebParts = new Dictionary<string, WebPartInfo>()
                 {
-                    {"Main",this._webaPartInfos.ItemContentWebPart()}
+                    {"Main",this._webaPartInfos.TargetItemContentWebPart()}
                 }
             };
         }
@@ -48,7 +44,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 FileName = "CatalogTargetPageTemplate",
                 Title = "Catalog Item Page Template",
                 PageLayout = this._pageLayoutInfo.CatalogItemPageLayout(),
-                ContentTypeId = this._contentTypeInfo.Page().ContentTypeId
+                ContentTypeId = this._contentTypeInfo.Page().ContentTypeId,
+                WebParts = new Dictionary<string, WebPartInfo>()
+                {
+                    {"Main",this._webaPartInfos.CatalogItemContentWebPart()}
+                }
             };
         }
 
