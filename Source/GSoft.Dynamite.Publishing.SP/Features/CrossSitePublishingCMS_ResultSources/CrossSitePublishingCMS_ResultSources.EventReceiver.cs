@@ -20,8 +20,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
     [Guid("c6ad3235-45eb-4993-b21c-1d6a90a4f343")]
     public class CrossSitePublishingCMS_ResultSourcesEventReceiver : SPFeatureReceiver
     {
-        // Uncomment the method below to handle the event raised after a feature has been activated.
-
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -64,31 +62,46 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
             }
         }
 
+       public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
+       {
+           var site = properties.Feature.Parent as SPSite;
 
-        // Uncomment the method below to handle the event raised before a feature is deactivated.
+           if (site != null)
+           {
+               using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
+               {
+                   var logger = featureScope.Resolve<ILogger>();
+                   var searchHelper = featureScope.Resolve<SearchHelper>();
+                   var baseResultSourceInfoConfig = featureScope.Resolve<IBasePublishingResultSourceInfoConfig>();
 
-        //public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        //{
-        //}
+                   IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
 
+                   // Delete base result sources
+                   foreach (var resultSource in resultSources)
+                   {
+                       searchHelper.DeleteResultSource(site, resultSource);
+                   }
 
-        // Uncomment the method below to handle the event raised after a feature has been installed.
+                   // Check if custom configuration is present
+                   ICustomPublishingResultSourceInfoConfig customResultSourceInfoConfig = null;
+                   if (featureScope.TryResolve(out customResultSourceInfoConfig))
+                   {
+                       logger.Info("Custom result sources configuration override found!");
+                       resultSources = customResultSourceInfoConfig.ResultSources();
 
-        //public override void FeatureInstalled(SPFeatureReceiverProperties properties)
-        //{
-        //}
+                       // Create base result sources
+                       foreach (var resultSource in resultSources)
+                       {
+                           searchHelper.DeleteResultSource(site, resultSource);
+                       }
+                   }
+                   else
+                   {
+                       logger.Info("No custom result sources configuration override found!");
 
-
-        // Uncomment the method below to handle the event raised before a feature is uninstalled.
-
-        //public override void FeatureUninstalling(SPFeatureReceiverProperties properties)
-        //{
-        //}
-
-        // Uncomment the method below to handle the event raised when a feature is upgrading.
-
-        //public override void FeatureUpgrading(SPFeatureReceiverProperties properties, string upgradeActionName, System.Collections.Generic.IDictionary<string, string> parameters)
-        //{
-        //}
+                   }
+               }
+           }
+       }
     }
 }
