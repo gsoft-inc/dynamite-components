@@ -73,6 +73,7 @@
     <None Include="Solutions\Tokens.Solutions.Custom.ps1" />
     <None Include="Solutions\Tokens.Solutions.Default.ps1" />
     <None Include="Tokens.HOSTNAME.ps1" />
+    <None Include="Tokens.MATTSP13DEV.ps1" />
     <None Include="Tokens.sp2013tao.ps1" />
     <None Include="Tokens.VMDEVSP2013.ps1" />
     <None Include="Tokens.FRANCK-VM2013.ps1" />
@@ -86,6 +87,7 @@
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
+    <Folder Include="PostDeployment\" />
     <Folder Include="Solutions\Packages\" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Modules\Publishing\PUB_01\Default\Default-Permissions.xml.template" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Execute-PostDeploymentScript.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
