@@ -3,7 +3,7 @@ using GSoft.Dynamite.Definitions;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
-    public class BasePublishingPageLayoutInfo
+    public class BasePublishingPageLayoutInfos
     {
         #region Target Item Page Layout
 

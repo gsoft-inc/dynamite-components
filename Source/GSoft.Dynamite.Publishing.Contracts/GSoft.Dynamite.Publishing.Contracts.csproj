@@ -80,7 +80,7 @@
     <Compile Include="Constants\BasePublishingFolderInfos.cs" />
     <Compile Include="Constants\BasePublishingManagedProperties.cs" />
     <Compile Include="Constants\BasePublishingPageInfos.cs" />
-    <Compile Include="Constants\BasePublishingPageLayoutInfo.cs" />
+    <Compile Include="Constants\BasePublishingPageLayoutInfos.cs" />
     <Compile Include="Constants\BasePublishingResources.cs" />
     <Compile Include="Constants\BasePublishingResultSourceInfos.cs" />
     <Compile Include="Constants\BasePublishingTermGroupInfos.cs" />

@@ -9,15 +9,15 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     public class BasePublishingPageInfos
     {
-        private readonly BasePublishingPageLayoutInfo _pageLayoutInfo;
-        private readonly BasePublishingContentTypeInfos _contentTypeInfo;
-        private readonly BasePublishingWebPartInfos _webaPartInfos;
+        private readonly BasePublishingPageLayoutInfos pageLayoutInfo;
+        private readonly BasePublishingContentTypeInfos contentTypeInfo;
+        private readonly BasePublishingWebPartInfos webPartInfos;
 
-        public BasePublishingPageInfos(BasePublishingPageLayoutInfo pageLayoutInfos, BasePublishingContentTypeInfos contentTypeInfos, BasePublishingWebPartInfos webaPartInfos)
+        public BasePublishingPageInfos(BasePublishingPageLayoutInfos pageLayoutInfos, BasePublishingContentTypeInfos contentTypeInfos, BasePublishingWebPartInfos webPartInfos)
         {
-            this._pageLayoutInfo = pageLayoutInfos;
-            this._contentTypeInfo = contentTypeInfos;
-            this._webaPartInfos = webaPartInfos;
+            this.pageLayoutInfo = pageLayoutInfos;
+            this.contentTypeInfo = contentTypeInfos;
+            this.webPartInfos = webPartInfos;
         }
 
         #region Target Item Page Template
@@ -28,11 +28,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 FileName = "ItemTargetPageTemplate",
                 Title = "Target Item Page Template",
-                PageLayout = this._pageLayoutInfo.TargetItemPageLayout(),
-                ContentTypeId = this._contentTypeInfo.Page().ContentTypeId,
+                PageLayout = this.pageLayoutInfo.TargetItemPageLayout(),
+                ContentTypeId = this.contentTypeInfo.Page().ContentTypeId,
                 WebParts = new Dictionary<string, WebPartInfo>()
                 {
-                    {"Main",this._webaPartInfos.ItemContentWebPart()}
+                    {"Main",this.webPartInfos.ItemContentWebPart()}
                 }
             };
         }
@@ -47,8 +47,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 FileName = "CatalogTargetPageTemplate",
                 Title = "Catalog Item Page Template",
-                PageLayout = this._pageLayoutInfo.CatalogItemPageLayout(),
-                ContentTypeId = this._contentTypeInfo.Page().ContentTypeId
+                PageLayout = this.pageLayoutInfo.CatalogItemPageLayout(),
+                ContentTypeId = this.contentTypeInfo.Page().ContentTypeId
             };
         }
 
