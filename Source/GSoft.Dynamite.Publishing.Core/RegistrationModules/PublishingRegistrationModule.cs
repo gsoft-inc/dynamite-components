@@ -25,11 +25,11 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Content Types
             builder.RegisterType<BasePublishingContentTypeInfoConfig>().As<IBasePublishingContentTypeInfoConfig>();
-            builder.RegisterType<BasePublishingContentTypeInfoConfig>().Named<IBasePublishingContentTypeInfoConfig>("implementor");
+            builder.RegisterType<BasePublishingContentTypeInfoConfig>().Named<IBasePublishingContentTypeInfoConfig>("publishing");
 
             // Fields
             builder.RegisterType<BasePublishingFieldInfoConfig>().As<IBasePublishingFieldInfoConfig>();
-            builder.RegisterType<BasePublishingFieldInfoConfig>().Named<IBasePublishingFieldInfoConfig>("implementor");
+            builder.RegisterType<BasePublishingFieldInfoConfig>().Named<IBasePublishingFieldInfoConfig>("publishing");
 
             // Term Sets
             builder.RegisterType<BasePublishingTaxonomyConfig>().As<IBasePublishingTaxonomyConfig>();

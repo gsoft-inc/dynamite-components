@@ -101,8 +101,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new ContentTypeInfo(
                 CatalogContentItemContentType,
-                BasePublishingResources.ContentCatalogTitle,
-                BasePublishingResources.ContentCatalogDescription,
+                BasePublishingResources.ContentTypeCatalogContentItemTitle,
+                BasePublishingResources.ContentTypeCatalogContentItemDescription,
                 BasePublishingResources.ContentTypeGroup);
         }
 

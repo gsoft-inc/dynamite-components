@@ -23,7 +23,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         /// <summary>
         /// The field Portal Navigation Description
         /// </summary>
-        public static readonly string FieldContentAssociationKeyDescription = "Field_ContentAssociationKey_Description";
+        public static readonly string FieldContentAssociationKeyDescription = "Field_ContentAssociationKey_Desc";
 
         #endregion
     }

@@ -123,4 +123,16 @@
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Term Driven Pages</value>
   </data>
+  <data name="Field_DateSlug_Desc" xml:space="preserve">
+    <value>Date Slug Friendly URL fragment</value>
+  </data>
+  <data name="Field_DateSlug_Name" xml:space="preserve">
+    <value>Date Slug</value>
+  </data>
+  <data name="Field_TitleSlug_Desc" xml:space="preserve">
+    <value>Title Slug Friendly URL fragment</value>
+  </data>
+  <data name="Field_TitleSlug_Name" xml:space="preserve">
+    <value>Title Slug</value>
+  </data>
 </root>

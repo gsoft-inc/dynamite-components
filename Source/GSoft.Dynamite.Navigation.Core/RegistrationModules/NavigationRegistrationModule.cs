@@ -4,6 +4,8 @@ using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Resources;
 using GSoft.Dynamite.Navigation.Core.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
 {
@@ -23,8 +25,20 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             // Term Driven Pages
             builder.RegisterType<BaseNavigationTermDrivenPageSettingsInfoConfig>().As<IBaseNavigationTermDrivenpageSettingsInfoConfig>();
 
+            // Content Type Base Override
+            builder.Register(c => new BaseNavigationContentTypeInfoConfig(
+                c.ResolveNamed<IBasePublishingContentTypeInfoConfig>("publishing"),
+                c.Resolve<BasePublishingContentTypeInfos>(),
+                c.Resolve<BaseNavigationFieldInfos>())).As<IBasePublishingContentTypeInfoConfig>().Named<IBasePublishingContentTypeInfoConfig>("navigation");
+
+            // Fields Base Override
+            builder.Register(c => new BaseNavigationFieldInfoConfig(
+               c.ResolveNamed<IBasePublishingFieldInfoConfig>("publishing"),
+               c.Resolve<BaseNavigationFieldInfos>())).As<IBasePublishingFieldInfoConfig>().Named <IBasePublishingFieldInfoConfig>("navigation");
+
             // Configuration Values
-            builder.RegisterType<BaseNavigationTermDrivenPageSettingsInfos>(); 
+            builder.RegisterType<BaseNavigationTermDrivenPageSettingsInfos>();
+            builder.RegisterType<BaseNavigationFieldInfos>(); 
         }
     }
 }

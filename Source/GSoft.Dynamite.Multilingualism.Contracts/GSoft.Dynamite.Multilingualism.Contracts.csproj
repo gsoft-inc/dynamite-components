@@ -68,6 +68,7 @@
     <Compile Include="Constants\BaseMultilingualismVariationLabelInfos.cs" />
     <Compile Include="Constants\BaseMultilingualismVariationSettingsInfos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\MultilingualismResourceLocatorConfig.cs" />
     <Compile Include="Services\ILanguageSwitcherService.cs" />
   </ItemGroup>
   <ItemGroup>
