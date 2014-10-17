@@ -48,7 +48,7 @@
     <None Include="Modules\Multilingualism\LANG_03\Install-LANG03.ps1" />
     <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.ps1.template" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
-    <None Include="Modules\Navigation\NAV_01\Install_NAV01.ps1" />
+    <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
     <None Include="Modules\Navigation\NAV_01\Setup-TermDrivenPages.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
     <None Include="Modules\Publishing\PUB_01\Export-TermGroups.ps1.template" />
