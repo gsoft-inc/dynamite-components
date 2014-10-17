@@ -62,7 +62,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<BasePublishingFolderInfos>();
             builder.RegisterType<BasePublishingDisplayTemplateInfos>();
             builder.RegisterType<BasePublishingWebPartInfos>();
-            builder.RegisterType<BasePublishingResultTypeInfos>();     
+            builder.RegisterType<BasePublishingResultTypeInfos>(); 
         }
     }
 }

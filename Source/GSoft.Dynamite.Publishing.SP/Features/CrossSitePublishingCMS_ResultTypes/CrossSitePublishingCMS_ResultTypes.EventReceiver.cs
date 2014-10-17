@@ -33,9 +33,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTyp
                     var logger = featureScope.Resolve<ILogger>();
                     var searchHelper = featureScope.Resolve<SearchHelper>();
 
-                    var baseResultTypInfoConfig = featureScope.Resolve<IBasePublishingResultTypeInfoConfig>();
+                    var baseResultTypeInfoConfig = featureScope.Resolve<IBasePublishingResultTypeInfoConfig>();
 
-                    IList<ResultTypeInfo> resultTypes = baseResultTypInfoConfig.ResultTypes();
+                    IList<ResultTypeInfo> resultTypes = baseResultTypeInfoConfig.ResultTypes();
 
                     // Create base result types
                     foreach (var resultType in resultTypes)

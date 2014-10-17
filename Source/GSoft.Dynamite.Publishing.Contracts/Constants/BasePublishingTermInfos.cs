@@ -23,5 +23,14 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new TermInfo(new Guid("a681794e-c2bc-4145-b95a-3122388d65bf"), "News", this.termSetInfos.RestrictedNews());
         }
+
+        /// <summary>
+        /// The news term
+        /// </summary>
+        /// <returns>The term</returns>
+        public TermInfo AboutLabel()
+        {
+            return new TermInfo(new Guid("870c52df-0ef0-4297-b9e8-0e965ac7c7c2"), "About", this.termSetInfos.GlobalNavigation());
+        }
     }
 }

@@ -7,5 +7,13 @@
 
 Write-Warning "Applying Page instances configuration..."
 
-# Activate feature on the root web on the authoring site collection
-Switch-DSPFeature -Url http://intranet.dynamite.com  -Id c0dbca2d-b477-4d91-bb55-b342f6458221
+# Activate features on all publishing sites (sources an targets)
+@('http://intranet.dynamite.com/fr') | Foreach-Object{
+
+	Switch-DSPFeature -Url $_ -Id c0dbca2d-b477-4d91-bb55-b342f6458221
+}
+
+@('http://intranet.dynamite.com/en') | Foreach-Object{
+
+	Switch-DSPFeature -Url $_ -Id c0dbca2d-b477-4d91-bb55-b342f6458221
+}

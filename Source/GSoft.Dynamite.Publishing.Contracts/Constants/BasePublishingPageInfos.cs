@@ -22,7 +22,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new PageInfo()
             {
-                FileName = "ItemTargetPageTemplate",
+                FileName = "TargetItemPageTemplate",
                 Title = "Target Item Page Template",
                 PageLayout = this._pageLayoutInfo.TargetItemPageLayout(),
                 ContentTypeId = this._contentTypeInfo.Page().ContentTypeId,
@@ -41,7 +41,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new PageInfo()
             {
-                FileName = "CatalogTargetPageTemplate",
+                FileName = "CatalogItemPageTemplate",
                 Title = "Catalog Item Page Template",
                 PageLayout = this._pageLayoutInfo.CatalogItemPageLayout(),
                 ContentTypeId = this._contentTypeInfo.Page().ContentTypeId,

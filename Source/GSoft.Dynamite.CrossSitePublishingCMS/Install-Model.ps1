@@ -51,25 +51,31 @@ New-HeaderDrawing -Values $Values
 # ********** PUBLISHING MODULE ********** #
 
 ##### PUB 01
-$Script = $Script = $CommandDirectory + "\Modules\Publishing\PUB_01\Install-PUB01.ps1"
+$Script = $CommandDirectory + "\Modules\Publishing\PUB_01\Install-PUB01.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 ##### PUB 02
-$Script = $Script = $CommandDirectory + "\Modules\Publishing\PUB_02\Install-PUB02.ps1"
+$Script = $CommandDirectory + "\Modules\Publishing\PUB_02\Install-PUB02.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+
+# ********** NAVIGATION MODULE ********** #
+
+##### NAV 01
+$Script = $CommandDirectory + "\Modules\Navigation\NAV_01\Install-NAV01.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 # ********** MULTILINGUALISM MODULE ********** #
 
 ##### LANG 02
-$Script = $Script = $CommandDirectory + "\Modules\Multilingualism\LANG_02\Install-LANG02.ps1"
+$Script = $CommandDirectory + "\Modules\Multilingualism\LANG_02\Install-LANG02.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 ##### LANG 03
-$Script = $Script = $CommandDirectory + "\Modules\Multilingualism\LANG_03\Install-LANG03.ps1"
+$Script = $CommandDirectory + "\Modules\Multilingualism\LANG_03\Install-LANG03.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 # ********** CUSTOM SCRIPTS ********** #
-$Script = $Script = $CommandDirectory + "Execute-PostDeploymentScript.ps1"
+$Script = $CommandDirectory + "Execute-PostDeploymentScript.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 # ********** LOG END ********** #

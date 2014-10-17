@@ -20,6 +20,7 @@ $DSP_CrossSitePublishingCMS_ResultSources = "8d99c11b-135e-48e3-ad8f-e04e06d8b65
 $DSP_CommonCMS_SyncWeb = "630a68f6-f722-4ba8-85ba-8daf2f8fcf53"
 $DSP_CrossSitePublishingCMS_DisplayTemplates = "d96b6f0d-8536-4367-bf3f-4a4a9fa286cb"
 $DSP_CrossSitePublishingCMS_ResultTypes = "990b925b-fe6e-41ea-ae6a-3011308a303e"
+$DSP_CrossSitePublishingCMS_TermDrivenPages ="ffaf71c4-38dc-4be8-a9b1-2b4dc5b46efe"
 
 # ******************************************
 # Publishing Module tokens
