@@ -6,16 +6,16 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
     public class BasePublishingFolderInfoConfig : IBasePublishingFolderInfoConfig
     {
-        private readonly BasePublishingFolderInfos _folderInfos;
+        private readonly BasePublishingFolderInfos folderInfos;
 
         public BasePublishingFolderInfoConfig(BasePublishingFolderInfos folderInfos)
         {
-            this._folderInfos = folderInfos;
+            this.folderInfos = folderInfos;
         }
 
         public FolderInfo RootFolderHierarchy()
         {
-            return this._folderInfos.RootFolder();
+            return this.folderInfos.RootFolder();
         }
     }
 }

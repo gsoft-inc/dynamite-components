@@ -5,11 +5,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     public class BasePublishingFolderInfos
     {
-        private readonly BasePublishingPageInfos _pageInfos;
+        private readonly BasePublishingPageInfos pageInfos;
 
         public BasePublishingFolderInfos(BasePublishingPageInfos pageInfos)
         {
-            this._pageInfos = pageInfos;
+            this.pageInfos = pageInfos;
         }
 
         public FolderInfo RootFolder()
@@ -24,8 +24,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 },
                 Pages = new List<PageInfo>()
                 {
-                    {this._pageInfos.TargetItemPageTemplate()},
-                    {this._pageInfos.CatalogItemPageTemplate()}
+                    {this.pageInfos.TargetItemPageTemplate()},
+                    {this.pageInfos.CatalogItemPageTemplate()}
                 }
             };
         }
@@ -49,8 +49,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "Folder2",
                 Pages = new List<PageInfo>()
                 {
-                    {this._pageInfos.TargetItemPageTemplate()},
-                    {this._pageInfos.CatalogItemPageTemplate()}
+                    {this.pageInfos.TargetItemPageTemplate()},
+                    {this.pageInfos.CatalogItemPageTemplate()}
                 }
             };
 
