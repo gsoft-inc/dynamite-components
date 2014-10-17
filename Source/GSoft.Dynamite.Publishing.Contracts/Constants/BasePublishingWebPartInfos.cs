@@ -31,7 +31,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// Web part for Item Content
         /// </summary>
         /// <returns>WebPart info object</returns>
-        public WebPartInfo ItemContentWebPart()
+        public WebPartInfo TargetItemContentWebPart()
         {
             // When you set a result source to a Search WebPart, you need to use at least the Properties["SourceName"] and Properties["SourceLevel"] attributes
             var querySettings = new DataProviderScriptWebPart();
@@ -40,13 +40,67 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["QueryTemplate"] = string.Empty;
             
 
-            return new WebPartInfo("Item Content Webpart")
+            return new WebPartInfo("Target Item Content Webpart")
+            {
+                WebPart = new ResultScriptWebPart()
+                {
+                    DataProviderJSON = querySettings.PropertiesJson,
+                    // To set a display template manually, use this line
+                    //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
+                    ChromeType = PartChromeType.None,
+                    ShowAdvancedLink = false,
+                    ShowBestBets = false,
+                    ShowAlertMe = false,
+                    ShowLanguageOptions = false,
+                    ShowDidYouMean = false,
+                    ShowPaging = false,
+                    ShowResultCount = false,
+                    ShowPersonalFavorites = false,
+                    ShowSortOptions = false,
+                    ShowViewDuplicates = false,
+                    ShowDataErrors = false,
+                    ShowDefinitions = false,
+                    ShowPreferencesLink = false,
+                    ShowUpScopeMessage = false,
+                    ShowResults = true,
+                    BypassResultTypes = false,
+                    ResultsPerPage = 1
+                }
+            };
+        }
+
+        public WebPartInfo CatalogItemContentWebPart()
+        {
+            var querySettings = new DataProviderScriptWebPart();
+            querySettings.Properties["SourceName"] = this.resultSourceInfos.SingleCatalogItem().Name;
+            querySettings.Properties["SourceLevel"] = this.resultSourceInfos.SingleCatalogItem().Level.ToString();
+            querySettings.Properties["QueryTemplate"] = string.Empty;
+
+
+            return new WebPartInfo("Catalog Item Content Webpart")
             {
                 WebPart = new ResultScriptWebPart()
                 {
                     DataProviderJSON = querySettings.PropertiesJson,
                     //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
-                    ChromeType = PartChromeType.None
+                    ChromeType = PartChromeType.None,
+                    ShowAdvancedLink = false,
+                    ShowBestBets = false,
+                    ShowAlertMe = false,
+                    ShowLanguageOptions = false,
+                    ShowDidYouMean = false,
+                    ShowPaging = false,
+                    ShowResultCount = false,
+                    ShowPersonalFavorites = false,
+                    ShowSortOptions = false,
+                    ShowViewDuplicates = false,
+                    ShowDataErrors = false,
+                    ShowDefinitions = false,
+                    ShowPreferencesLink = false,
+                    ShowUpScopeMessage = false,
+                    ShowResults = true,
+                    BypassResultTypes = false,
+                    ResultsPerPage = 1
                 }
             };
         }

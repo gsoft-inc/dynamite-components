@@ -7,5 +7,13 @@
 
 Write-Warning "Applying Page instances configuration..."
 
-# Activate feature on the root web on the authoring site collection
-Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_Pages]]
+# Activate features on all publishing sites (sources an targets)
+[[DSP_PublishingTargetRootWebUrls]] | Foreach-Object{
+
+	Switch-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_Pages]]
+}
+
+[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
+
+	Switch-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_Pages]]
+}

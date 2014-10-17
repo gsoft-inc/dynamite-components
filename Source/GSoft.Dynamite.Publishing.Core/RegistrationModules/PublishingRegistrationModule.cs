@@ -45,7 +45,10 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Display Templates
             builder.RegisterType<BasePublishingDisplayTemplateInfoConfig>().As<IBasePublishingDisplayTemplateInfoConfig>();
-            
+
+            // Result Types
+            builder.RegisterType<BasePublishingResultTypeInfoConfig>().As<IBasePublishingResultTypeInfoConfig>();
+                     
             // Configuration Values
             builder.RegisterType<BasePublishingContentTypeInfos>();
             builder.RegisterType<BasePublishingFieldInfos>();
@@ -58,7 +61,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<BasePublishingPageLayoutInfos>();
             builder.RegisterType<BasePublishingFolderInfos>();
             builder.RegisterType<BasePublishingDisplayTemplateInfos>();
-            builder.RegisterType<BasePublishingWebPartInfos>();        
+            builder.RegisterType<BasePublishingWebPartInfos>();
+            builder.RegisterType<BasePublishingResultTypeInfos>();     
         }
     }
 }

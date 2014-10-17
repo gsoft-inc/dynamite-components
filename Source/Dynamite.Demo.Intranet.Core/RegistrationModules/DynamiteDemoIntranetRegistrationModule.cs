@@ -26,11 +26,13 @@ namespace Dynamite.Demo.Intranet.Core.RegistrationModules
             builder.RegisterType<DynamiteDemoPublishingFieldInfoConfig>().As<ICustomPublishingFieldInfoConfig>();
             builder.RegisterType<DynamiteDemoPublishingCatalogInfoConfig>().As<ICustomPublishingCatalogInfoConfig>();
             builder.RegisterType<DynamiteDemoMultilingualismVariationsConfig>().As<IBaseMultilingualismVariationsConfig>();
+            builder.RegisterType<DynamiteDemoPublishingResultSourceInfoConfig>().As<ICustomPublishingResultSourceInfoConfig>();
             
             // Configuration Values
             builder.RegisterType<DynamiteDemoPublishingFieldInfos>();
             builder.RegisterType<DynamiteDemoPublishingContentTypeInfos>();
-            builder.RegisterType<DynamiteDemoPublishingCatalogInfos>(); 
+            builder.RegisterType<DynamiteDemoPublishingCatalogInfos>();
+            builder.RegisterType<DynamiteDemoPublishingResultSourceInfos>(); 
         }
     }
 }
