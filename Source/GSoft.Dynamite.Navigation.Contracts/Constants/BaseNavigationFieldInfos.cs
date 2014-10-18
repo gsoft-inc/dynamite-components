@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GSoft.Dynamite.Binding;
-using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
