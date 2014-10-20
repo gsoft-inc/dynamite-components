@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTypes
@@ -33,33 +30,14 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTyp
                     var logger = featureScope.Resolve<ILogger>();
                     var searchHelper = featureScope.Resolve<SearchHelper>();
 
-                    var baseResultTypInfoConfig = featureScope.Resolve<IBasePublishingResultTypeInfoConfig>();
+                    var baseResultTypeInfoConfig = featureScope.Resolve<IPublishingResultTypeInfoConfig>();
 
-                    IList<ResultTypeInfo> resultTypes = baseResultTypInfoConfig.ResultTypes();
+                    IList<ResultTypeInfo> resultTypes = baseResultTypeInfoConfig.ResultTypes();
 
                     // Create base result types
                     foreach (var resultType in resultTypes)
                     {
                         searchHelper.EnsureResultType(site, resultType);
-                    }
-
-                    // Check if custom configuration is present
-                    ICustomPublishingResultTypeInfoConfig customResultTypeInfoConfig = null;
-                    if (featureScope.TryResolve(out customResultTypeInfoConfig))
-                    {
-                        logger.Info("Custom result types configuration override found!");
-                        resultTypes = customResultTypeInfoConfig.ResultTypes();
-
-                        // Create custom result types
-                        foreach (var resultType in resultTypes)
-                        {
-                            searchHelper.EnsureResultType(site, resultType);
-                        }
-                    }
-                    else
-                    {
-                        logger.Info("No custom result types configuration override found!");
-
                     }
                 }
             }
@@ -76,7 +54,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTyp
                    var logger = featureScope.Resolve<ILogger>();
                    var searchHelper = featureScope.Resolve<SearchHelper>();
 
-                   var baseResultTypInfoConfig = featureScope.Resolve<IBasePublishingResultTypeInfoConfig>();
+                   var baseResultTypInfoConfig = featureScope.Resolve<IPublishingResultTypeInfoConfig>();
 
                    IList<ResultTypeInfo> resultTypes = baseResultTypInfoConfig.ResultTypes();
 
@@ -84,25 +62,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTyp
                    foreach (var resultType in resultTypes)
                    {
                        searchHelper.DeleteResultType(site, resultType);
-                   }
-
-                   // Check if custom configuration is present
-                   ICustomPublishingResultTypeInfoConfig customResultTypeInfoConfig = null;
-                   if (featureScope.TryResolve(out customResultTypeInfoConfig))
-                   {
-                       logger.Info("Custom result types configuration override found!");
-                       resultTypes = customResultTypeInfoConfig.ResultTypes();
-
-                       // Delete custom result types
-                       foreach (var resultType in resultTypes)
-                       {
-                           searchHelper.DeleteResultType(site, resultType);
-                       }
-                   }
-                   else
-                   {
-                       logger.Info("No custom result types configuration override found!");
-
                    }
                }
            }

@@ -24,45 +24,49 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Content Types
-            builder.RegisterType<BasePublishingContentTypeInfoConfig>().As<IBasePublishingContentTypeInfoConfig>();
-            builder.RegisterType<BasePublishingContentTypeInfoConfig>().Named<IBasePublishingContentTypeInfoConfig>("implementor");
+            builder.RegisterType<PublishingContentTypeInfoConfig>().As<IPublishingContentTypeInfoConfig>();
+            builder.RegisterType<PublishingContentTypeInfoConfig>().Named<IPublishingContentTypeInfoConfig>("publishing");
 
             // Fields
-            builder.RegisterType<BasePublishingFieldInfoConfig>().As<IBasePublishingFieldInfoConfig>();
-            builder.RegisterType<BasePublishingFieldInfoConfig>().Named<IBasePublishingFieldInfoConfig>("implementor");
+            builder.RegisterType<PublishingFieldInfoConfig>().As<IPublishingFieldInfoConfig>();
+            builder.RegisterType<PublishingFieldInfoConfig>().Named<IPublishingFieldInfoConfig>("publishing");
 
             // Term Sets
-            builder.RegisterType<BasePublishingTaxonomyConfig>().As<IBasePublishingTaxonomyConfig>();
+            builder.RegisterType<PublishingTaxonomyConfig>().As<IPublishingTaxonomyConfig>();
 
             // Catalogs
-            builder.RegisterType<BasePublishingCatalogInfoConfig>().As<IBasePublishingCatalogInfoConfig>();
+            builder.RegisterType<PublishingCatalogInfoConfig>().As<IPublishingCatalogInfoConfig>();
+            builder.RegisterType<PublishingCatalogInfoConfig>().Named<IPublishingCatalogInfoConfig>("publishing");
 
             // Result Sources
-            builder.RegisterType<BasePublishingResultSourceInfoConfig>().As<IBasePublishingResultSourceInfoConfig>();
+            builder.RegisterType<PublishingResultSourceInfoConfig>().As<IPublishingResultSourceInfoConfig>();
+            builder.RegisterType<PublishingResultSourceInfoConfig>().Named<IPublishingResultSourceInfoConfig>("publishing");
 
             // Folders
-            builder.RegisterType<BasePublishingFolderInfoConfig>().As<IBasePublishingFolderInfoConfig>();
+            builder.RegisterType<PublishingFolderInfoConfig>().As<IPublishingFolderInfoConfig>();
 
             // Display Templates
-            builder.RegisterType<BasePublishingDisplayTemplateInfoConfig>().As<IBasePublishingDisplayTemplateInfoConfig>();
+            builder.RegisterType<PublishingDisplayTemplateInfoConfig>().As<IPublishingDisplayTemplateInfoConfig>();
+            builder.RegisterType<PublishingDisplayTemplateInfoConfig>().Named<IPublishingDisplayTemplateInfoConfig>("publishing");
 
             // Result Types
-            builder.RegisterType<BasePublishingResultTypeInfoConfig>().As<IBasePublishingResultTypeInfoConfig>();
+            builder.RegisterType<PublishingResultTypeInfoConfig>().As<IPublishingResultTypeInfoConfig>();
+            builder.RegisterType<PublishingResultTypeInfoConfig>().Named<IPublishingResultTypeInfoConfig>("publishing");
                      
             // Configuration Values
-            builder.RegisterType<BasePublishingContentTypeInfos>();
-            builder.RegisterType<BasePublishingFieldInfos>();
-            builder.RegisterType<BasePublishingCatalogInfos>();
-            builder.RegisterType<BasePublishingTermGroupInfos>();
-            builder.RegisterType<BasePublishingTermSetInfos>();
-            builder.RegisterType<BasePublishingTermInfos>();
-            builder.RegisterType<BasePublishingResultSourceInfos>();
-            builder.RegisterType<BasePublishingPageInfos>();
-            builder.RegisterType<BasePublishingPageLayoutInfos>();
-            builder.RegisterType<BasePublishingFolderInfos>();
-            builder.RegisterType<BasePublishingDisplayTemplateInfos>();
-            builder.RegisterType<BasePublishingWebPartInfos>();
-            builder.RegisterType<BasePublishingResultTypeInfos>();     
+            builder.RegisterType<PublishingContentTypeInfos>();
+            builder.RegisterType<PublishingFieldInfos>();
+            builder.RegisterType<PublishingCatalogInfos>();
+            builder.RegisterType<PublishingTermGroupInfos>();
+            builder.RegisterType<PublishingTermSetInfos>();
+            builder.RegisterType<PublishingTermInfos>();
+            builder.RegisterType<PublishingResultSourceInfos>();
+            builder.RegisterType<PublishingPageInfos>();
+            builder.RegisterType<PublishingPageLayoutInfos>();
+            builder.RegisterType<PublishingFolderInfos>();
+            builder.RegisterType<PublishingDisplayTemplateInfos>();
+            builder.RegisterType<PublishingWebPartInfos>();
+            builder.RegisterType<PublishingResultTypeInfos>(); 
         }
     }
 }

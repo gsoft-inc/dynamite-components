@@ -28,7 +28,7 @@ $DSP_PortalDefaultLanguage = "1033"
 # Multilingualism Configuration 
 # ******************************************
 
-$DSP_IsMultilingual = $true
+$DSP_IsMultilingual = $false
 $DSP_VariationsLabels = @('en','fr')
 $DSP_SourceLabel = "en"
 

@@ -13,7 +13,7 @@ namespace GSoft.Dynamite.Portal.Core.Resources
     /// </summary>
     public class PublishingResourceLocatorConfig : IResourceLocatorConfig
     {
-        private string[] resourceFileKeys = new string[1] { BasePublishingResources.Global };
+        private string[] resourceFileKeys = new string[1] { PublishingResources.Global };
              
         /// <summary>
         /// Default constructor

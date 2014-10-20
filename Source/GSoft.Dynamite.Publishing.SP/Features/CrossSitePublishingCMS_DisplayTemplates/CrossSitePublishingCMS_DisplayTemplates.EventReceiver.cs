@@ -32,7 +32,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
                     var displayTemplateHelper = featureScope.Resolve<DisplayTemplateHelper>();
 
 
-                    var displayTemplateConfig = featureScope.Resolve<IBasePublishingDisplayTemplateInfoConfig>();
+                    var displayTemplateConfig = featureScope.Resolve<IPublishingDisplayTemplateInfoConfig>();
                     var displayTemplates = displayTemplateConfig.DisplayTemplates();
                     var fileList = new List<SPFile>();
 

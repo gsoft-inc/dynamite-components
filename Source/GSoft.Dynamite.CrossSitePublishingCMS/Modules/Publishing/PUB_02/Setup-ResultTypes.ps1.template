@@ -8,4 +8,4 @@
 Write-Warning "Applying Result Types configuration..."
 
 # Activate feature on the root web on the publishing site collection
-Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_ResultTypes]]
+Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_PUB_ResultTypes]]

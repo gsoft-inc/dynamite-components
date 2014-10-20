@@ -32,18 +32,21 @@ $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 
 if($IsMultilingual)
 {
-	Write-Warning "Applying Variations configuration..."
+	$values = @{"Step: " = "#2.1 Setup Webs Variations"}
+	New-HeaderDrawing -Values $Values
+
+	Write-Warning "Applying Web Variations configuration..."
 
 	# Activate features on source sites - Authoring side
 	[[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object{
 
-		Switch-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_SyncWeb]]"
+		Switch-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
 	}
 
 	# Activate features on source sites - Publishing side
 	[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
 
-		Switch-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_SyncWeb]]"
+		Switch-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
 	}
 
 	$webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"

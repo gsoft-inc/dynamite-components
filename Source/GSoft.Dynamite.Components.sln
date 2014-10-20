@@ -52,6 +52,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Design.Core", "GSoft.Dynamite.Design.Core\GSoft.Dynamite.Design.Core.csproj", "{02C704E7-34A3-41CC-A7E0-28B0AEE26386}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Design.SP", "GSoft.Dynamite.Design.SP\GSoft.Dynamite.Design.SP.csproj", "{C941F640-14A2-4506-99D8-72725BAAB24B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Navigation.Contracts", "GSoft.Dynamite.Navigation.Contracts\GSoft.Dynamite.Navigation.Contracts.csproj", "{F26EF1FA-1A19-416B-A3A6-CFE250967773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Navigation.Core", "GSoft.Dynamite.Navigation.Core\GSoft.Dynamite.Navigation.Core.csproj", "{EB11545D-8573-41AE-A272-F7B0C97906D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Navigation.SP", "GSoft.Dynamite.Navigation.SP\GSoft.Dynamite.Navigation.SP.csproj", "{5240C93B-1CA2-43F0-9BE5-680A33C093EB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB11545D-8573-41AE-A272-F7B0C97906D3} = {EB11545D-8573-41AE-A272-F7B0C97906D3}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -123,6 +131,20 @@ Global
 		{C941F640-14A2-4506-99D8-72725BAAB24B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C941F640-14A2-4506-99D8-72725BAAB24B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C941F640-14A2-4506-99D8-72725BAAB24B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F26EF1FA-1A19-416B-A3A6-CFE250967773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F26EF1FA-1A19-416B-A3A6-CFE250967773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F26EF1FA-1A19-416B-A3A6-CFE250967773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F26EF1FA-1A19-416B-A3A6-CFE250967773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB11545D-8573-41AE-A272-F7B0C97906D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB11545D-8573-41AE-A272-F7B0C97906D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB11545D-8573-41AE-A272-F7B0C97906D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB11545D-8573-41AE-A272-F7B0C97906D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5240C93B-1CA2-43F0-9BE5-680A33C093EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5240C93B-1CA2-43F0-9BE5-680A33C093EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5240C93B-1CA2-43F0-9BE5-680A33C093EB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5240C93B-1CA2-43F0-9BE5-680A33C093EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5240C93B-1CA2-43F0-9BE5-680A33C093EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5240C93B-1CA2-43F0-9BE5-680A33C093EB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

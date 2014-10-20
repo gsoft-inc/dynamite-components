@@ -1,13 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
@@ -33,18 +29,10 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                 {
                     var logger = featureScope.Resolve<ILogger>();
                     var catalogHelper = featureScope.Resolve<CatalogHelper>();
-                    var baseCatalogInfoConfig = featureScope.Resolve<IBasePublishingCatalogInfoConfig>();
+                    var baseCatalogInfoConfig = featureScope.Resolve<IPublishingCatalogInfoConfig>();
 
                     List<CatalogInfo> baseCatalogs = baseCatalogInfoConfig.Catalogs() as List<CatalogInfo>;
                     
-                    // Check if custom configuration is present
-                    ICustomPublishingCatalogInfoConfig customCatalogInfoConfig = null;
-                    if (featureScope.TryResolve(out customCatalogInfoConfig))
-                    {
-                        logger.Info("Custom catalogs configuration override found!");
-                        baseCatalogs.AddRange(customCatalogInfoConfig.Catalogs());
-                    }
-                   
                     // Create catalogs
                     foreach (var catalog in baseCatalogs)
                     {

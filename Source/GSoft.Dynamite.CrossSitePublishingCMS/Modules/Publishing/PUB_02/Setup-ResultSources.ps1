@@ -7,5 +7,5 @@
 
 Write-Warning "Applying Result Sources configuration..."
 
-# Activate feature on the root web on the authoring site collection
+# Activate feature on the root web on the publishing site collection
 Switch-DSPFeature -Url http://intranet.dynamite.com  -Id 8d99c11b-135e-48e3-ad8f-e04e06d8b654

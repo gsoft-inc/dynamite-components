@@ -8,4 +8,4 @@
 Write-Warning "Applying Display Templates configuration..."
 
 # Activate feature on the root web on the publishing site collection
-Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_DisplayTemplates]]
+Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_PUB_DisplayTemplates]]

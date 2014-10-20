@@ -32,6 +32,22 @@ if ($Force) {
 # Create the new SharePoint structure
 New-DSPStructure $ConfigurationFilePath
 
+# Check Multilingual settings
+$IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
+
+if($IsMultilingual)
+{
+	$values = @{"Step: " = "#1.1 Setup Sites Variations"}
+	New-HeaderDrawing -Values $Values
+
+	Write-Warning "Applying Site Variations configuration..."
+
+	# Activate feature on the root web on the authoring site collection
+	Switch-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
+
+	# Activate feature on the root web on the publishing site collection
+	Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
+}
 
 
 

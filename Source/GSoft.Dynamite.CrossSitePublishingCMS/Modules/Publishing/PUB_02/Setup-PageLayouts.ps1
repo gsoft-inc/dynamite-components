@@ -7,5 +7,5 @@
 
 Write-Warning "Applying Page Layouts configuration..."
 
-# Activate feature on the root web on the authoring site collection
+# Activate feature on the root web on the publishing site collection
 Switch-DSPFeature -Url http://intranet.dynamite.com  -Id 374b7569-9e11-4ecd-8771-da59be52141e

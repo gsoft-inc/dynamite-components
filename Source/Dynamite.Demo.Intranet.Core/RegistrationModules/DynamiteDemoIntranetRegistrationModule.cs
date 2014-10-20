@@ -4,7 +4,8 @@ using Dynamite.Demo.Intranet.Core.Configuration;
 using Dynamite.Demo.Intranet.Core.Resources;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace Dynamite.Demo.Intranet.Core.RegistrationModules
 {
@@ -22,17 +23,41 @@ namespace Dynamite.Demo.Intranet.Core.RegistrationModules
             builder.RegisterType<DynamiteDemoResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Overridable default Portal config (i.e. plugin hooks and slots, with sensible defaults)
-            builder.RegisterType<DynamiteDemoPublishingContentTypeInfoConfig>().As<ICustomPublishingContentTypeInfoConfig>();
-            builder.RegisterType<DynamiteDemoPublishingFieldInfoConfig>().As<ICustomPublishingFieldInfoConfig>();
-            builder.RegisterType<DynamiteDemoPublishingCatalogInfoConfig>().As<ICustomPublishingCatalogInfoConfig>();
-            builder.RegisterType<DynamiteDemoMultilingualismVariationsConfig>().As<IBaseMultilingualismVariationsConfig>();
-            builder.RegisterType<DynamiteDemoPublishingResultSourceInfoConfig>().As<ICustomPublishingResultSourceInfoConfig>();
+            builder.RegisterType<DemoMultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
+
+            // Catalogs Override
+            builder.Register(c => new DemoMultilingualismVariationsConfig(
+               c.ResolveNamed<IMultilingualismVariationsConfig>("multilingualism")
+               )).As<IMultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("demo");
+
+
+            // Catalogs Override
+            builder.Register(c => new DemoPublishingCatalogInfoConfig(
+               c.ResolveNamed<IPublishingCatalogInfoConfig>("publishing"),
+               c.Resolve<DemoPublishingCatalogInfos>())).As<IPublishingCatalogInfoConfig>().Named<IPublishingCatalogInfoConfig>("demo");
+
+            // Result Sources Override
+            builder.Register(c => new DemoPublishingResultSourceInfoConfig(
+               c.ResolveNamed<IPublishingResultSourceInfoConfig>("publishing"),
+               c.Resolve<DemoPublishingResultSourceInfos>())).As<IPublishingResultSourceInfoConfig>().Named<IPublishingResultSourceInfoConfig>("demo");
+
+            // Content Type Base Override
+            builder.Register(c => new DemoPublishingContentTypeInfoConfig(
+                c.ResolveNamed<IPublishingContentTypeInfoConfig>("publishing"),
+                c.Resolve<PublishingContentTypeInfos>(),
+                c.Resolve<DemoPublishingFieldInfos>(), c.Resolve<DemoPublishingContentTypeInfos>())).As<IPublishingContentTypeInfoConfig>().Named<IPublishingContentTypeInfoConfig>("demo");
+
+            // Fields Base Override
+            builder.Register(c => new DemoPublishingFieldInfoConfig(
+               c.ResolveNamed<IPublishingFieldInfoConfig>("publishing"),
+               c.Resolve<DemoPublishingFieldInfos>())).As<IPublishingFieldInfoConfig>().Named<IPublishingFieldInfoConfig>("demo");
+
             
             // Configuration Values
-            builder.RegisterType<DynamiteDemoPublishingFieldInfos>();
-            builder.RegisterType<DynamiteDemoPublishingContentTypeInfos>();
-            builder.RegisterType<DynamiteDemoPublishingCatalogInfos>();
-            builder.RegisterType<DynamiteDemoPublishingResultSourceInfos>(); 
+            builder.RegisterType<DemoPublishingFieldInfos>();
+            builder.RegisterType<DemoPublishingContentTypeInfos>();
+            builder.RegisterType<DemoPublishingCatalogInfos>();
+            builder.RegisterType<DemoPublishingResultSourceInfos>(); 
         }
     }
 }

@@ -8,6 +8,6 @@
 Write-Warning "Applying Fields configuration..."
 
 # Activate feature on the root web on the authoring site collection
-Switch-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]]  -Id [[DSP_CommonCMS_Fields]]
+Switch-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]]  -Id [[DSP_CommonCMS_PUB_Fields]]
 
 
