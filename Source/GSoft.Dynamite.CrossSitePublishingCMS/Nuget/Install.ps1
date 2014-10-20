@@ -20,4 +20,4 @@ else
 }
 
 # Modules Folders
-# $moduleFolder = $project.ProjectItems.AddFolder("Modules")
+$moduleFolder = $project.ProjectItems.AddFolder("PostDeployment")

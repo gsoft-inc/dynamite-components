@@ -98,7 +98,6 @@
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
-    <Folder Include="PostDeployment\" />
     <Folder Include="Solutions\Packages\" />
   </ItemGroup>
   <ItemGroup>
