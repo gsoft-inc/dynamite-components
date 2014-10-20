@@ -61,12 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\IBaseMultilingualismFieldInfoConfig.cs" />
     <Compile Include="Configuration\IBaseMultilingualismVariationsConfig.cs" />
     <Compile Include="Constants\BaseMultilingualismFieldInfos.cs" />
     <Compile Include="Constants\BaseMultilingualismManagedProperties.cs" />
     <Compile Include="Constants\BaseMultilingualismResources.cs" />
     <Compile Include="Constants\BaseMultilingualismVariationLabelInfos.cs" />
     <Compile Include="Constants\BaseMultilingualismVariationSettingsInfos.cs" />
+    <Compile Include="Configuration\IBaseMultilingualismContentTypeInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\MultilingualismResourceLocatorConfig.cs" />
     <Compile Include="Services\ILanguageSwitcherService.cs" />

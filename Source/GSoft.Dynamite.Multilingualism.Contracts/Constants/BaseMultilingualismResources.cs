@@ -16,14 +16,24 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         #region Fields
 
         /// <summary>
-        /// The field Portal Navigation Name
+        /// The field Content Association Key Name
         /// </summary>
         public static readonly string FieldContentAssociationKeyName = "Field_ContentAssociationKey_Name";
 
         /// <summary>
-        /// The field Portal Navigation Description
+        /// The field Content Association Key Description
         /// </summary>
         public static readonly string FieldContentAssociationKeyDescription = "Field_ContentAssociationKey_Desc";
+
+        /// <summary>
+        /// The field Item Language Name
+        /// </summary>
+        public static readonly string FieldItemLanguageName = "Field_ItemLanguage_Name";
+
+        /// <summary>
+        /// The field Item Language  Description
+        /// </summary>
+        public static readonly string FieldItemLanguageDescription = "Field_ItemLanguage_Desc";
 
         #endregion
     }

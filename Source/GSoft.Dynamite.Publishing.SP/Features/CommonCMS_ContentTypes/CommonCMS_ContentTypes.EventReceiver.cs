@@ -40,7 +40,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                     }
 
                     // Create additionnal custom content types
-                    ICustomPublishingContentTypeInfoConfig customContentTypeConfig = null;
+                   /* ICustomPublishingContentTypeInfoConfig customContentTypeConfig = null;
                     if (featureScope.TryResolve(out customContentTypeConfig))
                     {
                         var customContentTypes = customContentTypeConfig.ContentTypes;
@@ -53,7 +53,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                     else
                     {
                         logger.Info("No custom content types override found!");
-                    }
+                    }*/
                 }
             }
         }

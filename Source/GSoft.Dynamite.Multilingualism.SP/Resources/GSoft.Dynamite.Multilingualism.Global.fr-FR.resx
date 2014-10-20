@@ -135,6 +135,18 @@
   <data name="Feature_CommonCMS_VariationsHierarchies_Name" xml:space="preserve">
     <value>Dynamite CMS de base - Module de multilinguisme - Création de la hiérachie de variantes</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Desc" xml:space="preserve">
+    <value>Créer les types de contenu du module de multilinguisme pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de multilinguisme - Types de contenus</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Fields_Desc" xml:space="preserve">
+    <value>Créer les colonnes du module de multilinguisme pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Fields_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de multilinguisme - Colonnes</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Desc" xml:space="preserve">
     <value>Ajoute un contrôle pour changer la langue rapidement.</value>
   </data>
@@ -146,5 +158,11 @@
   </data>
   <data name="Field_ContentAssociationKey_Name" xml:space="preserve">
     <value>Clef d'association de contenu</value>
+  </data>
+  <data name="Field_ItemLanguage_Desc" xml:space="preserve">
+    <value>Langue de l'élément</value>
+  </data>
+  <data name="Field_ItemLanguage_Name" xml:space="preserve">
+    <value>Langue de l'élément</value>
   </data>
 </root>

@@ -4,17 +4,6 @@ $VerbosePreference ="Continue"
 # Unblock files if they're from another computer
 gci -Recurse | Unblock-File
 
-# Build Package Path
-#$packagePath = Join-Path (Get-Location).ToString() "../package"
-
-# Make Path if not exist
-#$packageDirectory = New-Item -ItemType Directory -Force -Path $packagePath
-
-# Update Tokens and shit in that path
-#Update-DSPTokens -PackagePath $packageDirectory.FullName
-
-Update-DSPTokens -UseHostName
-
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
@@ -66,13 +55,19 @@ Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 # ********** MULTILINGUALISM MODULE ********** #
 
-##### LANG 02
-$Script = $CommandDirectory + "\Modules\Multilingualism\LANG_02\Install-LANG02.ps1"
-Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+# Check Multilingual settings
+$IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 
-##### LANG 03
-$Script = $CommandDirectory + "\Modules\Multilingualism\LANG_03\Install-LANG03.ps1"
-Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+if($IsMultilingual)
+{
+	##### LANG 02
+	$Script = $CommandDirectory + "\Modules\Multilingualism\LANG_02\Install-LANG02.ps1"
+	Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+
+	##### LANG 03
+	$Script = $CommandDirectory + "\Modules\Multilingualism\LANG_03\Install-LANG03.ps1"
+	Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+}
 
 # ********** CUSTOM SCRIPTS ********** #
 $Script = $CommandDirectory + "Execute-PostDeploymentScript.ps1"

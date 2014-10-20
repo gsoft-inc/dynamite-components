@@ -37,14 +37,9 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<LanguageSwitcherService>().As<ILanguageSwitcherService>();
 
             // 
-            builder.Register(c => new BaseMultilingualismContentTypeInfoConfig(
-                c.ResolveNamed<IBasePublishingContentTypeInfoConfig>("navigation"),
-                c.Resolve<BasePublishingContentTypeInfos>(),
-                c.Resolve<BaseMultilingualismFieldInfos>())).As<IBasePublishingContentTypeInfoConfig>();
+            builder.RegisterType<BaseMultilingualismContentTypeInfoConfig>().As<IBaseMultilingualismContentTypeInfoConfig>();
 
-            builder.Register(c => new BaseMultilingualismFieldInfoConfig(
-               c.ResolveNamed<IBasePublishingFieldInfoConfig>("navigation"),
-               c.Resolve<BaseMultilingualismFieldInfos>())).As<IBasePublishingFieldInfoConfig>();
+            builder.RegisterType<BaseMultilingualismFieldInfoConfig>().As<IBaseMultilingualismFieldInfoConfig>();
         }
     }
 }

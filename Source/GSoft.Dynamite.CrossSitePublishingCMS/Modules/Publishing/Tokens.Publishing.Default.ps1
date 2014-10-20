@@ -44,26 +44,15 @@ $DSP_DefaultMembersGroupUsers = @"
 	<User>dev\arturol</User>
 "@
 
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# ----------------------------------------
-# PUB 02: VIEW ITEM DETAILS
-# ----------------------------------------
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 # ============================================
-# STEP 1: Create Result Sources
+# PUBLISHING MODULE FEATURES
 # ============================================
 
-$DSP_DEFAULT_PortalResultSourcesConfigurationFile = "./Default/Default-ResultSources.xml"
-
-# ============================================
-# STEP 2: Create Page Layouts
-# ============================================
-
-$DSP_DEFAULT_PortalPageLayoutsConfigurationFile = "./Default/Default-PageLayouts.xml"
-
-# ============================================
-# STEP 3: Create Pages
-# ============================================
-
-$DSP_DEFAULT_PortalPagesConfigurationFile = "./Default/Default-Pages.xml"
+$DSP_CrossSitePublishingCMS_PUB_Catalogs = "04643c76-8b9a-4f70-9df4-7565d76e2e8a"
+$DSP_CommonCMS_PUB_ContentTypes = "88d32ecd-2a4c-4cff-ad09-b74ab5aca18c"
+$DSP_CommonCMS_PUB_Fields = "97a3a3ef-5989-46f0-a117-6f489f58a26b"
+$DSP_CommonCMS_PUB_PageLayouts = "374b7569-9e11-4ecd-8771-da59be52141e"
+$DSP_CrossSitePublishingCMS_PUB_Pages = "c0dbca2d-b477-4d91-bb55-b342f6458221"
+$DSP_CrossSitePublishingCMS_PUB_ResultSources = "8d99c11b-135e-48e3-ad8f-e04e06d8b654"
+$DSP_CrossSitePublishingCMS_PUB_DisplayTemplates = "d96b6f0d-8536-4367-bf3f-4a4a9fa286cb"
+$DSP_CrossSitePublishingCMS_PUB_ResultTypes = "990b925b-fe6e-41ea-ae6a-3011308a303e"

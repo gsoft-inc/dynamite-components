@@ -1,27 +1,30 @@
 ﻿using System.Collections.Generic;
 using Dynamite.Demo.Intranet.Contracts.Constants;
 using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration
 {
-    public class DynamiteDemoPublishingFieldInfoConfig : ICustomPublishingFieldInfoConfig
+    public class DynamiteDemoPublishingFieldInfoConfig : IBasePublishingFieldInfoConfig
     {
-        private readonly DynamiteDemoPublishingFieldInfos fieldInfoValues;
+        private readonly DynamiteDemoPublishingFieldInfos _fieldInfoValues;
+        private readonly IBasePublishingFieldInfoConfig _basePublishingFieldInfoConfig;
 
-        public DynamiteDemoPublishingFieldInfoConfig(DynamiteDemoPublishingFieldInfos fieldInfoValues)
+        public DynamiteDemoPublishingFieldInfoConfig(IBasePublishingFieldInfoConfig basePublishingFieldInfoConfig, DynamiteDemoPublishingFieldInfos fieldInfoValues)
         {
-           this.fieldInfoValues = fieldInfoValues;
+           this._fieldInfoValues = fieldInfoValues;
+           this._basePublishingFieldInfoConfig = basePublishingFieldInfoConfig;
+
         }
 
         public IList<IFieldInfo> Fields
         {
             get
             {
-                var fields = new List<IFieldInfo>
-                {
-                    { this.fieldInfoValues.DynamiteDemoColumn() },
-                };
+                var fields = this._basePublishingFieldInfoConfig.Fields;
+
+                // Add the custom field
+                fields.Add(this._fieldInfoValues.DynamiteDemoColumn());
 
                 return fields;
             }

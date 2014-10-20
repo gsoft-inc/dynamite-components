@@ -39,7 +39,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                     }
 
                     // Create additionnal custom fields
-                    ICustomPublishingFieldInfoConfig customContentTypeConfig = null;
+                   /* ICustomPublishingFieldInfoConfig customContentTypeConfig = null;
                     if (featureScope.TryResolve(out customContentTypeConfig))
                     {
                         var customFields = customContentTypeConfig.Fields;
@@ -52,7 +52,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                     else
                     {
                         logger.Info("No custom fields override found!");
-                    }
+                    }*/
                 }
             }
         }

@@ -38,12 +38,12 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                     List<CatalogInfo> baseCatalogs = baseCatalogInfoConfig.Catalogs() as List<CatalogInfo>;
                     
                     // Check if custom configuration is present
-                    ICustomPublishingCatalogInfoConfig customCatalogInfoConfig = null;
+                  /*  ICustomPublishingCatalogInfoConfig customCatalogInfoConfig = null;
                     if (featureScope.TryResolve(out customCatalogInfoConfig))
                     {
                         logger.Info("Custom catalogs configuration override found!");
                         baseCatalogs.AddRange(customCatalogInfoConfig.Catalogs());
-                    }
+                    }*/
                    
                     // Create catalogs
                     foreach (var catalog in baseCatalogs)

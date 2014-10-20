@@ -1,43 +1,40 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
-    public class BaseNavigationContentTypeInfoConfig: IBasePublishingContentTypeInfoConfig
+    public class BaseNavigationContentTypeInfoConfig : IBaseNavigationContentTypeInfoConfig
     {
-        private readonly IBasePublishingContentTypeInfoConfig basePublishingContentTypeInfoConfig;
-        private readonly BasePublishingContentTypeInfos basePublishingContentTypeInfos;
-        private readonly BaseNavigationFieldInfos basenavigationFieldInfos;
+        private readonly BasePublishingContentTypeInfos _basePublishingContentTypeInfos;
+        private readonly BaseNavigationFieldInfos _basenavigationFieldInfos;
 
         public BaseNavigationContentTypeInfoConfig(
-            IBasePublishingContentTypeInfoConfig basePublishingContentTypeInfoConfig,
             BasePublishingContentTypeInfos basePublishingContentTypeInfos,
             BaseNavigationFieldInfos baseMultilingualismFieldInfos)
         {
-            this.basePublishingContentTypeInfoConfig = basePublishingContentTypeInfoConfig;
-            this.basePublishingContentTypeInfos = basePublishingContentTypeInfos;
-            this.basenavigationFieldInfos = baseMultilingualismFieldInfos;
+            this._basePublishingContentTypeInfos = basePublishingContentTypeInfos;
+            this._basenavigationFieldInfos = baseMultilingualismFieldInfos;
         }
 
         public IList<ContentTypeInfo> ContentTypes
         {
             get
             {
-                // Getting the base content types
-                var baseContentTypes = this.basePublishingContentTypeInfoConfig.ContentTypes;
-
-                // Getting the Translatable Item (to add fields)
-                var catalogItemFieldInfo = baseContentTypes.Single(contentType => contentType.ContentTypeId == this.basePublishingContentTypeInfos.CatalogContentItem().ContentTypeId);
+                var baseContentTypes = new List<ContentTypeInfo>();
+                
+                // Get the catalog item
+                var catalogItem = this._basePublishingContentTypeInfos.CatalogContentItem();
                 
                 // Adding the Date Slug Field field
-                catalogItemFieldInfo.Fields.Add(this.basenavigationFieldInfos.DateSlug());
+                catalogItem.Fields.Add(this._basenavigationFieldInfos.DateSlug());
 
                 // Adding the Title Slug Field field
-                catalogItemFieldInfo.Fields.Add(this.basenavigationFieldInfos.TitleSlug());
+                catalogItem.Fields.Add(this._basenavigationFieldInfos.TitleSlug());
+
+                baseContentTypes.Add(catalogItem);
 
                 return baseContentTypes;
             }

@@ -26,15 +26,10 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<BaseNavigationTermDrivenPageSettingsInfoConfig>().As<IBaseNavigationTermDrivenpageSettingsInfoConfig>();
 
             // Content Type Base Override
-            builder.Register(c => new BaseNavigationContentTypeInfoConfig(
-                c.ResolveNamed<IBasePublishingContentTypeInfoConfig>("publishing"),
-                c.Resolve<BasePublishingContentTypeInfos>(),
-                c.Resolve<BaseNavigationFieldInfos>())).As<IBasePublishingContentTypeInfoConfig>().Named<IBasePublishingContentTypeInfoConfig>("navigation");
+            builder.RegisterType<BaseNavigationContentTypeInfoConfig>().As<IBaseNavigationContentTypeInfoConfig>();
 
             // Fields Base Override
-            builder.Register(c => new BaseNavigationFieldInfoConfig(
-               c.ResolveNamed<IBasePublishingFieldInfoConfig>("publishing"),
-               c.Resolve<BaseNavigationFieldInfos>())).As<IBasePublishingFieldInfoConfig>().Named <IBasePublishingFieldInfoConfig>("navigation");
+            builder.RegisterType<BaseNavigationFieldInfoConfig>().As<IBaseNavigationFieldInfoConfig>();
 
             // Configuration Values
             builder.RegisterType<BaseNavigationTermDrivenPageSettingsInfos>();
