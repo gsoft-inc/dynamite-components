@@ -57,9 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\BaseNavigationContentTypeInfoConfig.cs" />
-    <Compile Include="Configuration\BaseNavigationFieldInfoConfig.cs" />
-    <Compile Include="Configuration\BaseNavigationTermDrivenPageSettingsInfoConfig.cs" />
+    <Compile Include="Configuration\NavigationContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\NavigationFieldInfoConfig.cs" />
+    <Compile Include="Configuration\NavigationTermDrivenPageSettingsInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\NavigationRegistrationModule.cs" />
   </ItemGroup>

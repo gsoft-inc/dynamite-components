@@ -1,11 +1,8 @@
-using System;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_SyncWebs
@@ -32,7 +29,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_SyncWebs
                 {
                     var logger = featureScope.Resolve<ILogger>();
                     var variationHelper = featureScope.Resolve<VariationHelper>();
-                    var baseVariationSettingsConfig = featureScope.Resolve<IBaseMultilingualismVariationsConfig>();
+                    var baseVariationSettingsConfig = featureScope.Resolve<IMultilingualismVariationsConfig>();
                     var baseVariationSettings = baseVariationSettingsConfig.VariationSettings();
 
                     if (baseVariationSettings != null)

@@ -23,17 +23,17 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Term Driven Pages
-            builder.RegisterType<BaseNavigationTermDrivenPageSettingsInfoConfig>().As<IBaseNavigationTermDrivenpageSettingsInfoConfig>();
+            builder.RegisterType<NavigationTermDrivenPageSettingsInfoConfig>().As<INavigationTermDrivenpageSettingsInfoConfig>();
 
             // Content Type Base Override
-            builder.RegisterType<BaseNavigationContentTypeInfoConfig>().As<IBaseNavigationContentTypeInfoConfig>();
+            builder.RegisterType<NavigationContentTypeInfoConfig>().As<INavigationContentTypeInfoConfig>();
 
             // Fields Base Override
-            builder.RegisterType<BaseNavigationFieldInfoConfig>().As<IBaseNavigationFieldInfoConfig>();
+            builder.RegisterType<NavigationFieldInfoConfig>().As<INavigationFieldInfoConfig>();
 
             // Configuration Values
-            builder.RegisterType<BaseNavigationTermDrivenPageSettingsInfos>();
-            builder.RegisterType<BaseNavigationFieldInfos>(); 
+            builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();
+            builder.RegisterType<NavigationFieldInfos>(); 
         }
     }
 }

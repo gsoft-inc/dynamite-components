@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Navigation.Contracts.Configuration.Extensions;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
@@ -35,7 +32,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
                     var logger = featureScope.Resolve<ILogger>();
                     var navigationHelper = featureScope.Resolve<NavigationHelper>();
 
-                    var baseTermDrivenPageSettingsInfoConfig = featureScope.Resolve<IBaseNavigationTermDrivenpageSettingsInfoConfig>();
+                    var baseTermDrivenPageSettingsInfoConfig = featureScope.Resolve<INavigationTermDrivenpageSettingsInfoConfig>();
 
                     IList<TermDrivenPageSettingInfo> termDrivenPageSettingInfos = baseTermDrivenPageSettingsInfoConfig.TermDrivenPageSettingInfos();
 
@@ -43,24 +40,6 @@ namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
                     foreach (var termDrivenSetting in termDrivenPageSettingInfos)
                     {
                         navigationHelper.SetTermDrivenPageSettings(site, termDrivenSetting);
-                    }
-
-                    // Check if custom configuration is present
-                    ICustomNavigationTermDrivenPageSettingsInfoConfig customTermDrivenPageSettingsInfoConfig = null;
-                    if (featureScope.TryResolve(out customTermDrivenPageSettingsInfoConfig))
-                    {
-                        logger.Info("Custom result types configuration override found!");
-                        termDrivenPageSettingInfos = customTermDrivenPageSettingsInfoConfig.TermDrivenPageSettingInfos();
-
-                        // Create custom result types
-                        foreach (var termDrivenSetting in termDrivenPageSettingInfos)
-                        {
-                            navigationHelper.SetTermDrivenPageSettings(site, termDrivenSetting);
-                        }
-                    }
-                    else
-                    {
-                        logger.Info("No custom result types configuration override found!");
                     }
                 }
             }

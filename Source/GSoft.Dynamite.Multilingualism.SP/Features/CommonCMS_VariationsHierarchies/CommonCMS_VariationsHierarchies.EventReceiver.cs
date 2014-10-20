@@ -26,7 +26,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_VariationsHierarc
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var variationHelper = featureScope.Resolve<VariationHelper>();
-                    var baseVariationSettingsConfig = featureScope.Resolve<IBaseMultilingualismVariationsConfig>();
+                    var baseVariationSettingsConfig = featureScope.Resolve<IMultilingualismVariationsConfig>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     var baseVariationSettings = baseVariationSettingsConfig.VariationSettings();

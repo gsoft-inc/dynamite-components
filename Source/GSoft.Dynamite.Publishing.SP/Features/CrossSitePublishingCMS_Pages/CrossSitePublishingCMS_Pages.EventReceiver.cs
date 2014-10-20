@@ -34,7 +34,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
                
                     var folderHelper = featureScope.Resolve<FolderHelper>();
 
-                    var baseFoldersConfig = featureScope.Resolve<IBasePublishingFolderInfoConfig>();
+                    var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
                     var rootFolderHierarchy = baseFoldersConfig.RootFolderHierarchy();
 
                     // Create folder hierarchy starting by the root folder

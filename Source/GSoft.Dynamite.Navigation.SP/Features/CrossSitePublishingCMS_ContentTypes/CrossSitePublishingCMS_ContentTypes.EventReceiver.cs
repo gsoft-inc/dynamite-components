@@ -26,7 +26,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ContentTy
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
-                    var baseContentTypeConfig  = featureScope.Resolve<IBaseNavigationContentTypeInfoConfig>();
+                    var baseContentTypeConfig  = featureScope.Resolve<INavigationContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();
 
@@ -35,22 +35,6 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ContentTy
                     {
                         contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                     }
-
-                    // Create additionnal custom content types
-                    /*   ICustomPublishingContentTypeInfoConfig customContentTypeConfig = null;
-                       if (featureScope.TryResolve(out customContentTypeConfig))
-                       {
-                           var customContentTypes = customContentTypeConfig.ContentTypes;
-
-                           foreach (var contentType in customContentTypes)
-                           {
-                               contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
-                           }
-                       }
-                       else
-                       {
-                           logger.Info("No custom content types override found!");
-                       }*/
                 }
             }
         }

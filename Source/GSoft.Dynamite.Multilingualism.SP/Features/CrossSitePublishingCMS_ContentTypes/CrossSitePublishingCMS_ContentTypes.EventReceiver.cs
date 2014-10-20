@@ -28,7 +28,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Cont
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
-                    var baseContentTypeConfig = featureScope.Resolve<IBaseMultilingualismContentTypeInfoConfig>();
+                    var baseContentTypeConfig = featureScope.Resolve<IMultilingualismContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();
 

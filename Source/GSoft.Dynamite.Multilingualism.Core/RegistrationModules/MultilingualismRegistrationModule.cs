@@ -26,20 +26,21 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Configuration Values
-            builder.RegisterType<BaseMultilingualismFieldInfos>();
-            builder.RegisterType<BaseMultilingualismVariationLabelInfos>();
-            builder.RegisterType<BaseMultilingualismVariationSettingsInfos>();
+            builder.RegisterType<MultilingualismFieldInfos>();
+            builder.RegisterType<MultilingualismVariationLabelInfos>();
+            builder.RegisterType<MultilingualismVariationSettingsInfos>();
 
             // Variations Configuration
-            builder.RegisterType<BaseMultilingualismVariationsConfig>().As<IBaseMultilingualismVariationsConfig>();
-            
+            builder.RegisterType<MultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
+            builder.RegisterType<MultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("multilingualism");
+
             // Multilingualism Service
             builder.RegisterType<LanguageSwitcherService>().As<ILanguageSwitcherService>();
 
             // 
-            builder.RegisterType<BaseMultilingualismContentTypeInfoConfig>().As<IBaseMultilingualismContentTypeInfoConfig>();
+            builder.RegisterType<MultilingualismContentTypeInfoConfig>().As<IMultilingualismContentTypeInfoConfig>();
 
-            builder.RegisterType<BaseMultilingualismFieldInfoConfig>().As<IBaseMultilingualismFieldInfoConfig>();
+            builder.RegisterType<MultilingualismFieldInfoConfig>().As<IMultilingualismFieldInfoConfig>();
         }
     }
 }

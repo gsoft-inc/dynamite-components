@@ -6,7 +6,6 @@ using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_SyncCatalogs
@@ -33,25 +32,14 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
                 {
                     var logger = featureScope.Resolve<ILogger>();
                     var variationHelper = featureScope.Resolve<VariationHelper>();
-                    var baseVariationSettingsConfig = featureScope.Resolve<IBaseMultilingualismVariationsConfig>();
-                    var baseCatalogInfoConfig = featureScope.Resolve<IBasePublishingCatalogInfoConfig>();
+                    var baseVariationSettingsConfig = featureScope.Resolve<IMultilingualismVariationsConfig>();
+                    var baseCatalogInfoConfig = featureScope.Resolve<IPublishingCatalogInfoConfig>();
                     var baseVariationSettings = baseVariationSettingsConfig.VariationSettings();
 
                     if (baseVariationSettings != null)
-                    {
-                        // Check if custom configuration is present
-                        ICustomPublishingCatalogInfoConfig customCatalogInfoConfig = null;
-                        IList<CatalogInfo> baseCatalogs;
-                        if (featureScope.TryResolve(out customCatalogInfoConfig))
-                        {
-                            logger.Info("Custom catalogs configuration override found!");
-                            baseCatalogs = customCatalogInfoConfig.Catalogs();
-                        }
-                        else
-                        {
-                            logger.Info("No custom catalogs configuration override found!");
-                            baseCatalogs = baseCatalogInfoConfig.Catalogs();
-                        }
+                    {                      
+                        logger.Info("No custom catalogs configuration override found!");
+                        var baseCatalogs = baseCatalogInfoConfig.Catalogs();
 
                         // Sync catalogs
                         foreach (var catalog in baseCatalogs)

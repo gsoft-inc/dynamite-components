@@ -5,7 +5,6 @@ using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
@@ -29,7 +28,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
-                    var baseContentTypeConfig = featureScope.Resolve<IBasePublishingContentTypeInfoConfig>();
+                    var baseContentTypeConfig = featureScope.Resolve<IPublishingContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();
 

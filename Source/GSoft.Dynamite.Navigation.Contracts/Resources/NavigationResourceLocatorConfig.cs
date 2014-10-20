@@ -5,7 +5,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Resources
 {
     public class NavigationResourceLocatorConfig: IResourceLocatorConfig
     {
-        private string[] resourceFileKeys = new string[1] { BaseNavigationResources.Global };
+        private string[] resourceFileKeys = new string[1] { NavigationResources.Global };
              
         /// <summary>
         /// Default constructor

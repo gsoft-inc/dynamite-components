@@ -5,7 +5,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Resources
 {
     public class MultilingualismResourceLocatorConfig: IResourceLocatorConfig
     {
-        private string[] resourceFileKeys = new string[1] { BaseMultilingualismResources.Global };
+        private string[] resourceFileKeys = new string[1] { MultilingualismResources.Global };
              
         /// <summary>
         /// Default constructor

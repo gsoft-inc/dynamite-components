@@ -71,7 +71,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 NumberOfItems = 1,
                 UseSharedDataProvider = true,
                 QueryGroupName = "Default",
-                SelectedPropertiesJson = string.Format("['{0}']", BaseMultilingualismManagedProperties.ContentAssociationKey),
+                SelectedPropertiesJson = string.Format("['{0}']", MultilingualismManagedProperties.ContentAssociationKey),
             };
 
             Controls.Add(catalogItemWebPart);
@@ -94,9 +94,9 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 {
                     if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
                     {
-                        catalogNavigation.LanguageManagedPropertyName = BaseMultilingualismManagedProperties.ItemLanguage.Name;
-                        catalogNavigation.CatalogNavigationTermManagedPropertyName = BasePublishingManagedPropertyInfo.Navigation.Name;
-                        catalogNavigation.AssociationKeyManagedPropertyName = BaseMultilingualismManagedProperties.ContentAssociationKey.Name;
+                        catalogNavigation.LanguageManagedPropertyName = MultilingualismManagedProperties.ItemLanguage.Name;
+                        catalogNavigation.CatalogNavigationTermManagedPropertyName = PublishingManagedPropertyInfo.Navigation.Name;
+                        catalogNavigation.AssociationKeyManagedPropertyName = MultilingualismManagedProperties.ContentAssociationKey.Name;
                         catalogNavigation.AssociationKeyValue = this.AssociationKey;
                     }
 

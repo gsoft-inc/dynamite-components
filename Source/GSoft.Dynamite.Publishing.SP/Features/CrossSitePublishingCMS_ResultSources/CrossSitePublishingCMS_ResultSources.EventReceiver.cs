@@ -5,7 +5,6 @@ using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSources
@@ -30,7 +29,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                 {
                     var logger = featureScope.Resolve<ILogger>();
                     var searchHelper = featureScope.Resolve<SearchHelper>();
-                    var baseResultSourceInfoConfig = featureScope.Resolve<IBasePublishingResultSourceInfoConfig>();
+                    var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
 
                     IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
 
@@ -38,25 +37,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                     foreach (var resultSource in resultSources)
                     {
                         searchHelper.EnsureResultSource(site, resultSource);
-                    }
-
-                    // Check if custom configuration is present
-                    ICustomPublishingResultSourceInfoConfig customResultSourceInfoConfig = null;
-                    if (featureScope.TryResolve(out customResultSourceInfoConfig))
-                    {
-                        logger.Info("Custom result sources configuration override found!");
-                        resultSources = customResultSourceInfoConfig.ResultSources();
-
-                        // Create base result sources
-                        foreach (var resultSource in resultSources)
-                        {
-                            searchHelper.EnsureResultSource(site, resultSource);
-                        }
-                    }
-                    else
-                    {
-                        logger.Info("No custom result sources configuration override found!");
-                        
                     }
                 }
             }
@@ -72,7 +52,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                {
                    var logger = featureScope.Resolve<ILogger>();
                    var searchHelper = featureScope.Resolve<SearchHelper>();
-                   var baseResultSourceInfoConfig = featureScope.Resolve<IBasePublishingResultSourceInfoConfig>();
+                   var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
 
                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
 
@@ -80,25 +60,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                    foreach (var resultSource in resultSources)
                    {
                        searchHelper.DeleteResultSource(site, resultSource);
-                   }
-
-                   // Check if custom configuration is present
-                   ICustomPublishingResultSourceInfoConfig customResultSourceInfoConfig = null;
-                   if (featureScope.TryResolve(out customResultSourceInfoConfig))
-                   {
-                       logger.Info("Custom result sources configuration override found!");
-                       resultSources = customResultSourceInfoConfig.ResultSources();
-
-                       // Create base result sources
-                       foreach (var resultSource in resultSources)
-                       {
-                           searchHelper.DeleteResultSource(site, resultSource);
-                       }
-                   }
-                   else
-                   {
-                       logger.Info("No custom result sources configuration override found!");
-
                    }
                }
            }

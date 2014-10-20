@@ -37,6 +37,9 @@ $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 
 if($IsMultilingual)
 {
+	$values = @{"Step: " = "#1.1 Setup Sites Variations"}
+	New-HeaderDrawing -Values $Values
+
 	Write-Warning "Applying Site Variations configuration..."
 
 	# Activate feature on the root web on the authoring site collection

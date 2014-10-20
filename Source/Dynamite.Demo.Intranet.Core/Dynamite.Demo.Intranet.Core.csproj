@@ -57,11 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\DynamiteDemoMultilingualismVariationsConfig.cs" />
-    <Compile Include="Configuration\DynamiteDemoPublishingCatalogInfoConfig.cs" />
-    <Compile Include="Configuration\DynamiteDemoPublishingContentTypeInfoConfig.cs" />
-    <Compile Include="Configuration\DynamiteDemoPublishingFieldInfoConfig.cs" />
-    <Compile Include="Configuration\DynamiteDemoPublishingResultSourceInfoConfig.cs" />
+    <Compile Include="Configuration\DemoMultilingualismVariationsConfig.cs" />
+    <Compile Include="Configuration\DemoPublishingCatalogInfoConfig.cs" />
+    <Compile Include="Configuration\DemoPublishingContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\DemoPublishingFieldInfoConfig.cs" />
+    <Compile Include="Configuration\DemoPublishingResultSourceInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\DynamiteDemoIntranetRegistrationModule.cs" />
     <Compile Include="Resources\DynamiteDemoResourceLocatorConfig.cs" />

@@ -4,7 +4,6 @@ using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration.Extensions;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
@@ -28,7 +27,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var fieldHelper = featureScope.Resolve<FieldHelper>();
-                    var baseFieldInfoConfig = featureScope.Resolve<IBasePublishingFieldInfoConfig>();
+                    var baseFieldInfoConfig = featureScope.Resolve<IPublishingFieldInfoConfig>();
                     var baseFields = baseFieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();
 
@@ -37,22 +36,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                     {
                         fieldHelper.EnsureField(site.RootWeb.Fields, field);
                     }
-
-                    // Create additionnal custom fields
-                   /* ICustomPublishingFieldInfoConfig customContentTypeConfig = null;
-                    if (featureScope.TryResolve(out customContentTypeConfig))
-                    {
-                        var customFields = customContentTypeConfig.Fields;
-
-                        foreach (IFieldInfo field in customFields)
-                        {
-                            fieldHelper.EnsureField(site.RootWeb.Fields, field);
-                        }
-                    }
-                    else
-                    {
-                        logger.Info("No custom fields override found!");
-                    }*/
                 }
             }
         }

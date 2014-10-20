@@ -29,7 +29,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Fiel
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var fieldHelper = featureScope.Resolve<FieldHelper>();
-                    var baseFieldInfoConfig = featureScope.Resolve<IBaseMultilingualismFieldInfoConfig>();
+                    var baseFieldInfoConfig = featureScope.Resolve<IMultilingualismFieldInfoConfig>();
                     var baseFields = baseFieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();
 

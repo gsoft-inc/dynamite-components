@@ -62,10 +62,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\DynamiteDemoPublishingCatalogInfos.cs" />
-    <Compile Include="Constants\DynamiteDemoPublishingContentTypeInfos.cs" />
-    <Compile Include="Constants\DynamiteDemoPublishingFieldInfos.cs" />
-    <Compile Include="Constants\DynamiteDemoPublishingResultSourceInfos.cs" />
+    <Compile Include="Constants\DemoPublishingCatalogInfos.cs" />
+    <Compile Include="Constants\DemoPublishingContentTypeInfos.cs" />
+    <Compile Include="Constants\DemoPublishingFieldInfos.cs" />
+    <Compile Include="Constants\DemoPublishingResultSourceInfos.cs" />
     <Compile Include="Resources\DynamiteDemoResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
