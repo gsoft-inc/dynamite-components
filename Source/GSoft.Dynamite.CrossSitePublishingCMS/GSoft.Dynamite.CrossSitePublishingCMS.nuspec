@@ -23,7 +23,6 @@
         <file src="Solutions\Custom\**" target="content\Solutions\Custom\" />
         <file src="Modules\**" target="tools\Modules" />
         <file src="Solutions\**" target="tools\Solutions" />
-        <file src="PostDeployment\**" target="content\PostDeployment" />
         <file src="Tokens\**" target="tools\Tokens" />
         <file src="Install-Model.ps1" target="content" />
         <file src="Tokens.HOSTNAME.ps1" target="content" />
