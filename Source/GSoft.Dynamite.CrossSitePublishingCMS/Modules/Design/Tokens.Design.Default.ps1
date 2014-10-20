@@ -7,6 +7,6 @@
 # STEP 1: Create structure
 # ============================================
 
-#### CATALOGS
+$DSP_CommonCMS_MasterPage = "19f3ffb0-1dfc-494d-b81f-474115a287eb"
 
 $DSP_DEFAULT_MasterPageConfigurationFile = "./Default/Default-MasterPage.xml"
