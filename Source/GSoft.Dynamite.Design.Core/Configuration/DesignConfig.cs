@@ -13,6 +13,10 @@ namespace GSoft.Dynamite.Design.Core.Configuration
     /// </summary>
     public class DesignConfig : IDesignConfig
     {
+        public DesignConfig()
+        {
+        }
+
         /// <summary>
         /// The MasterPage HTMT Filename eg: GSoft.Dynamite.html
         /// </summary>
