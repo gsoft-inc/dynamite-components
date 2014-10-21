@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
@@ -39,9 +40,9 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 )
             {
                 Required = RequiredTypes.NotRequired,
-                IsHiddenInDisplayForm = true,
+                IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
-                IsHiddenInListSettings = true,
+                IsHiddenInListSettings = false,
                 IsHiddenInNewForm = true
             };
         }
@@ -50,9 +51,9 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         /// The Item Language field information
         /// </summary>
         /// <returns>The ContentAssociationKey field</returns>
-        public GuidFieldInfo ItemLanguage()
+        public TextFieldInfo ItemLanguage()
         {
-            return new GuidFieldInfo(
+            return new TextFieldInfo(
                 ItemLanguageFieldName,
                 new Guid("{75DC379D-2A78-4EC0-A95B-CFE04AF6631E}"),
                 MultilingualismResources.FieldItemLanguageName,
@@ -61,9 +62,9 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 )
             {
                 Required = RequiredTypes.NotRequired,
-                IsHiddenInDisplayForm = true,
+                IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
-                IsHiddenInListSettings = true,
+                IsHiddenInListSettings = false,
                 IsHiddenInNewForm = true
             };
         }

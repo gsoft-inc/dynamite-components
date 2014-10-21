@@ -84,39 +84,47 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter" /> object that receives the server control content.</param>
         protected override void Render(HtmlTextWriter writer)
         {
-            MultilingualismContainerProxy.Current.Resolve<ICatchAllExceptionHandler>().Execute(SPContext.Current.Web, () =>
+            using (var webScope = MultilingualismContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
             {
-                var catalogNavigation = MultilingualismContainerProxy.Current.Resolve<ICatalogNavigation>();
-                var currentWebUrl = new Uri(SPContext.Current.Web.Url);
-                var labels = this.LanguageSwitcherService.GetPeerVariationLabels(currentWebUrl, Variations.Current, SPContext.Current.Web.CurrentUser);
+                webScope.Resolve<ICatchAllExceptionHandler>().Execute(SPContext.Current.Web, delegate(){
 
-                if (labels != null && labels.Any())
-                {
-                    if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
+                    var catalogNavigation = webScope.Resolve<ICatalogNavigation>();
+                    var currentWebUrl = new Uri(SPContext.Current.Web.Url);
+                    var labels = this.LanguageSwitcherService.GetPeerVariationLabels(currentWebUrl, Variations.Current, SPContext.Current.Web.CurrentUser);
+
+                    if (labels != null && labels.Any())
                     {
-                        catalogNavigation.LanguageManagedPropertyName = MultilingualismManagedProperties.ItemLanguage.Name;
-                        catalogNavigation.CatalogNavigationTermManagedPropertyName = PublishingManagedPropertyInfo.Navigation.Name;
-                        catalogNavigation.AssociationKeyManagedPropertyName = MultilingualismManagedProperties.ContentAssociationKey.Name;
-                        catalogNavigation.AssociationKeyValue = this.AssociationKey;
+                        if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
+                        {
+                            catalogNavigation.LanguageManagedPropertyName = MultilingualismManagedProperties.ItemLanguage.Name;
+                            catalogNavigation.CatalogNavigationTermManagedPropertyName = PublishingManagedPropertyInfo.Navigation.Name;
+                            catalogNavigation.AssociationKeyManagedPropertyName = MultilingualismManagedProperties.ContentAssociationKey.Name;
+                            catalogNavigation.AssociationKeyValue = this.AssociationKey;
+                        }
+
+                        var formattedLabels = labels.Select(label => new
+                        {
+                            Title = Languages.TwoLetterISOLanguageNameToFullName(label.Title),
+                            Url = this.LanguageSwitcherService.GetPeerUrl(label, catalogNavigation).ToString()
+                        }).ToList();
+
+                        this.LabelsRepeater.DataSource = formattedLabels;
+                        this.LabelsRepeater.DataBind();
                     }
-
-                    var formattedLabels = labels.Select(label => new
-                    {
-                        Title = Languages.TwoLetterISOLanguageNameToFullName(label.Title),
-                        Url = this.LanguageSwitcherService.GetPeerUrl(label, catalogNavigation).ToString()
-                    }).ToList();
-
-                    this.LabelsRepeater.DataSource = formattedLabels;
-                    this.LabelsRepeater.DataBind();
-                }
-            });
+                });               
+            }
 
             base.Render(writer);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.LanguageSwitcherService = MultilingualismContainerProxy.Current.Resolve<ILanguageSwitcherService>();
+            using (var webScope = MultilingualismContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
+            {
+                this.LanguageSwitcherService = webScope.Resolve<ILanguageSwitcherService>();
+            }
+
+           // this.LanguageSwitcherService = MultilingualismContainerProxy.Current.Resolve<ILanguageSwitcherService>();
         }
     }
 }

@@ -14,14 +14,17 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             this._basePublishingTermDrivenPageSettingsInfos = baseTermDrivenPageSettingsInfos;
         }
 
-        public IList<TermDrivenPageSettingInfo> TermDrivenPageSettingInfos()
+        public IList<TermDrivenPageSettingInfo> TermDrivenPageSettingInfos
         {
-            return new List<TermDrivenPageSettingInfo>()
-            {
-                {this._basePublishingTermDrivenPageSettingsInfos.NavigationTermSet()},
-                {this._basePublishingTermDrivenPageSettingsInfos.NewsTerm()},
-                {this._basePublishingTermDrivenPageSettingsInfos.AboutTerm()},
-            };
+            get {
+                return new List<TermDrivenPageSettingInfo>()
+                {
+                    {this._basePublishingTermDrivenPageSettingsInfos.NavigationTermSet()},
+                    {this._basePublishingTermDrivenPageSettingsInfos.NewsTerm()},
+                    {this._basePublishingTermDrivenPageSettingsInfos.AboutTerm()},
+                };
+
+            }        
         }
     }
 }

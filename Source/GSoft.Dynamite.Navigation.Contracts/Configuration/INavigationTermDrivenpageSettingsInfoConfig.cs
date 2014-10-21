@@ -5,6 +5,6 @@ namespace GSoft.Dynamite.Navigation.Contracts.Configuration
 {
     public interface INavigationTermDrivenpageSettingsInfoConfig
     {
-        IList<TermDrivenPageSettingInfo> TermDrivenPageSettingInfos();
+        IList<TermDrivenPageSettingInfo> TermDrivenPageSettingInfos { get; }
     }
 }
