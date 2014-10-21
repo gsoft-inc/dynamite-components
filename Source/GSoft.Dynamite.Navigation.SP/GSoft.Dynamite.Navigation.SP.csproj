@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10073\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10074\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -67,6 +67,9 @@
     <Compile Include="Events\BrowsableItemEvents.cs" />
     <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
@@ -89,6 +92,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
       <FeatureId>{de88ec00-38af-4dee-934d-d8c3ca2d902f}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
+      <FeatureId>{98247c1a-6b07-4c56-8b17-c8bbeb686220}</FeatureId>
     </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -116,6 +122,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Navigation.Global.en-US.resx" />
   </ItemGroup>

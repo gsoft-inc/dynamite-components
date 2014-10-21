@@ -22,4 +22,4 @@ $DSP_CrossSitePublishingCMS_LANG_CatalogsSync = "a8c3d6c0-925b-44b8-a2dc-57d41eb
 $DSP_CommonCMS_LANG_SyncWeb = "630a68f6-f722-4ba8-85ba-8daf2f8fcf53"
 $DSP_CrossSitePublishingCMS_LANG_LanguageSwitcher = "43ac6c19-8306-4fc0-a920-842739971342"
 $DSP_CommonCMS_LANG_CreateVariationsHierarchies = "50213452-1d24-4eae-b915-9ade611bbeb5"
-$DSP_CommonCMS_LANG_EventReceivers = "aedf929e-a717-455a-9e80-5ccacd8a11cf"
+$DSP_CrossSitePublishingCMS_LANG_EventReceivers = "aedf929e-a717-455a-9e80-5ccacd8a11cf"

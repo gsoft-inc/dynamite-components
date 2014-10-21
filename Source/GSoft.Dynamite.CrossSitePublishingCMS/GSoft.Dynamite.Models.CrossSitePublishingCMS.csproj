@@ -57,6 +57,7 @@
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
     <None Include="Modules\Navigation\NAV_01\Setup-ContentTypes.ps1.template" />
+    <None Include="Modules\Navigation\NAV_01\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-TermDrivenPages.ps1.template" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
