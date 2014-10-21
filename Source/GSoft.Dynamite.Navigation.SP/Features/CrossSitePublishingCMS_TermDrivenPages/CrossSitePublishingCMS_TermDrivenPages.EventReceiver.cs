@@ -34,7 +34,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
 
                     var baseTermDrivenPageSettingsInfoConfig = featureScope.Resolve<INavigationTermDrivenpageSettingsInfoConfig>();
 
-                    IList<TermDrivenPageSettingInfo> termDrivenPageSettingInfos = baseTermDrivenPageSettingsInfoConfig.TermDrivenPageSettingInfos();
+                    IList<TermDrivenPageSettingInfo> termDrivenPageSettingInfos = baseTermDrivenPageSettingsInfoConfig.TermDrivenPageSettingInfos;
 
                     // Create base result types
                     foreach (var termDrivenSetting in termDrivenPageSettingInfos)
