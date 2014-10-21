@@ -67,6 +67,9 @@
     <Compile Include="Features\CommonCMS_MasterPage\CommonCMS_MasterPage.EventReceiver.cs">
       <DependentUpon>CommonCMS_MasterPage.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CommonCMS_Theme\CommonCMS_Theme.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Theme.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,8 +79,15 @@
     <None Include="Artefacts\MasterPage\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{18CAA87E-60ED-47D1-808B-205D27B0F590}</SharePointProjectItemId>
     </None>
+    <None Include="Artefacts\Theme\GSoft.Dynamite.Design.spcolor" />
+    <None Include="Artefacts\Theme\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{87e1ad4b-660f-4dbc-8d38-bae7b92686d9}</SharePointProjectItemId>
+    </None>
     <None Include="Features\CommonCMS_MasterPage\CommonCMS_MasterPage.feature">
       <FeatureId>{2e693525-42f6-4680-b8b5-f3c895a09509}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_Theme\CommonCMS_Theme.feature">
+      <FeatureId>{d29b8f2f-93ee-440d-aef2-31aaa434746b}</FeatureId>
     </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -91,6 +101,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artefacts\Theme\dynamite-splogo.png" />
+    <Content Include="Artefacts\Theme\Elements.xml" />
+    <Content Include="Features\CommonCMS_Theme\CommonCMS_Theme.Template.xml">
+      <DependentUpon>CommonCMS_Theme.feature</DependentUpon>
+    </Content>
     <Content Include="Resources\GSoft.Dynamite.Design.Global.en-US.resx" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\GSoft.Dynamite.Design.Global.fr-FR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Design.Contracts\GSoft.Dynamite.Design.Contracts.csproj">
+      <Project>{edd96a5b-7060-4e90-882d-457190bf0804}</Project>
+      <Name>GSoft.Dynamite.Design.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

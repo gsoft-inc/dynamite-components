@@ -57,7 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\IBaseDesignMasterPageConfig.cs" />
+    <Compile Include="Configuration\IDesignConfig.cs" />
+    <Compile Include="Constants\DesignInfos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

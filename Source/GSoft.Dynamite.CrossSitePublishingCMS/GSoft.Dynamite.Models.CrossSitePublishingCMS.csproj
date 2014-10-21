@@ -45,6 +45,7 @@
     <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
     <None Include="Modules\Design\DSGN_01\Install-DSGN01.ps1" />
     <None Include="Modules\Design\DSGN_01\Setup-MasterPage.ps1.template" />
+    <None Include="Modules\Design\DSGN_01\Setup-Theme.ps1.template" />
     <None Include="Modules\Design\Tokens.Design.Default.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogsSync.ps1.template" />

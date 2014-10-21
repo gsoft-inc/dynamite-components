@@ -123,4 +123,10 @@
   <data name="Feature_CommonCMS_MasterPage_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Design Module - Page Maitre</value>
   </data>
+  <data name="Feature_CommonCMS_Theme_Description" xml:space="preserve">
+    <value>Déploie et install le logo et les couleurs du thème.</value>
+  </data>
+  <data name="Feature_CommonCMS_Theme_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Design Module - Thème et logo</value>
+  </data>
 </root>

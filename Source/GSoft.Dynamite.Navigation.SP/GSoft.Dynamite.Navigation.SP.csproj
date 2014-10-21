@@ -89,7 +89,6 @@
     <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
       <FeatureId>{de88ec00-38af-4dee-934d-d8c3ca2d902f}</FeatureId>
     </None>
-    <None Include="key.snk" />
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{32e09919-4bf5-4f69-88b9-d38f260f42d5}</PackageId>

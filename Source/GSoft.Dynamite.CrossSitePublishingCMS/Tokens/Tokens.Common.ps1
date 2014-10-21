@@ -22,7 +22,7 @@
 . ./Modules/Navigation/Tokens.Navigation.Default.ps1
 
 # ******************************************
-# Navigation Module tokens
+# Design Module tokens
 # ******************************************
 . ./Modules/Design/Tokens.Design.Default.ps1
 
