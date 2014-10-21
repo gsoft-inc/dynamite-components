@@ -49,6 +49,7 @@
     <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogsSync.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.ps1.template" />
+    <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-Fields.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_03\Install-LANG03.ps1" />
     <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.ps1.template" />

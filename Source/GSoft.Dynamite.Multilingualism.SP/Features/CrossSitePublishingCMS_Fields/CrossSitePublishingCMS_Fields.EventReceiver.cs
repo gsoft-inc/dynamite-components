@@ -38,51 +38,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Fiel
                     {
                         fieldHelper.EnsureField(site.RootWeb.Fields, field);
                     }
-
-                    // Create additionnal custom fields
-                  /*  ICustomPublishingFieldInfoConfig customContentTypeConfig = null;
-                    if (featureScope.TryResolve(out customContentTypeConfig))
-                    {
-                        var customFields = customContentTypeConfig.Fields;
-
-                        foreach (IFieldInfo field in customFields)
-                        {
-                            fieldHelper.EnsureField(site.RootWeb.Fields, field);
-                        }
-                    }
-                    else
-                    {
-                        logger.Info("No custom fields override found!");
-                    }*/
                 }
             }
         }
-
-
-        // Uncomment the method below to handle the event raised before a feature is deactivated.
-
-        //public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        //{
-        //}
-
-
-        // Uncomment the method below to handle the event raised after a feature has been installed.
-
-        //public override void FeatureInstalled(SPFeatureReceiverProperties properties)
-        //{
-        //}
-
-
-        // Uncomment the method below to handle the event raised before a feature is uninstalled.
-
-        //public override void FeatureUninstalling(SPFeatureReceiverProperties properties)
-        //{
-        //}
-
-        // Uncomment the method below to handle the event raised when a feature is upgrading.
-
-        //public override void FeatureUpgrading(SPFeatureReceiverProperties properties, string upgradeActionName, System.Collections.Generic.IDictionary<string, string> parameters)
-        //{
-        //}
     }
 }

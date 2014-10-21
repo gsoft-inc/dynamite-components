@@ -141,6 +141,12 @@
   <data name="Feature_CrossSitePublishingCMS_ContentTypes_Name" xml:space="preserve">
     <value>Dynamite CMS de publication intersites - Module de multilinguisme - Types de contenus</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Desc" xml:space="preserve">
+    <value>Créer les récépteurs d'événements pour le module multilingue</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Module de multilinguisme - Récépteurs d'événements</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_Fields_Desc" xml:space="preserve">
     <value>Créer les colonnes du module de multilinguisme pour une solution de type CMS utilisant la publication intersites.</value>
   </data>
@@ -151,7 +157,7 @@
     <value>Ajoute un contrôle pour changer la langue rapidement.</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Contrôle de changement de langue</value>
+    <value>Dynamite Cross Site Publishing CMS - Module de multilinguisme - Contrôle de changement de langue</value>
   </data>
   <data name="Field_ContentAssociationKey_Desc" xml:space="preserve">
     <value>Colonne utilisé pour l'association de contenu de différentes langues</value>

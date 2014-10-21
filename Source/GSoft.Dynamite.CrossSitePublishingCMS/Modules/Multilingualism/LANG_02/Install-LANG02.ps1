@@ -46,7 +46,13 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
 & $Script
 
-$values = @{"Step: " = "#3 Sync Catalogs"}
+$values = @{"Step: " = "#3 Setup Event Receivers"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-EventReceivers.ps1'
+& $Script
+
+$values = @{"Step: " = "#4 Sync Catalogs"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-CatalogsSync.ps1'
