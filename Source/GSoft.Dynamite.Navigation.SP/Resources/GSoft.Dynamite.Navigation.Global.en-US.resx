@@ -123,6 +123,12 @@
   <data name="Feature_CrossSitePublishingCMS_ContentTypes_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Content Types</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Desc" xml:space="preserve">
+    <value>Add event receivers for the navigation module</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Event Receivers</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_Fields_Desc" xml:space="preserve">
     <value>Creates fields for Cross Site Publishing based CMS solutions</value>
   </data>
@@ -140,6 +146,12 @@
   </data>
   <data name="Field_DateSlug_Name" xml:space="preserve">
     <value>Date Slug</value>
+  </data>
+  <data name="Field_PublishingStartDate_Desc" xml:space="preserve">
+    <value>Publishing Start Date of the current item. This date will be used in the friendly URL to this element.</value>
+  </data>
+  <data name="Field_PublishingStartDate_Name" xml:space="preserve">
+    <value>Publishing Start Date</value>
   </data>
   <data name="Field_TitleSlug_Desc" xml:space="preserve">
     <value>Title Slug Friendly URL fragment</value>

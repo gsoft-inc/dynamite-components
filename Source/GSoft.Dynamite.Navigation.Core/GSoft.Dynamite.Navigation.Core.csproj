@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\NavigationContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\NavigationEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\NavigationFieldInfoConfig.cs" />
     <Compile Include="Configuration\NavigationTermDrivenPageSettingsInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

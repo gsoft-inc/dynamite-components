@@ -41,11 +41,11 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             // Fields
             builder.RegisterType<MultilingualismFieldInfoConfig>().As<IMultilingualismFieldInfoConfig>();
 
-            // Event Receivers
-            builder.RegisterType<MultilingualismEventReceiverInfoConfig>().As<IMultilingualismEventReceiverInfoConfig>();
-
             // Content Assoiciation Service
             builder.RegisterType<ContentAssociationService>().As<IContentAssocationService>(); 
+
+            // Event Receivers
+            builder.RegisterType<MultilingualismEventReceiverInfoConfig>().As<IMultilingualismEventReceiverInfoConfig>();
         }
     }
 }

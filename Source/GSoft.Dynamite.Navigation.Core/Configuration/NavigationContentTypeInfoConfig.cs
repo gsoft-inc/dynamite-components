@@ -26,13 +26,16 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 var baseContentTypes = new List<ContentTypeInfo>();
                 
                 // Get the catalog item
-                var catalogItem = this._basePublishingContentTypeInfos.CatalogContentItem();
+                var catalogItem = this._basePublishingContentTypeInfos.BrowsableItem();
                 
-                // Adding the Date Slug Field field
+                // Adding the Date Slug field
                 catalogItem.Fields.Add(this._basenavigationFieldInfos.DateSlug());
 
-                // Adding the Title Slug Field field
+                // Adding the Title Slug field
                 catalogItem.Fields.Add(this._basenavigationFieldInfos.TitleSlug());
+
+                // Adding the Publishing Start Date field
+                catalogItem.Fields.Add(this._basenavigationFieldInfos.PublishingStartDate());
 
                 baseContentTypes.Add(catalogItem);
 

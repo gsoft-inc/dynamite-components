@@ -3,9 +3,9 @@ using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Resources;
+using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Navigation.Core.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Navigation.Core.Services;
 
 namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
 {
@@ -31,9 +31,16 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             // Fields Base Override
             builder.RegisterType<NavigationFieldInfoConfig>().As<INavigationFieldInfoConfig>();
 
+            // Event Receivers
+            builder.RegisterType<NavigationEventReceiverInfoConfig>().As<INavigationEventReceiverInfoConfig>();
+
             // Configuration Values
             builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();
-            builder.RegisterType<NavigationFieldInfos>(); 
+            builder.RegisterType<NavigationFieldInfos>();
+            builder.RegisterType<NavigationEventReceiverInfos>(); 
+
+            // Slug Builder Service
+            builder.RegisterType<SlugBuilderService>().As<ISlugBuilderService>();
         }
     }
 }

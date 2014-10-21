@@ -123,6 +123,12 @@
   <data name="Feature_CrossSitePublishingCMS_ContentTypes_Name" xml:space="preserve">
     <value>Dynamite CMS de publication intersites - Module de navigation - Types de contenus</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Desc" xml:space="preserve">
+    <value>Ajoute les récépteurs d'événements du module de navigation</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de navigation - Récépteurs d'événements</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_Fields_Desc" xml:space="preserve">
     <value>Créer les colonnes du module de navigation pour une solution de type CMS utilisant la publication intersites.</value>
   </data>
@@ -140,6 +146,12 @@
   </data>
   <data name="Field_DateSlug_Name" xml:space="preserve">
     <value>Slug de date</value>
+  </data>
+  <data name="Field_PublishingStartDate_Desc" xml:space="preserve">
+    <value>Date de début de publication de l'élément. Cette date sera utilisée dans la construction de l'URL de l'élément.</value>
+  </data>
+  <data name="Field_PublishingStartDate_Name" xml:space="preserve">
+    <value>Date de début de publication</value>
   </data>
   <data name="Field_TitleSlug_Desc" xml:space="preserve">
     <value>Slug  de titre d'URL conviviale</value>
