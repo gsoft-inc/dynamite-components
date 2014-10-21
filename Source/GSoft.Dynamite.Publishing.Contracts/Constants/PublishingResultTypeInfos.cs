@@ -29,11 +29,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Priority = 1,
                 DisplayProperties = new List<ManagedPropertyInfo>()
                 {
-                    PublishingManagedPropertyInfo.Navigation,
+                    PublishingManagedPropertyInfos.Navigation,
                 },
                 Rules = new List<ResultTypeRuleInfo>()
                 {
-                    new ResultTypeRuleInfo(PublishingManagedPropertyInfo.ContentTypeId,
+                    new ResultTypeRuleInfo(PublishingManagedPropertyInfos.ContentTypeId,
                         PropertyRuleOperator.DefaultOperator.Contains,
                         new string[] {this._contentTypeInfos.NewsItem().ContentTypeId})
                 }
@@ -50,11 +50,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Priority = 1,
                 DisplayProperties = new List<ManagedPropertyInfo>()
                 {
-                    PublishingManagedPropertyInfo.Navigation,
+                    PublishingManagedPropertyInfos.Navigation,
                 },
                 Rules = new List<ResultTypeRuleInfo>()
                 {
-                    new ResultTypeRuleInfo(PublishingManagedPropertyInfo.ContentTypeId,
+                    new ResultTypeRuleInfo(PublishingManagedPropertyInfos.ContentTypeId,
                         PropertyRuleOperator.DefaultOperator.Contains,
                         new string[] {this._contentTypeInfos.ContentItem().ContentTypeId})
                 }

@@ -2,7 +2,7 @@
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
-    public static class PublishingManagedPropertyInfo
+    public static class PublishingManagedPropertyInfos
     {
         /// <summary>
         /// The navigation managed property name

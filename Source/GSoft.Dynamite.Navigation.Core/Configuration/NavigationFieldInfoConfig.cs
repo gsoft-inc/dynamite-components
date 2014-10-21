@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
