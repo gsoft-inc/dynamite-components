@@ -42,7 +42,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10071\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10073\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
@@ -61,8 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\IMultilingualismEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\IMultilingualismFieldInfoConfig.cs" />
     <Compile Include="Configuration\IMultilingualismVariationsConfig.cs" />
+    <Compile Include="Constants\MultilingualismEventReceiverInfos.cs" />
     <Compile Include="Constants\MultilingualismFieldInfos.cs" />
     <Compile Include="Constants\MultilingualismManagedProperties.cs" />
     <Compile Include="Constants\MultilingualismResources.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Configuration\IMultilingualismContentTypeInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\MultilingualismResourceLocatorConfig.cs" />
+    <Compile Include="Services\IContentAssocation.cs" />
     <Compile Include="Services\ILanguageSwitcherService.cs" />
   </ItemGroup>
   <ItemGroup>

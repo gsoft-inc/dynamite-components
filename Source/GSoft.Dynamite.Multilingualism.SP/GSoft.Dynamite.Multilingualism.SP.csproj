@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10071\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10073\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="GSoft.Dynamite.Publishing.Contracts, Version=15.0.0.0, Culture=neutral, PublicKeyToken=1e3bb3fbc94d83df, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -89,6 +89,7 @@
     <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Multilingualism\LanguageSwitcher.ascx.designer.cs">
       <DependentUpon>LanguageSwitcher.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Events\TranslatableItemEvents.cs" />
     <Compile Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.EventReceiver.cs">
       <DependentUpon>CommonCMS_SyncWeb.feature</DependentUpon>
     </Compile>
@@ -97,6 +98,9 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
@@ -137,6 +141,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.feature">
       <FeatureId>{2b7a1022-bf45-46d4-a48a-e871264e8abf}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
+      <FeatureId>{f1802c45-cdce-4b07-9f86-9574f16b0c12}</FeatureId>
     </None>
     <None Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.css.map">
       <DependentUpon>GSoft.Dynamite.Multilingualism.css</DependentUpon>
@@ -189,6 +196,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.css">
       <DependentUpon>GSoft.Dynamite.Multilingualism.less</DependentUpon>
