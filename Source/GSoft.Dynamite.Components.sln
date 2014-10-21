@@ -52,6 +52,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Design.Core", "GSoft.Dynamite.Design.Core\GSoft.Dynamite.Design.Core.csproj", "{02C704E7-34A3-41CC-A7E0-28B0AEE26386}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Design.SP", "GSoft.Dynamite.Design.SP\GSoft.Dynamite.Design.SP.csproj", "{C941F640-14A2-4506-99D8-72725BAAB24B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{02C704E7-34A3-41CC-A7E0-28B0AEE26386} = {02C704E7-34A3-41CC-A7E0-28B0AEE26386}
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Navigation.Contracts", "GSoft.Dynamite.Navigation.Contracts\GSoft.Dynamite.Navigation.Contracts.csproj", "{F26EF1FA-1A19-416B-A3A6-CFE250967773}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Navigation.Core", "GSoft.Dynamite.Navigation.Core\GSoft.Dynamite.Navigation.Core.csproj", "{EB11545D-8573-41AE-A272-F7B0C97906D3}"
