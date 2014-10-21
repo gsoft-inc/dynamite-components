@@ -50,6 +50,10 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10074\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -74,6 +78,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
     </Compile>
@@ -96,6 +103,9 @@
     <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
       <FeatureId>{98247c1a-6b07-4c56-8b17-c8bbeb686220}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
+      <FeatureId>{ced04885-2862-4464-afce-7b32194ce5e2}</FeatureId>
+    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{32e09919-4bf5-4f69-88b9-d38f260f42d5}</PackageId>
@@ -112,6 +122,10 @@
       <Project>{f26ef1fa-1a19-416b-a3a6-cfe250967773}</Project>
       <Name>GSoft.Dynamite.Navigation.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
+      <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
+      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.Template.xml">
@@ -125,6 +139,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Navigation.Global.en-US.resx" />
   </ItemGroup>

@@ -135,6 +135,12 @@
   <data name="Feature_CrossSitePublishingCMS_Fields_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Columns</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_ResultSources_Desc" xml:space="preserve">
+    <value>Deploys search result sources for Cross Site Publishing based CMS solutions</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ResultSources_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Result Sources</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Desc" xml:space="preserve">
     <value>Configure term driven pages for Cross Site Publishing based CMS solutions</value>
   </data>

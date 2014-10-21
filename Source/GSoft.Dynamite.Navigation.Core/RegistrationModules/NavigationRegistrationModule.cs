@@ -34,10 +34,14 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             // Event Receivers
             builder.RegisterType<NavigationEventReceiverInfoConfig>().As<INavigationEventReceiverInfoConfig>();
 
+            // Result Sources
+            builder.RegisterType<NavigationResultSourceInfoConfig>().As<INavigationResultSourceInfoConfig>();
+
             // Configuration Values
             builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();
             builder.RegisterType<NavigationFieldInfos>();
-            builder.RegisterType<NavigationEventReceiverInfos>(); 
+            builder.RegisterType<NavigationEventReceiverInfos>();
+            builder.RegisterType<NavigationResultSourceInfos>(); 
 
             // Slug Builder Service
             builder.RegisterType<SlugBuilderService>().As<ISlugBuilderService>();
