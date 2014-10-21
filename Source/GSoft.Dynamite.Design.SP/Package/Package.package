@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="dd124f7b-0e79-46eb-b312-f17819d6db5f" solutionId="dd124f7b-0e79-46eb-b312-f17819d6db5f" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Design.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Design.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Design.Contracts\GSoft.Dynamite.Design.Contracts.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Design.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Design.Core\GSoft.Dynamite.Design.Core.csproj" />
+  </assemblies>
   <features>
     <featureReference itemId="2e693525-42f6-4680-b8b5-f3c895a09509" />
     <featureReference itemId="d29b8f2f-93ee-440d-aef2-31aaa434746b" />
