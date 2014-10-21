@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\DemoDesignConfig.cs" />
     <Compile Include="Configuration\DemoMultilingualismVariationsConfig.cs" />
     <Compile Include="Configuration\DemoPublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\DemoPublishingContentTypeInfoConfig.cs" />
@@ -71,9 +72,17 @@
       <Project>{aad0094c-6782-44f9-b12c-fbef909df01f}</Project>
       <Name>Dynamite.Demo.Intranet.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Design.Contracts\GSoft.Dynamite.Design.Contracts.csproj">
+      <Project>{edd96a5b-7060-4e90-882d-457190bf0804}</Project>
+      <Name>GSoft.Dynamite.Design.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj">
       <Project>{13c3cfc3-4328-4047-9b62-15b19e2e5922}</Project>
       <Name>GSoft.Dynamite.Multilingualism.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Navigation.Contracts\GSoft.Dynamite.Navigation.Contracts.csproj">
+      <Project>{f26ef1fa-1a19-416b-a3a6-cfe250967773}</Project>
+      <Name>GSoft.Dynamite.Navigation.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
       <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>

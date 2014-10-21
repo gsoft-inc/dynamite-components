@@ -1,11 +1,12 @@
 using System;
 using System.Runtime.InteropServices;
-using Autofac;
+using System.Security.Permissions;
 using GSoft.Dynamite.Design.Contracts.Configuration;
-using GSoft.Dynamite.MasterPages;
+using GSoft.Dynamite.Security;
 using Microsoft.SharePoint;
+using Autofac;
 
-namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
+namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_Theme
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -13,10 +14,9 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-    [Guid("1540be21-f687-494c-af80-1b8851bc5718")]
-    public class CommonCMS_MasterPageEventReceiver : SPFeatureReceiver
+    [Guid("a0c45050-1e06-492b-a48f-17dfe3920583")]
+    public class CommonCMS_ThemeEventReceiver : SPFeatureReceiver
     {
-
         /// <summary>
         /// Event Receiver for Feature Activated
         /// </summary>
@@ -28,14 +28,22 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
             {
                 using (var featureScope = DesignContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var masterPageHelper = featureScope.Resolve<MasterPageHelper>();
                     var designConfig = featureScope.Resolve<IDesignConfig>();
 
-                    // Generate masterpage file from HTML design file
-                    masterPageHelper.GenerateMasterPage(site, designConfig.MasterPageHTMLFilename);
+                    // Set the Site Logo and theme
+                    foreach (SPWeb web in site.AllWebs)
+                    {
+                        using (new Unsafe(web))
+                        {
+                            // Set Logo
+                            web.SiteLogoUrl = designConfig.LogoUrl;
+                            web.SiteLogoDescription = designConfig.LogoUrlDescription;
+                            web.Update();
 
-                    // Set the masterpage on the site
-                    masterPageHelper.ApplyRootMasterPage(site, null, designConfig.MasterPageMASTERFilename);
+                            // Set theme
+                            web.ApplyTheme(designConfig.SPColorUrl, designConfig.SPFontUrl, null, true);
+                        }
+                    }
                 }
             }
         }
@@ -49,11 +57,7 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
             var site = properties.Feature.Parent as SPSite;
             if (site != null)
             {
-                using (var featureScope = DesignContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
-                {
-                    var masterPageHelper = featureScope.Resolve<MasterPageHelper>();
-                    masterPageHelper.RevertToSeattle(site);
-                }
+                // TODO
             }
         }
     }

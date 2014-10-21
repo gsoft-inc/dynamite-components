@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\BaseDesignMasterPageConfig.cs" />
+    <Compile Include="Configuration\DesignConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\DesignRegistrationModule.cs" />
   </ItemGroup>

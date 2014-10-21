@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using GSoft.Dynamite.Design.Contracts.Configuration;
+using GSoft.Dynamite.Design.Core.Configuration;
 
 namespace GSoft.Dynamite.Design.Core.RegistrationModules
 {
@@ -17,7 +19,8 @@ namespace GSoft.Dynamite.Design.Core.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
-
+            // Variations Configuration
+            builder.RegisterType<DesignConfig>().Named<IDesignConfig>("design");
         }
     }
 }

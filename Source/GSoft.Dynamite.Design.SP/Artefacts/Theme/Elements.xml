@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+    <Module Name="Theme" Path="Theme" Url="_catalogs/theme/15">
+        <File Path="dynamite-splogo.png" Url="dynamite-splogo.png" Type="GhostableInLibrary" ReplaceContent="True" />
+        <File Path="GSoft.Dynamite.Design.spcolor" Url="GSoft.Dynamite.Design.spcolor" Type="GhostableInLibrary" ReplaceContent="True" />
+    </Module>
+</Elements>
