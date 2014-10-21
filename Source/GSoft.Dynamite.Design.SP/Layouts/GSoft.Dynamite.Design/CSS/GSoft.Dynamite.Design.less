@@ -1,0 +1,94 @@
+﻿/* GSoft.Dynamite.Design */
+@fixed-width: 1000px;
+@width-home-big: 760px;
+@width-home-small: 210px;
+@width-page-big: 690px;
+@width-page-small: 250px;
+
+/****************/
+/* Base Element */
+/****************/
+a {
+    text-decoration: none;
+}
+
+    a.hover {
+        text-decoration: underline;
+    }
+
+/*******************/
+/* Generic Classes */
+/*******************/
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.fclear-left {
+    float: left;
+    clear: left;
+}
+
+.fclear-right {
+    float: right;
+    clear: right;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.br {
+    clear: left;
+}
+
+/*********************/
+/* Base Chad Classes */
+/*********************/
+
+.fixed-width {
+    width: @fixed-width;
+}
+
+.container, .row, .col-md-12 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/***************/
+/* Grid Layout */
+/***************/
+.row {
+}
+
+    .container:before,
+    .container:after,
+    .row:before,
+    .row:after {
+        display: table;
+        content: " ";
+    }
+
+    .container:after,
+    .row:after {
+        clear: both;
+    }
+
+.col-big, .col-small {
+    position: relative;
+    min-height: 1px;
+}
