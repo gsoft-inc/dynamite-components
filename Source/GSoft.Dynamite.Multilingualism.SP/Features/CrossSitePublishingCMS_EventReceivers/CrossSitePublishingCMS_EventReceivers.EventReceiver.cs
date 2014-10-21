@@ -5,8 +5,8 @@ using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
-using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using Microsoft.SharePoint;
+using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 
 namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_EventReceivers
 {

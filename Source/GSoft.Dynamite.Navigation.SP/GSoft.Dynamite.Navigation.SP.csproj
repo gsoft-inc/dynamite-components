@@ -102,12 +102,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GSoft.Dynamite.Navigation.Contracts\GSoft.Dynamite.Navigation.Contracts.csproj">
-      <Project>{f26ef1fa-1a19-416b-a3a6-cfe250967773}</Project>
-      <Name>GSoft.Dynamite.Navigation.Contracts</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
     </Content>
@@ -121,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\GSoft.Dynamite.Navigation.Global.fr-FR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Navigation.Contracts\GSoft.Dynamite.Navigation.Contracts.csproj">
+      <Project>{f26ef1fa-1a19-416b-a3a6-cfe250967773}</Project>
+      <Name>GSoft.Dynamite.Navigation.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

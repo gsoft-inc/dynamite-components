@@ -142,12 +142,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
-      <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
-      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Artefacts\DisplayTemplates\Elements.xml" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleContentItem.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemContent.html" />
@@ -187,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\GSoft.Dynamite.Publishing.Global.fr-FR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
+      <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
+      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
