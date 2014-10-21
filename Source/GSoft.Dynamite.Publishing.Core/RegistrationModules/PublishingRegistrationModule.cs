@@ -50,8 +50,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingDisplayTemplateInfoConfig>().Named<IPublishingDisplayTemplateInfoConfig>("publishing");
 
             // Result Types
-          /*  builder.RegisterType<PublishingResultTypeInfoConfig>().As<IPublishingResultTypeInfoConfig>();
-            builder.RegisterType<PublishingResultTypeInfoConfig>().Named<IPublishingResultTypeInfoConfig>("publishing");*/
+            builder.RegisterType<PublishingResultTypeInfoConfig>().As<IPublishingResultTypeInfoConfig>();
+            builder.RegisterType<PublishingResultTypeInfoConfig>().Named<IPublishingResultTypeInfoConfig>("publishing");
                      
             // Configuration Values
             builder.RegisterType<PublishingContentTypeInfos>();
