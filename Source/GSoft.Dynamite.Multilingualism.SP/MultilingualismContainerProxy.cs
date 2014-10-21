@@ -24,6 +24,24 @@ namespace GSoft.Dynamite.Multilingualism.SP
         private static readonly ISharePointServiceLocator InnerLocator = new AddOnProvidedServiceLocator();
 
         /// <summary>
+        /// Exposes the most-nested currently available lifetime scope.
+        /// In an HTTP-request context, will return a shared per-request
+        /// scope (allowing you to inject InstancePerSite, InstancePerWeb
+        /// and InstancePerRequest-registered objects).
+        /// Outside an HTTP-request context, will return the root application
+        /// container itself (preventing you from injecting InstancePerSite,
+        /// InstancePerWeb or InstancePerRequest objects).
+        /// Do not dispose this scope, as it will be reused by others.
+        /// </summary>
+        public static ILifetimeScope Current
+        {
+            get
+            {
+                return InnerLocator.Current;
+            }
+        }
+
+        /// <summary>
         /// Creates a new child lifetime scope that is as nested as possible,
         /// depending on the scope of the specified feature.
         /// In a SPSite or SPWeb-scoped feature context, will return a web-specific
