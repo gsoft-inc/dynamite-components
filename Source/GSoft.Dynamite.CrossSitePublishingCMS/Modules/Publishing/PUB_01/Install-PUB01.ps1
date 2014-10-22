@@ -50,7 +50,13 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-Webs.ps1'
 & $Script 
 
-$values = @{"Step: " = "#8 Setup Permissions"}
+$values = @{"Step: " = "#3 Setup Property Bag Values"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-PropertyBag.ps1'
+& $Script 
+
+$values = @{"Step: " = "#5 Setup Permissions"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Permissions.ps1'
@@ -58,31 +64,31 @@ $Script = $CommandDirectory + '\Setup-Permissions.ps1'
 
 ##### STEP 2: CATEGORIZE CONTENTS
 
-$values = @{"Step: " = "#3 Remove Term Groups"}
+$values = @{"Step: " = "#6 Remove Term Groups"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Remove-TermGroups.ps1'
 & $Script 
 
-$values = @{"Step: " = "#4 Import Term Groups"}
+$values = @{"Step: " = "#6 Import Term Groups"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Import-TermGroups.ps1'
 & $Script 
 
-$values = @{"Step: " = "#5 Setup Columns"}
+$values = @{"Step: " = "#7 Setup Columns"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Fields.ps1'
 & $Script
 
-$values = @{"Step: " = "#6 Setup Content Types"}
+$values = @{"Step: " = "#8 Setup Content Types"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
 & $Script 
 
-$values = @{"Step: " = "#7 Setup Catalogs"}
+$values = @{"Step: " = "#9 Setup Catalogs"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Catalogs.ps1'
