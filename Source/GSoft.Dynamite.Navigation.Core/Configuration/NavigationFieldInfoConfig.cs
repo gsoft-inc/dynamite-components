@@ -34,7 +34,8 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 var baseFieldInfo = new List<IFieldInfo>
                 {
                     this._baseNavigationFieldInfos.DateSlug(),
-                    this._baseNavigationFieldInfos.TitleSlug()
+                    this._baseNavigationFieldInfos.TitleSlug(),
+                    this._baseNavigationFieldInfos.OccurrenceLinkLocation()
                 };
 
                 return baseFieldInfo;

@@ -2,6 +2,7 @@
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Definitions;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {
@@ -10,6 +11,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
 
         private static readonly string DateSlugFieldName = PublishingFieldInfos.FieldPrefix + "DateSlug";
         private static readonly string TitleSlugFieldName = PublishingFieldInfos.FieldPrefix + "TitleSlug";
+        private static readonly string OccurrenceLinkLocationFieldName = PublishingFieldInfos.FieldPrefix + "OccurrenceLinkLocation";
 
         public NavigationFieldInfos()
         {
@@ -51,6 +53,28 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 NavigationResources.FieldTitleSlugDescription,
                 PublishingResources.FieldGroup
                 )
+            {
+                Required = RequiredTypes.NotRequired,
+                IsHiddenInDisplayForm = true,
+                IsHiddenInEditForm = true,
+                IsHiddenInListSettings = true,
+                IsHiddenInNewForm = true
+            };
+        }
+
+        /// <summary>
+        /// The Occurrence Link Location field.
+        /// </summary>
+        /// <returns>The OccurrenceLinkLocation field</returns>
+        public TaxonomyFieldInfo OccurrenceLinkLocation()
+        {
+            return new TaxonomyFieldInfo(
+               OccurrenceLinkLocationFieldName,
+               new Guid("{C2E6B519-A2FF-429C-BAE5-1034E7A29545}"),
+               NavigationResources.FieldOccurrenceLinkLocationName,
+               NavigationResources.FieldOccurrenceLinkLocationDescription,
+               PublishingResources.FieldGroup
+               )
             {
                 Required = RequiredTypes.NotRequired,
                 IsHiddenInDisplayForm = true,

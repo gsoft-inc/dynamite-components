@@ -34,7 +34,14 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 // Adding the Title Slug Field field
                 catalogItem.Fields.Add(this._basenavigationFieldInfos.TitleSlug());
 
+                // Gets the Browsable Item
+                var browsableItem = this._basePublishingContentTypeInfos.BrowsableItem();
+
+                // Adds the field Occurrence Link Location in the content type
+                browsableItem.Fields.Add(this._basenavigationFieldInfos.OccurrenceLinkLocation());
+
                 baseContentTypes.Add(catalogItem);
+                baseContentTypes.Add(browsableItem);
 
                 return baseContentTypes;
             }

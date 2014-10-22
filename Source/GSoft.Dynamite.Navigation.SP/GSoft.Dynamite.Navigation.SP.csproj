@@ -71,6 +71,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_OccurrenceLinkLocationField.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
     </Compile>
@@ -89,6 +92,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
       <FeatureId>{de88ec00-38af-4dee-934d-d8c3ca2d902f}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.feature">
+      <FeatureId>{d58a8afe-a46b-4ab4-8f6e-bab76cac6272}</FeatureId>
     </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -116,6 +122,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_OccurrenceLinkLocationField.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Navigation.Global.en-US.resx" />
   </ItemGroup>
