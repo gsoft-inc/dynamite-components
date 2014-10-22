@@ -51,6 +51,18 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-TermDrivenPages.ps1'
 & $Script
 
+$values = @{"Step: " = "#4 Setup Event Receivers"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-EventReceivers.ps1'
+& $Script
+
+$values = @{"Step: " = "#5 Update Result Sources"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ResultSources.ps1'
+& $Script
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

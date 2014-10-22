@@ -30,6 +30,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismEventReceiverInfos>();
 
             // Variations Configuration
+            builder.RegisterType<MultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
             builder.RegisterType<MultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("multilingualism");
 
             // Multilingualism Service
@@ -41,11 +42,11 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             // Fields
             builder.RegisterType<MultilingualismFieldInfoConfig>().As<IMultilingualismFieldInfoConfig>();
 
-            // Event Receivers
-            builder.RegisterType<MultilingualismEventReceiverInfoConfig>().As<IMultilingualismEventReceiverInfoConfig>();
-
             // Content Assoiciation Service
             builder.RegisterType<ContentAssociationService>().As<IContentAssocationService>(); 
+
+            // Event Receivers
+            builder.RegisterType<MultilingualismEventReceiverInfoConfig>().As<IMultilingualismEventReceiverInfoConfig>();
         }
     }
 }

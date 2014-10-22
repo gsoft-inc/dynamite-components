@@ -33,7 +33,6 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var logger = featureScope.Resolve<ILogger>();
 
-                    // Create base content types
                     foreach (var eventReceiver in baseEventReceivers)
                     {
                         logger.Info("Provisioning event receiver for content type {0}", eventReceiver.ContentType.DisplayName);
