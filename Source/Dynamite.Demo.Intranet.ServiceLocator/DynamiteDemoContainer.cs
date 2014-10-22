@@ -13,7 +13,12 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
     {
         private const string AppName = "Dynamite.Demo.Intranet";
 
-        private static readonly ISharePointServiceLocator innerServiceLocator = new SharePointServiceLocator(AppName, fileName => fileName.Contains(AppName) || fileName.Contains("GSoft.Dynamite.Publishing") || fileName.Contains("GSoft.Dynamite.Multilingualism") || fileName.Contains("GSoft.Dynamite.Navigation") || fileName.Contains("GSoft.Dynamite.Design"));
+        private static readonly ISharePointServiceLocator innerServiceLocator = new SharePointServiceLocator(AppName, fileName => 
+            fileName.Contains(AppName) ||
+            fileName.Contains("GSoft.Dynamite.Publishing") ||
+            fileName.Contains("GSoft.Dynamite.Multilingualism") ||
+            fileName.Contains("GSoft.Dynamite.Navigation") ||
+            fileName.Contains("GSoft.Dynamite.Design"));
 
         /// <summary>
         /// Exposes the inner service locator through the ISharePointServiceLocatorAccessor interface,

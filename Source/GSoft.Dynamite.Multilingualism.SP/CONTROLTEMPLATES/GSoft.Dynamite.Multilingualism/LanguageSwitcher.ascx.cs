@@ -117,12 +117,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (var webScope = MultilingualismContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
-            {
-                this.LanguageSwitcherService = webScope.Resolve<ILanguageSwitcherService>();
-            }
-
-           // this.LanguageSwitcherService = MultilingualismContainerProxy.Current.Resolve<ILanguageSwitcherService>();
+            this.LanguageSwitcherService = MultilingualismContainerProxy.Current.Resolve<ILanguageSwitcherService>();
         }
     }
 }
