@@ -153,6 +153,12 @@
   <data name="Field_DateSlug_Name" xml:space="preserve">
     <value>Slug de date</value>
   </data>
+  <data name="Field_OccurrenceLinkLocation_Description" xml:space="preserve">
+    <value>Afficher le lien de la page dans plusieurs emplacements du site</value>
+  </data>
+  <data name="Field_OccurrenceLinkLocation_Name" xml:space="preserve">
+    <value>Emplacement d'apparition</value>
+  </data>
   <data name="Field_PublishingStartDate_Desc" xml:space="preserve">
     <value>Date de début de publication de l'élément. Cette date sera utilisée dans la construction de l'URL de l'élément.</value>
   </data>
