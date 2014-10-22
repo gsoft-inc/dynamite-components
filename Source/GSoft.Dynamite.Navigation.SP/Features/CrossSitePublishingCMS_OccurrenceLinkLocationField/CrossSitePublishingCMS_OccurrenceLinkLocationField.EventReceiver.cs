@@ -2,10 +2,11 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
-using GSoft.Dynamite.Helpers;
-using Microsoft.SharePoint;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_OccurrenceLinkLocationField
 {
@@ -15,10 +16,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("9c37a632-666f-465a-a92a-330aa5e7db44")]
     public class CrossSitePublishingCMS_OccurrenceLinkLocationFieldEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Handles the feature activated event.
+        /// </summary>
+        /// <param name="properties">Feature Receiver Properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -29,23 +33,27 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
                 {
                     var fieldHelper = featureScope.Resolve<FieldHelper>();
                     var baseFieldInfos = featureScope.Resolve<NavigationFieldInfos>();
+                    var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
 
+                    // Gets the field
                     var field = baseFieldInfos.OccurrenceLinkLocation();    
 
+                    // Updates the visibility properties of the field
                     field.IsHiddenInDisplayForm = false;
-                    field.IsHiddenInDisplayForm = false;
-                    field.IsHiddenInDisplayForm = false;
-                    field.IsHiddenInDisplayForm = false;
+                    field.IsHiddenInEditForm = false;
+                    field.IsHiddenInNewForm = false;
+                    field.IsHiddenInListSettings = false;
 
+                    // Ensures the field
                     fieldHelper.EnsureField(site.RootWeb.Fields, field);
                 }
             }
         }
 
         /// <summary>
-        /// Handles when the feature deactiving
+        /// Handles the feature deactivating event.
         /// </summary>
-        /// <param name="properties">Properties</param>
+        /// <param name="properties">Feature Receiver Properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -56,14 +64,18 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
                 {
                     var fieldHelper = featureScope.Resolve<FieldHelper>();
                     var baseFieldInfos = featureScope.Resolve<NavigationFieldInfos>();
+                    var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
 
+                    // Gets the field
                     var field = baseFieldInfos.OccurrenceLinkLocation();
 
+                    // Updates the visibility properties of the field
                     field.IsHiddenInDisplayForm = true;
-                    field.IsHiddenInDisplayForm = true;
-                    field.IsHiddenInDisplayForm = true;
-                    field.IsHiddenInDisplayForm = true;
+                    field.IsHiddenInEditForm = true;
+                    field.IsHiddenInNewForm = true;
+                    field.IsHiddenInListSettings = true;
 
+                    // Ensures the field
                     fieldHelper.EnsureField(site.RootWeb.Fields, field);
                 }
             }
