@@ -37,7 +37,14 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 // Adding the Publishing Start Date field
                 catalogItem.Fields.Add(this._basenavigationFieldInfos.PublishingStartDate());
 
+                // Gets the Browsable Item
+                var browsableItem = this._basePublishingContentTypeInfos.BrowsableItem();
+
+                // Adds the field Occurrence Link Location in the content type
+                browsableItem.Fields.Add(this._basenavigationFieldInfos.OccurrenceLinkLocation());
+
                 baseContentTypes.Add(catalogItem);
+                baseContentTypes.Add(browsableItem);
 
                 return baseContentTypes;
             }
