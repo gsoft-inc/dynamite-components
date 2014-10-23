@@ -63,6 +63,12 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-ResultSources.ps1'
 & $Script
 
+$values = @{"Step: " = "#6 Create Catalog Connections"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-CatalogConnections.ps1'
+& $Script
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

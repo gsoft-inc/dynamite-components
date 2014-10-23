@@ -24,5 +24,3 @@ Start-Sleep -Seconds 30
 
 	Switch-DSPFeature -Url $_ -Id "[[DSP_CrossSitePublishingCMS_PUB_Catalogs]]"
 }
-
-
