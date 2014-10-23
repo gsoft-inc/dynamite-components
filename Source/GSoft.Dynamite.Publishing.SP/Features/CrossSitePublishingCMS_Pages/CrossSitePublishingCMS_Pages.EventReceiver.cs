@@ -35,12 +35,17 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
                     var folderHelper = featureScope.Resolve<FolderHelper>();
 
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
-                    var rootFolderHierarchy = baseFoldersConfig.RootFolderHierarchy();
 
-                    // Create folder hierarchy starting by the root folder
-                    // NOTE: All pages are created through folders hierachy
-                    var pagesLibrary = web.GetPagesLibrary();
-                    folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolderHierarchy);
+                    foreach (var rootFolderHierarchy in baseFoldersConfig.RootFolderHierarchies())
+                    {
+                        if (web.Locale.TwoLetterISOLanguageName == rootFolderHierarchy.Locale.TwoLetterISOLanguageName)
+                        {                  
+                            // Create folder hierarchy starting by the root folder
+                            // NOTE: All pages are created through folders hierachy
+                            var pagesLibrary = web.GetPagesLibrary();
+                            folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolderHierarchy);
+                        }
+                    }
                 }
                 else
                 {

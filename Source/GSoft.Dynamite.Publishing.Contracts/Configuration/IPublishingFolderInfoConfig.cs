@@ -9,6 +9,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
 {
     public interface IPublishingFolderInfoConfig
     {
-       FolderInfo RootFolderHierarchy();
+       IList<FolderInfo> RootFolderHierarchies();
     }
 }
