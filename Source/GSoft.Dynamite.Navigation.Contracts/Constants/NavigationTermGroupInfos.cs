@@ -8,6 +8,10 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
     /// </summary>
     public class NavigationTermGroupInfos
     {
+        /// <summary>
+        /// The Keywords Term Group
+        /// </summary>
+        /// <returns>TermGroup Info</returns>
         public TermGroupInfo Keywords()
         {
             return new TermGroupInfo(
