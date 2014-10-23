@@ -1,4 +1,5 @@
-﻿using GSoft.Dynamite.Definitions;
+﻿using System.Collections.Generic;
+using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
@@ -13,9 +14,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             this.folderInfos = folderInfos;
         }
 
-        public FolderInfo RootFolderHierarchy()
+        public IList<FolderInfo> RootFolderHierarchies()
         {
-            return this.folderInfos.RootFolder();
+            return new List<FolderInfo>() { this.folderInfos.RootFolder() };
         }
     }
 }

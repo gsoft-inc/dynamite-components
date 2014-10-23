@@ -4,7 +4,6 @@
 . ./Solutions/Tokens.Solutions.Default.ps1
 . ./Solutions/Tokens.Solutions.Custom.ps1
 
-
 # ******************************************
 # Publishing Module tokens
 # ******************************************
@@ -25,6 +24,7 @@
 # Design Module tokens
 # ******************************************
 . ./Modules/Design/Tokens.Design.Default.ps1
+. ./Modules/Design/Tokens.Design.Custom.ps1
 
 # ******************************************
 # Urls builder

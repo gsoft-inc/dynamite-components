@@ -5,6 +5,13 @@
 # Description	: Install Theme And logo 
 # -----------------------------------------------------------------------
 
+$CustomThemeFeatureId = "[[DSP_DEFAULT_ThemeFeatureId]]"
+
+if (![string]::IsNullOrEmpty($CustomThemeFeatureId)) {
+    Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]] -Id $CustomThemeFeatureId
+    Switch-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]] -Id $CustomThemeFeatureId
+}
+
 Write-Warning "Applying Publishing Theme..."
 
 # Activate features on publishing site collection.
