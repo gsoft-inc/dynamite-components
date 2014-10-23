@@ -106,6 +106,8 @@
     <None Include="Tokens\Tokens.Common.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Modules\Design\DSGN_01\Custom\" />
+    <Folder Include="Modules\Design\DSGN_01\Default\" />
     <Folder Include="Modules\Lifecycle\" />
     <Folder Include="Modules\Navigation\NAV_02\Custom\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
