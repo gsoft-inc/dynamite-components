@@ -37,11 +37,15 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             // Result Sources
             builder.RegisterType<NavigationResultSourceInfoConfig>().As<INavigationResultSourceInfoConfig>();
 
+            // Catalog Connections
+            builder.RegisterType<NavigationCatalogConnectionInfoConfig>().As<INavigationCatalogConnectionInfoConfig>();
+
             // Configuration Values
             builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();
             builder.RegisterType<NavigationFieldInfos>();
             builder.RegisterType<NavigationEventReceiverInfos>();
-            builder.RegisterType<NavigationResultSourceInfos>(); 
+            builder.RegisterType<NavigationResultSourceInfos>();
+            builder.RegisterType<NavigationCatalogConnectionInfos>(); 
 
             // Slug Builder Service
             builder.RegisterType<SlugBuilderService>().As<ISlugBuilderService>();

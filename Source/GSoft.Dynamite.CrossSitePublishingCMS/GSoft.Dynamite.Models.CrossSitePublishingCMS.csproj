@@ -49,6 +49,7 @@
     <None Include="Modules\Design\DSGN_01\Setup-Theme.ps1.template" />
     <None Include="Modules\Design\Tokens.Design.Default.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
+    <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogConnections.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogsSync.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.ps1.template" />
@@ -57,12 +58,12 @@
     <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.ps1.template" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
+    <None Include="Modules\Navigation\NAV_01\Setup-CatalogConnections.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-TermDrivenPages.ps1.template" />
-    <None Include="Modules\Navigation\NAV_01\Start-SearchCrawl.ps1.template" />
     <None Include="Modules\Navigation\NAV_02\install-NAV02.ps1" />
     <None Include="Modules\Navigation\NAV_02\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />

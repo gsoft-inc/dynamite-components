@@ -1,8 +1,0 @@
-﻿# -----------------------------------------------------------------------
-# Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Setup-SearchCrawl.ps1.template
-# Description	: Start a search crawl
-# -----------------------------------------------------------------------
-
-Start-DSPContentSourceCrawl -ContentSourceName "[[DSP_SearchContentSourceName]]" -SearchServiceApplicationName "[[DSP_SearchServiceApplicationName]]" -FullCrawl | Wait-DSPContentSourceCrawl
