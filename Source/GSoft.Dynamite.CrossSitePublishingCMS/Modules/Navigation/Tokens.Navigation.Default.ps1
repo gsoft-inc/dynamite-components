@@ -8,3 +8,11 @@ $DSP_CrossSitePublishingCMS_NAV_ContentTypes = "f8b4b1f8-26c2-4354-9a3e-3de3b8f0
 $DSP_CrossSitePublishingCMS_NAV_EventReceivers = "058ded79-ba45-4a4f-a0ba-8a3d3592edcd"
 $DSP_CrossSitePublishingCMS_NAV_ResultSources = "6844736d-2c1b-4f62-83d6-d16181f41031"
 $DSP_CrossSitePublishingCMS_NAV_OccurrenceLinkLocation = "989e498b-81d0-4dc3-9c5c-33bda054c2b0"
+
+# ==================================
+# NAVIGATION TERMGROUP FILE CONFIGURATION
+# ==================================
+
+$DSP_DEFAULT_PortalKeywordsConfigurationFile = "./Default/Default-KeywordsTermGroup.xml"
+
+$DSP_DEFAULT_PortalNavigationTermGroup = "Portal - Keywords"
