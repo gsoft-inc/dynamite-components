@@ -70,4 +70,19 @@ a.hover {
   position: relative;
   min-height: 1px;
 }
+/*******************/
+/* Base MasterPage */
+/*******************/
+.searchInputBox {
+  float: right;
+}
+#s4-titlerow {
+  padding: 0;
+}
+.container {
+  background-color: #ccc;
+}
+.breadcrumb {
+  padding: 5px 0;
+}
 /*# sourceMappingURL=GSoft.Dynamite.Design.css.map */

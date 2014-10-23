@@ -31,7 +31,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
 
                 if (web != null && PublishingWeb.IsPublishingWeb(web))
                 {
-               
+
                     var folderHelper = featureScope.Resolve<FolderHelper>();
 
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
@@ -40,7 +40,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
                     // Create folder hierarchy starting by the root folder
                     // NOTE: All pages are created through folders hierachy
                     var pagesLibrary = web.GetPagesLibrary();
-                    folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolderHierarchy);                    
+                    folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolderHierarchy);
                 }
                 else
                 {
@@ -51,7 +51,21 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
-            // TODO
+            var web = properties.Feature.Parent as SPWeb;
+
+            using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
+            {
+                var logger = featureScope.Resolve<ILogger>();
+
+                if (web != null && PublishingWeb.IsPublishingWeb(web))
+                {
+                    var folderHelper = featureScope.Resolve<FolderHelper>();
+                    var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
+
+                    folderHelper.ResetHomePageToDefault(web);
+                }
+            }
+            // Reset HomePage
         }
     }
 }
