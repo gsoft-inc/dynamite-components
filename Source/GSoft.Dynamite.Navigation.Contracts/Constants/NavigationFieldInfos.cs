@@ -4,20 +4,24 @@ using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {
     public class NavigationFieldInfos
     {
+        private readonly NavigationTermGroupInfos navigationTermGroupInfos;
+        private readonly NavigationTermSetInfos navigationTermSetInfos;
 
         private static readonly string DateSlugFieldName = PublishingFieldInfos.FieldPrefix + "DateSlug";
         private static readonly string TitleSlugFieldName = PublishingFieldInfos.FieldPrefix + "TitleSlug";
         private static readonly string PublishingStartDateFieldName = PublishingFieldInfos.FieldPrefix + "PublishingStartDate";
         private static readonly string OccurrenceLinkLocationFieldName = PublishingFieldInfos.FieldPrefix + "OccurrenceLinkLocation";
 
-        public NavigationFieldInfos()
+        public NavigationFieldInfos(NavigationTermGroupInfos navigationTermGroupInfos, NavigationTermSetInfos navigationTermSetInfos)
         {
-            
+            this.navigationTermGroupInfos = navigationTermGroupInfos;
+            this.navigationTermSetInfos = navigationTermSetInfos;
         }
 
         /// <summary>
@@ -68,9 +72,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// The Occurrence Link Location field.
         /// </summary>
         /// <returns>The OccurrenceLinkLocation field</returns>
-        public TaxonomyFieldInfo OccurrenceLinkLocation()
+        public TaxonomyMultiFieldInfo OccurrenceLinkLocation()
         {
-            return new TaxonomyFieldInfo(
+            return new TaxonomyMultiFieldInfo(
                OccurrenceLinkLocationFieldName,
                new Guid("{C2E6B519-A2FF-429C-BAE5-1034E7A29545}"),
                NavigationResources.FieldOccurrenceLinkLocationName,
@@ -82,7 +86,12 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
                 IsHiddenInListSettings = false,
-                IsHiddenInNewForm = true
+                IsHiddenInNewForm = true,
+                TermStoreMapping = new TaxonomyContext()
+                {
+                    Group = navigationTermGroupInfos.Keywords(),
+                    TermSet = navigationTermSetInfos.NavigationControls()
+                }
             };
         }
 
