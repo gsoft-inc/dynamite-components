@@ -33,7 +33,27 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
-$values = @{"Step: " = "#1 Setup Fields"}
+# =============================== #
+# =========   TERMGROUPS   ========== #
+# =============================== #
+
+$values = @{"Step: " = "#1 Remove Term Groups"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Remove-TermGroups.ps1'
+& $Script 
+
+$values = @{"Step: " = "#2 Import Term Groups"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Import-TermGroups.ps1'
+& $Script 
+
+# =============================== #
+# =========   FIELDS   ========== #
+# =============================== #
+
+$values = @{"Step: " = "#3 Setup Fields"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Fields.ps1'

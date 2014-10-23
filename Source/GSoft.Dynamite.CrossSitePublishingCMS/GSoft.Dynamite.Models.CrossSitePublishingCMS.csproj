@@ -63,8 +63,12 @@
     <None Include="Modules\Navigation\NAV_01\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-TermDrivenPages.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Start-SearchCrawl.ps1.template" />
+    <None Include="Modules\Navigation\NAV_02\Default\Default-KeywordsTermGroup.xml.template" />
+    <None Include="Modules\Navigation\NAV_02\Export-TermGroups.ps1.template" />
+    <None Include="Modules\Navigation\NAV_02\Import-TermGroups.ps1.template" />
     <None Include="Modules\Navigation\NAV_02\install-NAV02.ps1" />
     <None Include="Modules\Navigation\NAV_02\Setup-Fields.ps1.template" />
+    <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
     <None Include="Modules\Publishing\PUB_01\Export-TermGroups.ps1.template" />
@@ -105,6 +109,7 @@
     <Folder Include="Modules\Design\DSGN_01\Custom\" />
     <Folder Include="Modules\Design\DSGN_01\Default\" />
     <Folder Include="Modules\Lifecycle\" />
+    <Folder Include="Modules\Navigation\NAV_02\Custom\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
