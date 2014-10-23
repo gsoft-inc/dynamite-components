@@ -25,6 +25,7 @@
         <file src="Solutions\**" target="tools\Solutions" />
         <file src="Tokens\**" target="tools\Tokens" />
         <file src="Install-Model.ps1.template" target="content" />
+		<file src="Execute-PostDeploymentScript.ps1" target="content" />
         <file src="Tokens.HOSTNAME.ps1" target="content" />
         <file src="..\..\Libraries\Lapointe.SharePoint.PowerShell.wsp" target="tools\Solutions\WSP" />
         <file src="..\GSoft.Dynamite.Publishing.SP\bin\$configuration$\GSoft.Dynamite.Publishing.SP.wsp" target="tools\Solutions\WSP" />

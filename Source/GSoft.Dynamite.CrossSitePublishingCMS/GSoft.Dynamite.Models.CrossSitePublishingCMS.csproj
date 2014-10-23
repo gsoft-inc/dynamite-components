@@ -62,6 +62,9 @@
     <None Include="Modules\Navigation\NAV_01\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-TermDrivenPages.ps1.template" />
+    <None Include="Modules\Navigation\NAV_01\Start-SearchCrawl.ps1.template" />
+    <None Include="Modules\Navigation\NAV_02\install-NAV02.ps1" />
+    <None Include="Modules\Navigation\NAV_02\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
     <None Include="Modules\Publishing\PUB_01\Export-TermGroups.ps1.template" />
@@ -71,6 +74,7 @@
     <None Include="Modules\Publishing\PUB_01\Setup-Catalogs.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Setup-PropertyBag.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
     <None Include="Modules\Publishing\PUB_02\Setup-DisplayTemplates.ps1.template" />

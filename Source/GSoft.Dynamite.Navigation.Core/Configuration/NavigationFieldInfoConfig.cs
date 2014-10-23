@@ -30,7 +30,8 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 {
                     this._baseNavigationFieldInfos.DateSlug(),
                     this._baseNavigationFieldInfos.TitleSlug(),
-                    this._baseNavigationFieldInfos.PublishingStartDate()
+                    this._baseNavigationFieldInfos.PublishingStartDate(),
+                    this._baseNavigationFieldInfos.OccurrenceLinkLocation()
                 };
 
                 return baseFieldInfo;

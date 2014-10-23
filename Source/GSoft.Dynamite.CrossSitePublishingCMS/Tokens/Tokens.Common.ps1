@@ -36,6 +36,9 @@ $DSP_PublishingSourceRootWebUrls = "@("
 $DSP_AuthoringTargetRootWebUrls = "@("
 $DSP_PublishingTargetRootWebUrls = "@("
 
+# Hash table of site url mappings between Authoring and Publishing
+$DSP_CrossSiteMappings = "@{"
+
 # Check if there is sub webs configuration
 $DSP_HasSubWebs = $false
 if($DSP_PortalAuthoringRootWebs.Length -gt 0)
@@ -54,66 +57,92 @@ if($DSP_IsMultilingual)
         $DSP_VariationsTargetLabels += "'" + $_ + "'" + ","
 		$label = $_
 
+		# Publishing
+		$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingHostNamePath + "/" + $label +"'")
+		    
+		if($label -eq $DSP_SourceLabel)
+        {
+			
+			$DSP_PublishingSourceRootWebUrls +=  $PublishingCurrentUrl + ","
+        }
+        else
+        {
+            $DSP_PublishingTargetRootWebUrls += $PublishingCurrentUrl + ","
+        }	
+
 		# Authoring
 		if ($DSP_HasSubWebs)
 		{
 			# Means there is at least one sub web
 			$DSP_PortalAuthoringRootWebs | Foreach-Object{
+
+				$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label + "/" + $_ +"'")
 	
 				if($label -eq $DSP_SourceLabel)
 				{
-				   $DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label + "/" + $_ +"'") + ","
+				   $DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
 				}
 				else
 				{
-				   $DSP_AuthoringTargetRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label + "/" + $_ +"'") + ","
+				   $DSP_AuthoringTargetRootWebUrls += $AuthoringCurrentUrl + ","
 				}		
+
+				# Add the source labels mapping
+				$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )		
 			}   
 		}
 		else
 		{
+			$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'")
+
 			if($label -eq $DSP_SourceLabel)
 			{
-				$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'") + ","
+				$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
 			}
 			else
 			{
-				$DSP_AuthoringTargetRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'") + ","
-			}	
-		}	
-
-		# Publishing    
-		if($label -eq $DSP_SourceLabel)
-        {
-			$DSP_PublishingSourceRootWebUrls += ("'" + $DSP_PortalPublishingHostNamePath + "/" + $label +"'") + ","
-        }
-        else
-        {
-            $DSP_PublishingTargetRootWebUrls += ("'" + $DSP_PortalPublishingHostNamePath + "/" + $label +"'") + ","
-        }	            
+				$DSP_AuthoringTargetRootWebUrls += $AuthoringCurrentUrl + ","
+			}
+			
+			# Add the source labels mapping
+			$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )				
+		}	            
 	}
 }
 else
 {
     $DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringHostNamePath
 
+	# Publishing
+	$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingHostNamePath + "'")
+
 	if ($DSP_HasSubWebs)
 	{
 		# Means there is at least one sub web
 		$DSP_PortalAuthoringRootWebs | Foreach-Object{
+
+			$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $_ + "'")
 	
-			$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $_ + "'") + ","
+			$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
+
+			# Add the source labels mapping
+			$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )	
 		}
 	}
 	else
 	{
-		$DSP_AuthoringSourceRootWebUrls += ("'" + $DSP_PortalAuthoringHostNamePath + "'")
+		$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringHostNamePath + "'")
+
+		$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl
+
+		# Add the source labels mapping
+		$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )	
 	}
 }
-
 
 $DSP_AuthoringTargetRootWebUrls = $DSP_AuthoringTargetRootWebUrls.TrimEnd(",") + ")"
 $DSP_AuthoringSourceRootWebUrls = $DSP_AuthoringSourceRootWebUrls.TrimEnd(",") + ")"
 $DSP_PublishingTargetRootWebUrls = $DSP_PublishingTargetRootWebUrls.TrimEnd(",") + ")"
 $DSP_PublishingSourceRootWebUrls = $DSP_PublishingSourceRootWebUrls.TrimEnd(",") + ")"
 $DSP_VariationsTargetLabels = $DSP_VariationsTargetLabels.TrimEnd(",") + ")"
+$DSP_CrossSiteMappings = $DSP_CrossSiteMappings.TrimEnd(";") + "}"

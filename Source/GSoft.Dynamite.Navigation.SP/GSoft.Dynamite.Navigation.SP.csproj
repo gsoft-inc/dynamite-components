@@ -81,6 +81,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_OccurrenceLinkLocationField.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
     </Compile>
@@ -102,6 +105,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
       <FeatureId>{98247c1a-6b07-4c56-8b17-c8bbeb686220}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.feature">
+      <FeatureId>{d58a8afe-a46b-4ab4-8f6e-bab76cac6272}</FeatureId>
     </None>
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
       <FeatureId>{ced04885-2862-4464-afce-7b32194ce5e2}</FeatureId>
@@ -139,6 +145,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_OccurrenceLinkLocationField.feature</DependentUpon>
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>

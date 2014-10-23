@@ -39,6 +39,16 @@
         /// </summary>
         public static readonly string FieldPublishingStartDateDescription = "Field_PublishingStartDate_Desc";
 
+        /// <summary>
+        /// The field Occurrence Link Location Name
+        /// </summary>
+        public static readonly string FieldOccurrenceLinkLocationName = "Field_OccurrenceLinkLocation_Name";
+
+        /// <summary>
+        /// The field Occurrence Link Location Description
+        /// </summary>
+        public static readonly string FieldOccurrenceLinkLocationDescription = "Field_OccurrenceLinkLocation_Description";
+
         #endregion
 
 

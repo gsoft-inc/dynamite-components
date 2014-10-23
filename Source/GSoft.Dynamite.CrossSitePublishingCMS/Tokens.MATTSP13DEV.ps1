@@ -32,6 +32,13 @@ $DSP_PortalDatabaseName = "SP2013_Content_Portal"
 $DSP_PortalDefaultLanguage = "1033"
 
 # ******************************************
+# Application Configuration
+# ******************************************
+
+$DSP_SearchServiceApplicationName = "Search"
+$DSP_SearchContentSourceName = "Local SharePoint sites"
+
+# ******************************************
 # Multilingualism Configuration 
 # ******************************************
 
