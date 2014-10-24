@@ -45,5 +45,31 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
                 }
             }
         }
+
+        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
+        {
+            var site = properties.Feature.Parent as SPSite;
+
+            if (site != null)
+            {
+                using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
+                {
+                    var eventReceiverHelper = featureScope.Resolve<EventReceiverHelper>();
+                    var baseReceiversConfig = featureScope.Resolve<IMultilingualismEventReceiverInfoConfig>();
+                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
+                    var logger = featureScope.Resolve<ILogger>();
+
+                    foreach (var eventReceiver in baseEventReceivers)
+                    {
+                        logger.Info("Deleting event receiver for content type {0}", eventReceiver.ContentType.DisplayName);
+
+                        eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
+                        eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";
+
+                        eventReceiverHelper.DeleteEventReceiverDefinition(site, eventReceiver);
+                    }
+                }
+            }
+        }
     }
 }

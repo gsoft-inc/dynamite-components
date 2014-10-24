@@ -68,7 +68,7 @@
     <None Include="Modules\Navigation\NAV_02\Default\Default-KeywordsTermGroup.xml.template" />
     <None Include="Modules\Navigation\NAV_02\Export-TermGroups.ps1.template" />
     <None Include="Modules\Navigation\NAV_02\Import-TermGroups.ps1.template" />
-    <None Include="Modules\Navigation\NAV_02\install-NAV02.ps1" />
+    <None Include="Modules\Navigation\NAV_02\Install-NAV02.ps1" />
     <None Include="Modules\Navigation\NAV_02\Remove-TermGroups.ps1.template" />
     <None Include="Modules\Navigation\NAV_02\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />

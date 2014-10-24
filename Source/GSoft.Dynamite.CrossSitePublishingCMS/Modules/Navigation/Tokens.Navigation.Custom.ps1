@@ -7,4 +7,4 @@
 # ==================================
 
 $DSP_CUSTOM_PortalKeywordsConfigurationFile = ""
-$DSP_CUSTOM_PortalNavigationTermGroup = ""
+$DSP_CUSTOM_PortalKeywordsTermGroup = ""

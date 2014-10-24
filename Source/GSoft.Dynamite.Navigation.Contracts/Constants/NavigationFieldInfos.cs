@@ -61,9 +61,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 )
             {
                 Required = RequiredTypes.NotRequired,
-                IsHiddenInDisplayForm = true,
+                IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
-                IsHiddenInListSettings = true,
+                IsHiddenInListSettings = false,
                 IsHiddenInNewForm = true
             };
         }
