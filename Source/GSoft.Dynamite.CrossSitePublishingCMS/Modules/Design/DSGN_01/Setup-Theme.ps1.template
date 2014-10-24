@@ -5,7 +5,7 @@
 # Description	: Install Theme And logo 
 # -----------------------------------------------------------------------
 
-$CustomThemeFeatureId = "[[DSP_DEFAULT_ThemeFeatureId]]"
+$CustomThemeFeatureId = "[[DSP_CUSTOM_ThemeFeatureId]]"
 
 if (![string]::IsNullOrEmpty($CustomThemeFeatureId)) {
     Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]] -Id $CustomThemeFeatureId

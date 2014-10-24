@@ -47,6 +47,7 @@
     <None Include="Modules\Design\DSGN_01\Setup-JavascriptImports.ps1.template" />
     <None Include="Modules\Design\DSGN_01\Setup-MasterPage.ps1.template" />
     <None Include="Modules\Design\DSGN_01\Setup-Theme.ps1.template" />
+    <None Include="Modules\Design\Tokens.Design.Custom.ps1" />
     <None Include="Modules\Design\Tokens.Design.Default.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogConnections.ps1.template" />
