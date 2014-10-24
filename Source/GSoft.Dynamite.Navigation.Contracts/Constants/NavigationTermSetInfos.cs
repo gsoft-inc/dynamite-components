@@ -10,7 +10,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
     /// </summary>
     public class NavigationTermSetInfos
     {
-        private NavigationTermGroupInfos termGroupInfos;
+        private readonly NavigationTermGroupInfos termGroupInfos;
 
         /// <summary>
         /// Initializes properties

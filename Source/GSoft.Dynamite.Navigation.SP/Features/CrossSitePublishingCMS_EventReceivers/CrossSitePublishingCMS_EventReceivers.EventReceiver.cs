@@ -1,7 +1,5 @@
-using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
@@ -41,6 +39,32 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
                         eventReceiver.ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsableItemEvents";
 
                         eventReceiverHelper.AddEventReceiverDefinition(site, eventReceiver);
+                    }
+                }
+            }
+        }
+
+        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
+        {
+            var site = properties.Feature.Parent as SPSite;
+
+            if (site != null)
+            {
+                using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
+                {
+                    var eventReceiverHelper = featureScope.Resolve<EventReceiverHelper>();
+                    var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
+                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
+                    var logger = featureScope.Resolve<ILogger>();
+
+                    foreach (var eventReceiver in baseEventReceivers)
+                    {
+                        logger.Info("Deleting event receiver for content type {0}", eventReceiver.ContentType.DisplayName);
+
+                        eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
+                        eventReceiver.ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsableItemEvents";
+
+                        eventReceiverHelper.DeleteEventReceiverDefinition(site, eventReceiver);
                     }
                 }
             }

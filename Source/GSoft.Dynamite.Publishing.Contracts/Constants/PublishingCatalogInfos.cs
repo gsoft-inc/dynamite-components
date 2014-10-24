@@ -94,7 +94,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                        customizedNavigationField
                     },                
                     IsAnonymous = true,
-
+                    EnableAttachements = false
                 };
         }
 
@@ -131,7 +131,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {
                     this._fieldInfoValues.Navigation()
                 },
-                IsAnonymous = true
+                IsAnonymous = true,
+                EnableAttachements = false
             };
         }
 

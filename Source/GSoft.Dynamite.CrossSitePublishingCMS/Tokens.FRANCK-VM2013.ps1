@@ -44,7 +44,7 @@ $DSP_SourceLabel = "en"
 # ******************************************
 
 # Specify an empty array "@()" if there are not subsites
-$DSP_PortalAuthoringRootWebs = @('rh','com')
+$DSP_PortalAuthoringRootWebs = @()
 
 # ------------------------------------------
 # Common Tokens
