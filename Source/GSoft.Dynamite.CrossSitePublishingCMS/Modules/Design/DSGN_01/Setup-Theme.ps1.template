@@ -12,6 +12,11 @@ if (![string]::IsNullOrEmpty($CustomThemeFeatureId)) {
     Switch-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]] -Id $CustomThemeFeatureId
 }
 
+Write-Warning "Applying JS Imports on Publishing site..."
+
+# Activate features on publishing site collection.
+Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]] -Id "[[DSP_CommonCMS_JavascriptImports]]"
+
 Write-Warning "Applying Publishing Theme..."
 
 # Activate features on publishing site collection.
