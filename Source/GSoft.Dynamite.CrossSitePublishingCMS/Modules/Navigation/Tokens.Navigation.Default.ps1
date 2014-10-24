@@ -11,5 +11,5 @@ $DSP_CrossSitePublishingCMS_NAV_OccurrenceLinkLocation = "989e498b-81d0-4dc3-9c5
 $DSP_CrossSitePublishingCMS_NAV_CatalogConnections = "14864606-186f-4e73-b1e5-646c8657678e"
 
 $DSP_DEFAULT_PortalKeywordsConfigurationFile = "./Default/Default-KeywordsTermGroup.xml"
-$DSP_DEFAULT_PortalNavigationTermGroup = "Portal - Keywords"
+$DSP_DEFAULT_PortalKeywordsTermGroup = "Portal - Keywords"
 
