@@ -43,11 +43,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
+    <None Include="Modules\Docs\DOC_02\Default\ContentPages.xlsx" />
+    <None Include="Modules\Docs\DOC_02\Default\NewsPages.xlsx" />
+    <None Include="Modules\Docs\DOC_02\Install-DOC02.ps1" />
+    <None Include="Modules\Docs\DOC_02\Setup-Content.ps1.template" />
+    <None Include="Modules\Docs\Tokens.Docs.Custom.ps1" />
+    <None Include="Modules\Docs\Tokens.Docs.Default.ps1" />
     <None Include="Modules\Design\DSGN_01\Install-DSGN01.ps1" />
     <None Include="Modules\Design\DSGN_01\Setup-JavascriptImports.ps1.template" />
     <None Include="Modules\Design\DSGN_01\Setup-MasterPage.ps1.template" />
     <None Include="Modules\Design\DSGN_01\Setup-Theme.ps1.template" />
-    <None Include="Modules\Design\Tokens.Design.Custom.ps1" />
     <None Include="Modules\Design\Tokens.Design.Default.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogConnections.ps1.template" />
@@ -109,6 +114,7 @@
     <None Include="Tokens\Tokens.Common.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Modules\Docs\DOC_02\Custom\" />
     <Folder Include="Modules\Lifecycle\" />
     <Folder Include="Modules\Navigation\NAV_02\Custom\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
@@ -135,6 +141,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Execute-PostDeploymentScript.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Modules\Docs\DOC_02\Default\Images\Image1.jpg" />
+    <Content Include="Modules\Docs\DOC_02\Default\Images\Image2.jpg" />
+    <Content Include="Modules\Docs\DOC_02\Default\Images\Image3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

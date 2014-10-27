@@ -1,0 +1,111 @@
+﻿# -----------------------------------------------------------------------
+# Copyright		: GSoft @2014
+# Model  		: Cross Site Publishing CMS
+# File          : Setup-Content.ps1.template
+# Description	: Import Content into catalogs
+# -----------------------------------------------------------------------
+
+param([string]$LogFolderPath)
+
+# Configure Reports files
+
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+
+if ([string]::IsNullOrEmpty($LogFolderPath))
+{
+	$LogFolderPath = $CommandDirectory
+}
+
+# Create Copy Settings
+$copySettings = New-CopySettings -OnContentItemExists Overwrite
+
+# Create an new ShareGate template without permissions checking
+$propertyTemplate = New-PropertyTemplate -NoLinkCorrection -CheckInAs Publish -ContentApproval Approved
+
+$DefaultImagesFolder = "[[DSP_DEFAULT_ImagesSourceFolder]]"
+$CustomImagesFolder = "[[DSP_CUSTOM_ImagesSourceFolder]]"
+
+$DefaultExcelFilesFolder = "[[DSP_DEFAULT_ExcelFilesSourceFolder]]"
+$CustomExcelFilesFolder = "[[DSP_CUSTOM_ExcelFilesSourceFolder]]"
+
+$CustomCatalogsTitles = "[[DSP_CUSTOM_CatalogTitles]]"
+
+$ImagesConfigurationFolder = $CommandDirectory  + $DefaultImagesFolder
+$ExcelConfigurationFolder = $CommandDirectory + $DefaultExcelFilesFolder
+
+if(![string]::IsNullOrEmpty($CustomImagesFolder))
+{
+	$ImagesConfigurationFolder = $CommandDirectory + $CustomImagesFolder
+}
+
+if(![string]::IsNullOrEmpty($CustomExcelFilesFolder))
+{
+	$ExcelConfigurationFolder = $CommandDirectory + $CustomExcelFilesFolder
+}
+
+Write-Warning "Importing images..."
+
+# Add Images to site collection images
+$imagelist = Connect-Site -Url [[DSP_PortalAuthoringHostNamePath]]| Get-List -Name "Site Collection Images"
+Import-Document -DestinationList $imagelist -Template $propertyTemplate -SourceFolder $ImagesConfigurationFolder | Export-Report -Path ($LogFolderPath + "\Images_ImportReport") -Overwrite
+
+# Only import data in root authoring webs because of variations syncing
+[[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object { 
+
+	$CurrentAuthoringWeb = $_
+
+	$Catalogs = [[DSP_CUSTOM_CatalogTitles]]
+	
+	if($Catalogs.Count -eq 0)
+	{
+		$Catalogs = [[DSP_DEFAULT_CatalogTitles]]
+	}
+
+	# Excel Files
+	$Catalogs.Keys | Foreach-Object {
+	
+		$CurrentFileName = $_
+		$CatalogDisplayName = $Catalogs.Item($_)
+	
+		# Get a fake random list (not needed in the procedure because we use an Excel file but needed for the cmdlet)
+		$srcList = Connect-Site -Url [[DSP_PortalAuthoringHostNamePath]] | Get-List | Where-Object {$_.BaseType -eq "List"} | Select -First 1
+
+		$dstList = Connect-Site -Url $CurrentAuthoringWeb | Get-List -Name $CatalogDisplayName
+
+		if($dstList -ne $null)
+		{
+			# Trick to get the exact mappings settings for the list
+			$mappingSettings = Get-PropertyMapping -SourceList $dstList -DestinationList $dstList 
+			# Add custom key (internal unique ID)
+			$mappingSettings = Set-PropertyMapping -MappingSettings $mappingSettings -Source BusinessID -Destination BusinessID -Key
+			# Remove previous key
+			$mappingSettings = Set-PropertyMapping -MappingSettings $mappingSettings -Source Created -Destination Created
+
+			# Get the specified file accroding to the default folder
+			$file = Get-ChildItem -Path $ExcelConfigurationFolder | Where-Object {$_.Name -eq $CurrentFileName}
+			if ($file -ne $null)
+			{		
+				Write-Warning "Importing data into catalog $CatalogDisplayName in web $CurrentAuthoringWeb..."
+				Copy-Content -SourceList $srcList -DestinationList $dstList -Template $propertyTemplate -ExcelFilePath $file.FullName -MappingSettings $mappingSettings -CopySettings $copySettings | Export-Report -Path ($LogFolderPath + "\" + $CatalogDisplayName + "_ImportReport") -Overwrite
+			}
+		}
+		else
+		{
+			Write-Warning "Unable to find the catalog with name $CatalogDisplayName in web $CurrentAuthoringWeb"
+		}
+	}
+}
+
+# Check Multilingual settings
+$IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
+
+if($IsMultilingual)
+{
+	# We don't need to sync manually items because we force the "Approved" status which automatically fired variations event receiver 
+	# Sync item with timer job
+	$WebApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
+	Wait-SPTimerJob -Name "VariationsPropagateListItem" -WebApplication $WebApplication
+	Write-Warning "Waiting for 'VariationsPropagateListItem' timer job to finish..."
+	Start-Sleep -Seconds 15
+}

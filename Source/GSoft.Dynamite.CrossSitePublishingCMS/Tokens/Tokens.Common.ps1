@@ -27,6 +27,12 @@
 . ./Modules/Design/Tokens.Design.Custom.ps1
 
 # ******************************************
+# Design Module tokens
+# ******************************************
+. ./Modules/Docs/Tokens.Docs.Default.ps1
+. ./Modules/Docs/Tokens.Docs.Custom.ps1
+
+# ******************************************
 # Urls builder
 # ******************************************
 
