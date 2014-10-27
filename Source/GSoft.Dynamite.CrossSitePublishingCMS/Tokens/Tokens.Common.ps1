@@ -19,12 +19,19 @@
 # Navigation Module tokens
 # ******************************************
 . ./Modules/Navigation/Tokens.Navigation.Default.ps1
+. ./Modules/Navigation/Tokens.Navigation.Custom.ps1
 
 # ******************************************
 # Design Module tokens
 # ******************************************
 . ./Modules/Design/Tokens.Design.Default.ps1
 . ./Modules/Design/Tokens.Design.Custom.ps1
+
+# ******************************************
+# Design Module tokens
+# ******************************************
+. ./Modules/Docs/Tokens.Docs.Default.ps1
+. ./Modules/Docs/Tokens.Docs.Custom.ps1
 
 # ******************************************
 # Urls builder
