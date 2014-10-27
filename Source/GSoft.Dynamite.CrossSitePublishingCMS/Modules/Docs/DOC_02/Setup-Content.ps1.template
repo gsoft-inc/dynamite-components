@@ -78,7 +78,7 @@ Import-Document -DestinationList $imagelist -Template $propertyTemplate -SourceF
 			# Trick to get the exact mappings settings for the list
 			$mappingSettings = Get-PropertyMapping -SourceList $dstList -DestinationList $dstList 
 			# Add custom key (internal unique ID)
-			$mappingSettings = Set-PropertyMapping -MappingSettings $mappingSettings -Source BusinessID -Destination BusinessID -Key
+			$mappingSettings = Set-PropertyMapping -MappingSettings $mappingSettings -Source DynamiteInternalId -Destination DynamiteInternalId -Key
 			# Remove previous key
 			$mappingSettings = Set-PropertyMapping -MappingSettings $mappingSettings -Source Created -Destination Created
 

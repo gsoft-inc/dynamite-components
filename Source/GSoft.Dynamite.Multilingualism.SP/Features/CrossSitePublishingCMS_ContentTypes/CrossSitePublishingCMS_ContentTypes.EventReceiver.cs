@@ -37,22 +37,6 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Cont
                     {
                         contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                     }
-
-                    // Create additionnal custom content types
-                 /*   ICustomPublishingContentTypeInfoConfig customContentTypeConfig = null;
-                    if (featureScope.TryResolve(out customContentTypeConfig))
-                    {
-                        var customContentTypes = customContentTypeConfig.ContentTypes;
-
-                        foreach (var contentType in customContentTypes)
-                        {
-                            contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
-                        }
-                    }
-                    else
-                    {
-                        logger.Info("No custom content types override found!");
-                    }*/
                 }
             }
         }

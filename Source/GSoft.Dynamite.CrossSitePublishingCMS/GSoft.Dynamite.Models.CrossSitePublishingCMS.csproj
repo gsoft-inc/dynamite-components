@@ -47,6 +47,8 @@
     <None Include="Modules\Docs\DOC_02\Default\NewsPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Install-DOC02.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Content.ps1.template" />
+    <None Include="Modules\Docs\DOC_02\Setup-ContentTypes.ps1.template" />
+    <None Include="Modules\Docs\DOC_02\Setup-Fields.ps1.template" />
     <None Include="Modules\Docs\Tokens.Docs.Custom.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Default.ps1" />
     <None Include="Modules\Design\DSGN_01\Install-DSGN01.ps1" />

@@ -17,7 +17,7 @@ Write-Warning "Applying Catalogs Synchronization..."
 $webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
 Wait-SPTimerJob -Name "VariationsSpawnSites" -WebApplication $webApplication
 Write-Warning "Waiting for 'VariationsSpawnSites' timer job to finish..."
-Start-Sleep -Seconds 30
+Start-Sleep -Seconds 60
 
 # Activate features on target sites (if the solution is multilingual). If not there is only one source site
 [[DSP_AuthoringTargetRootWebUrls]] | Foreach-Object{
