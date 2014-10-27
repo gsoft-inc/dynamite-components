@@ -22,9 +22,9 @@ if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 }
 
 # Taxonomy Settings
-$DefautKeywordstermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
+$DefautKeywordstermGroup = "[[DSP_DEFAULT_PortalKeywordsTermGroup]]"
 
-$CustomKeywordsTermGroup = "[[DSP_CUSTOM_PortalNavigationTermGroup]]"
+$CustomKeywordsTermGroup = "[[DSP_CUSTOM_PortalKeywordsTermGroup]]"
 
 $KeywordsTermGroup = $DefautKeywordstermGroup
 
