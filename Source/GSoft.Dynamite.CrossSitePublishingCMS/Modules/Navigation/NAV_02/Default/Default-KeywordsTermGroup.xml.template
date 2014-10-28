@@ -6,7 +6,6 @@
           <Descriptions>
             <Description Language="1033" Value="" />
             <Description Language="1036" Value="" />
-            <Description Language="1117" Value="" />
           </Descriptions>
           <CustomProperties />
           <Labels>
@@ -16,8 +15,7 @@
         <Term Id="4d9e88fc-d330-4d6c-a01d-c11a405d4a15" Name="Footer" CreatedDate="10/23/2014 3:37:52 PM" LastModifiedDate="10/23/2014 3:37:52 PM" Owner="[[DSP_PortalAdmin]]" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="False" IsRoot="True" IsSourceTerm="True" CustomSortOrder="" SourceTerm="4d9e88fc-d330-4d6c-a01d-c11a405d4a15|Footer">
           <Descriptions>
             <Description Language="1033" Value="" />
-            <Description Language="1036" Value="" />
-            <Description Language="1117" Value="" />
+            <Description Language="1036" Value="" />        
           </Descriptions>
           <CustomProperties />
           <Labels>
@@ -28,7 +26,6 @@
           <Descriptions>
             <Description Language="1033" Value="" />
             <Description Language="1036" Value="" />
-            <Description Language="1117" Value="" />
           </Descriptions>
           <CustomProperties />
           <Labels>
@@ -39,7 +36,6 @@
           <Descriptions>
             <Description Language="1033" Value="" />
             <Description Language="1036" Value="" />
-            <Description Language="1117" Value="" />
           </Descriptions>
           <CustomProperties />
           <Labels>
