@@ -29,7 +29,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 WebParts = new Dictionary<string, WebPartInfo>()
                 {
                     {"Main",this.webPartInfos.TargetItemContentWebPart()}
-                }
+                },
+                IsPublished = true             
             };
         }
 
@@ -48,7 +49,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 WebParts = new Dictionary<string, WebPartInfo>()
                 {
                     {"Main",this.webPartInfos.CatalogItemContentWebPart()}
-                }
+                },
+                IsPublished = true
             };
         }
 

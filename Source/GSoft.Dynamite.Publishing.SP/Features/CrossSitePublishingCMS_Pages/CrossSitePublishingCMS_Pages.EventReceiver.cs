@@ -38,11 +38,23 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
 
                     foreach (var rootFolderHierarchy in baseFoldersConfig.RootFolderHierarchies())
                     {
-                        if (web.Locale.TwoLetterISOLanguageName == rootFolderHierarchy.Locale.TwoLetterISOLanguageName)
-                        {                  
-                            // Create folder hierarchy starting by the root folder
-                            // NOTE: All pages are created through folders hierachy
-                            var pagesLibrary = web.GetPagesLibrary();
+                        var pagesLibrary = web.GetPagesLibrary();
+
+                        if (rootFolderHierarchy.Locale != null)
+                        {
+                            if (web.Locale.TwoLetterISOLanguageName == rootFolderHierarchy.Locale.TwoLetterISOLanguageName)
+                            {
+                                // Create folder hierarchy starting by the root folder
+                                // NOTE: All pages are created through folders hierachy
+                                folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolderHierarchy);
+                            }
+                            else
+                            {
+                                logger.Info("The root folder {0} does not apply on this web according to its locale {1}", rootFolderHierarchy.Name, rootFolderHierarchy.Locale.TwoLetterISOLanguageName);
+                            }
+                        }
+                        else
+                        {
                             folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolderHierarchy);
                         }
                     }
