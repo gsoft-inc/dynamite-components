@@ -53,8 +53,19 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         {
             var dateFieldValue = item[fieldName];
             var date = (DateTime)dateFieldValue;
-            var language = PublishingWeb.GetPublishingWeb(item.Web).Label.Language;
-            var culture = new CultureInfo(language);
+            var publishingWeb = PublishingWeb.GetPublishingWeb(item.Web);
+            CultureInfo culture;
+
+            // If the site has a variation label
+            if (publishingWeb.Label != null)
+            {
+                var language = publishingWeb.Label.Language;
+                culture = new CultureInfo(language);
+            }
+            else
+            {
+                culture = publishingWeb.Web.Locale;
+            }
 
             return date.ToString("d", culture).Replace('/', '-');
         }
