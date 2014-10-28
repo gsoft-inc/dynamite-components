@@ -1,6 +1,6 @@
 ﻿using System.Web.UI.WebControls.WebParts;
 using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.WebParts;
+using GSoft.Dynamite.Helpers;
 using Microsoft.Office.Server.Search.WebControls;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
