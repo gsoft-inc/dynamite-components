@@ -31,11 +31,12 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                     var catalogHelper = featureScope.Resolve<CatalogHelper>();
                     var baseCatalogInfoConfig = featureScope.Resolve<IPublishingCatalogInfoConfig>();
 
-                    List<CatalogInfo> baseCatalogs = baseCatalogInfoConfig.Catalogs() as List<CatalogInfo>;
+                    var baseCatalogs = baseCatalogInfoConfig.Catalogs() as List<CatalogInfo>;
                     
                     // Create catalogs
                     foreach (var catalog in baseCatalogs)
                     {
+                        logger.Info("Creating catalog {0} on web {1}", catalog.RootFolderUrl, web.Url);
                         catalogHelper.EnsureCatalog(web, catalog);
                     }
                 }

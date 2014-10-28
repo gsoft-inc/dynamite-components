@@ -34,6 +34,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                     // Create base Fields
                     foreach (IFieldInfo field in baseFields)
                     {
+                        logger.Info("Creating field {0} on site {1}", field.InternalName, site.Url);
                         fieldHelper.EnsureField(site.RootWeb.Fields, field);
                     }
                 }

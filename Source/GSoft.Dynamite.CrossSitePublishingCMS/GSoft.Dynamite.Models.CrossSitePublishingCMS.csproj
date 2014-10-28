@@ -44,6 +44,10 @@
   <ItemGroup>
     <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
     <None Include="Modules\Docs\DOC_02\Default\ContentPages.xlsx" />
+    <None Include="Modules\Docs\DOC_02\Default\en\ContentPages.xlsx" />
+    <None Include="Modules\Docs\DOC_02\Default\en\NewsPages.xlsx" />
+    <None Include="Modules\Docs\DOC_02\Default\fr\ContentPages.xlsx" />
+    <None Include="Modules\Docs\DOC_02\Default\fr\NewsPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\NewsPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Install-DOC02.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Content.ps1.template" />
@@ -72,7 +76,9 @@
     <None Include="Modules\Navigation\NAV_01\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-TermDrivenPages.ps1.template" />
-    <None Include="Modules\Navigation\NAV_02\Default\Default-KeywordsTermGroup.xml.template" />
+    <None Include="Modules\Navigation\NAV_02\Default\Default-KeywordsTermGroup.xml.template">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Modules\Navigation\NAV_02\Export-TermGroups.ps1.template" />
     <None Include="Modules\Navigation\NAV_02\Import-TermGroups.ps1.template" />
     <None Include="Modules\Navigation\NAV_02\Install-NAV02.ps1" />
@@ -148,6 +154,7 @@
     <Content Include="Modules\Docs\DOC_02\Default\Images\Image1.jpg" />
     <Content Include="Modules\Docs\DOC_02\Default\Images\Image2.jpg" />
     <Content Include="Modules\Docs\DOC_02\Default\Images\Image3.jpg" />
+    <Content Include="Modules\Docs\DOC_02\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

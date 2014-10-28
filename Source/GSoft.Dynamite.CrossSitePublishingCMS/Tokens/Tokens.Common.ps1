@@ -46,6 +46,9 @@ $DSP_PublishingTargetRootWebUrls = "@("
 # Hash table of site url mappings between Authoring and Publishing
 $DSP_CrossSiteMappings = "@{"
 
+# Hash table of urls by label
+$DSP_AuthoringUrlsByLabels = "@{"
+
 # Check if there is sub webs configuration
 $DSP_HasSubWebs = $false
 if($DSP_PortalAuthoringRootWebs.Length -gt 0)
@@ -96,6 +99,9 @@ if($DSP_IsMultilingual)
 
 				# Add the source labels mapping
 				$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )		
+
+				# Add the URL for the current label
+				$DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
 			}   
 		}
 		else
@@ -112,7 +118,10 @@ if($DSP_IsMultilingual)
 			}
 			
 			# Add the source labels mapping
-			$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )				
+			$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )			
+			
+			# Add the URL for the current label
+			$DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
 		}	            
 	}
 }
@@ -122,6 +131,8 @@ else
 
 	# Publishing
 	$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingHostNamePath + "'")
+
+	$DSP_PublishingSourceRootWebUrls += $PublishingCurrentUrl
 
 	if ($DSP_HasSubWebs)
 	{
@@ -134,6 +145,9 @@ else
 
 			# Add the source labels mapping
 			$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )	
+
+			# Add the URL for the current label
+			$DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
 		}
 	}
 	else
@@ -143,7 +157,10 @@ else
 		$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl
 
 		# Add the source labels mapping
-		$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )	
+		$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )
+		
+		# Add the URL for the current label
+		$DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
 	}
 }
 
@@ -153,3 +170,4 @@ $DSP_PublishingTargetRootWebUrls = $DSP_PublishingTargetRootWebUrls.TrimEnd(",")
 $DSP_PublishingSourceRootWebUrls = $DSP_PublishingSourceRootWebUrls.TrimEnd(",") + ")"
 $DSP_VariationsTargetLabels = $DSP_VariationsTargetLabels.TrimEnd(",") + ")"
 $DSP_CrossSiteMappings = $DSP_CrossSiteMappings.TrimEnd(";") + "}"
+$DSP_AuthoringUrlsByLabels = $DSP_AuthoringUrlsByLabels.TrimEnd(";") + "}"

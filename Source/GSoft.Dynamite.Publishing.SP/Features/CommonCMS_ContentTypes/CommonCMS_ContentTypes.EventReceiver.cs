@@ -34,25 +34,10 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
 
                     // Create base content types
                     foreach (var contentType in baseContentTypes)
-                    {   
+                    {
+                        logger.Info("Creating content type {0} on site {1}", contentType.DisplayName, site.Url);
                         contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                     }
-
-                    // Create additionnal custom content types
-                   /* ICustomPublishingContentTypeInfoConfig customContentTypeConfig = null;
-                    if (featureScope.TryResolve(out customContentTypeConfig))
-                    {
-                        var customContentTypes = customContentTypeConfig.ContentTypes;
-                        
-                        foreach (var contentType in customContentTypes)
-                        {
-                            contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
-                        }
-                    }
-                    else
-                    {
-                        logger.Info("No custom content types override found!");
-                    }*/
                 }
             }
         }
