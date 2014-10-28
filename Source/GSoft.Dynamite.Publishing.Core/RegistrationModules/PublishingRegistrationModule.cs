@@ -52,6 +52,9 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             // Result Types
             builder.RegisterType<PublishingResultTypeInfoConfig>().As<IPublishingResultTypeInfoConfig>();
             builder.RegisterType<PublishingResultTypeInfoConfig>().Named<IPublishingResultTypeInfoConfig>("publishing");
+
+            // Managed Properties
+            builder.RegisterType<PublishingManagedPropertyConfig>().As<IGlobalManagedPropertyInfosConfig>();
                      
             // Configuration Values
             builder.RegisterType<PublishingContentTypeInfos>();
@@ -66,7 +69,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingFolderInfos>();
             builder.RegisterType<PublishingDisplayTemplateInfos>();
             builder.RegisterType<PublishingWebPartInfos>();
-            builder.RegisterType<PublishingResultTypeInfos>(); 
+            builder.RegisterType<PublishingResultTypeInfos>();
+            builder.RegisterType<PublishingManagedPropertyInfos>(); 
         }
     }
 }

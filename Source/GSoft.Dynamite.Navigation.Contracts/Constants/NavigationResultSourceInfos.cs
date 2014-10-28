@@ -11,10 +11,16 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
     public class NavigationResultSourceInfos
     {
         private readonly PublishingResultSourceInfos resultSourceInfos;
+        private readonly  PublishingManagedPropertyInfos publishingManagedPropertyInfos;
+        private readonly  NavigationManagedPropertyInfos navigationManagedPropertyInfos;
 
-        public NavigationResultSourceInfos(PublishingResultSourceInfos resultSourceInfos)
+        public NavigationResultSourceInfos(PublishingResultSourceInfos resultSourceInfos, 
+            PublishingManagedPropertyInfos publishingManagedPropertyInfos,
+            NavigationManagedPropertyInfos navigationManagedPropertyInfos)
         {
             this.resultSourceInfos = resultSourceInfos;
+            this.publishingManagedPropertyInfos = publishingManagedPropertyInfos;
+            this.navigationManagedPropertyInfos = navigationManagedPropertyInfos;
         }
 
         public ResultSourceInfo SingleCatalogItem()
@@ -24,10 +30,10 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             // Not a problem if you overwrite the existing result source (it doesn't cause broken links)
             singleCatalogItem.Overwrite = true;
 
-            var dateSlug = NavigationManagedPropertyInfos.DateSlugManagedProperty.Name;
-            var titleSlug = NavigationManagedPropertyInfos.TitleSlugManagedProperty.Name;
-            var listItemId = PublishingManagedPropertyInfos.ListItemId.Name;
-            var navigation = PublishingManagedPropertyInfos.Navigation.Name;
+            var dateSlug = this.navigationManagedPropertyInfos.DateSlugManagedProperty.Name;
+            var titleSlug = this.navigationManagedPropertyInfos.TitleSlugManagedProperty.Name;
+            var listItemId = this.publishingManagedPropertyInfos.ListItemId.Name;
+            var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
 
             // Extend the existing query 
             singleCatalogItem.Query += 
@@ -43,7 +49,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
 
             singleCatalogItem.Overwrite = true;
 
-            var navigation = PublishingManagedPropertyInfos.Navigation.Name;
+            var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
 
             // Extend the existing query 
             singleCatalogItem.Query +=

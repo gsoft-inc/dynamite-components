@@ -129,6 +129,12 @@
   <data name="Feature_CrossSitePublishingCMS_Fields_Name" xml:space="preserve">
     <value>Dynamite CMS de publication intersites - Module de gestion documentaire - Colonnes</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_ManagedProperties_Desc" xml:space="preserve">
+    <value>Créer les propriétés de recherche gérées de la solution globale pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ManagedProperties_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de gestion documentaire - Propriétés de recherche gérées</value>
+  </data>
   <data name="Field_InternalId_Desc" xml:space="preserve">
     <value>Identifiant interne unique</value>
   </data>

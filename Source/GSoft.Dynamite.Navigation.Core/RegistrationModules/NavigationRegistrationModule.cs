@@ -6,6 +6,7 @@ using GSoft.Dynamite.Navigation.Contracts.Resources;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Navigation.Core.Configuration;
 using GSoft.Dynamite.Navigation.Core.Services;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 
 namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
 {
@@ -40,6 +41,9 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             // Catalog Connections
             builder.RegisterType<NavigationCatalogConnectionInfoConfig>().As<INavigationCatalogConnectionInfoConfig>();
 
+            // Managed Properties
+            builder.RegisterType<NavigationManagedPropertyConfig>().As<IGlobalManagedPropertyInfosConfig>();
+
             // Configuration Values
             builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();
             builder.RegisterType<NavigationFieldInfos>();
@@ -47,8 +51,8 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationResultSourceInfos>();
             builder.RegisterType<NavigationCatalogConnectionInfos>();
             builder.RegisterType<NavigationTermGroupInfos>();
-            builder.RegisterType<NavigationTermSetInfos>(); 
-            
+            builder.RegisterType<NavigationTermSetInfos>();
+            builder.RegisterType<NavigationManagedPropertyInfos>(); 
 
             // Slug Builder Service
             builder.RegisterType<SlugBuilderService>().As<ISlugBuilderService>();

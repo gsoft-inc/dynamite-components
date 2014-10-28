@@ -4,6 +4,7 @@ using GSoft.Dynamite.Docs.Contracts.Constants;
 using GSoft.Dynamite.Docs.Contracts.Resources;
 using GSoft.Dynamite.Docs.Core.Configuration;
 using GSoft.Dynamite.Globalization;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 
 namespace GSoft.Dynamite.Docs.Core.RegistrationModules
 {
@@ -28,6 +29,9 @@ namespace GSoft.Dynamite.Docs.Core.RegistrationModules
 
             // Content Types Configuration
             builder.RegisterType<DocsContentTypeInfoConfig>().As<IDocsContentTypeInfoConfig>();
+
+            // Managed Properties
+            builder.RegisterType<DocsManagedPropertyInfosConfig>().As<IDocsManagedPropertyInfoConfig>();
         }
     }
 }

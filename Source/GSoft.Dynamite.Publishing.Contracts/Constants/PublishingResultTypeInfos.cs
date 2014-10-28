@@ -10,13 +10,15 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         private readonly PublishingDisplayTemplateInfos _displayTemplateInfos;
         private readonly PublishingResultSourceInfos _resultSourceInfos;      
         private readonly PublishingContentTypeInfos _contentTypeInfos;
+        private readonly PublishingManagedPropertyInfos _publishingManagedPropertyInfos;
 
         public PublishingResultTypeInfos(PublishingDisplayTemplateInfos displayTemplateInfos,
-            PublishingResultSourceInfos resultSourceInfos, PublishingContentTypeInfos contentTypeInfos)
+            PublishingResultSourceInfos resultSourceInfos, PublishingContentTypeInfos contentTypeInfos, PublishingManagedPropertyInfos publishingManagedPropertyInfos)
         {
             this._displayTemplateInfos = displayTemplateInfos;
             this._resultSourceInfos = resultSourceInfos;
             this._contentTypeInfos = contentTypeInfos;
+            this._publishingManagedPropertyInfos = publishingManagedPropertyInfos;
         }
 
         public ResultTypeInfo NewsPageResultType()
@@ -29,11 +31,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Priority = 1,
                 DisplayProperties = new List<ManagedPropertyInfo>()
                 {
-                    PublishingManagedPropertyInfos.Navigation,
+                    this._publishingManagedPropertyInfos.Navigation,
                 },
                 Rules = new List<ResultTypeRuleInfo>()
                 {
-                    new ResultTypeRuleInfo(PublishingManagedPropertyInfos.ContentTypeId,
+                    new ResultTypeRuleInfo(this._publishingManagedPropertyInfos.ContentTypeId,
                         PropertyRuleOperator.DefaultOperator.Contains,
                         new string[] {this._contentTypeInfos.NewsItem().ContentTypeId})
                 }
@@ -50,11 +52,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Priority = 1,
                 DisplayProperties = new List<ManagedPropertyInfo>()
                 {
-                    PublishingManagedPropertyInfos.Navigation,
+                    this._publishingManagedPropertyInfos.Navigation,
                 },
                 Rules = new List<ResultTypeRuleInfo>()
                 {
-                    new ResultTypeRuleInfo(PublishingManagedPropertyInfos.ContentTypeId,
+                    new ResultTypeRuleInfo(this._publishingManagedPropertyInfos.ContentTypeId,
                         PropertyRuleOperator.DefaultOperator.Contains,
                         new string[] {this._contentTypeInfos.ContentItem().ContentTypeId})
                 }

@@ -52,6 +52,12 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-Content.ps1'
 & $Script $LogFolderPath
 
+$values = @{"Step: " = "#4 Setup Search Managed Properties"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ManagedProperties.ps1'
+& $Script $LogFolderPath
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

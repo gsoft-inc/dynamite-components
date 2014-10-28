@@ -48,7 +48,11 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10093\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10095\lib\net45\GSoft.Dynamite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -71,6 +75,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ManagedProperties.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +89,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.feature">
       <FeatureId>{af76eb89-446e-4e5f-8253-48695b9762fa}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.feature">
+      <FeatureId>{2ab34b0c-a2c3-41df-8878-bd800027926a}</FeatureId>
     </None>
     <None Include="key.snk" />
     <None Include="packages.config" />
@@ -103,6 +113,9 @@
     <Content Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
     </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ManagedProperties.feature</DependentUpon>
+    </Content>
     <Content Include="Resources\GSoft.Dynamite.Docs.Global.en-US.resx" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +125,10 @@
     <ProjectReference Include="..\GSoft.Dynamite.Docs.Contracts\GSoft.Dynamite.Docs.Contracts.csproj">
       <Project>{b35ace7c-9459-4726-b1ff-9fb627815d13}</Project>
       <Name>GSoft.Dynamite.Docs.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
+      <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
+      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

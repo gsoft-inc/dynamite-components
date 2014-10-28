@@ -61,6 +61,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// </summary>
         protected override void CreateChildControls()
         {
+            var multilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
+
             //If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
             //shared search results from the Content by Search Web Part
             //if (CatalogNavigationContext.Current.Type == CatalogNavigationType.ItemPage)
@@ -71,7 +73,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 NumberOfItems = 1,
                 UseSharedDataProvider = true,
                 QueryGroupName = "Default",
-                SelectedPropertiesJson = string.Format("['{0}']", MultilingualismManagedProperties.ContentAssociationKey),
+                SelectedPropertiesJson = string.Format("['{0}']", multilingualismManagedPropertyInfos.ContentAssociationKey),
             };
 
             Controls.Add(catalogItemWebPart);
@@ -88,6 +90,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
             {
 
                 var catalogNavigation = MultilingualismContainerProxy.Current.Resolve<ICatalogNavigation>();
+                var multilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>(); 
+
                 var currentWebUrl = new Uri(SPContext.Current.Web.Url);
                 var labels = this.LanguageSwitcherService.GetPeerVariationLabels(currentWebUrl, Variations.Current, SPContext.Current.Web.CurrentUser);
 
@@ -95,9 +99,9 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 {
                     if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
                     {
-                        catalogNavigation.LanguageManagedPropertyName = MultilingualismManagedProperties.ItemLanguage.Name;
+                        catalogNavigation.LanguageManagedPropertyName = multilingualismManagedPropertyInfos.ItemLanguage.Name;
                         catalogNavigation.CatalogNavigationTermManagedPropertyName = PublishingManagedPropertyInfos.Navigation.Name;
-                        catalogNavigation.AssociationKeyManagedPropertyName = MultilingualismManagedProperties.ContentAssociationKey.Name;
+                        catalogNavigation.AssociationKeyManagedPropertyName = multilingualismManagedPropertyInfos.ContentAssociationKey.Name;
                         catalogNavigation.AssociationKeyValue = this.AssociationKey;
                     }
 

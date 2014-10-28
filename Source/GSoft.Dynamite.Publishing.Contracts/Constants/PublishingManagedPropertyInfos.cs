@@ -1,33 +1,42 @@
-﻿using GSoft.Dynamite.Definitions;
+﻿using System.Collections.Generic;
+using Microsoft.Office.Server.Search.Administration;
+using ManagedPropertyInfo = GSoft.Dynamite.Definitions.ManagedPropertyInfo;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
-    public static class PublishingManagedPropertyInfos
+    public class PublishingManagedPropertyInfos
     {
         /// <summary>
         /// The navigation managed property name
         /// </summary>
-        public static readonly ManagedPropertyInfo Navigation = new ManagedPropertyInfo("owstaxIdDynamiteNavigation");
+        public ManagedPropertyInfo Navigation = new ManagedPropertyInfo("owstaxIdDynamiteNavigation", ManagedDataType.Text);
 
         /// <summary>
         /// The navigation text managed property name
         /// </summary>
-        public static readonly ManagedPropertyInfo NavigationText = new ManagedPropertyInfo("DynamiteNavigationOWSTEXT");  
+        public ManagedPropertyInfo NavigationText = new ManagedPropertyInfo("DynamiteNavigationOWSTEXT",
+            ManagedDataType.Text)
+        {
+            CrawledProperties = new Dictionary<string, int>()
+            {
+                {"ows_DynamiteNavigation", 1}
+            },
+            RespectPriority = true
+
+        };
    
         #region SharePoint builtin Managed Properties
 
         /// <summary>
         /// List item Id
         /// </summary>
-        public static readonly ManagedPropertyInfo ListItemId = new ManagedPropertyInfo("ListItemID");
+        public ManagedPropertyInfo ListItemId = new ManagedPropertyInfo("ListItemID", ManagedDataType.Text);
 
         /// <summary>
         /// ContentTypeId
         /// </summary>
-        public static readonly ManagedPropertyInfo ContentTypeId = new ManagedPropertyInfo("ContentTypeId");  
+        public ManagedPropertyInfo ContentTypeId = new ManagedPropertyInfo("ContentTypeId", ManagedDataType.Text);  
 
-        
-   
         #endregion
     }
 }
