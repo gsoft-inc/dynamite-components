@@ -4,6 +4,7 @@ using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
+using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using Microsoft.SharePoint;

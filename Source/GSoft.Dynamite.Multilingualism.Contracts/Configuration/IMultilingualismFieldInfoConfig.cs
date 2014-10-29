@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.FieldTypes;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Configuration
 {

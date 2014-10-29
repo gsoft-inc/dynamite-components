@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dynamite.Demo.Intranet.Contracts.Resources;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Publishing.Contracts.Constants;

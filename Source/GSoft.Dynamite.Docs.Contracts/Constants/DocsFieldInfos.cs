@@ -1,6 +1,7 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Docs.Contracts.Constants

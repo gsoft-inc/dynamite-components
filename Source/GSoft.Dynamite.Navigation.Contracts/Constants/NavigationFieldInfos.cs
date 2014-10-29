@@ -89,7 +89,6 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 IsHiddenInNewForm = true,
                 TermStoreMapping = new TaxonomyContext()
                 {
-                    Group = navigationTermGroupInfos.Keywords(),
                     TermSet = navigationTermSetInfos.NavigationControls()
                 }
             };

@@ -2,6 +2,7 @@
 using System.Globalization;
 using Dynamite.Demo.Intranet.Contracts.Resources;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Lists;
 using Microsoft.SharePoint;
@@ -46,7 +47,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             var customizedNavigationField = this._fieldInfoValues.Navigation();
             customizedNavigationField.TermStoreMapping = new TaxonomyContext()
                 {
-                    Group = _termGroupValues.Restricted(),
                     TermSet = _termSetInfoValues.RestrictedNews()
                 };
 

@@ -61,7 +61,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 TermStoreMapping = new TaxonomyContext()
                 {
-                    Group = termGroupInfoValues.Navigation(),
                     TermSet = termSetInfoValues.GlobalNavigation()
                 },
                 /*DefaultValue = new TaxonomyFullValue()
