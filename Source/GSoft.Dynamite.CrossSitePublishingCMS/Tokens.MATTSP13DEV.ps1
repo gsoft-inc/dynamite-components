@@ -13,6 +13,7 @@ $DSP_IsDistributedEnvironment = "$false"
 # Deployment Configuration 
 # ******************************************
 
+$DSP_DeploySolutions = "$false"
 $DSP_NugetSolutionsScanRootPath = "C:\dev\Dynamite-Components\Libraries"
 $DSP_CustomSolutionsScanRootPath = "C:\dev\Dynamite-Components\Source"
 
