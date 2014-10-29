@@ -31,7 +31,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var logger = featureScope.Resolve<ILogger>();
-                    var variationHelper = featureScope.Resolve<VariationHelper>();
+                    var variationSyncHelper = featureScope.Resolve<VariationSyncHelper>();
                     var baseVariationSettingsConfig = featureScope.Resolve<IMultilingualismVariationsConfig>();
                     var baseCatalogInfoConfig = featureScope.Resolve<IPublishingCatalogInfoConfig>();
                     var baseVariationSettings = baseVariationSettingsConfig.VariationSettings();
@@ -45,7 +45,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
                         foreach (var catalog in baseCatalogs)
                         {
                             logger.Info("Synchronize variations for catalog {0} in web {1}", catalog.DisplayName, web.Url);
-                            variationHelper.SyncList(web, catalog, baseVariationSettings.Labels);
+                            variationSyncHelper.SyncList(web, catalog, baseVariationSettings.Labels);
                         }
                     }
                 }

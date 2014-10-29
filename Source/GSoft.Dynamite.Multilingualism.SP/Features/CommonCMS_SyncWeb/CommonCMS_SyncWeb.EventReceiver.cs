@@ -28,14 +28,14 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_SyncWebs
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var logger = featureScope.Resolve<ILogger>();
-                    var variationHelper = featureScope.Resolve<VariationHelper>();
+                    var variationSyncHelper = featureScope.Resolve<VariationSyncHelper>();
                     var baseVariationSettingsConfig = featureScope.Resolve<IMultilingualismVariationsConfig>();
                     var baseVariationSettings = baseVariationSettingsConfig.VariationSettings();
 
                     if (baseVariationSettings != null)
                     {
                         logger.Info("Synchronize variations for web {0}", web.Url);
-                        variationHelper.SyncWeb(web, baseVariationSettings.Labels); 
+                        variationSyncHelper.SyncWeb(web, baseVariationSettings.Labels); 
                     }
                 }
             }
