@@ -32,7 +32,10 @@ Start-Transcript -Path $LogFile
 
 #./Solutions/Copy-Solutions.ps1
 
-#./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
+if ([[DSP_DeploySolutions]])
+{
+    ./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
+}
 
 $values = @{"Solution Model: " = "[CrossSitePublishingCMS]";}
 New-HeaderDrawing -Values $Values

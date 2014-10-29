@@ -29,6 +29,10 @@
         <file src="Tokens.HOSTNAME.ps1" target="content" />
         <file src="..\..\Libraries\Lapointe.SharePoint.PowerShell.wsp" target="tools\Solutions\WSP" />
         <file src="..\GSoft.Dynamite.Publishing.SP\bin\$configuration$\GSoft.Dynamite.Publishing.SP.wsp" target="tools\Solutions\WSP" />
+        <file src="..\GSoft.Dynamite.Multilingualism.SP\bin\$configuration$\GSoft.Dynamite.Multilingualism.SP.wsp" target="tools\Solutions\WSP" />
+        <file src="..\GSoft.Dynamite.Design.SP\bin\$configuration$\GSoft.Dynamite.Design.SP.wsp" target="tools\Solutions\WSP" />
+        <file src="..\GSoft.Dynamite.Navigation.SP\bin\$configuration$\GSoft.Dynamite.Navigation.SP.wsp" target="tools\Solutions\WSP" />
+        <file src="..\GSoft.Dynamite.Docs.SP\bin\$configuration$\GSoft.Dynamite.Docs.SP.wsp" target="tools\Solutions\WSP" />
         <file src="Nuget\Install.ps1" target="tools\Install.ps1" />
     </files>
 </package>
