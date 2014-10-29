@@ -5,6 +5,7 @@ using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
+using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
@@ -30,7 +31,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var logger = featureScope.Resolve<ILogger>();
-                    var navigationHelper = featureScope.Resolve<NavigationHelper>();
+                    var navigationHelper = featureScope.Resolve<INavigationHelper>();
 
                     var baseTermDrivenPageSettingsInfoConfig = featureScope.Resolve<INavigationTermDrivenpageSettingsInfoConfig>();
 

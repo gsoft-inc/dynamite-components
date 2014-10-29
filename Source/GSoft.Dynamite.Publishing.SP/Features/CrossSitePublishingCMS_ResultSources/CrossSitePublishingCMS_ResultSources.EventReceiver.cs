@@ -5,6 +5,7 @@ using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSources
@@ -28,7 +29,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var logger = featureScope.Resolve<ILogger>();
-                    var searchHelper = featureScope.Resolve<SearchHelper>();
+                    var searchHelper = featureScope.Resolve<ISearchHelper>();
                     var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
 
                     IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
@@ -51,7 +52,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                {
                    var logger = featureScope.Resolve<ILogger>();
-                   var searchHelper = featureScope.Resolve<SearchHelper>();
+                   var searchHelper = featureScope.Resolve<ISearchHelper>();
                    var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
 
                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();

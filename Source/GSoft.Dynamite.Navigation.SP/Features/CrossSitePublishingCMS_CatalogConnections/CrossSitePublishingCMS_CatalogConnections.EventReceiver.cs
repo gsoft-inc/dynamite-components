@@ -30,8 +30,8 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var propertyBagHelper = featureScope.Resolve<PropertyBagHelper>();
-                    var catalogHelper = featureScope.Resolve<CatalogHelper>();
+                    var propertyBagHelper = featureScope.Resolve<IPropertyBagHelper>();
+                    var catalogHelper = featureScope.Resolve<ICatalogHelper>();
                     var catalogConnections= featureScope.Resolve<INavigationCatalogConnectionInfoConfig>().CatalogConnections;
                     var logger = featureScope.Resolve<ILogger>();
 
@@ -77,8 +77,8 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var propertyBagHelper = featureScope.Resolve<PropertyBagHelper>();
-                    var catalogHelper = featureScope.Resolve<CatalogHelper>();
+                    var propertyBagHelper = featureScope.Resolve<IPropertyBagHelper>();
+                    var catalogHelper = featureScope.Resolve<ICatalogHelper>();
                     var catalogConnections = featureScope.Resolve<INavigationCatalogConnectionInfoConfig>().CatalogConnections;
                     var logger = featureScope.Resolve<ILogger>();
 

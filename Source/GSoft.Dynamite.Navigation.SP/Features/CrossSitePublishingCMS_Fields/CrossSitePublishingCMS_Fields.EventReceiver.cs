@@ -29,7 +29,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Fields
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var fieldHelper = featureScope.Resolve<FieldHelper>();
+                    var fieldHelper = featureScope.Resolve<IFieldHelper>();
                     var baseFieldInfoConfig = featureScope.Resolve<INavigationFieldInfoConfig>();
                     var baseFields = baseFieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();

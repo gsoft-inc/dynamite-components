@@ -31,7 +31,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var fieldHelper = featureScope.Resolve<FieldHelper>();
+                    var fieldHelper = featureScope.Resolve<IFieldHelper>();
                     var baseFieldInfos = featureScope.Resolve<NavigationFieldInfos>();
                     var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
 
@@ -62,7 +62,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var fieldHelper = featureScope.Resolve<FieldHelper>();
+                    var fieldHelper = featureScope.Resolve<IFieldHelper>();
                     var baseFieldInfos = featureScope.Resolve<NavigationFieldInfos>();
                     var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
 

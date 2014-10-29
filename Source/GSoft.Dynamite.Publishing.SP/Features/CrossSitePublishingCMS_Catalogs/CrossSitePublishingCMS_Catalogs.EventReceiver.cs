@@ -28,7 +28,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var logger = featureScope.Resolve<ILogger>();
-                    var catalogHelper = featureScope.Resolve<CatalogHelper>();
+                    var catalogHelper = featureScope.Resolve<ICatalogHelper>();
                     var baseCatalogInfoConfig = featureScope.Resolve<IPublishingCatalogInfoConfig>();
 
                     var baseCatalogs = baseCatalogInfoConfig.Catalogs() as List<CatalogInfo>;

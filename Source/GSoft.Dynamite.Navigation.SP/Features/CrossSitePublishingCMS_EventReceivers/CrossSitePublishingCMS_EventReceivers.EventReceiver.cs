@@ -4,6 +4,7 @@ using Autofac;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
+using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventReceivers
@@ -26,7 +27,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var eventReceiverHelper = featureScope.Resolve<EventReceiverHelper>();
+                    var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var logger = featureScope.Resolve<ILogger>();
@@ -52,7 +53,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var eventReceiverHelper = featureScope.Resolve<EventReceiverHelper>();
+                    var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var logger = featureScope.Resolve<ILogger>();

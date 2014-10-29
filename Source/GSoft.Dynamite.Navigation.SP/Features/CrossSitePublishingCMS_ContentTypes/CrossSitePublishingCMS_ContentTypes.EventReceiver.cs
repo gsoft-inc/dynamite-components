@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using Autofac;
+using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
@@ -25,7 +26,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ContentTy
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
+                    var contentTypeHelper = featureScope.Resolve<IContentTypeHelper>();
                     var baseContentTypeConfig  = featureScope.Resolve<INavigationContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();

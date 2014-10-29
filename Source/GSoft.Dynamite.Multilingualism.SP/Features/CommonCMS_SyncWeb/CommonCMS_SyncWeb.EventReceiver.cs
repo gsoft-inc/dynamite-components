@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using Autofac;
+using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
@@ -28,7 +29,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_SyncWebs
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var logger = featureScope.Resolve<ILogger>();
-                    var variationSyncHelper = featureScope.Resolve<VariationSyncHelper>();
+                    var variationSyncHelper = featureScope.Resolve<IVariationSyncHelper>();
                     var baseVariationSettingsConfig = featureScope.Resolve<IMultilingualismVariationsConfig>();
                     var baseVariationSettings = baseVariationSettingsConfig.VariationSettings();
 

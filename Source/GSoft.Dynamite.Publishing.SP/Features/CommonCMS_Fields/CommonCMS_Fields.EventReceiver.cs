@@ -27,7 +27,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
             {
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var fieldHelper = featureScope.Resolve<FieldHelper>();
+                    var fieldHelper = featureScope.Resolve<IFieldHelper>();
                     var baseFieldInfoConfig = featureScope.Resolve<IPublishingFieldInfoConfig>();
                     var baseFields = baseFieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();

@@ -1,6 +1,7 @@
 ﻿using System.Web.UI.WebControls.WebParts;
 using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
+using GSoft.Dynamite.WebParts;
 using Microsoft.Office.Server.Search.WebControls;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
@@ -12,7 +13,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     {
         private readonly PublishingResultSourceInfos resultSourceInfos;
         private readonly PublishingDisplayTemplateInfos displayTemplateInfos;
-        private readonly WebPartHelper webPartHelper;
+        private readonly IWebPartHelper webPartHelper;
 
         /// <summary>
         /// Default Constructor
@@ -20,7 +21,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <param name="webPartHelper">The WebPart helper</param>
         /// <param name="resultSourceInfos">The Result Source infos</param>
         /// <param name="displayTemplateInfos">The display templates infos</param>
-        public PublishingWebPartInfos(WebPartHelper webPartHelper, PublishingResultSourceInfos resultSourceInfos, PublishingDisplayTemplateInfos displayTemplateInfos)
+        public PublishingWebPartInfos(IWebPartHelper webPartHelper, PublishingResultSourceInfos resultSourceInfos, PublishingDisplayTemplateInfos displayTemplateInfos)
         {
             this.webPartHelper = webPartHelper;
             this.resultSourceInfos = resultSourceInfos;

@@ -5,6 +5,7 @@ using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 
@@ -28,7 +29,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
             {
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var eventReceiverHelper = featureScope.Resolve<EventReceiverHelper>();
+                    var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<IMultilingualismEventReceiverInfoConfig>();
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var logger = featureScope.Resolve<ILogger>();
@@ -54,7 +55,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
             {
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var eventReceiverHelper = featureScope.Resolve<EventReceiverHelper>();
+                    var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<IMultilingualismEventReceiverInfoConfig>();
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var logger = featureScope.Resolve<ILogger>();

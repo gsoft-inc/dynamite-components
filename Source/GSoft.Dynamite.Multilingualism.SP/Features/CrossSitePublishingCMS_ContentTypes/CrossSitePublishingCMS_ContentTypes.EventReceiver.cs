@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
+using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
@@ -27,7 +28,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Cont
             {
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
+                    var contentTypeHelper = featureScope.Resolve<IContentTypeHelper>();
                     var baseContentTypeConfig = featureScope.Resolve<IMultilingualismContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();

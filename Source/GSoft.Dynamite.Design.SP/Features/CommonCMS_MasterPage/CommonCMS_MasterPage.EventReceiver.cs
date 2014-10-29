@@ -28,7 +28,7 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
             {
                 using (var featureScope = DesignContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var masterPageHelper = featureScope.Resolve<MasterPageHelper>();
+                    var masterPageHelper = featureScope.Resolve<IMasterPageHelper>();
                     var designConfig = featureScope.Resolve<IDesignConfig>();
 
                     // Generate masterpage file from HTML design file
@@ -51,7 +51,7 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
             {
                 using (var featureScope = DesignContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var masterPageHelper = featureScope.Resolve<MasterPageHelper>();
+                    var masterPageHelper = featureScope.Resolve<IMasterPageHelper>();
                     masterPageHelper.RevertToSeattle(site);
                 }
             }

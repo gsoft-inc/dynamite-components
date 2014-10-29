@@ -6,6 +6,7 @@ using GSoft.Dynamite.Docs.Contracts.Configuration;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ManagedProperties
@@ -28,7 +29,7 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ManagedProperti
            {
                using (var featureScope = DocsContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                {
-                   var searchHelper = featureScope.Resolve<SearchHelper>();
+                   var searchHelper = featureScope.Resolve<ISearchHelper>();
                    var managedProperties = featureScope.Resolve<IDocsManagedPropertyInfoConfig>().ManagedProperties;
                    var logger = featureScope.Resolve<ILogger>();
 
@@ -50,7 +51,7 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ManagedProperti
            {
                using (var featureScope = DocsContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                {
-                   var searchHelper = featureScope.Resolve<SearchHelper>();
+                   var searchHelper = featureScope.Resolve<ISearchHelper>();
                    var managedProperties = featureScope.Resolve<IDocsManagedPropertyInfoConfig>().ManagedProperties;
                    var logger = featureScope.Resolve<ILogger>();
 

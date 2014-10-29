@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
+using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Extensions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
@@ -32,7 +33,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
                 if (web != null && PublishingWeb.IsPublishingWeb(web))
                 {
 
-                    var folderHelper = featureScope.Resolve<FolderHelper>();
+                    var folderHelper = featureScope.Resolve<IFolderHelper>();
 
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
 
@@ -76,7 +77,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
 
                 if (web != null && PublishingWeb.IsPublishingWeb(web))
                 {
-                    var folderHelper = featureScope.Resolve<FolderHelper>();
+                    var folderHelper = featureScope.Resolve<IFolderHelper>();
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
 
                     folderHelper.ResetHomePageToDefault(web);

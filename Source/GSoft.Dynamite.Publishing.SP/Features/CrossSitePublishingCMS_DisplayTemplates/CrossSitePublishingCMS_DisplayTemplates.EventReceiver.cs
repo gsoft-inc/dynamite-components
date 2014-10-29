@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
+using GSoft.Dynamite.Branding;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
@@ -29,7 +30,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
                 {
                     var web = site.RootWeb;
                     var catalog = web.GetCatalog(SPListTemplateType.MasterPageCatalog);
-                    var displayTemplateHelper = featureScope.Resolve<DisplayTemplateHelper>();
+                    var displayTemplateHelper = featureScope.Resolve<IDisplayTemplateHelper>();
 
 
                     var displayTemplateConfig = featureScope.Resolve<IPublishingDisplayTemplateInfoConfig>();

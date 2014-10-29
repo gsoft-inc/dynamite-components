@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
+using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
@@ -27,7 +28,7 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ContentTypes
             {
                 using (var featureScope = DocsContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var contentTypeHelper = featureScope.Resolve<ContentTypeHelper>();
+                    var contentTypeHelper = featureScope.Resolve<IContentTypeHelper>();
                     var baseContentTypeConfig = featureScope.Resolve<IDocsContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();
