@@ -21,5 +21,5 @@ if(![string]::IsNullOrEmpty($CustomKeywordsConfigurationFile))
 	$KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $CustomKeywordsConfigurationFile
 }
 
-# Portal Navigation Term Group
+# Portal Keywords Term Group
 Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $KeywordsConfigurationFilePath

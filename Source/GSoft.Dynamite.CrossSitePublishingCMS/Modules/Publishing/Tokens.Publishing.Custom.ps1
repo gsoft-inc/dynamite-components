@@ -23,9 +23,11 @@ $DSP_CUSTOM_PortalWebsConfigurationFile = ""
 
 $DSP_CUSTOM_PortalNavigationConfigurationFile = ""
 $DSP_CUSTOM_PortalRestrictedConfigurationFile = ""
+$DSP_CUSTOM_PortalKeywordsConfigurationFile = ""
 
 $DSP_CUSTOM_PortalNavigationTermGroup = ""
 $DSP_CUSTOM_PortalRestrictedTermGroup = ""
+$DSP_CUSTOM_PortalKeywordsTermGroup = ""
 
 # ============================================
 # STEP 3: Define security
