@@ -12,10 +12,10 @@ namespace GSoft.Dynamite.Navigation.Core.Services
     public class SlugBuilderService : ISlugBuilderService
     {
         private readonly ILogger _logger;
-        private readonly NavigationHelper _navigationHelper;
+        private readonly INavigationHelper _navigationHelper;
         private readonly NavigationFieldInfos _navigationFieldInfos;
 
-        public SlugBuilderService(ILogger logger, NavigationHelper navigationHelper, NavigationFieldInfos navigationFieldInfos)
+        public SlugBuilderService(ILogger logger, INavigationHelper navigationHelper, NavigationFieldInfos navigationFieldInfos)
         {
             this._logger = logger;
             this._navigationHelper = navigationHelper;
