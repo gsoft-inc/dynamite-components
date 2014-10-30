@@ -77,7 +77,7 @@
     <None Include="Modules\Navigation\NAV_01\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-TermDrivenPages.ps1.template" />
-    <None Include="Modules\Navigation\NAV_02\Default\Default-KeywordsTermGroup.xml.template">
+    <None Include="Modules\Publishing\PUB_01\Default\Default-KeywordsTermGroup.xml.template">
       <SubType>Designer</SubType>
     </None>
     <None Include="Modules\Navigation\NAV_02\Export-TermGroups.ps1.template" />
@@ -126,6 +126,7 @@
     <Folder Include="Modules\Docs\DOC_02\Custom\" />
     <Folder Include="Modules\Lifecycle\" />
     <Folder Include="Modules\Navigation\NAV_02\Custom\" />
+    <Folder Include="Modules\Navigation\NAV_02\Default\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />

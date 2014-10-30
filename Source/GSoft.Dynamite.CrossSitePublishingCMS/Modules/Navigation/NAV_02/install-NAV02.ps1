@@ -37,17 +37,17 @@ New-HeaderDrawing -Values $Values
 # =========   TERMGROUPS   ========== #
 # =============================== #
 
-$values = @{"Step: " = "#1 Remove Term Groups"}
-New-HeaderDrawing -Values $Values
+#$values = @{"Step: " = "#1 Remove Term Groups"}
+#New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Remove-TermGroups.ps1'
-& $Script 
+#$Script = $CommandDirectory + '\Remove-TermGroups.ps1'
+#& $Script 
 
-$values = @{"Step: " = "#2 Import Term Groups"}
-New-HeaderDrawing -Values $Values
+#$values = @{"Step: " = "#2 Import Term Groups"}
+#New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Import-TermGroups.ps1'
-& $Script 
+#$Script = $CommandDirectory + '\Import-TermGroups.ps1'
+#& $Script 
 
 # =============================== #
 # =========   FIELDS   ========== #

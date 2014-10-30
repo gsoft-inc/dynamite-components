@@ -33,5 +33,5 @@ if(![string]::IsNullOrEmpty($CustomKeywordsTermGroup))
 	$KeywordsTermGroup = $CustomKeywordsTermGroup
 }
 
-# Portal Navigation Term Group
+# Portal Keywords Term Group
 Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingHostNamePath]]").TermStores[0].Groups[$KeywordsTermGroup] -OutputFile $KeywordsConfigurationFilePath
