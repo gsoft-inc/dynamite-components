@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Globalization.Variations;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {

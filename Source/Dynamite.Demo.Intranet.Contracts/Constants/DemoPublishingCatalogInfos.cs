@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dynamite.Demo.Intranet.Contracts.Resources;
-using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.FieldTypes;
+using GSoft.Dynamite.Catalogs;
+using GSoft.Dynamite.ContentTypes;
+using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Search;
 using Microsoft.SharePoint;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants

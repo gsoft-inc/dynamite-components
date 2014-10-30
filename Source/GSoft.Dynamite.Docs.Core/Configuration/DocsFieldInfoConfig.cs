@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
 using GSoft.Dynamite.Docs.Contracts.Constants;
-using GSoft.Dynamite.FieldTypes;
+using GSoft.Dynamite.Fields;
 
 namespace GSoft.Dynamite.Docs.Core.Configuration
 {

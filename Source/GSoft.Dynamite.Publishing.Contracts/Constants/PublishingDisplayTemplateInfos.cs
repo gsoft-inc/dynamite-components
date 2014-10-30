@@ -1,4 +1,4 @@
-﻿using GSoft.Dynamite.Definitions;
+﻿using GSoft.Dynamite.Branding;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {

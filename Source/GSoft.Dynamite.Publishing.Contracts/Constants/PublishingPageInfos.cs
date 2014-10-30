@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Pages;
+using GSoft.Dynamite.WebParts;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {

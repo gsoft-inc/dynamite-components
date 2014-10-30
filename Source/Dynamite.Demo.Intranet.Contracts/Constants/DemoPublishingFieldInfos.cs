@@ -1,10 +1,8 @@
 ﻿using System;
 using Dynamite.Demo.Intranet.Contracts.Resources;
 using GSoft.Dynamite.Binding;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Globalization;
-using GSoft.Dynamite.SiteColumns;
-using GSoft.Dynamite.FieldTypes;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants
 {

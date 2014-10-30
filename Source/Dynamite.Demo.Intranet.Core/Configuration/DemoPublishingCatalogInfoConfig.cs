@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Dynamite.Demo.Intranet.Contracts.Constants;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Catalogs;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration

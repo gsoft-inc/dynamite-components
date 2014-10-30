@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 

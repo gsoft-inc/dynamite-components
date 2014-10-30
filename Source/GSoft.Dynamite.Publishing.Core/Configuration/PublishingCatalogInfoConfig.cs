@@ -1,7 +1,7 @@
-﻿using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
+﻿using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using System.Collections.Generic;
+using GSoft.Dynamite.Catalogs;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {

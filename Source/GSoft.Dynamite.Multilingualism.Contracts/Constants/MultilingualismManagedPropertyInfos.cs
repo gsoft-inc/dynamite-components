@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Server.Search.Administration;
-using ManagedPropertyInfo = GSoft.Dynamite.Definitions.ManagedPropertyInfo;
+using ManagedPropertyInfo = GSoft.Dynamite.Search.ManagedPropertyInfo;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {

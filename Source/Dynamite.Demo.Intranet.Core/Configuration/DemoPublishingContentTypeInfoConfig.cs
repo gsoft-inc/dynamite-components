@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Dynamite.Demo.Intranet.Contracts.Constants;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 

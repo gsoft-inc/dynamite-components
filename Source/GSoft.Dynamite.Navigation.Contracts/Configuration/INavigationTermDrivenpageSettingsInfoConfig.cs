@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Pages;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Configuration
 {

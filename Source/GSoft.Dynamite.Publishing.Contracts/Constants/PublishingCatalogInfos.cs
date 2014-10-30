@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Lists;
 using Microsoft.SharePoint;
 using GSoft.Dynamite.Taxonomy;
 using System;
 using GSoft.Dynamite.ValueTypes;
+using GSoft.Dynamite.Catalogs;
+using GSoft.Dynamite.Search;
+using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.ContentTypes;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {

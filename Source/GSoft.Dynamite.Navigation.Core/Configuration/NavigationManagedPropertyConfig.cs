@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {

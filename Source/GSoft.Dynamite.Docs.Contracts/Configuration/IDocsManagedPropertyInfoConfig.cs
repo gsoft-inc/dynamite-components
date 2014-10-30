@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Docs.Contracts.Configuration
 {
