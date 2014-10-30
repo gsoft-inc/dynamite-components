@@ -5,13 +5,15 @@ using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
+using GSoft.Dynamite.Globalization.Variations;
+using GSoft.Dynamite.Utils;
 
 namespace GSoft.Dynamite.Multilingualism.Core.Services
 {
     public class ContentAssociationService: IContentAssocationService
     {
-        private readonly VariationHelper _variationsHelper;
-        private readonly NavigationHelper _navigationHelper;
+        private readonly IVariationHelper _variationsHelper;
+        private readonly INavigationHelper _navigationHelper;
         private readonly ILogger _logger;
 
         /// <summary>
@@ -20,7 +22,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
         /// <param name="variationsHelper">The variations helper.</param>
         /// <param name="navigationHelper">The navigation helper.</param>
         /// <param name="logger">The logger.</param>
-        public ContentAssociationService(VariationHelper variationsHelper, NavigationHelper navigationHelper, ILogger logger)
+        public ContentAssociationService(IVariationHelper variationsHelper, INavigationHelper navigationHelper, ILogger logger)
         {
             this._variationsHelper = variationsHelper;
             this._navigationHelper = navigationHelper;
@@ -104,7 +106,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
 
             if (item.Fields.ContainsField(fieldInternalName))
             {
-                var localeAgnosticLanguage = PublishingWeb.GetPublishingWeb(item.Web).Label.Language.Split('-').First();
+                var localeAgnosticLanguage = PublishingWeb.GetPublishingWeb(item.Web).Label.Title.First();
                 item[fieldInternalName] = localeAgnosticLanguage;
 
                 this._logger.Info(
