@@ -49,6 +49,7 @@
     <None Include="Modules\Docs\DOC_02\Default\fr\ContentPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\fr\NewsPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\NewsPages.xlsx" />
+    <None Include="Modules\Docs\DOC_02\Default\DynamitePropertyTemplate.sgt" />
     <None Include="Modules\Docs\DOC_02\Install-DOC02.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Content.ps1.template" />
     <None Include="Modules\Docs\DOC_02\Setup-ContentTypes.ps1.template" />

@@ -66,6 +66,7 @@
     <Compile Include="Configuration\NavigationContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\NavigationEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\NavigationFieldInfoConfig.cs" />
+    <Compile Include="Configuration\NavigationManagedNavigationInfoConfig.cs" />
     <Compile Include="Configuration\NavigationManagedPropertyConfig.cs" />
     <Compile Include="Configuration\NavigationResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\NavigationTermDrivenPageSettingsInfoConfig.cs" />

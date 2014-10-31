@@ -68,12 +68,14 @@
     <Compile Include="Configuration\INavigationContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\INavigationEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\INavigationFieldInfoConfig.cs" />
+    <Compile Include="Configuration\INavigationManagedNavigationInfoConfig.cs" />
     <Compile Include="Configuration\INavigationResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\INavigationTermDrivenpageSettingsInfoConfig.cs" />
     <Compile Include="Constants\NavigationCatalogConnectionInfos.cs" />
     <Compile Include="Constants\NavigationEventReceiverInfos.cs" />
     <Compile Include="Constants\NavigationFieldInfos.cs" />
     <Compile Include="Constants\NavigationManagedPropertyInfos.cs" />
+    <Compile Include="Constants\NavigationManagedNavigationInfos.cs" />
     <Compile Include="Constants\NavigationResources.cs" />
     <Compile Include="Constants\NavigationResultSourceInfos.cs" />
     <Compile Include="Constants\NavigationTermDrivenPageSettingsInfos.cs" />
@@ -90,6 +92,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj">
+      <Project>{13c3cfc3-4328-4047-9b62-15b19e2e5922}</Project>
+      <Name>GSoft.Dynamite.Multilingualism.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
       <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
       <Name>GSoft.Dynamite.Publishing.Contracts</Name>
