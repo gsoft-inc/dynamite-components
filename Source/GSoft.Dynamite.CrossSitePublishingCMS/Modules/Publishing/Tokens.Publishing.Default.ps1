@@ -23,11 +23,9 @@ $DSP_DEFAULT_PortalWebsConfigurationFile = "./Default/Default-Webs.xml"
 
 $DSP_DEFAULT_PortalNavigationConfigurationFile = "./Default/Default-NavigationTermGroup.xml"
 $DSP_DEFAULT_PortalRestrictedConfigurationFile = "./Default/Default-RestrictedTermGroup.xml"
-$DSP_DEFAULT_PortalKeywordsConfigurationFile = "./Default/Default-KeywordsTermGroup.xml"
 
 $DSP_DEFAULT_PortalNavigationTermGroup = "Portal - Navigation"
 $DSP_DEFAULT_PortalRestrictedTermGroup = "Portal - Restricted"
-$DSP_DEFAULT_PortalKeywordsTermGroup = "Portal - Keywords"
 
 # ============================================
 # STEP 3: Define security

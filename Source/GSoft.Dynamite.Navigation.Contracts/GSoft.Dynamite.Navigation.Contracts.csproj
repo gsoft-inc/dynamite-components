@@ -87,6 +87,7 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
+    <None Include="GSoft.Dynamite.Navigation.Contracts.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
