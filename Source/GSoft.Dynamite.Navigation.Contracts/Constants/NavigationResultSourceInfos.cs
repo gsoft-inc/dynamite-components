@@ -45,7 +45,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
 
         public ResultSourceInfo SingleTargetItem()
         {
-            var singleCatalogItem = resultSourceInfos.SingleCatalogItem();
+            var singleCatalogItem = resultSourceInfos.SingleTargetItem();
 
             singleCatalogItem.Overwrite = true;
 
