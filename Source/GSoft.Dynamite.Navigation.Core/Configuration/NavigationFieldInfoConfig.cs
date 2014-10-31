@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.FieldTypes;
+using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 

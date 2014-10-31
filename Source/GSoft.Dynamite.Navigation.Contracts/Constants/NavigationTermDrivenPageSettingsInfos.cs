@@ -1,4 +1,4 @@
-﻿using GSoft.Dynamite.Definitions;
+﻿using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants

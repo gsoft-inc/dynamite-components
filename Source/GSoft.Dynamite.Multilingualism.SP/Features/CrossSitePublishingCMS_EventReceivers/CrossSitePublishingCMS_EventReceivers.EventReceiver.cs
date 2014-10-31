@@ -8,6 +8,7 @@ using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
+using GSoft.Dynamite.Events;
 
 namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_EventReceivers
 {

@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
-using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Extensions;
+using GSoft.Dynamite.Folders;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
-using FolderInfo = GSoft.Dynamite.Definitions.FolderInfo;
+using FolderInfo = GSoft.Dynamite.Folders.FolderInfo;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
 {

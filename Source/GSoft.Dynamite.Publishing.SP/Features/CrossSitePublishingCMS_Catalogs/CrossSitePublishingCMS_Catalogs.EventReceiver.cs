@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Catalogs;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Utils;

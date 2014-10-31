@@ -1,5 +1,5 @@
 ﻿using System;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {

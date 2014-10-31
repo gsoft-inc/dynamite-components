@@ -1,11 +1,10 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
-using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Globalization;
 using Microsoft.SharePoint;
-using GSoft.Dynamite.FieldTypes;
 using GSoft.Dynamite.ValueTypes;
 using GSoft.Dynamite.Taxonomy;
+using GSoft.Dynamite.Fields;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {

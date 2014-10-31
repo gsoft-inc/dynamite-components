@@ -1,4 +1,4 @@
-﻿using GSoft.Dynamite.Definitions;
+﻿using GSoft.Dynamite.Events;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
 

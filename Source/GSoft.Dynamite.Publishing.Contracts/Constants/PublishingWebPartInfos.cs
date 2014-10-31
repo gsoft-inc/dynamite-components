@@ -1,5 +1,4 @@
 ﻿using System.Web.UI.WebControls.WebParts;
-using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.WebParts;
 using Microsoft.Office.Server.Search.WebControls;

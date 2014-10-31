@@ -1,8 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
 using Autofac;
+using GSoft.Dynamite.Branding;
 using GSoft.Dynamite.Design.Contracts.Configuration;
-using GSoft.Dynamite.MasterPages;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
@@ -16,7 +16,6 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
     [Guid("1540be21-f687-494c-af80-1b8851bc5718")]
     public class CommonCMS_MasterPageEventReceiver : SPFeatureReceiver
     {
-
         /// <summary>
         /// Event Receiver for Feature Activated
         /// </summary>

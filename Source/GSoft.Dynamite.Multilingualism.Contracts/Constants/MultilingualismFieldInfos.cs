@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GSoft.Dynamite.Binding;
-using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.FieldTypes;
+using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants

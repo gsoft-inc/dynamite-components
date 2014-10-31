@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Office.Server.Search.Administration;
-using ManagedPropertyInfo = GSoft.Dynamite.Definitions.ManagedPropertyInfo;
+using ManagedPropertyInfo = GSoft.Dynamite.Search.ManagedPropertyInfo;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {

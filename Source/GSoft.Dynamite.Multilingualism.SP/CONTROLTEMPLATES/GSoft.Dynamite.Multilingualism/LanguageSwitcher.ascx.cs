@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Web.UI;
 using Autofac;
-using GSoft.Dynamite.Exceptions;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Utils;
 using Microsoft.Office.Server.Search.WebControls;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
@@ -88,9 +88,9 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         {
             MultilingualismContainerProxy.Current.Resolve<ICatchAllExceptionHandler>().Execute(SPContext.Current.Web, delegate()
             {
-
                 var catalogNavigation = MultilingualismContainerProxy.Current.Resolve<ICatalogNavigation>();
-                var multilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>(); 
+                var multilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
+                var publishingManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<PublishingManagedPropertyInfos>(); 
 
                 var currentWebUrl = new Uri(SPContext.Current.Web.Url);
                 var labels = this.LanguageSwitcherService.GetPeerVariationLabels(currentWebUrl, Variations.Current, SPContext.Current.Web.CurrentUser);
@@ -100,7 +100,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                     if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
                     {
                         catalogNavigation.LanguageManagedPropertyName = multilingualismManagedPropertyInfos.ItemLanguage.Name;
-                        catalogNavigation.CatalogNavigationTermManagedPropertyName = PublishingManagedPropertyInfos.Navigation.Name;
+                        catalogNavigation.CatalogNavigationTermManagedPropertyName = publishingManagedPropertyInfos.Navigation.Name;
                         catalogNavigation.AssociationKeyManagedPropertyName = multilingualismManagedPropertyInfos.ContentAssociationKey.Name;
                         catalogNavigation.AssociationKeyValue = this.AssociationKey;
                     }

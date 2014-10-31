@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Search;
 using Microsoft.Office.Server.Search.Administration;
-using ManagedPropertyInfo = GSoft.Dynamite.Definitions.ManagedPropertyInfo;
+using ManagedPropertyInfo = GSoft.Dynamite.Search.ManagedPropertyInfo;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {

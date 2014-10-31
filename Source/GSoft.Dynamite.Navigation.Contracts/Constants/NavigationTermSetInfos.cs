@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {

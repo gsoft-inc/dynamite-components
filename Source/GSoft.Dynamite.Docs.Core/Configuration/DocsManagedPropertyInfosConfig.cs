@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GSoft.Dynamite.Definitions;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Docs.Core.Configuration
 {

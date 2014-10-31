@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Definitions;
+using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Constants;

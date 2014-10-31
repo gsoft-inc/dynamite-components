@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
-using GSoft.Dynamite.Definitions;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Search;
 using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
