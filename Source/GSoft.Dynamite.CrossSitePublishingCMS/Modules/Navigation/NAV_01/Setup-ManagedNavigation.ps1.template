@@ -1,0 +1,20 @@
+﻿# -----------------------------------------------------------------------
+# Copyright		: GSoft @2014
+# Model  		: Cross Site Publishing CMS
+# File          : Setup-ManagedNavigation.ps1.template
+# Description	: Setup managed navigation
+# -----------------------------------------------------------------------
+
+Write-Warning "Applying managed navigation configuration..."
+
+# Activate features on all publishing sites (sources an targets)
+[[DSP_PublishingTargetRootWebUrls]] | Foreach-Object{
+
+	Switch-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_NAV_ManagedNavigation]]
+}
+
+[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
+
+	Switch-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_NAV_ManagedNavigation]]
+}
+

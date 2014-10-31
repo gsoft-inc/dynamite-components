@@ -30,7 +30,8 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismVariationSettingsInfos>();
             builder.RegisterType<MultilingualismEventReceiverInfos>();
             builder.RegisterType<MultilingualismManagedPropertyInfos>();
-
+            builder.RegisterType<MultilingualismTermSetInfos>();
+            
             // Variations Configuration
             builder.RegisterType<MultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
             builder.RegisterType<MultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("multilingualism");

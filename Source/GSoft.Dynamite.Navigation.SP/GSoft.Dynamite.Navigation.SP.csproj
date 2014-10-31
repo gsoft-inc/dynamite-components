@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10110\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10111\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -84,6 +84,9 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ManagedNavigation\CrossSitePublishingCMS_ManagedNavigation.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ManagedNavigation.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
@@ -121,6 +124,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_CatalogConnections\CrossSitePublishingCMS_CatalogConnections.feature">
       <FeatureId>{2d7e13c9-2709-48d3-9445-822976628698}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ManagedNavigation\CrossSitePublishingCMS_ManagedNavigation.feature">
+      <FeatureId>{e2b7978a-3f67-432b-80bd-7cbb05a92bbf}</FeatureId>
     </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -164,6 +170,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_CatalogConnections\CrossSitePublishingCMS_CatalogConnections.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_CatalogConnections.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ManagedNavigation\CrossSitePublishingCMS_ManagedNavigation.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ManagedNavigation.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Navigation.Global.en-US.resx" />
   </ItemGroup>

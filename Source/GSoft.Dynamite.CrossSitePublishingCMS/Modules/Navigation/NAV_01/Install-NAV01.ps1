@@ -109,6 +109,16 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-CatalogConnections.ps1'
 & $Script
 
+# ======================================= #
+# ===   MANAGED TAXONOMY NAVIGATION  ==== #
+# ======================================= #
+
+$values = @{"Step: " = "#7 Setup managed navigation"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ManagedNavigation.ps1'
+& $Script
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

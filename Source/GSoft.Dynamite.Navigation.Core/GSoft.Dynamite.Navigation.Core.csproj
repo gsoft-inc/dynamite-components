@@ -42,7 +42,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10110\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10111\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
@@ -66,6 +66,7 @@
     <Compile Include="Configuration\NavigationContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\NavigationEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\NavigationFieldInfoConfig.cs" />
+    <Compile Include="Configuration\NavigationManagedNavigationInfoConfig.cs" />
     <Compile Include="Configuration\NavigationManagedPropertyConfig.cs" />
     <Compile Include="Configuration\NavigationResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\NavigationTermDrivenPageSettingsInfoConfig.cs" />
