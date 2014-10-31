@@ -36,7 +36,7 @@ $DSP_PortalDefaultLanguage = "1033"
 # Application Configuration
 # ******************************************
 
-$DSP_SearchServiceApplicationName = "Search"
+$DSP_SearchServiceApplicationName = "Search Service Application"
 $DSP_SearchContentSourceName = "Local SharePoint sites"
 
 # ******************************************

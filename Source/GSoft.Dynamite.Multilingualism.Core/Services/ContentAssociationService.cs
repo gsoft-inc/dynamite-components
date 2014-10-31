@@ -7,6 +7,8 @@ using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
+using GSoft.Dynamite.Globalization.Variations;
+using GSoft.Dynamite.Utils;
 
 namespace GSoft.Dynamite.Multilingualism.Core.Services
 {
@@ -106,7 +108,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
 
             if (item.Fields.ContainsField(fieldInternalName))
             {
-                var localeAgnosticLanguage = PublishingWeb.GetPublishingWeb(item.Web).Label.Language.Split('-').First();
+                var localeAgnosticLanguage = PublishingWeb.GetPublishingWeb(item.Web).Label.Title;
                 item[fieldInternalName] = localeAgnosticLanguage;
 
                 this._logger.Info(

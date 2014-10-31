@@ -12,15 +12,12 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 # Taxonomy Settings
 $DefautNavigationtermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
 $DefautRestrictedtermGroup = "[[DSP_DEFAULT_PortalRestrictedTermGroup]]"
-$DefautKeywordstermGroup = "[[DSP_DEFAULT_PortalKeywordsTermGroup]]"
 
 $CustomNavigationTermGroup = "[[DSP_CUSTOM_PortalNavigationTermGroup]]"
 $CustomRestrictedTermGroup = "[[DSP_CUSTOM_PortalRestrictedTermGroup]]"
-$CustomKeywordsTermGroup = "[[DSP_CUSTOM_PortalKeywordsTermGroup]]"
 
 $NavigationTermGroup = $DefautNavigationtermGroup
 $RestrictedTermGroup = $DefautRestrictedtermGroup
-$KeywordsTermGroup = $DefautKeywordstermGroup
 
 if(![string]::IsNullOrEmpty($CustomNavigationTermGroup))
 {
@@ -32,11 +29,5 @@ if(![string]::IsNullOrEmpty($CustomRestrictedTermGroup))
 	$RestrictedTermGroup = $CustomRestrictedTermGroup
 }
 
-if(![string]::IsNullOrEmpty($CustomKeywordsTermGroup))
-{
-	$KeywordsTermGroup = $CustomKeywordsTermGroup
-}
-
 Remove-DSPTermGroup -GroupName "$RestrictedTermGroup"
 Remove-DSPTermGroup -GroupName "$NavigationTermGroup"
-Remove-DSPTermGroup -GroupName "$KeywordsTermGroup"

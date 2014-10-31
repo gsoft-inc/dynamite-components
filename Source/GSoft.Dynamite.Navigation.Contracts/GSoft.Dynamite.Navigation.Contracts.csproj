@@ -81,12 +81,13 @@
     <Compile Include="Constants\NavigationTermSetInfos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\NavigationResourceLocatorConfig.cs" />
-    <Compile Include="Services\SlugBuilderService.cs" />
+    <Compile Include="Services\ISlugBuilderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
+    <None Include="GSoft.Dynamite.Navigation.Contracts.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

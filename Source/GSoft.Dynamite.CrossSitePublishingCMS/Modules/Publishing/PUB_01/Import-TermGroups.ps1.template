@@ -12,15 +12,12 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 # Configuration Files
 $DefaultNavigationConfigurationFile = "[[DSP_DEFAULT_PortalNavigationConfigurationFile]]"
 $DefaultRestrictedConfigurationFile = "[[DSP_DEFAULT_PortalRestrictedConfigurationFile]]"
-$DefaultKeywordsConfigurationFile = "[[DSP_DEFAULT_PortalKeywordsConfigurationFile]]"
 
 $CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfigurationFile]]"
 $CustomRestrictedConfigurationFile = "[[DSP_CUSTOM_PortalRestrictedConfigurationFile]]"
-$CustomKeywordsConfigurationFile = "[[DSP_CUSTOM_PortalKeywordsConfigurationFile]]"
 
 $NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
 $RestrictedConfigurationFilePath = $CommandDirectory + ".\" + $DefaultRestrictedConfigurationFile
-$KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $DefaultKeywordsConfigurationFile
 
 if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 {
@@ -32,16 +29,8 @@ if(![string]::IsNullOrEmpty($CustomRestrictedConfigurationFile))
 	$RestrictedConfigurationFilePath = $CommandDirectory + ".\" + $CustomRestrictedConfigurationFile
 }
 
-if(![string]::IsNullOrEmpty($CustomKeywordsConfigurationFile))
-{
-	$KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $CustomKeywordsConfigurationFile
-}
-
 # Portal Navigation Term Group
 Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $NavigationConfigurationFilePath
 
 # Portal Restricted Term Group
 Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $RestrictedConfigurationFilePath
-
-# Portal Keywords Term Group
-Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $KeywordsConfigurationFilePath
