@@ -78,13 +78,13 @@
     <None Include="Modules\Navigation\NAV_01\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-TermDrivenPages.ps1.template" />
-    <None Include="Modules\Publishing\PUB_01\Default\Default-KeywordsTermGroup.xml.template">
+    <None Include="Modules\Navigation\NAV_01\Default\Default-KeywordsTermGroup.xml.template">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Modules\Navigation\NAV_02\Export-TermGroups.ps1.template" />
-    <None Include="Modules\Navigation\NAV_02\Import-TermGroups.ps1.template" />
+    <None Include="Modules\Navigation\NAV_01\Export-TermGroups.ps1.template" />
+    <None Include="Modules\Navigation\NAV_01\Import-TermGroups.ps1.template" />
     <None Include="Modules\Navigation\NAV_02\Install-NAV02.ps1" />
-    <None Include="Modules\Navigation\NAV_02\Remove-TermGroups.ps1.template" />
+    <None Include="Modules\Navigation\NAV_01\Remove-TermGroups.ps1.template" />
     <None Include="Modules\Navigation\NAV_02\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
@@ -126,8 +126,6 @@
   <ItemGroup>
     <Folder Include="Modules\Docs\DOC_02\Custom\" />
     <Folder Include="Modules\Lifecycle\" />
-    <Folder Include="Modules\Navigation\NAV_02\Custom\" />
-    <Folder Include="Modules\Navigation\NAV_02\Default\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
