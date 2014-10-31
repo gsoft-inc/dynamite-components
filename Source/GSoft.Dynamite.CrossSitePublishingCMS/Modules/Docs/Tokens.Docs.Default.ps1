@@ -4,7 +4,7 @@ $DSP_DEFAULT_CatalogTitles = "@{'ContentPages.xlsx'=@('Content Pages','Pages de 
 
 # This file contains mappings for all default content types
 $DSP_DEFAULT_PropertyTemplateFile ="./Default/DynamitePropertyTemplate.sgt"
-$DSP_DEFAULT_PropertyTemplateName = "DynamiteTemplate"
+$DSP_DEFAULT_PropertyTemplateName = "CrossSitePublishingCMSTemplate"
 
 # ============================================
 # PUBLISHING MODULE FEATURES
