@@ -1,7 +1,87 @@
 <?xml version="1.0"?>
 <ArrayOfPropertyTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <PropertyTemplate Id="3cf64853-8e1c-4fe9-b32e-3f256c32f778" ListId="a145fe14-7604-4c5a-8fc7-035935b78a17" Name="DynamiteTemplate" CheckInType="CopySource" ModerationStatusType="Approved" KeepAuthorsAndTimestamps="false" CopyVersionHistory="false" CopyPermissions="false" CorrectLinks="false" FlattenFolders="false" CopyWebParts="false" TemplateType="Copy" HasVersionsLimit="false" VersionsLimit="5">
+  <PropertyTemplate Id="5e4336f2-272c-42b3-8948-4439c2dabd06" ListId="b78c482c-c1b2-4eb2-83cf-9d812b682649" Name="CrossSitePublishingCMSTemplate" CheckInType="CopySource" ModerationStatusType="Approved" KeepAuthorsAndTimestamps="false" CopyVersionHistory="false" CopyPermissions="false" CorrectLinks="false" FlattenFolders="false" CopyWebParts="false" TemplateType="Copy" HasVersionsLimit="false" VersionsLimit="5">
     <ContentTypes>
+      <ContentTypes ParentContentTypeId="0x01008093F9E3678D3D4392C57B0E6929DE0501010201">
+        <Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Text" Name="Title">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Term" Name="DynamiteNavigation" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="HTML" Name="PublishingPageContent" />
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteDateSlug">
+            <Value />
+          </Columns>
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteTitleSlug">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="DynamitePublishingStartDate" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="TermMulti" Name="DynamiteOccurrenceLinkLocation">
+            <Value />
+          </Columns>
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Guid" Name="DynamiteContentAssociationKey" />
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteItemLanguage">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Number" Name="DynamiteInternalId" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Note" Name="DynamiteSummary">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Image" Name="PublishingPageImage" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Note" Name="DynamiteImageDescription">
+            <Value />
+          </Columns>
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Guid" Name="VariationsItemGroupID" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Author">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="Created" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Editor">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="Modified" />
+        </Columns>
+      </ContentTypes>
+      <ContentTypes ParentContentTypeId="0x01008093F9E3678D3D4392C57B0E6929DE0501010101">
+        <Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Text" Name="Title">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Term" Name="DynamiteNavigation" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="HTML" Name="PublishingPageContent" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Note" Name="DynamiteSummary">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Image" Name="PublishingPageImage" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Note" Name="DynamiteImageDescription">
+            <Value />
+          </Columns>
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteDateSlug">
+            <Value />
+          </Columns>
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteTitleSlug">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="DynamitePublishingStartDate" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="TermMulti" Name="DynamiteOccurrenceLinkLocation">
+            <Value />
+          </Columns>
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Guid" Name="DynamiteContentAssociationKey" />
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteItemLanguage">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Number" Name="DynamiteInternalId" />
+          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Guid" Name="VariationsItemGroupID" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Author">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="Created" />
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Editor">
+            <Value />
+          </Columns>
+          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="Modified" />
+        </Columns>
+      </ContentTypes>
       <ContentTypes ParentContentTypeId="0x0120">
         <Columns>
           <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Text" Name="Title">
@@ -32,86 +112,6 @@
           </Columns>
           <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Guid" Name="VariationsItemGroupID" />
           <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Number" Name="DynamiteInternalId" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Author">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="Created" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Editor">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="Modified" />
-        </Columns>
-      </ContentTypes>
-      <ContentTypes ParentContentTypeId="0x01008093F9E3678D3D4392C57B0E6929DE05010101">
-        <Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Text" Name="Title">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Term" Name="DynamiteNavigation" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="HTML" Name="PublishingPageContent" />
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteDateSlug">
-            <Value />
-          </Columns>
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteTitleSlug">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="DynamitePublishingStartDate" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="TermMulti" Name="DynamiteOccurrenceLinkLocation">
-            <Value />
-          </Columns>
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Guid" Name="DynamiteContentAssociationKey" />
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteItemLanguage">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Number" Name="DynamiteInternalId" />
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Guid" Name="VariationsItemGroupID" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Note" Name="DynamiteSummary">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Image" Name="PublishingPageImage" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Note" Name="DynamiteImageDescription">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Author">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="Created" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Editor">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="Modified" />
-        </Columns>
-      </ContentTypes>
-      <ContentTypes ParentContentTypeId="0x01008093F9E3678D3D4392C57B0E6929DE05010102">
-        <Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Text" Name="Title">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Term" Name="DynamiteNavigation" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="HTML" Name="PublishingPageContent" />
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteDateSlug">
-            <Value />
-          </Columns>
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteTitleSlug">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="DateTime" Name="DynamitePublishingStartDate" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="TermMulti" Name="DynamiteOccurrenceLinkLocation">
-            <Value />
-          </Columns>
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Guid" Name="DynamiteContentAssociationKey" />
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Text" Name="DynamiteItemLanguage">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Number" Name="DynamiteInternalId" />
-          <Columns Action="Ignore" ApplyActionToAllVersions="true" FieldType="Guid" Name="VariationsItemGroupID" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Note" Name="DynamiteSummary">
-            <Value />
-          </Columns>
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Image" Name="PublishingPageImage" />
-          <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="Note" Name="DynamiteImageDescription">
-            <Value />
-          </Columns>
           <Columns Action="UseSource" ApplyActionToAllVersions="true" FieldType="User" Name="Author">
             <Value />
           </Columns>
