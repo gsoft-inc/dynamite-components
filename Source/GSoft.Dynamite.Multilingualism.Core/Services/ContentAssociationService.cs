@@ -106,7 +106,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
 
             if (item.Fields.ContainsField(fieldInternalName))
             {
-                var localeAgnosticLanguage = PublishingWeb.GetPublishingWeb(item.Web).Label.Title.First();
+                var localeAgnosticLanguage = PublishingWeb.GetPublishingWeb(item.Web).Label.Title;
                 item[fieldInternalName] = localeAgnosticLanguage;
 
                 this._logger.Info(

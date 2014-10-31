@@ -138,7 +138,7 @@ Import-Document -DestinationList $imagelist -SourceFolder $ImagesConfigurationFo
 				if ($file -ne $null)
 				{		
 					Write-Warning "Importing data into catalog $CurrentCatalogName in web $CurrentAuthoringWeb..."
-					Copy-Content -SourceList $srcList -DestinationList $dstList -ExcelFilePath $file.FullName -MappingSettings $mappingSettings -CopySettings $copySettings | Export-Report -Path ($LogFolderPath + "\" + $CatalogDisplayNames + "_ImportReport") -Overwrite
+					Copy-Content -SourceList $srcList -DestinationList $dstList -ExcelFilePath $file.FullName -MappingSettings $mappingSettings -CopySettings $copySettings | Export-Report -Path ($LogFolderPath + "\" + $CurrentCatalogName + "_ImportReport") -Overwrite
 				}
 			}
 			else
