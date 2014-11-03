@@ -19,7 +19,9 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             get {
                 return new List<TermDrivenPageSettingInfo>()
                 {
+                    // Be careful, put TermSets configuration before Terms 
                     {this._basePublishingTermDrivenPageSettingsInfos.NavigationTermSet()},
+                    {this._basePublishingTermDrivenPageSettingsInfos.NavigationTermSetFrench()},
                     {this._basePublishingTermDrivenPageSettingsInfos.NewsTerm()},
                     {this._basePublishingTermDrivenPageSettingsInfos.AboutTerm()},
                 };
