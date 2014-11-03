@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="42c711fc-440a-46c9-93e3-06626e0fda93" solutionId="42c711fc-440a-46c9-93e3-06626e0fda93" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.LifeCycle.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="f87231ce-9bdf-4aa5-a231-52985325ff18" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="670e93da-1f98-475f-b6a4-aab3615c3fce" />
+  </projectItems>
+</package>

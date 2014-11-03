@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8955DA4-DBB6-4AA2-9B75-7B014F55EDB5}"
 	ProjectSection(SolutionItems) = preProject
@@ -73,6 +73,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Docs.SP", "G
 	ProjectSection(ProjectDependencies) = postProject
 		{E40D30BE-4ED8-4982-8ADE-76C9AD27FF1B} = {E40D30BE-4ED8-4982-8ADE-76C9AD27FF1B}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.LifeCycle.Core", "GSoft.Dynamite.LifeCycle.Core\GSoft.Dynamite.LifeCycle.Core.csproj", "{CA6C8243-9C26-4152-BA76-DBAC167BF0B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.LifeCycle.Contracts", "GSoft.Dynamite.LifeCycle.Contracts\GSoft.Dynamite.LifeCycle.Contracts.csproj", "{F1AA0FE4-BD58-44F4-9D24-4A28E0A62F3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.LifeCycle.SP", "GSoft.Dynamite.LifeCycle.SP\GSoft.Dynamite.LifeCycle.SP.csproj", "{518B7EBA-C939-4601-96D7-D80480FA07F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -172,6 +178,20 @@ Global
 		{779A24A3-2F1C-402A-A52E-916035E88584}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{779A24A3-2F1C-402A-A52E-916035E88584}.Release|Any CPU.Build.0 = Release|Any CPU
 		{779A24A3-2F1C-402A-A52E-916035E88584}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CA6C8243-9C26-4152-BA76-DBAC167BF0B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6C8243-9C26-4152-BA76-DBAC167BF0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6C8243-9C26-4152-BA76-DBAC167BF0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6C8243-9C26-4152-BA76-DBAC167BF0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1AA0FE4-BD58-44F4-9D24-4A28E0A62F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AA0FE4-BD58-44F4-9D24-4A28E0A62F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AA0FE4-BD58-44F4-9D24-4A28E0A62F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AA0FE4-BD58-44F4-9D24-4A28E0A62F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
