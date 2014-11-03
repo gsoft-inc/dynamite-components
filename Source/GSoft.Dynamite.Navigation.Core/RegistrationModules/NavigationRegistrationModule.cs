@@ -1,4 +1,4 @@
-﻿using Autofac;
+﻿    using Autofac;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
@@ -26,11 +26,13 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             // Term Driven Pages
             builder.RegisterType<NavigationTermDrivenPageSettingsInfoConfig>().As<INavigationTermDrivenpageSettingsInfoConfig>();
 
-            // Content Type Base Override
+            // Content Types
             builder.RegisterType<NavigationContentTypeInfoConfig>().As<INavigationContentTypeInfoConfig>();
+            builder.RegisterType<NavigationContentTypeInfoConfig>().Named<INavigationContentTypeInfoConfig>("navigation");
 
-            // Fields Base Override
+            // Fields
             builder.RegisterType<NavigationFieldInfoConfig>().As<INavigationFieldInfoConfig>();
+            builder.RegisterType<NavigationFieldInfoConfig>().Named<INavigationFieldInfoConfig>("navigation");
 
             // Event Receivers
             builder.RegisterType<NavigationEventReceiverInfoConfig>().As<INavigationEventReceiverInfoConfig>();
