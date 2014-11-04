@@ -10,7 +10,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public class PublishingResultSourceInfos
     {
-        private readonly string SearchKqlprefix = "{?{searchTerms} -ContentClass=urn:content-class:SPSPeople}";
+        private static readonly string SearchKqlprefix = "{?{searchTerms} -ContentClass=urn:content-class:SPSPeople}";
 
         /// <summary>
         /// A single Catalog Item result source
@@ -23,7 +23,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "Single Catalog Item",
                 Level = SearchObjectLevel.Ssa,
                 Overwrite = false,
-                Query = this.SearchKqlprefix,
+                Query = SearchKqlprefix,
                 SortSettings = new Dictionary<string, SortDirection>()
                 {
                     {"ListItemID",SortDirection.Ascending}
@@ -42,7 +42,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Name = "Single Target Item",
                 Level = SearchObjectLevel.Ssa,
                 Overwrite = false,
-                Query = this.SearchKqlprefix
+                Query = SearchKqlprefix
             };
         }
 
@@ -51,9 +51,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// </summary>
         /// <param name="queryToAppend"></param>
         /// <returns>The string prefixed with the Search KQL</returns>
-        public string AppendToSearchKqlPrefix(string queryToAppend)
+        public static string AppendToSearchKqlPrefix(string queryToAppend)
         {
-            return string.Format("{0} {1}", this.SearchKqlprefix, queryToAppend);
+            return string.Format("{0} {1}", SearchKqlprefix, queryToAppend);
         }
     }
 }
