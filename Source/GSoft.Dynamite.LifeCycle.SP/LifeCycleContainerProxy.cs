@@ -7,32 +7,26 @@ using Autofac;
 using GSoft.Dynamite.ServiceLocator;
 using Microsoft.SharePoint;
 
-namespace Dynamite.Demo.Intranet.ServiceLocator
+namespace GSoft.Dynamite.LifeCycle.SP
 {
-    public class DynamiteDemoContainer : ISharePointServiceLocatorAccessor
+    /// <summary>
+    /// Proxy service locator for the Dynamite Portal Publishing components
+    /// </summary>
+    internal class LifeCycleContainerProxy
     {
-        private const string AppName = "Dynamite.Demo.Intranet";
-
-        private static readonly ISharePointServiceLocator innerServiceLocator = new SharePointServiceLocator(AppName, fileName => 
-            fileName.Contains(AppName) ||
-            fileName.Contains("GSoft.Dynamite.Publishing") ||
-            fileName.Contains("GSoft.Dynamite.Multilingualism") ||
-            fileName.Contains("GSoft.Dynamite.Navigation") ||
-            fileName.Contains("GSoft.Dynamite.Docs") ||
-            fileName.Contains("GSoft.Dynamite.Design") ||
-            fileName.Contains("GSoft.Dynamite.LifeCycle"));
-
         /// <summary>
-        /// Exposes the inner service locator through the ISharePointServiceLocatorAccessor interface,
-        /// providing this locator as THE container to use for Dynamite component modules.
+        /// This service locator is provided either 
+        /// 1) by the only Container class currently available in the GAC 
+        /// from the single DLL matching the pattern "*.ServiceLocator.dll"
+        /// or 
+        /// 2) by the Container class from the DLL with a file name matching 
+        /// the SPSite property bag value for the key "ServiceLocatorAssemblyName"
+        /// 
+        /// In other words, Dynamite.Components modules must be loaded by
+        /// a container class belonging to some Company.Project.ServiceLocator
+        /// assembly.
         /// </summary>
-        public static ISharePointServiceLocator ServiceLocatorInstance
-        {
-            get
-            {
-                return innerServiceLocator;
-            }
-        }
+        private static readonly ISharePointServiceLocator InnerLocator = new AddOnProvidedServiceLocator();
 
         /// <summary>
         /// Exposes the most-nested currently available lifetime scope.
@@ -48,7 +42,7 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         {
             get
             {
-                return innerServiceLocator.Current;
+                return InnerLocator.Current;
             }
         }
 
@@ -58,19 +52,18 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         /// In a SPSite or SPWeb-scoped feature context, will return a web-specific
         /// lifetime scope (allowing you to inject InstancePerSite and InstancePerWeb
         /// objects).
-        /// In a SPFarm or SPWebApplication feature context, this method will throw
-        /// an exception of type <see cref="InvalidOperationException"/>. Dynamite components
-        /// must be configured under a specific SPSite's scope.
+        /// In a SPFarm or SPWebApplication feature context, will return a child
+        /// container of the root application container (preventing you from injecting
+        /// InstancePerSite, InstancePerWeb or InstancePerRequest objects).
         /// Please dispose this lifetime scope when done (E.G. call this method from
         /// a using block).
-        /// Prefer usage of this method versus resolving individual dependencies from the 
-        /// ISharePointServiceLocator.Current property.
+        /// Prefer usage of this method versus resolving manually from the Current property.
         /// </summary>
         /// <param name="feature">The current feature that is requesting a child lifetime scope</param>
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginFeatureLifetimeScope(SPFeature feature)
         {
-            return innerServiceLocator.BeginLifetimeScope(feature);
+            return InnerLocator.BeginLifetimeScope(feature);
         }
 
         /// <summary>
@@ -80,16 +73,11 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         /// a using block).
         /// Prefer usage of this method versus resolving manually from the Current property.
         /// </summary>
-        /// <param name="web">The current web from which we are requesting a child lifetime scope</param>
+        /// <param name="web">The web</param>
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginWebLifetimeScope(SPWeb web)
         {
-            return innerServiceLocator.BeginLifetimeScope(web);
-        }
-
-        ISharePointServiceLocator ISharePointServiceLocatorAccessor.ServiceLocatorInstance
-        {
-            get { return ServiceLocatorInstance; }
+            return InnerLocator.BeginLifetimeScope(web);
         }
     }
 }
