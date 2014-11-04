@@ -23,7 +23,6 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                     {this._basePublishingTermDrivenPageSettingsInfos.NavigationTermSet()},
                     {this._basePublishingTermDrivenPageSettingsInfos.NavigationTermSetFrench()},
                     {this._basePublishingTermDrivenPageSettingsInfos.NewsTerm()},
-                    {this._basePublishingTermDrivenPageSettingsInfos.AboutTerm()},
                 };
 
             }        

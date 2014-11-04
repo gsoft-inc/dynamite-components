@@ -45,7 +45,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10114\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10118\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -61,12 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\PublishingListInfoConfig.cs" />
     <Compile Include="Configuration\PublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\PublishingContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\PublishingDisplayTemplateInfoConfig.cs" />
     <Compile Include="Configuration\PublishingFieldInfoConfig.cs" />
     <Compile Include="Configuration\PublishingFolderInfoConfig.cs" />
     <Compile Include="Configuration\PublishingManagedPropertyConfig.cs" />
+    <Compile Include="Configuration\PublishingPageLayoutInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultTypeInfoConfig.cs" />
     <Compile Include="Configuration\PublishingTaxonomyConfig.cs" />

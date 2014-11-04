@@ -26,7 +26,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                     {this.contentTypeInfoValues.CatalogContentItem()},
                     {this.contentTypeInfoValues.TargetContentItem()},
                     {this.contentTypeInfoValues.NewsItem()},
-                    {this.contentTypeInfoValues.ContentItem()}
+                    {this.contentTypeInfoValues.ContentItem()},
+                    {this.contentTypeInfoValues.TranslatablePage()},
+                    {this.contentTypeInfoValues.DefaultPage()},
                 };
 
                 return contentTypes;

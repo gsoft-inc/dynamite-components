@@ -47,12 +47,5 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 false,
                 true);
         }
-
-        public TermDrivenPageSettingInfo AboutTerm()
-        {
-            return new TermDrivenPageSettingInfo(
-                this._basePublishingTermInfos.AboutLabel(),"http://www.gsoft.com"
-                );
-        }
     }
 }

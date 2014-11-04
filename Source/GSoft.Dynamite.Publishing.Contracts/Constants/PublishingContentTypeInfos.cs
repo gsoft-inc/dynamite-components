@@ -169,6 +169,40 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         #endregion
 
+        #region Translatable Page
+
+        /// <summary>
+        /// The translatable page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo TranslatablePage()
+        {
+            return new ContentTypeInfo(
+                this.Page().ContentTypeId + "01",
+                PublishingResources.ContentTypeTranslatablePageTitle,
+                PublishingResources.ContentTypeTranslatablePageDescription,
+                PublishingResources.ContentTypeGroup)
+            {
+            };
+        }
+
+        /// <summary>
+        /// The default page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo DefaultPage()
+        {
+            return new ContentTypeInfo(
+                this.TranslatablePage().ContentTypeId + "01",
+                PublishingResources.ContentTypeDefaultPageTitle,
+                PublishingResources.ContentTypeDefaultPageDescription,
+                PublishingResources.ContentTypeGroup)
+            {
+            };
+        }
+        
+        #endregion
+
         #region SharePoint Content Types
 
         /// <summary>

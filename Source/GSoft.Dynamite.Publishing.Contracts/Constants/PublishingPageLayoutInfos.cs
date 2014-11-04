@@ -5,6 +5,13 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     public class PublishingPageLayoutInfos
     {
+        private readonly PublishingContentTypeInfos publishingContentTypeInfos;
+
+        public PublishingPageLayoutInfos(PublishingContentTypeInfos publishingContentTypeInfos)
+        {
+            this.publishingContentTypeInfos = publishingContentTypeInfos;
+        }
+
         #region Target Item Page Layout
 
         public PageLayoutInfo TargetItemPageLayout()
@@ -12,6 +19,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             return new PageLayoutInfo()
             {
                 Name = "TargetItemPageLayout.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
             };
         }
         #endregion
@@ -22,7 +30,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new PageLayoutInfo()
             {
-                Name = "CatalogItemPageLayout.aspx"
+                Name = "CatalogItemPageLayout.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
             };
         }
         #endregion
