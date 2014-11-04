@@ -67,6 +67,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
@@ -157,6 +158,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj">
+      <Project>{13c3cfc3-4328-4047-9b62-15b19e2e5922}</Project>
+      <Name>GSoft.Dynamite.Multilingualism.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Navigation.Contracts\GSoft.Dynamite.Navigation.Contracts.csproj">
       <Project>{f26ef1fa-1a19-416b-a3a6-cfe250967773}</Project>
       <Name>GSoft.Dynamite.Navigation.Contracts</Name>

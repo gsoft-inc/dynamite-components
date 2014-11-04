@@ -20,8 +20,6 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             RespectPriority = true
         };
 
-
-
         /// <summary>
         /// The title slug managed property name
         /// </summary>
