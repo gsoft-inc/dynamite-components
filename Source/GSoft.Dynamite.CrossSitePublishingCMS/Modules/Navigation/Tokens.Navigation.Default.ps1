@@ -10,6 +10,7 @@ $DSP_CrossSitePublishingCMS_NAV_ResultSources = "6844736d-2c1b-4f62-83d6-d16181f
 $DSP_CrossSitePublishingCMS_NAV_OccurrenceLinkLocation = "989e498b-81d0-4dc3-9c5c-33bda054c2b0"
 $DSP_CrossSitePublishingCMS_NAV_CatalogConnections = "14864606-186f-4e73-b1e5-646c8657678e"
 $DSP_CrossSitePublishingCMS_NAV_ManagedNavigation = "b7b200a2-6d16-4f33-aeae-80cd1ae1474b"
+$DSP_DEFAULT_CrossSitePublishingCMS_NAV_NavigationControl = "bafb71d3-882d-43c0-b635-b5394b3d67eb"
 
 $DSP_DEFAULT_PortalKeywordsConfigurationFile = "./Default/Default-KeywordsTermGroup.xml"
 $DSP_DEFAULT_PortalKeywordsTermGroup = "Portal - Keywords"

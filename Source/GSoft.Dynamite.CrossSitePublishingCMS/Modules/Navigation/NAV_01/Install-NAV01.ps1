@@ -119,6 +119,16 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-ManagedNavigation.ps1'
 & $Script
 
+# ======================================= #
+# =========   GLOBAL NAVIGATION  ======== #
+# ======================================= #
+
+$values = @{"Step: " = "#7 Setup global navigation control"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Controls.ps1'
+& $Script
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript
