@@ -12,9 +12,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public class PublishingContentTypeInfos
     {
-        private readonly IResourceLocator _resourceLocator;
-        private readonly string _resourceFileName = PublishingResources.Global;
-        private readonly PublishingFieldInfos _fieldInfoValues;
+        private readonly IResourceLocator resourceLocator;
+        private readonly string resourceFileName = PublishingResources.Global;
+        private readonly PublishingFieldInfos fieldInfoValues;
 
         /// <summary>
         /// The BaseContentTypeInfoValues constructor
@@ -23,8 +23,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <param name="fieldInfoValues">The field info instance</param>
         public PublishingContentTypeInfos(IResourceLocator resourceLocator, PublishingFieldInfos fieldInfoValues)
         {
-            this._resourceLocator = resourceLocator;
-            this._fieldInfoValues = fieldInfoValues;
+            this.resourceLocator = resourceLocator;
+            this.fieldInfoValues = fieldInfoValues;
         }
 
         #region Browsable Item
@@ -44,7 +44,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Fields = new List<IFieldInfo>()
                 {
-                   this._fieldInfoValues.Navigation()
+                   this.fieldInfoValues.Navigation()
                 }
             };
         }
@@ -160,9 +160,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Fields = new List<IFieldInfo>()
                 {
-                    this._fieldInfoValues.Summary(),
+                    this.fieldInfoValues.Summary(),
                     PublishingFields.PublishingPageImage,
-                    this._fieldInfoValues.ImageDescription()
+                    this.fieldInfoValues.ImageDescription()
                 },
             };
         }
