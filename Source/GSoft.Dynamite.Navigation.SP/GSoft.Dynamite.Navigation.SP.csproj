@@ -66,12 +66,20 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Navigation\MainMenu.ascx.cs">
+      <DependentUpon>MainMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Navigation\MainMenu.ascx.designer.cs">
+      <DependentUpon>MainMenu.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Events\BrowsableItemEvents.cs" />
     <Compile Include="Features\CrossSitePublishingCMS_CatalogConnections\CrossSitePublishingCMS_CatalogConnections.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_CatalogConnections.feature</DependentUpon>
@@ -104,6 +112,12 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
+    <None Include="Artefacts\NavigationControl\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bafc23b4-07a4-45b2-abda-1c8b569c5830}</SharePointProjectItemId>
+    </None>
+    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{99ffa066-2c05-44c1-81f5-18f45cad9bbe}</SharePointProjectItemId>
+    </None>
     <None Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.feature">
       <FeatureId>{16096bf5-7f38-4c53-a63b-a82b19e63af6}</FeatureId>
     </None>
@@ -128,6 +142,9 @@
     <None Include="Features\CrossSitePublishingCMS_ManagedNavigation\CrossSitePublishingCMS_ManagedNavigation.feature">
       <FeatureId>{e2b7978a-3f67-432b-80bd-7cbb05a92bbf}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_NavigationControl\CrossSitePublishingCMS_NavigationControl.feature">
+      <FeatureId>{22af44e8-e90b-450b-a2dd-92e52eaef9b4}</FeatureId>
+    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{32e09919-4bf5-4f69-88b9-d38f260f42d5}</PackageId>
@@ -150,6 +167,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artefacts\NavigationControl\Elements.xml" />
+    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Navigation\MainMenu.ascx" />
     <Content Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
     </Content>
@@ -173,6 +192,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ManagedNavigation\CrossSitePublishingCMS_ManagedNavigation.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ManagedNavigation.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_NavigationControl\CrossSitePublishingCMS_NavigationControl.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_NavigationControl.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Navigation.Global.en-US.resx" />
   </ItemGroup>
