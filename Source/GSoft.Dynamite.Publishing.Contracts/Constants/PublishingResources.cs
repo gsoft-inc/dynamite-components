@@ -125,6 +125,26 @@
         /// </summary>
         public static readonly string ContentTypeNewsItemDescription = "ContentType_NewsItem_Description";
 
+        /// <summary>
+        /// The content type Translatable Page Name
+        /// </summary>
+        public static readonly string ContentTypeTranslatablePageTitle = "ContentType_TranslatablePage_Name";
+
+        /// <summary>
+        /// The content type Translatable Page Description
+        /// </summary>
+        public static readonly string ContentTypeTranslatablePageDescription = "ContentType_TranslatablePage_Desc";
+
+                /// <summary>
+        /// The content type Default Page Name
+        /// </summary>
+        public static readonly string ContentTypeDefaultPageTitle = "ContentType_DefaultPage_Name";
+
+        /// <summary>
+        /// The content type Default Page Description
+        /// </summary>
+        public static readonly string ContentTypeDefaultPageDescription = "ContentType_DefaultPage_Desc";
+
         #endregion
 
         #region Lists

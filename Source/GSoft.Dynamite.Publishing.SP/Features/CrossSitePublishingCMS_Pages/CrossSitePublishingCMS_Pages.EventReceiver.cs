@@ -80,7 +80,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
 
-                    folderHelper.ResetHomePageToDefault(web);
+                    folderHelper.ResetWelcomePageToDefault(web);
                 }
             }
             // Reset HomePage

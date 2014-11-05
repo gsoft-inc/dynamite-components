@@ -21,9 +21,10 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
                 return new List<EventReceiverInfo>()
                 {
                     {this.eventEventReceiverInfos.TranslatableItemEventAdded()},
-                    {this.eventEventReceiverInfos.TranslatableItemEventUpdated()}
+                    {this.eventEventReceiverInfos.TranslatableItemEventUpdated()},
+                    {this.eventEventReceiverInfos.TranslatablePageEventAdded()},
+                    {this.eventEventReceiverInfos.TranslatablePageEventUpdated()},
                 };
-
             }
         }
     }

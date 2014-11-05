@@ -53,13 +53,13 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Services
         IList<VariationLabel> GetPeerVariationLabels(Uri currentUrl, Variations variationsContext, SPUser currentUser);
 
         /// <summary>
-        /// Gets the peer URL for a given variation label.
+        /// Gets the peer URL for a given variation label (for current context's item).
         /// </summary>
         /// <param name="label">The variation label.</param>
-        /// <param name="catalogNavigationContext">The catalog navigation context.</param>
+        /// <param name="associationKey">Key that links variation items together.</param>
         /// <returns>
         /// The peer variation URL.
         /// </returns>
-        Uri GetPeerUrl(VariationLabel label, ICatalogNavigation catalogNavigationContext);
+        Uri GetPeerUrl(VariationLabel label, string associationKey);
     }
 }

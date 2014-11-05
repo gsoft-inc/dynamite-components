@@ -40,7 +40,7 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
                 )
             {
                 DefaultValue = "Demo",
-                Required = RequiredTypes.Required
+                Required = RequiredType.Required
             };
         }
 

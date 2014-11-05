@@ -36,7 +36,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 PublishingResources.FieldGroup
                 )
             {
-                Required = RequiredTypes.NotRequired,
+                Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
                 IsHiddenInListSettings = false,
@@ -58,7 +58,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 PublishingResources.FieldGroup
                 )
             {
-                Required = RequiredTypes.NotRequired,
+                Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
                 IsHiddenInListSettings = false,
@@ -80,7 +80,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                PublishingResources.FieldGroup
                )
             {
-                Required = RequiredTypes.NotRequired,
+                Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
                 IsHiddenInListSettings = false,
@@ -106,7 +106,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 PublishingResources.FieldGroup
                 )
             {
-                Required               = RequiredTypes.Required,
+                Required = RequiredType.Required,
                 IsHiddenInDisplayForm  = false,
                 IsHiddenInEditForm = false,
                 IsHiddenInListSettings = false,

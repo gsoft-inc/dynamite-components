@@ -38,7 +38,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 PublishingResources.FieldGroup
                 )
             {
-                Required = RequiredTypes.NotRequired,
+                Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
                 IsHiddenInListSettings = false,
@@ -60,7 +60,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 PublishingResources.FieldGroup
                 )
             {
-                Required = RequiredTypes.NotRequired,
+                Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
                 IsHiddenInListSettings = false,

@@ -21,13 +21,25 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         public EventReceiverInfo TranslatableItemEventAdded()
         {
             return new EventReceiverInfo(this.publishingContentTypeInfos.TranslatableItem(),
-                SPEventReceiverType.ItemAdded);
+                SPEventReceiverType.ItemAdded, SPEventReceiverSynchronization.Synchronous);
         }
 
         public EventReceiverInfo TranslatableItemEventUpdated()
         {
             return new EventReceiverInfo(this.publishingContentTypeInfos.TranslatableItem(),
-                SPEventReceiverType.ItemUpdated);
+                SPEventReceiverType.ItemUpdated, SPEventReceiverSynchronization.Synchronous);
+        }
+
+        public EventReceiverInfo TranslatablePageEventAdded()
+        {
+            return new EventReceiverInfo(this.publishingContentTypeInfos.TranslatablePage(),
+                SPEventReceiverType.ItemAdded, SPEventReceiverSynchronization.Synchronous);
+        }
+
+        public EventReceiverInfo TranslatablePageEventUpdated()
+        {
+            return new EventReceiverInfo(this.publishingContentTypeInfos.TranslatablePage(),
+                SPEventReceiverType.ItemUpdated, SPEventReceiverSynchronization.Synchronous);
         }
     }
 }

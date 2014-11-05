@@ -24,16 +24,16 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         {
             return new TermDrivenPageSettingInfo(
                 this._basePublishingTermSetInfos.GlobalNavigation(),
-                this._basePublishingPageInfos.TargetItemPageTemplate().RelativeTermDrivenPageUrl,
-                this._basePublishingPageInfos.CatalogItemPageTemplate().RelativeTermDrivenPageUrl);
+                this._basePublishingPageInfos.TargetItemPageTemplate().SiteTokenizedTermDrivenPageUrl,
+                this._basePublishingPageInfos.CatalogItemPageTemplate().SiteTokenizedTermDrivenPageUrl);
         }
 
         public TermDrivenPageSettingInfo NavigationTermSetFrench()
         {
             return new TermDrivenPageSettingInfo(
                 this._multilingualismTermInfos.NavigationFrench(),
-                this._basePublishingPageInfos.TargetItemPageTemplate().RelativeTermDrivenPageUrl,
-                this._basePublishingPageInfos.CatalogItemPageTemplate().RelativeTermDrivenPageUrl);
+                this._basePublishingPageInfos.TargetItemPageTemplate().SiteTokenizedTermDrivenPageUrl,
+                this._basePublishingPageInfos.CatalogItemPageTemplate().SiteTokenizedTermDrivenPageUrl);
         }
 
         public TermDrivenPageSettingInfo NewsTerm()
@@ -41,18 +41,11 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             return new TermDrivenPageSettingInfo(
                 this._basePublishingTermInfos.NewsLabel(),
                 string.Empty,
-                this._basePublishingPageInfos.CatalogItemPageTemplate().RelativeTermDrivenPageUrl,
+                this._basePublishingPageInfos.CatalogItemPageTemplate().SiteTokenizedTermDrivenPageUrl,
                 string.Empty,
-                this._basePublishingPageInfos.CatalogItemPageTemplate().RelativeTermDrivenPageUrl,
+                this._basePublishingPageInfos.CatalogItemPageTemplate().SiteTokenizedTermDrivenPageUrl,
                 false,
                 true);
-        }
-
-        public TermDrivenPageSettingInfo AboutTerm()
-        {
-            return new TermDrivenPageSettingInfo(
-                this._basePublishingTermInfos.AboutLabel(),"http://www.gsoft.com"
-                );
         }
     }
 }
