@@ -9,6 +9,7 @@ using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
+using System.Collections.Generic;
 
 namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigation
 {
@@ -37,7 +38,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                 var properties = new NavigationManagedProperties()
                  {
                      Title = BuiltInManagedProperties.Title,
-                     ResultSourceName = "",
+                     ResultSourceName = "All Menu Items",
                      Navigation = publishingManagedPropertyInfos.Navigation.Name,
                      ItemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name,
                      FriendlyUrlRequiredProperties = new[] 
@@ -47,7 +48,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                          BuiltInManagedProperties.SiteUrl, 
                          BuiltInManagedProperties.ListId 
                      },
-                     CatalogItemId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
+                     CatalogItemId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId
                  };
 
                 // Call the navigation service
