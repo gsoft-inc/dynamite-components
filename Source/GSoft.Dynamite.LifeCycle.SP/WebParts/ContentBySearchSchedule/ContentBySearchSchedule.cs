@@ -9,6 +9,7 @@ using System.Web.UI.WebControls.WebParts;
 using Autofac;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.LifeCycle.Contracts.Controls;
+using GSoft.Dynamite.LifeCycle.Contracts.WebParts;
 using Microsoft.Office.Server.Search.WebControls;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.WebControls;
@@ -17,7 +18,7 @@ using Microsoft.SharePoint.WebPartPages;
 namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
 {
     [ToolboxItemAttribute(false)]
-    public class ContentBySearchSchedule : ContentBySearchWebPart
+    public class ContentBySearchSchedule : ContentBySearchWebPart, IContentBySearchSchedule
     {
         private const string WebpartCategory = "Publishing Schedule Control";
         private const string StartDatePropertyname = "Publishing Start Date Managed Property Name";
