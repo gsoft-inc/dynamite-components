@@ -39,8 +39,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\GSoft.Dynamite.Portal.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
@@ -149,6 +148,9 @@
     <None Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.feature">
       <FeatureId>{253da52f-d048-4d13-82d4-fffb42b21a34}</FeatureId>
     </None>
+    <None Include="Features\CommonCMS_WebParts\CommonCMS_WebParts.feature">
+      <FeatureId>{00090562-f78d-4a5e-a3ec-e5d9c1fe1455}</FeatureId>
+    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{39449225-6dec-4063-a39a-dea11765218e}</PackageId>
@@ -177,6 +179,9 @@
     </Content>
     <Content Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.Template.xml">
       <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CommonCMS_WebParts\CommonCMS_WebParts.Template.xml">
+      <DependentUpon>CommonCMS_WebParts.feature</DependentUpon>
     </Content>
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />

@@ -50,6 +50,10 @@ Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 $Script = $CommandDirectory + "\Modules\Publishing\PUB_02\Install-PUB02.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
+##### PUB 03
+$Script = $CommandDirectory + "\Modules\Publishing\PUB_03\Install-PUB03.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+
 # ********** NAVIGATION MODULE ********** #
 
 ##### NAV 01
