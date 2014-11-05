@@ -86,29 +86,17 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter" /> object that receives the server control content.</param>
         protected override void Render(HtmlTextWriter writer)
         {
-            MultilingualismContainerProxy.Current.Resolve<ICatchAllExceptionHandler>().Execute(SPContext.Current.Web, delegate()
+            MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(SPContext.Current.Web, delegate()
             {
-                var catalogNavigation = MultilingualismContainerProxy.Current.Resolve<ICatalogNavigation>();
-                var multilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
-                var publishingManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<PublishingManagedPropertyInfos>(); 
-
                 var currentWebUrl = new Uri(SPContext.Current.Web.Url);
                 var labels = this.LanguageSwitcherService.GetPeerVariationLabels(currentWebUrl, Variations.Current, SPContext.Current.Web.CurrentUser);
 
                 if (labels != null && labels.Any())
                 {
-                    if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
-                    {
-                        catalogNavigation.LanguageManagedPropertyName = multilingualismManagedPropertyInfos.ItemLanguage.Name;
-                        catalogNavigation.CatalogNavigationTermManagedPropertyName = publishingManagedPropertyInfos.Navigation.Name;
-                        catalogNavigation.AssociationKeyManagedPropertyName = multilingualismManagedPropertyInfos.ContentAssociationKey.Name;
-                        catalogNavigation.AssociationKeyValue = this.AssociationKey;
-                    }
-
                     var formattedLabels = labels.Select(label => new
                     {
                         Title = Languages.TwoLetterISOLanguageNameToFullName(label.Title),
-                        Url = this.LanguageSwitcherService.GetPeerUrl(label, catalogNavigation).ToString()
+                        Url = this.LanguageSwitcherService.GetPeerUrl(label, this.AssociationKey).ToString()
                     }).ToList();
 
                     this.LabelsRepeater.DataSource = formattedLabels;

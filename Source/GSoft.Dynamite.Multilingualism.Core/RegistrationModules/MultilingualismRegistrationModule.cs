@@ -7,6 +7,7 @@ using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Multilingualism.Core.Configuration;
 using GSoft.Dynamite.Multilingualism.Core.Services;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 
 namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
@@ -31,7 +32,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismEventReceiverInfos>();
             builder.RegisterType<MultilingualismManagedPropertyInfos>();
             builder.RegisterType<MultilingualismTermSetInfos>();
-            
+                      
             // Variations Configuration
             builder.RegisterType<MultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
             builder.RegisterType<MultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("multilingualism");

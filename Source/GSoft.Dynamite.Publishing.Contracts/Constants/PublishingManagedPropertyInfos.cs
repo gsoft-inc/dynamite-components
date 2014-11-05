@@ -9,7 +9,15 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// The navigation managed property name
         /// </summary>
-        public ManagedPropertyInfo Navigation = new ManagedPropertyInfo("owstaxIdDynamiteNavigation", ManagedDataType.Text);
+        public ManagedPropertyInfo Navigation = new ManagedPropertyInfo("owstaxIdDynamiteNavigation",
+            ManagedDataType.Text)
+        {
+            CrawledProperties = new Dictionary<string, int>()
+            {
+                {"ows_taxId_DynamiteNavigation", 1}
+            },
+            RespectPriority = true
+        };
 
         /// <summary>
         /// The navigation text managed property name

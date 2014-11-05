@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Linq;
+using System.Globalization;
 using GSoft.Dynamite.Globalization.Variations;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
-using GSoft.Dynamite.Globalization.Variations;
-using GSoft.Dynamite.Utils;
 
 namespace GSoft.Dynamite.Multilingualism.Core.Services
 {
@@ -105,11 +102,25 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
         /// <param name="fieldInternalName">The field internal name</param>
         public void SetTranslationLanguage(SPListItem item, string fieldInternalName)
         {
-
             if (item.Fields.ContainsField(fieldInternalName))
             {
-                var localeAgnosticLanguage = PublishingWeb.GetPublishingWeb(item.Web).Label.Title;
-                item[fieldInternalName] = localeAgnosticLanguage;
+                //Check if the web is a publishing web
+                var publishingWeb = PublishingWeb.GetPublishingWeb(item.Web);
+                if (publishingWeb != null)
+                {
+                    var label = publishingWeb.Label;
+                    string localeAgnosticLanguage;
+
+                    if (label != null)
+                    {
+                        localeAgnosticLanguage = label.Title;
+                    }
+                    else
+                    {
+                        localeAgnosticLanguage = new CultureInfo((int)item.Web.Language).TwoLetterISOLanguageName;
+                    }
+                    item[fieldInternalName] = localeAgnosticLanguage;
+                }
 
                 this._logger.Info(
                     "ContentAssociation.SetTranslationLanguage: Set item language to '{0}' on item '{1}' in web '{2}'.",

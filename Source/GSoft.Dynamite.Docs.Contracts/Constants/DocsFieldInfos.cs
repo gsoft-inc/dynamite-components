@@ -23,7 +23,7 @@ namespace GSoft.Dynamite.Docs.Contracts.Constants
                 PublishingResources.FieldGroup
                 )
             {
-                Required = RequiredTypes.NotRequired,
+                Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
                 IsHiddenInEditForm = true,
                 IsHiddenInListSettings = true,

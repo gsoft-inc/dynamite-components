@@ -1,11 +1,12 @@
-﻿using GSoft.Dynamite.Globalization;
+﻿using System.Collections.Generic;
+using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Resources
 {
     public class MultilingualismResourceLocatorConfig: IResourceLocatorConfig
     {
-        private string[] resourceFileKeys = new string[1] { MultilingualismResources.Global };
+        private ICollection<string> resourceFileKeys = new List<string>() { MultilingualismResources.Global };
              
         /// <summary>
         /// Default constructor
@@ -17,7 +18,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Resources
         /// <summary>
         /// File Keys
         /// </summary>
-        public string[] ResourceFileKeys
+        public ICollection<string> ResourceFileKeys
         {
             get { return this.resourceFileKeys; }
         }

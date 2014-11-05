@@ -255,4 +255,22 @@
   <data name="Feature_CrossSitePublishingCMS_ResultTypes_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Publishing Module - Result Types</value>
   </data>
+  <data name="ContentType_TranslatablePage_Desc" xml:space="preserve">
+    <value>Creates a new translatable page</value>
+  </data>
+  <data name="ContentType_TranslatablePage_Name" xml:space="preserve">
+    <value>Translatable Page</value>
+  </data>
+  <data name="ContentType_DefaultPage_Desc" xml:space="preserve">
+    <value>Creates a new default page</value>
+  </data>
+  <data name="ContentType_DefaultPage_Name" xml:space="preserve">
+    <value>Default Page</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Lists_Desc" xml:space="preserve">
+    <value>Creates lists for Cross Site Publishing based CMS solutions</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Lists_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Lists</value>
+  </data>
 </root>

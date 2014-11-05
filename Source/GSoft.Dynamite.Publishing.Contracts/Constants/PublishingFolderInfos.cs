@@ -19,7 +19,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 IsRootFolder = true,
                 Name = "RootFolder",
-                SubFolders = new FolderInfo[]
+                Subfolders = new FolderInfo[]
                 {
                     this.FolderTest()
                 },
@@ -36,7 +36,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             return new FolderInfo()
             {
                 Name = "Folder1",
-                SubFolders = new FolderInfo[]
+                Subfolders = new FolderInfo[]
                 {
                     this.FolderTest2()
                 },

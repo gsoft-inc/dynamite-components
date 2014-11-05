@@ -44,6 +44,12 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-PageLayouts.ps1'
 & $Script -Force
 
+$values = @{"Step: " = "Configure pages libraries"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Lists.ps1'
+& $Script
+
 ##### STEP 3: CREATE PAGE INSTANCES
 
 $values = @{"Step: " = "Create Page Instances";"User Story: " = $UserStory}

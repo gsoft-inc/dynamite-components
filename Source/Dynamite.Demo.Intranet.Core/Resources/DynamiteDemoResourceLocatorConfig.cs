@@ -1,4 +1,6 @@
-﻿using Dynamite.Demo.Intranet.Contracts.Constants;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Dynamite.Demo.Intranet.Contracts.Constants;
 using Dynamite.Demo.Intranet.Contracts.Resources;
 using GSoft.Dynamite.Globalization;
 
@@ -6,19 +8,19 @@ namespace Dynamite.Demo.Intranet.Core.Resources
 {
     public class DynamiteDemoResourceLocatorConfig : IResourceLocatorConfig
     {
-        private string[] resourceFileKeys = new string[1] { DynamiteDemoResources.Global };
-             
+        private ICollection<string> resourceFileKeys = new List<string>() { DynamiteDemoResources.Global };
+
         /// <summary>
         /// Default constructor
         /// </summary>
-         public DynamiteDemoResourceLocatorConfig()
+        public DynamiteDemoResourceLocatorConfig()
         {
         }
 
         /// <summary>
         /// File Keys
         /// </summary>
-        public string[] ResourceFileKeys
+         public ICollection<string> ResourceFileKeys
         {
             get { return this.resourceFileKeys; }
         }

@@ -5,21 +5,32 @@ using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
+    /// <summary>
+    /// Configuration for the creation of the Result Sources
+    /// </summary>
     public class PublishingResultSourceInfoConfig : IPublishingResultSourceInfoConfig
     {
-        private readonly PublishingResultSourceInfos _resultSourceValues;
+        private readonly PublishingResultSourceInfos resultSourceValues;
 
+        /// <summary>
+        /// Constructor of the configuration.
+        /// </summary>
+        /// <param name="resultSourceValues"></param>
         public PublishingResultSourceInfoConfig(PublishingResultSourceInfos resultSourceValues)
         {
-            this._resultSourceValues = resultSourceValues;
+            this.resultSourceValues = resultSourceValues;
         }
 
+        /// <summary>
+        /// Method to get the ResultSources to create
+        /// </summary>
+        /// <returns>A list of result source info</returns>
         public IList<ResultSourceInfo> ResultSources()
         {
             var resultSources = new List<ResultSourceInfo>
             {
-                {_resultSourceValues.SingleTargetItem()},
-                {_resultSourceValues.SingleCatalogItem()}
+                {resultSourceValues.SingleTargetItem()},
+                {resultSourceValues.SingleCatalogItem()}
             };
 
             return resultSources;

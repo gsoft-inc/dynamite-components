@@ -26,10 +26,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 FileName = "TargetItemPageTemplate",
                 Title = "Target Item Page Template",
                 PageLayout = this.pageLayoutInfo.TargetItemPageLayout(),
-                ContentTypeId = this.contentTypeInfo.Page().ContentTypeId,
-                WebParts = new Dictionary<string, WebPartInfo>()
+                ContentTypeId = this.contentTypeInfo.DefaultPage().ContentTypeId,
+                WebParts = new List<WebPartInfo>()
                 {
-                    {"Main",this.webPartInfos.TargetItemContentWebPart()}
+                    { this.webPartInfos.TargetItemContentWebPart("Main") }
                 },
                 IsPublished = true             
             };
@@ -46,10 +46,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 FileName = "CatalogItemPageTemplate",
                 Title = "Catalog Item Page Template",
                 PageLayout = this.pageLayoutInfo.CatalogItemPageLayout(),
-                ContentTypeId = this.contentTypeInfo.Page().ContentTypeId,
-                WebParts = new Dictionary<string, WebPartInfo>()
+                ContentTypeId = this.contentTypeInfo.DefaultPage().ContentTypeId,
+                WebParts = new List<WebPartInfo>()
                 {
-                    {"Main",this.webPartInfos.CatalogItemContentWebPart()}
+                    { this.webPartInfos.CatalogItemContentWebPart("Main") }
                 },
                 IsPublished = true
             };

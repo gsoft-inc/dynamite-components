@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Globalization.Variations;
@@ -44,7 +45,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
                         foreach (var catalog in baseCatalogs)
                         {
                             logger.Info("Synchronize variations for catalog {0} in web {1}", catalog.DisplayName, web.Url);
-                            variationSyncHelper.SyncList(web, catalog, baseVariationSettings.Labels);
+                            variationSyncHelper.SyncList(web, catalog, baseVariationSettings.Labels.ToList());
                         }
                     }
                 }
