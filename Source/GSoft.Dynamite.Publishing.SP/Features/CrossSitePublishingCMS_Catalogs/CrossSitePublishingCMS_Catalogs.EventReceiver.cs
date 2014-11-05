@@ -36,7 +36,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                     // Create catalogs
                     foreach (var catalog in baseCatalogs)
                     {
-                        logger.Info("Creating catalog {0} on web {1}", catalog.RootFolderUrl, web.Url);
+                        logger.Info("Creating catalog {0} on web {1}", catalog.WebRelativeUrl, web.Url);
                         catalogHelper.EnsureCatalog(web, catalog);
                     }
                 }

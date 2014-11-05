@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using GSoft.Dynamite.ServiceLocator;
+using GSoft.Dynamite.ServiceLocator.AddOn;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Docs.SP

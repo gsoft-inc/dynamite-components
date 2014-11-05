@@ -35,7 +35,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Lists
                     // Create lists
                     foreach (var list in baseListInfos)
                     {
-                        logger.Info("Creating list {0} in web {1}", list.RootFolderUrl, web.Url);
+                        logger.Info("Creating list {0} in web {1}", list.WebRelativeUrl, web.Url);
                         listHelper.EnsureList(web, list);
                     }
                 }

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Globalization;
 using GSoft.Dynamite.Cache;
+using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
 using Microsoft.SharePoint.Utilities;
@@ -14,15 +17,21 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
     public class LanguageSwitcherService : ILanguageSwitcherService
     {
         private readonly ILogger logger;
+        private readonly ICatalogNavigation catalogNavigation;
+        private readonly MultilingualismManagedPropertyInfos multilingualPropertyInfos;
+        private readonly PublishingManagedPropertyInfos publishingPropertyInfos;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LanguageSwitcherService" /> class.
         /// </summary>
         /// <param name="logger">The logger.</param>
         /// <param name="cacheHelper">The application cache helper.</param>
-        public LanguageSwitcherService(ILogger logger)
+        public LanguageSwitcherService(ILogger logger, ICatalogNavigation catalogNavigation, MultilingualismManagedPropertyInfos multilingualPropertyInfos, PublishingManagedPropertyInfos publishingPropertyInfos)
         {
             this.logger = logger;
+            this.catalogNavigation = catalogNavigation;
+            this.multilingualPropertyInfos = multilingualPropertyInfos;
+            this.publishingPropertyInfos = publishingPropertyInfos;
         }
 
         /// <summary>
@@ -103,22 +112,35 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
                 return new List<VariationLabel>();
             }
         }
-
+        
         /// <summary>
-        /// Gets the peer URL for a given variation label.
+        /// Gets the peer URL for a given variation label (for current context's item).
         /// </summary>
         /// <param name="label">The variation label.</param>
-        /// <param name="catalogNavigationContext">The catalog navigation context.</param>
+        /// <param name="associationKey">Key that links variation items together.</param>
         /// <returns>
         /// The peer variation URL.
         /// </returns>
-        public Uri GetPeerUrl(VariationLabel label, ICatalogNavigation catalogNavigationContext)
+        public Uri GetPeerUrl(VariationLabel label, string associationKey)
         {
             try
             {
-                using (new SPMonitoredScope("LanguageToggleViewModel::GetPeerUrl"))
+                using (new SPMonitoredScope("LanguagerSwitcherService::GetPeerUrl"))
                 {
-                    return catalogNavigationContext.GetVariationPeerUrl(label);
+                    if (catalogNavigation.Type == CatalogNavigationType.ItemPage)
+                    {
+                        return this.catalogNavigation.GetVariationPeerUrlForCatalogItem(
+                            new VariationLabelInfo(label), 
+                            multilingualPropertyInfos.ContentAssociationKey.Name,
+                            associationKey, 
+                            multilingualPropertyInfos.ItemLanguage.Name,
+                            publishingPropertyInfos.Navigation.Name
+                            );
+                    }
+                    else
+                    {
+                        return this.catalogNavigation.GetVariationPeerUrl(label);
+                    }
                 }
             }
             catch (Exception exception)

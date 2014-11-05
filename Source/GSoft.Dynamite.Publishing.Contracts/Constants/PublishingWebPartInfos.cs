@@ -31,16 +31,16 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// Web part for Item Content
         /// </summary>
         /// <returns>WebPart info object</returns>
-        public WebPartInfo TargetItemContentWebPart()
+        public WebPartInfo TargetItemContentWebPart(string zoneName)
         {
             // When you set a result source to a Search WebPart, you need to use at least the Properties["SourceName"] and Properties["SourceLevel"] attributes
             var querySettings = new DataProviderScriptWebPart();
             querySettings.Properties["SourceName"] = this.resultSourceInfos.SingleTargetItem().Name;
             querySettings.Properties["SourceLevel"] = this.resultSourceInfos.SingleTargetItem().Level.ToString();
             querySettings.Properties["QueryTemplate"] = string.Empty;
-            
 
-            return new WebPartInfo("Target Item Content Webpart")
+
+            return new WebPartInfo("Target Item Content Webpart", zoneName)
             {
                 WebPart = new ResultScriptWebPart()
                 {
@@ -69,7 +69,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             };
         }
 
-        public WebPartInfo CatalogItemContentWebPart()
+        public WebPartInfo CatalogItemContentWebPart(string zoneName)
         {
             var querySettings = new DataProviderScriptWebPart();
             querySettings.Properties["SourceName"] = this.resultSourceInfos.SingleCatalogItem().Name;
@@ -77,7 +77,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
 
-            return new WebPartInfo("Catalog Item Content Webpart")
+            return new WebPartInfo("Catalog Item Content Webpart", zoneName)
             {
                 WebPart = new ResultScriptWebPart()
                 {
@@ -113,11 +113,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <param name="backgroundColor">Background color in hex ex: <c>"ffffff"</c> or <c>"e3b489"</c></param>
         /// <param name="fontColor">font color in hex ex: <c>"ffffff"</c> or <c>"e3b489"</c></param>
         /// <returns>A webpartinfo containing the webpart</returns>
-        public WebPartInfo PlaceHolder(int x, int y, string backgroundColor, string fontColor)
-        { 
-            return new WebPartInfo("Place Holder")
+        public WebPartInfo PlaceHolder(string zoneName, int x, int y, string backgroundColor, string fontColor)
+        {
+            return new WebPartInfo("Place Holder", zoneName)
             {
-                WebPart = this.webPartHelper.CreatePlaceHolderWebPart(x, y, backgroundColor, fontColor)
+                WebPart = this.webPartHelper.CreatePlaceholderWebPart(x, y, backgroundColor, fontColor)
             };
         }
     }

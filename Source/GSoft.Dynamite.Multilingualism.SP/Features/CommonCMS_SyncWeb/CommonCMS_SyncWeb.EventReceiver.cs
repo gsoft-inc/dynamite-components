@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Globalization.Variations;
@@ -36,7 +37,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_SyncWebs
                     if (baseVariationSettings != null)
                     {
                         logger.Info("Synchronize variations for web {0}", web.Url);
-                        variationSyncHelper.SyncWeb(web, baseVariationSettings.Labels); 
+                        variationSyncHelper.SyncWeb(web, baseVariationSettings.Labels.ToList()); 
                     }
                 }
             }

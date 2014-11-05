@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using GSoft.Dynamite.ServiceLocator;
+using GSoft.Dynamite.ServiceLocator.AddOn;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Design.SP
