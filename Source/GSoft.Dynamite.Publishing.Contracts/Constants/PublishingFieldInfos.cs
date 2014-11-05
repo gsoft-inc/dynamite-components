@@ -67,7 +67,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     TermGroup = _termGroupInfoValues.Navigation(),
                     TermSet = _termSetInfoValues.GlobalNavigation(),
                 },*/
-                Required = RequiredTypes.Required
+                Required = RequiredType.Required
             };
         }
 

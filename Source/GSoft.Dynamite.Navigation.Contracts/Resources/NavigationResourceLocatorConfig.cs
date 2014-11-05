@@ -1,11 +1,12 @@
-﻿using GSoft.Dynamite.Globalization;
+﻿using System.Collections.Generic;
+using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Resources
 {
     public class NavigationResourceLocatorConfig: IResourceLocatorConfig
     {
-        private string[] resourceFileKeys = new string[1] { NavigationResources.Global };
+        private ICollection<string> resourceFileKeys = new List<string> { NavigationResources.Global };
              
         /// <summary>
         /// Default constructor
@@ -17,7 +18,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Resources
         /// <summary>
         /// File Keys
         /// </summary>
-        public string[] ResourceFileKeys
+        public ICollection<string> ResourceFileKeys
         {
             get { return this.resourceFileKeys; }
         }

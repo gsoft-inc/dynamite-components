@@ -53,7 +53,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
                                 catalogConnection.SourceWeb = authoringWeb;
 
                                 logger.Info("Connecting catalog {0} form {1} to the site {2}", 
-                                    catalogConnection.Catalog.RootFolderUrl,
+                                    catalogConnection.Catalog.WebRelativeUrl,
                                     authoringWeb.Url,
                                     publishingWeb.Url
                                     );
@@ -100,7 +100,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
                                 catalogConnection.SourceWeb = authoringWeb;
 
                                 logger.Info("Deleting catalog {0} form {1} to the site {2}",
-                                    catalogConnection.Catalog.RootFolderUrl,
+                                    catalogConnection.Catalog.WebRelativeUrl,
                                     authoringWeb.Url,
                                     publishingWeb.Url
                                     );
