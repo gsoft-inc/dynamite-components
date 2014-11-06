@@ -31,7 +31,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Priority = 1,
                 DisplayProperties = new List<ManagedPropertyInfo>()
                 {
-                    this._publishingManagedPropertyInfos.Navigation,
+                    this._publishingManagedPropertyInfos.Title,
+                    this._publishingManagedPropertyInfos.PublishingPageContent
                 },
                 Rules = new List<ResultTypeRuleInfo>()
                 {
@@ -52,7 +53,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Priority = 1,
                 DisplayProperties = new List<ManagedPropertyInfo>()
                 {
-                    this._publishingManagedPropertyInfos.Navigation,
+                    this._publishingManagedPropertyInfos.Title,
+                    this._publishingManagedPropertyInfos.PublishingPageContent
                 },
                 Rules = new List<ResultTypeRuleInfo>()
                 {
