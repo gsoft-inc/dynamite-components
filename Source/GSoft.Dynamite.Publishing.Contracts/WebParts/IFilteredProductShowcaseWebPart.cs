@@ -25,5 +25,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.WebParts
         /// The list of filters to implement
         /// </summary>
         string FilterDefinitions { get; set; }
+
+        string ItemKnockoutTemplate { get; set; }
     }
 }

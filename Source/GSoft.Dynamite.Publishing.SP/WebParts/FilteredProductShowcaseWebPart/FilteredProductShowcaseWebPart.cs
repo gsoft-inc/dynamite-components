@@ -30,6 +30,8 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
 
         public string FilterDefinitions { get; set; }
 
+        public string ItemKnockoutTemplate { get; set; }
+
         protected override void CreateChildControls()
         {
             var filteredProductShowcaseControl = Page.LoadControl(ascxPath) as FilteredProductShowcaseWebPartUserControl;
@@ -39,6 +41,7 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
                 filteredProductShowcaseControl.SearchQuery = this.SearchQuery;
                 filteredProductShowcaseControl.SelectProperties = this.SelectProperties;
                 filteredProductShowcaseControl.FilterDefinitions = this.FilterDefinitions;
+                filteredProductShowcaseControl.ItemKnockoutTemplate = this.ItemKnockoutTemplate;
 
                 this.Controls.Add(filteredProductShowcaseControl);
             }

@@ -29,6 +29,8 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
         /// </summary>
         public string FilterDefinitions { get; set; }
 
+        public string ItemKnockoutTemplate { get; set; }
+
         /// <summary>
         /// Event handler when the page is loaded
         /// </summary>
