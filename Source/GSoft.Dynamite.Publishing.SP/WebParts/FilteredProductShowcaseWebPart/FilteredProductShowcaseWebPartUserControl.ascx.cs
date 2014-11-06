@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,24 +14,6 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
     /// </summary>
     public partial class FilteredProductShowcaseWebPartUserControl : UserControl
     {
-        private string SelectPropertiesSerialized
-        {
-            get
-            {
-                return string.Join(",", this.SelectProperties);
-            }
-        }
-
-        private string FilterDefinitionsSerialized
-        {
-            get
-            {
-                var serializer = new JavaScriptSerializer();
-
-                return serializer.Serialize(this.FilterDefinitions);
-            }
-        }
-
         /// <summary>
         /// The search Query
         /// </summary>
@@ -39,12 +22,12 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
         /// <summary>
         /// The properties selected in the query
         /// </summary>
-        public IList<string> SelectProperties { get; set; }
+        public string SelectProperties { get; set; }
 
         /// <summary>
         /// The Definitions of the different filters
         /// </summary>
-        public IList<ShowcaseFilterDefinition> FilterDefinitions { get; set; }
+        public string FilterDefinitions { get; set; }
 
         /// <summary>
         /// Event handler when the page is loaded

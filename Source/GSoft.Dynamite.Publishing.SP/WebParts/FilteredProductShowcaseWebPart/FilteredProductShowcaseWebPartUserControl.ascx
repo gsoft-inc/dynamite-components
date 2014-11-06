@@ -18,8 +18,8 @@
 
         // Public properties
         FilteredProductShowcase.SearchQuery = <%=this.SearchQuery%>;
-        FilteredProductShowcase.SelectProperties = <%=this.SelectPropertiesSerialized%>;
-        FilteredProductShowcase.FilterDefinitions = <%=this.FilterDefinitionsSerialized%>;
+        FilteredProductShowcase.SelectProperties = <%=this.SelectProperties%>;
+        FilteredProductShowcase.FilterDefinitions = <%=this.FilterDefinitions%>;
         FilteredProductShowcase.Items = null;
         FilteredProductShowcase.FilteredItems = null;
         FilteredProductShowcase.Filters = null;

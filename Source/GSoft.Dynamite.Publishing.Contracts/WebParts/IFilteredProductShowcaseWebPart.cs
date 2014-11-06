@@ -19,11 +19,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.WebParts
         /// <summary>
         /// The properties to get in the query
         /// </summary>
-        IList<string> SelectProperties { get; set; }
+        string SelectProperties { get; set; }
 
         /// <summary>
         /// The list of filters to implement
         /// </summary>
-        IList<ShowcaseFilterDefinition> FilterDefinitions { get; set; }
+        string FilterDefinitions { get; set; }
     }
 }

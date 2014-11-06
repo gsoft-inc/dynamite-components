@@ -26,9 +26,9 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
         [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Search Query"), WebDescription(""), Category("Filtered Product Showcase")]
         public string SearchQuery { get; set; }
 
-        public IList<string> SelectProperties { get; set; }
+        public string SelectProperties { get; set; }
 
-        public IList<ShowcaseFilterDefinition> FilterDefinitions { get; set; }
+        public string FilterDefinitions { get; set; }
 
         protected override void CreateChildControls()
         {
