@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Globalization;
 using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Logging;

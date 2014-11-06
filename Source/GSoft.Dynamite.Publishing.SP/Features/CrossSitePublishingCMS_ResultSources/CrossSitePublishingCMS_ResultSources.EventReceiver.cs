@@ -15,10 +15,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("c6ad3235-45eb-4993-b21c-1d6a90a4f343")]
     public class CrossSitePublishingCMS_ResultSourcesEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Event handler when the feature is activated
+        /// </summary>
+        /// <param name="properties">Event arguments</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -43,19 +46,23 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
             }
         }
 
-       public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-       {
-           var site = properties.Feature.Parent as SPSite;
+        /// <summary>
+        /// Event handler when the feature is deactivating
+        /// </summary>
+        /// <param name="properties">The event arguments</param>
+        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
+        {
+            var site = properties.Feature.Parent as SPSite;
 
-           if (site != null)
-           {
-               using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
-               {
-                   var logger = featureScope.Resolve<ILogger>();
-                   var searchHelper = featureScope.Resolve<ISearchHelper>();
-                   var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
+            if (site != null)
+            {
+                using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
+                {
+                    var logger = featureScope.Resolve<ILogger>();
+                    var searchHelper = featureScope.Resolve<ISearchHelper>();
+                    var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
 
-                   IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
+                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
 
                    // Delete base result sources
                    foreach (var resultSource in resultSources)
