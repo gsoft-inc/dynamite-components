@@ -1,5 +1,5 @@
 ﻿# ----------------------------------------
-# LANG 02: CREATE MULTILINGUAL CONTENT
+# LANG 01: VIEW MULTILINGUAL CONTENT
 # ----------------------------------------
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -26,7 +26,7 @@ Start-Transcript -Path $LogFile
 
 # ***************************** #
 
-$UserStory = "LANG_02"
+$UserStory = "LANG_01"
 
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -52,10 +52,16 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-EventReceivers.ps1'
 & $Script
 
-$values = @{"Step: " = "#4 Sync Catalogs"}
+$values = @{"Step: " = "#4 Create catalogs connections"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-CatalogsSync.ps1'
+$Script = $CommandDirectory + '\Setup-CatalogConnections.ps1'
+& $Script
+
+$values = @{"Step: " = "#5 Setup Result Sources"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ResultSources.ps1'
 & $Script
 
 # ********** LOG END ********** #

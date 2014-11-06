@@ -10,7 +10,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public class PublishingResultSourceInfos
     {
-        private static readonly string SearchKqlprefix = "{?{searchTerms} -ContentClass=urn:content-class:SPSPeople}";
+        private const string SearchKqlprefix = "{?{searchTerms} -ContentClass=urn:content-class:SPSPeople}";
 
         /// <summary>
         /// A single Catalog Item result source
@@ -22,8 +22,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Single Catalog Item",
                 Level = SearchObjectLevel.Ssa,
-                Overwrite = false,
-                Query = SearchKqlprefix,
+                UpdateMode = ResultSourceInfo.UpdateBehavior.OverwriteResultSource,
+                Query = string.Empty,
                 SortSettings = new Dictionary<string, SortDirection>()
                 {
                     {"ListItemID",SortDirection.Ascending}
@@ -41,8 +41,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Single Target Item",
                 Level = SearchObjectLevel.Ssa,
-                Overwrite = false,
-                Query = SearchKqlprefix
+                UpdateMode = ResultSourceInfo.UpdateBehavior.OverwriteResultSource,
+                Query = string.Empty
             };
         }
 

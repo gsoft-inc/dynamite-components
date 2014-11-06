@@ -67,11 +67,13 @@
   <ItemGroup>
     <Compile Include="Configuration\IMultilingualismEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\IMultilingualismFieldInfoConfig.cs" />
+    <Compile Include="Configuration\IMultilingualismResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\IMultilingualismVariationsConfig.cs" />
     <Compile Include="Constants\MultilingualismEventReceiverInfos.cs" />
     <Compile Include="Constants\MultilingualismFieldInfos.cs" />
     <Compile Include="Constants\MultilingualismManagedPropertyInfos.cs" />
     <Compile Include="Constants\MultilingualismResources.cs" />
+    <Compile Include="Constants\MultilingualismResultSourceInfos.cs" />
     <Compile Include="Constants\MultilingualismTermSetInfos.cs" />
     <Compile Include="Constants\MultilingualismVariationLabelInfos.cs" />
     <Compile Include="Constants\MultilingualismVariationSettingsInfos.cs" />
