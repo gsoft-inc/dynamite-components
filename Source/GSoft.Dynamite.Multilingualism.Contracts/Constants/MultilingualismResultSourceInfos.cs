@@ -26,7 +26,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             var itemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name;
 
             // Extend the existing query 
-            singleCatalogItem.UpdateMode = ResultSourceInfo.UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
             singleCatalogItem.Query =
                 itemLanguage + ":{Page.DynamiteItemLanguage}";
 
@@ -36,7 +36,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         public ResultSourceInfo SingleTargetItem()
         {
             var singleCatalogItem = publishingResultSourceInfos.SingleTargetItem();
-            singleCatalogItem.UpdateMode = ResultSourceInfo.UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
 
             var itemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name;
 

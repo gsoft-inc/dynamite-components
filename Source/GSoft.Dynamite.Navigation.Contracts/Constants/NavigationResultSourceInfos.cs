@@ -33,7 +33,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
 
             // Extend the existing query 
-            singleCatalogItem.UpdateMode = ResultSourceInfo.UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
             singleCatalogItem.Query = 
               navigation + ":{Term}" + " " + titleSlug +":{URLToken.1}" + " " + listItemId + "={URLToken.2}" + " " + dateSlug + ":{URLToken.3}";
 
@@ -44,7 +44,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         public ResultSourceInfo SingleTargetItem()
         {
             var singleCatalogItem = resultSourceInfos.SingleTargetItem();
-            singleCatalogItem.UpdateMode = ResultSourceInfo.UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
 
             var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
 

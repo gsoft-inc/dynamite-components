@@ -62,7 +62,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Resu
                     foreach (var resultSource in resultSources)
                     {
                         logger.Info("Revert to publishing result sources");
-                        resultSource.UpdateMode = ResultSourceInfo.UpdateBehavior.RevertQuery;
+                        resultSource.UpdateMode = UpdateBehavior.RevertQuery;
                         searchHelper.EnsureResultSource(site, resultSource);
                     }
                 }

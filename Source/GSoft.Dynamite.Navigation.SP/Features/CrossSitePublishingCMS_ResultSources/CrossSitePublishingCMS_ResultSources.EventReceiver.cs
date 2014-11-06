@@ -64,7 +64,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
                     foreach (var resultSource in resultSources)
                     {
                         logger.Info("Revert result source {0}", resultSource.Name);
-                        resultSource.UpdateMode = ResultSourceInfo.UpdateBehavior.RevertQuery;
+                        resultSource.UpdateMode = UpdateBehavior.RevertQuery;
                         searchHelper.EnsureResultSource(site, resultSource);
                     }
                 }

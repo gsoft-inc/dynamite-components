@@ -22,7 +22,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Single Catalog Item",
                 Level = SearchObjectLevel.Ssa,
-                UpdateMode = ResultSourceInfo.UpdateBehavior.OverwriteResultSource,
+                UpdateMode = UpdateBehavior.OverwriteResultSource,
                 Query = string.Empty,
                 SortSettings = new Dictionary<string, SortDirection>()
                 {
@@ -41,7 +41,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Single Target Item",
                 Level = SearchObjectLevel.Ssa,
-                UpdateMode = ResultSourceInfo.UpdateBehavior.OverwriteResultSource,
+                UpdateMode = UpdateBehavior.OverwriteResultSource,
                 Query = string.Empty
             };
         }
