@@ -45,5 +45,18 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 
             return singleCatalogItem;
         }
+
+        public ResultSourceInfo CatalogCategoryItems()
+        {
+            var singleCatalogItem = publishingResultSourceInfos.CatalogCategoryItems();
+            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
+
+            var itemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name;
+
+            // Extend the existing query 
+            singleCatalogItem.Query = itemLanguage + ":{Page.DynamiteItemLanguage}";
+
+            return singleCatalogItem;
+        }
     }
 }
