@@ -279,4 +279,10 @@
   <data name="Feature_CommonCMS_WebParts_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Publishing Module - Web Parts</value>
   </data>
+  <data name="PageLayout_CatalogCategoryPageTemplate_Desc" xml:space="preserve">
+    <value>Gabarit de page pour un ensemble de contenus</value>
+  </data>
+  <data name="PageLayout_CatalogCategoryPageTemplate_Name" xml:space="preserve">
+    <value>Gabarit de page pour un ensemble de contenus</value>
+  </data>
 </root>

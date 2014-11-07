@@ -21,7 +21,8 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 return new List<PageLayoutInfo>()
                 {
                     this.publishingPageLayoutInfos.CatalogItemPageLayout(),
-                    this.publishingPageLayoutInfos.TargetItemPageLayout()
+                    this.publishingPageLayoutInfos.TargetItemPageLayout(),
+                    this.publishingPageLayoutInfos.CatalogCategoryItemsPageLayout(),
                 };
             }
         }
