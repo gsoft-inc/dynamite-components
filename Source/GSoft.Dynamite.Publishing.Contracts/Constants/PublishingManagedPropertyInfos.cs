@@ -30,8 +30,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 {"ows_DynamiteNavigation", 1}
             },
-            RespectPriority = true
-
+            RespectPriority = true,
+            Retrievable = true
         };
    
         #region SharePoint builtin Managed Properties

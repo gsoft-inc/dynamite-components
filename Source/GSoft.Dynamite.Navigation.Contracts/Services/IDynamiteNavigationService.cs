@@ -7,8 +7,18 @@ using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Services
 {
+    /// <summary>
+    /// The public interface of the class DynamiteNavigationService
+    /// </summary>
     public interface IDynamiteNavigationService
     {
-        IList<INavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max);
+        /// <summary>
+        /// Gets all navigation arborescence
+        /// </summary>
+        /// <param name="web">The current web</param>
+        /// <param name="properties">The properties object</param>
+        /// <param name="max">The value max of nodes</param>
+        /// <returns>List of Navigation Nodes</returns>
+        IList<NavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max);
     }
 }

@@ -18,9 +18,9 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         private readonly INavigationService navigationService;
 
         /// <summary>
-        /// 
+        /// Initializes the properties
         /// </summary>
-        /// <param name="navigationService"></param>
+        /// <param name="navigationService">The navigation service</param>
         public DynamiteNavigationService(INavigationService navigationService)
         {
             this.navigationService = navigationService;
@@ -33,7 +33,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <param name="properties">The properties object</param>
         /// <param name="max">The value max of nodes</param>
         /// <returns>List of Navigation Nodes</returns>
-        public IList<INavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max)
+        public IList<NavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max)
         {
             var nodes = this.navigationService.GetAllNavigationNodes(SPContext.Current.Web, properties);
 
@@ -41,7 +41,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             return this.SortTree(nodes.ToList(), 12);
         }
 
-        private IList<INavigationNode> SortTree(IList<INavigationNode> nodes, int max)
+        private IList<NavigationNode> SortTree(IList<NavigationNode> nodes, int max)
         {
             nodes = this.Sort(nodes).Take(max).ToList();
             foreach (var node in nodes)
@@ -55,12 +55,12 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             return nodes;
         }
 
-        private IList<INavigationNode> Sort(IList<INavigationNode> navigationNodes)
+        private IList<NavigationNode> Sort(IList<NavigationNode> navigationNodes)
         {
             if (navigationNodes.Any(entity => entity.Id != Guid.Empty) && navigationNodes.Any(entity => entity.Id == Guid.Empty))
             {
-                var nodes = new List<INavigationNode>();
-                var leafs = new List<INavigationNode>();
+                var nodes = new List<NavigationNode>();
+                var leafs = new List<NavigationNode>();
 
                 foreach (var entity in navigationNodes)
                 {
