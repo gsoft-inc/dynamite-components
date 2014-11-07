@@ -168,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Artefacts\DisplayTemplates\Elements.xml" />
+    <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_NewsCategorySingleResult.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleContentItem.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemContent.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemHeader.html" />

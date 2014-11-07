@@ -37,7 +37,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Provisioning event receiver for content type {0}", eventReceiver.ContentType.DisplayName);
+                        logger.Info("Provisioning event receiver for content type {0}", eventReceiver.ContentType.ToString());
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";
@@ -63,7 +63,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Deleting event receiver for content type {0}", eventReceiver.ContentType.DisplayName);
+                        logger.Info("Deleting event receiver for content type {0}", eventReceiver.ContentType.ToString());
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";

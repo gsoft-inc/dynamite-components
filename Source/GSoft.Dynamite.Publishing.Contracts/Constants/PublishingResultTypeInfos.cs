@@ -64,5 +64,28 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 }
             };
         }
+
+        public ResultTypeInfo CategoryItemResultType()
+        {
+            return new ResultTypeInfo("Dynamite - Category Item",
+                this._displayTemplateInfos.ItemNewsCategoryItem(),
+                this._resultSourceInfos.CatalogCategoryItems())
+            {
+                OptimizeForFrequenUse = true,
+                Priority = 1,
+                DisplayProperties = new List<ManagedPropertyInfo>()
+                {
+                    this._publishingManagedPropertyInfos.Title,
+                    this._publishingManagedPropertyInfos.Summary,
+                    this._publishingManagedPropertyInfos.PublishingImage,
+                },
+                Rules = new List<ResultTypeRuleInfo>()
+                {
+                    new ResultTypeRuleInfo(this._publishingManagedPropertyInfos.ContentTypeId,
+                        PropertyRuleOperator.DefaultOperator.Contains,
+                        new string[] {this._contentTypeInfos.NewsItem().ContentTypeId})
+                }
+            };
+        }
     }
 }

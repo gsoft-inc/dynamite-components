@@ -35,7 +35,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Provisioning event receiver for content type {0}", eventReceiver.ContentType.DisplayName);
+                        logger.Info("Provisioning event receiver for content type {0}", eventReceiver.ContentType.ToString());
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsableItemEvents";
@@ -61,7 +61,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Deleting event receiver for content type {0}", eventReceiver.ContentType.DisplayName);
+                        logger.Info("Deleting event receiver for content type {0}", eventReceiver.ContentType.ToString());
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsableItemEvents";

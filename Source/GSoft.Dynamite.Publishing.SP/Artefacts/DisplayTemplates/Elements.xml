@@ -4,5 +4,6 @@
     <File Path="Search\Item\Item_SingleNewsItemHeader.html" Url="Item_SingleNewsItemHeader.html" ReplaceContent="TRUE" Type="GhostableInLibrary"  />
     <File Path="Search\Item\Item_SingleNewsItemContent.html" Url="Item_SingleNewsItemContent.html" ReplaceContent="TRUE" Type="GhostableInLibrary"  />
     <File Path="Search\Item\Item_SingleContentItem.html" Url="Item_SingleContentItem.html" ReplaceContent="TRUE" Type="GhostableInLibrary"  />
+    <File Path="Search\Item\Item_NewsCategorySingleResult.html" Url="Item_NewsCategorySingleResult.html" ReplaceContent="TRUE" Type="GhostableInLibrary"  />
   </Module>
 </Elements>
