@@ -51,12 +51,12 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// <summary>
         /// The occurrence link location managed property name (Get directly the text value of the term)
         /// </summary>
-        public ManagedPropertyInfo OccurrenceLinkLocationManagedPropertyText = new ManagedPropertyInfo("DynamiteOccurrenceLinkLocation",
+        public ManagedPropertyInfo OccurrenceLinkLocationManagedPropertyText = new ManagedPropertyInfo("DynamiteOccurrenceLinkLocationOWSTEXT",
             ManagedDataType.Text)
         {
             CrawledProperties = new Dictionary<string, int>()
             {
-                {"ows_taxId_DynamiteOccurrenceLinkLocation", 1}
+                {"ows_DynamiteOccurrenceLinkLocation", 1}
             },
             RespectPriority = true,
             Retrievable = true
