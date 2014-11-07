@@ -40,9 +40,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         {
             return new TermDrivenPageSettingInfo(
                 this._basePublishingTermInfos.NewsLabel(),
-                string.Empty,
                 this._basePublishingPageInfos.CatalogCategoryItemsPageTemplate().SiteTokenizedTermDrivenPageUrl,
-                string.Empty,
+                this._basePublishingPageInfos.CatalogItemPageTemplate().SiteTokenizedTermDrivenPageUrl,
+                this._basePublishingPageInfos.CatalogCategoryItemsPageTemplate().SiteTokenizedTermDrivenPageUrl,
                 this._basePublishingPageInfos.CatalogItemPageTemplate().SiteTokenizedTermDrivenPageUrl,
                 false,
                 true);

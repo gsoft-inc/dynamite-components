@@ -59,4 +59,4 @@ $DSP_CrossSitePublishingCMS_PUB_DisplayTemplates = "d96b6f0d-8536-4367-bf3f-4a4a
 $DSP_CrossSitePublishingCMS_PUB_ResultTypes = "990b925b-fe6e-41ea-ae6a-3011308a303e"
 $DSP_CrossSitePublishingCMS_PUB_Lists = "3be0c334-1fa9-4631-ade5-f9e044b1289d"
 $DSP_CrossSitePublishingCMS_PUB_Lists = "3be0c334-1fa9-4631-ade5-f9e044b1289d"
-$DSP_CrossSitePublishingCMS_PUB_CategoryPages = "70a9d0da-3bf8-4660-8787-5d9d66a06a16""
+$DSP_CrossSitePublishingCMS_PUB_CategoryPages = "70a9d0da-3bf8-4660-8787-5d9d66a06a16"
