@@ -120,5 +120,42 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 WebPart = this.webPartHelper.CreatePlaceholderWebPart(x, y, backgroundColor, fontColor)
             };
         }
+
+        public WebPartInfo CatalogCategoryItemsMainWebPart(string zoneName)
+        {
+            var querySettings = new DataProviderScriptWebPart();
+            querySettings.Properties["SourceName"] = this.resultSourceInfos.CatalogCategoryItems().Name;
+            querySettings.Properties["SourceLevel"] = this.resultSourceInfos.CatalogCategoryItems().Level.ToString();
+            querySettings.Properties["QueryTemplate"] = string.Empty;
+
+
+            return new WebPartInfo("Catalog Category Items Main Content Webpart", zoneName)
+            {
+                WebPart = new ResultScriptWebPart()
+                {
+                    DataProviderJSON = querySettings.PropertiesJson,
+                    //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
+                    ChromeType = PartChromeType.None,
+                    ShowAdvancedLink = false,
+                    ShowBestBets = false,
+                    ShowAlertMe = false,
+                    ShowLanguageOptions = false,
+                    ShowDidYouMean = false,
+                    ShowPaging = false,
+                    ShowResultCount = false,
+                    ShowPersonalFavorites = false,
+                    ShowSortOptions = false,
+                    ShowViewDuplicates = false,
+                    ShowDataErrors = false,
+                    ShowDefinitions = false,
+                    ShowPreferencesLink = false,
+                    ShowUpScopeMessage = false,
+                    ShowResults = true,
+                    BypassResultTypes = false,
+                    ResultsPerPage = 1,
+                    QueryGroupName = "CatalogCategoryItems"
+                }
+            };
+        }
     }
 }

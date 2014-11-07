@@ -11,5 +11,10 @@
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_CatalogItemPageLayout_Desc;" />
     </File>
+    <File Path="CatalogCategoryPageTemplate.aspx" Url="CatalogCategoryPageTemplate.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_CatalogCategoryPageTemplate_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_CatalogCategoryPageTemplate_Desc;" />
+    </File>
   </Module>
 </Elements>

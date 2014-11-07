@@ -56,5 +56,25 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         #endregion
+
+        #region Catalog Category Items Page Template
+
+        public PageInfo CatalogCategoryItemsPageTemplate()
+        {
+            return new PageInfo()
+            {
+                FileName = "CatalogCategoryPageTemplate",
+                Title = "Catalog Category Page Template",
+                PageLayout = this.pageLayoutInfo.CatalogCategoryItemsPageLayout(),
+                ContentTypeId = this.contentTypeInfo.DefaultPage().ContentTypeId,
+                WebParts = new List<WebPartInfo>()
+                {
+                    { this.webPartInfos.CatalogCategoryItemsMainWebPart("Main") }
+                },
+                IsPublished = true
+            };
+        }
+
+        #endregion
     }
 }

@@ -26,7 +26,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Pages = new List<PageInfo>()
                 {
                     {this.pageInfos.TargetItemPageTemplate()},
-                    {this.pageInfos.CatalogItemPageTemplate()}
+                    {this.pageInfos.CatalogItemPageTemplate()},
+                    {this.pageInfos.CatalogCategoryItemsPageTemplate()},
                 }
             };
         }
