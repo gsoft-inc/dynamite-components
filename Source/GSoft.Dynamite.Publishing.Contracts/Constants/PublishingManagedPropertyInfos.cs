@@ -43,7 +43,17 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// ContentTypeId
         /// </summary>
-        public ManagedPropertyInfo ContentTypeId = new ManagedPropertyInfo("ContentTypeId", ManagedDataType.Text);  
+        public ManagedPropertyInfo ContentTypeId = new ManagedPropertyInfo("ContentTypeId", ManagedDataType.Text);
+
+        /// <summary>
+        /// Title
+        /// </summary>
+        public ManagedPropertyInfo Title = new ManagedPropertyInfo("Title", ManagedDataType.Text);
+
+        /// <summary>
+        /// PublishingPageContent
+        /// </summary>
+        public ManagedPropertyInfo PublishingPageContent = new ManagedPropertyInfo("PublishingPageContentOWSHTML", ManagedDataType.Text);  
 
         #endregion
     }

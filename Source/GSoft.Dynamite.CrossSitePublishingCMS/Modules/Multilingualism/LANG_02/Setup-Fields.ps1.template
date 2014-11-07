@@ -9,6 +9,3 @@ Write-Warning "Applying Fields configuration..."
 
 # Activate feature on the root web on the authoring site collection
 Switch-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_LANG_Fields]]
-
-# Activate feature on the root web on the publishing site collection
-Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_LANG_Fields]]

@@ -58,12 +58,6 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-CatalogsSync.ps1'
 & $Script
 
-$values = @{"Step: " = "#5 Create catalogs connections"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-CatalogConnections.ps1'
-& $Script
-
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

@@ -19,7 +19,7 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
             {
                 Name = "Dynanmite Demo Item",
                 Level = SearchObjectLevel.Ssa,
-                Overwrite = false,
+                UpdateMode = UpdateBehavior.OverwriteResultSource,
                 Query = SearchKqlprefix,
                 SortSettings = new Dictionary<string, SortDirection>()
                 {

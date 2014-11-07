@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10124\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10128\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -101,6 +101,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_SyncCatalogs\CrossSitePublishingCMS_SyncCatalogs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_SyncCatalogs.feature</DependentUpon>
     </Compile>
@@ -140,6 +143,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
       <FeatureId>{f1802c45-cdce-4b07-9f86-9574f16b0c12}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
+      <FeatureId>{737c538d-0636-458e-83b7-31d1a962e20a}</FeatureId>
     </None>
     <None Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.css.map">
       <DependentUpon>GSoft.Dynamite.Multilingualism.css</DependentUpon>
@@ -199,6 +205,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Content>
     <Content Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.css">
       <DependentUpon>GSoft.Dynamite.Multilingualism.less</DependentUpon>

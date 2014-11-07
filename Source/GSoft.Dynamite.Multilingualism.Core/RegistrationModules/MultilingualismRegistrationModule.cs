@@ -32,6 +32,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismEventReceiverInfos>();
             builder.RegisterType<MultilingualismManagedPropertyInfos>();
             builder.RegisterType<MultilingualismTermSetInfos>();
+            builder.RegisterType<MultilingualismResultSourceInfos>();
                       
             // Variations Configuration
             builder.RegisterType<MultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
@@ -54,6 +55,9 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
 
             // Managed Properties
             builder.RegisterType<MultilingualismManagedPropertyInfoConfig>().As<IGlobalManagedPropertyInfosConfig>();
+
+            // Result Sources
+            builder.RegisterType<MultilingualismResultSourceInfoConfig>().As<IMultilingualismResultSourceInfoConfig>();
         }
     }
 }

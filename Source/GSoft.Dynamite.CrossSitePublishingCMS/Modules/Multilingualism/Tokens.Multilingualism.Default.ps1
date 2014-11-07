@@ -24,4 +24,4 @@ $DSP_CrossSitePublishingCMS_LANG_LanguageSwitcher = "43ac6c19-8306-4fc0-a920-842
 $DSP_CommonCMS_LANG_CreateVariationsHierarchies = "50213452-1d24-4eae-b915-9ade611bbeb5"
 $DSP_CrossSitePublishingCMS_LANG_EventReceivers = "aedf929e-a717-455a-9e80-5ccacd8a11cf"
 $DSP_CrossSitePublishingCMS_LANG_Lists = "e53b7546-3f44-4462-8ed5-76b6631b2653"
-
+$DSP_CrossSitePublishingCMS_LANG_ResultSources = "103845d8-1ab6-42d9-b6df-635c9e646d07"

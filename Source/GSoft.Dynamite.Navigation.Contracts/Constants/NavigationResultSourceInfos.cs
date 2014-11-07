@@ -27,17 +27,15 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         {
             var singleCatalogItem = resultSourceInfos.SingleCatalogItem();
 
-            // Not a problem if you overwrite the existing result source (it doesn't cause broken links)
-            singleCatalogItem.Overwrite = true;
-
             var dateSlug = this.navigationManagedPropertyInfos.DateSlugManagedProperty.Name;
             var titleSlug = this.navigationManagedPropertyInfos.TitleSlugManagedProperty.Name;
             var listItemId = this.publishingManagedPropertyInfos.ListItemId.Name;
             var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
 
             // Extend the existing query 
-            singleCatalogItem.Query += 
-              " " + navigation + ":{Term}" + " " + titleSlug +":{URLToken.1}" + " " + listItemId + "={URLToken.2}" + " " + dateSlug + ":{URLToken.3}";
+            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
+            singleCatalogItem.Query = 
+              navigation + ":{Term}" + " " + titleSlug +":{URLToken.1}" + " " + listItemId + "={URLToken.2}" + " " + dateSlug + ":{URLToken.3}";
 
             return singleCatalogItem;
 
@@ -46,14 +44,12 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         public ResultSourceInfo SingleTargetItem()
         {
             var singleCatalogItem = resultSourceInfos.SingleTargetItem();
-
-            singleCatalogItem.Overwrite = true;
+            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
 
             var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
 
             // Extend the existing query 
-            singleCatalogItem.Query +=
-              " " + navigation + ":{Term}";
+            singleCatalogItem.Query =navigation + ":{Term}";
 
             return singleCatalogItem;
         }

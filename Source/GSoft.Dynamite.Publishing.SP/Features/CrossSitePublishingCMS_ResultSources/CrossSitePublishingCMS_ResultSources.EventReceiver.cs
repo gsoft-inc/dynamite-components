@@ -39,6 +39,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                     // Create base result sources
                     foreach (var resultSource in resultSources)
                     {
+                        logger.Info("Creating search result source {0}", resultSource.Name);
                         searchHelper.EnsureResultSource(site, resultSource);
                     }
                 }
@@ -63,13 +64,14 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
 
                     IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
 
-                    // Delete base result sources
-                    foreach (var resultSource in resultSources)
-                    {
-                        searchHelper.DeleteResultSource(site, resultSource);
-                    }
-                }
-            }
-        }
+                   // Delete base result sources
+                   foreach (var resultSource in resultSources)
+                   {
+                       logger.Info("Deleting search result source {0}", resultSource.Name);
+                       searchHelper.DeleteResultSource(site, resultSource);
+                   }
+               }
+           }
+       }
     }
 }
