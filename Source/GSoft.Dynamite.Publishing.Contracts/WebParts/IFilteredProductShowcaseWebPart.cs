@@ -27,5 +27,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.WebParts
         string FilterDefinitions { get; set; }
 
         string ItemKnockoutTemplate { get; set; }
+
+        string ItemJavaScriptViewModel { get; set; }
     }
 }

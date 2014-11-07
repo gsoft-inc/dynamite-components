@@ -26,11 +26,29 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
         [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Search Query"), WebDescription(""), Category("Filtered Product Showcase")]
         public string SearchQuery { get; set; }
 
+        /// <summary>
+        /// The properties send to the query to be returned
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Select Properties"), WebDescription(""), Category("Filtered Product Showcase")]
         public string SelectProperties { get; set; }
 
+        /// <summary>
+        /// A list of serialized filter definitions. It contains The Managed Properties on which to filter.
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Filter Definitions"), WebDescription(""), Category("Filtered Product Showcase")]
         public string FilterDefinitions { get; set; }
 
+        /// <summary>
+        /// The name of the knockout template to use for each result item
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Item Knockout Template"), WebDescription(""), Category("Filtered Product Showcase")]
         public string ItemKnockoutTemplate { get; set; }
+
+        /// <summary>
+        /// The name of the view model javascript class to use for each result item
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Item Javascript View Model"), WebDescription(""), Category("Filtered Product Showcase")]
+        public string ItemJavaScriptViewModel { get; set; }
 
         protected override void CreateChildControls()
         {
@@ -42,6 +60,7 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
                 filteredProductShowcaseControl.SelectProperties = this.SelectProperties;
                 filteredProductShowcaseControl.FilterDefinitions = this.FilterDefinitions;
                 filteredProductShowcaseControl.ItemKnockoutTemplate = this.ItemKnockoutTemplate;
+                filteredProductShowcaseControl.ItemJavaScriptViewModel = this.ItemJavaScriptViewModel;
 
                 this.Controls.Add(filteredProductShowcaseControl);
             }

@@ -31,6 +31,8 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
 
         public string ItemKnockoutTemplate { get; set; }
 
+        public string ItemJavaScriptViewModel { get; set; }
+
         /// <summary>
         /// Event handler when the page is loaded
         /// </summary>
