@@ -56,15 +56,15 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
                 {
                     var logger = featureScope.Resolve<ILogger>();
                     var searchHelper = featureScope.Resolve<ISearchHelper>();
-                    var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
+                    var baseResultSourceInfoConfig = featureScope.Resolve<INavigationResultSourceInfoConfig>();
 
                     IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
 
                     // Re create publishing result sources
                     foreach (var resultSource in resultSources)
                     {
-                        logger.Info("Revert to publishing result sources");
-                        resultSource.Overwrite = true;
+                        logger.Info("Revert result source {0}", resultSource.Name);
+                        resultSource.UpdateMode = UpdateBehavior.RevertQuery;
                         searchHelper.EnsureResultSource(site, resultSource);
                     }
                 }

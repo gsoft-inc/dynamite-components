@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.ContentTypes;
+using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -31,11 +32,12 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Item_ContentTypes
                     var baseContentTypeConfig = featureScope.Resolve<IPublishingContentTypeInfoConfig>();
                     var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();
+                    var resourceLocator = featureScope.Resolve<IResourceLocator>();
 
                     // Create base content types
                     foreach (var contentType in baseContentTypes)
                     {
-                        logger.Info("Creating content type {0} on site {1}", contentType.DisplayName, site.Url);
+                        logger.Info("Creating content type {0} on site {1}", resourceLocator.Find(contentType.DisplayNameResourceKey), site.Url);
                         contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                     }
                 }

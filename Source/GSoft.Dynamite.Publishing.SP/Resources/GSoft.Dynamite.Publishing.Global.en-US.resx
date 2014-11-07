@@ -273,4 +273,10 @@
   <data name="Feature_CrossSitePublishingCMS_Lists_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Publishing Module - Lists</value>
   </data>
+  <data name="Feature_CommonCMS_WebParts_Desc" xml:space="preserve">
+    <value>Deploys web parts related to publishing module</value>
+  </data>
+  <data name="Feature_CommonCMS_WebParts_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Web Parts</value>
+  </data>
 </root>

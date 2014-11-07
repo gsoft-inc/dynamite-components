@@ -65,8 +65,13 @@
     <None Include="Modules\LifeCycle\LFCL_01\Install-LFCL01.ps1" />
     <None Include="Modules\LifeCycle\LFCL_01\Setup-WebParts.ps1.template" />
     <None Include="Modules\LifeCycle\Tokens.LifeCycle.Default.ps1" />
+    <None Include="Modules\Multilingualism\LANG_01\Install-LANG01.ps1" />
+    <None Include="Modules\Multilingualism\LANG_01\Setup-ContentTypes.ps1.template" />
+    <None Include="Modules\Multilingualism\LANG_01\Setup-EventReceivers.ps1.template" />
+    <None Include="Modules\Multilingualism\LANG_01\Setup-Fields.ps1.template" />
+    <None Include="Modules\Multilingualism\LANG_01\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
-    <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogConnections.ps1.template" />
+    <None Include="Modules\Multilingualism\LANG_01\Setup-CatalogConnections.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-CatalogsSync.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.ps1.template" />
@@ -111,6 +116,8 @@
     <None Include="Modules\Publishing\PUB_02\Setup-Pages.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Setup-ResultTypes.ps1.template" />
+    <None Include="Modules\Publishing\PUB_03\Install-PUB03.ps1" />
+    <None Include="Modules\Publishing\PUB_03\Setup-WebParts.ps1.template" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Webs.ps1.template" />
