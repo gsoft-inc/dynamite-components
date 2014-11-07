@@ -147,6 +147,12 @@
   <data name="Feature_CrossSitePublishingCMS_ManagedNavigation_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Managed Navigation</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_NavigationControl_Desc" xml:space="preserve">
+    <value>Deploys the user control which contains the global navigation</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_NavigationControl_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Global Navigation</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_ResultSources_Desc" xml:space="preserve">
     <value>Deploys search result sources for Cross Site Publishing based CMS solutions</value>
   </data>

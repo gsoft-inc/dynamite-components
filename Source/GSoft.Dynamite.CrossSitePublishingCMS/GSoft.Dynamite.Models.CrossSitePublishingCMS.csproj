@@ -84,6 +84,7 @@
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
     <None Include="Modules\Navigation\NAV_01\Setup-CatalogConnections.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-ContentTypes.ps1.template" />
+    <None Include="Modules\Navigation\NAV_01\Setup-Controls.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-Fields.ps1.template" />
     <None Include="Modules\Navigation\NAV_01\Setup-ManagedNavigation.ps1.template" />

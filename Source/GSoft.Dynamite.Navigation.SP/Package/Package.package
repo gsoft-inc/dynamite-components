@@ -13,8 +13,10 @@
     <featureReference itemId="ced04885-2862-4464-afce-7b32194ce5e2" />
     <featureReference itemId="2d7e13c9-2709-48d3-9445-822976628698" />
     <featureReference itemId="e2b7978a-3f67-432b-80bd-7cbb05a92bbf" />
+    <featureReference itemId="22af44e8-e90b-450b-a2dd-92e52eaef9b4" />
   </features>
   <projectItems>
     <projectItemReference itemId="052c7412-a05f-4b87-b553-34e45adce46a" />
+    <projectItemReference itemId="99ffa066-2c05-44c1-81f5-18f45cad9bbe" />
   </projectItems>
 </package>

@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Events;
+using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
@@ -31,11 +32,12 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
+                    var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Provisioning event receiver for content type {0}", eventReceiver.ContentType.ToString());
+                        logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsableItemEvents";
@@ -57,11 +59,12 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
+                    var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Deleting event receiver for content type {0}", eventReceiver.ContentType.ToString());
+                        logger.Info("Deleting event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsableItemEvents";

@@ -37,7 +37,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ManagedNa
                     // Create navigation result sources
                     foreach (var setting in navigationSettings)
                     {
-                        if (setting.AssociatedLanguage.Equals(new CultureInfo((int) web.Language)))
+                        if (setting.AssociatedLanguage.Equals(new CultureInfo((int)web.Language)) || setting.AssociatedLanguage.Equals(web.Locale))
                         {
                             logger.Info("Configure managed navigation for web {0}", web.Url);
                             navigationHelper.SetWebNavigationSettings(web, setting); 

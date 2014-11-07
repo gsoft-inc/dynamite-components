@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Autofac;
+using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
@@ -31,6 +32,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var logger = featureScope.Resolve<ILogger>();
+                    var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var variationSyncHelper = featureScope.Resolve<IVariationSyncHelper>();
                     var baseVariationSettingsConfig = featureScope.Resolve<IMultilingualismVariationsConfig>();
                     var baseCatalogInfoConfig = featureScope.Resolve<IPublishingCatalogInfoConfig>();
@@ -44,7 +46,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
                         // Sync catalogs
                         foreach (var catalog in baseCatalogs)
                         {
-                            logger.Info("Synchronize variations for catalog {0} in web {1}", catalog.ToString(), web.Url);
+                            logger.Info("Synchronize variations for catalog {0} in web {1}", resourceLocator.Find(catalog.DisplayNameResourceKey), web.Url);
                             variationSyncHelper.SyncList(web, catalog, baseVariationSettings.Labels.ToList());
                         }
                     }

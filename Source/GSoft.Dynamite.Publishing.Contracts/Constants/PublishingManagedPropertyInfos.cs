@@ -16,7 +16,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 {"ows_taxId_DynamiteNavigation", 1}
             },
-            RespectPriority = true
+            RespectPriority = true,
+            Retrievable = true
         };
 
         /// <summary>
@@ -29,8 +30,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 {"ows_DynamiteNavigation", 1}
             },
-            RespectPriority = true
-
+            RespectPriority = true,
+            Retrievable = true
         };
    
         /// <summary>

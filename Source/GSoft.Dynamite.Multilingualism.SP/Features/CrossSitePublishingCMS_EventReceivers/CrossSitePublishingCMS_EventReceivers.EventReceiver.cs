@@ -9,6 +9,7 @@ using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Events;
+using GSoft.Dynamite.Globalization;
 
 namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_EventReceivers
 {
@@ -33,11 +34,12 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<IMultilingualismEventReceiverInfoConfig>();
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
+                    var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Provisioning event receiver for content type {0}", eventReceiver.ContentType.ToString());
+                        logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";
@@ -59,11 +61,12 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<IMultilingualismEventReceiverInfoConfig>();
                     var baseEventReceivers = baseReceiversConfig.EventReceivers;
+                    var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Deleting event receiver for content type {0}", eventReceiver.ContentType.ToString());
+                        logger.Info("Deleting event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";
