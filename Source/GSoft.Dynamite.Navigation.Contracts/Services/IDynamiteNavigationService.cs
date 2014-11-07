@@ -19,6 +19,6 @@ namespace GSoft.Dynamite.Navigation.Contracts.Services
         /// <param name="properties">The properties object</param>
         /// <param name="max">The value max of nodes</param>
         /// <returns>List of Navigation Nodes</returns>
-        IList<NavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max);
+        //IList<NavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max);
     }
 }
