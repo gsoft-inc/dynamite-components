@@ -17,77 +17,93 @@
         var searchRestApi = "/_api/search/query";
 
         // Public properties
-        FilteredProductShowcase.SearchQuery = "<%=this.SearchQuery%>";
-        FilteredProductShowcase.SelectProperties = "<%=this.SelectProperties%>";
-        FilteredProductShowcase.SelectPropertiesArray = "<%=this.SelectProperties%>".split(",");
-        FilteredProductShowcase.FilterDefinitions = JSON.parse('<%=this.FilterDefinitions%>');
-        FilteredProductShowcase.ItemKnockoutTemplate = "<%=this.ItemKnockoutTemplate%>";
+        FilteredProductShowcase.ViewModel = null;
 
-        FilteredProductShowcase.Items = [];
-        FilteredProductShowcase.FilteredItems = [];
-        FilteredProductShowcase.Filters = null;
-
-        FilteredProductShowcase.ExecuteSearchQuery = function () {
-            // TODO (philavoie): Refactor to use URI.js
-            var queryUrl = window.location.origin + searchRestApi;
-            queryUrl += "?querytext='";
-            queryUrl += encodeURIComponent(FilteredProductShowcase.SearchQuery);
-            queryUrl += "'&trimduplicates=false&selectproperties='";
-            queryUrl += FilteredProductShowcase.SelectProperties;
-            queryUrl += "'";
-
-            // Execute the AJAX call to the SharePoint Search REST API
-            $.ajax({
-                url: queryUrl,
-                method: "GET",
-                headers: { "Accept": "application/json; odata=verbose" },
-                success: Dynamite.FilteredProductShowcase.OnQuerySuccess,
-                error: Dynamite.FilteredProductShowcase.OnQuerySuccess
+        FilteredProductShowcase.Initialize = function () {
+            var vm = this;
+            $(document).ready(function (vm) {
+                FilteredProductShowcase.ViewModel = new ShowcaseViewModel("<%=this.SearchQuery%>", "<%=this.SelectProperties%>", '<%=this.FilterDefinitions%>', "<%=this.ItemKnockoutTemplate%>");
+                ko.applyBindings(FilteredProductShowcase.ViewModel, $(".showcase")[0]);
+                FilteredProductShowcase.ViewModel.ExecuteSearchQuery();
             });
-
         };
 
-        FilteredProductShowcase.OnQuerySuccess = function (data) {
-            var results = data.d.query.PrimaryQueryResult.RelevantResults.Table.Rows.results;
+        function ShowcaseViewModel(searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate) {
+            var self = this;
 
-            // For each result found
-            _.each(results, function (result) {
+            self.SearchQuery = searchQuery;
+            self.SelectProperties = selectProperties;
+            self.SelectPropertiesArray = self.SelectProperties.split(",");
+            self.FilterDefinitions = JSON.parse(filterDefinitions);
+            self.ItemKnockoutTemplate = itemKnockoutTemplate;
 
-                // Build the result item
-                var item = {};
+            self.Items = ko.observableArray();
+            self.FilteredItems = ko.observableArray();
+            self.Filters = null;
 
-                // Find all the properties
-                _.each(FilteredProductShowcase.SelectPropertiesArray, function (propertyName) {
+            self.ExecuteSearchQuery = function () {
+                // TODO (philavoie): Refactor to use URI.js
+                var queryUrl = window.location.origin + searchRestApi;
+                queryUrl += "?querytext='";
+                queryUrl += encodeURIComponent(self.SearchQuery);
+                queryUrl += "'&trimduplicates=false&selectproperties='";
+                queryUrl += self.SelectProperties;
+                queryUrl += "'";
 
-                    // Get the property value
-                    var propertyValue = _.where(result.Cells.results, { Key: propertyName });
-                    if (propertyValue != null && propertyValue.length > 0 && propertyValue[0].Value != undefined) {
-                        Object.defineProperty(item, propertyName, { value: propertyValue[0].Value });
-                    }
-                    else {
-                        console.log("[Search REST API] No value found for property with name '" + propertyName + "'.");
-                    }
+                // Execute the AJAX call to the SharePoint Search REST API
+                $.ajax({
+                    url: queryUrl,
+                    method: "GET",
+                    headers: { "Accept": "application/json; odata=verbose" },
+                    success: self.OnQuerySuccess,
+                    error: self.OnQuerySuccess
                 });
 
-                // Push to Item list
-                FilteredProductShowcase.Items.push(item);
-                FilteredProductShowcase.FilteredItems.push(item);
-            });
-        }
+            };
 
-        FilteredProductShowcase.OnQueryError = function (msg) {
-            console.log("[Search REST API] Error with the API Request.");
-            console.log(msg);
-        }
+            self.OnQuerySuccess = function (data) {
+                var results = data.d.query.PrimaryQueryResult.RelevantResults.Table.Rows.results;
 
-        FilteredProductShowcase.ResetFilters = function () {
+                // For each result found
+                _.each(results, function (result) {
 
+                    // Build the result item
+                    var item = {};
+
+                    // Find all the properties
+                    _.each(self.SelectPropertiesArray, function (propertyName) {
+
+                        // Get the property value
+                        var propertyValue = _.where(result.Cells.results, { Key: propertyName });
+                        if (propertyValue != null && propertyValue.length > 0 && propertyValue[0].Value != undefined) {
+                            Object.defineProperty(item, propertyName, { value: propertyValue[0].Value });
+                        }
+                        else {
+                            console.log("[Search REST API] No value found for property with name '" + propertyName + "'.");
+                        }
+                    });
+
+                    // Push to Item list
+                    self.Items.push(item);
+                    self.FilteredItems.push(item);
+                });
+            }
+
+            self.OnQueryError = function (msg) {
+                console.log("[Search REST API] Error with the API Request.");
+                console.log(msg);
+            }
+
+            self.ResetFilters = function () {
+
+            }
         }
 
     }(Dynamite.FilteredProductShowcase = Dynamite.FilteredProductShowcase || {}, jq110));
 
     // Launch the search
-    Dynamite.FilteredProductShowcase.ExecuteSearchQuery();
+    console.log("Init");
+    Dynamite.FilteredProductShowcase.Initialize();
 </script>
 
 <div class="showcase">
@@ -96,6 +112,6 @@
         </div>--%>
     </div>
     <ul data-bind="foreach: FilteredItems">
-        <li data-bind="template: { name: $root.ItemKnockoutTemplate, data: $data }"></li>
+        <li data-bind="template: { name: function () { return $root.ItemKnockoutTemplate; }, data: $data }"></li>
     </ul>
 </div>
