@@ -47,6 +47,21 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
+        /// A single target item
+        /// </summary>
+        /// <returns>A result source info object</returns>
+        public ResultSourceInfo CatalogCategoryItems()
+        {
+            return new ResultSourceInfo()
+            {
+                Name = "Catalog Category Items",
+                Level = SearchObjectLevel.Ssa,
+                UpdateMode = UpdateBehavior.OverwriteResultSource,
+                Query = "GPP|{Term.IdWithChildren}"
+            };
+        }
+
+        /// <summary>
         /// Method to Append a query to the Search KQL prefix
         /// </summary>
         /// <param name="queryToAppend"></param>

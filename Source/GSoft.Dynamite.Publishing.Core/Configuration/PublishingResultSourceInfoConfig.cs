@@ -30,7 +30,8 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             var resultSources = new List<ResultSourceInfo>
             {
                 {resultSourceValues.SingleTargetItem()},
-                {resultSourceValues.SingleCatalogItem()}
+                {resultSourceValues.SingleCatalogItem()},
+                {resultSourceValues.CatalogCategoryItems()}
             };
 
             return resultSources;
