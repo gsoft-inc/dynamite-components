@@ -5,7 +5,7 @@ using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
-    public class NavigationManagedPropertyConfig: IPublishingManagedPropertyInfosConfig
+    public class NavigationManagedPropertyConfig: ICommonManagedPropertyInfosConfig
     {
         private readonly NavigationManagedPropertyInfos navigationManagedPropertyInfos;
 

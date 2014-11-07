@@ -32,7 +32,7 @@ Start-Transcript -Path $LogFile
 
 #./Solutions/Copy-Solutions.ps1
 
-if ([[DSP_DeploySolutions]])
+if ([System.Convert]::ToBoolean("[[DSP_DeploySolutions]]"))
 {
     ./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
 }

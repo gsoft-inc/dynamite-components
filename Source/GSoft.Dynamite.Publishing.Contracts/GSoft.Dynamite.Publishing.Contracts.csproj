@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\IPublishingManagedPropertyInfosConfig.cs" />
+    <Compile Include="Configuration\ICommonManagedPropertyInfosConfig.cs" />
     <Compile Include="Configuration\IPublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingDisplayTemplateInfoConfig.cs" />

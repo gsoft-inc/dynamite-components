@@ -3,7 +3,7 @@ using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Configuration
 {
-    public interface IPublishingManagedPropertyInfosConfig
+    public interface ICommonManagedPropertyInfosConfig
     {
         IList<ManagedPropertyInfo> ManagedProperties { get; } 
     }

@@ -5,7 +5,7 @@ using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
-    public class PublishingManagedPropertyConfig : IPublishingManagedPropertyInfosConfig
+    public class PublishingManagedPropertyConfig : ICommonManagedPropertyInfosConfig
     {
         private readonly PublishingManagedPropertyInfos publishingManagedPropertyInfos;
 

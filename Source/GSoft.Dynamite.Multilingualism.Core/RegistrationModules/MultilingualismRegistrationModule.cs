@@ -54,7 +54,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismEventReceiverInfoConfig>().As<IMultilingualismEventReceiverInfoConfig>();
 
             // Managed Properties
-            builder.RegisterType<MultilingualismManagedPropertyInfoConfig>().As<IPublishingManagedPropertyInfosConfig>();
+            builder.RegisterType<MultilingualismManagedPropertyInfoConfig>().As<ICommonManagedPropertyInfosConfig>();
 
             // Result Sources
             builder.RegisterType<MultilingualismResultSourceInfoConfig>().As<IMultilingualismResultSourceInfoConfig>();
