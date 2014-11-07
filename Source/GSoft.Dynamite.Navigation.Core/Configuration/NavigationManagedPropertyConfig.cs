@@ -21,7 +21,9 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 var managedProperties = new List<ManagedPropertyInfo>()
                 {
                     {this.navigationManagedPropertyInfos.DateSlugManagedProperty},
-                    {this.navigationManagedPropertyInfos.TitleSlugManagedProperty}
+                    {this.navigationManagedPropertyInfos.TitleSlugManagedProperty},
+                    {this.navigationManagedPropertyInfos.OccurrenceLinkLocationManagedProperty },
+                    {this.navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText}
                 };
 
                 return managedProperties;
