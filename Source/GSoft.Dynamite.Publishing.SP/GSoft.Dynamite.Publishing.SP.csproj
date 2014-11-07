@@ -80,14 +80,17 @@
     <Compile Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.EventReceiver.cs">
       <DependentUpon>CommonCMS_PageLayouts.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_CategoryPages.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_DisplayTemplates\CrossSitePublishingCMS_DisplayTemplates.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_DisplayTemplates.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Lists.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_Pages.feature</DependentUpon>
+    <Compile Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ItemPages.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
@@ -133,7 +136,7 @@
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
       <FeatureId>{740401de-77f4-4e5e-8ef5-7ac745b1600d}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.feature">
+    <None Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.feature">
       <FeatureId>{32341c87-bf6e-4fb5-a67a-58eacd99f905}</FeatureId>
     </None>
     <None Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.feature">
@@ -150,6 +153,9 @@
     </None>
     <None Include="Features\CommonCMS_WebParts\CommonCMS_WebParts.feature">
       <FeatureId>{00090562-f78d-4a5e-a3ec-e5d9c1fe1455}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.feature">
+      <FeatureId>{91490df6-476f-41b1-bea2-4df55c15aba6}</FeatureId>
     </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -185,6 +191,9 @@
     <Content Include="Features\CommonCMS_WebParts\CommonCMS_WebParts.Template.xml">
       <DependentUpon>CommonCMS_WebParts.feature</DependentUpon>
     </Content>
+    <Content Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_CategoryPages.feature</DependentUpon>
+    </Content>
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
   </ItemGroup>
@@ -195,8 +204,8 @@
     <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_Pages.feature</DependentUpon>
+    <Content Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ItemPages.feature</DependentUpon>
     </Content>
     <Content Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.Template.xml">
       <DependentUpon>CommonCMS_PageLayouts.feature</DependentUpon>
