@@ -22,13 +22,13 @@
         FilteredProductShowcase.Initialize = function () {
             var vm = this;
             $(document).ready(function (vm) {
-                FilteredProductShowcase.ViewModel = new ShowcaseViewModel("<%=this.SearchQuery%>", "<%=this.SelectProperties%>", '<%=this.FilterDefinitions%>', "<%=this.ItemKnockoutTemplate%>");
+                FilteredProductShowcase.ViewModel = new ShowcaseViewModel("<%=this.SearchQuery%>", "<%=this.SelectProperties%>", '<%=this.FilterDefinitions%>', "<%=this.ItemKnockoutTemplate%>", "<%=this.ItemJavaScriptViewModel%>");
                 ko.applyBindings(FilteredProductShowcase.ViewModel, $(".showcase")[0]);
                 FilteredProductShowcase.ViewModel.ExecuteSearchQuery();
             });
         };
 
-        function ShowcaseViewModel(searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate) {
+        function ShowcaseViewModel(searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel) {
             var self = this;
 
             self.SearchQuery = searchQuery;
@@ -36,6 +36,7 @@
             self.SelectPropertiesArray = self.SelectProperties.split(",");
             self.FilterDefinitions = JSON.parse(filterDefinitions);
             self.ItemKnockoutTemplate = itemKnockoutTemplate;
+            self.ItemJavaScriptViewModel = itemJavaScriptViewModel;
 
             self.Items = ko.observableArray();
             self.FilteredItems = ko.observableArray();
@@ -68,15 +69,28 @@
                 _.each(results, function (result) {
 
                     // Build the result item
-                    var item = {};
+                    var itemViewModel = null;
+
+                    try {
+                        itemViewModel = eval(self.ItemJavaScriptViewModel);
+                    } catch (e) {
+                        console.log("[Product Showcase] The type '" + self.ItemJavaScriptViewModel + "' couldn't be resolved. Error Msg: " + e.message);
+                    }
+
+                    if (typeof(itemViewModel) !== "function") {
+                        console.log("[Product Showcase] The type '" + self.ItemJavaScriptViewModel + "' couldn't be resolved. Not a function.");
+                        return;
+                    }
+
+                    var item = new itemViewModel();
 
                     // Find all the properties
                     _.each(self.SelectPropertiesArray, function (propertyName) {
 
                         // Get the property value
                         var propertyValue = _.where(result.Cells.results, { Key: propertyName });
-                        if (propertyValue != null && propertyValue.length > 0 && propertyValue[0].Value != undefined) {
-                            Object.defineProperty(item, propertyName, { value: propertyValue[0].Value });
+                        if (propertyValue != null && propertyValue.length > 0 && propertyValue[0].Value != undefined && typeof(item[propertyName]) === "function") {
+                            item[propertyName](propertyValue[0].Value);
                         }
                         else {
                             console.log("[Search REST API] No value found for property with name '" + propertyName + "'.");
