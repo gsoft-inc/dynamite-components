@@ -141,7 +141,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     ShowAlertMe = false,
                     ShowLanguageOptions = false,
                     ShowDidYouMean = false,
-                    ShowPaging = false,
+                    ShowPaging = true,
                     ShowResultCount = false,
                     ShowPersonalFavorites = false,
                     ShowSortOptions = false,
@@ -152,7 +152,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     ShowUpScopeMessage = false,
                     ShowResults = true,
                     BypassResultTypes = false,
-                    ResultsPerPage = 1,
+                    ResultsPerPage = 20,
                     QueryGroupName = "CatalogCategoryItems"
                 }
             };

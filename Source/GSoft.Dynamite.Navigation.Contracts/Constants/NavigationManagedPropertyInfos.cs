@@ -45,7 +45,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 {"ows_taxId_DynamiteOccurrenceLinkLocation", 1}
             },
             RespectPriority = true,
-            Retrievable = true
+            Retrievable = true,
+            // Important to keep the MultiValue = true for GPP|.. GP0| querying
+            HasMultipleValues = true
         };
 
         /// <summary>

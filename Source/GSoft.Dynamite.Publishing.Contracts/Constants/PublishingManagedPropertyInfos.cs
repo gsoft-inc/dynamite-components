@@ -17,7 +17,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {"ows_taxId_DynamiteNavigation", 1}
             },
             RespectPriority = true,
-            Retrievable = true
+            Retrievable = true,
+            // Important to keep the MultiValue = true for GPP|.. GP0| querying
+            HasMultipleValues = true
         };
 
         /// <summary>
@@ -31,7 +33,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {"ows_DynamiteNavigation", 1}
             },
             RespectPriority = true,
-            Retrievable = true
+            Retrievable = true,
         };
    
         /// <summary>
