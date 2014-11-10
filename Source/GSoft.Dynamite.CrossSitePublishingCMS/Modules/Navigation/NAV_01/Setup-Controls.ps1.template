@@ -7,8 +7,8 @@
 
 Write-Warning "Deploying Controls for the global navigation..."
 
-$FeatureId = [[DSP_DEFAULT_CrossSitePublishingCMS_NAV_NavigationControl]]
-$CustomFeatureId = [[DSP_CUSTOM_CrossSitePublishingCMS_NAV_NavigationControl]]
+$FeatureId = "[[DSP_DEFAULT_CrossSitePublishingCMS_NAV_NavigationControl]]"
+$CustomFeatureId = "[[DSP_CUSTOM_CrossSitePublishingCMS_NAV_NavigationControl]]"
 
 if(![string]::IsNullOrEmpty($CustomFeatureId))
 {
