@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
+using Microsoft.Office.Server.Search.Administration;
+using Microsoft.Office.Server.Search.Query;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {
@@ -13,14 +16,17 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         private readonly PublishingResultSourceInfos resultSourceInfos;
         private readonly  PublishingManagedPropertyInfos publishingManagedPropertyInfos;
         private readonly  NavigationManagedPropertyInfos navigationManagedPropertyInfos;
+        private readonly MultilingualismManagedPropertyInfos multilingualismManagedPropertyInfos;
 
         public NavigationResultSourceInfos(PublishingResultSourceInfos resultSourceInfos, 
             PublishingManagedPropertyInfos publishingManagedPropertyInfos,
-            NavigationManagedPropertyInfos navigationManagedPropertyInfos)
+            NavigationManagedPropertyInfos navigationManagedPropertyInfos,
+            MultilingualismManagedPropertyInfos multilingualismManagedPropertyInfos)
         {
             this.resultSourceInfos = resultSourceInfos;
             this.publishingManagedPropertyInfos = publishingManagedPropertyInfos;
             this.navigationManagedPropertyInfos = navigationManagedPropertyInfos;
+            this.multilingualismManagedPropertyInfos = multilingualismManagedPropertyInfos;
         }
 
         public ResultSourceInfo SingleCatalogItem()
@@ -52,6 +58,19 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             singleCatalogItem.Query =navigation + ":{Term}";
 
             return singleCatalogItem;
+        }
+
+        public ResultSourceInfo AllMenuItems()
+        {
+            var itemLanguage  = this.multilingualismManagedPropertyInfos.ItemLanguage.Name;
+
+            return new ResultSourceInfo()
+            {
+                Name = "All Menu Items",
+                Level = SearchObjectLevel.Ssa,
+                UpdateMode = UpdateBehavior.OverwriteResultSource,
+                Query = itemLanguage + ":{Page.DynamiteItemLanguage}"
+            };
         }
     }
 }

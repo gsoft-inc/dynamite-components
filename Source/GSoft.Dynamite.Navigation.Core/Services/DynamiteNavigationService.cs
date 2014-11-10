@@ -33,13 +33,13 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <param name="properties">The properties object</param>
         /// <param name="max">The value max of nodes</param>
         /// <returns>List of Navigation Nodes</returns>
-        //public IList<NavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max)
-        //{
-        //    var nodes = this.navigationService.GetAllNavigationNodes(SPContext.Current.Web, properties);
+        public IList<NavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max)
+        {
+            var nodes = this.navigationService.GetAllNavigationNodes(SPContext.Current.Web, properties);
 
-        //    // SortTree the Nodes vs Leafs (Nodes first)
-        //    return this.SortTree(nodes.ToList(), 12);
-        //}
+            // SortTree the Nodes vs Leafs (Nodes first)
+            return this.SortTree(nodes.ToList(), 12);
+        }
 
         private IList<NavigationNode> SortTree(IList<NavigationNode> nodes, int max)
         {
