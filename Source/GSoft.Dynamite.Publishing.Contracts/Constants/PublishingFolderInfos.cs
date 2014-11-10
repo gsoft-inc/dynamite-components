@@ -13,12 +13,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             this.pageInfos = pageInfos;
         }
 
-        public FolderInfo RootFolder()
+        public FolderInfo ItemPageTemplates()
         {
             return new FolderInfo()
             {
                 IsRootFolder = true,
-                Name = "RootFolder",
+                Name = "ItemPageTemplates",
                 Subfolders = new FolderInfo[]
                 {
                     this.FolderTest()
@@ -26,7 +26,24 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Pages = new List<PageInfo>()
                 {
                     {this.pageInfos.TargetItemPageTemplate()},
-                    {this.pageInfos.CatalogItemPageTemplate()}
+                    {this.pageInfos.CatalogItemPageTemplate()},
+                }
+            };
+        }
+
+        public FolderInfo CategoryPageTemplates()
+        {
+            return new FolderInfo()
+            {
+                IsRootFolder = true,
+                Name = "CategoryPageTemplates",
+                Subfolders = new FolderInfo[]
+                {
+                    this.FolderTest()
+                },
+                Pages = new List<PageInfo>()
+                {
+                    {this.pageInfos.CatalogCategoryItemsPageTemplate()},
                 }
             };
         }

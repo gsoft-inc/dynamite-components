@@ -1,16 +1,17 @@
-using System.Collections.Generic;
+using System;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Extensions;
 using GSoft.Dynamite.Folders;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
-using FolderInfo = GSoft.Dynamite.Folders.FolderInfo;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
+namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_CategoryPages
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -19,8 +20,8 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
 
-    [Guid("19227a43-dcb0-4a6d-b91a-f1963f819050")]
-    public class CommonCmsPageLayoutsEventReceiver : SPFeatureReceiver
+    [Guid("394329fa-e9bb-4be1-b1d4-15ea6930b95d")]
+    public class CrossSitePublishingCMS_CategoryPagesEventReceiver : SPFeatureReceiver
     {
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
@@ -32,12 +33,16 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
 
                 if (web != null && PublishingWeb.IsPublishingWeb(web))
                 {
-
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
 
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
+                    var publishingFolderInfos = featureScope.Resolve<PublishingFolderInfos>();
+                    var folders = baseFoldersConfig.RootFolderHierarchies().ToList();
 
-                    foreach (var rootFolderHierarchy in baseFoldersConfig.RootFolderHierarchies())
+                    // Remove Category Page folder
+                    folders.RemoveAll(f => f.Name.Equals(publishingFolderInfos.ItemPageTemplates().Name));
+
+                    foreach (var rootFolderHierarchy in folders)
                     {
                         var pagesLibrary = web.GetPagesLibrary();
 

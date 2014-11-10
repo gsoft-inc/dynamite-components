@@ -29,11 +29,16 @@ $VerbosePreference ="Continue"
 
 $UserStory = "PUB_03"
 
-##### STEP 1: CREATE SEARCH RESULT SOURCES
 $values = @{"Step: " = "Deploy Web Parts";"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-WebParts.ps1'
+& $Script -Force
+
+$values = @{"Step: " = "Create template pages";"User Story: " = $UserStory}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Pages.ps1'
 & $Script -Force
 
 # ********** LOG END ********** #

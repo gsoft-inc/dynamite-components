@@ -18,5 +18,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new DisplayTemplateInfo("Item_SingleContentItem", DisplayTemplateCategory.Search);
         }
+
+        public DisplayTemplateInfo ItemNewsCategoryItem()
+        {
+            return new DisplayTemplateInfo("Item_NewsCategorySingleResult", DisplayTemplateCategory.Search);
+        }
     }
 }

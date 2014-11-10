@@ -20,7 +20,8 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             var resultTypes = new List<ResultTypeInfo>()
             {
                 {this._basePublishingResultTypeInfos.NewsPageResultType()},
-                {this._basePublishingResultTypeInfos.ContentPageResultType()}
+                {this._basePublishingResultTypeInfos.ContentPageResultType()},
+                {this._basePublishingResultTypeInfos.CategoryItemResultType()}
             };
 
             return resultTypes;

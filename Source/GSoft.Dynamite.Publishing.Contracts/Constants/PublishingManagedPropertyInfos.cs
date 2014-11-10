@@ -17,7 +17,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {"ows_taxId_DynamiteNavigation", 1}
             },
             RespectPriority = true,
-            Retrievable = true
+            Retrievable = true,
+            // Important to keep the MultiValue = true for GPP|.. GP0| querying
+            HasMultipleValues = true
         };
 
         /// <summary>
@@ -31,9 +33,23 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {"ows_DynamiteNavigation", 1}
             },
             RespectPriority = true,
-            Retrievable = true
+            Retrievable = true,
         };
    
+        /// <summary>
+        /// The summary text managed property name
+        /// </summary>
+        public ManagedPropertyInfo Summary = new ManagedPropertyInfo("DynamiteSummaryOWSMTXT",
+            ManagedDataType.Text)
+        {
+            CrawledProperties = new Dictionary<string, int>()
+            {
+                {"ows_r_MTXT_DynamiteSummary", 1}
+            },
+            RespectPriority = true
+
+        };
+
         #region SharePoint builtin Managed Properties
 
         /// <summary>
@@ -54,7 +70,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// PublishingPageContent
         /// </summary>
-        public ManagedPropertyInfo PublishingPageContent = new ManagedPropertyInfo("PublishingPageContentOWSHTML", ManagedDataType.Text);  
+        public ManagedPropertyInfo PublishingPageContent = new ManagedPropertyInfo("PublishingPageContentOWSHTML", ManagedDataType.Text);
+
+        /// <summary>
+        /// PublishingPageContent
+        /// </summary>
+        public ManagedPropertyInfo PublishingImage = new ManagedPropertyInfo("PublishingImage", ManagedDataType.Text);  
 
         #endregion
     }

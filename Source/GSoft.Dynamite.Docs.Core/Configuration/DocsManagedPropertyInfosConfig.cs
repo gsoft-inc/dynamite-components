@@ -11,9 +11,9 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
 {
     public class DocsManagedPropertyInfosConfig : IDocsManagedPropertyInfoConfig
     {
-        private readonly IList<IGlobalManagedPropertyInfosConfig> modulesConfiguration;
+        private readonly IList<ICommonManagedPropertyInfosConfig> modulesConfiguration;
 
-        public DocsManagedPropertyInfosConfig(IList<IGlobalManagedPropertyInfosConfig> modulesConfiguration)
+        public DocsManagedPropertyInfosConfig(IList<ICommonManagedPropertyInfosConfig> modulesConfiguration)
         {
             this.modulesConfiguration = modulesConfiguration;
         }

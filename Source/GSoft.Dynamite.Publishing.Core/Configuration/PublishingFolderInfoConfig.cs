@@ -16,7 +16,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 
         public IList<FolderInfo> RootFolderHierarchies()
         {
-            return new List<FolderInfo>() { this.folderInfos.RootFolder() };
+            return new List<FolderInfo>()
+            {
+                this.folderInfos.ItemPageTemplates(),
+                this.folderInfos.CategoryPageTemplates()
+            };
         }
     }
 }

@@ -21,6 +21,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 {this._displayTemplateInfos.ItemSingleContentItem()},
                 {this._displayTemplateInfos.ItemSingleNewsItemContent()},
                 {this._displayTemplateInfos.ItemSingleNewsItemHeader()},
+                {this._displayTemplateInfos.ItemNewsCategoryItem()},
             };
 
             return displayTemplates;

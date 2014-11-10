@@ -44,12 +44,11 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationCatalogConnectionInfoConfig>().As<INavigationCatalogConnectionInfoConfig>();
 
             // Managed Properties
-            builder.RegisterType<NavigationManagedPropertyConfig>().As<IGlobalManagedPropertyInfosConfig>();
-            builder.RegisterType<NavigationManagedPropertyConfig>().Named<IGlobalManagedPropertyInfosConfig>("navigation");
+            builder.RegisterType<NavigationManagedPropertyConfig>().As<ICommonManagedPropertyInfosConfig>();
+            builder.RegisterType<NavigationManagedPropertyConfig>().Named<ICommonManagedPropertyInfosConfig>("navigation");
 
             // Managed Navigation
             builder.RegisterType<NavigationManagedNavigationInfoConfig>().As<INavigationManagedNavigationInfoConfig>();
-            builder.RegisterType<NavigationManagedNavigationInfoConfig>().Named<INavigationManagedNavigationInfoConfig>("navigation");
 
             // Configuration Values
             builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();

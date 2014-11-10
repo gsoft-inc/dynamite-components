@@ -4,5 +4,6 @@
     <ProjectItemFile Source="Elements.xml" Target="PageLayouts\" Type="ElementManifest" />
     <ProjectItemFile Source="TargetItemPageLayout.aspx" Target="PageLayouts\" Type="ElementFile" />
     <ProjectItemFile Source="CatalogItemPageLayout.aspx" Target="PageLayouts\" Type="ElementFile" />
+    <ProjectItemFile Source="CatalogCategoryPageTemplate.aspx" Target="PageLayouts\" Type="ElementFile" />
   </Files>
 </ProjectItem>

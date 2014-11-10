@@ -35,5 +35,17 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             };
         }
         #endregion
+
+        #region Catalog Category Items Page Layout
+
+        public PageLayoutInfo CatalogCategoryItemsPageLayout()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "CatalogCategoryPageTemplate.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
+        #endregion
     }
 }

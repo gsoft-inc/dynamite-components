@@ -9,7 +9,7 @@ using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Multilingualism.Core.Configuration
 {
-    public class MultilingualismManagedPropertyInfoConfig : IGlobalManagedPropertyInfosConfig
+    public class MultilingualismManagedPropertyInfoConfig : ICommonManagedPropertyInfosConfig
     {
         private readonly MultilingualismManagedPropertyInfos multilingualismManagedPropertyInfos;
 
