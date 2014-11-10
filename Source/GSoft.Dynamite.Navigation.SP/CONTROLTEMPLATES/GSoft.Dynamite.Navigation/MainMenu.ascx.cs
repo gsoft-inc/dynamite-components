@@ -40,14 +40,19 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                 var multilingualismManagedPropertyInfos = scope.Resolve<MultilingualismManagedPropertyInfos>();
                 var publishingContentTypeInfos = scope.Resolve<PublishingContentTypeInfos>();
                 var dynamiteNavigationService = scope.Resolve<IDynamiteNavigationService>();
+                var navigationResultSourceInfos = scope.Resolve<NavigationResultSourceInfos>();
 
                 // Creates the properties object
                 var properties = new NavigationManagedProperties()
                  {
                      Title = BuiltInManagedProperties.Title,
-                     ResultSourceName = "All Menu Items",
+                     ResultSourceName = navigationResultSourceInfos.AllMenuItems().Name,
                      Navigation = publishingManagedPropertyInfos.Navigation.Name,
                      ItemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name,
+                     CatalogItemId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
+                     TargetItemId = publishingContentTypeInfos.TargetContentItem().ContentTypeId,
+                     OccurrenceLinkLocation = navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
+                     OccurrenceLinkLocationValue = NavigationLocation.MainMenu,
                      FriendlyUrlRequiredProperties = new[] 
                      { 
                          publishingManagedPropertyInfos.Navigation.Name, 
@@ -55,10 +60,6 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                          BuiltInManagedProperties.SiteUrl, 
                          BuiltInManagedProperties.ListId                                           
                      },
-                     CatalogItemId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
-                     TargetItemId = publishingContentTypeInfos.TargetContentItem().ContentTypeId,
-                     OccurrenceLinkLocation = navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
-                     OccurrenceLinkLocationValue = NavigationLocation.MainMenu
                  };
 
                 // Call the navigation service
