@@ -11,6 +11,21 @@
 
     window.Dynamite = window.Dynamite || {};
 
+    // Ensure Utilities method
+    (function (Utilities, $, undefined) {
+        Utilities.ExtractTaxonomyInfo = function (taxonomyValue) {
+            if (taxonomyValue) {
+                var match = taxonomyValue.match(/L0\|#0([a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12})\|([\d \w \s áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ']*);/i);
+                return {
+                    id: match[1],
+                    label: match[2]
+                };
+            }
+
+            return { id: undefined, label: undefined };
+        };
+    }(Dynamite.Utilities = Dynamite.Utilities || {}, jq110));
+
     (function (FilteredProductShowcase, $, undefined) {
 
         // Private properties
@@ -39,8 +54,41 @@
             self.ItemJavaScriptViewModel = itemJavaScriptViewModel;
 
             self.Items = ko.observableArray();
-            self.FilteredItems = ko.observableArray();
-            self.Filters = null;
+            //self.FilteredItems = ko.observableArray();
+            self.FilteredItems = ko.computed(function () {
+                return ko.utils.arrayFilter(self.Items(), function (item) {
+                    return item.Park() === self.Filters()[0].SelectedValue();
+                });
+            });
+
+            self.ShowItem = function (item) { if (item.nodeType === 1) $(item).hide().slideDown() }
+            self.HideItem = function (item) { if (item.nodeType === 1) $(item).slideUp(function () { $(item).remove(); }) }
+
+
+            // Filters
+            self.Filters = ko.observableArray();
+            self.FiltersTitle = ko.observable("Product Filters");
+            self.FiltersResetLabel = ko.observable("Reset");
+
+            // Create each instance of the filter via their filter definition
+            _.each(self.FilterDefinitions, function (filterDefinition) {
+                if (filterDefinition.JavaScriptViewModelFilterType && filterDefinition.Property) {
+                    // Try to eval the ViewModel type and create an instance.
+                    try {
+                        filterViewModel = eval(filterDefinition.JavaScriptViewModelFilterType);
+                    } catch (e) {
+                        console.log("[Product Showcase Filter] The type '" + filterDefinition.JavaScriptViewModelFilterType + "' couldn't be resolved. Error Msg: " + e.message);
+                    }
+
+                    if (typeof (filterViewModel) !== "function") {
+                        console.log("[Product Showcase Filter] The type '" + filterDefinition.JavaScriptViewModelFilterType + "' couldn't be resolved. Not a function.");
+                        return;
+                    }
+
+                    var filter = new filterViewModel(filterDefinition.Property, self.Items);
+                    self.Filters.push(filter);
+                }
+            });
 
             self.ExecuteSearchQuery = function () {
                 // TODO (philavoie): Refactor to use URI.js
@@ -77,7 +125,7 @@
                         console.log("[Product Showcase] The type '" + self.ItemJavaScriptViewModel + "' couldn't be resolved. Error Msg: " + e.message);
                     }
 
-                    if (typeof(itemViewModel) !== "function") {
+                    if (typeof (itemViewModel) !== "function") {
                         console.log("[Product Showcase] The type '" + self.ItemJavaScriptViewModel + "' couldn't be resolved. Not a function.");
                         return;
                     }
@@ -89,7 +137,7 @@
 
                         // Get the property value
                         var propertyValue = _.where(result.Cells.results, { Key: propertyName });
-                        if (propertyValue != null && propertyValue.length > 0 && propertyValue[0].Value != undefined && typeof(item[propertyName]) === "function") {
+                        if (propertyValue != null && propertyValue.length > 0 && propertyValue[0].Value != undefined && typeof (item[propertyName]) === "function") {
                             item[propertyName](propertyValue[0].Value);
                         }
                         else {
@@ -99,7 +147,7 @@
 
                     // Push to Item list
                     self.Items.push(item);
-                    self.FilteredItems.push(item);
+                    //self.FilteredItems.push(item);
                 });
             }
 
@@ -109,23 +157,37 @@
             }
 
             self.ResetFilters = function () {
-
             }
         }
 
     }(Dynamite.FilteredProductShowcase = Dynamite.FilteredProductShowcase || {}, jq110));
 
-    // Launch the search
-    console.log("Init");
-    Dynamite.FilteredProductShowcase.Initialize();
+        // Launch the search
+        console.log("Init");
+        Dynamite.FilteredProductShowcase.Initialize();
 </script>
 
 <div class="showcase">
-    <div class="filters" data-bind="foreach: FilterDefinitions">
-        <%--<div class="filter" data-bind="template: { name: $data.JavaScriptViewModelFilterType, data: $data }">
-        </div>--%>
+    <div class="section filters-container">
+        <div class="full-width">
+            <h2 data-bind="text: FiltersTitle"></h2>
+            <div class="filters clearfix" data-bind="foreach: Filters">
+                <div class="filter" data-bind="template: { name: function () { return $data.TemplateName; }, data: $data }">
+                </div>
+            </div>
+            <div class="filter-reset-container full-width clearfix">
+                <div class="filter-reset">
+                    <span class="filter-reset-button"></span>
+                    <span class="filter-reset-label" data-bind="text: FiltersResetLabel"></span>
+                </div>
+            </div>
+        </div>
     </div>
-    <ul data-bind="foreach: FilteredItems">
-        <li data-bind="template: { name: function () { return $root.ItemKnockoutTemplate; }, data: $data }"></li>
-    </ul>
+    <div class="section items-container">
+        <div class="full-width clearfix">
+            <ul data-bind="foreach: FilteredItems, beforeRemove: HideItem, afterAdd: ShowItem">
+                <li data-bind="template: { name: function () { return $root.ItemKnockoutTemplate; }, data: $data }"></li>
+            </ul>
+        </div>
+    </div>
 </div>
