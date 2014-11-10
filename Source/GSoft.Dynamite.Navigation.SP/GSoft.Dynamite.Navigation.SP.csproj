@@ -146,6 +146,13 @@
     <None Include="Features\CrossSitePublishingCMS_NavigationControl\CrossSitePublishingCMS_NavigationControl.feature">
       <FeatureId>{22af44e8-e90b-450b-a2dd-92e52eaef9b4}</FeatureId>
     </None>
+    <None Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.css.map">
+      <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.css</DependentUpon>
+    </None>
+    <None Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.less" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6b6cdb0b-6308-46c9-967b-e4f8b1baad3c}</SharePointProjectItemId>
+    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{32e09919-4bf5-4f69-88b9-d38f260f42d5}</PackageId>
@@ -201,11 +208,19 @@
     <Content Include="Features\CrossSitePublishingCMS_NavigationControl\CrossSitePublishingCMS_NavigationControl.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_NavigationControl.feature</DependentUpon>
     </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.css">
+      <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.less</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.min.css">
+      <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.css</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Navigation.SP\JS\GSoft.Dynamite.Navigation.js" />
     <Content Include="Resources\GSoft.Dynamite.Navigation.Global.en-US.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\GSoft.Dynamite.Navigation.Global.fr-FR.resx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
