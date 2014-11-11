@@ -82,9 +82,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             {
                 Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
-                IsHiddenInEditForm = true,
+                IsHiddenInEditForm = false,
                 IsHiddenInListSettings = false,
-                IsHiddenInNewForm = true,
+                IsHiddenInNewForm = false,
                 TermStoreMapping = new TaxonomyContext()
                 {
                     TermSet = navigationTermSetInfos.NavigationControls()
