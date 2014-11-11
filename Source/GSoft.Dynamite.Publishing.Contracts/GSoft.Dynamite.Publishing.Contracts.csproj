@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ICommonManagedPropertyInfosConfig.cs" />
+    <Compile Include="Configuration\IPublishingFacetedNavigationInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingDisplayTemplateInfoConfig.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Configuration\IPublishingResultTypeInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingTaxonomyConfig.cs" />
     <Compile Include="Configuration\IPublishingListInfoConfig.cs" />
+    <Compile Include="Constants\PublishingFacetedNavigationInfo.cs" />
     <Compile Include="Constants\PublishingListInfos.cs" />
     <Compile Include="Constants\PublishingCatalogInfos.cs" />
     <Compile Include="Constants\PublishingContentTypeInfos.cs" />

@@ -70,9 +70,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// The Occurrence Link Location field.
         /// </summary>
         /// <returns>The OccurrenceLinkLocation field</returns>
-        public TaxonomyFieldInfo OccurrenceLinkLocation()
+        public TaxonomyMultiFieldInfo OccurrenceLinkLocation()
         {
-            return new TaxonomyFieldInfo(
+            return new TaxonomyMultiFieldInfo(
                OccurrenceLinkLocationFieldName,
                new Guid("{C2E6B519-A2FF-429C-BAE5-1034E7A29545}"),
                NavigationResources.FieldOccurrenceLinkLocationName,

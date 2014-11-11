@@ -291,4 +291,10 @@
   <data name="Feature_CrossSitePublishingCMS_CategoryPages_Name" xml:space="preserve">
     <value>Deploys category page templates for Cross Site Publishing based CMS solutions</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_FacetedNavigation_Desc" xml:space="preserve">
+    <value>Configures the faceted navigation settings for taxonomy terms</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_FacetedNavigation_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Publishing Module -Faceted Navigation</value>
+  </data>
 </root>

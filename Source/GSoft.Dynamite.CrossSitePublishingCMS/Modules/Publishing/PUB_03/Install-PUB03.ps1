@@ -41,6 +41,14 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-Pages.ps1'
 & $Script -Force
 
+$values = @{"Step: " = "Setup faceted navigation";"User Story: " = $UserStory}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-FacetedNavigation.ps1'
+& $Script -Force
+
+Setup-FacetedNavigation.ps1
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\PublishingFacetedNavigationInfoConfig.cs" />
     <Compile Include="Configuration\PublishingListInfoConfig.cs" />
     <Compile Include="Configuration\PublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\PublishingContentTypeInfoConfig.cs" />
