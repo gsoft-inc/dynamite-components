@@ -117,6 +117,7 @@
     <None Include="Modules\Publishing\PUB_02\Setup-ResultSources.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Setup-ResultTypes.ps1.template" />
     <None Include="Modules\Publishing\PUB_03\Install-PUB03.ps1" />
+    <None Include="Modules\Publishing\PUB_03\Setup-FacetedNavigation.ps1.template" />
     <None Include="Modules\Publishing\PUB_03\Setup-Pages.ps1.template" />
     <None Include="Modules\Publishing\PUB_03\Setup-WebParts.ps1.template" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
