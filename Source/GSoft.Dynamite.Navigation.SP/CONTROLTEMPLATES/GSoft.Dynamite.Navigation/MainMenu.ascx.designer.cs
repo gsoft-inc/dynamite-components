@@ -11,5 +11,23 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
     
     
     public partial class MainMenu {
+        
+        /// <summary>
+        /// GSoftDynamiteNavigationMainMenuJS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.ScriptLink GSoftDynamiteNavigationMainMenuJS;
+        
+        /// <summary>
+        /// GSoftDynamiteNavigationMainMenuCSS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.CssRegistration GSoftDynamiteNavigationMainMenuCSS;
     }
 }

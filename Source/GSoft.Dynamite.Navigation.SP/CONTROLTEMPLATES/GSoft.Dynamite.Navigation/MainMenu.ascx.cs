@@ -40,32 +40,33 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                 var multilingualismManagedPropertyInfos = scope.Resolve<MultilingualismManagedPropertyInfos>();
                 var publishingContentTypeInfos = scope.Resolve<PublishingContentTypeInfos>();
                 var dynamiteNavigationService = scope.Resolve<IDynamiteNavigationService>();
+                var navigationResultSourceInfos = scope.Resolve<NavigationResultSourceInfos>();
 
-                //// Creates the properties object
-                //var properties = new NavigationManagedProperties()
-                // {
-                //     Title = BuiltInManagedProperties.Title,
-                //     ResultSourceName = "All Menu Items",
-                //     Navigation = publishingManagedPropertyInfos.Navigation.Name,
-                //     ItemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name,
-                //     FriendlyUrlRequiredProperties = new[] 
-                //     { 
-                //         publishingManagedPropertyInfos.Navigation.Name, 
-                //         BuiltInManagedProperties.Url, 
-                //         BuiltInManagedProperties.SiteUrl, 
-                //         BuiltInManagedProperties.ListId                                           
-                //     },
-                //     CatalogItemId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
-                //     TargetItemId = publishingContentTypeInfos.TargetContentItem().ContentTypeId,
-                //     OccurrenceLinkLocation = navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
-                //     OccurrenceLocation = NavigationLocation.MainMenu
-                // };
+                // Creates the properties object
+                var properties = new NavigationManagedProperties()
+                 {
+                     Title = BuiltInManagedProperties.Title,
+                     ResultSourceName = navigationResultSourceInfos.AllMenuItems().Name,
+                     Navigation = publishingManagedPropertyInfos.Navigation.Name,
+                     ItemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name,
+                     CatalogItemId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
+                     TargetItemId = publishingContentTypeInfos.TargetContentItem().ContentTypeId,
+                     OccurrenceLinkLocation = navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
+                     OccurrenceLinkLocationValue = NavigationLocation.MainMenu,
+                     FriendlyUrlRequiredProperties = new[] 
+                     { 
+                         publishingManagedPropertyInfos.Navigation.Name, 
+                         BuiltInManagedProperties.Url, 
+                         BuiltInManagedProperties.SiteUrl, 
+                         BuiltInManagedProperties.ListId                                           
+                     },
+                 };
 
                 // Call the navigation service
-                //var navigationData = dynamiteNavigationService.GetMenuNodes(SPContext.Current.Web, properties, 12);
+                var navigationData = dynamiteNavigationService.GetMenuNodes(SPContext.Current.Web, properties, 12);
 
                 // Serializes the data
-                //this.MenuJSON = serializer.Serialize(navigationData);
+                this.MenuJSON = serializer.Serialize(navigationData);
             }
         }
     }
