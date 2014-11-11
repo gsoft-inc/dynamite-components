@@ -6,6 +6,7 @@ using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
+using GSoft.Dynamite.Security;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Fields
@@ -33,10 +34,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Fields
                     var baseFields = baseFieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();
 
-                    // Create base Fields
-                    foreach (IFieldInfo field in baseFields)
+                    using (new Unsafe(site.RootWeb))
                     {
-                        fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        // Create base Fields
+                        foreach (IFieldInfo field in baseFields)
+                        {
+                            fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        } 
                     }
                 }
             }

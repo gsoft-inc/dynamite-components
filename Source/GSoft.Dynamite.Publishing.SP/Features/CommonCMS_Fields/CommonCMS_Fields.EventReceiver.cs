@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Security;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 
@@ -30,11 +31,14 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
                     var baseFields = baseFieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();
 
-                    // Create base Fields
-                    foreach (IFieldInfo field in baseFields)
+                    using (new Unsafe(site.RootWeb))
                     {
-                        logger.Info("Creating field {0} on site {1}", field.InternalName, site.Url);
-                        fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        // Create base Fields
+                        foreach (IFieldInfo field in baseFields)
+                        {
+                            logger.Info("Creating field {0} on site {1}", field.InternalName, site.Url);
+                            fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        } 
                     }
                 }
             }
