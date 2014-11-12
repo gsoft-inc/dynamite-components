@@ -40,7 +40,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
 
-            return new WebPartInfo("Target Item Content Webpart", zoneName, "74E6BC4D-4817-41C0-BBBA-28A9375AA111")
+            return new WebPartInfo("Target Item Content Webpart", zoneName)
             {
                 WebPart = new ResultScriptWebPart()
                 {
@@ -77,7 +77,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
 
-            return new WebPartInfo("Catalog Item Content Webpart", zoneName, "082123B9-5F28-4D83-8878-FCB18F82FD9A")
+            return new WebPartInfo("Catalog Item Content Webpart", zoneName)
             {
                 WebPart = new ResultScriptWebPart()
                 {
@@ -115,7 +115,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>A webpartinfo containing the webpart</returns>
         public WebPartInfo PlaceHolder(string zoneName, int x, int y, string backgroundColor, string fontColor)
         {
-            return new WebPartInfo("Place Holder", zoneName, "474CB3A9-E879-4B93-9350-A6C770F0B45B")
+            return new WebPartInfo("Place Holder", zoneName)
             {
                 WebPart = this.webPartHelper.CreatePlaceholderWebPart(x, y, backgroundColor, fontColor)
             };
@@ -129,7 +129,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
 
-            return new WebPartInfo("Catalog Category Items Main Content Webpart", zoneName, "63E4DA3D-CC42-43A2-9F1E-16984AED87DA")
+            return new WebPartInfo("Catalog Category Items Main Content Webpart", zoneName)
             {
                 WebPart = new ResultScriptWebPart()
                 {
@@ -160,7 +160,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         public WebPartInfo CatalogCategoryRefinementWepart(string zoneName)
         {
-            return new WebPartInfo("Catalog Category Items Refinement Content Webpart", zoneName, "E35A81EE-D9B7-4C44-8ABC-6EEB01886099")
+            return new WebPartInfo("Catalog Category Items Refinement Content Webpart", zoneName)
             {
                 WebPart = new RefinementScriptWebPart()
                 {
