@@ -54,10 +54,15 @@
             self.ItemJavaScriptViewModel = itemJavaScriptViewModel;
 
             self.Items = ko.observableArray();
-            //self.FilteredItems = ko.observableArray();
+
             self.FilteredItems = ko.computed(function () {
                 return ko.utils.arrayFilter(self.Items(), function (item) {
-                    return item.Park() === self.Filters()[0].SelectedValue();
+                    return _.reduce(self.Filters(), function (memo, filter) {
+                        if (typeof (memo) === 'boolean') {
+                            return memo && filter.Filter(item);
+                        }
+                        return memo.Filter(item) && filter.Filter(item);
+                    });
                 });
             });
 
@@ -92,7 +97,7 @@
 
             self.ExecuteSearchQuery = function () {
                 // TODO (philavoie): Refactor to use URI.js
-                var queryUrl = window.location.origin + searchRestApi;
+                var queryUrl = searchRestApi;
                 queryUrl += "?querytext='";
                 queryUrl += encodeURIComponent(self.SearchQuery);
                 queryUrl += "'&trimduplicates=false&selectproperties='";
@@ -157,6 +162,9 @@
             }
 
             self.ResetFilters = function () {
+                _.each(self.Filters(), function (filter) {
+                    filter.Reset();
+                });
             }
         }
 
@@ -168,6 +176,7 @@
 </script>
 
 <div class="showcase">
+    <div class="section filters-header"></div>
     <div class="section filters-container">
         <div class="full-width">
             <h2 data-bind="text: FiltersTitle"></h2>
@@ -176,13 +185,15 @@
                 </div>
             </div>
             <div class="filter-reset-container full-width clearfix">
-                <div class="filter-reset">
+                <div class="filter-reset" data-bind="click: ResetFilters">
                     <span class="filter-reset-button"></span>
                     <span class="filter-reset-label" data-bind="text: FiltersResetLabel"></span>
                 </div>
             </div>
         </div>
     </div>
+    <div class="section filters-footer"></div>
+    <div class="section items-header"></div>
     <div class="section items-container">
         <div class="full-width clearfix">
             <ul data-bind="foreach: FilteredItems, beforeRemove: HideItem, afterAdd: ShowItem">
@@ -190,4 +201,5 @@
             </ul>
         </div>
     </div>
+    <div class="section items-footer"></div>
 </div>
