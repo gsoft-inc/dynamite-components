@@ -9,32 +9,32 @@
     <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
     <mso:TargetControlType msdt:dt="string">;#SearchResults;#</mso:TargetControlType>
     <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
-    <mso:ManagedPropertyMapping msdt:dt="string">'Title':'Title', 'PublishingPageContentOWSHTML':'PublishingPageContentOWSHTML'</mso:ManagedPropertyMapping>
+    <mso:ManagedPropertyMapping msdt:dt="string">'Title':'Title','Path':'Path','Description':'Description','EditorOWSUSER':'EditorOWSUSER','LastModifiedTime':'LastModifiedTime','CollapsingStatus':'CollapsingStatus','DocId':'DocId','HitHighlightedSummary':'HitHighlightedSummary','HitHighlightedProperties':'HitHighlightedProperties','FileExtension':'FileExtension','ViewsLifeTime':'ViewsLifeTime','ParentLink':'ParentLink','FileType':'FileType','IsContainer':'IsContainer','SecondaryFileExtension':'SecondaryFileExtension','DisplayAuthor':'DisplayAuthor', 'PublishingPageContentOWSHTML':'PublishingPageContentOWSHTML'</mso:ManagedPropertyMapping>
     </mso:CustomDocumentProperties>
     </xml><![endif]-->
 </head>
 <body>
     <div id="Item_DynamiteSingleContentItem">
         <!--#_
-            if(!$isNull(ctx.CurrentItem) && !$isNull(ctx.ClientControl))
-            {
-            var title = $getItemValue(ctx, "Title");
-            var summary = $getItemValue(ctx, "DynamiteSummaryOWSMTXT");
-
-            if ($isEmptyString(title))
-            {
-                title = $htmlEncode(ctx.CurrentItem.Title);
-            }
-        _#-->
-        <div>
-            <h2>_#= title =#_</h2>
-            <div>
-                _#= summary =#_
-            </div>
+                    if(!$isNull(ctx.CurrentItem) && !$isNull(ctx.ClientControl)){
+                        var id = ctx.ClientControl.get_nextUniqueId();
+                        var itemId = id + Srch.U.Ids.item;
+                        var hoverId = id + Srch.U.Ids.hover;
+                        var hoverUrl = "~sitecollection/_catalogs/masterpage/Display Templates/Search/Item_Default_HoverPanel.js";
+                        $setResultItem(itemId, ctx.CurrentItem);
+                        if(ctx.CurrentItem.IsContainer){
+                            ctx.CurrentItem.csr_Icon = Srch.U.getFolderIconUrl();
+                        }
+                        ctx.currentItem_ShowHoverPanelCallback = Srch.U.getShowHoverPanelCallback(itemId, hoverId, hoverUrl);
+                        ctx.currentItem_HideHoverPanelCallback = Srch.U.getHideHoverPanelCallback();
+            _#-->
+        <div id="_#= $htmlEncode(itemId) =#_" name="Item" data-displaytemplate="DefaultItem" class="ms-srch-item" onmouseover="_#= ctx.currentItem_ShowHoverPanelCallback =#_" onmouseout="_#= ctx.currentItem_HideHoverPanelCallback =#_">
+            _#=ctx.RenderBody(ctx)=#_
+            <div id="_#= $htmlEncode(hoverId) =#_" class="ms-srch-hover-outerContainer"></div>
         </div>
         <!--#_
             }
-        _#-->
+    _#-->
     </div>
 </body>
 </html>

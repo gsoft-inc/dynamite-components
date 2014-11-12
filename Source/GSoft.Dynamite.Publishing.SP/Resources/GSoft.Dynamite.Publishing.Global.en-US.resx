@@ -285,10 +285,10 @@
   <data name="PageLayout_CatalogCategoryPageTemplate_Name" xml:space="preserve">
     <value>Catalog Category Layout</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_CategoryPages_Desc" xml:space="preserve">
+  <data name="Feature_CrossSitePublishingCMS_CategoryPages_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Publishing Module - Category Page Templates</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_CategoryPages_Name" xml:space="preserve">
+  <data name="Feature_CrossSitePublishingCMS_CategoryPages_Desc" xml:space="preserve">
     <value>Deploys category page templates for Cross Site Publishing based CMS solutions</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_FacetedNavigation_Desc" xml:space="preserve">
