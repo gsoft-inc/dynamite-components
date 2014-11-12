@@ -20,7 +20,8 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             var resultSources = new List<ResultSourceInfo>
             {
                 {_resultSourceValues.SingleTargetItem()},
-                {_resultSourceValues.SingleCatalogItem()}
+                {_resultSourceValues.SingleCatalogItem()},
+                {_resultSourceValues.AllMenuItems()}
             };
 
             return resultSources;
