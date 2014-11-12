@@ -44,6 +44,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Folders
             builder.RegisterType<PublishingFolderInfoConfig>().As<IPublishingFolderInfoConfig>();
+            builder.RegisterType<PublishingFolderInfoConfig>().Named<IPublishingFolderInfoConfig>("publishing");
 
             // Display Templates
             builder.RegisterType<PublishingDisplayTemplateInfoConfig>().As<IPublishingDisplayTemplateInfoConfig>();
