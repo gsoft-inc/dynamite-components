@@ -25,6 +25,7 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
 
             // Term Driven Pages
             builder.RegisterType<NavigationTermDrivenPageSettingsInfoConfig>().As<INavigationTermDrivenpageSettingsInfoConfig>();
+            builder.RegisterType<NavigationTermDrivenPageSettingsInfoConfig>().Named<INavigationTermDrivenpageSettingsInfoConfig>("navigation");
 
             // Content Types
             builder.RegisterType<NavigationContentTypeInfoConfig>().As<INavigationContentTypeInfoConfig>();
