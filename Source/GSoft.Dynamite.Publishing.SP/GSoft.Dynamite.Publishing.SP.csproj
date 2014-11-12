@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10139\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10140\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -86,6 +86,9 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_DisplayTemplates\CrossSitePublishingCMS_DisplayTemplates.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_DisplayTemplates.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_FacetedNavigation.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Lists.feature</DependentUpon>
@@ -158,6 +161,9 @@
     <None Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.feature">
       <FeatureId>{91490df6-476f-41b1-bea2-4df55c15aba6}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.feature">
+      <FeatureId>{afb7008d-3245-440f-bb75-58bfb521c4b8}</FeatureId>
+    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{39449225-6dec-4063-a39a-dea11765218e}</PackageId>
@@ -194,6 +200,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_CategoryPages.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_FacetedNavigation.feature</DependentUpon>
     </Content>
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
