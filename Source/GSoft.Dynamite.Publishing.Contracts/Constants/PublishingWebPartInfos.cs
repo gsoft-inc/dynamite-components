@@ -39,34 +39,33 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["SourceLevel"] = this.resultSourceInfos.SingleTargetItem().Level.ToString();
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
-
-            return new WebPartInfo("Target Item Content Webpart", zoneName)
+            var webpart = new ResultScriptWebPart()
             {
-                WebPart = new ResultScriptWebPart()
-                {
-                    DataProviderJSON = querySettings.PropertiesJson,
-                    // To set a display template manually, use this line
-                    //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
-                    ChromeType = PartChromeType.None,
-                    ShowAdvancedLink = false,
-                    ShowBestBets = false,
-                    ShowAlertMe = false,
-                    ShowLanguageOptions = false,
-                    ShowDidYouMean = false,
-                    ShowPaging = false,
-                    ShowResultCount = false,
-                    ShowPersonalFavorites = false,
-                    ShowSortOptions = false,
-                    ShowViewDuplicates = false,
-                    ShowDataErrors = false,
-                    ShowDefinitions = false,
-                    ShowPreferencesLink = false,
-                    ShowUpScopeMessage = false,
-                    ShowResults = true,
-                    BypassResultTypes = false,
-                    ResultsPerPage = 1
-                }
+                Title = "Target Item Content Webpart",
+                DataProviderJSON = querySettings.PropertiesJson,
+                // To set a display template manually, use this line
+                //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
+                ChromeType = PartChromeType.None,
+                ShowAdvancedLink = false,
+                ShowBestBets = false,
+                ShowAlertMe = false,
+                ShowLanguageOptions = false,
+                ShowDidYouMean = false,
+                ShowPaging = false,
+                ShowResultCount = false,
+                ShowPersonalFavorites = false,
+                ShowSortOptions = false,
+                ShowViewDuplicates = false,
+                ShowDataErrors = false,
+                ShowDefinitions = false,
+                ShowPreferencesLink = false,
+                ShowUpScopeMessage = false,
+                ShowResults = true,
+                BypassResultTypes = false,
+                ResultsPerPage = 1
             };
+
+            return new WebPartInfo(zoneName, webpart);
         }
 
         public WebPartInfo CatalogItemContentWebPart(string zoneName)
@@ -76,33 +75,32 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["SourceLevel"] = this.resultSourceInfos.SingleCatalogItem().Level.ToString();
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
-
-            return new WebPartInfo("Catalog Item Content Webpart", zoneName)
+            var webpart = new ResultScriptWebPart()
             {
-                WebPart = new ResultScriptWebPart()
-                {
-                    DataProviderJSON = querySettings.PropertiesJson,
-                    //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
-                    ChromeType = PartChromeType.None,
-                    ShowAdvancedLink = false,
-                    ShowBestBets = false,
-                    ShowAlertMe = false,
-                    ShowLanguageOptions = false,
-                    ShowDidYouMean = false,
-                    ShowPaging = false,
-                    ShowResultCount = false,
-                    ShowPersonalFavorites = false,
-                    ShowSortOptions = false,
-                    ShowViewDuplicates = false,
-                    ShowDataErrors = false,
-                    ShowDefinitions = false,
-                    ShowPreferencesLink = false,
-                    ShowUpScopeMessage = false,
-                    ShowResults = true,
-                    BypassResultTypes = false,
-                    ResultsPerPage = 1
-                }
+                Title = "Catalog Item Content Webpart",
+                DataProviderJSON = querySettings.PropertiesJson,
+                //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
+                ChromeType = PartChromeType.None,
+                ShowAdvancedLink = false,
+                ShowBestBets = false,
+                ShowAlertMe = false,
+                ShowLanguageOptions = false,
+                ShowDidYouMean = false,
+                ShowPaging = false,
+                ShowResultCount = false,
+                ShowPersonalFavorites = false,
+                ShowSortOptions = false,
+                ShowViewDuplicates = false,
+                ShowDataErrors = false,
+                ShowDefinitions = false,
+                ShowPreferencesLink = false,
+                ShowUpScopeMessage = false,
+                ShowResults = true,
+                BypassResultTypes = false,
+                ResultsPerPage = 1
             };
+
+            return new WebPartInfo(zoneName, webpart);
         }
 
         /// <summary>
@@ -115,10 +113,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>A webpartinfo containing the webpart</returns>
         public WebPartInfo PlaceHolder(string zoneName, int x, int y, string backgroundColor, string fontColor)
         {
-            return new WebPartInfo("Place Holder", zoneName)
-            {
-                WebPart = this.webPartHelper.CreatePlaceholderWebPart(x, y, backgroundColor, fontColor)
-            };
+            var webpart = this.webPartHelper.CreatePlaceholderWebPart(x, y, backgroundColor, fontColor);
+
+            return new WebPartInfo(zoneName, webpart);
         }
 
         public WebPartInfo CatalogCategoryItemsMainWebPart(string zoneName)
@@ -128,48 +125,47 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["SourceLevel"] = this.resultSourceInfos.CatalogCategoryItems().Level.ToString();
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
-
-            return new WebPartInfo("Catalog Category Items Main Content Webpart", zoneName)
+            var webpart = new ResultScriptWebPart()
             {
-                WebPart = new ResultScriptWebPart()
-                {
-                    DataProviderJSON = querySettings.PropertiesJson,
-                    //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
-                    ChromeType = PartChromeType.None,
-                    ShowAdvancedLink = false,
-                    ShowBestBets = false,
-                    ShowAlertMe = false,
-                    ShowLanguageOptions = false,
-                    ShowDidYouMean = false,
-                    ShowPaging = true,
-                    ShowResultCount = false,
-                    ShowPersonalFavorites = false,
-                    ShowSortOptions = false,
-                    ShowViewDuplicates = false,
-                    ShowDataErrors = false,
-                    ShowDefinitions = false,
-                    ShowPreferencesLink = false,
-                    ShowUpScopeMessage = false,
-                    ShowResults = true,
-                    BypassResultTypes = false,
-                    ResultsPerPage = 20,
-                    QueryGroupName = "CatalogCategoryItems"
-                }
+                Title = "Catalog Category Items Main Content Webpart",
+                DataProviderJSON = querySettings.PropertiesJson,
+                //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
+                ChromeType = PartChromeType.None,
+                ShowAdvancedLink = false,
+                ShowBestBets = false,
+                ShowAlertMe = false,
+                ShowLanguageOptions = false,
+                ShowDidYouMean = false,
+                ShowPaging = true,
+                ShowResultCount = false,
+                ShowPersonalFavorites = false,
+                ShowSortOptions = false,
+                ShowViewDuplicates = false,
+                ShowDataErrors = false,
+                ShowDefinitions = false,
+                ShowPreferencesLink = false,
+                ShowUpScopeMessage = false,
+                ShowResults = true,
+                BypassResultTypes = false,
+                ResultsPerPage = 20,
+                QueryGroupName = "CatalogCategoryItems"
             };
+
+            return new WebPartInfo(zoneName, webpart);
         }
 
         public WebPartInfo CatalogCategoryRefinementWepart(string zoneName)
         {
-            return new WebPartInfo("Catalog Category Items Refinement Content Webpart", zoneName)
+            var webpart = new RefinementScriptWebPart()
             {
-                WebPart = new RefinementScriptWebPart()
-                {
-                    UseManagedNavigationRefiners = true,
-                    ChromeType = PartChromeType.None,               
-                    ShowDataErrors = false,
-                    QueryGroupName = "CatalogCategoryItems"
-                }
+                Title = "Catalog Category Items Refinement Content Webpart",
+                UseManagedNavigationRefiners = true,
+                ChromeType = PartChromeType.None,
+                ShowDataErrors = false,
+                QueryGroupName = "CatalogCategoryItems"
             };
+
+            return new WebPartInfo(zoneName, webpart);
         }
     }
 }
