@@ -122,6 +122,12 @@
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
     <None Include="app.config" />
+    <None Include="Artefacts\CustomStrings_EN\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c1753265-9f9a-4eb6-9911-101eeaeb7d01}</SharePointProjectItemId>
+    </None>
+    <None Include="Artefacts\CustomStrings_FR\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{68a7e912-b6a9-4369-b974-9fe00d9ae804}</SharePointProjectItemId>
+    </None>
     <None Include="Artefacts\DisplayTemplates\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{330f2e34-1131-4bec-915e-8ae22b2d7a66}</SharePointProjectItemId>
     </None>
@@ -180,7 +186,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artefacts\CustomStrings_EN\Elements.xml" />
+    <Content Include="Artefacts\CustomStrings_EN\Dynamite_Refinements.js" />
+    <Content Include="Artefacts\CustomStrings_FR\Elements.xml" />
+    <Content Include="Artefacts\CustomStrings_FR\Dynamite_Refinements.js" />
     <Content Include="Artefacts\DisplayTemplates\Elements.xml" />
+    <Content Include="Artefacts\DisplayTemplates\Filters\Filter_DefaultCategoryRefinement.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_NewsCategorySingleResult.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleContentItem.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemContent.html" />
