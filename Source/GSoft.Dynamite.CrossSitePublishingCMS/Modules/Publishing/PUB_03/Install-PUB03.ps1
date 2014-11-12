@@ -47,8 +47,6 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-FacetedNavigation.ps1'
 & $Script -Force
 
-Setup-FacetedNavigation.ps1
-
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript

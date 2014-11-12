@@ -25,10 +25,17 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             get
             {
+
+                var navigation = new RefinerInfo(this.managedPropertyInfos.NavigationText.Name, RefinerType.Text, false);
+                navigation.DisplayTemplateJsLocation =
+                    this.displayTemplateInfos.DefaultFilterCategoryRefinement().ItemTemplateTokenizedPath;
+
+                var created = new RefinerInfo("Created", RefinerType.DateTime, false);
+
                 var refiners = new List<RefinerInfo>()
                 {
-                    {new RefinerInfo(this.managedPropertyInfos.NavigationText.Name, RefinerType.Text, false)},
-                    {new RefinerInfo("Created", RefinerType.DateTime, false)},
+                    {navigation},
+                    {created},
                 };
 
                 return new FacetedNavigationInfo(this.termInfo.NewsLabel(), refiners);
