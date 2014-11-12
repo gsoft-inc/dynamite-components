@@ -2,6 +2,10 @@
 /*** Main Menu  ****/
 /*******************/
 
+nav.main-menu {
+    float: right;
+}
+
 .main-menu ul {
     list-style: none;
     margin: 0px;
@@ -15,19 +19,14 @@
 li.main-menu-level-1 {
     float: left;
     padding: 2px 10px;
+    text-align: center;
+    display: block;
 }
 
 
 ul.main-menu-level-1 {
     clear: left;
-    margin-top: 34px;
     position: relative;
-}
-
-li.main-menu-level-1 {
-    text-align: center;
-    display: block;
-    float: left;
 }
 
 a.main-menu-level-1 {
@@ -38,11 +37,7 @@ a.main-menu-level-1 {
     a.main-menu-level-1:hover {
         text-decoration: none;
     }
-
-li.main-menu-level-2:first-of-type a.main-menu-level-2 {
-    border-left: none;
-}
-
+    
 div.main-menu-level-2 {
     position: absolute;
     display: none;
@@ -71,12 +66,12 @@ ul.main-menu-level-2:first-of-type {
 
 li.main-menu-level-2 {
     display: block;
-    float: left;
-    width: 25%;
+    width: 100%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding-right: 28px;
+    margin-top: 15px;
 }
 
     li.main-menu-level-2.main-menu-2-col {

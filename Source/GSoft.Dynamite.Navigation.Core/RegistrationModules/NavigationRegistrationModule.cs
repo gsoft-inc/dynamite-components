@@ -49,6 +49,7 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
 
             // Managed Navigation
             builder.RegisterType<NavigationManagedNavigationInfoConfig>().As<INavigationManagedNavigationInfoConfig>();
+            builder.RegisterType<NavigationManagedNavigationInfoConfig>().Named<INavigationManagedNavigationInfoConfig>("navigation");
 
             // Configuration Values
             builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();

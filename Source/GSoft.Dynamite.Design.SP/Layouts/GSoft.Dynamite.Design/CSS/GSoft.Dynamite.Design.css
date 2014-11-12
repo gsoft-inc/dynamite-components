@@ -85,4 +85,10 @@ a.hover {
 .breadcrumb {
   padding: 5px 0;
 }
+.languageSwitcherToggle {
+  float: right;
+}
+.languageSwitcherToggle img {
+  display: none;
+}
 /*# sourceMappingURL=GSoft.Dynamite.Design.css.map */
