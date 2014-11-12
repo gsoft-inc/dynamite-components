@@ -8,4 +8,4 @@
 Write-Warning "Applying Page Layouts configuration..."
 
 # Activate feature on the root web on the publishing site collection
-Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_PUB_PageLayouts]]
+Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_PUB_PageLayouts]]

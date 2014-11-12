@@ -40,13 +40,13 @@ if($IsMultilingual)
 	# Activate features on source sites - Authoring side
 	[[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object{
 
-		Switch-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
+		Initialize-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
 	}
 
 	# Activate features on source sites - Publishing side
 	[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
 
-		Switch-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
+		Initialize-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
 	}
 
 	$webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"

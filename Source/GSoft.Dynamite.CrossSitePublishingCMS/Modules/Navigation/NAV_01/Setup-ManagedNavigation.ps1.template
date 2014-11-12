@@ -10,11 +10,11 @@ Write-Warning "Applying managed navigation configuration..."
 # Activate features on all publishing sites (sources an targets)
 [[DSP_PublishingTargetRootWebUrls]] | Foreach-Object{
 
-	Switch-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_NAV_ManagedNavigation]]
+	Initialize-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_NAV_ManagedNavigation]]
 }
 
 [[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
 
-	Switch-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_NAV_ManagedNavigation]]
+	Initialize-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_NAV_ManagedNavigation]]
 }
 

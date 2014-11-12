@@ -16,4 +16,4 @@ if(![string]::IsNullOrEmpty($CustomFeatureId))
 }
 
 # Activate feature on the root web on the publishing site collection
-Switch-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id $FeatureId
+Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id $FeatureId
