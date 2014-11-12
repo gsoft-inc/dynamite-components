@@ -10,5 +10,5 @@ Write-Warning "Applying Catalogs configuration..."
 # Activate features on source sites (if the solution is multilingual). If not there is only one source site
 [[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object{
 
-	Switch-DSPFeature -Url $_ -Id "[[DSP_CrossSitePublishingCMS_PUB_Catalogs]]"
+	Initialize-DSPFeature -Url $_ -Id "[[DSP_CrossSitePublishingCMS_PUB_Catalogs]]"
 }
