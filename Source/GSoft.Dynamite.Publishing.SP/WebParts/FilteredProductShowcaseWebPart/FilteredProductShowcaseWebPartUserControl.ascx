@@ -102,7 +102,7 @@
                 queryUrl += encodeURIComponent(self.SearchQuery);
                 queryUrl += "'&trimduplicates=false&selectproperties='";
                 queryUrl += self.SelectProperties;
-                queryUrl += "'";
+                queryUrl += "'&QueryTemplatePropertiesUrl='spfile://webroot/queryparametertemplate.xml'";
 
                 // Execute the AJAX call to the SharePoint Search REST API
                 $.ajax({
@@ -175,7 +175,7 @@
         Dynamite.FilteredProductShowcase.Initialize();
 </script>
 
-<div class="showcase">
+<div class="showcase clearfix">
     <div class="section filters-header"></div>
     <div class="section filters-container">
         <div class="full-width">
