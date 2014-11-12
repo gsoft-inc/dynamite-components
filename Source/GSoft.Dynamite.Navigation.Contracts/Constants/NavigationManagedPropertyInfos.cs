@@ -17,7 +17,11 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 {"ows_q_TEXT_DynamiteDateSlug", 1},
                 {"ows_DynamiteDateSlug", 2},
             },
-            RespectPriority = true
+            RespectPriority = true,
+            Retrievable = true,
+            Searchable = true,
+            Refinable = true,
+            Queryable = true
         };
 
         /// <summary>
@@ -31,7 +35,11 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 {"ows_q_TEXT_DynamiteTitleSlug", 1},
                 {"ows_DynamiteTitleSlug", 2},
             },
-            RespectPriority = true
+            RespectPriority = true,
+            Retrievable = true,
+            Searchable = true,
+            Refinable = true,
+            Queryable = true
         };
 
         /// <summary>
