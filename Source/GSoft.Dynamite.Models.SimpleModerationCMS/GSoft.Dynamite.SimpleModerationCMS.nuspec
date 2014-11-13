@@ -19,7 +19,6 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="Modules\**\Tokens.*.ps1" target="content\Modules" />
         <file src="Solutions\Custom\**" target="content\Solutions\Custom\" />
         <file src="Modules\**" target="tools\Modules" />
         <file src="Solutions\**" target="tools\Solutions" />
