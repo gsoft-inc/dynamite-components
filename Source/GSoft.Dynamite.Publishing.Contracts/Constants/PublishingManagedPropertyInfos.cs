@@ -19,8 +19,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             RespectPriority = true,
             Retrievable = true,
             Searchable = true,
-            // Important to set refinable to false for GPP|.. GP0| querying
-            Refinable = false,
+            // Important to set refinable to true for GPP|.. GP0| querying
+            Refinable = true,
             // Important to keep the MultiValue = true for GPP|.. GP0| querying
             HasMultipleValues = true
         };
