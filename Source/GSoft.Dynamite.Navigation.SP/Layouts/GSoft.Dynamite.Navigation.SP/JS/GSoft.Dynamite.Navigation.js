@@ -1,4 +1,7 @@
-﻿(function (MainMenu, $, undefined) {
+﻿// Dynamite namespace root
+window.Dynamite = window.Dynamite || {};
+
+(function (MainMenu, $, undefined) {
 
     // Public properties    
     MainMenu.ViewModel = null;
@@ -178,4 +181,4 @@
         }
     }
 
-}(Portal.MainMenu = Portal.MainMenu || {}, jq110));
+}(Dynamite.MainMenu = Dynamite.MainMenu || {}, jq110));

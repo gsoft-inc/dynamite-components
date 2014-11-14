@@ -15,7 +15,7 @@
 </nav>
 
 <script>
-    Portal.MainMenu.initialize(<%=this.MenuJSON%>);
+    Dynamite.MainMenu.initialize(<%=this.MenuJSON%>);
 </script>
 <script type="text/html" id="menu-level-template1">
     <li data-bind="css: LevelClass">
