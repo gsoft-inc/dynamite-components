@@ -69,6 +69,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 ContentTypeId = this.contentTypeInfo.DefaultPage().ContentTypeId,
                 WebParts = new List<WebPartInfo>()
                 {
+                    { this.webPartInfos.TargetItemContentWebPart("Header") },
                     { this.webPartInfos.CatalogCategoryItemsMainWebPart("Main") },
                     { this.webPartInfos.CatalogCategoryRefinementWepart("RightColumn") }
                 },
