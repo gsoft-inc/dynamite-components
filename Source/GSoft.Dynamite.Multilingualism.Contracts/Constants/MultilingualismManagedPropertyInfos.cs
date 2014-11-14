@@ -20,7 +20,11 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 {"ows_q_GUID_DynamiteContentAssociationKey", 1},
                 {"ows_DynamiteContentAssociationKey", 2},
             },
-            RespectPriority = true
+            RespectPriority = true,
+            Queryable = true,
+            Retrievable = true,
+            Searchable = false,
+            Refinable = false,
         };
 
         /// <summary>

@@ -62,7 +62,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 ShowUpScopeMessage = false,
                 ShowResults = true,
                 BypassResultTypes = false,
-                ResultsPerPage = 1
+                ResultsPerPage = 1,
+                QueryGroupName = "SingleItem"
             };
 
             return new WebPartInfo(zoneName, webpart);
@@ -97,7 +98,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 ShowUpScopeMessage = false,
                 ShowResults = true,
                 BypassResultTypes = false,
-                ResultsPerPage = 1
+                ResultsPerPage = 1,
+                QueryGroupName = "SingleItem"
             };
 
             return new WebPartInfo(zoneName, webpart);
