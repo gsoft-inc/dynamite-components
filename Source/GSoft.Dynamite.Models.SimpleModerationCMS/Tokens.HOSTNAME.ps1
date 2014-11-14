@@ -14,9 +14,6 @@ $DSP_IsDistributedEnvironment = "$false"
 # ******************************************
 
 $DSP_DeploySolutions = "$false"
-$DSP_NugetSolutionsScanRootPath = "C:\PATH-TO-YOUR-SOLUTION\Libraries"
-$DSP_CustomSolutionsScanRootPath = "C:\PATH-TO-YOUR-SOLUTION\Source"
-
 $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.xml"
 
 # ******************************************
