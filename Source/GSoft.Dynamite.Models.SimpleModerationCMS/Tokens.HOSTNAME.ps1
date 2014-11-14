@@ -23,8 +23,6 @@ $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.x
 # Application Configuration 
 # ******************************************
 $DSP_PortalWebAppUrl = "http://HOSTNAME/"
-$DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
-$DSP_PortalAuthoringHostNamePath = "http://authoring.dynamite.com"
 
 $DSP_PortalAuthoringRootWebUrl = $DSP_PortalAuthoringHostNamePath 
 
@@ -39,9 +37,3 @@ $DSP_PortalDefaultLanguage = "1033"
 $DSP_IsMultilingual = $true
 $DSP_VariationsLabels = @('en','fr')
 $DSP_SourceLabel = "en"
-
-# ******************************************
-# Webs Configuration 
-# ******************************************
-
-$DSP_PortalAuthoringRootWebs = @('rh','com')
