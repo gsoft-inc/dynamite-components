@@ -1,4 +1,5 @@
-﻿function New-Package {
+﻿# New-Package -ModelName SimpleModerationCMS -NugetFolderPath ..\packages -OutputFolderPath ..\package -SolutionFolderPath .. -Override
+function New-Package {
 	Param (
 		# The Model Name ex.: CrossSitePublishingCMS
 		[Parameter(Mandatory=$true)]
