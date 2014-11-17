@@ -20,8 +20,7 @@ $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.x
 # Application Configuration 
 # ******************************************
 $DSP_PortalWebAppUrl = "http://HOSTNAME/"
-
-$DSP_PortalAuthoringRootWebUrl = $DSP_PortalAuthoringHostNamePath 
+$DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
 
 $DSP_PortalAdmin = "OFFICE\YOUR.NAME"
 $DSP_PortalDatabaseName = "SP2013_Content_Portal"
