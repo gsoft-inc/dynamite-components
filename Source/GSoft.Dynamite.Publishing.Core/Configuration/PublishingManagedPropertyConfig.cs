@@ -21,7 +21,6 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 var managedProperties = new List<ManagedPropertyInfo>()
                 {
                     {this.publishingManagedPropertyInfos.NavigationText},
-                    {this.publishingManagedPropertyInfos.Navigation}
                 };
 
                 return managedProperties;

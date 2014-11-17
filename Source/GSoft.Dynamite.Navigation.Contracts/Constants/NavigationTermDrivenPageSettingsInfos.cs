@@ -38,6 +38,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
 
         public TermDrivenPageSettingInfo NewsTerm()
         {
+            // Be careful, set ExcludeFromCurrentNavigation = false to get the friendly url generation from Search WebParts work
+            // http://blog.mastykarz.nl/inconvenient-url-rewriting-catalog-items-sharepoint-2013/
+
             return new TermDrivenPageSettingInfo(
                 this._basePublishingTermInfos.NewsLabel(),
                 this._basePublishingPageInfos.CatalogCategoryItemsPageTemplate().SiteTokenizedTermDrivenPageUrl,
@@ -45,7 +48,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 this._basePublishingPageInfos.CatalogCategoryItemsPageTemplate().SiteTokenizedTermDrivenPageUrl,
                 this._basePublishingPageInfos.CatalogItemPageTemplate().SiteTokenizedTermDrivenPageUrl,
                 false,
-                true);
+                false);
         }
     }
 }

@@ -12,17 +12,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ManagedPropertyInfo Navigation = new ManagedPropertyInfo("owstaxIdDynamiteNavigation",
             ManagedDataType.Text)
         {
-            CrawledProperties = new Dictionary<string, int>()
-            {
-                {"ows_taxId_DynamiteNavigation", 1}
-            },
-            RespectPriority = true,
-            Retrievable = true,
-            Searchable = true,
-            // Important to set refinable to false for GPP|.. GP0| querying
-            Refinable = false,
-            // Important to keep the MultiValue = true for GPP|.. GP0| querying
-            HasMultipleValues = true
         };
 
         /// <summary>
