@@ -80,6 +80,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.LifeCycle.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.LifeCycle.SP", "GSoft.Dynamite.LifeCycle.SP\GSoft.Dynamite.LifeCycle.SP.csproj", "{518B7EBA-C939-4601-96D7-D80480FA07F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Models.SimpleModerationCMS", "GSoft.Dynamite.Models.SimpleModerationCMS\GSoft.Dynamite.Models.SimpleModerationCMS.csproj", "{7977B120-E4F9-48C9-BFF3-D86C311FDF73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -192,6 +194,10 @@ Global
 		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{518B7EBA-C939-4601-96D7-D80480FA07F6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7977B120-E4F9-48C9-BFF3-D86C311FDF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7977B120-E4F9-48C9-BFF3-D86C311FDF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7977B120-E4F9-48C9-BFF3-D86C311FDF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7977B120-E4F9-48C9-BFF3-D86C311FDF73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

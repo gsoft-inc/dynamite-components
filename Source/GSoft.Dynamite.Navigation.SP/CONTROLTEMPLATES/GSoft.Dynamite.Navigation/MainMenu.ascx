@@ -15,15 +15,13 @@
 </nav>
 
 <script>
-    Portal.MainMenu.initialize(<%=this.MenuJSON%>);
+    Dynamite.MainMenu.initialize(<%=this.MenuJSON%>);
 </script>
 <script type="text/html" id="menu-level-template1">
     <li data-bind="css: LevelClass">
         <a data-bind="text: Title, css: LevelClass, attr: { href: Url }"></a>
-    </li>
-    <div data-bind="css: NextLevelClass">
         <ul data-bind="css: NextLevelClass, template: { name: 'menu-level-template2', foreach: ChildNodes }"></ul>
-    </div>
+    </li>
 </script>
 
 <script type="text/html" id="menu-level-template2">

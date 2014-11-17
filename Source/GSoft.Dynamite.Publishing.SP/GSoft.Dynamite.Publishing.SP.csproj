@@ -129,13 +129,13 @@
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
     <None Include="app.config" />
+    <None Include="Artefacts\LanguageFiles_EN\SharePointProjectItem.spdata">
     <None Include="Artefacts\ClientScripts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{110c9cce-c137-496c-bd6d-c5ab0d1278a1}</SharePointProjectItemId>
     </None>
-    <None Include="Artefacts\CustomStrings_EN\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{c1753265-9f9a-4eb6-9911-101eeaeb7d01}</SharePointProjectItemId>
     </None>
-    <None Include="Artefacts\CustomStrings_FR\SharePointProjectItem.spdata">
+    <None Include="Artefacts\LanguageFiles_FR\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{68a7e912-b6a9-4369-b974-9fe00d9ae804}</SharePointProjectItemId>
     </None>
     <None Include="Artefacts\DisplayTemplates\SharePointProjectItem.spdata">
@@ -185,6 +185,8 @@
     </None>
     <None Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
       <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
+    <None Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.feature">
+      <FeatureId>{4bcdc916-d112-42d2-8b25-a91a8f87548f}</FeatureId>
     </None>
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{bc3923a2-1855-47ac-9098-f1bba7151d9e}</SharePointProjectItemId>
@@ -206,10 +208,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Artefacts\ClientScripts\Elements.xml" />
-    <Content Include="Artefacts\CustomStrings_EN\Elements.xml" />
-    <Content Include="Artefacts\CustomStrings_EN\Dynamite_Refinements.js" />
-    <Content Include="Artefacts\CustomStrings_FR\Elements.xml" />
-    <Content Include="Artefacts\CustomStrings_FR\Dynamite_Refinements.js" />
+    <Content Include="Artefacts\LanguageFiles_EN\Elements.xml" />
+    <Content Include="Artefacts\LanguageFiles_EN\Dynamite_Refinements.js" />
+    <Content Include="Artefacts\LanguageFiles_FR\Elements.xml" />
+    <Content Include="Artefacts\LanguageFiles_FR\Dynamite_Refinements.js" />
     <Content Include="Artefacts\DisplayTemplates\Elements.xml" />
     <Content Include="Artefacts\DisplayTemplates\Filters\Filter_DefaultCategoryRefinement.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_NewsCategorySingleResult.html" />
@@ -238,6 +240,8 @@
     </Content>
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
+    <Content Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.Template.xml">
+      <DependentUpon>CommonCMS_LanguageFiles.feature</DependentUpon>
       <DependentUpon>GSoft.Dynamite.Publishing.js</DependentUpon>
     </Content>
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />

@@ -1,4 +1,7 @@
-﻿(function (MainMenu, $, undefined) {
+﻿// Dynamite namespace root
+window.Dynamite = window.Dynamite || {};
+
+(function (MainMenu, $, undefined) {
 
     // Public properties    
     MainMenu.ViewModel = null;
@@ -128,7 +131,8 @@
             var isCurrentNode = self.IsCurrentNode() ? "current-node" : "";
             var isNodeInCurrentBranch = self.IsNodeInCurrentBranch() ? "node-in-current-branch" : "";
             var is2Columns = self.ChildNodes2().length > 0 ? "main-menu-2-col" : "";
-            return [level, isCurrentNode, isNodeInCurrentBranch, is2Columns].join(" ");
+            var isChildNodes = self.ChildNodes().length > 0 ? "main-menu-dropdown" : "";
+            return [level, isCurrentNode, isNodeInCurrentBranch, is2Columns, isChildNodes].join(" ");
         });
 
         self.NextLevelClass = ko.computed(function () {
@@ -177,4 +181,4 @@
         }
     }
 
-}(Portal.MainMenu = Portal.MainMenu || {}, jq110));
+}(Dynamite.MainMenu = Dynamite.MainMenu || {}, jq110));

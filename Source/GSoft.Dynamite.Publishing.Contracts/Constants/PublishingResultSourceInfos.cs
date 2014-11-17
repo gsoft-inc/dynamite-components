@@ -24,10 +24,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Level = SearchObjectLevel.Ssa,
                 UpdateMode = UpdateBehavior.OverwriteResultSource,
                 Query = string.Empty,
-                SortSettings = new Dictionary<string, SortDirection>()
-                {
-                    {"ListItemID",SortDirection.Ascending}
-                }
             };
         }
 

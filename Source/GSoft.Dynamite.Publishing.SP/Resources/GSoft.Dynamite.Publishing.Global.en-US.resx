@@ -297,4 +297,10 @@
   <data name="Feature_CrossSitePublishingCMS_FacetedNavigation_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Publishing Module -Faceted Navigation</value>
   </data>
+  <data name="Feature_CommonCMS_LanguageFiles_Desc" xml:space="preserve">
+    <value>Deploys language files for display templates in the master page gallery</value>
+  </data>
+  <data name="Feature_CommonCMS_LanguageFiles_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Language Files</value>
+  </data>
 </root>

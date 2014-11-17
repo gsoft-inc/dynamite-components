@@ -29,6 +29,12 @@ $VerbosePreference ="Continue"
 
 $UserStory = "PUB_03"
 
+$values = @{"Step: " = "Deploy Language Files";"User Story: " = $UserStory}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-LanguageFiles.ps1'
+& $Script -Force
+
 $values = @{"Step: " = "Deploy Web Parts";"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 

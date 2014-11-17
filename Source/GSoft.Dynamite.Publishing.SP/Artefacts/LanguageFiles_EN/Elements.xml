@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="LanguageFiles_EN" List="116" Url="_catalogs/masterpage/display templates/language files/en-us" RootWebOnly="TRUE" Path="LanguageFiles_EN">
+    <File Url="Dynamite_Refinements.js" Type="GhostableInLibrary" ReplaceContent="TRUE"/>
+  </Module>
+</Elements>

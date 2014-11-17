@@ -66,14 +66,13 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         public ResultSourceInfo AllMenuItems()
         {
             var itemLanguage  = this.multilingualismManagedPropertyInfos.ItemLanguage.Name;
-            var targetItemContentTypeId = this.publishingContentTypeInfos.TargetContentItem().ContentTypeId;
 
             return new ResultSourceInfo()
             {
                 Name = "All Menu Items",
                 Level = SearchObjectLevel.Ssa,
                 UpdateMode = UpdateBehavior.OverwriteResultSource,
-                Query = itemLanguage + ":{Page.DynamiteItemLanguage}" + " " + BuiltInManagedProperties.ContentTypeId + ":" + targetItemContentTypeId + "*"
+                Query = PublishingResultSourceInfos.AppendToSearchKqlPrefix(string.Empty)
             };
         }
     }

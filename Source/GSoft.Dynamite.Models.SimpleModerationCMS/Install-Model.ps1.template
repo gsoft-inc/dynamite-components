@@ -1,0 +1,55 @@
+﻿# Verbose preference
+$VerbosePreference ="Continue"
+
+# Unblock files if they're from another computer
+gci -Recurse | Unblock-File
+
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+
+# ********** LOG INIT ********** #
+
+$ScriptName = [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name)
+
+$LogFolderPath = ((Get-Location).Path + "\Logs")
+
+if(!(Test-Path -Path $LogFolderPath)){
+	New-Item -ItemType directory -Path $LogFolderPath
+}
+else
+{
+	# Reset the log folder
+	Get-ChildItem $LogFolderPath | Foreach-Object { Remove-Item  $_.FullName -Force }
+}
+
+$LogTime = Get-Date -Format "MM-dd-yyyy_hh-mm-ss"
+$LogFile = $LogFolderPath + "\" + $ScriptName +"_Dynamite_"+$LogTime +".log"
+
+# Stat log transcript
+Start-Transcript -Path $LogFile
+
+# ******** SOLUTIONS DEPLOYMENT ********* #
+
+#./Solutions/Copy-Solutions.ps1
+
+if ([System.Convert]::ToBoolean("[[DSP_DeploySolutions]]"))
+{
+    ./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
+}
+
+$values = @{"Solution Model: " = "[SimpleModerationCMS]";}
+New-HeaderDrawing -Values $Values
+
+# ********** NAVIGATION MODULE ********** #
+
+##### NAV 01
+$Script = $CommandDirectory + "\Modules\Navigation\NAV_01\Install-NAV01.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+
+# ********** POST DEPLOYMENT SCRIPTS ********** #
+$Script = $CommandDirectory + "Execute-PostDeploymentScript.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+
+# ********** LOG END ********** #
+# Stop log transcript
+Stop-Transcript
