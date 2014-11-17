@@ -18,10 +18,8 @@ $DSP_CUSTOM_PortalSitesConfigurationFile = ""
 #### TAXONOMY
 
 $DSP_CUSTOM_PortalNavigationConfigurationFile = ""
-$DSP_CUSTOM_PortalRestrictedConfigurationFile = ""
 
 $DSP_CUSTOM_PortalNavigationTermGroup = ""
-$DSP_CUSTOM_PortalRestrictedTermGroup = ""
 
 # ============================================
 # STEP 3: Define security

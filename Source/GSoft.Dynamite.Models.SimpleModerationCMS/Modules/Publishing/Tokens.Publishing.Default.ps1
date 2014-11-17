@@ -18,10 +18,8 @@ $DSP_DEFAULT_PortalSitesConfigurationFile = "./Default/Default-Sites.xml"
 #### TAXONOMY
 
 $DSP_DEFAULT_PortalNavigationConfigurationFile = "./Default/Default-NavigationTermGroup.xml"
-$DSP_DEFAULT_PortalRestrictedConfigurationFile = "./Default/Default-RestrictedTermGroup.xml"
 
 $DSP_DEFAULT_PortalNavigationTermGroup = "Portal - Navigation"
-$DSP_DEFAULT_PortalRestrictedTermGroup = "Portal - Restricted"
 
 # ============================================
 # STEP 3: Define security
