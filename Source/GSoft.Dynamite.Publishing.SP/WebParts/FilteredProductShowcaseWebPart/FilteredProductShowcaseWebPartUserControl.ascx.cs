@@ -5,7 +5,9 @@ using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using GSoft.Dynamite.Branding;
 using GSoft.Dynamite.Publishing.Contracts.WebParts;
+using GSoft.Dynamite.Utils;
 
 namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
 {

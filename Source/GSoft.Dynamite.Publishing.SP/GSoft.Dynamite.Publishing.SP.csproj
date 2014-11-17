@@ -72,6 +72,13 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx.cs">
+      <DependentUpon>ClientScripts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx.designer.cs">
+      <DependentUpon>ClientScripts.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
       <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Compile>
@@ -122,6 +129,9 @@
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
     <None Include="app.config" />
+    <None Include="Artefacts\ClientScripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{110c9cce-c137-496c-bd6d-c5ab0d1278a1}</SharePointProjectItemId>
+    </None>
     <None Include="Artefacts\CustomStrings_EN\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{c1753265-9f9a-4eb6-9911-101eeaeb7d01}</SharePointProjectItemId>
     </None>
@@ -133,6 +143,9 @@
     </None>
     <None Include="Artefacts\PageLayouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{621e215b-d2d9-4c78-85a2-f38af1a379eb}</SharePointProjectItemId>
+    </None>
+    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{48389bc6-84ff-4799-afba-d8e32701b9fb}</SharePointProjectItemId>
     </None>
     <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
       <FeatureId>{0ccccbeb-e932-4b6a-a336-c85c3dfdf2e2}</FeatureId>
@@ -170,6 +183,12 @@
     <None Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.feature">
       <FeatureId>{afb7008d-3245-440f-bb75-58bfb521c4b8}</FeatureId>
     </None>
+    <None Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
+      <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
+    </None>
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bc3923a2-1855-47ac-9098-f1bba7151d9e}</SharePointProjectItemId>
+    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{39449225-6dec-4063-a39a-dea11765218e}</PackageId>
@@ -186,6 +205,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artefacts\ClientScripts\Elements.xml" />
     <Content Include="Artefacts\CustomStrings_EN\Elements.xml" />
     <Content Include="Artefacts\CustomStrings_EN\Dynamite_Refinements.js" />
     <Content Include="Artefacts\CustomStrings_FR\Elements.xml" />
@@ -200,6 +220,7 @@
     <Content Include="Artefacts\PageLayouts\Elements.xml" />
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />
+    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx" />
     <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
       <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
@@ -214,6 +235,10 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_FacetedNavigation.feature</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
+    <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
+      <DependentUpon>GSoft.Dynamite.Publishing.js</DependentUpon>
     </Content>
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
