@@ -34,7 +34,7 @@
         <file src="..\GSoft.Dynamite.Design.SP\bin\$configuration$\GSoft.Dynamite.Design.SP.wsp" target="tools\Solutions\WSP" />
         <file src="..\GSoft.Dynamite.Navigation.SP\bin\$configuration$\GSoft.Dynamite.Navigation.SP.wsp" target="tools\Solutions\WSP" />
         <file src="..\GSoft.Dynamite.Docs.SP\bin\$configuration$\GSoft.Dynamite.Docs.SP.wsp" target="tools\Solutions\WSP" />
-        <file src="..\GSoft.Dynamite.Docs.SP\bin\$configuration$\GSoft.Dynamite.LifeCycle.SP.wsp" target="tools\Solutions\WSP" />
+        <file src="..\GSoft.Dynamite.LifeCycle.SP\bin\$configuration$\GSoft.Dynamite.LifeCycle.SP.wsp" target="tools\Solutions\WSP" />
         <file src="Nuget\Install.ps1" target="tools\Install.ps1" />
     </files>
 </package>
