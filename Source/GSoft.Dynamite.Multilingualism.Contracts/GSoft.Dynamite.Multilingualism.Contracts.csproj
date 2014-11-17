@@ -81,7 +81,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\MultilingualismResourceLocatorConfig.cs" />
     <Compile Include="Services\IContentAssocationService.cs" />
-    <Compile Include="Services\ILanguageSwitcherService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">

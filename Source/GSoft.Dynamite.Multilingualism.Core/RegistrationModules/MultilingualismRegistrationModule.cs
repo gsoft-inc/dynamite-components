@@ -38,9 +38,6 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
             builder.RegisterType<MultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("multilingualism");
 
-            // Multilingualism Service
-            builder.RegisterType<LanguageSwitcherService>().As<ILanguageSwitcherService>();
-
             // Content Types
             builder.RegisterType<MultilingualismContentTypeInfoConfig>().As<IMultilingualismContentTypeInfoConfig>();
 

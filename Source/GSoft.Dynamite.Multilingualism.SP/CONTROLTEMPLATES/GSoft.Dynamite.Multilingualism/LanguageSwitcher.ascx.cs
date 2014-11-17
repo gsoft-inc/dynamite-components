@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.UI;
 using Autofac;
 using GSoft.Dynamite.Globalization;
+using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
@@ -21,14 +24,37 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         private const string CatalogItemReuseWebPartId = "CatalogItemAssociationWebPart";
 
         /// <summary>
-        /// Gets or sets the view model.
+        /// The 
         /// </summary>
         /// <value>
         /// The view model.
         /// </value>
-        public ILanguageSwitcherService LanguageSwitcherService { get; private set; }
+        public IVariationNavigationHelper VariationNavigationHelper { get; private set; }
 
-        private string AssociationKey
+        /// <summary>
+        /// The variation navigation helper
+        /// </summary>
+        public IVariationHelper VariationsHelper { get; private set; }
+
+        /// <summary>
+        /// The multilingualism module managed properties
+        /// </summary>
+        public MultilingualismManagedPropertyInfos MultilingualismManagedPropertyInfos { get; private set; }
+
+        /// <summary>
+        /// The publishing module managed properties
+        /// </summary>
+        public PublishingManagedPropertyInfos PublishingManagedPropertyInfos { get; private set; }
+
+        /// <summary>
+        /// The publishing module web parts properties
+        /// </summary>
+        public PublishingWebPartInfos PublishingWebPartInfos { get; private set; }
+
+        /// <summary>
+        /// The content association key fetched from the catalog item reuse web part.
+        /// </summary>
+        private string ContentAssociationKeyValue
         {
             get
             {
@@ -57,29 +83,31 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         }
 
         /// <summary>
+        /// Get the current variation navigation context
+        /// </summary>
+        public VariationNavigationType CurrentNavigationContext { get; private set; }
+
+        /// <summary>
         /// Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
         /// </summary>
         protected override void CreateChildControls()
         {
-            var multilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
-            var publishingWebPartInfos = MultilingualismContainerProxy.Current.Resolve<PublishingWebPartInfos>();
-
             //If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
             //shared search results from the Content by Search Web Part
-            //if (CatalogNavigationContext.Current.Type == CatalogNavigationType.ItemPage)
-           // {
-            var catalogItemWebPart = new CatalogItemReuseWebPart()
+            if (this.CurrentNavigationContext == VariationNavigationType.ItemPage)
             {
-                ID = CatalogItemReuseWebPartId,
-                NumberOfItems = 1,
-                UseSharedDataProvider = true,
-                // The query group name must be the same as the search webpart which display the current item to get the association key correctly
-                QueryGroupName = ((ResultScriptWebPart)publishingWebPartInfos.CatalogItemContentWebPart(string.Empty).WebPart).QueryGroupName,
-                SelectedPropertiesJson = string.Format("['{0}']", multilingualismManagedPropertyInfos.ContentAssociationKey.Name),
-            };
+                var catalogItemWebPart = new CatalogItemReuseWebPart()
+                {
+                    ID = CatalogItemReuseWebPartId,
+                    NumberOfItems = 1,
+                    UseSharedDataProvider = true,
+                    // The query group name must be the same as the search webpart which display the current item to get the association key correctly
+                    QueryGroupName = ((ResultScriptWebPart)this.PublishingWebPartInfos.CatalogItemContentWebPart(string.Empty).WebPart).QueryGroupName,
+                    SelectedPropertiesJson = string.Format("['{0}']", this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name),
+                };
 
-            Controls.Add(catalogItemWebPart);
-           // }
+                Controls.Add(catalogItemWebPart);
+            }
         }
 
         /// <summary>
@@ -91,15 +119,48 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
             MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(SPContext.Current.Web, delegate()
             {
                 var currentWebUrl = new Uri(SPContext.Current.Web.Url);
-                var labels = this.LanguageSwitcherService.GetPeerVariationLabels(currentWebUrl, Variations.Current, SPContext.Current.Web.CurrentUser);
+                var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);
+                var currentUrl = HttpContext.Current.Request.Url;
+
+                var formattedLabels = new List<dynamic>();
 
                 if (labels != null && labels.Any())
                 {
-                    var formattedLabels = labels.Select(label => new
+                    foreach (VariationLabel label in labels)
                     {
-                        Title = Languages.TwoLetterISOLanguageNameToFullName(label.Title),
-                        Url = this.LanguageSwitcherService.GetPeerUrl(label, this.AssociationKey).ToString()
-                    }).ToList();
+                        var variationLabel = new VariationLabelInfo(label);
+
+                        Uri itemUrl;
+                        switch (this.CurrentNavigationContext)
+                        {
+                            case VariationNavigationType.ItemPage:
+                                itemUrl = this.VariationNavigationHelper.GetPeerCatalogItemUrl(currentUrl,
+                                    variationLabel,
+                                    this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name,
+                                    this.ContentAssociationKeyValue,
+                                    this.MultilingualismManagedPropertyInfos.ItemLanguage.Name,
+                                    this.PublishingManagedPropertyInfos.Navigation.Name);
+                                break;
+
+                            case VariationNavigationType.CategoryPage:
+                                itemUrl = this.VariationNavigationHelper.GetPeerCatalogCategoryUrl(currentUrl, variationLabel);
+                                break;
+
+                            // Default SharePoint Page
+                            default:
+                                itemUrl = this.VariationNavigationHelper.GetPeerPageUrl(currentUrl, variationLabel);
+                                break;
+                        }
+
+                        var itemVariationInfo = new
+                        {
+                            Title = Languages.TwoLetterISOLanguageNameToFullName(label.Title),
+                            Url = itemUrl
+                        };
+
+                        formattedLabels.Add(itemVariationInfo);
+
+                    }
 
                     this.LabelsRepeater.DataSource = formattedLabels;
                     this.LabelsRepeater.DataBind();
@@ -111,7 +172,15 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.LanguageSwitcherService = MultilingualismContainerProxy.Current.Resolve<ILanguageSwitcherService>();
+            // Initialize helpers
+            this.VariationNavigationHelper = MultilingualismContainerProxy.Current.Resolve<IVariationNavigationHelper>();
+            this.VariationsHelper = MultilingualismContainerProxy.Current.Resolve<IVariationHelper>();
+            this.PublishingManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<PublishingManagedPropertyInfos>();
+            this.MultilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
+            this.PublishingWebPartInfos = MultilingualismContainerProxy.Current.Resolve<PublishingWebPartInfos>();
+            
+            // Determine the navigation context type
+            this.CurrentNavigationContext = this.VariationNavigationHelper.GetCurrentNavigationContextType();
         }
     }
 }
