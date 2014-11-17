@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ Copyright    : GSoft @2014
+ Project      : GSoft Dynamite Portal
+ File         : Features.xml.template
+ Description  : Features activation configuration file    
+-->
+<Configuration>
+  <Sites>
+    <Site Url="http://authoring.dynamite.com">
+      <!-- Dynamite Common CMS - Publishing Module - Content Types -->
+      <Feature GUID="88d32ecd-2a4c-4cff-ad09-b74ab5aca18c" Name="Dynamite Common CMS - Publishing Module - Content Types" />
+    </Site>
+  </Sites>
+</Configuration>
