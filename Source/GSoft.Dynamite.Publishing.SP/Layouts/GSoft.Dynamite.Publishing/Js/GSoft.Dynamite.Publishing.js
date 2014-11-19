@@ -46,7 +46,6 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         });
 
         self.ShowItem = function (item) {
-            console.log("show item");
             $(item).hide().fadeIn()
         }
         self.HideItem = function (item) {

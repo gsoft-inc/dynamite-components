@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10156\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10157\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -111,6 +111,9 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_SearchRESTAnonymous.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
@@ -183,6 +186,9 @@
     <None Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.feature">
       <FeatureId>{afb7008d-3245-440f-bb75-58bfb521c4b8}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.feature">
+      <FeatureId>{3f939320-b77a-4f5c-9b0d-193f99bb97dd}</FeatureId>
+    </None>
     <None Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
       <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
     </None>
@@ -239,6 +245,9 @@
     <Content Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_FacetedNavigation.feature</DependentUpon>
     </Content>
+    <Content Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_SearchRESTAnonymous.feature</DependentUpon>
+    </Content>
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
     <Content Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.Template.xml">
       <DependentUpon>CommonCMS_LanguageFiles.feature</DependentUpon>
@@ -246,6 +255,7 @@
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
       <DependentUpon>GSoft.Dynamite.Publishing.js</DependentUpon>
     </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Publishing\Template\queryparametertemplate.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
   </ItemGroup>
