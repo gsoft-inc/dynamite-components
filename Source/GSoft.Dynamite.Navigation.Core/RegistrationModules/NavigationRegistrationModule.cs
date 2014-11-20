@@ -67,6 +67,9 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             // Slug Builder Service
             builder.RegisterType<SlugBuilderService>().As<ISlugBuilderService>();
 
+            // Navigation Term Builder Service
+            builder.RegisterType<NavigationTermBuilderService>().As<INavigationTermBuilderService>();
+            
             // Navigation Service
             builder.RegisterType<DynamiteNavigationService>().As<IDynamiteNavigationService>();
         }

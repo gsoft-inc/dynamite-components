@@ -165,6 +165,12 @@
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Term Driven Pages</value>
   </data>
+  <data name="Feature_SimplePublishingCMS_EventReceivers_Desc" xml:space="preserve">
+    <value>Add event receivers for the navigation module for simple CMS solution</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_EventReceivers_Name" xml:space="preserve">
+    <value>Dynamite Simple CMS - Navigation Module - Event Receivers</value>
+  </data>
   <data name="Field_DateSlug_Desc" xml:space="preserve">
     <value>Date Slug Friendly URL fragment</value>
   </data>

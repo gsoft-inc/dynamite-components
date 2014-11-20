@@ -165,6 +165,12 @@
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Name" xml:space="preserve">
     <value>Dynamite CMS de publication intersites - Module de navigation - Pages pilotées par les termes</value>
   </data>
+  <data name="Feature_SimplePublishingCMS_EventReceivers_Desc" xml:space="preserve">
+    <value>Ajoute les récépteurs d'événements du module de navigation</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_EventReceivers_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication standard - Module de navigation - Récépteurs d'événements</value>
+  </data>
   <data name="Field_DateSlug_Desc" xml:space="preserve">
     <value>Slug  de date d'URL conviviale</value>
   </data>

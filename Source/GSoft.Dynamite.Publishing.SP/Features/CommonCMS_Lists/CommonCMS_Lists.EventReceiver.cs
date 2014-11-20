@@ -17,7 +17,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Lists
     /// </remarks>
 
     [Guid("73545a7e-36d3-4b36-98b0-fcd15ea5b445")]
-    public class CrossSitePublishingCMS_ListsEventReceiver : SPFeatureReceiver
+    public class CommonCMS_ListsEventReceiver : SPFeatureReceiver
     {
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {

@@ -68,6 +68,7 @@
     <Compile Include="Configuration\IPublishingDisplayTemplateInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingFieldInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingFolderInfoConfig.cs" />
+    <Compile Include="Configuration\IPublishingMetadataNavigationSettingsConfig.cs" />
     <Compile Include="Configuration\IPublishingPageLayoutInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingResultTypeInfoConfig.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Constants\PublishingFieldInfos.cs" />
     <Compile Include="Constants\PublishingFolderInfos.cs" />
     <Compile Include="Constants\PublishingManagedPropertyInfos.cs" />
+    <Compile Include="Constants\PublishingMetadataNavigationSettingsInfos.cs" />
     <Compile Include="Constants\PublishingPageInfos.cs" />
     <Compile Include="Constants\PublishingPageLayoutInfos.cs" />
     <Compile Include="Constants\PublishingResources.cs" />

@@ -126,6 +126,16 @@
         public static readonly string ContentTypeNewsItemDescription = "ContentType_NewsItem_Description";
 
         /// <summary>
+        /// The content type Browsable Page Name
+        /// </summary>
+        public static readonly string ContentTypeBrowsablePageTitle = "ContentType_BrowsablePage_Name";
+
+        /// <summary>
+        /// The content type Browsable Page Description
+        /// </summary>
+        public static readonly string ContentTypeBrowsablePageDescription = "ContentType_BrowsablePage_Desc";
+
+        /// <summary>
         /// The content type Translatable Page Name
         /// </summary>
         public static readonly string ContentTypeTranslatablePageTitle = "ContentType_TranslatablePage_Name";
@@ -135,7 +145,7 @@
         /// </summary>
         public static readonly string ContentTypeTranslatablePageDescription = "ContentType_TranslatablePage_Desc";
 
-                /// <summary>
+        /// <summary>
         /// The content type Default Page Name
         /// </summary>
         public static readonly string ContentTypeDefaultPageTitle = "ContentType_DefaultPage_Name";
@@ -144,6 +154,26 @@
         /// The content type Default Page Description
         /// </summary>
         public static readonly string ContentTypeDefaultPageDescription = "ContentType_DefaultPage_Desc";
+
+        /// <summary>
+        /// The content type Translatable Content Page Name
+        /// </summary>
+        public static readonly string ContentTypeTargetContentPageTitle = "ContentType_TargetContentPage_Name";
+
+        /// <summary>
+        /// The content type Translatable Content Page Description
+        /// </summary>
+        public static readonly string ContentTypeTargetContentPageDescription = "ContentType_TargetContentPage_Desc";
+
+        /// <summary>
+        /// The content type Catalog Content Page Name
+        /// </summary>
+        public static readonly string ContentTypeCatalogContentPageTitle = "ContentType_CatalogContentPage_Name";
+
+        /// <summary>
+        /// The content type Catalog Content Page Description
+        /// </summary>
+        public static readonly string ContentTypeCatalogContentPageDescription = "ContentType_CatalogContentPage_Desc";
 
         #endregion
 

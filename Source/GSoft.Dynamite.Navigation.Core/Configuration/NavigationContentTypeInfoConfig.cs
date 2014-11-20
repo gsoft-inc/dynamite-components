@@ -24,27 +24,34 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             get
             {
                 var baseContentTypes = new List<ContentTypeInfo>();
-                
-                // Get the catalog item
-                var catalogItem = this._basePublishingContentTypeInfos.BrowsableItem();
+
+                // Get the Browsable Item & Page
+                var browsableItem = this._basePublishingContentTypeInfos.BrowsableItem();
+                var browsablePage = this._basePublishingContentTypeInfos.BrowsablePage();
                 
                 // Adding the Date Slug field
-                catalogItem.Fields.Add(this._basenavigationFieldInfos.DateSlug());
+                browsableItem.Fields.Add(this._basenavigationFieldInfos.DateSlug());
+                browsablePage.Fields.Add(this._basenavigationFieldInfos.DateSlug());
 
                 // Adding the Title Slug field
-                catalogItem.Fields.Add(this._basenavigationFieldInfos.TitleSlug());
+                browsableItem.Fields.Add(this._basenavigationFieldInfos.TitleSlug());
+                browsablePage.Fields.Add(this._basenavigationFieldInfos.TitleSlug());
+
+                // Adds the field Occurrence Link Location in the content type
+                browsableItem.Fields.Add(this._basenavigationFieldInfos.OccurrenceLinkLocation());
+                browsablePage.Fields.Add(this._basenavigationFieldInfos.OccurrenceLinkLocation());
+
+                // Gets the Catalog Item & Page
+                var catalogItem = this._basePublishingContentTypeInfos.CatalogContentItem();
+                var catalogPage = this._basePublishingContentTypeInfos.CatalogContentPage();
 
                 // Adding the Publishing Start Date field
                 catalogItem.Fields.Add(this._basenavigationFieldInfos.PublishingStartDate());
 
-                // Gets the Browsable Item
-                var browsableItem = this._basePublishingContentTypeInfos.BrowsableItem();
-
-                // Adds the field Occurrence Link Location in the content type
-                browsableItem.Fields.Add(this._basenavigationFieldInfos.OccurrenceLinkLocation());
-
-                baseContentTypes.Add(catalogItem);
                 baseContentTypes.Add(browsableItem);
+                baseContentTypes.Add(browsablePage);
+                baseContentTypes.Add(catalogItem);
+                baseContentTypes.Add(catalogPage);
 
                 return baseContentTypes;
             }

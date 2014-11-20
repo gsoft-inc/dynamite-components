@@ -1,6 +1,6 @@
 ﻿<Group Id="eea15f04-3401-404c-bdcc-c0899af21ea6" Name="Portal - Navigation" Description="" CreatedDate="11/17/2014 5:05:24 PM" LastModifiedDate="11/17/2014 5:05:24 PM" IsSystemGroup="False" IsSiteCollectionGroup="False">
   <TermSets>
-    <TermSet Id="f92bc16f-f73b-4568-b6af-f8dd87044653" Name="Navigation (EN)" Description="" CreatedDate="11/17/2014 5:05:24 PM" LastModifiedDate="11/17/2014 5:06:44 PM" Contact="" Owner="[[DSP_PortalAdmin]]" IsAvailableForTagging="True" IsOpenForTermCreation="False" CustomSortOrder="">
+    <TermSet Id="f92bc16f-f73b-4568-b6af-f8dd87044653" Name="Navigation (EN)" Description="" CreatedDate="11/17/2014 5:05:24 PM" LastModifiedDate="11/17/2014 5:06:44 PM" Contact="" Owner="[[DSP_PortalAdmin]]" IsAvailableForTagging="True" IsOpenForTermCreation="True" CustomSortOrder="">
       <Terms>
         <Term Id="870c52df-0ef0-4297-b9e8-0e965ac7c7c2" Name="About us" CreatedDate="11/17/2014 5:05:24 PM" LastModifiedDate="11/17/2014 6:24:36 PM" Owner="[[DSP_PortalAdmin]]" IsDeprecated="False" IsAvailableForTagging="True" IsKeyword="False" IsReused="True" IsRoot="True" IsSourceTerm="True" CustomSortOrder="" SourceTerm="870c52df-0ef0-4297-b9e8-0e965ac7c7c2|About us">
           <Descriptions>

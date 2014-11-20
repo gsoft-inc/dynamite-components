@@ -9,30 +9,36 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
     {
         /// <summary>
         /// Asynchronous After event that occurs after a new item has been added to its containing object.
+        /// Be careful, on a document library like pages libray, ItemAdded NOT FIRING on the "New document" option on the ribbon. Use ItemUpdated instead
         /// </summary>
         /// <param name="properties">Event properties</param>
         public override void ItemAdded(SPItemEventProperties properties)
         {
             base.ItemAdded(properties);
-            this.EventFiringEnabled = false;
 
             using (var childScope = MultilingualismContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
+                this.EventFiringEnabled = false;
+
+                var item = properties.ListItem;
+
                 var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
                 var multilingualismFieldInfos = childScope.Resolve<MultilingualismFieldInfos>();
 
                 // Set source association unique identifier
-                contentAssociationHelper.SetSourceGuid(properties.ListItem, multilingualismFieldInfos.ContentAssociationKey().InternalName);
+                item = contentAssociationHelper.SetSourceGuid(item, multilingualismFieldInfos.ContentAssociationKey().InternalName);
 
                 // Set the translation language for the detected language managed property
-                contentAssociationHelper.SetTranslationLanguage(properties.ListItem, multilingualismFieldInfos.ItemLanguage().InternalName);
-                
+                item = contentAssociationHelper.SetTranslationLanguage(item, multilingualismFieldInfos.ItemLanguage().InternalName);
+
                 // Set source item creator/author since the variation system
                 // overwrites the created by value
                 // TODO when comes the LifeCycle Module
 
+                item.SystemUpdate();
+
                 this.EventFiringEnabled = true;
-            }
+            }         
         }
 
         /// <summary>
@@ -42,14 +48,23 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
         public override void ItemUpdated(SPItemEventProperties properties)
         {
             base.ItemUpdated(properties);
-            this.EventFiringEnabled = false;
+
             using (var childScope = MultilingualismContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
+                this.EventFiringEnabled = false;
+
+                var item = properties.ListItem;
+
                 var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
                 var multilingualismFieldInfos = childScope.Resolve<MultilingualismFieldInfos>();
 
+                // Set source association unique identifier
+                item = contentAssociationHelper.SetSourceGuid(item, multilingualismFieldInfos.ContentAssociationKey().InternalName);
+
                 // Set the translation language for the detected language managed property
-                contentAssociationHelper.SetTranslationLanguage(properties.ListItem, multilingualismFieldInfos.ItemLanguage().InternalName);
+                item = contentAssociationHelper.SetTranslationLanguage(item, multilingualismFieldInfos.ItemLanguage().InternalName);
+
+                item.SystemUpdate();
 
                 this.EventFiringEnabled = true;
             }

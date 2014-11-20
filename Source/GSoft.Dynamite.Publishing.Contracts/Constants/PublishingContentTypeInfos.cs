@@ -169,6 +169,29 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         #endregion
 
+        #region Browsable Page
+
+        /// <summary>
+        /// The translatable page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo BrowsablePage()
+        {
+            return new ContentTypeInfo(
+                this.Page().ContentTypeId + "01",
+                PublishingResources.ContentTypeBrowsablePageTitle,
+                PublishingResources.ContentTypeBrowsablePageDescription,
+                PublishingResources.ContentTypeGroup)
+            {
+                Fields = new List<IFieldInfo>()
+                {
+                   this.fieldInfoValues.Navigation()
+                }
+            };
+        }
+
+        #endregion
+
         #region Translatable Page
 
         /// <summary>
@@ -178,13 +201,17 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo TranslatablePage()
         {
             return new ContentTypeInfo(
-                this.Page().ContentTypeId + "01",
+                this.BrowsablePage().ContentTypeId + "01",
                 PublishingResources.ContentTypeTranslatablePageTitle,
                 PublishingResources.ContentTypeTranslatablePageDescription,
                 PublishingResources.ContentTypeGroup)
             {
             };
         }
+
+        #endregion
+
+        #region Default Page
 
         /// <summary>
         /// The default page content type
@@ -201,6 +228,44 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             };
         }
         
+        #endregion
+
+        #region Target Content Page
+
+        /// <summary>
+        /// The default page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo TargetContentPage()
+        {
+            return new ContentTypeInfo(
+                this.DefaultPage().ContentTypeId + "01",
+                PublishingResources.ContentTypeTargetContentPageTitle,
+                PublishingResources.ContentTypeTargetContentPageDescription,
+                PublishingResources.ContentTypeGroup)
+            {
+            };
+        }
+
+        #endregion
+
+        #region Catalog Content Page
+
+        /// <summary>
+        /// The default page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo CatalogContentPage()
+        {
+            return new ContentTypeInfo(
+                this.DefaultPage().ContentTypeId + "02",
+                PublishingResources.ContentTypeCatalogContentPageTitle,
+                PublishingResources.ContentTypeCatalogContentPageDescription,
+                PublishingResources.ContentTypeGroup)
+            {
+            };
+        }
+
         #endregion
 
         #region SharePoint Content Types

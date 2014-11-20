@@ -13,16 +13,68 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             this.publishingContentTypeInfos = publishingContentTypeInfos;
         }
 
-        public EventReceiverInfo BrowsableItemItemEventAdded()
+        public EventReceiverInfo BrowsableItemItemAdded()
         {
-            return new EventReceiverInfo(this.publishingContentTypeInfos.BrowsableItem(),
-                SPEventReceiverType.ItemAdded);
+            var eventReceiver =  new EventReceiverInfo(this.publishingContentTypeInfos.BrowsableItem(),
+                SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsableItemEvents" };
+
+            return eventReceiver;
         }
 
-        public EventReceiverInfo BrowsableItemEventUpdated()
+        public EventReceiverInfo BrowsableItemItemUpdated()
         {
-            return new EventReceiverInfo(this.publishingContentTypeInfos.BrowsableItem(),
-                SPEventReceiverType.ItemUpdated);
+            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.BrowsableItem(),
+                SPEventReceiverType.ItemUpdated) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsableItemEvents" };
+
+            return eventReceiver;
+        }
+
+        public EventReceiverInfo BrowsablePageItemAdded()
+        {
+            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.BrowsablePage(),
+                SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsablePageEvents" };
+
+            return eventReceiver;
+        }
+
+        public EventReceiverInfo BrowsablePageItemUpdated()
+        {
+            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.BrowsablePage(),
+                SPEventReceiverType.ItemUpdated) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsablePageEvents" };
+
+            return eventReceiver;
+        }
+
+        public EventReceiverInfo BrowsablePageItemDeleted()
+        {
+            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.BrowsablePage(),
+                SPEventReceiverType.ItemDeleted) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsablePageEvents" };
+
+            return eventReceiver;
+        }
+
+        public EventReceiverInfo TargetContentItemItemDeleted()
+        {
+            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.TargetContentItem(),
+                SPEventReceiverType.ItemDeleted) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentItemEvents" };
+
+            return eventReceiver;
+        }
+
+        public EventReceiverInfo TargetContentItemItemAdded()
+        {
+            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.TargetContentItem(),
+                SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentItemEvents" };
+
+            return eventReceiver;
+        }
+
+        public EventReceiverInfo TargetContentItemItemDeleting()
+        {
+            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.TargetContentItem(),
+                SPEventReceiverType.ItemDeleting) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentItemEvents" };
+
+            return eventReceiver;
         }
     }
 }

@@ -1,16 +1,16 @@
+using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Events;
 using GSoft.Dynamite.Globalization;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
-using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventReceivers
+namespace GSoft.Dynamite.Navigation.SP.Features.SimplePublishingCMS_EventReceivers
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -19,8 +19,8 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
 
-    [Guid("01031036-6b13-42bc-a9f5-142eabaa7f48")]
-    public class CrossSitePublishingCMS_EventReceiversEventReceiver : SPFeatureReceiver
+    [Guid("6eac4235-6c4b-4f2a-985e-9cd3e6c3a801")]
+    public class SimplePublishingCMS_EventReceiversEventReceiver : SPFeatureReceiver
     {
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
@@ -38,16 +38,12 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
-                    // Add only Browsable Item events
+                    // Add only Browsable Page events
                     baseEventReceivers.Clear();
 
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleting());
+                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemAdded());
+                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemUpdated());
+                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemDeleted());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
@@ -77,16 +73,12 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
-                    // Add only Browsable Item events
+                    // Add only Browsable Page events
                     baseEventReceivers.Clear();
 
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleting());
+                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemAdded());
+                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemUpdated());
+                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemDeleted());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
