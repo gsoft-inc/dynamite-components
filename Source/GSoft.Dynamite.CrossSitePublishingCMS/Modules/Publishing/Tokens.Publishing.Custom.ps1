@@ -32,3 +32,6 @@ $DSP_CUSTOM_PortalRestrictedTermGroup = ""
 # ============================================
 
 $DSP_CUSTOM_PortalPermissionsConfigurationFile = ""
+
+# Display Templates
+$DSP_CUSTOM_CrossSitePublishingCMS_PUB_DisplayTemplates = ""
