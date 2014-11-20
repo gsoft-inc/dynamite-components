@@ -45,14 +45,6 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
             });
         });
 
-        self.ShowItem = function (item) {
-            $(item).hide().fadeIn()
-        }
-        self.HideItem = function (item) {
-            $(item).fadeOut(function () { $(item).remove(); })
-        }
-
-
         // Filters
         self.Filters = ko.observableArray();
         self.FiltersTitle = ko.observable("Product Filters");
