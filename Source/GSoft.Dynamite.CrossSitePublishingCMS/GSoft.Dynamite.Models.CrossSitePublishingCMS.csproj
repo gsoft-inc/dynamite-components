@@ -137,7 +137,7 @@
     <None Include="Tokens.HOSTNAME.ps1" />
     <None Include="Tokens.MATTSP13DEV.ps1" />
     <None Include="Tokens.sp2013tao.ps1" />
-    <None Include="Tokens.VMDEVSP2013.ps1" />
+    <None Include="Tokens.VMSPPHIL.ps1" />
     <None Include="Tokens.FRANCK-VM2013.ps1" />
     <None Include="Tokens\Tokens.Common.ps1" />
   </ItemGroup>
