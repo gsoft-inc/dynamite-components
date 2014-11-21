@@ -60,18 +60,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Feature1
                     var logger = featureScope.Resolve<ILogger>();
 
                     settings.Clear();
-                    settings.Add(metadataNavigationInfos.ContentPagesNavigation);
-                    settings.Add(metadataNavigationInfos.NewsPagesNavigation);
+                    // Create new objects with basic settings
+                    settings.Add(new MetadataNavigationSettingsInfo(metadataNavigationInfos.ContentPagesNavigation.List, true, false, false));
+                    settings.Add(new MetadataNavigationSettingsInfo(metadataNavigationInfos.NewsPagesNavigation.List, true, false, false));
 
                     foreach (var setting in settings)
                     {
                         // Reset the configuration
-                        setting.AddContentTypeDefaultKeyFilter = false;
-                        setting.AddContentTypeDefaultHierarchy = false;
-                        setting.AddFolderDefaultHierarchy = false;
-                        setting.KeyFilters = null;
-                        setting.Hierarchies = null;
-
                         logger.Info("Reset metadata navigation on list {0} in web {1}", setting.List.WebRelativeUrl, web.Url);
                         listHelper.SetMetadataNavigation(web, setting);
                     }

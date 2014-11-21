@@ -59,17 +59,12 @@ namespace GSoft.Dynamite.Publishing.SP.Features.SimplePublishingCNS_MetadataNavi
                     var logger = featureScope.Resolve<ILogger>();
 
                     settings.Clear();
-                    settings.Add(metadataNavigationInfos.PagesLibraryNavigation);
+                    settings.Add(new MetadataNavigationSettingsInfo(metadataNavigationInfos.PagesLibraryNavigation.List, true, false, false));
+
 
                     foreach (var setting in settings)
                     {
                         // Reset the configuration
-                        setting.AddContentTypeDefaultKeyFilter = false;
-                        setting.AddContentTypeDefaultHierarchy = false;
-                        setting.AddFolderDefaultHierarchy = false;
-                        setting.KeyFilters = null;
-                        setting.Hierarchies = null;
-
                         logger.Info("Reset metadata navigation on list {0} in web {1}", setting.List.WebRelativeUrl, web.Url);
                         listHelper.SetMetadataNavigation(web, setting);
                     }
