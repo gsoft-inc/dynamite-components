@@ -303,4 +303,10 @@
   <data name="Feature_CommonCMS_LanguageFiles_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Publishing Module - Language Files</value>
   </data>
+  <data name="PageLayout_RightSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Creates a wide column on the left and narrow column on the right.</value>
+  </data>
+  <data name="PageLayout_RightSidebarPageLayout_Name" xml:space="preserve">
+    <value>Right Sidebar Page Layout</value>
+  </data>
 </root>

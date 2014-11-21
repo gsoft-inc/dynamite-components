@@ -303,4 +303,10 @@
   <data name="Feature_CommonCMS_LanguageFiles_Name" xml:space="preserve">
     <value>Dynamite CMS de base - Module de publication - Ficfiers de langues</value>
   </data>
+  <data name="PageLayout_RightSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Créé une colonne large à gauche et une colonne verticale à droit.</value>
+  </data>
+  <data name="PageLayout_RightSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page avec une colonne à droite</value>
+  </data>
 </root>
