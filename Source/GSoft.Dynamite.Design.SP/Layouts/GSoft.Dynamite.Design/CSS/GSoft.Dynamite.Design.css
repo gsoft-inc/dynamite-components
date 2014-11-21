@@ -79,6 +79,17 @@ a.hover {
   min-height: 1px;
 }
 /*******************/
+/* Page Layouts */
+/*******************/
+.right-sidebar .col-wide {
+  float: left;
+  width: 690px;
+}
+.right-sidebar .col-narrow {
+  float: right;
+  width: 250px;
+}
+/*******************/
 /* Base MasterPage */
 /*******************/
 .searchInputBox {

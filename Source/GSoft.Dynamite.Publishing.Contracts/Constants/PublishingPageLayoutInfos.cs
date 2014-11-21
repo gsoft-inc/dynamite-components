@@ -47,5 +47,17 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             };
         }
         #endregion
+
+        #region Right Sidebar Page Layout
+
+        public PageLayoutInfo RightSidebar()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "RightSidebar.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
+        #endregion
     }
 }
