@@ -129,6 +129,12 @@
   <data name="Feature_CrossSitePublishingCMS_CatalogConnections_Name" xml:space="preserve">
     <value>Dynamite CMS de publication intersites - Module de navigation - Connexions de catalogues</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentPagesList_Desc" xml:space="preserve">
+    <value>Configure la liste de pages de contenu pour permettre la manipulation de la structure de navigation</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentPagesList_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Listes (Pages de contenu)</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_ContentTypes_Desc" xml:space="preserve">
     <value>Créer les types de contenu du module de navigation pour une solution de type CMS utilisant la publication intersites.</value>
   </data>
@@ -170,6 +176,12 @@
   </data>
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Name" xml:space="preserve">
     <value>Dynamite CMS de publication intersites - Module de navigation - Pages pilotées par les termes</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_PagesLibraryList_Desc" xml:space="preserve">
+    <value>Configure la librarie de pages pour permettre la manipulation de la structure de navigation</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_PagesLibraryList_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Listes (Librairie de pages)</value>
   </data>
   <data name="Feature_SimplePublishingCMS_TargetPagesEventReceivers_Desc" xml:space="preserve">
     <value>Ajoute les récépteurs d'événements du module de navigation pour le type de contenu (Page cible)</value>

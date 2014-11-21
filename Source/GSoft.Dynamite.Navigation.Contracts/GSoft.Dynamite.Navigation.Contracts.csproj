@@ -68,12 +68,14 @@
     <Compile Include="Configuration\INavigationContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\INavigationEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\INavigationFieldInfoConfig.cs" />
+    <Compile Include="Configuration\INavigationListInfosConfig.cs" />
     <Compile Include="Configuration\INavigationManagedNavigationInfoConfig.cs" />
     <Compile Include="Configuration\INavigationResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\INavigationTermDrivenpageSettingsInfoConfig.cs" />
     <Compile Include="Constants\NavigationCatalogConnectionInfos.cs" />
     <Compile Include="Constants\NavigationEventReceiverInfos.cs" />
     <Compile Include="Constants\NavigationFieldInfos.cs" />
+    <Compile Include="Constants\NavigationListInfos.cs" />
     <Compile Include="Constants\NavigationManagedPropertyInfos.cs" />
     <Compile Include="Constants\NavigationManagedNavigationInfos.cs" />
     <Compile Include="Constants\NavigationResources.cs" />

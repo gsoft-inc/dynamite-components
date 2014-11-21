@@ -106,10 +106,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         public CatalogInfo ContentPages()
         {
-            // Content pages editors can create terms directly in the form
-            var customizedNavigationField = this._fieldInfoValues.Navigation();
-            customizedNavigationField.CreateValuesInEditForm = true;
-
             return new CatalogInfo(
                 "ContentPages",
                 PublishingResources.ContentCatalogTitle,
@@ -135,12 +131,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 AddToQuickLaunch = true,
                 DefaultViewFields = new List<IFieldInfo>()
                 {
-                    customizedNavigationField
-                },
-                FieldDefinitions = new List<IFieldInfo>()
-                {
-                    customizedNavigationField
-                },   
+                    this._fieldInfoValues.Navigation()
+                },  
                 IsAnonymous = true,
                 EnableAttachements = false
             };

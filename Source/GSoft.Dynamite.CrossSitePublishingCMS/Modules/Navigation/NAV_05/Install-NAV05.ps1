@@ -33,11 +33,21 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
+# ================================================== #
+# =========   TAXONOMY OPEN TERM COLUMN   ========== #
+# ================================================== #
+
+$values = @{"Step: " = "#1 Setup open term creation for content pages list"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Lists.ps1'
+& $Script 
+
 # =========================================== #
 # =========   METADATA FILTERING   ========== #
 # =========================================== #
 
-$values = @{"Step: " = "#1 Configure metadata navigation for catalogs"}
+$values = @{"Step: " = "#2 Configure metadata navigation for catalogs"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-MetadataFiltering.ps1'
@@ -47,7 +57,7 @@ $Script = $CommandDirectory + '\Setup-MetadataFiltering.ps1'
 # =====   EVENT RECEIVERS   ===== #
 # =============================== #
 
-$values = @{"Step: " = "#4 Setup Event Receivers"}
+$values = @{"Step: " = "#3 Setup Event Receivers"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-EventReceivers.ps1'

@@ -129,6 +129,12 @@
   <data name="Feature_CrossSitePublishingCMS_CatalogConnections_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Catalog Connections</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentPagesList_Desc" xml:space="preserve">
+    <value>Configures the content pages list to allow navigation structure manipulations</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentPagesList_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Lists (Content Pages)</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_ContentTypes_Desc" xml:space="preserve">
     <value>Creates content types for Cross Site Publishing based CMS solutions</value>
   </data>
@@ -170,6 +176,12 @@
   </data>
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Term Driven Pages</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_PagesLibraryList_Desc" xml:space="preserve">
+    <value>Configures the pages library to allow navigation structure manipulations</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_PagesLibraryList_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Lists (Pages Library)</value>
   </data>
   <data name="Feature_SimplePublishingCMS_TargetPagesEventReceivers_Desc" xml:space="preserve">
     <value>Add event receivers for the navigation module for simple CMS solution for "Target Page" content type</value>

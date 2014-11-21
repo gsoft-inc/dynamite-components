@@ -88,6 +88,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_CatalogConnections\CrossSitePublishingCMS_CatalogConnections.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_CatalogConnections.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ContentPagesList\CrossSitePublishingCMS_ContentPagesList.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ContentPagesList.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ManagedNavigation\CrossSitePublishingCMS_ManagedNavigation.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ManagedNavigation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SimplePublishingCMS_PagesLibraryList\SimplePublishingCMS_PagesLibraryList.EventReceiver.cs">
+      <DependentUpon>SimplePublishingCMS_PagesLibraryList.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
@@ -157,6 +163,12 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_TargetItemsEventReceivers\CrossSitePublishingCMS_TargetItemsEventReceivers.feature">
       <FeatureId>{4c0b793a-edfb-4211-86bd-1424a62d78af}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ContentPagesList\CrossSitePublishingCMS_ContentPagesList.feature">
+      <FeatureId>{0b2bb9a1-2cdf-4036-b50d-6e3b61d8c8b2}</FeatureId>
+    </None>
+    <None Include="Features\SimplePublishingCMS_PagesLibraryList\SimplePublishingCMS_PagesLibraryList.feature">
+      <FeatureId>{5e5243dd-15b1-4021-b030-0a6112e25711}</FeatureId>
     </None>
     <None Include="Features\SimplePublishingCMS_TargetPagesEventReceivers\SimplePublishingCMS_TargetPagesEventReceivers.feature">
       <FeatureId>{7e676ee8-3918-48df-b7d1-570cd55f957d}</FeatureId>
@@ -225,6 +237,12 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_TargetItemsEventReceivers\CrossSitePublishingCMS_TargetItemsEventReceivers.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_TargetItemsEventReceivers.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ContentPagesList\CrossSitePublishingCMS_ContentPagesList.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ContentPagesList.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\SimplePublishingCMS_PagesLibraryList\SimplePublishingCMS_PagesLibraryList.Template.xml">
+      <DependentUpon>SimplePublishingCMS_PagesLibraryList.feature</DependentUpon>
     </Content>
     <Content Include="Features\SimplePublishingCMS_TargetPagesEventReceivers\SimplePublishingCMS_TargetPagesEventReceivers.Template.xml">
       <DependentUpon>SimplePublishingCMS_TargetPagesEventReceivers.feature</DependentUpon>
