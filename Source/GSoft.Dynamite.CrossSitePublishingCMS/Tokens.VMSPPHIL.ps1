@@ -19,7 +19,7 @@ $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.x
 # ******************************************
 # Application Configuration 
 # ******************************************
-$DSP_PortalWebAppUrl = "http://vmdevsp2013/"
+$DSP_PortalWebAppUrl = "http://vmspphil/"
 $DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
 $DSP_PortalAuthoringHostNamePath = "http://authoring.dynamite.com"
 

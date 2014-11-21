@@ -22,7 +22,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
                 {
                     {this.eventEventReceiverInfos.TranslatableItemEventAdded()},
                     {this.eventEventReceiverInfos.TranslatableItemEventUpdated()},
-                    {this.eventEventReceiverInfos.TranslatablePageEventAdded()},
+                    {this.eventEventReceiverInfos.TranslatablePageEventAddded()},
                     {this.eventEventReceiverInfos.TranslatablePageEventUpdated()},
                 };
             }

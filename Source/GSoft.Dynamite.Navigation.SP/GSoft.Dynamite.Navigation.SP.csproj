@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10156\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10161\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -83,6 +83,8 @@
       <DependentUpon>MainMenu.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\BrowsableItemEvents.cs" />
+    <Compile Include="Events\BrowsablePageEvents.cs" />
+    <Compile Include="Events\TargetContentItemEvents.cs" />
     <Compile Include="Features\CrossSitePublishingCMS_CatalogConnections\CrossSitePublishingCMS_CatalogConnections.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_CatalogConnections.feature</DependentUpon>
     </Compile>
@@ -106,6 +108,9 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SimplePublishingCMS_EventReceivers\SimplePublishingCMS_EventReceivers.EventReceiver.cs">
+      <DependentUpon>SimplePublishingCMS_EventReceivers.feature</DependentUpon>
     </Compile>
     <Compile Include="NavigationContainerProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,6 +151,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_NavigationControl\CrossSitePublishingCMS_NavigationControl.feature">
       <FeatureId>{22af44e8-e90b-450b-a2dd-92e52eaef9b4}</FeatureId>
+    </None>
+    <None Include="Features\SimplePublishingCMS_EventReceivers\SimplePublishingCMS_EventReceivers.feature">
+      <FeatureId>{7e676ee8-3918-48df-b7d1-570cd55f957d}</FeatureId>
     </None>
     <None Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.css.map">
       <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.css</DependentUpon>
@@ -208,6 +216,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_NavigationControl\CrossSitePublishingCMS_NavigationControl.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_NavigationControl.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\SimplePublishingCMS_EventReceivers\SimplePublishingCMS_EventReceivers.Template.xml">
+      <DependentUpon>SimplePublishingCMS_EventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.css">
       <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.less</DependentUpon>

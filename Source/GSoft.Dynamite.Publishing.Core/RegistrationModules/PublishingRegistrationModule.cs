@@ -65,6 +65,9 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Faceted navigation
             builder.RegisterType<PublishingFacetedNavigationInfoConfig>().As<IPublishingFacetedNavigationInfoConfig>();
+
+            // Metadata navigation
+            builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().As<IPublishingMetadataNavigationSettingsConfig>();
                     
             // Configuration Values
             builder.RegisterType<PublishingContentTypeInfos>();
@@ -83,6 +86,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingManagedPropertyInfos>();
             builder.RegisterType<PublishingListInfos>();
             builder.RegisterType<PublishingFacetedNavigationInfos>();
+            builder.RegisterType<PublishingMetadataNavigationSettingsInfos>();
         }
     }
 }

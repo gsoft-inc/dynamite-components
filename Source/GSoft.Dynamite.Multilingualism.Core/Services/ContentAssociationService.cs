@@ -34,22 +34,31 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
         /// </summary>
         /// <param name="item">The list item</param>
         /// <param name="fieldInternalName">The field internal name</param>
-        public void SetSourceGuid(SPListItem item, string fieldInternalName)
+        public SPListItem SetSourceGuid(SPListItem item, string fieldInternalName)
         {
             if (item.Fields.ContainsField(fieldInternalName))
             {
-                // If the content is created at the source label, create the unique identifier
-                if (this._variationsHelper.IsCurrentWebSourceLabel(item.Web))
+                // If the source guid has not been set yet
+                if (item[fieldInternalName] == null)
                 {
-                    var sourceGuid = Guid.NewGuid();
-                    item[fieldInternalName] = sourceGuid;
-                    item.SystemUpdate();
+                    // If the content is created at the source label, create the unique identifier
+                    if (this._variationsHelper.IsCurrentWebSourceLabel(item.Web))
+                    {
+                        var sourceGuid = Guid.NewGuid();
+                        item[fieldInternalName] = sourceGuid;
+                    }
+                    else
+                    {
+                        this._logger.Warn("ContentAssociation.SetSourceGuid: Trying to set source guid on web '{0}' which is not a source label.", item.Web.Url);
+                    } 
                 }
                 else
                 {
-                    this._logger.Warn("ContentAssociation.SetSourceGuid: Trying to set source guid on web '{0}' which is not a source label.", item.Web.Url);
-                }
+                    this._logger.Warn("ContentAssociation.SetSourceGuid: Source guid already set for item {0}. Skipping...", item.Url);                
+                } 
             }
+
+            return item;
         }
 
         /// <summary>
@@ -57,7 +66,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
         /// </summary>
         /// <param name="item"></param>
         /// <param name="fieldInternalName"></param>
-        public void SetSourceCreator(SPListItem item, string fieldInternalName)
+        public SPListItem SetSourceCreator(SPListItem item, string fieldInternalName)
         {
             if (item.Fields.ContainsField(fieldInternalName))
             {
@@ -75,7 +84,6 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
                             if (sourceCreatorFieldValue != null)
                             {
                                 item[authorFieldName] = sourceCreatorFieldValue;
-                                item.SystemUpdate();
                             }
                         }
                         else
@@ -84,7 +92,6 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
                             if (authorFieldValue != null)
                             {
                                 item[fieldInternalName] = authorFieldValue;
-                                item.SystemUpdate();
                             }
                         }
                     });
@@ -94,6 +101,8 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
                     this._logger.Error("ContentAssociation.SetSourceCreator: error '{0}'", ex.Message);
                 }
             }
+
+            return item;
         }
 
         /// <summary>
@@ -101,7 +110,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
         /// </summary>
         /// <param name="item">The item</param>
         /// <param name="fieldInternalName">The field internal name</param>
-        public void SetTranslationLanguage(SPListItem item, string fieldInternalName)
+        public SPListItem SetTranslationLanguage(SPListItem item, string fieldInternalName)
         {
             if (item.Fields.ContainsField(fieldInternalName))
             {
@@ -128,9 +137,9 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
                     item[fieldInternalName],
                     item.Title,
                     item.Web.Url);
-
-                item.SystemUpdate();
             }
+
+            return item;
         }
     }
 }

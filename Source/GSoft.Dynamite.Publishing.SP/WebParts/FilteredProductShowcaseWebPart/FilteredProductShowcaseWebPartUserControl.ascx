@@ -33,7 +33,7 @@
     <div class="section items-header"></div>
     <div class="section items-container">
         <div class="full-width clearfix">
-            <ul data-bind="foreach: { data: FilteredItems, beforeRemove: HideItem, afterAdd: ShowItem }">
+            <ul data-bind="foreach: { data: FilteredItems }">
                 <li data-bind="template: { name: function () { return $root.ItemKnockoutTemplate; }, data: $data }"></li>
             </ul>
         </div>

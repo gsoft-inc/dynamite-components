@@ -267,11 +267,11 @@
   <data name="ContentType_DefaultPage_Name" xml:space="preserve">
     <value>Default Page</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Lists_Desc" xml:space="preserve">
-    <value>Creates lists for Cross Site Publishing based CMS solutions</value>
+  <data name="Feature_CommonCMS_Lists_Desc" xml:space="preserve">
+    <value>Creates lists for Common Publishing based CMS solutions</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Lists_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Lists</value>
+  <data name="Feature_CommonCMS_Lists_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Lists</value>
   </data>
   <data name="Feature_CommonCMS_WebParts_Desc" xml:space="preserve">
     <value>Deploys web parts related to publishing module</value>
@@ -308,5 +308,34 @@
   </data>
   <data name="PageLayout_RightSidebarPageLayout_Name" xml:space="preserve">
     <value>Right Sidebar Page Layout</value>
+  <data name="ContentType_BrowsablePage_Desc" xml:space="preserve">
+    <value>Creates a new browsable page</value>
+  </data>
+  <data name="ContentType_BrowsablePage_Name" xml:space="preserve">
+    <value>Browsable page</value>
+  </data>
+  <data name="ContentType_CatalogContentPage_Desc" xml:space="preserve">
+    <value>Creates a new catalog content page</value>
+  </data>
+  <data name="ContentType_CatalogContentPage_Name" xml:space="preserve">
+    <value>Catalog page</value>
+  </data>
+  <data name="ContentType_TargetContentPage_Desc" xml:space="preserve">
+    <value>Creates a new target content page</value>
+  </data>
+  <data name="ContentType_TargetContentPage_Name" xml:space="preserve">
+    <value>Target page</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_MetadataNavigation_Desc" xml:space="preserve">
+    <value>Configures metada navigation and filtering on authoring catalogs for Cross Site Publishing based CMS solutions</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_MetadataNavigation_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Metadata Navigation and filtering</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_MetadataNavigation_Desc" xml:space="preserve">
+    <value>Configures metada navigation and filtering on pages library catalogs for Simple Publishing based CMS solutions</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_MetadataNavigation_Name" xml:space="preserve">
+    <value>Dynamite Simple Publishing CMS - Publishing Module - Metadata Navigation and filtering</value>
   </data>
 </root>
