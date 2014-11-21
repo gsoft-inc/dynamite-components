@@ -43,11 +43,6 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
 
                     baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleting());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
@@ -82,11 +77,6 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
 
                     baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleting());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {

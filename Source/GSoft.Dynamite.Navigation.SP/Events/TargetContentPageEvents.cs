@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Events
 {
-    public class BrowsablePageEvents : SPItemEventReceiver
+    public class TargetContentPageEvents : SPItemEventReceiver
     {
         /// <summary>
         /// Asynchronous After event that occurs after a new item has been added to its containing object.

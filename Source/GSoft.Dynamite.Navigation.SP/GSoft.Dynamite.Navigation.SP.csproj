@@ -83,7 +83,7 @@
       <DependentUpon>MainMenu.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\BrowsableItemEvents.cs" />
-    <Compile Include="Events\BrowsablePageEvents.cs" />
+    <Compile Include="Events\TargetContentPageEvents.cs" />
     <Compile Include="Events\TargetContentItemEvents.cs" />
     <Compile Include="Features\CrossSitePublishingCMS_CatalogConnections\CrossSitePublishingCMS_CatalogConnections.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_CatalogConnections.feature</DependentUpon>
@@ -91,8 +91,8 @@
     <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    <Compile Include="Features\CrossSitePublishingCMS_BrowsableItemsEventReceivers\CrossSitePublishingCMS_BrowsableItemsEventReceivers.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_BrowsableItemsEventReceivers.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
@@ -106,11 +106,14 @@
     <Compile Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_OccurrenceLinkLocationField.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_TargetItemsEventReceivers\CrossSitePublishingCMS_TargetItemsEventReceivers.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_TargetItemsEventReceivers.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\SimplePublishingCMS_EventReceivers\SimplePublishingCMS_EventReceivers.EventReceiver.cs">
-      <DependentUpon>SimplePublishingCMS_EventReceivers.feature</DependentUpon>
+    <Compile Include="Features\SimplePublishingCMS_TargetPagesEventReceivers\SimplePublishingCMS_TargetPagesEventReceivers.EventReceiver.cs">
+      <DependentUpon>SimplePublishingCMS_TargetPagesEventReceivers.feature</DependentUpon>
     </Compile>
     <Compile Include="NavigationContainerProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,7 +137,7 @@
     <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
       <FeatureId>{de88ec00-38af-4dee-934d-d8c3ca2d902f}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
+    <None Include="Features\CrossSitePublishingCMS_BrowsableItemsEventReceivers\CrossSitePublishingCMS_BrowsableItemsEventReceivers.feature">
       <FeatureId>{98247c1a-6b07-4c56-8b17-c8bbeb686220}</FeatureId>
     </None>
     <None Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.feature">
@@ -152,7 +155,10 @@
     <None Include="Features\CrossSitePublishingCMS_NavigationControl\CrossSitePublishingCMS_NavigationControl.feature">
       <FeatureId>{22af44e8-e90b-450b-a2dd-92e52eaef9b4}</FeatureId>
     </None>
-    <None Include="Features\SimplePublishingCMS_EventReceivers\SimplePublishingCMS_EventReceivers.feature">
+    <None Include="Features\CrossSitePublishingCMS_TargetItemsEventReceivers\CrossSitePublishingCMS_TargetItemsEventReceivers.feature">
+      <FeatureId>{4c0b793a-edfb-4211-86bd-1424a62d78af}</FeatureId>
+    </None>
+    <None Include="Features\SimplePublishingCMS_TargetPagesEventReceivers\SimplePublishingCMS_TargetPagesEventReceivers.feature">
       <FeatureId>{7e676ee8-3918-48df-b7d1-570cd55f957d}</FeatureId>
     </None>
     <None Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.css.map">
@@ -199,8 +205,8 @@
     <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    <Content Include="Features\CrossSitePublishingCMS_BrowsableItemsEventReceivers\CrossSitePublishingCMS_BrowsableItemsEventReceivers.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_BrowsableItemsEventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_OccurrenceLinkLocationField\CrossSitePublishingCMS_OccurrenceLinkLocationField.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_OccurrenceLinkLocationField.feature</DependentUpon>
@@ -217,8 +223,11 @@
     <Content Include="Features\CrossSitePublishingCMS_NavigationControl\CrossSitePublishingCMS_NavigationControl.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_NavigationControl.feature</DependentUpon>
     </Content>
-    <Content Include="Features\SimplePublishingCMS_EventReceivers\SimplePublishingCMS_EventReceivers.Template.xml">
-      <DependentUpon>SimplePublishingCMS_EventReceivers.feature</DependentUpon>
+    <Content Include="Features\CrossSitePublishingCMS_TargetItemsEventReceivers\CrossSitePublishingCMS_TargetItemsEventReceivers.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_TargetItemsEventReceivers.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\SimplePublishingCMS_TargetPagesEventReceivers\SimplePublishingCMS_TargetPagesEventReceivers.Template.xml">
+      <DependentUpon>SimplePublishingCMS_TargetPagesEventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.css">
       <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.less</DependentUpon>

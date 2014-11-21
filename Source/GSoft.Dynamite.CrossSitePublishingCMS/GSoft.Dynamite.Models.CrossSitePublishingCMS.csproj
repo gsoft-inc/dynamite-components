@@ -76,8 +76,10 @@
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-Fields.ps1.template" />
+    <None Include="Modules\Navigation\NAV_05\Install-NAV05.ps1" />
+    <None Include="Modules\Navigation\NAV_05\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-EventReceivers.ps1.template" />
-    <None Include="Modules\Publishing\PUB_01\Setup-MetadataFiltering.ps1.template" />
+    <None Include="Modules\Navigation\NAV_05\Setup-MetadataFiltering.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Setup-Lists.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_03\Install-LANG03.ps1" />
     <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.ps1.template" />

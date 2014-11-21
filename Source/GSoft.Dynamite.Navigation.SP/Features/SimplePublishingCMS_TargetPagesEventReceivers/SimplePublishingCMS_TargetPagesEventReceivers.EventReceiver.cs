@@ -41,9 +41,9 @@ namespace GSoft.Dynamite.Navigation.SP.Features.SimplePublishingCMS_EventReceive
                     // Add only Browsable Page events
                     baseEventReceivers.Clear();
 
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemDeleted());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleting());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
@@ -76,9 +76,9 @@ namespace GSoft.Dynamite.Navigation.SP.Features.SimplePublishingCMS_EventReceive
                     // Add only Browsable Page events
                     baseEventReceivers.Clear();
 
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.BrowsablePageItemDeleted());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleting());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {

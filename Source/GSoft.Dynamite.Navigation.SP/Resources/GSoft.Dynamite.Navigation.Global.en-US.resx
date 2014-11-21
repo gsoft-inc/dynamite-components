@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Feature_CrossSitePublishingCMS_BrowsableItemsEventReceivers_Desc" xml:space="preserve">
+    <value>Add event receivers for the navigation module for the "Browsable Item" content type</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_BrowsableItemsEventReceivers_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Event Receivers (Browsable Item)</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_CatalogConnections_Desc" xml:space="preserve">
     <value>Creates catalog connections for Cross Site Publishing based CMS solutions</value>
   </data>
@@ -128,12 +134,6 @@
   </data>
   <data name="Feature_CrossSitePublishingCMS_ContentTypes_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Content Types</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Desc" xml:space="preserve">
-    <value>Add event receivers for the navigation module</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Event Receivers</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_Fields_Desc" xml:space="preserve">
     <value>Creates fields for Cross Site Publishing based CMS solutions</value>
@@ -159,17 +159,23 @@
   <data name="Feature_CrossSitePublishingCMS_ResultSources_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Result Sources</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_TargetItemsEventReceivers_Desc" xml:space="preserve">
+    <value>Add event receivers for the navigation module for the "Target Content Item" content type</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_TargetItemsEventReceivers_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Event Receivers (Target Content Item)</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Desc" xml:space="preserve">
     <value>Configure term driven pages for Cross Site Publishing based CMS solutions</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Term Driven Pages</value>
   </data>
-  <data name="Feature_SimplePublishingCMS_EventReceivers_Desc" xml:space="preserve">
-    <value>Add event receivers for the navigation module for simple CMS solution</value>
+  <data name="Feature_SimplePublishingCMS_TargetPagesEventReceivers_Desc" xml:space="preserve">
+    <value>Add event receivers for the navigation module for simple CMS solution for "Target Page" content type</value>
   </data>
-  <data name="Feature_SimplePublishingCMS_EventReceivers_Name" xml:space="preserve">
-    <value>Dynamite Simple CMS - Navigation Module - Event Receivers</value>
+  <data name="Feature_SimplePublishingCMS_TargetPagesEventReceivers_Name" xml:space="preserve">
+    <value>Dynamite Simple CMS - Navigation Module - Event Receivers (Target Page)</value>
   </data>
   <data name="Field_DateSlug_Desc" xml:space="preserve">
     <value>Date Slug Friendly URL fragment</value>

@@ -64,6 +64,10 @@ Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 $Script = $CommandDirectory + "\Modules\Navigation\NAV_02\Install-NAV02.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
+##### NAV 05
+$Script = $CommandDirectory + "\Modules\Navigation\NAV_05\Install-NAV05.ps1"
+Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+
 # ********** LIFE CYCLE MODULE ********** #
 
 ##### LFCL 01

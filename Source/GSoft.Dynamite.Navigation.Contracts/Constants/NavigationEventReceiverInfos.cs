@@ -13,6 +13,8 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             this.publishingContentTypeInfos = publishingContentTypeInfos;
         }
 
+        #region Browsable Item events
+
         public EventReceiverInfo BrowsableItemItemAdded()
         {
             var eventReceiver =  new EventReceiverInfo(this.publishingContentTypeInfos.BrowsableItem(),
@@ -29,42 +31,51 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             return eventReceiver;
         }
 
-        public EventReceiverInfo BrowsablePageItemAdded()
+        #endregion
+
+        #region Target Content Page events
+
+        public EventReceiverInfo TargetContentPageItemAdded()
         {
             var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.BrowsablePage(),
-                SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsablePageEvents" };
+                SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents" };
 
             return eventReceiver;
         }
 
-        public EventReceiverInfo BrowsablePageItemUpdated()
+        public EventReceiverInfo TargetContentPageUpdated()
         {
             var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.BrowsablePage(),
-                SPEventReceiverType.ItemUpdated) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsablePageEvents" };
+                SPEventReceiverType.ItemUpdated) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents" };
 
             return eventReceiver;
         }
 
-        public EventReceiverInfo BrowsablePageItemDeleted()
+        public EventReceiverInfo TargetContentPageDeleting()
         {
             var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.BrowsablePage(),
-                SPEventReceiverType.ItemDeleted) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.BrowsablePageEvents" };
+                SPEventReceiverType.ItemDeleting) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents" };
 
             return eventReceiver;
         }
 
-        public EventReceiverInfo TargetContentItemItemDeleted()
-        {
-            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.TargetContentItem(),
-                SPEventReceiverType.ItemDeleted) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentItemEvents" };
+        #endregion
 
-            return eventReceiver;
-        }
+        #region Target Content Item events
+
 
         public EventReceiverInfo TargetContentItemItemAdded()
         {
             var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.TargetContentItem(),
                 SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentItemEvents" };
+
+            return eventReceiver;
+        }
+
+        public EventReceiverInfo TargetContentItemItemUpdated()
+        {
+            var eventReceiver = new EventReceiverInfo(this.publishingContentTypeInfos.TargetContentItem(),
+                SPEventReceiverType.ItemUpdated) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentItemEvents" };
 
             return eventReceiver;
         }
@@ -76,5 +87,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
 
             return eventReceiver;
         }
+
+        #endregion
     }
 }
