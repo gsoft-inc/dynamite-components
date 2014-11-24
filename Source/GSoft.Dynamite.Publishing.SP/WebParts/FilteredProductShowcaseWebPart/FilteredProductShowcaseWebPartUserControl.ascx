@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
     // Launch the search
-    GSoft.Dynamite.FilteredProductShowcase.Initialize("<%=this.SearchQuery%>", "<%=this.SelectProperties%>", '<%=this.FilterDefinitions%>', "<%=this.ItemKnockoutTemplate%>", "<%=this.ItemJavaScriptViewModel%>");
+    GSoft.Dynamite.FilteredProductShowcase.Initialize("<%=this.SearchQuery%>", "<%=this.SelectProperties%>", '<%=this.FilterDefinitions%>', "<%=this.ItemKnockoutTemplate%>", "<%=this.ItemJavaScriptViewModel%>", '<%=this.Callbacks%>');
 </script>
 
 <div class="showcase clearfix">
@@ -38,5 +38,9 @@
             </ul>
         </div>
     </div>
-    <div class="section items-footer"></div>
+    <div class="section items-footer">
+        <div class="no-result" data-bind="text: NoResultTitle, visible: FilteredItems().length === 0"></div>
+        <div class="lazy-loading" data-bind="text: LazyLoadingTitle, click: LazyLoadingClick, visible: Items().length > 0"></div>
+        <div class="banner"></div>
+    </div>
 </div>
