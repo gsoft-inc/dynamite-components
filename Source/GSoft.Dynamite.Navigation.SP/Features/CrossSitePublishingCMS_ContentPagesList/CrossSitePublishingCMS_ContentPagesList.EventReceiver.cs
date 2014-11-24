@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
@@ -32,17 +33,24 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ContentPa
                     var listConfig = featureScope.Resolve<INavigationListInfosConfig>().Lists;
                     var logger = featureScope.Resolve<ILogger>();
 
-                    var navigationListInfos = featureScope.Resolve<NavigationListInfos>();
-
                     // Add only the target content pages list
-                    listConfig.Clear();
-                    listConfig.Add(navigationListInfos.ContentPages);
+                    var contentPages = listConfig.FirstOrDefault(p => p.WebRelativeUrl.ToString().Equals("Pages"));
 
-                    // Create lists
-                    foreach (var list in listConfig)
+                    if (contentPages != null)
                     {
-                        logger.Info("Configuring list {0} in web {1}", list.WebRelativeUrl, web.Url);
-                        listHelper.EnsureList(web, list);
+                        listConfig.Clear();
+                        listConfig.Add(contentPages);
+
+                        // Create lists
+                        foreach (var list in listConfig)
+                        {
+                            logger.Info("Configuring list {0} in web {1}", list.WebRelativeUrl, web.Url);
+                            listHelper.EnsureList(web, list);
+                        }
+                    }
+                    else
+                    {
+                        logger.Info("No content pages list information found in the configuration. Please add the content pages list configuration to use this feature");
                     }
                 }
             }

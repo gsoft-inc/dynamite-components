@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
@@ -30,17 +31,26 @@ namespace GSoft.Dynamite.Publishing.SP.Features.SimplePublishingCNS_MetadataNavi
                 {
                     var listHelper = featureScope.Resolve<IListHelper>();
                     var settings = featureScope.Resolve<IPublishingMetadataNavigationSettingsConfig>().MetadataNavigationSettings;
-                    var metadataNavigationInfos = featureScope.Resolve<PublishingMetadataNavigationSettingsInfos>();
                     var logger = featureScope.Resolve<ILogger>();
 
-                    settings.Clear();
-                    settings.Add(metadataNavigationInfos.PagesLibraryNavigation);
+                    // Select only the page library list setting
+                    var pageLibrary =  settings.FirstOrDefault(p => p.List.WebRelativeUrl.ToString().Equals("Pages"));
 
-                    foreach (var setting in settings)
+                    if (pageLibrary != null)
                     {
-                        logger.Info("Configuring metadata navigation on list {0} in web {1}", setting.List.WebRelativeUrl, web.Url);
-                        listHelper.SetMetadataNavigation(web, setting);
+                        settings.Clear();
+                        settings.Add(pageLibrary);
+
+                        foreach (var setting in settings)
+                        {
+                            logger.Info("Configuring metadata navigation on list {0} in web {1}", setting.List.WebRelativeUrl, web.Url);
+                            listHelper.SetMetadataNavigation(web, setting);
+                        }
                     }
+                    else
+                    {
+                        logger.Info("No pages library information found in the configuration. Please add the pages library configuration to use this feature");
+                    }            
                 }
             }
         }
@@ -55,19 +65,27 @@ namespace GSoft.Dynamite.Publishing.SP.Features.SimplePublishingCNS_MetadataNavi
                 {
                     var listHelper = featureScope.Resolve<IListHelper>();
                     var settings = featureScope.Resolve<IPublishingMetadataNavigationSettingsConfig>().MetadataNavigationSettings;
-                    var metadataNavigationInfos = featureScope.Resolve<PublishingMetadataNavigationSettingsInfos>();
                     var logger = featureScope.Resolve<ILogger>();
 
-                    settings.Clear();
-                    settings.Add(new MetadataNavigationSettingsInfo(metadataNavigationInfos.PagesLibraryNavigation.List, true, false, false));
+                    // Select only the page library list setting
+                    var pageLibrary =  settings.FirstOrDefault(p => p.List.WebRelativeUrl.ToString().Equals("Pages"));
 
-
-                    foreach (var setting in settings)
+                    if (pageLibrary != null)
                     {
-                        // Reset the configuration
-                        logger.Info("Reset metadata navigation on list {0} in web {1}", setting.List.WebRelativeUrl, web.Url);
-                        listHelper.SetMetadataNavigation(web, setting);
+                        settings.Clear();
+                        settings.Add(pageLibrary);
+
+                        foreach (var setting in settings)
+                        {
+                            // Reset the configuration
+                            logger.Info("Reset metadata navigation on list {0} in web {1}", setting.List.WebRelativeUrl, web.Url);
+                            listHelper.SetMetadataNavigation(web, setting);
+                        }
                     }
+                    else
+                    {
+                        logger.Info("No pages library information found in the configuration. Please add the pages library configuration to use this feature");
+                    }  
                 }
             }
         }

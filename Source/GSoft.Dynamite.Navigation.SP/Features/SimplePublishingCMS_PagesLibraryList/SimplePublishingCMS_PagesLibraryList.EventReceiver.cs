@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
@@ -32,18 +33,25 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_PagesLibr
                     var listConfig = featureScope.Resolve<INavigationListInfosConfig>().Lists;
                     var logger = featureScope.Resolve<ILogger>();
 
-                    var navigationListInfos = featureScope.Resolve<NavigationListInfos>();
-
                     // Add only the pages library
-                    listConfig.Clear();
-                    listConfig.Add(navigationListInfos.PagesLibrary);
+                    var pageLibrary = listConfig.FirstOrDefault(p => p.WebRelativeUrl.ToString().Equals("Pages"));
 
-                    // Create lists
-                    foreach (var list in listConfig)
+                    if (pageLibrary != null)
                     {
-                        logger.Info("Configuring list {0} in web {1}", list.WebRelativeUrl, web.Url);
-                        listHelper.EnsureList(web, list);
+                        listConfig.Clear();
+                        listConfig.Add(pageLibrary);
+
+                        // Create lists
+                        foreach (var list in listConfig)
+                        {
+                            logger.Info("Configuring list {0} in web {1}", list.WebRelativeUrl, web.Url);
+                            listHelper.EnsureList(web, list);
+                        }
                     }
+                    else
+                    {
+                        logger.Info("No pages library information found in the configuration. Please add the pages library configuration to use this feature");
+                    }  
                 }
             }
         }

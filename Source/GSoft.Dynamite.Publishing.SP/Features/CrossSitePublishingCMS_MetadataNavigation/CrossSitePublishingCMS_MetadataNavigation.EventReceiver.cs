@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
@@ -30,12 +31,14 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Feature1
                 {
                     var listHelper = featureScope.Resolve<IListHelper>();
                     var settings = featureScope.Resolve<IPublishingMetadataNavigationSettingsConfig>().MetadataNavigationSettings;
-                    var metadataNavigationInfos = featureScope.Resolve<PublishingMetadataNavigationSettingsInfos>();
                     var logger = featureScope.Resolve<ILogger>();
 
-                    settings.Clear();
-                    settings.Add(metadataNavigationInfos.ContentPagesNavigation);
-                    settings.Add(metadataNavigationInfos.NewsPagesNavigation);
+                    // Remove the page library list setting
+                    var pageLibrary = settings.FirstOrDefault(p => p.List.WebRelativeUrl.ToString().Equals("Pages"));
+                    if (pageLibrary != null)
+                    {
+                        settings.Remove(pageLibrary);
+                    }
 
                     foreach (var setting in settings)
                     {
@@ -56,13 +59,14 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Feature1
                 {
                     var listHelper = featureScope.Resolve<IListHelper>();
                     var settings = featureScope.Resolve<IPublishingMetadataNavigationSettingsConfig>().MetadataNavigationSettings;
-                    var metadataNavigationInfos = featureScope.Resolve<PublishingMetadataNavigationSettingsInfos>();
                     var logger = featureScope.Resolve<ILogger>();
 
-                    settings.Clear();
-                    // Create new objects with basic settings
-                    settings.Add(new MetadataNavigationSettingsInfo(metadataNavigationInfos.ContentPagesNavigation.List, true, false, false));
-                    settings.Add(new MetadataNavigationSettingsInfo(metadataNavigationInfos.NewsPagesNavigation.List, true, false, false));
+                    // Remove the page library list setting
+                    var pageLibrary = settings.FirstOrDefault(p => p.List.WebRelativeUrl.ToString().Equals("Pages"));
+                    if (pageLibrary != null)
+                    {
+                        settings.Remove(pageLibrary);
+                    }
 
                     foreach (var setting in settings)
                     {
