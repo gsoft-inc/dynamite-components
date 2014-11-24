@@ -68,7 +68,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Metadata navigation
             builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().As<IPublishingMetadataNavigationSettingsConfig>();
-                    
+            builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().Named<IPublishingMetadataNavigationSettingsConfig>("publishing");
+     
             // Configuration Values
             builder.RegisterType<PublishingContentTypeInfos>();
             builder.RegisterType<PublishingFieldInfos>();
