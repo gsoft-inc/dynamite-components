@@ -13,16 +13,16 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
     // Public properties
     FilteredProductShowcase.ViewModel = null;
 
-    FilteredProductShowcase.Initialize = function (searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel) {
+    FilteredProductShowcase.Initialize = function (searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel, callbacks) {
         var viewModel = this;
         $(document).ready(function (viewModel) {
-            FilteredProductShowcase.ViewModel = new ShowcaseViewModel(searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel);
+            FilteredProductShowcase.ViewModel = new ShowcaseViewModel(searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel, callbacks);
             ko.applyBindings(FilteredProductShowcase.ViewModel, $(".showcase")[0]);
             FilteredProductShowcase.ViewModel.ExecuteSearchQuery();
         });
     };
 
-    function ShowcaseViewModel(searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel) {
+    function ShowcaseViewModel(searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel, callbacks) {
         var self = this;
 
         self.SearchQuery = searchQuery;
@@ -31,11 +31,18 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         self.FilterDefinitions = JSON.parse(filterDefinitions);
         self.ItemKnockoutTemplate = itemKnockoutTemplate;
         self.ItemJavaScriptViewModel = itemJavaScriptViewModel;
+        self.LazyLoadingTitle = ko.observable("Load more");
+        self.NoResultTitle = ko.observable("Loading...");
+        self.Callbacks = {};
+
+        if (callbacks) {
+            self.Callbacks = JSON.parse(callbacks);
+        }
 
         self.Items = ko.observableArray();
 
         self.FilteredItems = ko.computed(function () {
-            return ko.utils.arrayFilter(self.Items(), function (item) {
+            var filteredItems = ko.utils.arrayFilter(self.Items(), function (item) {
                 return _.reduce(self.Filters(), function (memo, filter) {
                     if (typeof (memo) === 'boolean') {
                         return memo && filter.Filter(item);
@@ -43,6 +50,12 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                     return memo.Filter(item) && filter.Filter(item);
                 });
             });
+
+            if (self.ReloadGrid) {
+                self.ReloadGrid(filteredItems.length);
+            }
+
+            return filteredItems;
         });
 
         // Filters
@@ -75,7 +88,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
             var queryUrl = searchRestApi;
             queryUrl += "?querytext='";
             queryUrl += encodeURIComponent(self.SearchQuery);
-            queryUrl += "'&trimduplicates=false&selectproperties='";
+            queryUrl += "'&trimduplicates=false&rowlimit=500&selectproperties='";
             queryUrl += self.SelectProperties;
             queryUrl += "'&QueryTemplatePropertiesUrl='spfile://webroot/queryparametertemplate.xml'";
 
@@ -127,7 +140,16 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
                 // Push to Item list
                 self.Items.push(item);
+
             });
+
+            // SuccessCallback
+            self.ReloadGrid(self.FilteredItems().length);
+
+            if (self.Callbacks && self.Callbacks.lazyLoadingTitle && self.Callbacks.noResultTitle) {
+                eval(self.Callbacks.lazyLoadingTitle)(self.LazyLoadingTitle);
+                eval(self.Callbacks.noResultTitle)(self.NoResultTitle);
+            }
         }
 
         self.OnQueryError = function (msg) {
@@ -141,6 +163,20 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                 filter.Reset();
             });
         }
+
+        self.LazyLoadingClick = function () {
+            // LazeLoading Callback
+            if (self.Callbacks && self.Callbacks.lazyLoadingClickCallback) {
+                eval(self.Callbacks.lazyLoadingClickCallback)(self.FilteredItems().length);
+            }
+        };
+
+
+        self.ReloadGrid = function (nbItems) {
+            if (self.Callbacks && self.Callbacks.onItemsLoadedCallback) {
+                eval(self.Callbacks.onItemsLoadedCallback)(nbItems);
+            }
+        };
     }
 
 }(GSoft.Dynamite.FilteredProductShowcase = GSoft.Dynamite.FilteredProductShowcase || {}, jq110));

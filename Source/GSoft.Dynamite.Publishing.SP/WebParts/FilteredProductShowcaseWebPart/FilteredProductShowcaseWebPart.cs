@@ -50,6 +50,12 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
         [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Item Javascript View Model"), WebDescription(""), Category("Filtered Product Showcase")]
         public string ItemJavaScriptViewModel { get; set; }
 
+        /// <summary>
+        /// The name of the view model javascript class to use for each result item
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Callbacks"), WebDescription(""), Category("Filtered Product Showcase")]
+        public string Callbacks { get; set; }
+
         protected override void CreateChildControls()
         {
             var filteredProductShowcaseControl = Page.LoadControl(ascxPath) as FilteredProductShowcaseWebPartUserControl;
@@ -61,6 +67,7 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
                 filteredProductShowcaseControl.FilterDefinitions = this.FilterDefinitions;
                 filteredProductShowcaseControl.ItemKnockoutTemplate = this.ItemKnockoutTemplate;
                 filteredProductShowcaseControl.ItemJavaScriptViewModel = this.ItemJavaScriptViewModel;
+                filteredProductShowcaseControl.Callbacks = this.Callbacks;
 
                 this.Controls.Add(filteredProductShowcaseControl);
             }
