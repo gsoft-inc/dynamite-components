@@ -25,7 +25,12 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 // Configurations are set into features depending the solution type
-                var settings = new List<MetadataNavigationSettingsInfo>();
+                var settings = new List<MetadataNavigationSettingsInfo>()
+                {
+                    this.publishingMetadataNavigationSettingsInfos.ContentPagesNavigation,
+                    this.publishingMetadataNavigationSettingsInfos.NewsPagesNavigation,
+                    this.publishingMetadataNavigationSettingsInfos.PagesLibraryNavigation
+                };
 
                 return settings;
             }

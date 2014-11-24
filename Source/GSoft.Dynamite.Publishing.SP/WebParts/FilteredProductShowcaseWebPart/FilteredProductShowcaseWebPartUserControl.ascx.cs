@@ -35,6 +35,8 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
 
         public string ItemJavaScriptViewModel { get; set; }
 
+        public string Callbacks { get; set; }
+
         /// <summary>
         /// Event handler when the page is loaded
         /// </summary>
