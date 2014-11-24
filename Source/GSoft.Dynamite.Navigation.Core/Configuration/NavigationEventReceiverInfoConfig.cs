@@ -16,14 +16,8 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
 
         public IList<EventReceiverInfo> EventReceivers
         {
-            get
-            {
-                return new List<EventReceiverInfo>()
-                {
-                    {this.navigationEventReceiverInfos.BrowsableItemItemEventAdded()},
-                    {this.navigationEventReceiverInfos.BrowsableItemEventUpdated()}
-                };
-            }
+            // The collection in set by features depending on the solution type
+            get { return new List<EventReceiverInfo>(); }
         }
     }
 }

@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10160\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10161\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -97,8 +97,8 @@
     <Compile Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_FacetedNavigation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_Lists.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_Lists\CommonCMS_Lists.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Lists.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ItemPages.feature</DependentUpon>
@@ -112,8 +112,11 @@
     <Compile Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_SearchRESTAnonymous.feature</DependentUpon>
+    <Compile Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_MetadataNavigation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SimplePublishingCMS_MetadataNavigation\SimplePublishingCMS_MetadataNavigation.EventReceiver.cs">
+      <DependentUpon>SimplePublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
@@ -174,7 +177,7 @@
     <None Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.feature">
       <FeatureId>{65b1a649-5c6d-4ca5-93e1-6c3bd34e9618}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.feature">
+    <None Include="Features\CommonCMS_Lists\CommonCMS_Lists.feature">
       <FeatureId>{253da52f-d048-4d13-82d4-fffb42b21a34}</FeatureId>
     </None>
     <None Include="Features\CommonCMS_WebParts\CommonCMS_WebParts.feature">
@@ -186,8 +189,11 @@
     <None Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.feature">
       <FeatureId>{afb7008d-3245-440f-bb75-58bfb521c4b8}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.feature">
-      <FeatureId>{3f939320-b77a-4f5c-9b0d-193f99bb97dd}</FeatureId>
+    <None Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.feature">
+      <FeatureId>{f3356d64-196b-4626-b89a-4c4daf52d8ac}</FeatureId>
+    </None>
+    <None Include="Features\SimplePublishingCMS_MetadataNavigation\SimplePublishingCMS_MetadataNavigation.feature">
+      <FeatureId>{17abf062-5a4c-4462-8370-ef3c7e84d741}</FeatureId>
     </None>
     <None Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
       <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
@@ -227,6 +233,7 @@
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemHeader.html" />
     <Content Include="Artefacts\PageLayouts\CatalogItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\Elements.xml" />
+    <Content Include="Artefacts\PageLayouts\RightSidebar.aspx" />
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />
     <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx" />
@@ -245,8 +252,11 @@
     <Content Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_FacetedNavigation.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_SearchRESTAnonymous.feature</DependentUpon>
+    <Content Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_MetadataNavigation.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\SimplePublishingCMS_MetadataNavigation\SimplePublishingCMS_MetadataNavigation.Template.xml">
+      <DependentUpon>SimplePublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Content>
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
     <Content Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.Template.xml">
@@ -255,7 +265,6 @@
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
       <DependentUpon>GSoft.Dynamite.Publishing.js</DependentUpon>
     </Content>
-    <Content Include="Layouts\GSoft.Dynamite.Publishing\Template\queryparametertemplate.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
   </ItemGroup>
@@ -278,8 +287,8 @@
     <Content Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_Lists.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_Lists\CommonCMS_Lists.Template.xml">
+      <DependentUpon>CommonCMS_Lists.feature</DependentUpon>
     </Content>
     <Content Include="Resources\GSoft.Dynamite.Publishing.Global.en-US.resx">
       <SubType>Designer</SubType>

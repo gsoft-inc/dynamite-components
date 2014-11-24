@@ -53,6 +53,9 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationManagedNavigationInfoConfig>().As<INavigationManagedNavigationInfoConfig>();
             builder.RegisterType<NavigationManagedNavigationInfoConfig>().Named<INavigationManagedNavigationInfoConfig>("navigation");
 
+            // Lists
+            builder.RegisterType<NavigationListInfosConfig>().As<INavigationListInfosConfig>();
+
             // Configuration Values
             builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();
             builder.RegisterType<NavigationFieldInfos>();
@@ -62,11 +65,15 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationTermGroupInfos>();
             builder.RegisterType<NavigationTermSetInfos>();
             builder.RegisterType<NavigationManagedPropertyInfos>();
-            builder.RegisterType<NavigationManagedNavigationInfos>(); 
+            builder.RegisterType<NavigationManagedNavigationInfos>();
+            builder.RegisterType<NavigationListInfos>(); 
 
             // Slug Builder Service
             builder.RegisterType<SlugBuilderService>().As<ISlugBuilderService>();
 
+            // Navigation Term Builder Service
+            builder.RegisterType<NavigationTermBuilderService>().As<INavigationTermBuilderService>();
+            
             // Navigation Service
             builder.RegisterType<DynamiteNavigationService>().As<IDynamiteNavigationService>();
         }

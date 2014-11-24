@@ -132,7 +132,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 DefaultViewFields = new List<IFieldInfo>()
                 {
                     this._fieldInfoValues.Navigation()
-                },
+                },  
                 IsAnonymous = true,
                 EnableAttachements = false
             };

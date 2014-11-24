@@ -77,6 +77,11 @@ a.hover {
     margin-left: auto;
 }
 
+.row .right-sidebar {
+    width: @fixed-width;
+    margin: 0 auto;
+}
+
 /***************/
 /* Grid Layout */
 /***************/
@@ -99,6 +104,20 @@ a.hover {
 .col-big, .col-small {
     position: relative;
     min-height: 1px;
+}
+
+/*******************/
+/* Page Layouts */
+/*******************/
+
+.right-sidebar .col-wide {
+    float: left;
+    width: @width-page-big;
+}
+
+.right-sidebar .col-narrow {
+    float: right;
+    width: @width-page-small;
 }
 
 /*******************/

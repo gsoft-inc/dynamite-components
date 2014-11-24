@@ -267,11 +267,11 @@
   <data name="ContentType_DefaultPage_Name" xml:space="preserve">
     <value>Page par défaut</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Lists_Desc" xml:space="preserve">
-    <value>Créer les listes du module de publication pour une solution de type CMS utilisant la publication intersites.</value>
+  <data name="Feature_CommonCMS_Lists_Desc" xml:space="preserve">
+    <value>Créer les listes du module de publication pour une solution de type CMS de base</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Lists_Name" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de publication - Listes</value>
+  <data name="Feature_CommonCMS_Lists_Name" xml:space="preserve">
+    <value>Dynamite CMS de base - Module de publication - Listes</value>
   </data>
   <data name="Feature_CommonCMS_WebParts_Desc" xml:space="preserve">
     <value>Déploie les web parts relatifs au module du publication</value>
@@ -303,10 +303,40 @@
   <data name="Feature_CommonCMS_LanguageFiles_Name" xml:space="preserve">
     <value>Dynamite CMS de base - Module de publication - Ficfiers de langues</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_SearchRESTAnonymous_Desc" xml:space="preserve">
-    <value>Rendre disponible le service recherche REST de facon anonyme</value>
+  <data name="PageLayout_RightSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Créé une colonne large à gauche et une colonne verticale à droit.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_SearchRESTAnonymous_Name" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de publication - API REST de recherche : Anonyme</value>
+  <data name="PageLayout_RightSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page avec une colonne à droite</value>
+	</data>
+  <data name="ContentType_BrowsablePage_Desc" xml:space="preserve">
+    <value>Créer une nouvelle page navigable</value>
+  </data>
+  <data name="ContentType_BrowsablePage_Name" xml:space="preserve">
+    <value>Page navigable</value>
+  </data>
+  <data name="ContentType_CatalogContentPage_Desc" xml:space="preserve">
+    <value>Créer une nouvelle page d'élément de catalogue</value>
+  </data>
+  <data name="ContentType_CatalogContentPage_Name" xml:space="preserve">
+    <value>Page d'élément de catalogue</value>
+  </data>
+  <data name="ContentType_TargetContentPage_Desc" xml:space="preserve">
+    <value>Créer une nouvelle page cible</value>
+  </data>
+  <data name="ContentType_TargetContentPage_Name" xml:space="preserve">
+    <value>Page cible</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_MetadataNavigation_Desc" xml:space="preserve">
+    <value>Configure la navigation par métdaonnées sur les catalogues du site d'auteurs pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_MetadataNavigation_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de publication - Navigation par métadannées</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_MetadataNavigation_Desc" xml:space="preserve">
+    <value>Configure la navigation par métdaonnées sur la bibliothèque de pages du site pour une solution de type CMS utilisant la publication simple</value>
+  </data>
+  <data name="Feature_SimplePublishingCMS_MetadataNavigation_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication simple - Module de publication - Navigation par métadonnées</value>
   </data>
 </root>

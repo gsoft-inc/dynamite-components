@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.ContentTypes;
+using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Lists;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     public class PublishingListInfos
     {
-        private readonly PublishingContentTypeInfos publishingFieldInfos;
+        private readonly PublishingContentTypeInfos publishingContentTypeInfos;
 
-        public PublishingListInfos(PublishingContentTypeInfos publishingFieldInfos)
+        public PublishingListInfos(PublishingContentTypeInfos publishingContentTypeInfos)
         {
-            this.publishingFieldInfos = publishingFieldInfos;
+            this.publishingContentTypeInfos = publishingContentTypeInfos;
         }
 
         public ListInfo PagesLibrary
@@ -21,8 +22,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {
                     ContentTypes = new List<ContentTypeInfo>()
                     {
-                        this.publishingFieldInfos.DefaultPage()
-                    }
+                        this.publishingContentTypeInfos.DefaultPage()
+                    },
                 };
             }
         }
