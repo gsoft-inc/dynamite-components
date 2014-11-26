@@ -5,6 +5,35 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 // Filtered Product Showcase
 // It's a Javascript oriented webpart that query a REST service to receive Items and showcase them
 // You can implement and add numerous Filter.
+(function (Search, $, undefined) {
+    // Private properties
+    var searchRestApi = "/_api/search/query";
+
+    Search.Execute = function (queryText, selectProperties, onQuerySuccess, onQueryError) {
+
+        // TODO (philavoie): Refactor to use URI.js
+        var queryUrl = searchRestApi;
+        queryUrl += "?querytext='";
+        queryUrl += encodeURIComponent(queryText);
+        queryUrl += "'&trimduplicates=false&rowlimit=500&selectproperties='";
+        queryUrl += selectProperties;
+        queryUrl += "'&QueryTemplatePropertiesUrl='spfile://webroot/queryparametertemplate.xml'";
+
+        // Execute the AJAX call to the SharePoint Search REST API
+        $.ajax({
+            url: queryUrl,
+            method: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: onQuerySuccess,
+            error: onQueryError
+        });
+    };
+
+}(GSoft.Dynamite.Search = GSoft.Dynamite.Search || {}, jq110));
+
+// Filtered Product Showcase
+// It's a Javascript oriented webpart that query a REST service to receive Items and showcase them
+// You can implement and add numerous Filter.
 (function (FilteredProductShowcase, $, undefined) {
 
     // Private properties
@@ -32,7 +61,10 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         self.ItemKnockoutTemplate = itemKnockoutTemplate;
         self.ItemJavaScriptViewModel = itemJavaScriptViewModel;
         self.LazyLoadingTitle = ko.observable("Load more");
+        self.LazyLoadingVisible = ko.observable(true);
         self.NoResultTitle = ko.observable("Loading...");
+        self.FiltersTitle = ko.observable("Product Filters");
+        self.FiltersResetLabel = ko.observable("Reset");
         self.Callbacks = {};
 
         if (callbacks) {
@@ -60,8 +92,6 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
         // Filters
         self.Filters = ko.observableArray();
-        self.FiltersTitle = ko.observable("Product Filters");
-        self.FiltersResetLabel = ko.observable("Reset");
 
         // Create each instance of the filter via their filter definition
         _.each(self.FilterDefinitions, function (filterDefinition) {
@@ -98,9 +128,8 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                 method: "GET",
                 headers: { "Accept": "application/json; odata=verbose" },
                 success: self.OnQuerySuccess,
-                error: self.OnQuerySuccess
+                error: self.OnQueryError
             });
-
         };
 
         self.OnQuerySuccess = function (data) {
@@ -146,9 +175,12 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
             // SuccessCallback
             self.ReloadGrid(self.FilteredItems().length);
 
-            if (self.Callbacks && self.Callbacks.lazyLoadingTitle && self.Callbacks.noResultTitle) {
-                eval(self.Callbacks.lazyLoadingTitle)(self.LazyLoadingTitle);
-                eval(self.Callbacks.noResultTitle)(self.NoResultTitle);
+            if (self.Callbacks) {
+                if (self.Callbacks.lazyLoadingTitle) { eval(self.Callbacks.lazyLoadingTitle)(self.LazyLoadingTitle); }
+                if (self.Callbacks.lazyLoadingVisible) { eval(self.Callbacks.lazyLoadingVisible)(self.LazyLoadingVisible, self.FilteredItems().length); }
+                if (self.Callbacks.noResultTitle) { eval(self.Callbacks.noResultTitle)(self.NoResultTitle); }
+                if (self.Callbacks.filtersTitle) { eval(self.Callbacks.filtersTitle)(self.FiltersTitle); }
+                if (self.Callbacks.filtersResetLabel) { eval(self.Callbacks.filtersResetLabel)(self.FiltersResetLabel); }
             }
         }
 
@@ -170,7 +202,6 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                 eval(self.Callbacks.lazyLoadingClickCallback)(self.FilteredItems().length);
             }
         };
-
 
         self.ReloadGrid = function (nbItems) {
             if (self.Callbacks && self.Callbacks.onItemsLoadedCallback) {

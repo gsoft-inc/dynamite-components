@@ -40,7 +40,7 @@
     </div>
     <div class="section items-footer">
         <div class="no-result" data-bind="text: NoResultTitle, visible: FilteredItems().length === 0"></div>
-        <div class="lazy-loading" data-bind="text: LazyLoadingTitle, click: LazyLoadingClick, visible: Items().length > 0"></div>
+        <div class="lazy-loading" data-bind="text: LazyLoadingTitle, click: LazyLoadingClick, visible: Items().length > 0, visible: LazyLoadingVisible"></div>
         <div class="banner"></div>
     </div>
 </div>
