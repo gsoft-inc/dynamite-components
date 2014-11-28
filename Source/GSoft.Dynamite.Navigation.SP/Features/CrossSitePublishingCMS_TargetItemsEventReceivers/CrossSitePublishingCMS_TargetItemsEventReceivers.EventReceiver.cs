@@ -43,7 +43,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
 
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleting());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
@@ -78,7 +78,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
 
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleting());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {

@@ -43,7 +43,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.SimplePublishingCMS_EventReceive
 
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleting());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
@@ -78,7 +78,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.SimplePublishingCMS_EventReceive
 
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleting());
+                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {

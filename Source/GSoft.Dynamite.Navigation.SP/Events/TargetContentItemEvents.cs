@@ -69,9 +69,9 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             }
         }
 
-        public override void ItemDeleting(SPItemEventProperties properties)
+        public override void ItemDeleted(SPItemEventProperties properties)
         {
-            base.ItemDeleting(properties);
+            base.ItemDeleted(properties);
 
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
