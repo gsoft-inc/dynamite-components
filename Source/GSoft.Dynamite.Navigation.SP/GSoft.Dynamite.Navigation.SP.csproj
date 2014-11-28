@@ -103,8 +103,8 @@
     <Compile Include="Features\CrossSitePublishingCMS_ManagedNavigation\CrossSitePublishingCMS_ManagedNavigation.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ManagedNavigation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\SimplePublishingCMS_PagesLibraryList\SimplePublishingCMS_PagesLibraryList.EventReceiver.cs">
-      <DependentUpon>SimplePublishingCMS_PagesLibraryList.feature</DependentUpon>
+    <Compile Include="Features\StandardPublishingCMS_PagesLibraryList\StandardPublishingCMS_PagesLibraryList.EventReceiver.cs">
+      <DependentUpon>StandardPublishingCMS_PagesLibraryList.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
@@ -118,8 +118,8 @@
     <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\SimplePublishingCMS_TargetPagesEventReceivers\SimplePublishingCMS_TargetPagesEventReceivers.EventReceiver.cs">
-      <DependentUpon>SimplePublishingCMS_TargetPagesEventReceivers.feature</DependentUpon>
+    <Compile Include="Features\StandardPublishingCMS_TargetPagesEventReceivers\StandardPublishingCMS_TargetPagesEventReceivers.EventReceiver.cs">
+      <DependentUpon>StandardPublishingCMS_TargetPagesEventReceivers.feature</DependentUpon>
     </Compile>
     <Compile Include="NavigationContainerProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,10 +167,10 @@
     <None Include="Features\CrossSitePublishingCMS_ContentPagesList\CrossSitePublishingCMS_ContentPagesList.feature">
       <FeatureId>{0b2bb9a1-2cdf-4036-b50d-6e3b61d8c8b2}</FeatureId>
     </None>
-    <None Include="Features\SimplePublishingCMS_PagesLibraryList\SimplePublishingCMS_PagesLibraryList.feature">
+    <None Include="Features\StandardPublishingCMS_PagesLibraryList\StandardPublishingCMS_PagesLibraryList.feature">
       <FeatureId>{5e5243dd-15b1-4021-b030-0a6112e25711}</FeatureId>
     </None>
-    <None Include="Features\SimplePublishingCMS_TargetPagesEventReceivers\SimplePublishingCMS_TargetPagesEventReceivers.feature">
+    <None Include="Features\StandardPublishingCMS_TargetPagesEventReceivers\StandardPublishingCMS_TargetPagesEventReceivers.feature">
       <FeatureId>{7e676ee8-3918-48df-b7d1-570cd55f957d}</FeatureId>
     </None>
     <None Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.css.map">
@@ -241,11 +241,11 @@
     <Content Include="Features\CrossSitePublishingCMS_ContentPagesList\CrossSitePublishingCMS_ContentPagesList.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ContentPagesList.feature</DependentUpon>
     </Content>
-    <Content Include="Features\SimplePublishingCMS_PagesLibraryList\SimplePublishingCMS_PagesLibraryList.Template.xml">
-      <DependentUpon>SimplePublishingCMS_PagesLibraryList.feature</DependentUpon>
+    <Content Include="Features\StandardPublishingCMS_PagesLibraryList\StandardPublishingCMS_PagesLibraryList.Template.xml">
+      <DependentUpon>StandardPublishingCMS_PagesLibraryList.feature</DependentUpon>
     </Content>
-    <Content Include="Features\SimplePublishingCMS_TargetPagesEventReceivers\SimplePublishingCMS_TargetPagesEventReceivers.Template.xml">
-      <DependentUpon>SimplePublishingCMS_TargetPagesEventReceivers.feature</DependentUpon>
+    <Content Include="Features\StandardPublishingCMS_TargetPagesEventReceivers\StandardPublishingCMS_TargetPagesEventReceivers.Template.xml">
+      <DependentUpon>StandardPublishingCMS_TargetPagesEventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.css">
       <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.less</DependentUpon>
