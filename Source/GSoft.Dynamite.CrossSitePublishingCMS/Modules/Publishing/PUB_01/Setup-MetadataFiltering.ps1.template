@@ -10,14 +10,14 @@ Write-Warning "Activate Metadata and filtering feature configuration..."
 # Activate features on source authoring webs
 [[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object{
 
-	Initialize-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_NAV_MetadataAndFiltering]]"
-	Initialize-DSPFeature -Url $_ -Id "[[DSP_CrossSitePublishingCMS_NAV_MetadataNavigation]]"
+	Initialize-DSPFeature -Url $_ -Id "[[DSP_SharePoint_MetadataAndFiltering]]"
+	Initialize-DSPFeature -Url $_ -Id "[[DSP_CrossSitePublishingCMS_PUB_MetadataNavigation]]"
 	
 }
 
 # Activate features on target authoring webs
 [[DSP_AuthoringTargetRootWebUrls]] | Foreach-Object{
 
-	Initialize-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_NAV_MetadataAndFiltering]]"
-	Initialize-DSPFeature -Url $_ -Id "[[DSP_CrossSitePublishingCMS_NAV_MetadataNavigation]]"
+	Initialize-DSPFeature -Url $_ -Id "[[DSP_SharePoint_MetadataAndFiltering]]"
+	Initialize-DSPFeature -Url $_ -Id "[[DSP_CrossSitePublishingCMS_PUB_MetadataNavigation]]"
 }
