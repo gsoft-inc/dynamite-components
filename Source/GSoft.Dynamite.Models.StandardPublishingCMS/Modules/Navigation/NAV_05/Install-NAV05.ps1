@@ -43,16 +43,6 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-Lists.ps1'
 & $Script 
 
-# =========================================== #
-# =========   METADATA FILTERING   ========== #
-# =========================================== #
-
-$values = @{"Step: " = "#2 Configure metadata navigation for catalogs"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-MetadataFiltering.ps1'
-& $Script 
-
 # =============================== #
 # =====   EVENT RECEIVERS   ===== #
 # =============================== #

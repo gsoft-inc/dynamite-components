@@ -33,20 +33,14 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
-# =============================== #
-# =========   TERMGROUPS   ========== #
-# =============================== #
+# =========================================== #
+# =========   METADATA NAVIGATION   ========== #
+# =========================================== #
 
-$values = @{"Step: " = "#1 Remove Term Groups"}
+$values = @{"Step: " = "#3 Configure taxonomy metadata navigation for catalogs"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Remove-TermGroups.ps1'
-& $Script 
-
-$values = @{"Step: " = "#2 Import Term Groups"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Import-TermGroups.ps1'
+$Script = $CommandDirectory + '\Setup-ManagedNavigation.ps1'
 & $Script 
 
 # ********** LOG END ********** #
