@@ -34,7 +34,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ManagedNa
 
                     IList<ManagedNavigationInfo> navigationSettings = baseNavigationSettings.NavigationSettings;
 
-                    // Create navigation result sources
+                    // Set navigation settings
                     foreach (var setting in navigationSettings)
                     {
                         if (setting.AssociatedLanguage.Equals(new CultureInfo((int)web.Language)) || setting.AssociatedLanguage.Equals(web.Locale))
@@ -57,9 +57,20 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ManagedNa
                 {
                     var logger = featureScope.Resolve<ILogger>();
                     var navigationHelper = featureScope.Resolve<INavigationHelper>();
+                    var baseNavigationSettings = featureScope.Resolve<INavigationManagedNavigationInfoConfig>();
 
-                    logger.Info("Reseting managed navigation for web {0} to default", web.Url);
-                    navigationHelper.ResetWebNavigationToDefault(web);                  
+                    IList<ManagedNavigationInfo> navigationSettings = baseNavigationSettings.NavigationSettings;
+
+                    // Set navigation settings
+                    foreach (var setting in navigationSettings)
+                    {
+                        if (setting.AssociatedLanguage.Equals(new CultureInfo((int)web.Language)) || setting.AssociatedLanguage.Equals(web.Locale))
+                        {
+                            logger.Info("Reseting managed navigation for web {0} to default", web.Url);
+                            navigationHelper.ResetWebNavigationToDefault(web, setting);    
+                        }
+                    }
+                              
                 }
             }
         }

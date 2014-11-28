@@ -13,8 +13,3 @@ Write-Warning "Applying Pages Library configuration..."
 	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_PUB_Lists ]]
 }
 
-[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
-
-	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_PUB_Lists ]]
-}
-

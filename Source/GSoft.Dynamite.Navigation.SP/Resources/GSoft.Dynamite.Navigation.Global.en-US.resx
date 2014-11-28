@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Feature_CommonCMS_ManagedNavigation_Desc" xml:space="preserve">
+    <value>Setup taxonomy managed navigation for common CMS solutions</value>
+  </data>
+  <data name="Feature_CommonCMS_ManagedNavigation_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Navigation Module - Managed Navigation</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_BrowsableItemsEventReceivers_Desc" xml:space="preserve">
     <value>Add event receivers for the navigation module for the "Browsable Item" content type</value>
   </data>
@@ -146,12 +152,6 @@
   </data>
   <data name="Feature_CrossSitePublishingCMS_Fields_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Columns</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_ManagedNavigation_Desc" xml:space="preserve">
-    <value>Creates managed navigation for Cross Site Publishing based CMS solutions</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_ManagedNavigation_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Managed Navigation</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_NavigationControl_Desc" xml:space="preserve">
     <value>Deploys the user control which contains the global navigation</value>

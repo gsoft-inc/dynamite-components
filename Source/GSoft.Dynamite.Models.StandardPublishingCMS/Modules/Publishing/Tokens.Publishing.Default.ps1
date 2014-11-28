@@ -41,3 +41,10 @@ $DSP_DefaultMembersGroupUsers = @"
 
 $DSP_CommonCMS_PUB_ContentTypes = "88d32ecd-2a4c-4cff-ad09-b74ab5aca18c"
 $DSP_CommonCMS_PUB_Fields = "97a3a3ef-5989-46f0-a117-6f489f58a26b"
+$DSP_CommonCMS_PUB_Lists = "3be0c334-1fa9-4631-ade5-f9e044b1289d"
+$DSP_StandardPublishingCMS_PUB_MetadataNavigation = "246b965b-f1cb-451f-923f-8fac5812dfec"
+
+# ============================================
+# SHAREPOINT OOTB FEATURES
+# ============================================
+$DSP_SharePoint_MetadataAndFiltering = "7201d6a4-a5d3-49a1-8c19-19c4bac6e668" 

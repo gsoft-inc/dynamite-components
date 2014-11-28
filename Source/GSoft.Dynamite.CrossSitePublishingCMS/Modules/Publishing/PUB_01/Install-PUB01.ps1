@@ -37,7 +37,7 @@ $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
 # =========================================== #
-# =========   CREATE STRUCTURE ========== #
+# =========   CREATE STRUCTURE ============== #
 # =========================================== #
 
 $values = @{"Step: " = "#1 Setup Sites"}
@@ -65,7 +65,7 @@ $Script = $CommandDirectory + '\Setup-Permissions.ps1'
 & $Script
 
 # =========================================== #
-# =========   CATEGORIZE CONTENTS ========== #
+# =========   CATEGORIZE CONTENTS =========== #
 # =========================================== #
 
 $values = @{"Step: " = "#6 Remove Term Groups"}
