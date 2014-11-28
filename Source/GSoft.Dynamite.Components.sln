@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F8955DA4-DBB6-4AA2-9B75-7B014F55EDB5}"
 	ProjectSection(SolutionItems) = preProject
@@ -80,7 +80,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.LifeCycle.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.LifeCycle.SP", "GSoft.Dynamite.LifeCycle.SP\GSoft.Dynamite.LifeCycle.SP.csproj", "{518B7EBA-C939-4601-96D7-D80480FA07F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Models.SimpleModerationCMS", "GSoft.Dynamite.Models.SimpleModerationCMS\GSoft.Dynamite.Models.SimpleModerationCMS.csproj", "{7977B120-E4F9-48C9-BFF3-D86C311FDF73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Models.StandardPublishingCMS", "GSoft.Dynamite.Models.StandardPublishingCMS\GSoft.Dynamite.Models.StandardPublishingCMS.csproj", "{7977B120-E4F9-48C9-BFF3-D86C311FDF73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

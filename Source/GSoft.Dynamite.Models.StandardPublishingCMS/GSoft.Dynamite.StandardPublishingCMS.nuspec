@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>GSoft.Dynamite.SimpleModerationCMS</id>
+    <id>GSoft.Dynamite.StandardPublishingCMS</id>
     <version>0.0.0</version>
-    <title>GSoft.Dynamite.SimpleModerationCMS</title>
+    <title>GSoft.Dynamite.StandardPublishingCMS</title>
     <authors>GSoft</authors>
     <owners>GSoft</owners>
     <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/blob/master/LICENSE</licenseUrl>

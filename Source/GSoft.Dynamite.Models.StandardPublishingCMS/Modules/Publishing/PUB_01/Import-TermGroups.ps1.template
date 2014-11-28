@@ -10,14 +10,11 @@ $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
 # Configuration Files
-$DefaultNavigationConfigurationFile = "./Default/Default-NavigationTermGroup.xml"
-$DefaultRestrictedConfigurationFile = "./Default/Default-RestrictedTermGroup.xml"
+$DefaultNavigationConfigurationFile = "[[DSP_DEFAULT_PortalNavigationConfigurationFile]]"
 
-$CustomNavigationConfigurationFile = ""
-$CustomRestrictedConfigurationFile = ""
+$CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfigurationFile]]"
 
 $NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
-$RestrictedConfigurationFilePath = $CommandDirectory + ".\" + $DefaultRestrictedConfigurationFile
 
 if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 {
@@ -30,7 +27,4 @@ if(![string]::IsNullOrEmpty($CustomRestrictedConfigurationFile))
 }
 
 # Portal Navigation Term Group
-Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site http://intranet.dynamite.com).TermStores[0] -InputFile $NavigationConfigurationFilePath
-
-# Portal Restricted Term Group
-Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site http://intranet.dynamite.com).TermStores[0] -InputFile $RestrictedConfigurationFilePath
+Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $NavigationConfigurationFilePath

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GSoft.Dynamite.Models.SimpleModerationCMS")]
+[assembly: AssemblyTitle("GSoft.Dynamite.Models.StandardPublishingCMS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BCF")]
-[assembly: AssemblyProduct("GSoft.Dynamite.Models.SimpleModerationCMS")]
+[assembly: AssemblyProduct("GSoft.Dynamite.Models.StandardPublishingCMS")]
 [assembly: AssemblyCopyright("Copyright © BCF 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

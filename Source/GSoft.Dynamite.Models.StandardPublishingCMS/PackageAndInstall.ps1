@@ -1,5 +1,5 @@
 ﻿# Build Deployment package
-New-Package -ModelName "SimpleModerationCMS" -NugetFolderPath "..\packages" -OutputFolderPath "..\package" -SolutionFolderPath ".." -Override
+New-Package -ModelName "StandardPublishingCMS" -NugetFolderPath "..\packages" -OutputFolderPath "..\package" -SolutionFolderPath ".." -Override
 
 # Go to package directory
 cd "..\package"

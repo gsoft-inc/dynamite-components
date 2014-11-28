@@ -37,7 +37,7 @@ if ([System.Convert]::ToBoolean("[[DSP_DeploySolutions]]"))
     ./Solutions/Deploy-Solutions.ps1 [[DSP_IsDistributedEnvironment]]
 }
 
-$values = @{"Solution Model: " = "[SimpleModerationCMS]";}
+$values = @{"Solution Model: " = "[StandardPublishingCMS]";}
 New-HeaderDrawing -Values $Values
 
 # ********** PUBLISHING MODULE ********** #
