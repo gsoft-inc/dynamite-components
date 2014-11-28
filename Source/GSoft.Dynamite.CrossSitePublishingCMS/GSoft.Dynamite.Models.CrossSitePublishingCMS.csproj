@@ -79,6 +79,8 @@
     <None Include="Modules\Navigation\NAV_05\Install-NAV05.ps1" />
     <None Include="Modules\Navigation\NAV_05\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Navigation\NAV_05\Setup-Lists.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Import-TermGroups.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Remove-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Navigation\NAV_05\Setup-MetadataFiltering.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Setup-Lists.ps1.template" />
@@ -106,9 +108,7 @@
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
     <None Include="Modules\Publishing\PUB_01\Export-TermGroups.ps1.template" />
-    <None Include="Modules\Publishing\PUB_01\Import-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Install-PUB01.ps1" />
-    <None Include="Modules\Publishing\PUB_01\Remove-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Catalogs.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.ps1.template" />
