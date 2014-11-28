@@ -177,17 +177,17 @@
   <data name="Feature_CrossSitePublishingCMS_TermDrivenPages_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Navigation Module - Term Driven Pages</value>
   </data>
-  <data name="Feature_SimplePublishingCMS_PagesLibraryList_Desc" xml:space="preserve">
+  <data name="Feature_StandardPublishingCMS_PagesLibraryList_Desc" xml:space="preserve">
     <value>Configures the pages library to allow navigation structure manipulations</value>
   </data>
-  <data name="Feature_SimplePublishingCMS_PagesLibraryList_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Navigation Module - Lists (Pages Library)</value>
+  <data name="Feature_StandardPublishingCMS_PagesLibraryList_Name" xml:space="preserve">
+    <value>Dynamite Standard Publishing CMS - Navigation Module - Lists (Pages Library)</value>
   </data>
-  <data name="Feature_SimplePublishingCMS_TargetPagesEventReceivers_Desc" xml:space="preserve">
+  <data name="Feature_StandardPublishingCMS_TargetPagesEventReceivers_Desc" xml:space="preserve">
     <value>Add event receivers for the navigation module for simple CMS solution for "Target Page" content type</value>
   </data>
-  <data name="Feature_SimplePublishingCMS_TargetPagesEventReceivers_Name" xml:space="preserve">
-    <value>Dynamite Simple CMS - Navigation Module - Event Receivers (Target Page)</value>
+  <data name="Feature_StandardPublishingCMS_TargetPagesEventReceivers_Name" xml:space="preserve">
+    <value>Dynamite Standard Publishing CMS - Navigation Module - Event Receivers (Target Page)</value>
   </data>
   <data name="Field_DateSlug_Desc" xml:space="preserve">
     <value>Date Slug Friendly URL fragment</value>
