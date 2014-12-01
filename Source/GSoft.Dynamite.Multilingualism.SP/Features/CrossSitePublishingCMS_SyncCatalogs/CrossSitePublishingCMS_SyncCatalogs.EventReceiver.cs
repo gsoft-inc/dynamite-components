@@ -17,12 +17,13 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("28f4f5a2-4141-4d58-a67c-ed7aebf92bbe")]
     public class CrossSitePublishingCmsSyncCatalogsEventReceiver : SPFeatureReceiver
     {
-        // Uncomment the method below to handle the event raised after a feature has been activated.
-
+        /// <summary>
+        /// Synchronizes catalogs on variations target webs. Actually, only set a work item to be processed by the variations timer job
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;
