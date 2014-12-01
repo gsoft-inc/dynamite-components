@@ -14,9 +14,6 @@
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>SharePoint</tags>
-    <dependencies>
-      <dependency id="GSoft.Dynamite.SP" />
-    </dependencies>
   </metadata>
   <files>
     <file src="bin\Release\GSoft.Dynamite.Publishing.SP.wsp" target="tools" />
