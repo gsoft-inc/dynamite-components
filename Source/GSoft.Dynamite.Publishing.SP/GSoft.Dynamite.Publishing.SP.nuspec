@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>GSoft.Dynamite.Publishing.SP</id>
+    <version>0.0.0</version>
+    <title>GSoft.Dynamite.Publishing.SP</title>
+    <authors>GSoft</authors>
+    <owners>GSoft</owners>
+    <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
+    <iconUrl>https://avatars3.githubusercontent.com/u/5606578?s=140</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The closed-source reusable publishing components and modules for SharePoint 2013.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>SharePoint</tags>
+    <dependencies>
+      <dependency id="GSoft.Dynamite.SP" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\GSoft.Dynamite.Publishing.SP.wsp" target="tools" />
+    <file src="bin\Release\Install-Me.ps1" target="tools" />
+  </files>
+</package>
