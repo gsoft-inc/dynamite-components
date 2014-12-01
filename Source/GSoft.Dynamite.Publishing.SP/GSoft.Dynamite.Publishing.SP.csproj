@@ -195,6 +195,9 @@
     <None Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.feature">
       <FeatureId>{17abf062-5a4c-4462-8370-ef3c7e84d741}</FeatureId>
     </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1ab17249-9879-4179-9e87-da77f66bd9db}</SharePointProjectItemId>
+    </None>
     <None Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
       <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
     </None>
@@ -258,6 +261,7 @@
     <Content Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.Template.xml">
       <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Content>
+    <Content Include="Images\GSoft.Dynamite.Publishing.SP\logo-32x32-Pub.png" />
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
     <Content Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.Template.xml">
       <DependentUpon>CommonCMS_LanguageFiles.feature</DependentUpon>
@@ -306,6 +310,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

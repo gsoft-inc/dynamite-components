@@ -94,6 +94,9 @@
     <None Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.feature">
       <FeatureId>{2ab34b0c-a2c3-41df-8878-bd800027926a}</FeatureId>
     </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8a1baf1e-e291-4e7c-a37d-ac8b351d042d}</SharePointProjectItemId>
+    </None>
     <None Include="key.snk" />
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -117,6 +120,7 @@
     <Content Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ManagedProperties.feature</DependentUpon>
     </Content>
+    <Content Include="Images\GSoft.Dynamite.Docs.SP\logo-32x32-Docs.png" />
     <Content Include="Resources\GSoft.Dynamite.Docs.Global.en-US.resx" />
   </ItemGroup>
   <ItemGroup>

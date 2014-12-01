@@ -11,5 +11,6 @@
   </features>
   <projectItems>
     <projectItemReference itemId="516af786-f562-4fed-abaa-c4b5dc1086ef" />
+    <projectItemReference itemId="8a1baf1e-e291-4e7c-a37d-ac8b351d042d" />
   </projectItems>
 </package>

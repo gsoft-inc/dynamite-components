@@ -82,6 +82,9 @@
     <None Include="Features\CrossSitePublishingCMS_WebParts\CrossSitePublishingCMS_WebParts.feature">
       <FeatureId>{f87231ce-9bdf-4aa5-a231-52985325ff18}</FeatureId>
     </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2f2813e3-99ce-4357-954e-90935163cb94}</SharePointProjectItemId>
+    </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{42c711fc-440a-46c9-93e3-06626e0fda93}</PackageId>
@@ -98,6 +101,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\GSoft.Dynamite.LifeCycle.SP\logo-32x32-LifeCycle.png" />
     <Content Include="Resources\GSoft.Dynamite.LifeCycle.Global.en-US.resx" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +123,7 @@
       <Name>GSoft.Dynamite.LifeCycle.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

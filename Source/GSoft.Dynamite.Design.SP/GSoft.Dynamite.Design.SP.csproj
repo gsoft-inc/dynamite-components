@@ -104,6 +104,9 @@
     <None Include="Features\CommonCMS_Theme\CommonCMS_Theme.feature">
       <FeatureId>{d29b8f2f-93ee-440d-aef2-31aaa434746b}</FeatureId>
     </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e7ab564b-e658-4322-a25b-9814ee8cf00c}</SharePointProjectItemId>
+    </None>
     <None Include="Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.css.map">
       <DependentUpon>GSoft.Dynamite.Design.css</DependentUpon>
     </None>
@@ -130,6 +133,7 @@
     <Content Include="Features\CommonCMS_Theme\CommonCMS_Theme.Template.xml">
       <DependentUpon>CommonCMS_Theme.feature</DependentUpon>
     </Content>
+    <Content Include="Images\GSoft.Dynamite.Design.SP\logo-32x32-Design.png" />
     <Content Include="Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.css">
       <DependentUpon>GSoft.Dynamite.Design.less</DependentUpon>
     </Content>
