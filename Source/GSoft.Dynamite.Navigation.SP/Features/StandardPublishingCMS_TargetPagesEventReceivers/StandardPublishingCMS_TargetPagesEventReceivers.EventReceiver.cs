@@ -1,7 +1,5 @@
-using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Events;
 using GSoft.Dynamite.Globalization;
@@ -10,7 +8,7 @@ using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Navigation.SP.Features.SimplePublishingCMS_EventReceivers
+namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPagesEventReceivers
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -18,10 +16,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.SimplePublishingCMS_EventReceive
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("6eac4235-6c4b-4f2a-985e-9cd3e6c3a801")]
     public class SimplePublishingCMS_EventReceiversEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Adds event receivers for the target page content type. Only used with Standard Publishing CMS based solutions.
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -57,6 +58,10 @@ namespace GSoft.Dynamite.Navigation.SP.Features.SimplePublishingCMS_EventReceive
             }
         }
 
+        /// <summary>
+        /// Removes event receivers for the target page content type. Only used with Standard Publishing CMS based solutions.
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;

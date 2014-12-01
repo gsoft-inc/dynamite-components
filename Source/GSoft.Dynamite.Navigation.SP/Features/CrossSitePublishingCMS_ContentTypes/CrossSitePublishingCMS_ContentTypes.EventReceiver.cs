@@ -1,7 +1,6 @@
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.ContentTypes;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using Microsoft.SharePoint;
@@ -14,10 +13,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ContentTy
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("40703643-5222-448d-afb1-28894ee59aa5")]
     public class CrossSitePublishingCMS_ContentTypesEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Creates content types for the navigation module
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -31,9 +33,10 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ContentTy
                     var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();
 
-                    // Create base content types
+                    // Create content types
                     foreach (var contentType in baseContentTypes)
                     {
+                        logger.Info("Configuring content type {0}", contentType.ContentTypeId);
                         contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                     }
                 }

@@ -12,7 +12,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
     public interface ICommonManagedPropertyInfosConfig
     {
         /// <summary>
-        /// Property that return all the search managed properties to create in the publishing module
+        /// Property that return all the search managed properties to create or configure in all modules
         /// </summary>
         IList<ManagedPropertyInfo> ManagedProperties { get; } 
     }

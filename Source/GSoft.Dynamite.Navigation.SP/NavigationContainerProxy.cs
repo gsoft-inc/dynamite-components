@@ -13,11 +13,10 @@ namespace GSoft.Dynamite.Navigation.SP
         /// <summary>
         /// This service locator is provided either 
         /// 1) by the only Container class currently available in the GAC 
-        /// from the single DLL matching the pattern "*.ServiceLocator.dll"
+        /// from the single DLL matching the pattern "*.ServiceLocator.DLL"
         /// or 
         /// 2) by the Container class from the DLL with a file name matching 
         /// the SPSite property bag value for the key "ServiceLocatorAssemblyName"
-        /// 
         /// In other words, Dynamite.Components modules must be loaded by
         /// a container class belonging to some Company.Project.ServiceLocator
         /// assembly.
@@ -69,7 +68,7 @@ namespace GSoft.Dynamite.Navigation.SP
         /// a using block).
         /// Prefer usage of this method versus resolving manually from the Current property.
         /// </summary>
-        /// <param name="feature">The current web from which we are requesting a child lifetime scope</param>
+        /// <param name="web">The current web from which we are requesting a child lifetime scope</param>
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginWebLifetimeScope(SPWeb web)
         {

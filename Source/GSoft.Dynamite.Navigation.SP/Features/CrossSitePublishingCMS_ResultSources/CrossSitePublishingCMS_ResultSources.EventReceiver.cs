@@ -1,13 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search;
-using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSources
@@ -18,10 +14,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("38ac13b4-c569-4804-88b7-4fec61c84680")]
     public class CrossSitePublishingCMS_ResultSourcesEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Creates search result sources in the Search Service Application for the navigation module
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -36,7 +35,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
 
                     IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
 
-                    // Create navigation result sources
+                    // Create result sources
                     foreach (var resultSource in resultSources)
                     {
                         logger.Info("Create navigation result sources");
@@ -46,6 +45,10 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
             }
         }
 
+        /// <summary>
+        /// Removes the search result sources associated to the navigation module
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;

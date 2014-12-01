@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.Script.Serialization;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using Autofac;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
+using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
 using Microsoft.SharePoint;
-using GSoft.Dynamite.Navigation.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigation
 {
@@ -22,7 +19,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
         /// <summary>
         /// The raw row for the main menu
         /// </summary>
-        public string MenuJSON { get; set; }
+        public string MenuJson { get; set; }
 
         /// <summary>
         /// Loads the data in the page
@@ -66,7 +63,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                 var navigationData = dynamiteNavigationService.GetMenuNodes(SPContext.Current.Web, properties, 12);
 
                 // Serializes the data
-                this.MenuJSON = serializer.Serialize(navigationData);
+                this.MenuJson = serializer.Serialize(navigationData);
             }
         }
     }

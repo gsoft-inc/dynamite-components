@@ -3,14 +3,12 @@ using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Events;
 using GSoft.Dynamite.Globalization;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
-using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventReceivers
+namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_BrowsableItemsEventReceivers
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -18,10 +16,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("01031036-6b13-42bc-a9f5-142eabaa7f48")]
     public class CrossSitePublishingCMS_EventReceiversEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Creates event receivers for the <c>browsable</c> item content type
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -56,6 +57,10 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_EventRece
             }
         }
 
+        /// <summary>
+        /// Deletes event receivers for the <c>browsable</c> item content type
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
