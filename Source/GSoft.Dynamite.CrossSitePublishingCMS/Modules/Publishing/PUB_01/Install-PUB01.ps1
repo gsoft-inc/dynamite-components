@@ -36,7 +36,9 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
-##### STEP 1: CREATE STRUCTURE
+# =========================================== #
+# =========   CREATE STRUCTURE ============== #
+# =========================================== #
 
 $values = @{"Step: " = "#1 Setup Sites"}
 New-HeaderDrawing -Values $Values
@@ -62,7 +64,9 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-Permissions.ps1'
 & $Script
 
-##### STEP 2: CATEGORIZE CONTENTS
+# =========================================== #
+# =========   CATEGORIZE CONTENTS =========== #
+# =========================================== #
 
 $values = @{"Step: " = "#6 Remove Term Groups"}
 New-HeaderDrawing -Values $Values
@@ -99,6 +103,16 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Catalogs.ps1'
 & $Script 
+
+# =========================================== #
+# =========   METADATA FILTERING   ========== #
+# =========================================== #
+
+$values = @{"Step: " = "#11 Configure metadata navigation for catalogs"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-MetadataFiltering.ps1'
+& $Script
 
 # ********** LOG END ********** #
 # Stop log transcript

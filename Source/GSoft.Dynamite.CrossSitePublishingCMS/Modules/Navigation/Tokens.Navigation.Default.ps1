@@ -9,11 +9,10 @@ $DSP_CrossSitePublishingCMS_NAV_BrowsableItemsEventReceivers = "058ded79-ba45-4a
 $DSP_CrossSitePublishingCMS_NAV_ResultSources = "6844736d-2c1b-4f62-83d6-d16181f41031"
 $DSP_CrossSitePublishingCMS_NAV_OccurrenceLinkLocation = "989e498b-81d0-4dc3-9c5c-33bda054c2b0"
 $DSP_CrossSitePublishingCMS_NAV_CatalogConnections = "14864606-186f-4e73-b1e5-646c8657678e"
-$DSP_CrossSitePublishingCMS_NAV_ManagedNavigation = "b7b200a2-6d16-4f33-aeae-80cd1ae1474b"
-$DSP_CommonCMS_NAV_MetadataAndFiltering= "7201d6a4-a5d3-49a1-8c19-19c4bac6e668"
-$DSP_CrossSitePublishingCMS_NAV_MetadataNavigation = "246b965b-f1cb-451f-923f-8fac5812dfec"
 $DSP_CrossSitePublishingCMS_NAV_TargetItemsEventReceivers = "8335e626-e7ab-41f1-86ac-e4bcaf569b43"
 $DSP_CrossSitePublishingCMS_NAV_ContentPagesList = "4003b794-a3a7-4103-a1d7-8d90c0dc2d60"
+
+$DSP_CommonCMS_NAV_TaxonomyManagedNavigation = "b7b200a2-6d16-4f33-aeae-80cd1ae1474b"
 
 $DSP_DEFAULT_CrossSitePublishingCMS_NAV_NavigationControl = "bafb71d3-882d-43c0-b635-b5394b3d67eb"
 
