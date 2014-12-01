@@ -16,17 +16,20 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
             this._publishingCatalogInfoConfig = publishingCatalogInfoConfig;
         }
 
-        public IList<CatalogInfo> Catalogs()
+        public IList<CatalogInfo> Catalogs
         {
-            var baseCatalogConfig = this._publishingCatalogInfoConfig.Catalogs();
+            get
+            {
+                var baseCatalogConfig = this._publishingCatalogInfoConfig.Catalogs;
 
-            // Reset the base configuration
-            baseCatalogConfig.Clear();
+                // Reset the base configuration
+                baseCatalogConfig.Clear();
 
-            // A a custom catalog
-            baseCatalogConfig.Add(this._catalogInfoValues.DynamiteCatalog());
+                // A a custom catalog
+                baseCatalogConfig.Add(this._catalogInfoValues.DynamiteCatalog());
 
-            return baseCatalogConfig;
+                return baseCatalogConfig;
+            }
         }
     }
 }

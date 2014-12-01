@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Search;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
@@ -17,10 +13,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_PageLayouts
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("5c015b00-d06c-4362-84d1-b69a20f1d0f5")]
     public class CommonCMS_PageLayoutsEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;

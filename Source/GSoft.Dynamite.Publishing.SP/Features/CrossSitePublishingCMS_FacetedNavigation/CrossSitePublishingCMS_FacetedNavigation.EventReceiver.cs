@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search;
@@ -15,10 +12,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_FacetedNa
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("e07bc3af-581a-4d24-9780-b2b5ca65a068")]
     public class CrossSitePublishingCMS_FacetedNavigationEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -38,6 +38,10 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_FacetedNa
             }
         }
 
+        /// <summary>
+        /// Feature deactivating event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;

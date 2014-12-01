@@ -41,7 +41,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
                     if (baseVariationSettings != null)
                     {                      
                         logger.Info("No custom catalogs configuration override found!");
-                        var baseCatalogs = baseCatalogInfoConfig.Catalogs();
+                        var baseCatalogs = baseCatalogInfoConfig.Catalogs;
 
                         // Sync catalogs
                         foreach (var catalog in baseCatalogs)

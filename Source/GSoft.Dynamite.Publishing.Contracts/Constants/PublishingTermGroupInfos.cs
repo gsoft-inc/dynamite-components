@@ -4,9 +4,9 @@ using GSoft.Dynamite.Taxonomy;
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     /// <summary>
-    /// Base TermGroupInfo values
+    /// Term group definitions for the publishing module
     /// </summary>
-    public  class PublishingTermGroupInfos
+    public class PublishingTermGroupInfos
     {
         #region Navigation Term Group
 

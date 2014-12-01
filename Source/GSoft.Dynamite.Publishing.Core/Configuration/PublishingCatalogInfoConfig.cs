@@ -1,28 +1,42 @@
-﻿using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Catalogs;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
+    /// <summary>
+    /// Configuration for the catalogs settings. Catalogs are only used with Cross Site Publishing based solutions
+    /// </summary>
     public class PublishingCatalogInfoConfig : IPublishingCatalogInfoConfig
     {
         private readonly PublishingCatalogInfos _catalogInfoValues;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="catalogInfoValues">The catalog info objects configuration</param>
         public PublishingCatalogInfoConfig(PublishingCatalogInfos catalogInfoValues)
         {
-            _catalogInfoValues = catalogInfoValues;
+            this._catalogInfoValues = catalogInfoValues;
         }
 
-        public IList<CatalogInfo> Catalogs()
+        /// <summary>
+        /// Property that return all the catalogs to use in the publishing module
+        /// </summary>
+        /// <returns>Teh catalogs</returns>
+        public IList<CatalogInfo> Catalogs
         {
-            var catalogs = new List<CatalogInfo>
+            get
             {
-                {_catalogInfoValues.NewsPages()},
-                {_catalogInfoValues.ContentPages()}
-            };
+                var catalogs = new List<CatalogInfo>
+                {
+                    this._catalogInfoValues.NewsPages(),
+                    this._catalogInfoValues.ContentPages()
+                };
 
-            return catalogs;
+                return catalogs;
+            }
         }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using System.Web.UI.WebControls.WebParts;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.WebParts;
 using Microsoft.Office.Server.Search.WebControls;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     /// <summary>
-    /// Class to create the Basic Web Parts
+    /// WebPart definitions for the publishing module
     /// </summary>
     public class PublishingWebPartInfos
     {
@@ -18,8 +17,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// Default Constructor
         /// </summary>
         /// <param name="webPartHelper">The WebPart helper</param>
-        /// <param name="resultSourceInfos">The Result Source infos</param>
-        /// <param name="displayTemplateInfos">The display templates infos</param>
+        /// <param name="resultSourceInfos">The Result Source info</param>
+        /// <param name="displayTemplateInfos">The display templates info</param>
         public PublishingWebPartInfos(IWebPartHelper webPartHelper, PublishingResultSourceInfos resultSourceInfos, PublishingDisplayTemplateInfos displayTemplateInfos)
         {
             this.webPartHelper = webPartHelper;
@@ -28,9 +27,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
-        /// Web part for Item Content
+        /// WebPart for a single target item display (e.g. the "About Us" page)
         /// </summary>
-        /// <returns>WebPart info object</returns>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
+        /// <returns>The WebPart info object</returns>
         public WebPartInfo TargetItemContentWebPart(string zoneName)
         {
             // When you set a result source to a Search WebPart, you need to use at least the Properties["SourceName"] and Properties["SourceLevel"] attributes
@@ -39,12 +39,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["SourceLevel"] = this.resultSourceInfos.SingleTargetItem().Level.ToString();
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
+            // To set a display template manually, use this line
+            // ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl
             var webpart = new ResultScriptWebPart()
             {
                 Title = "Target Item Content Webpart",
                 DataProviderJSON = querySettings.PropertiesJson,
-                // To set a display template manually, use this line
-                //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
                 ChromeType = PartChromeType.None,
                 ShowAdvancedLink = false,
                 ShowBestBets = false,
@@ -69,6 +69,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             return new WebPartInfo(zoneName, webpart);
         }
 
+        /// <summary>
+        /// WebPart for a single catalog item display (e.g. a single news)
+        /// </summary>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
+        /// <returns>The WebPart info object</returns>
         public WebPartInfo CatalogItemContentWebPart(string zoneName)
         {
             var querySettings = new DataProviderScriptWebPart();
@@ -80,7 +85,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Title = "Catalog Item Content Webpart",
                 DataProviderJSON = querySettings.PropertiesJson,
-                //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
                 ChromeType = PartChromeType.None,
                 ShowAdvancedLink = false,
                 ShowBestBets = false,
@@ -106,13 +110,14 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
-        /// Create a Place Holder webpartinfo
+        /// Create a place holder WebPart
         /// </summary>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
         /// <param name="x">Horizontal dimension in pixel</param>
         /// <param name="y">Vertical dimension in pixel</param>
         /// <param name="backgroundColor">Background color in hex ex: <c>"ffffff"</c> or <c>"e3b489"</c></param>
         /// <param name="fontColor">font color in hex ex: <c>"ffffff"</c> or <c>"e3b489"</c></param>
-        /// <returns>A webpartinfo containing the webpart</returns>
+        /// <returns>The WebPart definition</returns>
         public WebPartInfo PlaceHolder(string zoneName, int x, int y, string backgroundColor, string fontColor)
         {
             var webpart = this.webPartHelper.CreatePlaceholderWebPart(x, y, backgroundColor, fontColor);
@@ -120,6 +125,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             return new WebPartInfo(zoneName, webpart);
         }
 
+        /// <summary>
+        /// WebPart for a multiple catalog items display (e.g. all news)
+        /// </summary>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
+        /// <returns>The WebPart info object</returns>
         public WebPartInfo CatalogCategoryItemsMainWebPart(string zoneName)
         {
             var querySettings = new DataProviderScriptWebPart();
@@ -131,7 +141,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Title = "Catalog Category Items Main Content Webpart",
                 DataProviderJSON = querySettings.PropertiesJson,
-                //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
                 ChromeType = PartChromeType.None,
                 ShowAdvancedLink = false,
                 ShowBestBets = false,
@@ -156,6 +165,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             return new WebPartInfo(zoneName, webpart);
         }
 
+        /// <summary>
+        /// WebPart for a catalog items refinements (e.g. all news)
+        /// </summary>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
+        /// <returns>The WebPart info object</returns>
         public WebPartInfo CatalogCategoryRefinementWepart(string zoneName)
         {
             var webpart = new RefinementScriptWebPart()
