@@ -20,6 +20,6 @@
   </metadata>
   <files>
     <file src="bin\Release\GSoft.Dynamite.Publishing.SP.wsp" target="tools" />
-    <file src="bin\Release\Install-Me.ps1" target="tools" />
+    <file src="Install-Me.ps1" target="tools" />
   </files>
 </package>
