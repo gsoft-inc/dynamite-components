@@ -1,1 +1,0 @@
-﻿Deploy-DSPSolution .\GSoft.Dynamite.Publishing.SP.wsp
