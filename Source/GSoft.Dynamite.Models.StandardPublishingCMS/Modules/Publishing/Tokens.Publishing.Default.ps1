@@ -42,7 +42,8 @@ $DSP_DefaultMembersGroupUsers = @"
 $DSP_CommonCMS_PUB_ContentTypes = "88d32ecd-2a4c-4cff-ad09-b74ab5aca18c"
 $DSP_CommonCMS_PUB_Fields = "97a3a3ef-5989-46f0-a117-6f489f58a26b"
 $DSP_CommonCMS_PUB_Lists = "3be0c334-1fa9-4631-ade5-f9e044b1289d"
-$DSP_StandardPublishingCMS_PUB_MetadataNavigation = "246b965b-f1cb-451f-923f-8fac5812dfec"
+$DSP_CommonCMS_PUB_PageLayouts = "374b7569-9e11-4ecd-8771-da59be52141e"
+$DSP_StandardPublishingCMS_PUB_MetadataNavigation = "20b34b37-095a-437a-a5ab-65af7616da8f"
 
 # ============================================
 # SHAREPOINT OOTB FEATURES

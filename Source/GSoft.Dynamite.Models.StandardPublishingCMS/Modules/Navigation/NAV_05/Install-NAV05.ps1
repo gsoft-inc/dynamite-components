@@ -37,7 +37,7 @@ New-HeaderDrawing -Values $Values
 # =========   TAXONOMY OPEN TERM COLUMN   ========== #
 # ================================================== #
 
-$values = @{"Step: " = "#1 Setup open term creation for content pages list"}
+$values = @{"Step: " = "#1 Setup open term creation for the pages library"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Lists.ps1'

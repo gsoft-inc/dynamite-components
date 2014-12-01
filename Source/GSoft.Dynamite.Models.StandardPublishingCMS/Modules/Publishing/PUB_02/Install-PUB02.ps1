@@ -1,7 +1,6 @@
 ﻿# ----------------------------------------
-# NAV_01: BROWSE INTRANET
+# PUB 02: VIEW ITEM DETAILS
 # ----------------------------------------
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 param([string]$LogFolderPath)
 
@@ -21,27 +20,27 @@ $LogTime = Get-Date -Format "MM-dd-yyyy_hh-mm-ss"
 $LogFile = $LogFolderPath + "\" + $ScriptName +"_Dynamite_"+$LogTime +".log"
 
 # Stat log transcript
-Start-Transcript -Path $LogFile
+Start-Transcript -Path $LogFile 
 
 # ***************************** #
 
-$UserStory = "NAV_01"
+# Verbose preference
+$VerbosePreference ="Continue"
 
-$0 = $myInvocation.MyCommand.Definition
-$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+$UserStory = "PUB_02"
 
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
-# =========================================== #
-# =========   METADATA NAVIGATION   ========== #
-# =========================================== #
+# ==================================== #
+# =========  PAGE LAYOUTS   ========== #
+# ==================================== #
 
-$values = @{"Step: " = "#3 Configure taxonomy metadata navigation"}
+$values = @{"Step: " = "#1 Create Page Layouts"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-ManagedNavigation.ps1'
-& $Script 
+$Script = $CommandDirectory + '\Setup-PageLayouts.ps1'
+& $Script -Force
 
 # ********** LOG END ********** #
 # Stop log transcript

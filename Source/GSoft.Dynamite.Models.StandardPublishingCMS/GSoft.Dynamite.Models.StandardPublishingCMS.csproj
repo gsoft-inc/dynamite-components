@@ -65,6 +65,8 @@
     <None Include="Modules\Publishing\PUB_01\Setup-MetadataFiltering.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.ps1.template" />
+    <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
+    <None Include="Modules\Publishing\PUB_02\Setup-PageLayouts.ps1.template" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Nuget\Install.ps1" />

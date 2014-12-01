@@ -21,10 +21,5 @@ if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 	$NavigationConfigurationFilePath = $CommandDirectory + ".\" + $CustomNavigationConfigurationFile
 }
 
-if(![string]::IsNullOrEmpty($CustomRestrictedConfigurationFile))
-{
-	$RestrictedConfigurationFilePath = $CommandDirectory + ".\" + $CustomRestrictedConfigurationFile
-}
-
 # Portal Navigation Term Group
 Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $NavigationConfigurationFilePath
