@@ -58,6 +58,15 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
             };
         }
+
+        public PageLayoutInfo OneColunmWithHeader()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "OneColumnWithHeader.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
         #endregion
     }
 }

@@ -6,5 +6,6 @@
     <ProjectItemFile Source="CatalogItemPageLayout.aspx" Target="PageLayouts\" Type="ElementFile" />
     <ProjectItemFile Source="CatalogCategoryPageTemplate.aspx" Target="PageLayouts\" Type="ElementFile" />
     <ProjectItemFile Source="RightSidebar.aspx" Target="PageLayouts\" Type="ElementFile" />
+    <ProjectItemFile Source="OneColumnWithHeader.aspx" Target="PageLayouts\" Type="ElementFile" />
   </Files>
 </ProjectItem>

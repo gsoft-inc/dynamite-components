@@ -339,4 +339,10 @@
   <data name="Feature_StandardPublishingCMS_MetadataNavigation_Name" xml:space="preserve">
     <value>Dynamite CMS de publication standard- Module de publication - Navigation par métadonnées</value>
   </data>
+  <data name="PageLayout_OneColumnPageLayout_Desc" xml:space="preserve">
+    <value>Créé une large colonne centrée et un zone d'en-tête</value>
+  </data>
+  <data name="PageLayout_OneColumnPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page offrant une large colonne centrée</value>
+  </data>
 </root>

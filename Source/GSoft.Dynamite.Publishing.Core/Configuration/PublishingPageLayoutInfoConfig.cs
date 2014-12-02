@@ -23,7 +23,8 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                     this.publishingPageLayoutInfos.CatalogItemPageLayout(),
                     this.publishingPageLayoutInfos.TargetItemPageLayout(),
                     this.publishingPageLayoutInfos.CatalogCategoryItemsPageLayout(),
-                    this.publishingPageLayoutInfos.RightSidebar()
+                    this.publishingPageLayoutInfos.RightSidebar(),
+                    this.publishingPageLayoutInfos.OneColunmWithHeader()
                 };
             }
         }

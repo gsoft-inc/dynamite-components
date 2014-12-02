@@ -339,4 +339,10 @@
   <data name="Feature_StandardPublishingCMS_MetadataNavigation_Name" xml:space="preserve">
     <value>Dynamite Standard Publishing CMS - Publishing Module - Metadata Navigation and filtering</value>
   </data>
+  <data name="PageLayout_OneColumnPageLayout_Desc" xml:space="preserve">
+    <value>Creates a large column and a header zone</value>
+  </data>
+  <data name="PageLayout_OneColumnPageLayout_Name" xml:space="preserve">
+    <value>One Column with Header Page Layout</value>
+  </data>
 </root>
