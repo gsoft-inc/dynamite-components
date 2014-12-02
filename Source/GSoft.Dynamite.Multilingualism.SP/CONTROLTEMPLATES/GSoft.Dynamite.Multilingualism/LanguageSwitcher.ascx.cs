@@ -188,7 +188,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
             this.PublishingWebPartInfos = MultilingualismContainerProxy.Current.Resolve<PublishingWebPartInfos>();
             
             // Determine the navigation context type
-            this.CurrentNavigationContext = this.VariationNavigationHelper.GetCurrentNavigationContextType();
+            this.CurrentNavigationContext = this.VariationNavigationHelper.CurrentNavigationContextType;
         }
     }
 }
