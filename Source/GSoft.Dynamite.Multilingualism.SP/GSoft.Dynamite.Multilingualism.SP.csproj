@@ -72,6 +72,9 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Multilingualism\CssImports.ascx.cs">
       <DependentUpon>CssImports.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
