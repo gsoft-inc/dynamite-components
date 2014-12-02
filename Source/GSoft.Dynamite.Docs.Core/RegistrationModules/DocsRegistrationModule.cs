@@ -4,10 +4,12 @@ using GSoft.Dynamite.Docs.Contracts.Constants;
 using GSoft.Dynamite.Docs.Contracts.Resources;
 using GSoft.Dynamite.Docs.Core.Configuration;
 using GSoft.Dynamite.Globalization;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
 
 namespace GSoft.Dynamite.Docs.Core.RegistrationModules
 {
+    /// <summary>
+    /// <c>Autofac</c> registration module for the document management module
+    /// </summary>
     public class DocsRegistrationModule : Module
     {
         /// <summary>

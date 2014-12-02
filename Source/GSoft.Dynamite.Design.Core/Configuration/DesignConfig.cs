@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GSoft.Dynamite.Design.Contracts.Configuration;
+﻿using GSoft.Dynamite.Design.Contracts.Configuration;
 using GSoft.Dynamite.Design.Contracts.Constants;
 
 namespace GSoft.Dynamite.Design.Core.Configuration
@@ -13,12 +8,15 @@ namespace GSoft.Dynamite.Design.Core.Configuration
     /// </summary>
     public class DesignConfig : IDesignConfig
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public DesignConfig()
         {
         }
 
         /// <summary>
-        /// The MasterPage HTMT Filename eg: GSoft.Dynamite.html
+        /// The MasterPage HTMT Filename e.g.: GSoft.Dynamite.html
         /// </summary>
         public string MasterPageHTMLFilename
         {
@@ -26,7 +24,7 @@ namespace GSoft.Dynamite.Design.Core.Configuration
         }
 
         /// <summary>
-        /// The MasterPage MASTER Filename eg: GSoft.Dynamite.master
+        /// The MasterPage MASTER Filename e.g.: GSoft.Dynamite.master
         /// </summary>
         public string MasterPageMASTERFilename
         {
@@ -34,7 +32,7 @@ namespace GSoft.Dynamite.Design.Core.Configuration
         }
 
         /// <summary>
-        /// The Logo URL eg: /Style%20Library/GSoft.Dynamite.Component/Images/dynamite-logo.png
+        /// The Logo URL e.g.: <c>/Style%20Library/GSoft.Dynamite.Component/Images/dynamite-logo.png</c>
         /// </summary>
         public string LogoUrl
         {
@@ -50,16 +48,15 @@ namespace GSoft.Dynamite.Design.Core.Configuration
         }
 
         /// <summary>
-        /// The SPColor file URL eg: /_catalogs/theme/15/GSoft.Dynamite.spcolor
+        /// The SPColor file URL e.g.: <c>/_catalogs/theme/15/GSoft.Dynamite.spcolor</c>
         /// </summary>
         public string SPColorUrl
         {
             get { return DesignInfos.SPColorUrl; }
-
         }
 
         /// <summary>
-        /// The SPFont file URL eg: /_catalogs/theme/15/GSoft.Dynamite.spfont
+        /// The SPFont file URL e.g.: <c>/_catalogs/theme/15/GSoft.Dynamite.spfont</c>
         /// </summary>
         public string SPFontUrl
         {

@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using Autofac;
 using GSoft.Dynamite.Globalization;
@@ -17,6 +16,9 @@ using Microsoft.SharePoint.WebPartPages;
 
 namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
 {
+    /// <summary>
+    /// Content Search Web Part that supports date search minutes and seconds ranges filters
+    /// </summary>
     [ToolboxItemAttribute(false)]
     public class ContentBySearchSchedule : ContentBySearchWebPart, IContentBySearchSchedule
     {
@@ -28,13 +30,6 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
         private ISchedulingControl schedulingControlHelper;
         private IResourceLocator resourceLocator;
 
-
-        /// <summary>
-        /// The Mosaic mode to decide which data we get
-        /// </summary>
-        [WebBrowsable(true), WebDisplayName("Rediriger vers 404 si aucun item."), WebDescription("Cocher pour rediriger vers la page 404 si aucun item n'est trouve."), Personalizable(PersonalizationScope.Shared), Category("Advanced")]
-        public bool Is404Enable { get; set; }
-
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -43,6 +38,12 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
             this.schedulingControlHelper = LifeCycleContainerProxy.Current.Resolve<ISchedulingControl>();
             this.resourceLocator = LifeCycleContainerProxy.Current.Resolve<IResourceLocator>();
         }
+
+        /// <summary>
+        /// The Mosaic mode to decide which data we get
+        /// </summary>
+        [WebBrowsable(true), WebDisplayName("Rediriger vers 404 si aucun item."), WebDescription("Cocher pour rediriger vers la page 404 si aucun item n'est trouve."), Personalizable(PersonalizationScope.Shared), Category("Advanced")]
+        public bool Is404Enable { get; set; }
 
         /// <summary>
         /// Start date property name
@@ -93,11 +94,15 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
             base.OnLoad(e);
         }
 
+        /// <summary>
+        /// WebPart OnRender
+        /// </summary>
+        /// <param name="writer">The event arguments</param>
         protected override void Render(HtmlTextWriter writer)
         {
             if (this.GetNumResults() < 1 && this.Is404Enable && SPContext.Current.FormContext.FormMode == SPControlMode.Display)
             {
-                HttpContext.Current.Server.TransferRequest(String.Format("{0}?url={1}", SPContext.Current.Site.FileNotFoundUrl, HttpContext.Current.Request.RawUrl));
+                HttpContext.Current.Server.TransferRequest(string.Format("{0}?url={1}", SPContext.Current.Site.FileNotFoundUrl, HttpContext.Current.Request.RawUrl));
             }
             else
             {
