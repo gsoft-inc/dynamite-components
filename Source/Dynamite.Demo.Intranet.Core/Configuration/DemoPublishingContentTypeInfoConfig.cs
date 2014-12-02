@@ -7,6 +7,9 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration
 {
+    /// <summary>
+    /// Example of an override of content types from the publishing module
+    /// </summary>
     public class DemoPublishingContentTypeInfoConfig : IPublishingContentTypeInfoConfig
     {
         private readonly IPublishingContentTypeInfoConfig _basePublishingContentTypeInfoConfig;
@@ -14,6 +17,13 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
         private readonly DemoPublishingFieldInfos _fieldbaseDemoPublishingFieldInfos;
         private readonly DemoPublishingContentTypeInfos _baseDemoPublishingContentTypeInfos;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="basePublishingContentTypeInfoConfig">The content type configuration from the publishing module</param>
+        /// <param name="basePublishingContentTypeInfos">The content types settings from the publishing module</param>
+        /// <param name="baseDemoPublishingFieldInfos">The fields settings from the Dynamite demo module</param>
+        /// <param name="baseDemoPublishingContentTypeInfos">The content types settings from the Dynamite demo module</param>
         public DemoPublishingContentTypeInfoConfig(
             IPublishingContentTypeInfoConfig basePublishingContentTypeInfoConfig,
             PublishingContentTypeInfos basePublishingContentTypeInfos,
@@ -26,6 +36,9 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
             this._baseDemoPublishingContentTypeInfos = baseDemoPublishingContentTypeInfos;
         }
 
+        /// <summary>
+        /// Override the content type configuration from the publishing module
+        /// </summary>
         public IList<ContentTypeInfo> ContentTypes
         {
             get

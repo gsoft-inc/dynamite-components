@@ -2,6 +2,9 @@
 
 namespace GSoft.Dynamite.Navigation.Contracts.Services
 {
+    /// <summary>
+    /// Interface for the slug builder service
+    /// </summary>
     public interface ISlugBuilderService
     {
         /// <summary>

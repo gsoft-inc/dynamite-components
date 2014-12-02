@@ -35,6 +35,5 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 },
                 this.termGroupInfos.Keywords());
         }
-
     }
 }

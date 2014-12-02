@@ -4,7 +4,10 @@ using GSoft.Dynamite.Navigation.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Resources
 {
-    public class NavigationResourceLocatorConfig: IResourceLocatorConfig
+    /// <summary>
+    /// Resources locator configuration for the navigation module
+    /// </summary>
+    public class NavigationResourceLocatorConfig : IResourceLocatorConfig
     {
         private ICollection<string> resourceFileKeys = new List<string> { NavigationResources.Global };
              

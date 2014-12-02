@@ -13,11 +13,10 @@ namespace GSoft.Dynamite.LifeCycle.SP
         /// <summary>
         /// This service locator is provided either 
         /// 1) by the only Container class currently available in the GAC 
-        /// from the single DLL matching the pattern "*.ServiceLocator.dll"
+        /// from the single DLL matching the pattern "*.ServiceLocator.DLL"
         /// or 
         /// 2) by the Container class from the DLL with a file name matching 
         /// the SPSite property bag value for the key "ServiceLocatorAssemblyName"
-        /// 
         /// In other words, Dynamite.Components modules must be loaded by
         /// a container class belonging to some Company.Project.ServiceLocator
         /// assembly.

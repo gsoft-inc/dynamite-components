@@ -5,21 +5,24 @@ using GSoft.Dynamite.Navigation.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
+    /// <summary>
+    /// Fields configuration for the navigation module
+    /// </summary>
     public class NavigationFieldInfoConfig : INavigationFieldInfoConfig
     {
         private readonly NavigationFieldInfos _baseNavigationFieldInfos;
 
         /// <summary>
-        /// Base constructor
+        /// Default constructor
         /// </summary>
-        /// <param name="baseMultilingualismFieldInfos">The fields infos for multilingualism</param>
+        /// <param name="baseMultilingualismFieldInfos">The fields info for multilingualism</param>
         public NavigationFieldInfoConfig(NavigationFieldInfos baseMultilingualismFieldInfos)
         {
             this._baseNavigationFieldInfos = baseMultilingualismFieldInfos;
         }
 
         /// <summary>
-        /// Property to return the fields needed for the solution
+        /// Property that return all the fields to create or configure in the navigation module
         /// </summary>
         public IList<IFieldInfo> Fields
         {

@@ -4,7 +4,6 @@ using Autofac;
 using GSoft.Dynamite.Catalogs;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
@@ -15,10 +14,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("937be292-2393-47d6-8c8e-117622999f84")]
     public class CrossSitePublishingCMS_CatalogsEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;
@@ -31,7 +33,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                     var catalogHelper = featureScope.Resolve<ICatalogHelper>();
                     var baseCatalogInfoConfig = featureScope.Resolve<IPublishingCatalogInfoConfig>();
 
-                    var baseCatalogs = baseCatalogInfoConfig.Catalogs() as List<CatalogInfo>;
+                    var baseCatalogs = baseCatalogInfoConfig.Catalogs as List<CatalogInfo>;
                     
                     // Create catalogs
                     foreach (var catalog in baseCatalogs)
@@ -42,9 +44,5 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                 }
             }
         }
-
-        //public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        //{
-        //}
     }
 }

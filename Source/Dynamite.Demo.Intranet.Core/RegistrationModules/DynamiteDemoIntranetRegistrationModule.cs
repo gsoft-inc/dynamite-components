@@ -10,6 +10,9 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace Dynamite.Demo.Intranet.Core.RegistrationModules
 {
+    /// <summary>
+    /// <c>Autofac</c> Dynamite demo registration module
+    /// </summary>
     public class DynamiteDemoIntranetRegistrationModule : Module
     {
         /// <summary>
@@ -28,9 +31,7 @@ namespace Dynamite.Demo.Intranet.Core.RegistrationModules
 
             // Variations Override
             builder.Register(c => new DemoMultilingualismVariationsConfig(
-               c.ResolveNamed<IMultilingualismVariationsConfig>("multilingualism")
-               )).As<IMultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("demo");
-
+               c.ResolveNamed<IMultilingualismVariationsConfig>("multilingualism"))).As<IMultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("demo");
 
             // Catalogs Override
             builder.Register(c => new DemoPublishingCatalogInfoConfig(
@@ -38,15 +39,18 @@ namespace Dynamite.Demo.Intranet.Core.RegistrationModules
                c.Resolve<DemoPublishingCatalogInfos>())).As<IPublishingCatalogInfoConfig>().Named<IPublishingCatalogInfoConfig>("demo");
 
             // Result Sources Override
-            builder.Register(c => new DemoPublishingResultSourceInfoConfig(
+            builder.Register(
+               c => new DemoPublishingResultSourceInfoConfig(
                c.ResolveNamed<IPublishingResultSourceInfoConfig>("publishing"),
                c.Resolve<DemoPublishingResultSourceInfos>())).As<IPublishingResultSourceInfoConfig>().Named<IPublishingResultSourceInfoConfig>("demo");
 
             // Content Type Base Override
-            builder.Register(c => new DemoPublishingContentTypeInfoConfig(
+            builder.Register(
+                c => new DemoPublishingContentTypeInfoConfig(
                 c.ResolveNamed<IPublishingContentTypeInfoConfig>("publishing"),
                 c.Resolve<PublishingContentTypeInfos>(),
-                c.Resolve<DemoPublishingFieldInfos>(), c.Resolve<DemoPublishingContentTypeInfos>())).As<IPublishingContentTypeInfoConfig>().Named<IPublishingContentTypeInfoConfig>("demo");
+                c.Resolve<DemoPublishingFieldInfos>(), 
+                c.Resolve<DemoPublishingContentTypeInfos>())).As<IPublishingContentTypeInfoConfig>().Named<IPublishingContentTypeInfoConfig>("demo");
 
             // Fields Base Override
             builder.Register(c => new DemoPublishingFieldInfoConfig(

@@ -1,4 +1,4 @@
-﻿    using Autofac;
+﻿using Autofac;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
@@ -10,6 +10,9 @@ using GSoft.Dynamite.Publishing.Contracts.Configuration;
 
 namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
 {
+    /// <summary>
+    /// The <c>Autofac</c> registration module for the navigation module
+    /// </summary>
     public class NavigationRegistrationModule : Module
     {
         /// <summary>

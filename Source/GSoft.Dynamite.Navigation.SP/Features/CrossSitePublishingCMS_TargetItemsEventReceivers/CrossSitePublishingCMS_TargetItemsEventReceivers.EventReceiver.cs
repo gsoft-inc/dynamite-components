@@ -18,10 +18,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("8cb2ec32-a732-4818-acfd-16ff2826d617")]
     public class CrossSitePublishingCMS_TargetItemsEventReceiversEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Adds event receivers for the target item content type. Only used with Cross Site Publishing CMS based solutions.
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -38,7 +41,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
-                    // Add only Browsable Item events
+                    // Add only Target Item events
                     baseEventReceivers.Clear();
 
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
@@ -57,6 +60,10 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
             }
         }
 
+        /// <summary>
+        /// Removes event receivers for the target item content type. Only used with Cross Site Publishing CMS based solutions.
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -73,7 +80,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
-                    // Add only Browsable Item events
+                    // Add only Target Item events
                     baseEventReceivers.Clear();
 
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());

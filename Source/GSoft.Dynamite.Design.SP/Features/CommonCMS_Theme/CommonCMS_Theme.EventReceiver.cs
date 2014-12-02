@@ -1,10 +1,8 @@
-using System;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
+using Autofac;
 using GSoft.Dynamite.Design.Contracts.Configuration;
 using GSoft.Dynamite.Security;
 using Microsoft.SharePoint;
-using Autofac;
 
 namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_Theme
 {

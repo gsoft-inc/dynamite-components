@@ -1,43 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.Office.Server.Search.Administration;
 using ManagedPropertyInfo = GSoft.Dynamite.Search.ManagedPropertyInfo;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {
+    /// <summary>
+    /// Search managed properties for the multilingualism module
+    /// </summary>
     public class MultilingualismManagedPropertyInfos
     {
         /// <summary>
-        /// The content association key managed property name
+        /// The content association key managed property
         /// </summary>
-        public ManagedPropertyInfo ContentAssociationKey = new ManagedPropertyInfo("DynamiteContentAssociationKeyOWSGUID", ManagedDataType.Text)
+        public ManagedPropertyInfo ContentAssociationKey
         {
-            CrawledProperties = new Dictionary<string, int>()
+            get
             {
-                {"ows_q_GUID_DynamiteContentAssociationKey", 1},
-                {"ows_DynamiteContentAssociationKey", 2},
-            },
-            RespectPriority = true,
-            Queryable = true,
-            Retrievable = true,
-            Searchable = false,
-            Refinable = false,
-        };
+                return new ManagedPropertyInfo("DynamiteContentAssociationKeyOWSGUID", ManagedDataType.Text)
+                {
+                    CrawledProperties = new Dictionary<string, int>()
+                {
+                    { "ows_q_GUID_DynamiteContentAssociationKey", 1 },
+                    { "ows_DynamiteContentAssociationKey", 2 },
+                },
+                    RespectPriority = true,
+                    Queryable = true,
+                    Retrievable = true,
+                    Searchable = false,
+                    Refinable = false,
+                };
+            }
+        }
 
         /// <summary>
-        /// The item language
+        /// The item language managed property
         /// </summary>
-        public ManagedPropertyInfo ItemLanguage = new ManagedPropertyInfo("DynamiteItemLanguageOWSTEXT", ManagedDataType.Text)
-        {        
-            CrawledProperties = new Dictionary<string, int>()
+        public ManagedPropertyInfo ItemLanguage
+        {
+            get
             {
-                {"ows_q_TEXT_DynamiteItemLanguage", 1},
-                {"ows_DynamiteItemLanguage", 2},
-            },
-            RespectPriority = true
-        };
+                return new ManagedPropertyInfo("DynamiteItemLanguageOWSTEXT", ManagedDataType.Text)
+                {        
+                    CrawledProperties = new Dictionary<string, int>()
+                    {
+                        { "ows_q_TEXT_DynamiteItemLanguage", 1 },
+                        { "ows_DynamiteItemLanguage", 2 },
+                    },
+                    RespectPriority = true
+                };
+            }
+        }
     }
 }

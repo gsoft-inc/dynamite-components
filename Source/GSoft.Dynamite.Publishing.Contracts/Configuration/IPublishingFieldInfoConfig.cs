@@ -9,8 +9,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
     public interface IPublishingFieldInfoConfig
     {
         /// <summary>
-        /// Property that return all the base field to create
+        /// Property that return all the field to create in the publishing module
         /// </summary>
+        /// <returns>he fields</returns>
         IList<IFieldInfo> Fields { get; }
     }
 }

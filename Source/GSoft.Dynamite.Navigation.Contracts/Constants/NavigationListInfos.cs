@@ -1,21 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Fields;
-using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {
+    /// <summary>
+    /// Lists configurations for the navigation module
+    /// </summary>
     public class NavigationListInfos
     {
         private readonly PublishingFieldInfos publishingFieldInfos;
         private readonly PublishingCatalogInfos publishingCatalogInfos;
         private readonly PublishingListInfos publishingListInfos;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="publishingFieldInfos">The fields info configuration objects from the publishing module</param>
+        /// <param name="publishingCatalogInfos">The catalogs info configuration objects from the publishing module</param>
+        /// <param name="publishingListInfos">The lists info configuration objects from the publishing module</param>
         public NavigationListInfos(PublishingFieldInfos publishingFieldInfos, PublishingCatalogInfos publishingCatalogInfos, PublishingListInfos publishingListInfos)
         {
             this.publishingFieldInfos = publishingFieldInfos;
@@ -23,7 +27,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             this.publishingListInfos = publishingListInfos;
         }
 
-
+        /// <summary>
+        /// The content pages catalog
+        /// </summary>
         public ListInfo ContentPages
         {
             get
@@ -42,6 +48,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             }
         }
 
+        /// <summary>
+        /// The OOTB Pages Library
+        /// </summary>
         public ListInfo PagesLibrary
         {
             get
@@ -59,8 +68,5 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 return pagesLibrary;
             }
         }
-
-
-
     }
 }

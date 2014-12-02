@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
-using GSoft.Dynamite.Navigation.Contracts.Constants;
+﻿using Autofac;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Events
 {
+    /// <summary>
+    /// Defines events for the <c>browsable</c> page content type
+    /// </summary>
     public class BrowsableItemEvents : SPItemEventReceiver
     {
         /// <summary>
@@ -24,6 +21,7 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
                 var slugService = childScope.Resolve<ISlugBuilderService>();
+
                 // Set slugs
                 slugService.SetFriendlyUrlSlug(properties.ListItem);
 

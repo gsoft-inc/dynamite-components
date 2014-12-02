@@ -4,12 +4,16 @@ using GSoft.Dynamite.Taxonomy;
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     /// <summary>
-    /// Base TermInfo values
+    /// Term definitions for the publishing module
     /// </summary>
     public class PublishingTermInfos
     {
         private PublishingTermSetInfos termSetInfos;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="termSetInfos">The term set info objects configuration</param>
         public PublishingTermInfos(PublishingTermSetInfos termSetInfos)
         {
             this.termSetInfos = termSetInfos;
@@ -25,7 +29,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
-        /// The news term
+        /// The about term
         /// </summary>
         /// <returns>The term</returns>
         public TermInfo AboutLabel()

@@ -6,11 +6,19 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
+    /// <summary>
+    /// Content types configuration for the navigation module
+    /// </summary>
     public class NavigationContentTypeInfoConfig : INavigationContentTypeInfoConfig
     {
         private readonly PublishingContentTypeInfos _basePublishingContentTypeInfos;
         private readonly NavigationFieldInfos _basenavigationFieldInfos;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="basePublishingContentTypeInfos">The content type info objects configuration</param>
+        /// <param name="baseMultilingualismFieldInfos">The fields info objects configuration</param>
         public NavigationContentTypeInfoConfig(
             PublishingContentTypeInfos basePublishingContentTypeInfos,
             NavigationFieldInfos baseMultilingualismFieldInfos)
@@ -19,6 +27,9 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             this._basenavigationFieldInfos = baseMultilingualismFieldInfos;
         }
 
+        /// <summary>
+        /// Property that return all the content types to create or configure in the navigation module
+        /// </summary>
         public IList<ContentTypeInfo> ContentTypes
         {
             get

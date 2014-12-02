@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Folders;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Configuration
 {
+    /// <summary>
+    /// Configuration of the root folder hierarchies for a list or a library.
+    /// Use a folder that encapsulates all items definitions instead of creating items or pages individually
+    /// </summary>
     public interface IPublishingFolderInfoConfig
     {
-       IList<FolderInfo> RootFolderHierarchies();
+        /// <summary>
+        /// Property that return all the folder hierarchies to create in the publishing module
+        /// </summary>
+        IList<FolderInfo> RootFolderHierarchies { get; }
     }
 }

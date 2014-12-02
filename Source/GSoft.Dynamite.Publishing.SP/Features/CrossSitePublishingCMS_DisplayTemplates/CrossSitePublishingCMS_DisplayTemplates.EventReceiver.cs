@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Branding;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 
@@ -16,10 +13,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("f2fa3e0c-78cc-4953-9352-dbc752a33642")]
     public class CrossSitePublishingCMS_DisplayTemplatesEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -32,9 +32,8 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
                     var catalog = web.GetCatalog(SPListTemplateType.MasterPageCatalog);
                     var displayTemplateHelper = featureScope.Resolve<IDisplayTemplateHelper>();
 
-
                     var displayTemplateConfig = featureScope.Resolve<IPublishingDisplayTemplateInfoConfig>();
-                    var displayTemplates = displayTemplateConfig.DisplayTemplates();
+                    var displayTemplates = displayTemplateConfig.DisplayTemplates;
                     var fileList = new List<SPFile>();
 
                     // Populate the SPFiles list
@@ -50,11 +49,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
                     }
                 }
             }
-        }
-
-        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        {
-            // TODO
         }
     }
 }

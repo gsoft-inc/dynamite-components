@@ -1,15 +1,12 @@
-using System;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Navigation.Contracts.Constants;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_PagesLibraryList
+namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_PagesLibraryList
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -17,10 +14,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_PagesLibr
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("be776369-6764-4959-8980-2224c8fbe8a4")]
     public class SimpleCMS_PagesLibraryListEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Configures the pages library to allow open term creation in the navigation column. Only used with Standard Publishing CMS based solutions.
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;

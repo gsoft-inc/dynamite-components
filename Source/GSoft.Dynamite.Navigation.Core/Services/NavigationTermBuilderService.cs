@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.UI;
-using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
@@ -15,12 +9,21 @@ using Microsoft.SharePoint.Taxonomy;
 
 namespace GSoft.Dynamite.Navigation.Core.Services
 {
+    /// <summary>
+    /// Service for the target pages manipulation and navigation structure management
+    /// </summary>
     public class NavigationTermBuilderService : INavigationTermBuilderService
     {
         private readonly ITaxonomyService taxonomyService;
         private readonly INavigationHelper navigationHelper;
         private readonly PublishingFieldInfos publishingFieldInfos;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="taxonomyService">The taxonomy service helper</param>
+        /// <param name="navigationHelper">The navigation helper</param>
+        /// <param name="publishingFieldInfos">The publishing field info objects</param>
         public NavigationTermBuilderService(ITaxonomyService taxonomyService, INavigationHelper navigationHelper, PublishingFieldInfos publishingFieldInfos)
         {
             this.taxonomyService = taxonomyService;
@@ -29,7 +32,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         }
 
         /// <summary>
-        /// Associtate the current page to its navigation navigation via a term driven page url
+        /// Associate the current page to its navigation navigation via a term driven page url
         /// </summary>
         /// <param name="site">The current site</param>
         /// <param name="item">The current page item</param>
@@ -48,7 +51,13 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         var pageUrl = "~site/" + item.Url;
                         var termInfo = new TermInfo(new Guid(termValue.TermGuid), string.Empty, null);
 
-                        var termDrivenpage = new TermDrivenPageSettingInfo(termInfo, pageUrl, null, null, null, false,
+                        var termDrivenpage = new TermDrivenPageSettingInfo(
+                            termInfo, 
+                            pageUrl, 
+                            null, 
+                            null, 
+                            null, 
+                            false,
                             false);
 
                         this.navigationHelper.SetTermDrivenPageSettings(site, termDrivenpage);
@@ -58,7 +67,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         }
 
         /// <summary>
-        /// Sync the associated navigation taxonomy term with other term sets for multilnigual support
+        /// Sync the associated navigation taxonomy term with other term sets for multilingual support
         /// </summary>
         /// <param name="site">The current site</param>
         /// <param name="item">The current item</param>
@@ -87,7 +96,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                             {
                                 if (parentTerm.IsReused)
                                 {
-                                    //Get all term sets where this term is reused
+                                    // Get all term sets where this term is reused
                                     foreach (var reusedTerm in parentTerm.ReusedTerms)
                                     {
                                         var reusedTermSet = reusedTerm.TermSet;
@@ -139,7 +148,6 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                 }
             }
         }
-
 
         /// <summary>
         /// Delete the term associated to a page if the page is deleted

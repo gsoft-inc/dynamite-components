@@ -7,12 +7,13 @@ using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Multilingualism.Core.Configuration;
 using GSoft.Dynamite.Multilingualism.Core.Services;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-
 
 namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
 {
-    public class MultilingualismRegistrationModule: Module
+    /// <summary>
+    /// Multilingualism <c>Autofac</c> module
+    /// </summary>
+    public class MultilingualismRegistrationModule : Module
     {
         /// <summary>
         /// Registers the modules type bindings

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Dynamite.Demo.Intranet.Contracts.Resources;
 using GSoft.Dynamite.Catalogs;
 using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Fields;
-using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
@@ -16,24 +10,33 @@ using Microsoft.SharePoint;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants
 {
+    /// <summary>
+    /// Catalogs definitions for the Dynamite demo module
+    /// </summary>
     public class DemoPublishingCatalogInfos
     {
-        private readonly IResourceLocator _resourceLocator;
-        private readonly string _resourceFileName = DynamiteDemoResources.Global;
         private readonly DemoPublishingContentTypeInfos _contentTypeInfoValues;
         private readonly PublishingFieldInfos _fieldInfoValues;
 
-        public DemoPublishingCatalogInfos(IResourceLocator resourceLocator,
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="contentTypeInfoValues">The content types from the Dynamite demo module</param>
+        /// <param name="fieldInfoValues">The fields definitions from the publishing module</param>
+        public DemoPublishingCatalogInfos(
             DemoPublishingContentTypeInfos contentTypeInfoValues,
             PublishingFieldInfos fieldInfoValues)
         {
-            _resourceLocator = resourceLocator;
-            _contentTypeInfoValues = contentTypeInfoValues;
-            _fieldInfoValues = fieldInfoValues;
+            this._contentTypeInfoValues = contentTypeInfoValues;
+            this._fieldInfoValues = fieldInfoValues;
         }
 
         #region Content Pages Catalog
 
+        /// <summary>
+        /// Demo catalog
+        /// </summary>
+        /// <returns>The catalog info</returns>
         public CatalogInfo DynamiteCatalog()
         {
             return new CatalogInfo(
@@ -43,14 +46,14 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
                 {
                     ContentTypes = new List<ContentTypeInfo>()
                     {
-                        _contentTypeInfoValues.DynamiteItem()
+                        this._contentTypeInfoValues.DynamiteItem()
                     },
                     DraftVisibilityType = DraftVisibilityType.Approver,
                     EnableRatings = false,
                     ListTemplate = SPListTemplateType.GenericList,
                     Overwrite = false,
                     RemoveDefaultContentType = true,
-                    TaxonomyFieldMap = _fieldInfoValues.Navigation(),
+                    TaxonomyFieldMap = this._fieldInfoValues.Navigation(),
                     EnforceUniqueNavigationValues = false,
                     WriteSecurity = WriteSecurityOptions.AllUser,
                     HasDraftVisibilityType = true,
@@ -61,7 +64,7 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
                     AddToQuickLaunch = true,
                     DefaultViewFields = new List<IFieldInfo>()
                     {
-                        _fieldInfoValues.Navigation()
+                        this._fieldInfoValues.Navigation()
                     },
                     IsAnonymous = true
                 };

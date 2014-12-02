@@ -1,15 +1,11 @@
-using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
-using GSoft.Dynamite.Helpers;
-using GSoft.Dynamite.Logging;
-using GSoft.Dynamite.Utils;
-using Microsoft.SharePoint;
-using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Events;
 using GSoft.Dynamite.Globalization;
+using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_EventReceivers
 {
@@ -19,10 +15,13 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("ebb45495-7d0c-407e-abb6-2a64c7322e25")]
     public class CrossSitePublishingCMS_EventReceiversEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Adds event receivers for the multilingualism module
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -50,6 +49,10 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
             }
         }
 
+        /// <summary>
+        /// Removes event receivers for the multilingualism module
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;

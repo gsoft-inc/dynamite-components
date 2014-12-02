@@ -1,19 +1,25 @@
 ﻿using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
-using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration
 {
+    /// <summary>
+    /// Variations configuration for the Dynamite demo module
+    /// </summary>
     public class DemoMultilingualismVariationsConfig : IMultilingualismVariationsConfig
     {
-        private readonly MultilingualismVariationSettingsInfos _baseVariationsSettingsInfo;
-        private readonly IMultilingualismVariationsConfig _baseMultilingualismVariationsConfig;
-
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="baseMultilingualismVariationsConfig">The variations configuration from the multilingualism module</param>
         public DemoMultilingualismVariationsConfig(IMultilingualismVariationsConfig baseMultilingualismVariationsConfig)
         {
-            this._baseMultilingualismVariationsConfig = baseMultilingualismVariationsConfig;
         }
 
+        /// <summary>
+        /// Overrides variations settings from the multilingualism module
+        /// </summary>
+        /// <returns>The variations settings</returns>
         public VariationSettingsInfo VariationSettings()
         {
             // No variations settings for the demo

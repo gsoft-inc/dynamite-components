@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
@@ -16,10 +14,13 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Resu
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("a145b249-5d4f-4854-8724-9fb2ac5d219d")]
     public class CrossSitePublishingCMS_ResultSourcesEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Creates search result sources for the multilingualism
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -44,6 +45,10 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Resu
             }
         }
 
+        /// <summary>
+        /// Reverts to the publishing module result source configuration 
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;

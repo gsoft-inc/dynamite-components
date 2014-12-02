@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autofac;
 using GSoft.Dynamite.ServiceLocator;
 using GSoft.Dynamite.ServiceLocator.AddOn;
@@ -10,11 +6,16 @@ using Microsoft.SharePoint;
 
 namespace Dynamite.Demo.Intranet.ServiceLocator
 {
+    /// <summary>
+    /// The Dynamite demo container
+    /// </summary>
     public class DynamiteDemoContainer : ISharePointServiceLocatorAccessor
     {
         private const string AppName = "Dynamite.Demo.Intranet";
 
-        private static readonly ISharePointServiceLocator innerServiceLocator = new SharePointServiceLocator(AppName, fileName => 
+        private static readonly ISharePointServiceLocator InnerServiceLocator = new SharePointServiceLocator(
+            AppName, 
+            fileName => 
             fileName.Contains(AppName) ||
             fileName.Contains("GSoft.Dynamite.Publishing") ||
             fileName.Contains("GSoft.Dynamite.Multilingualism") ||
@@ -22,6 +23,11 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
             fileName.Contains("GSoft.Dynamite.Docs") ||
             fileName.Contains("GSoft.Dynamite.Design") ||
             fileName.Contains("GSoft.Dynamite.LifeCycle"));
+
+        ISharePointServiceLocator ISharePointServiceLocatorAccessor.ServiceLocatorInstance
+        {
+            get { return ServiceLocatorInstance; }
+        }
 
         /// <summary>
         /// Exposes the inner service locator through the ISharePointServiceLocatorAccessor interface,
@@ -31,7 +37,7 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         {
             get
             {
-                return innerServiceLocator;
+                return InnerServiceLocator;
             }
         }
 
@@ -49,7 +55,7 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         {
             get
             {
-                return innerServiceLocator.Current;
+                return InnerServiceLocator.Current;
             }
         }
 
@@ -71,7 +77,7 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginFeatureLifetimeScope(SPFeature feature)
         {
-            return innerServiceLocator.BeginLifetimeScope(feature);
+            return InnerServiceLocator.BeginLifetimeScope(feature);
         }
 
         /// <summary>
@@ -85,12 +91,7 @@ namespace Dynamite.Demo.Intranet.ServiceLocator
         /// <returns>A new child lifetime scope which should be disposed by the caller.</returns>
         public static ILifetimeScope BeginWebLifetimeScope(SPWeb web)
         {
-            return innerServiceLocator.BeginLifetimeScope(web);
-        }
-
-        ISharePointServiceLocator ISharePointServiceLocatorAccessor.ServiceLocatorInstance
-        {
-            get { return ServiceLocatorInstance; }
+            return InnerServiceLocator.BeginLifetimeScope(web);
         }
     }
 }

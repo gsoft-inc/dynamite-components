@@ -1,13 +1,11 @@
-using System;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Lists
+namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Lists
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -15,10 +13,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Lists
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("73545a7e-36d3-4b36-98b0-fcd15ea5b445")]
     public class CommonCMS_ListsEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;

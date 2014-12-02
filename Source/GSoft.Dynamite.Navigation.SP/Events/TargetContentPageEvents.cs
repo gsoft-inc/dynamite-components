@@ -5,11 +5,14 @@ using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Events
 {
+    /// <summary>
+    /// Defines events for the target page content type
+    /// </summary>
     public class TargetContentPageEvents : SPItemEventReceiver
     {
         /// <summary>
         /// Asynchronous After event that occurs after a new item has been added to its containing object.
-        /// Be careful, on a document library like pages libray, ItemAdded NOT FIRING on the "New document" option on the ribbon. Use ItemUpdated instead
+        /// Be careful, on a document library like pages library, ItemAdded NOT FIRING on the "New document" option on the ribbon. Use ItemUpdated instead
         /// </summary>
         /// <param name="properties">Event properties</param>
         public override void ItemAdded(SPItemEventProperties properties)
@@ -70,6 +73,10 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             }
         }
 
+        /// <summary>
+        /// Asynchronous After event that occurs after an existing item is deleted.
+        /// </summary>
+        /// <param name="properties">An <see cref="T:Microsoft.SharePoint.SPItemEventProperties" /> object that represents properties of the event handler.</param>
         public override void ItemDeleted(SPItemEventProperties properties)
         {
             base.ItemDeleted(properties);

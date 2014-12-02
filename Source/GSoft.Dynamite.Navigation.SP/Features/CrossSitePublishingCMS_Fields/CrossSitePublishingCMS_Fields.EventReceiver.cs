@@ -17,10 +17,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Fields
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("ced7a8ec-f023-439e-8202-4eb529363ed9")]
     public class CrossSitePublishingCMS_FieldsEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Creates fields for the navigation module
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -36,9 +39,10 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Fields
 
                     using (new Unsafe(site.RootWeb))
                     {
-                        // Create base Fields
+                        // Create fields
                         foreach (IFieldInfo field in baseFields)
                         {
+                            logger.Info("Creating field {0}", field.InternalName);
                             fieldHelper.EnsureField(site.RootWeb.Fields, field);
                         } 
                     }

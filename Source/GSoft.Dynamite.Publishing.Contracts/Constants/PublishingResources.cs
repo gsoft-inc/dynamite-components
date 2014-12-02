@@ -126,12 +126,12 @@
         public static readonly string ContentTypeNewsItemDescription = "ContentType_NewsItem_Description";
 
         /// <summary>
-        /// The content type Browsable Page Name
+        /// The content type <c>Browsable</c> Page Name
         /// </summary>
         public static readonly string ContentTypeBrowsablePageTitle = "ContentType_BrowsablePage_Name";
 
         /// <summary>
-        /// The content type Browsable Page Description
+        /// The content type <c>Browsable</c> Page Description
         /// </summary>
         public static readonly string ContentTypeBrowsablePageDescription = "ContentType_BrowsablePage_Desc";
 
@@ -198,7 +198,6 @@
         /// The News Pages list description 
         /// </summary>
         public static readonly string ContentCatalogDescription = "List_ContentPages_Desc";
-
 
         #endregion
     }

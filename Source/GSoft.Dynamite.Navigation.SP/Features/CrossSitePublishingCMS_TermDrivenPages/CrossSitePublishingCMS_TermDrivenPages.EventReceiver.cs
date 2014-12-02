@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Pages;
-using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
+namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TermDrivenPages
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -16,12 +14,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("5c004e26-0775-4fea-bf77-f6edbabbb6ff")]
     public class Feature1EventReceiver : SPFeatureReceiver
     {
-        // Uncomment the method below to handle the event raised after a feature has been activated.
-
+        /// <summary>
+        /// Sets the term driven pages settings for taxonomy navigation terms
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -37,9 +36,10 @@ namespace GSoft.Dynamite.Navigation.SP.Features.Feature1
 
                     IList<TermDrivenPageSettingInfo> termDrivenPageSettingInfos = baseTermDrivenPageSettingsInfoConfig.TermDrivenPageSettingInfos;
 
-                    // Create base result types
+                    // Set term driven pages
                     foreach (var termDrivenSetting in termDrivenPageSettingInfos)
                     {
+                        logger.Info("Setting term driven page {0} for term {1}", termDrivenSetting.CatalogTargetUrl, termDrivenSetting.Term.Label);
                         navigationHelper.SetTermDrivenPageSettings(site, termDrivenSetting);
                     }
                 }

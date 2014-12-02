@@ -18,7 +18,7 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
     public class FilteredProductShowcaseWebPart : WebPart, IFilteredProductShowcaseWebPart
     {
         // Visual Studio might automatically update this path when you change the Visual Web Part project item.
-        private const string ascxPath = @"~/_CONTROLTEMPLATES/15/GSoft.Dynamite.Publishing.SP.WebParts/FilteredProductShowcaseWebPart/FilteredProductShowcaseWebPartUserControl.ascx";
+        private const string AscxPath = @"~/_CONTROLTEMPLATES/15/GSoft.Dynamite.Publishing.SP.WebParts/FilteredProductShowcaseWebPart/FilteredProductShowcaseWebPartUserControl.ascx";
 
         /// <summary>
         /// Start date property name
@@ -45,20 +45,23 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart
         public string ItemKnockoutTemplate { get; set; }
 
         /// <summary>
-        /// The name of the view model javascript class to use for each result item
+        /// The name of the view model JavaScript class to use for each result item
         /// </summary>
         [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Item Javascript View Model"), WebDescription(""), Category("Filtered Product Showcase")]
         public string ItemJavaScriptViewModel { get; set; }
 
         /// <summary>
-        /// The name of the view model javascript class to use for each result item
+        /// The name of the view model JavaScript class to use for each result item
         /// </summary>
         [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Callbacks"), WebDescription(""), Category("Filtered Product Showcase")]
         public string Callbacks { get; set; }
 
+        /// <summary>
+        /// Creates child controls
+        /// </summary>
         protected override void CreateChildControls()
         {
-            var filteredProductShowcaseControl = Page.LoadControl(ascxPath) as FilteredProductShowcaseWebPartUserControl;
+            var filteredProductShowcaseControl = Page.LoadControl(AscxPath) as FilteredProductShowcaseWebPartUserControl;
 
             if (filteredProductShowcaseControl != null)
             {

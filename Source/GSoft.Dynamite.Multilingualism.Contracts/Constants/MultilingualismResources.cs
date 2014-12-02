@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
+﻿namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {
+    /// <summary>
+    /// Resources strings configuration for the multilingualism module
+    /// </summary>
     public static class MultilingualismResources
     {
         /// <summary>

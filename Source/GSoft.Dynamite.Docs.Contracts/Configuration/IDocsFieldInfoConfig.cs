@@ -3,6 +3,9 @@ using GSoft.Dynamite.Fields;
 
 namespace GSoft.Dynamite.Docs.Contracts.Configuration
 {
+    /// <summary>
+    /// Fields configuration for the document management module
+    /// </summary>
     public interface IDocsFieldInfoConfig
     {
         /// <summary>
