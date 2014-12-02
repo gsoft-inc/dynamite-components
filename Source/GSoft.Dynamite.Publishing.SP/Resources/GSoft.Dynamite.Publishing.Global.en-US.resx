@@ -308,7 +308,7 @@
   </data>
   <data name="PageLayout_RightSidebarPageLayout_Name" xml:space="preserve">
     <value>Right Sidebar Page Layout</value>
-	  </data>
+  </data>
   <data name="ContentType_BrowsablePage_Desc" xml:space="preserve">
     <value>Creates a new browsable page</value>
   </data>
@@ -333,10 +333,16 @@
   <data name="Feature_CrossSitePublishingCMS_MetadataNavigation_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Publishing Module - Metadata Navigation and filtering</value>
   </data>
-  <data name="Feature_SimplePublishingCMS_MetadataNavigation_Desc" xml:space="preserve">
-    <value>Configures metada navigation and filtering on pages library catalogs for Simple Publishing based CMS solutions</value>
+  <data name="Feature_StandardPublishingCMS_MetadataNavigation_Desc" xml:space="preserve">
+    <value>Configures metada navigation and filtering on pages library catalogs for Standard Publishing CMS solutions</value>
   </data>
-  <data name="Feature_SimplePublishingCMS_MetadataNavigation_Name" xml:space="preserve">
-    <value>Dynamite Simple Publishing CMS - Publishing Module - Metadata Navigation and filtering</value>
+  <data name="Feature_StandardPublishingCMS_MetadataNavigation_Name" xml:space="preserve">
+    <value>Dynamite Standard Publishing CMS - Publishing Module - Metadata Navigation and filtering</value>
+  </data>
+  <data name="PageLayout_OneColumnPageLayout_Desc" xml:space="preserve">
+    <value>Creates a large column and a header zone</value>
+  </data>
+  <data name="PageLayout_OneColumnPageLayout_Name" xml:space="preserve">
+    <value>One Column with Header Page Layout</value>
   </data>
 </root>

@@ -2,8 +2,15 @@
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {
+    /// <summary>
+    /// Defines SharePoint variations labels
+    /// </summary>
     public class MultilingualismVariationLabelInfos
     {
+        /// <summary>
+        /// The english variation label definition
+        /// </summary>
+        /// <returns>The label info</returns>
         public VariationLabelInfo EnglishLabel()
         {
             return new VariationLabelInfo()
@@ -18,6 +25,10 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             };
         }
 
+        /// <summary>
+        /// The french variation label definition
+        /// </summary>
+        /// <returns>The label info</returns>
         public VariationLabelInfo FrenchLabel()
         {
             return new VariationLabelInfo()

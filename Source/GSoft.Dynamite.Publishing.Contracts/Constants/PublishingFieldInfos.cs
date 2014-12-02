@@ -1,10 +1,7 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
-using GSoft.Dynamite.Globalization;
-using Microsoft.SharePoint;
-using GSoft.Dynamite.ValueTypes;
-using GSoft.Dynamite.Taxonomy;
 using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
@@ -13,32 +10,29 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public class PublishingFieldInfos
     {
-        private readonly IResourceLocator resourceLocator;
-        private readonly string resourceFileName = PublishingResources.Global;
-        private readonly PublishingTermGroupInfos termGroupInfoValues;
         private readonly PublishingTermSetInfos termSetInfoValues;
 
-        public PublishingFieldInfos(IResourceLocator resourceLocator, PublishingTermGroupInfos termGroupInfoValues, PublishingTermSetInfos termSetInfoValues)
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="termSetInfoValues">The term set info objects configuration</param>
+        public PublishingFieldInfos(PublishingTermSetInfos termSetInfoValues)
         {
-            this.termGroupInfoValues = termGroupInfoValues;
             this.termSetInfoValues = termSetInfoValues;
-            this.resourceLocator = resourceLocator;
-
         }
 
         #region Field prefix
 
-        public static readonly string FieldPrefix = "Dynamite";
-
-        #endregion
-
-        #region Field internal names
-
-        private static readonly string NavigationFieldName = FieldPrefix + "Navigation";
-
-        private static readonly string SummaryFieldName = FieldPrefix + "Summary";
-
-        private static readonly string ImageDescriptionFieldName = FieldPrefix + "ImageDescription";
+        /// <summary>
+        /// The Dynamite field prefix for all fields
+        /// </summary>
+        public static string FieldPrefix
+        {
+            get
+            {
+                return "Dynamite";
+            }
+        }
 
         #endregion
 
@@ -55,12 +49,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 new Guid("{256DF203-3855-497F-B514-4C99D5BE79C9}"),
                 PublishingResources.FieldPortalNavigationName,
                 PublishingResources.FieldPortalNavigationDescription,
-                PublishingResources.FieldGroup
-                )
+                PublishingResources.FieldGroup)
             {
                 TermStoreMapping = new TaxonomyContext()
                 {
-                    TermSet = termSetInfoValues.GlobalNavigation()
+                    TermSet = this.termSetInfoValues.GlobalNavigation()
                 },
                 /*DefaultValue = new TaxonomyFullValue()
                 {
@@ -96,9 +89,27 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 new Guid("{23E12444-CD39-4604-B1B2-8D7F99A0836C}"),
                 PublishingResources.FieldPortalImageDescriptionName,
                 PublishingResources.FieldPortalImageDescriptionDescription,
-                PublishingResources.FieldGroup
-                ); ;
+                PublishingResources.FieldGroup);
         }
+
+        #endregion
+        
+        #region Field internal names
+
+        /// <summary>
+        /// Navigation field internal name
+        /// </summary>
+        private static readonly string NavigationFieldName = FieldPrefix + "Navigation";
+
+        /// <summary>
+        /// Summary field internal name
+        /// </summary>
+        private static readonly string SummaryFieldName = FieldPrefix + "Summary";
+
+        /// <summary>
+        /// Image Description field internal name
+        /// </summary>
+        private static readonly string ImageDescriptionFieldName = FieldPrefix + "ImageDescription";
 
         #endregion
     }

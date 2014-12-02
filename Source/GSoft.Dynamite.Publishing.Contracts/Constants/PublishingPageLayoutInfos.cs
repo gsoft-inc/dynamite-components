@@ -1,12 +1,18 @@
-﻿using System.Collections.Generic;
-using GSoft.Dynamite.Pages;
+﻿using GSoft.Dynamite.Pages;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
+    /// <summary>
+    /// Page layouts definitions for the publishing module
+    /// </summary>
     public class PublishingPageLayoutInfos
     {
         private readonly PublishingContentTypeInfos publishingContentTypeInfos;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="publishingContentTypeInfos">The page layouts info objects configuration</param>
         public PublishingPageLayoutInfos(PublishingContentTypeInfos publishingContentTypeInfos)
         {
             this.publishingContentTypeInfos = publishingContentTypeInfos;
@@ -14,6 +20,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         #region Target Item Page Layout
 
+        /// <summary>
+        /// The target item page layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
         public PageLayoutInfo TargetItemPageLayout()
         {
             return new PageLayoutInfo()
@@ -26,6 +36,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         #region Catalog Item Page Layout
 
+        /// <summary>
+        /// The catalog item page layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
         public PageLayoutInfo CatalogItemPageLayout()
         {
             return new PageLayoutInfo()
@@ -38,6 +52,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         #region Catalog Category Items Page Layout
 
+        /// <summary>
+        /// The catalog category page layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
         public PageLayoutInfo CatalogCategoryItemsPageLayout()
         {
             return new PageLayoutInfo()
@@ -50,11 +68,24 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         #region Right Sidebar Page Layout
 
+        /// <summary>
+        /// The right sidebar generic page layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
         public PageLayoutInfo RightSidebar()
         {
             return new PageLayoutInfo()
             {
                 Name = "RightSidebar.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
+
+        public PageLayoutInfo OneColunmWithHeader()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "OneColumnWithHeader.aspx",
                 AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
             };
         }

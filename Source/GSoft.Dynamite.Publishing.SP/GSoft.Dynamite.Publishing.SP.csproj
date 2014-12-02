@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10161\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10164\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -72,6 +72,9 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx.cs">
       <DependentUpon>ClientScripts.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,8 +118,8 @@
     <Compile Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\SimplePublishingCMS_MetadataNavigation\SimplePublishingCMS_MetadataNavigation.EventReceiver.cs">
-      <DependentUpon>SimplePublishingCMS_MetadataNavigation.feature</DependentUpon>
+    <Compile Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.EventReceiver.cs">
+      <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
@@ -192,8 +195,11 @@
     <None Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.feature">
       <FeatureId>{f3356d64-196b-4626-b89a-4c4daf52d8ac}</FeatureId>
     </None>
-    <None Include="Features\SimplePublishingCMS_MetadataNavigation\SimplePublishingCMS_MetadataNavigation.feature">
+    <None Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.feature">
       <FeatureId>{17abf062-5a4c-4462-8370-ef3c7e84d741}</FeatureId>
+    </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1ab17249-9879-4179-9e87-da77f66bd9db}</SharePointProjectItemId>
     </None>
     <None Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
       <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
@@ -233,6 +239,7 @@
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemHeader.html" />
     <Content Include="Artefacts\PageLayouts\CatalogItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\Elements.xml" />
+    <Content Include="Artefacts\PageLayouts\OneColumnWithHeader.aspx" />
     <Content Include="Artefacts\PageLayouts\RightSidebar.aspx" />
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />
@@ -255,9 +262,10 @@
     <Content Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Content>
-    <Content Include="Features\SimplePublishingCMS_MetadataNavigation\SimplePublishingCMS_MetadataNavigation.Template.xml">
-      <DependentUpon>SimplePublishingCMS_MetadataNavigation.feature</DependentUpon>
+    <Content Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.Template.xml">
+      <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Content>
+    <Content Include="Images\GSoft.Dynamite.Publishing.SP\logo-32x32-Pub.png" />
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
     <Content Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.Template.xml">
       <DependentUpon>CommonCMS_LanguageFiles.feature</DependentUpon>
@@ -306,6 +314,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

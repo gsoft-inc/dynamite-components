@@ -1,7 +1,5 @@
-using System;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Extensions;
 using GSoft.Dynamite.Folders;
@@ -19,10 +17,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_CategoryP
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("394329fa-e9bb-4be1-b1d4-15ea6930b95d")]
     public class CrossSitePublishingCMS_CategoryPagesEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;
@@ -37,7 +38,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_CategoryP
 
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
                     var publishingFolderInfos = featureScope.Resolve<PublishingFolderInfos>();
-                    var folders = baseFoldersConfig.RootFolderHierarchies().ToList();
+                    var folders = baseFoldersConfig.RootFolderHierarchies.ToList();
 
                     // Remove Category Page folder
                     folders.RemoveAll(f => f.Name.Equals(publishingFolderInfos.ItemPageTemplates().Name));
@@ -72,6 +73,10 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_CategoryP
             }
         }
 
+        /// <summary>
+        /// Feature deactivating event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;
@@ -83,12 +88,11 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_CategoryP
                 if (web != null && PublishingWeb.IsPublishingWeb(web))
                 {
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
-                    var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
 
+                    // TODO: Delete existing pages and folder
                     folderHelper.ResetWelcomePageToDefault(web);
                 }
             }
-            // Reset HomePage
         }
     }
 }

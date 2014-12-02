@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GSoft.Dynamite.Design.Contracts.Configuration;
+﻿using GSoft.Dynamite.Design.Contracts.Configuration;
 
 namespace Dynamite.Demo.Intranet.Core.Configuration
 {
+    /// <summary>
+    /// Example of an override of the design configuration from the design module
+    /// </summary>
     public class DemoDesignConfig
     {
         private IDesignConfig designConfig;
@@ -14,7 +12,7 @@ namespace Dynamite.Demo.Intranet.Core.Configuration
         /// <summary>
         /// Override of design config
         /// </summary>
-        /// <param name="designConfig"></param>
+        /// <param name="designConfig">The design configuration from the design module</param>
         public DemoDesignConfig(IDesignConfig designConfig)
         {
             this.designConfig = designConfig;

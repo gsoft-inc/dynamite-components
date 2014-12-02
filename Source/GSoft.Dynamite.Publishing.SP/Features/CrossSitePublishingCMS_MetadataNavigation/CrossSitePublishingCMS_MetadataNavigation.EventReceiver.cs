@@ -1,15 +1,12 @@
-using System;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.Feature1
+namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_MetadataNavigation
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -17,10 +14,13 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Feature1
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("d73aef21-e570-4694-b472-2aee3803347d")]
     public class CrossSitePublishingCMSEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;
@@ -49,6 +49,10 @@ namespace GSoft.Dynamite.Publishing.SP.Features.Feature1
             }
         }
 
+        /// <summary>
+        /// Feature deactivating event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;

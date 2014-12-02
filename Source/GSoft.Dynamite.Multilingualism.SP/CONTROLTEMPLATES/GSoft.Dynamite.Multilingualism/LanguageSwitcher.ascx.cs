@@ -19,16 +19,16 @@ using Microsoft.SharePoint.Publishing;
 
 namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Multilingualism
 {
+    /// <summary>
+    /// Use control for the language switcher
+    /// </summary>
     public partial class LanguageSwitcher : UserControl
     {
         private const string CatalogItemReuseWebPartId = "CatalogItemAssociationWebPart";
 
         /// <summary>
-        /// The 
-        /// </summary>
-        /// <value>
         /// The view model.
-        /// </value>
+        /// </summary>
         public IVariationNavigationHelper VariationNavigationHelper { get; private set; }
 
         /// <summary>
@@ -50,6 +50,11 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// The publishing module web parts properties
         /// </summary>
         public PublishingWebPartInfos PublishingWebPartInfos { get; private set; }
+
+        /// <summary>
+        /// Get the current variation navigation context
+        /// </summary>
+        public VariationNavigationType CurrentNavigationContext { get; private set; }
 
         /// <summary>
         /// The content association key fetched from the catalog item reuse web part.
@@ -83,17 +88,12 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         }
 
         /// <summary>
-        /// Get the current variation navigation context
-        /// </summary>
-        public VariationNavigationType CurrentNavigationContext { get; private set; }
-
-        /// <summary>
         /// Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
         /// </summary>
         protected override void CreateChildControls()
         {
-            //If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
-            //shared search results from the Content by Search Web Part
+            // If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
+            // shared search results from the Content by Search Web Part
             if (this.CurrentNavigationContext == VariationNavigationType.ItemPage)
             {
                 var catalogItemWebPart = new CatalogItemReuseWebPart()
@@ -101,6 +101,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                     ID = CatalogItemReuseWebPartId,
                     NumberOfItems = 1,
                     UseSharedDataProvider = true,
+
                     // The query group name must be the same as the search webpart which display the current item to get the association key correctly
                     QueryGroupName = ((ResultScriptWebPart)this.PublishingWebPartInfos.CatalogItemContentWebPart(string.Empty).WebPart).QueryGroupName,
                     SelectedPropertiesJson = string.Format("['{0}']", this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name),
@@ -116,7 +117,9 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter" /> object that receives the server control content.</param>
         protected override void Render(HtmlTextWriter writer)
         {
-            MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(SPContext.Current.Web, delegate()
+            MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(
+                SPContext.Current.Web, 
+                delegate
             {
                 var currentWebUrl = new Uri(SPContext.Current.Web.Url);
                 var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);
@@ -134,7 +137,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                         switch (this.CurrentNavigationContext)
                         {
                             case VariationNavigationType.ItemPage:
-                                itemUrl = this.VariationNavigationHelper.GetPeerCatalogItemUrl(currentUrl,
+                                itemUrl = this.VariationNavigationHelper.GetPeerCatalogItemUrl(
+                                    currentUrl,
                                     variationLabel,
                                     this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name,
                                     this.ContentAssociationKeyValue,
@@ -159,7 +163,6 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                         };
 
                         formattedLabels.Add(itemVariationInfo);
-
                     }
 
                     this.LabelsRepeater.DataSource = formattedLabels;
@@ -170,6 +173,11 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
             base.Render(writer);
         }
 
+        /// <summary>
+        /// Event occurs on the page loading
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             // Initialize helpers

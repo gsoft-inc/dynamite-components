@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GSoft.Dynamite.Publishing.Contracts.WebParts
 {
@@ -13,16 +9,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.WebParts
     public class ShowcaseFilterDefinition
     {
         /// <summary>
-        /// Property to filter on
-        /// </summary>
-        public string Property { get; set; }
-
-        /// <summary>
-        /// The JavaScript method representing the view model implementation of the Filter
-        /// </summary>
-        public string JavaScriptViewModelFilterType { get; set; }
-
-        /// <summary>
         /// Constructor for a filter definition
         /// </summary>
         /// <param name="property">The property to filter on</param>
@@ -32,5 +18,15 @@ namespace GSoft.Dynamite.Publishing.Contracts.WebParts
             this.Property = property;
             this.JavaScriptViewModelFilterType = viewModel;
         }
+
+        /// <summary>
+        /// Property to filter on
+        /// </summary>
+        public string Property { get; set; }
+
+        /// <summary>
+        /// The JavaScript method representing the view model implementation of the Filter
+        /// </summary>
+        public string JavaScriptViewModelFilterType { get; set; }
     }
 }

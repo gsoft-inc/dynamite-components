@@ -12,8 +12,29 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public class PublishingContentTypeInfos
     {
-        private readonly IResourceLocator resourceLocator;
-        private readonly string resourceFileName = PublishingResources.Global;
+        #region Item Content Type Hierarchy
+
+        /// <summary>
+        /// The "out-of-the-box" SharePoint item content type id
+        /// </summary>
+        private const string ItemContentType = "0x01";
+
+        private const string TranslatableItemContentType = ItemContentType + "008093F9E3678D3D4392C57B0E6929DE05";
+
+        private const string BrowsableItemContentType = TranslatableItemContentType + "01";
+
+        private const string DefaultItemContentType = BrowsableItemContentType + "01";
+
+        private const string CatalogContentItemContentType = DefaultItemContentType + "01";
+
+        private const string TargetContentItemContentType = DefaultItemContentType + "02";
+
+        private const string NewsItemContentType = CatalogContentItemContentType + "01";
+
+        private const string ContentItemContentType = TargetContentItemContentType + "01";
+
+        #endregion
+
         private readonly PublishingFieldInfos fieldInfoValues;
 
         /// <summary>
@@ -23,24 +44,22 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <param name="fieldInfoValues">The field info instance</param>
         public PublishingContentTypeInfos(IResourceLocator resourceLocator, PublishingFieldInfos fieldInfoValues)
         {
-            this.resourceLocator = resourceLocator;
             this.fieldInfoValues = fieldInfoValues;
         }
 
         #region Browsable Item
 
         /// <summary>
-        /// The browsable item content type
+        /// The <c>browsable</c> item content type
         /// </summary>
         /// <returns>The content type info</returns>
-        public  ContentTypeInfo BrowsableItem()
+        public ContentTypeInfo BrowsableItem()
         {
             return new ContentTypeInfo(
                 BrowsableItemContentType,
                 PublishingResources.ContentTypeBrowsableItemTitle,
                 PublishingResources.ContentTypeBrowsableItemDescription,
-                PublishingResources.ContentTypeGroup
-                )
+                PublishingResources.ContentTypeGroup)
             {
                 Fields = new List<IFieldInfo>()
                 {
@@ -63,8 +82,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 TranslatableItemContentType,
                 PublishingResources.ContentTypeTranslatableItemTitle,
                 PublishingResources.ContentTypeTranslatableItemDescription,
-                PublishingResources.ContentTypeGroup
-                );
+                PublishingResources.ContentTypeGroup);
         }
 
         #endregion
@@ -87,8 +105,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {
                     PublishingFields.PublishingPageContent
                 }
-            };
-           
+            }; 
         }
 
         #endregion
@@ -278,29 +295,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new ContentTypeInfo("0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39", string.Empty, string.Empty, string.Empty);
         }
-
-        #endregion
-
-        #region Item Content Type Hierarchy
-
-        /// <summary>
-        /// The "out-of-the-box" SharePoint item content type id
-        /// </summary>
-        private const string ItemContentType = "0x01";
-
-        private const string TranslatableItemContentType = ItemContentType + "008093F9E3678D3D4392C57B0E6929DE05";
-
-        private const string BrowsableItemContentType = TranslatableItemContentType + "01";
-
-        private const string DefaultItemContentType = BrowsableItemContentType + "01";
-
-        private const string CatalogContentItemContentType = DefaultItemContentType + "01";
-
-        private const string TargetContentItemContentType = DefaultItemContentType + "02";
-
-        private const string NewsItemContentType = CatalogContentItemContentType + "01";
-
-        private const string ContentItemContentType = TargetContentItemContentType + "01";
 
         #endregion
     }

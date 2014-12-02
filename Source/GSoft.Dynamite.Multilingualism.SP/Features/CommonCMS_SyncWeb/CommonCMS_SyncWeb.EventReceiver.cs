@@ -2,12 +2,11 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Globalization.Variations;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_SyncWebs
+namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_SyncWeb
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -15,12 +14,13 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_SyncWebs
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("faa27790-ddc8-48cc-81c7-afe148930b17")]
     public class CommonCmsSyncWebsEventReceiver : SPFeatureReceiver
     {
-        // Uncomment the method below to handle the event raised after a feature has been activated.
-
+        /// <summary>
+        /// Synchronizes target variations webs.
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;

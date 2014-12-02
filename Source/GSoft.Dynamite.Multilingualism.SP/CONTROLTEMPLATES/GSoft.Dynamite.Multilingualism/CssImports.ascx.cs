@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint.WebControls;
@@ -9,7 +7,7 @@ using Microsoft.SharePoint.WebControls;
 namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Multilingualism
 {
     /// <summary>
-    /// Css Imports
+    /// <c>CSS</c> Imports
     /// </summary>
     public partial class CssImports : UserControl
     {

@@ -1,5 +1,8 @@
 ﻿namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {
+    /// <summary>
+    /// Resources configurations for the navigation module
+    /// </summary>
     public static class NavigationResources
     {
         /// <summary>
@@ -50,7 +53,5 @@
         public static readonly string FieldOccurrenceLinkLocationDescription = "Field_OccurrenceLinkLocation_Description";
 
         #endregion
-
-
     }
 }

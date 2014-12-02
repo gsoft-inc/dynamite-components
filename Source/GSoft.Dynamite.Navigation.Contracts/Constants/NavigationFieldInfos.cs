@@ -6,9 +6,11 @@ using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {
+    /// <summary>
+    /// Fields configuration for the navigation module
+    /// </summary>
     public class NavigationFieldInfos
     {
-        private readonly NavigationTermGroupInfos navigationTermGroupInfos;
         private readonly NavigationTermSetInfos navigationTermSetInfos;
 
         private static readonly string DateSlugFieldName = PublishingFieldInfos.FieldPrefix + "DateSlug";
@@ -16,9 +18,12 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         private static readonly string PublishingStartDateFieldName = PublishingFieldInfos.FieldPrefix + "PublishingStartDate";
         private static readonly string OccurrenceLinkLocationFieldName = PublishingFieldInfos.FieldPrefix + "OccurrenceLinkLocation";
 
-        public NavigationFieldInfos(NavigationTermGroupInfos navigationTermGroupInfos, NavigationTermSetInfos navigationTermSetInfos)
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="navigationTermSetInfos">The term set info configuration objects from the publishing module</param>
+        public NavigationFieldInfos(NavigationTermSetInfos navigationTermSetInfos)
         {
-            this.navigationTermGroupInfos = navigationTermGroupInfos;
             this.navigationTermSetInfos = navigationTermSetInfos;
         }
 
@@ -33,8 +38,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 new Guid("{0D112FAD-6445-4002-8C8B-CF405F7C4935}"),
                 NavigationResources.FieldDateSlugName,
                 NavigationResources.FieldDateSlugDescription,
-                PublishingResources.FieldGroup
-                )
+                PublishingResources.FieldGroup)
             {
                 Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
@@ -55,8 +59,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 new Guid("{8D3823D9-8F02-4640-8439-BF09D0A7333F}"),
                 NavigationResources.FieldTitleSlugName,
                 NavigationResources.FieldTitleSlugDescription,
-                PublishingResources.FieldGroup
-                )
+                PublishingResources.FieldGroup)
             {
                 Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
@@ -77,8 +80,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                new Guid("{C2E6B519-A2FF-429C-BAE5-1034E7A29545}"),
                NavigationResources.FieldOccurrenceLinkLocationName,
                NavigationResources.FieldOccurrenceLinkLocationDescription,
-               PublishingResources.FieldGroup
-               )
+               PublishingResources.FieldGroup)
             {
                 Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
@@ -87,7 +89,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 IsHiddenInNewForm = false,
                 TermStoreMapping = new TaxonomyContext()
                 {
-                    TermSet = navigationTermSetInfos.NavigationControls()
+                    TermSet = this.navigationTermSetInfos.NavigationControls()
                 }
             };
         }
@@ -103,8 +105,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 new Guid("{AAB9602B-934B-4974-BB6B-A94992C7EDA5}"),
                 NavigationResources.FieldPublishingStartDateName,
                 NavigationResources.FieldPublishingStartDateDescription,
-                PublishingResources.FieldGroup
-                )
+                PublishingResources.FieldGroup)
             {
                 Required = RequiredType.Required,
                 IsHiddenInDisplayForm  = false,

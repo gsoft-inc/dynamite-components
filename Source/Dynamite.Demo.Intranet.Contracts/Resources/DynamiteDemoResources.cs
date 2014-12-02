@@ -1,5 +1,8 @@
 ﻿namespace Dynamite.Demo.Intranet.Contracts.Resources
 {
+    /// <summary>
+    /// Resources strings  for the Dynamite demo module
+    /// </summary>
     public static class DynamiteDemoResources
     {
         #region Content Types
@@ -42,7 +45,6 @@
         /// The content type browsed Item Name
         /// </summary>
         public static readonly string FieldGroup = "Fields_DynamiteDemoGroup_Name";
-
 
         #endregion
 

@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Events
 {
+    /// <summary>
+    /// Defines events for the target item content type
+    /// </summary>
     public class TargetContentItemEvents : SPItemEventReceiver
     {
         /// <summary>
         /// Asynchronous After event that occurs after a new item has been added to its containing object.
-        /// Be careful, on a document library like pages libray, ItemAdded NOT FIRING on the "New document" option on the ribbon. Use ItemUpdated instead
+        /// Be careful, on a document library like pages library, ItemAdded NOT FIRING on the "New document" option on the ribbon. Use ItemUpdated instead
         /// </summary>
         /// <param name="properties">Event properties</param>
         public override void ItemAdded(SPItemEventProperties properties)
@@ -69,9 +67,13 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             }
         }
 
-        public override void ItemDeleting(SPItemEventProperties properties)
+        /// <summary>
+        /// Asynchronous After event that occurs after an existing item is deleted.
+        /// </summary>
+        /// <param name="properties">An <see cref="T:Microsoft.SharePoint.SPItemEventProperties" /> object that represents properties of the event handler.</param>
+        public override void ItemDeleted(SPItemEventProperties properties)
         {
-            base.ItemDeleting(properties);
+            base.ItemDeleted(properties);
 
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {

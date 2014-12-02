@@ -4,7 +4,10 @@ using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Resources
 {
-    public class MultilingualismResourceLocatorConfig: IResourceLocatorConfig
+    /// <summary>
+    /// The resource locator configuration for the multilingualism module
+    /// </summary>
+    public class MultilingualismResourceLocatorConfig : IResourceLocatorConfig
     {
         private ICollection<string> resourceFileKeys = new List<string>() { MultilingualismResources.Global };
              

@@ -3,6 +3,9 @@ using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Configuration
 {
+    /// <summary>
+    /// Interface for search result sources configuration for the multilingualism module
+    /// </summary>
     public interface IMultilingualismResultSourceInfoConfig
     {
         /// <summary>

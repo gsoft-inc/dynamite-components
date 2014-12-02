@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Globalization;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
-using GSoft.Dynamite.Utils;
 
 namespace GSoft.Dynamite.Navigation.Core.Services
 {
+    /// <summary>
+    /// The service for the URL slugs generation
+    /// </summary>
     public class SlugBuilderService : ISlugBuilderService
     {
         private readonly ILogger _logger;
         private readonly INavigationHelper _navigationHelper;
         private readonly NavigationFieldInfos _navigationFieldInfos;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="logger">The logger</param>
+        /// <param name="navigationHelper">The navigation helper</param>
+        /// <param name="navigationFieldInfos">The field info objects configuration</param>
         public SlugBuilderService(ILogger logger, INavigationHelper navigationHelper, NavigationFieldInfos navigationFieldInfos)
         {
             this._logger = logger;

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GSoft.Dynamite.Docs.Contracts.Constants
+﻿namespace GSoft.Dynamite.Docs.Contracts.Constants
 {
+    /// <summary>
+    /// Resources strings configuration for the document management module
+    /// </summary>
     public static class DocsResources
     {
         /// <summary>

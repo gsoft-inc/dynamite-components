@@ -1,39 +1,38 @@
 ﻿using System;
-using System.Linq;
 using System.Globalization;
 using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
-using GSoft.Dynamite.Navigation;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
 
 namespace GSoft.Dynamite.Multilingualism.Core.Services
 {
-    public class ContentAssociationService: IContentAssocationService
+    /// <summary>
+    /// Service for item association with OOTB SharePoint variations
+    /// </summary>
+    public class ContentAssociationService : IContentAssocationService
     {
         private readonly IVariationHelper _variationsHelper;
-        private readonly INavigationHelper _navigationHelper;
         private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ContentAssociationService" /> class.
         /// </summary>
-        /// <param name="variationsHelper">The variations helper.</param>
-        /// <param name="navigationHelper">The navigation helper.</param>
-        /// <param name="logger">The logger.</param>
-        public ContentAssociationService(IVariationHelper variationsHelper, INavigationHelper navigationHelper, ILogger logger)
+        /// <param name="variationsHelper">The variations helper</param>
+        /// <param name="logger">The logger</param>
+        public ContentAssociationService(IVariationHelper variationsHelper, ILogger logger)
         {
             this._variationsHelper = variationsHelper;
-            this._navigationHelper = navigationHelper;
             this._logger = logger;
         }
 
         /// <summary>
         /// Sets an unique content association key for an item
         /// </summary>
-        /// <param name="item">The list item</param>
-        /// <param name="fieldInternalName">The field internal name</param>
+        /// <param name="item">The SharePoint list item to set</param>
+        /// <param name="fieldInternalName">The field internal name for the association key</param>
+        /// <returns>The updated list item with the association key (not already yet committed in the database)</returns>
         public SPListItem SetSourceGuid(SPListItem item, string fieldInternalName)
         {
             if (item.Fields.ContainsField(fieldInternalName))
@@ -64,13 +63,14 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
         /// <summary>
         /// Sets the source creator
         /// </summary>
-        /// <param name="item"></param>
-        /// <param name="fieldInternalName"></param>
+        /// <param name="item">The SharePoint list item to set</param>
+        /// <param name="fieldInternalName">Internal name of the field for the author. If the field doesn't exists, the OOTB <c>Author</c> field will be used.</param>
+        /// <returns>The updated list item with the author (not already yet committed in the database)</returns>
         public SPListItem SetSourceCreator(SPListItem item, string fieldInternalName)
         {
             if (item.Fields.ContainsField(fieldInternalName))
             {
-                const string authorFieldName = "Author";
+                const string AuthorFieldName = "Author";
                 try
                 {
                     SPSecurity.RunWithElevatedPrivileges(
@@ -83,12 +83,12 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
                             var sourceCreatorFieldValue = item[fieldInternalName];
                             if (sourceCreatorFieldValue != null)
                             {
-                                item[authorFieldName] = sourceCreatorFieldValue;
+                                item[AuthorFieldName] = sourceCreatorFieldValue;
                             }
                         }
                         else
                         {
-                            var authorFieldValue = item[authorFieldName];
+                            var authorFieldValue = item[AuthorFieldName];
                             if (authorFieldValue != null)
                             {
                                 item[fieldInternalName] = authorFieldValue;
@@ -108,13 +108,14 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
         /// <summary>
         /// Sets the current language of the item according to the web language
         /// </summary>
-        /// <param name="item">The item</param>
-        /// <param name="fieldInternalName">The field internal name</param>
+        /// <param name="item">The SharePoint list item to set</param>
+        /// <param name="fieldInternalName">The field internal name that represents the language</param>
+        /// <returns>The updated list item with the language (not already yet committed in the database)</returns>
         public SPListItem SetTranslationLanguage(SPListItem item, string fieldInternalName)
         {
             if (item.Fields.ContainsField(fieldInternalName))
             {
-                //Check if the web is a publishing web
+                // Check if the web is a publishing web
                 var publishingWeb = PublishingWeb.GetPublishingWeb(item.Web);
                 if (publishingWeb != null)
                 {
@@ -129,6 +130,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
                     {
                         localeAgnosticLanguage = new CultureInfo((int)item.Web.Language).TwoLetterISOLanguageName;
                     }
+
                     item[fieldInternalName] = localeAgnosticLanguage;
                 }
 
