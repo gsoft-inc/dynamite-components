@@ -81,6 +81,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             };
         }
 
+        /// <summary>
+        /// A layout with a single column body and an header section
+        /// </summary>
+        /// <returns>The Page Layout Info</returns>
         public PageLayoutInfo OneColunmWithHeader()
         {
             return new PageLayoutInfo()

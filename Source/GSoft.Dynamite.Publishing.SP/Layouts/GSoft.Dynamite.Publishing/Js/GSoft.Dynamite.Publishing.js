@@ -65,6 +65,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         self.NoResultTitle = ko.observable("Loading...");
         self.FiltersTitle = ko.observable("Product Filters");
         self.FiltersResetLabel = ko.observable("Reset");
+        self.NbFilteredItems = 0;
         self.Callbacks = {};
 
         if (callbacks) {
@@ -86,6 +87,8 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
             if (self.ReloadGrid) {
                 self.ReloadGrid(filteredItems.length);
             }
+
+            self.NbFilteredItems = filteredItems.length;
 
             return filteredItems;
         });
@@ -163,7 +166,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                         item[propertyName](propertyValue[0].Value);
                     }
                     else {
-                        console.log("[Search REST API] No value found for property with name '" + propertyName + "'.");
+                        //console.log("[Search REST API] No value found for property with name '" + propertyName + "'.");
                     }
                 });
 
@@ -197,15 +200,16 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         }
 
         self.LazyLoadingClick = function () {
-            // LazeLoading Callback
-            if (self.Callbacks && self.Callbacks.lazyLoadingClickCallback) {
-                eval(self.Callbacks.lazyLoadingClickCallback)(self.FilteredItems().length);
+            if (self.Callbacks) {
+                if (self.Callbacks.lazyLoadingClickCallback) { eval(self.Callbacks.lazyLoadingClickCallback)(self.NbFilteredItems); }
+                if (self.Callbacks.lazyLoadingVisible) { eval(self.Callbacks.lazyLoadingVisible)(self.LazyLoadingVisible, self.NbFilteredItems); }
             }
         };
 
         self.ReloadGrid = function (nbItems) {
-            if (self.Callbacks && self.Callbacks.onItemsLoadedCallback) {
-                eval(self.Callbacks.onItemsLoadedCallback)(nbItems);
+            if (self.Callbacks) {
+                if (self.Callbacks.onItemsLoadedCallback) { eval(self.Callbacks.onItemsLoadedCallback)(nbItems); }
+                if (self.Callbacks.lazyLoadingVisible) { eval(self.Callbacks.lazyLoadingVisible)(self.LazyLoadingVisible, nbItems); }
             }
         };
     }
