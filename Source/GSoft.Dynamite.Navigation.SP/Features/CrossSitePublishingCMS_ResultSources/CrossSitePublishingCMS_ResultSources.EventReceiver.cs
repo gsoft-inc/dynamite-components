@@ -33,7 +33,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
                     var searchHelper = featureScope.Resolve<ISearchHelper>();
                     var baseResultSourceInfoConfig = featureScope.Resolve<INavigationResultSourceInfoConfig>();
 
-                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
+                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources;
 
                     // Create result sources
                     foreach (var resultSource in resultSources)
@@ -61,7 +61,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
                     var searchHelper = featureScope.Resolve<ISearchHelper>();
                     var baseResultSourceInfoConfig = featureScope.Resolve<INavigationResultSourceInfoConfig>();
 
-                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
+                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources;
 
                     // Re create publishing result sources
                     foreach (var resultSource in resultSources)
