@@ -80,6 +80,19 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
             };
         }
+
+        /// <summary>
+        /// A layout with a single column body and an header section
+        /// </summary>
+        /// <returns>The Page Layout Info</returns>
+        public PageLayoutInfo OneColunmWithHeader()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "OneColumnWithHeader.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
         #endregion
     }
 }

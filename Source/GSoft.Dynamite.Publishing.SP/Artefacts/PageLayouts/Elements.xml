@@ -16,10 +16,15 @@
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_CatalogCategoryPageTemplate_Desc;" />
     </File>
-    <File Path="RightSidebar.aspx" Url="PageLayouts/RightSidebar.aspx" Type="GhostableInLibrary">
+    <File Path="RightSidebar.aspx" Url="RightSidebar.aspx" Type="GhostableInLibrary">
       <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_RightSidebarPageLayout_Name;" />
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_RightSidebarPageLayout_Desc;" />
+    </File>
+    <File Path="OneColumnWithHeader.aspx" Url="OneColumnWithHeader.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_OneColumnPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_OneColumnPageLayout_Desc;" />
     </File>
   </Module>
 </Elements>

@@ -12,6 +12,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         private readonly PublishingResultSourceInfos resultSourceInfos;
         private readonly PublishingManagedPropertyInfos publishingManagedPropertyInfos;
         private readonly NavigationManagedPropertyInfos navigationManagedPropertyInfos;
+        private readonly PublishingContentTypeInfos publishingContentTypeInfos;
 
         /// <summary>
         /// Default constructor
@@ -19,14 +20,17 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// <param name="resultSourceInfos">The result sources configuration objects from the publishing module</param>
         /// <param name="publishingManagedPropertyInfos">The search managed properties configuration objects from the publishing module</param>
         /// <param name="navigationManagedPropertyInfos">The search managed properties configuration objects from the navigation module</param>
+        /// <param name="publishingContentTypeInfos">The content types properties configuration objects from the publishing module</param>
         public NavigationResultSourceInfos(
             PublishingResultSourceInfos resultSourceInfos, 
             PublishingManagedPropertyInfos publishingManagedPropertyInfos,
-            NavigationManagedPropertyInfos navigationManagedPropertyInfos)
+            NavigationManagedPropertyInfos navigationManagedPropertyInfos,
+            PublishingContentTypeInfos publishingContentTypeInfos)
         {
             this.resultSourceInfos = resultSourceInfos;
             this.publishingManagedPropertyInfos = publishingManagedPropertyInfos;
             this.navigationManagedPropertyInfos = navigationManagedPropertyInfos;
+            this.publishingContentTypeInfos = publishingContentTypeInfos;
         }
 
         /// <summary>
@@ -60,9 +64,10 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
 
             var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
+            var targetContentTypeId = this.publishingContentTypeInfos.TargetContentItem().ContentTypeId;
 
             // Extend the existing query 
-            singleCatalogItem.Query = navigation + ":{Term}";
+            singleCatalogItem.Query = navigation + ":{Term}" + " " + "ContentTypeId:" + targetContentTypeId + "*";
 
             return singleCatalogItem;
         }
