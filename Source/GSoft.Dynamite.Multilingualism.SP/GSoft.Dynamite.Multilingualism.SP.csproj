@@ -151,6 +151,7 @@
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
       <FeatureId>{737c538d-0636-458e-83b7-31d1a962e20a}</FeatureId>
     </None>
+    <None Include="GSoft.Dynamite.Multilingualism.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{4898e259-7040-4fdb-8fae-947c634f2b0b}</SharePointProjectItemId>
     </None>

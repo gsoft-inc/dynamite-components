@@ -198,6 +198,7 @@
     <None Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.feature">
       <FeatureId>{17abf062-5a4c-4462-8370-ef3c7e84d741}</FeatureId>
     </None>
+    <None Include="GSoft.Dynamite.Publishing.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1ab17249-9879-4179-9e87-da77f66bd9db}</SharePointProjectItemId>
     </None>
