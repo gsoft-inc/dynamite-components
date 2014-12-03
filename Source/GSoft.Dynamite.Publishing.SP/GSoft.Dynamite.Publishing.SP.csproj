@@ -240,6 +240,7 @@
     <Content Include="Artefacts\PageLayouts\CatalogItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\Elements.xml" />
     <Content Include="Artefacts\PageLayouts\OneColumnWithHeader.aspx" />
+    <Content Include="Artefacts\PageLayouts\OneColumnWithThreeTabs.aspx" />
     <Content Include="Artefacts\PageLayouts\RightSidebar.aspx" />
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />

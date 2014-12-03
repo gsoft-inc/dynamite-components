@@ -26,5 +26,10 @@
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_OneColumnPageLayout_Desc;" />
     </File>
+    <File Path="OneColumnWithThreeTabs.aspx" Url="PageLayouts/OneColumnWithThreeTabs.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_OneColumnThreeTabsPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_OneColumnThreeTabsPageLayout_Desc;" />
+    </File>
   </Module>
 </Elements>

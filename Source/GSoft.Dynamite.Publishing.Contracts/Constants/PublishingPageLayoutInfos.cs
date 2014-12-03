@@ -93,6 +93,19 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
             };
         }
+
+        /// <summary>
+        /// A layout with a single column body wuth three different sections and an header sectionwith the navigation
+        /// </summary>
+        /// <returns>The Page Layout Info</returns>
+        public PageLayoutInfo OneColunmWithThreeTabs()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "OneColumnWithThreeTabs.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
         #endregion
     }
 }

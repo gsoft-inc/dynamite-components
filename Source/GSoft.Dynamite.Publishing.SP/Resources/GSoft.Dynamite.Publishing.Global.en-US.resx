@@ -345,4 +345,10 @@
   <data name="PageLayout_OneColumnPageLayout_Name" xml:space="preserve">
     <value>One Column with Header Page Layout</value>
   </data>
+  <data name="PageLayout_OneColumnThreeTabsPageLayout_Desc" xml:space="preserve">
+    <value>Creates a large column and three different sections with a header zone to the navigation.</value>
+  </data>
+  <data name="PageLayout_OneColumnThreeTabsPageLayout_Name" xml:space="preserve">
+    <value>One Column with Three Tabs</value>
+  </data>
 </root>
