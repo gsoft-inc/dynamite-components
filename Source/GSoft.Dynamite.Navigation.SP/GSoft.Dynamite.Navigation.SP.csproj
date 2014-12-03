@@ -176,6 +176,7 @@
     <None Include="Features\StandardPublishingCMS_TargetPagesEventReceivers\StandardPublishingCMS_TargetPagesEventReceivers.feature">
       <FeatureId>{7e676ee8-3918-48df-b7d1-570cd55f957d}</FeatureId>
     </None>
+    <None Include="GSoft.Dynamite.Navigation.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{003b0f1d-7bf6-48ee-9fe4-f9a1d3c14cea}</SharePointProjectItemId>
     </None>

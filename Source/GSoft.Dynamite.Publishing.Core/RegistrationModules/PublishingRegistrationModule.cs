@@ -22,6 +22,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
         {
             // Resource Locator
             builder.RegisterType<PublishingResourceLocatorConfig>().As<IResourceLocatorConfig>();
+            builder.RegisterType<PublishingResourceLocatorConfig>().Named<IResourceLocatorConfig>("publishing");
 
             // Content Types
             builder.RegisterType<PublishingContentTypeInfoConfig>().As<IPublishingContentTypeInfoConfig>();
@@ -33,6 +34,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Term Sets
             builder.RegisterType<PublishingTaxonomyConfig>().As<IPublishingTaxonomyConfig>();
+            builder.RegisterType<PublishingTaxonomyConfig>().Named<IPublishingTaxonomyConfig>("publishing");
 
             // Catalogs
             builder.RegisterType<PublishingCatalogInfoConfig>().As<IPublishingCatalogInfoConfig>();
@@ -56,15 +58,19 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Managed Properties
             builder.RegisterType<PublishingManagedPropertyConfig>().As<ICommonManagedPropertyInfosConfig>();
+            builder.RegisterType<PublishingManagedPropertyConfig>().Named<ICommonManagedPropertyInfosConfig>("publishing");
 
             // Page Layouts
             builder.RegisterType<PublishingPageLayoutInfoConfig>().As<IPublishingPageLayoutInfoConfig>();
+            builder.RegisterType<PublishingPageLayoutInfoConfig>().Named<IPublishingPageLayoutInfoConfig>("publishing");
 
             // Page Layouts
             builder.RegisterType<PublishingListInfoConfig>().As<IPublishingListInfoConfig>();
+            builder.RegisterType<PublishingListInfoConfig>().Named<IPublishingListInfoConfig>("publishing");
 
             // Faceted navigation
             builder.RegisterType<PublishingFacetedNavigationInfoConfig>().As<IPublishingFacetedNavigationInfoConfig>();
+            builder.RegisterType<PublishingFacetedNavigationInfoConfig>().Named<IPublishingFacetedNavigationInfoConfig>("publishing");
 
             // Metadata navigation
             builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().As<IPublishingMetadataNavigationSettingsConfig>();
