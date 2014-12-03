@@ -95,7 +95,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
-        /// A layout with a single column body wuth three different sections and an header sectionwith the navigation
+        /// A layout with a single column body with three different sections and an header section with the navigation
         /// </summary>
         /// <returns>The Page Layout Info</returns>
         public PageLayoutInfo OneColunmWithThreeTabs()
