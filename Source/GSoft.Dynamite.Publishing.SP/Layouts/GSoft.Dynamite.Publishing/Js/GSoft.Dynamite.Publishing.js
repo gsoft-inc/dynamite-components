@@ -90,7 +90,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
             self.NbFilteredItems = filteredItems.length;
 
-            return filteredItems;
+            return _.sortBy(filteredItems, function (item) { return item.Sort(); });
         });
 
         // Filters
