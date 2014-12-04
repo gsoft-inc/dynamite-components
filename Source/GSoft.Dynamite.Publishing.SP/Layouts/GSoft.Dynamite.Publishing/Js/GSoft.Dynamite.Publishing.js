@@ -90,7 +90,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
             self.NbFilteredItems = filteredItems.length;
 
-            return filteredItems;
+            return _.sortBy(filteredItems, function (item) { return item.Sort(); });
         });
 
         // Filters
@@ -131,7 +131,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                 method: "GET",
                 headers: { "Accept": "application/json; odata=verbose" },
                 success: self.OnQuerySuccess,
-                error: self.OnQueryError
+                error: self.OnQueryError 
             });
         };
 
