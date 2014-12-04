@@ -85,6 +85,7 @@
     <None Include="Features\CrossSitePublishingCMS_WebParts\CrossSitePublishingCMS_WebParts.feature">
       <FeatureId>{f87231ce-9bdf-4aa5-a231-52985325ff18}</FeatureId>
     </None>
+    <None Include="GSoft.Dynamite.LifeCycle.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2f2813e3-99ce-4357-954e-90935163cb94}</SharePointProjectItemId>
     </None>

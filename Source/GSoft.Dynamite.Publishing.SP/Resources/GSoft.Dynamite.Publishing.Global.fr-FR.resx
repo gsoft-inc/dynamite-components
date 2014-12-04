@@ -345,4 +345,10 @@
   <data name="PageLayout_OneColumnPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page offrant une large colonne centrée</value>
   </data>
+  <data name="PageLayout_OneColumnThreeTabsPageLayout_Desc" xml:space="preserve">
+    <value>Créé une large colonne et trois différentes sections avec une en-tête pour la navigation</value>
+  </data>
+  <data name="PageLayout_OneColumnThreeTabsPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page offrant une large colonne et trois sections</value>
+  </data>
 </root>
