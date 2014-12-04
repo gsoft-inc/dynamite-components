@@ -215,3 +215,68 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
     }
 
 }(GSoft.Dynamite.FilteredProductShowcase = GSoft.Dynamite.FilteredProductShowcase || {}, jq110));
+
+// Tabs Module 
+// The method creates a tabs navigation. 
+(function (Tabs, $, undefined) {
+    'use strict';
+
+    Tabs.Options = {
+        start: 0
+    };
+
+    // Applies the tabs 
+    Tabs.ApplyTabs = function(el, options) {
+        this.el = el;
+        this.options = extend({}, this.options);
+        extend(this.options, options);
+        this.Init();
+    };
+
+    // Initializes the tabs wih the div items
+    Tabs.Init = function () {
+        // tabs elems
+        this.tabs = [].slice.call(this.el.querySelectorAll('nav > ul > li'));
+        // content items
+        this.items = [].slice.call(this.el.querySelectorAll('.content-wrap > section'));
+        // current index
+        this.current = -1;
+        // show current content item
+        this.Show();
+        // init events
+        this.InitEvents();
+    };
+
+    // Initiliazes events
+    Tabs.InitEvents = function () {
+        var self = this;
+        // Add onclick event on each element
+        this.tabs.forEach(function (tab, idx) {
+            tab.addEventListener('click', function (ev) {
+                ev.preventDefault();
+                self.Show(idx);
+            });
+        });
+    };
+
+    // Applies css class on the current tab/content
+    Tabs.Show = function (idx) {
+        if (this.current >= 0) {
+            this.tabs[this.current].className = this.items[this.current].className = '';
+        }
+        // change current
+        this.current = idx != undefined ? idx : this.Options.start >= 0 && this.Options.start < this.items.length ? this.Options.start : 0;
+        this.tabs[this.current].className = 'tab-current';
+        this.items[this.current].className = 'content-current';
+    };
+
+    function extend(a, b) {
+        for (var key in b) {
+            if (b.hasOwnProperty(key)) {
+                a[key] = b[key];
+            }
+        }
+        return a;
+    }
+}(GSoft.Dynamite.Tabs = GSoft.Dynamite.Tabs || {}, jq110));
+
