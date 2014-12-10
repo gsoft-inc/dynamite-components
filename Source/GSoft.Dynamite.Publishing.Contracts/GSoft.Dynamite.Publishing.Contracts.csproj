@@ -75,6 +75,7 @@
     <Compile Include="Configuration\IPublishingPageLayoutInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingResultTypeInfoConfig.cs" />
+    <Compile Include="Configuration\IPublishingReusableContentConfig.cs" />
     <Compile Include="Configuration\IPublishingTaxonomyConfig.cs" />
     <Compile Include="Configuration\IPublishingListInfoConfig.cs" />
     <Compile Include="Constants\PublishingFacetedNavigationInfo.cs" />
@@ -95,9 +96,13 @@
     <Compile Include="Constants\PublishingTermInfos.cs" />
     <Compile Include="Constants\PublishingTermSetInfos.cs" />
     <Compile Include="Constants\PublishingWebPartInfos.cs" />
+    <Compile Include="Entities\ReusableHtmlContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IReusableContentRepository.cs" />
     <Compile Include="Resources\PublishingResourceLocatorConfig.cs" />
+    <Compile Include="Services\IReusableContentService.cs" />
     <Compile Include="WebParts\IFilteredProductShowcaseWebPart.cs" />
+    <Compile Include="WebParts\IReusableContentWebPart.cs" />
     <Compile Include="WebParts\ShowcaseFilterDefinition.cs" />
   </ItemGroup>
   <ItemGroup>

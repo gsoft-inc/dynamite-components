@@ -82,6 +82,13 @@
     <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx.designer.cs">
       <DependentUpon>ClientScripts.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx.cs">
+      <DependentUpon>ReusableContentUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx.designer.cs">
+      <DependentUpon>ReusableContentUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
       <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Compile>
@@ -90,6 +97,9 @@
     </Compile>
     <Compile Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.EventReceiver.cs">
       <DependentUpon>CommonCMS_PageLayouts.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CommonCMS_ReusableContent\CommonCMS_ReusableContent.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ReusableContent.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_CategoryPages.feature</DependentUpon>
@@ -115,6 +125,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_SearchRESTAnonymous.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Compile>
@@ -132,6 +145,8 @@
     <Compile Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx.designer.cs">
       <DependentUpon>FilteredProductShowcaseWebPartUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebParts\ReusableContentWebPart\CustomToolPart.cs" />
+    <Compile Include="WebParts\ReusableContentWebPart\ReusableContentWebPart.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
@@ -180,6 +195,9 @@
     <None Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.feature">
       <FeatureId>{65b1a649-5c6d-4ca5-93e1-6c3bd34e9618}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.feature">
+      <FeatureId>{c172bf31-e0dc-4fcf-b96c-0d0cc0aa3aed}</FeatureId>
+    </None>
     <None Include="Features\CommonCMS_Lists\CommonCMS_Lists.feature">
       <FeatureId>{253da52f-d048-4d13-82d4-fffb42b21a34}</FeatureId>
     </None>
@@ -194,6 +212,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.feature">
       <FeatureId>{f3356d64-196b-4626-b89a-4c4daf52d8ac}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_ReusableContent\CommonCMS_ReusableContent.feature">
+      <FeatureId>{b384567a-defd-47f9-b9e9-2f62a47a02b8}</FeatureId>
     </None>
     <None Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.feature">
       <FeatureId>{17abf062-5a4c-4462-8370-ef3c7e84d741}</FeatureId>
@@ -225,6 +246,10 @@
     <None Include="WebParts\FilteredProductShowcaseWebPart\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9f389ce4-5679-41af-bb83-6dea6855243b}</SharePointProjectItemId>
     </None>
+    <None Include="WebParts\ReusableContentWebPart\ReusableContentWebPart.webpart" />
+    <None Include="WebParts\ReusableContentWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3d82f165-e06e-45b8-9871-26bebf713de8}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Artefacts\ClientScripts\Elements.xml" />
@@ -246,6 +271,7 @@
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />
     <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx" />
+    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx" />
     <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
       <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
@@ -264,6 +290,9 @@
     <Content Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Content>
+    <Content Include="Features\CommonCMS_ReusableContent\CommonCMS_ReusableContent.Template.xml">
+      <DependentUpon>CommonCMS_ReusableContent.feature</DependentUpon>
+    </Content>
     <Content Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.Template.xml">
       <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Content>
@@ -277,6 +306,7 @@
     </Content>
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
+    <Content Include="WebParts\ReusableContentWebPart\Elements.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.Template.xml">
@@ -296,6 +326,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_SearchRESTAnonymous.feature</DependentUpon>
     </Content>
     <Content Include="Features\CommonCMS_Lists\CommonCMS_Lists.Template.xml">
       <DependentUpon>CommonCMS_Lists.feature</DependentUpon>

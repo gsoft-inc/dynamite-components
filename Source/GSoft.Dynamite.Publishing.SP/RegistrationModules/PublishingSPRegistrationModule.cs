@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Autofac;
 using GSoft.Dynamite.Publishing.Contracts.WebParts;
 using GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart;
+using GSoft.Dynamite.Publishing.SP.WebParts.ReusableContentWebPart;
 
 namespace GSoft.Dynamite.Publishing.SP.RegistrationModules
 {  
@@ -24,6 +25,7 @@ namespace GSoft.Dynamite.Publishing.SP.RegistrationModules
         {
             // WebParts
             builder.RegisterType<FilteredProductShowcaseWebPart>().As<IFilteredProductShowcaseWebPart>().ExternallyOwned();
+            builder.RegisterType<ReusableContentWebPart>().As<IReusableContentWebPart>().ExternallyOwned();
         }
     }
 }

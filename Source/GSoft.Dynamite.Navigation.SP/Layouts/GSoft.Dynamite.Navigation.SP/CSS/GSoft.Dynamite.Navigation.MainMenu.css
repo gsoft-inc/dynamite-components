@@ -6,10 +6,12 @@ nav.main-menu {
 }
 .main-menu ul {
   list-style: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   float: left;
   display: block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 li.main-menu-level-1 {
@@ -39,7 +41,6 @@ div.main-menu-level-2 {
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
-  -ms-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
 div.main-menu-level-2:hover {
@@ -53,7 +54,7 @@ li.main-menu-level-2 {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: left;
-  padding: 5px 0px;
+  padding: 5px 0;
 }
 li.main-menu-level-2.main-menu-2-col {
   width: 50%;
@@ -62,7 +63,7 @@ li.main-menu-level-2:last-of-type {
   padding-right: 0;
 }
 li.main-menu-level-2 > a {
-  padding: 0 5px;
+  padding: 0 10px;
 }
 li.main-menu-level-2 > a:hover {
   text-decoration: none;

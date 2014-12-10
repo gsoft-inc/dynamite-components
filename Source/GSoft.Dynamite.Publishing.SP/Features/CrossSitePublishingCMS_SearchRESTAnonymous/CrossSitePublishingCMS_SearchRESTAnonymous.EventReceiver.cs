@@ -15,7 +15,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("91a67c8d-3b14-4242-ba33-199f25cc98ff")]
     public class CrossSitePublishingCMS_SearchRESTAnonymousEventReceiver : SPFeatureReceiver
     {
@@ -79,6 +78,10 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
     </WhiteList>
 </QueryPropertiesTemplate>";
 
+        /// <summary>
+        /// Event handler called when the feature is activated
+        /// </summary>
+        /// <param name="properties">The event arguments</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -93,15 +96,11 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
                     var listTitle = "QueryPropertiesTemplate";
                     listHelper.EnsureList(site.RootWeb, listTitle, "List holding the Query Properties template used by Search REST API.", SPListTemplateType.DocumentLibrary);
 
-                    //var fileUrl = "/_layouts/15/GSoft.Dynamite.Publishing/Template/queryparametertemplate.xml";
-
-                    //var data = site.RootWeb.GetFileAsString(fileUrl);
-
                     var doc = new XmlDocument();
 
                     using (var stream = new MemoryStream())
                     {
-                        doc.LoadXml(data);
+                        doc.LoadXml(this.data);
                         doc.DocumentElement["QueryProperties"]["FarmId"].InnerText = site.WebApplication.Farm.Id.ToString();
                         doc.DocumentElement["QueryProperties"]["SiteId"].InnerText = site.ID.ToString();
                         doc.DocumentElement["QueryProperties"]["WebId"].InnerText = site.RootWeb.ID.ToString();
@@ -114,12 +113,5 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
                 }
             }
         }
-
-
-        // Uncomment the method below to handle the event raised before a feature is deactivated.
-
-        //public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        //{
-        //}
     }
 }

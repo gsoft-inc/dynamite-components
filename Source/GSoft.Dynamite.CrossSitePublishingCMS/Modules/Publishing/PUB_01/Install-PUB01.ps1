@@ -103,6 +103,12 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Catalogs.ps1'
 & $Script 
+  
+$values = @{"Step: " = "#11 Reusable Content"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ReusableContent.ps1'
+& $Script 
 
 # =========================================== #
 # =========   METADATA FILTERING   ========== #
