@@ -85,6 +85,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<ReusableContentRepository>().As<IReusableContentRepository>();
             builder.RegisterType<ReusableHtmlContent>().As<ReusableHtmlContent>();
             builder.RegisterType<ReusableContentService>().As<IReusableContentService>();
+            builder.RegisterType<PublishingReusableContentConfig>().As<IPublishingReusableContentConfig>();
 
             // Configuration Values
             builder.RegisterType<PublishingContentTypeInfos>();

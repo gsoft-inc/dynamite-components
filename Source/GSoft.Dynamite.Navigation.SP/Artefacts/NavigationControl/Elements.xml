@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Control Id="NavigationControlPlaceHolder" Sequence="10" ControlSrc="~/_controltemplates/15/GSoft.Dynamite.Navigation/MainMenu.ascx"></Control>
+  <Control Id="NavigationControlPlaceHolder" Sequence="10" ControlSrc="~/_controltemplates/15/GSoft.Dynamite.Navigation/MainMenu.ascx" ></Control>
 </Elements>
