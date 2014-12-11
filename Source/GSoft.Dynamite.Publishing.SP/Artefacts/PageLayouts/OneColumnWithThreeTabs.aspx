@@ -24,18 +24,20 @@
 </asp:Content>
 <asp:Content contentplaceholderid="PlaceHolderMain" runat="server">
     <div class="row row-tabs">
+        <div class="row row-tabs-nav">
 	    <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Header%>" ID="Header"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
-	</div>
-    <div class="row one-column content-wrap">
-	    <section id="section-1">
-	    	    <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section1"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
-	    </section>
-        <section id="section-2">
-	    	    <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section2"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
-	    </section>
-        <section id="section-3">
-	    	    <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section3"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
-	    </section>
+	    </div>
+        <div class="row one-column content-wrap">
+	        <section id="section-1">
+	    	        <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section1"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	        </section>
+            <section id="section-2">
+	    	        <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section2"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	        </section>
+            <section id="section-3">
+	    	        <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section3"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	        </section>
+        </div>
     </div>
     <div class="row one-column">
 	    <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Main"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
