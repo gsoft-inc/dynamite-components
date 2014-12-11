@@ -46,10 +46,10 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                      ResultSourceName = navigationResultSourceInfos.AllMenuItems().Name,
                      Navigation = publishingManagedPropertyInfos.Navigation.Name,
                      ItemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name,
-                     CatalogItemId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
-                     TargetItemId = publishingContentTypeInfos.TargetContentItem().ContentTypeId,
-                     OccurrenceLinkLocation = navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
-                     OccurrenceLinkLocationValue = NavigationLocation.MainMenu,
+                     CatalogItemContentTypeId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
+                     TargetItemContentTypeId = publishingContentTypeInfos.TargetContentItem().ContentTypeId,
+                     FilterManagedPropertyName = navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
+                     FilterManagedPropertyValue = NavigationLocation.MainMenu,
                      FriendlyUrlRequiredProperties = new[] 
                      { 
                          publishingManagedPropertyInfos.Navigation.Name, 

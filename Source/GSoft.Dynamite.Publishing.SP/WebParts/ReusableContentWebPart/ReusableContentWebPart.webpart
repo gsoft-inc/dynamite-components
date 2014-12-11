@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="GSoft.Dynamite.Publishing.SP.WebParts.ReusableContentWebPart.ReusableContentWebPart, $SharePoint.Project.AssemblyFullName$" />
+      <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">GSoft.Dynamite.Publishing.SP - ReusableContentWebPart</property>
+        <property name="Description" type="string">My Web Part</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

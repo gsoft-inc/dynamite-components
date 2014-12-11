@@ -86,6 +86,7 @@
     <None Include="Modules\Publishing\PUB_01\Remove-TermGroups.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Publishing\PUB_01\Setup-MetadataFiltering.ps1.template" />
+    <None Include="Modules\Publishing\PUB_01\Setup-ReusableContent.ps1.template" />
     <None Include="Modules\Publishing\PUB_02\Setup-Lists.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_03\Install-LANG03.ps1" />
     <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.ps1.template" />

@@ -3,7 +3,12 @@ using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Portal.Core.Resources;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Publishing.Contracts.Entities;
+using GSoft.Dynamite.Publishing.Contracts.Repositories;
+using GSoft.Dynamite.Publishing.Contracts.Services;
 using GSoft.Dynamite.Publishing.Core.Configuration;
+using GSoft.Dynamite.Publishing.Core.Repositories;
+using GSoft.Dynamite.Publishing.Core.Services;
 
 namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 {
@@ -76,6 +81,12 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().As<IPublishingMetadataNavigationSettingsConfig>();
             builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().Named<IPublishingMetadataNavigationSettingsConfig>("publishing");
      
+            // Reusable Content
+            builder.RegisterType<ReusableContentRepository>().As<IReusableContentRepository>();
+            builder.RegisterType<ReusableHtmlContent>().As<ReusableHtmlContent>();
+            builder.RegisterType<ReusableContentService>().As<IReusableContentService>();
+            builder.RegisterType<PublishingReusableContentConfig>().As<IPublishingReusableContentConfig>();
+
             // Configuration Values
             builder.RegisterType<PublishingContentTypeInfos>();
             builder.RegisterType<PublishingFieldInfos>();

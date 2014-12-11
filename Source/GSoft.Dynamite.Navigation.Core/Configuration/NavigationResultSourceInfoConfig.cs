@@ -10,7 +10,7 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
     /// </summary>
     public class NavigationResultSourceInfoConfig : INavigationResultSourceInfoConfig
     {   
-        private readonly NavigationResultSourceInfos _resultSourceValues;
+        private readonly NavigationResultSourceInfos resultSourceValues;
 
         /// <summary>
         /// Default constructor
@@ -18,7 +18,7 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         /// <param name="resultSourceValues">The result sources info objects configuration</param>
         public NavigationResultSourceInfoConfig(NavigationResultSourceInfos resultSourceValues)
         {
-            this._resultSourceValues = resultSourceValues;
+            this.resultSourceValues = resultSourceValues;
         }
 
         /// <summary>
@@ -30,9 +30,9 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             {
                 var resultSources = new List<ResultSourceInfo>
                 {
-                    this._resultSourceValues.SingleTargetItem(),
-                    this._resultSourceValues.SingleCatalogItem(),
-                    this._resultSourceValues.AllMenuItems()
+                    this.resultSourceValues.SingleTargetItem(),
+                    this.resultSourceValues.SingleCatalogItem(),
+                    this.resultSourceValues.AllMenuItems()
                 };
 
                 return resultSources;

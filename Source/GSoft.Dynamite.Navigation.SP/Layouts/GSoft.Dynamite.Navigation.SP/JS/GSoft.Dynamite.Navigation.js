@@ -27,8 +27,8 @@ window.Dynamite = window.Dynamite || {};
                     taken += ($(li)[0].getBoundingClientRect().width);
                 })
 
-                var padding = (space - taken) / (level2.children("li").length * 2);
-                level2.find("a.main-menu-level-2").css("padding-left", padding + "px").css("padding-right", padding + "px");
+                //var padding = (space - taken) / (level2.children("li").length * 2);
+                //level2.find("a.main-menu-level-2").css("padding-left", padding + "px").css("padding-right", padding + "px");
 
                 $("li.main-menu-level-1").mouseenter(MainMenu.MouseEnterTab);
                 $("div.main-menu-level-2").mouseenter(MainMenu.MouseEnterMenu);

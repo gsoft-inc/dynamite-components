@@ -93,7 +93,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         #endregion
-        
+
         #region Field internal names
 
         /// <summary>

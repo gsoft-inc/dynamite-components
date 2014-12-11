@@ -351,4 +351,22 @@
   <data name="PageLayout_OneColumnThreeTabsPageLayout_Name" xml:space="preserve">
     <value>One Column with Three Tabs</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_SearchRESTAnonymous_Desc" xml:space="preserve">
+    <value>Enable the Search REST API for anonymous users.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_SearchRESTAnonymous_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Search REST API Anonymous</value>
+  </data>
+  <data name="ReusableContent_InsertAReusableContentTitle" xml:space="preserve">
+    <value>Please insert a reusable content title.</value>
+  </data>
+  <data name="ReusableContent_NoReusableContentFound" xml:space="preserve">
+    <value>The reusable contentyou are looking for does not exist or could not be found.</value>
+  </data>
+  <data name="Feature_CommonCMS_ReusableContent_Desc" xml:space="preserve">
+    <value>Deploy the Web Part and User Control of Reusable Content. Create the registered Reusable content.</value>
+  </data>
+  <data name="Feature_CommonCMS_ReusableContent_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Reusable Content</value>
+  </data>
 </root>
