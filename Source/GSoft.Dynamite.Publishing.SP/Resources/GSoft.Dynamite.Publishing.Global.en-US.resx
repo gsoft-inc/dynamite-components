@@ -369,4 +369,22 @@
   <data name="Feature_CommonCMS_ReusableContent_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Publishing Module - Reusable Content</value>
   </data>
+  <data name="ContentType_BrowsableArticlePage_Desc" xml:space="preserve">
+    <value>Creates a new browsable article page</value>
+  </data>
+  <data name="ContentType_BrowsableArticlePage_Name" xml:space="preserve">
+    <value>Browsable Article page</value>
+  </data>
+  <data name="ContentType_DefaultArticlePage_Desc" xml:space="preserve">
+    <value>Creates a new default article page</value>
+  </data>
+  <data name="ContentType_DefaultArticlePage_Name" xml:space="preserve">
+    <value>Default Article Page</value>
+  </data>
+  <data name="ContentType_TranslatableArticlePage_Desc" xml:space="preserve">
+    <value>Creates a new translatable article page</value>
+  </data>
+  <data name="ContentType_TranslatableArticlePage_Name" xml:space="preserve">
+    <value>Translatable Article Page</value>
+  </data>
 </root>

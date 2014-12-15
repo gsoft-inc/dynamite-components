@@ -40,6 +40,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                     this.contentTypeInfoValues.BrowsablePage(),
                     this.contentTypeInfoValues.TranslatablePage(),
                     this.contentTypeInfoValues.DefaultPage(),
+                    this.contentTypeInfoValues.BrowsableArticlePage(),
+                    this.contentTypeInfoValues.TranslatableArticlePage(),
+                    this.contentTypeInfoValues.DefaultArticlePage(),
                     this.contentTypeInfoValues.TargetContentPage(),
                     this.contentTypeInfoValues.CatalogContentPage(),
                 };

@@ -156,6 +156,36 @@
         public static readonly string ContentTypeDefaultPageDescription = "ContentType_DefaultPage_Desc";
 
         /// <summary>
+        /// The content type <c>Browsable</c> article Page Name
+        /// </summary>
+        public static readonly string ContentTypeBrowsableArticlePageTitle = "ContentType_BrowsableArticlePage_Name";
+
+        /// <summary>
+        /// The content type <c>Browsable</c> article Page Description
+        /// </summary>
+        public static readonly string ContentTypeBrowsableArticlePageDescription = "ContentType_BrowsableArticlePage_Desc";
+
+        /// <summary>
+        /// The content type Translatable article Page Name
+        /// </summary>
+        public static readonly string ContentTypeTranslatableArticlePageTitle = "ContentType_TranslatableArticlePage_Name";
+
+        /// <summary>
+        /// The content type Translatable article Page Description
+        /// </summary>
+        public static readonly string ContentTypeTranslatableArticlePageDescription = "ContentType_TranslatableArticlePage_Desc";
+
+        /// <summary>
+        /// The content type Default article Page Name
+        /// </summary>
+        public static readonly string ContentTypeDefaultArticlePageTitle = "ContentType_DefaultArticlePage_Name";
+
+        /// <summary>
+        /// The content type Default article Page Description
+        /// </summary>
+        public static readonly string ContentTypeDefaultArticlePageDescription = "ContentType_DefaultArticlePage_Desc";
+
+        /// <summary>
         /// The content type Translatable Content Page Name
         /// </summary>
         public static readonly string ContentTypeTargetContentPageTitle = "ContentType_TargetContentPage_Name";

@@ -31,7 +31,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {
                     ContentTypes = new List<ContentTypeInfo>()
                     {
-                        this.publishingContentTypeInfos.DefaultPage()
+                        this.publishingContentTypeInfos.DefaultPage(),
+                        this.publishingContentTypeInfos.DefaultArticlePage()
                     },
                 };
             }

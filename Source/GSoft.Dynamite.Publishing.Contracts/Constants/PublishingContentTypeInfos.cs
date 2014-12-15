@@ -247,6 +247,67 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         
         #endregion
 
+        #region Browsable Article Page
+
+        /// <summary>
+        /// The browsable article page content type information.
+        /// </summary>
+        /// <returns>Content type information</returns>
+        public ContentTypeInfo BrowsableArticlePage()
+        {
+            return new ContentTypeInfo(
+                this.ArticlePage().ContentTypeId + "01",
+                PublishingResources.ContentTypeBrowsableArticlePageTitle,
+                PublishingResources.ContentTypeBrowsableArticlePageDescription,
+                PublishingResources.ContentTypeGroup)
+            {
+                Fields = new List<IFieldInfo>()
+                {
+                   this.fieldInfoValues.Navigation()
+                }
+            };
+        }
+
+        #endregion
+
+        #region Translatable Article Page
+
+        /// <summary>
+        /// The translatable article page content type information.
+        /// </summary>
+        /// <returns>Content type information</returns>
+        public ContentTypeInfo TranslatableArticlePage()
+        {
+            return new ContentTypeInfo(
+                this.BrowsableArticlePage().ContentTypeId + "01",
+                PublishingResources.ContentTypeTranslatableArticlePageTitle,
+                PublishingResources.ContentTypeTranslatableArticlePageDescription,
+                PublishingResources.ContentTypeGroup)
+            {
+            };
+        }
+
+        #endregion
+
+        #region Default Article Page
+
+        /// <summary>
+        /// The default article page content type information.
+        /// </summary>
+        /// <returns>Content type information</returns>
+        public ContentTypeInfo DefaultArticlePage()
+        {
+            return new ContentTypeInfo(
+                this.TranslatableArticlePage().ContentTypeId + "01",
+                PublishingResources.ContentTypeDefaultArticlePageTitle,
+                PublishingResources.ContentTypeDefaultArticlePageDescription,
+                PublishingResources.ContentTypeGroup)
+            {
+            };
+        }
+
+        #endregion
+
         #region Target Content Page
 
         /// <summary>
@@ -294,6 +355,15 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo Page()
         {
             return new ContentTypeInfo("0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39", string.Empty, string.Empty, string.Empty);
+        }
+
+        /// <summary>
+        /// The SharePoint Article page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo ArticlePage()
+        {
+            return new ContentTypeInfo(this.Page().ContentTypeId + "00" + "242457EFB8B24247815D688C526CD44D", string.Empty, string.Empty, string.Empty);
         }
 
         #endregion
