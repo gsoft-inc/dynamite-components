@@ -250,7 +250,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         #region Browsable Article Page
 
         /// <summary>
-        /// The browsable article page content type information.
+        /// The <c>browsable</c> article page content type information.
         /// </summary>
         /// <returns>Content type information</returns>
         public ContentTypeInfo BrowsableArticlePage()
