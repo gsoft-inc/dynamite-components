@@ -49,7 +49,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                      CatalogItemContentTypeId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
                      TargetItemContentTypeId = publishingContentTypeInfos.TargetContentItem().ContentTypeId,
                      FilterManagedPropertyName = navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
-                     FilterManagedPropertyValue = NavigationLocation.MainMenu,
+                     FilterManagedPropertyValue = "Main Menu",
                      FriendlyUrlRequiredProperties = new[] 
                      { 
                          publishingManagedPropertyInfos.Navigation.Name, 

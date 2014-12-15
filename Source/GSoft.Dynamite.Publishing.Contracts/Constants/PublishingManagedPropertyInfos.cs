@@ -105,7 +105,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 return new ManagedPropertyInfo("PublishingPageContentOWSHTML", ManagedDataType.Text);
             }
-        } 
+        }
 
         /// <summary>
         /// The OOTB PublishingImage managed property
@@ -114,9 +114,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             get
             {
-                return new ManagedPropertyInfo("PublishingImage", ManagedDataType.Text); 
+                return new ManagedPropertyInfo("PublishingImage", ManagedDataType.Text);
             }
-        } 
+        }
 
         #endregion
     }

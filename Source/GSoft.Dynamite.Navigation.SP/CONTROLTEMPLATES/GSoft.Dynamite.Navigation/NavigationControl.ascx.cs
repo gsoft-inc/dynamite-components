@@ -19,6 +19,10 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
 
         public string FeaturedIn { get; set; }
 
+        public string Title { get; set; }
+
+        public string Css { get; set; }
+
         /// <summary>
         /// Loads the data in the page
         /// </summary>
@@ -26,6 +30,9 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
         /// <param name="e">The arguments</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Title = this.Title ?? string.Empty;
+            this.Css = this.Css ?? string.Empty;
+
             using (var scope = NavigationContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
             {
                 var publishingManagedPropertyInfos = scope.Resolve<PublishingManagedPropertyInfos>();
@@ -60,7 +67,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
 
                 // Serializes the data
                 //var serializer = new JavaScriptSerializer();
-               // this.MenuJson = serializer.Serialize(navigationData);
+                // this.MenuJson = serializer.Serialize(navigationData);
 
                 this.NavigationRepeater.DataSource = navigationData;
                 this.NavigationRepeater.DataBind();

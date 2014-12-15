@@ -131,7 +131,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                 method: "GET",
                 headers: { "Accept": "application/json; odata=verbose" },
                 success: self.OnQuerySuccess,
-                error: self.OnQueryError 
+                error: self.OnQueryError
             });
         };
 
@@ -218,31 +218,44 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
 // Tabs Module 
 // The method creates a tabs navigation. 
+// TODO Refactor the plugin. Was originally taken from http://tympanus.net/Development/TabStylesInspiration/
+// Matthieu Fenger will revisit this plugin. 
+// The THIS is missused, there is hardcoded class that should be put in options and the options doesnt seems to be read properly.
 (function (Tabs, $, undefined) {
     'use strict';
+    Tabs.tabsContainer = {};
+    Tabs.options = {};
 
     Tabs.Options = {
         start: 0
     };
 
     // Applies the tabs 
-    Tabs.ApplyTabs = function(el, options) {
-        this.el = el;
-        this.options = extend({}, this.options);
-        extend(this.options, options);
-        this.Init();
+    Tabs.ApplyTabs = function (selector, options) {
+        $(document).ready(function () {
+            // Get the tabs container
+            Tabs.tabsContainer = $(selector)[0];
+            Tabs.options = extend({}, this.options);
+            extend(this.options, options);
+
+            Tabs.Init();
+        });
     };
 
     // Initializes the tabs wih the div items
     Tabs.Init = function () {
-        // tabs elems
-        this.tabs = [].slice.call(this.el.querySelectorAll('nav > ul > li'));
+        // Tabs Elements
+        this.tabs = [].slice.call(Tabs.tabsContainer.querySelectorAll('nav > ul > li'));
+
         // content items
-        this.items = [].slice.call(this.el.querySelectorAll('.content-wrap > section'));
+        this.items = [].slice.call(Tabs.tabsContainer.querySelectorAll('.content-wrap > section'));
+
         // current index
         this.current = -1;
+
         // show current content item
         this.Show();
+
         // init events
         this.InitEvents();
     };
@@ -251,21 +264,22 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
     Tabs.InitEvents = function () {
         var self = this;
         // Add onclick event on each element
-        this.tabs.forEach(function (tab, idx) {
-            tab.addEventListener('click', function (ev) {
-                ev.preventDefault();
-                self.Show(idx);
+        this.tabs.forEach(function (tab, index) {
+            tab.addEventListener('click', function (event) {
+                event.preventDefault();
+                self.Show(index);
             });
         });
     };
 
     // Applies css class on the current tab/content
-    Tabs.Show = function (idx) {
+    Tabs.Show = function (index) {
         if (this.current >= 0) {
             this.tabs[this.current].className = this.items[this.current].className = '';
         }
+
         // change current
-        this.current = idx != undefined ? idx : this.Options.start >= 0 && this.Options.start < this.items.length ? this.Options.start : 0;
+        this.current = index != undefined ? index : this.Options.start >= 0 && this.Options.start < this.items.length ? this.Options.start : 0;
         this.tabs[this.current].className = 'tab-current';
         this.items[this.current].className = 'content-current';
     };

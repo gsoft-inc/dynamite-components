@@ -7,12 +7,13 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NavigationControl.ascx.cs" Inherits="GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigation.NavigationControl" %>
 
-<div class="navigation-control">
+<div class="navigation-control <%=this.Css %>">
+    <div class="nav-title"><%=this.Title %></div>
     <ul>
         <asp:Repeater ID="NavigationRepeater" runat="server">
             <ItemTemplate>
                 <li>
-                    <a href="<%# DataBinder.Eval(Container.DataItem, "Path") %>"><%# DataBinder.Eval(Container.DataItem, "Title") %></a>
+                    <a href="<%# DataBinder.Eval(Container.DataItem, "Url") %>"><%# DataBinder.Eval(Container.DataItem, "Title") %></a>
                 </li>
             </ItemTemplate>
         </asp:Repeater>
