@@ -256,6 +256,15 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         // show current content item
         this.Show();
 
+        var inDesignMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode.value;
+
+        // Show all webpart zone in edit mode.
+        if (inDesignMode == "1") {
+            _.each(this.items, function (item) {
+                $(item).show();
+            });
+        }
+
         // init events
         this.InitEvents();
     };

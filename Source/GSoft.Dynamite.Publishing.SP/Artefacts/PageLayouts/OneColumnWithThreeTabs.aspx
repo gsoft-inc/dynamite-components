@@ -29,18 +29,18 @@
 	    </div>
         <div class="row one-column content-wrap">
 	        <section id="section-1">
-	    	        <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section1"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	    	        <WebPartPages:WebPartZone runat="server" Title="Section 1" ID="Section1"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
 	        </section>
             <section id="section-2">
-	    	        <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section2"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	    	        <WebPartPages:WebPartZone runat="server" Title="Section 2" ID="Section2"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
 	        </section>
             <section id="section-3">
-	    	        <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Section3"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	    	        <WebPartPages:WebPartZone runat="server" Title="Section 3" ID="Section3"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
 	        </section>
         </div>
     </div>
     <div class="row one-column">
-	    <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Main"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
+	    <WebPartPages:WebPartZone runat="server" Title="Main" ID="Main"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
     </div>
 </asp:Content>
 
