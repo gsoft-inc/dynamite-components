@@ -99,11 +99,21 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-ResultSources.ps1'
 & $Script
 
+# ==================== #
+# ===   CATALOGS   === #
+# ==================== #
+
+$values = @{"Step: " = "#6 Setup Catalogs"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Catalogs.ps1'
+& $Script 
+
 # =============================== #
 # ===   CATALOG CONNECTIONS   === #
 # =============================== #
 
-$values = @{"Step: " = "#6 Create Catalog Connections"}
+$values = @{"Step: " = "#7 Create Catalog Connections"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-CatalogConnections.ps1'
@@ -113,7 +123,7 @@ $Script = $CommandDirectory + '\Setup-CatalogConnections.ps1'
 # ===   MANAGED TAXONOMY NAVIGATION  ==== #
 # ======================================= #
 
-$values = @{"Step: " = "#7 Setup managed navigation"}
+$values = @{"Step: " = "#8 Setup managed navigation"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-ManagedNavigation.ps1'
@@ -123,7 +133,7 @@ $Script = $CommandDirectory + '\Setup-ManagedNavigation.ps1'
 # =========   GLOBAL NAVIGATION  ======== #
 # ======================================= #
 
-$values = @{"Step: " = "#7 Setup global navigation control"}
+$values = @{"Step: " = "#9 Setup global navigation control"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Controls.ps1'

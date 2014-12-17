@@ -11,6 +11,7 @@ $DSP_CrossSitePublishingCMS_NAV_OccurrenceLinkLocation = "989e498b-81d0-4dc3-9c5
 $DSP_CrossSitePublishingCMS_NAV_CatalogConnections = "14864606-186f-4e73-b1e5-646c8657678e"
 $DSP_CrossSitePublishingCMS_NAV_TargetItemsEventReceivers = "8335e626-e7ab-41f1-86ac-e4bcaf569b43"
 $DSP_CrossSitePublishingCMS_NAV_ContentPagesList = "4003b794-a3a7-4103-a1d7-8d90c0dc2d60"
+$DSP_CrossSitePublishingCMS_NAV_Catalogs = "53e769f6-346a-4967-b072-f6a278da76d6"
 
 $DSP_CommonCMS_NAV_TaxonomyManagedNavigation = "b7b200a2-6d16-4f33-aeae-80cd1ae1474b"
 

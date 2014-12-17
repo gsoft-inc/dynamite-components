@@ -79,6 +79,7 @@
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-Fields.ps1.template" />
+    <None Include="Modules\Navigation\NAV_01\Setup-Catalogs.ps1.template" />
     <None Include="Modules\Navigation\NAV_05\Install-NAV05.ps1" />
     <None Include="Modules\Navigation\NAV_05\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Navigation\NAV_05\Setup-Lists.ps1.template" />
