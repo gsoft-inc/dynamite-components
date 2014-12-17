@@ -69,6 +69,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Configuration\NavigationCatalogConnectionInfoConfig.cs" />
+    <Compile Include="Configuration\NavigationCatalogInfoConfig.cs" />
     <Compile Include="Configuration\NavigationContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\NavigationEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\NavigationFieldInfoConfig.cs" />

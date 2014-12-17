@@ -59,6 +59,10 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             // Lists
             builder.RegisterType<NavigationListInfosConfig>().As<INavigationListInfosConfig>();
 
+            // Catalogs
+            builder.RegisterType<NavigationCatalogInfoConfig>().As<INavigationCatalogInfoConfig>();
+            builder.RegisterType<NavigationCatalogInfoConfig>().Named<INavigationCatalogInfoConfig>("navigation");
+
             // Configuration Values
             builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();
             builder.RegisterType<NavigationFieldInfos>();

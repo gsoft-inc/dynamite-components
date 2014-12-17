@@ -135,6 +135,12 @@
   <data name="Feature_CrossSitePublishingCMS_CatalogConnections_Name" xml:space="preserve">
     <value>Dynamite CMS de publication intersites - Module de navigation - Connexions de catalogues</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_Catalogs_Desc" xml:space="preserve">
+    <value>Déploie les catalogues du module de navigation pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Catalogs_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de navigation - Catalogues</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_ContentPagesList_Desc" xml:space="preserve">
     <value>Configure la liste de pages de contenu pour permettre la manipulation de la structure de navigation</value>
   </data>
