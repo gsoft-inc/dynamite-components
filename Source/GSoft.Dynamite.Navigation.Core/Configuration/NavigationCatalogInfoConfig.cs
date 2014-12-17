@@ -20,7 +20,7 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         {
             get 
             {
-                return null;
+                return new List<CatalogInfo>();
             }
         }
     }
