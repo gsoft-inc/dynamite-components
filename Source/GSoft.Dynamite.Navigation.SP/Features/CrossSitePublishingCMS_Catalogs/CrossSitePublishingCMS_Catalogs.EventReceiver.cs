@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
-using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Catalogs;
+using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using Microsoft.SharePoint;
 
@@ -16,10 +16,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Catalogs
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("6ed6bd2c-2e3a-4b3e-8795-725448e2774d")]
     public class CrossSitePublishingCMS_CatalogsEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var web = properties.Feature.Parent as SPWeb;
