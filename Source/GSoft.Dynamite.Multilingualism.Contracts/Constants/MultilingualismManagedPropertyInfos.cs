@@ -46,7 +46,11 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                         { "ows_q_TEXT_DynamiteItemLanguage", 1 },
                         { "ows_DynamiteItemLanguage", 2 },
                     },
-                    RespectPriority = true
+                    RespectPriority = true,
+                    Queryable = true,
+                    Refinable = true,
+                    Retrievable = true,
+                    Searchable = true
                 };
             }
         }
