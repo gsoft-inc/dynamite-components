@@ -108,7 +108,7 @@ $Script = $CommandDirectory + "\Modules\Docs\DOC_02\Install-DOC02.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 # ********** POST DEPLOYMENT SCRIPTS ********** #
-$Script = $CommandDirectory + "Execute-PostDeploymentScript.ps1"
+$Script = $CommandDirectory + "/Execute-PostDeploymentScript.ps1"
 Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
 
 # ********** LOG END ********** #
