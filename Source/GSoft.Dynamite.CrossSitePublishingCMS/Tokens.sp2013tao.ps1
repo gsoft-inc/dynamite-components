@@ -4,11 +4,6 @@
 
 $DSP_IsDistributedEnvironment = "$false"
 
-# ------------------------------------------
-# Common Tokens
-# ------------------------------------------
-. ./Tokens/Tokens.Common.ps1
-
 # ******************************************
 # Deployment Configuration 
 # ******************************************
@@ -23,29 +18,33 @@ $DSP_PortalWebAppUrl = "http://sp2013tao/"
 $DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
 $DSP_PortalAuthoringHostNamePath = "http://authoring.dynamite.com"
 
-$DSP_PortalAuthoringRootWebUrl = $DSP_PortalAuthoringHostNamePath 
-
 $DSP_PortalAdmin = "OFFICE\thomasantoine.oneill"
 $DSP_PortalDatabaseName = "SP2013_Content_Portal"
 $DSP_PortalDefaultLanguage = "1033"
+
+# ******************************************
+# Application Configuration
+# ******************************************
+
+$DSP_SearchServiceApplicationName = "Search"
+$DSP_SearchContentSourceName = "Local SharePoint sites"
 
 # ******************************************
 # Multilingualism Configuration 
 # ******************************************
 
 $DSP_IsMultilingual = $true
+$DSP_VariationsLabels = @('en','fr')
 $DSP_SourceLabel = "en"
-$DSP_TargetLabels = "@('fr')"
-
-if($DSP_IsMultilingual)
-{
-	# Create webs under the source label root site
-	$DSP_PortalAuthoringRootWebUrl += "/" + $DSP_SourceLabel
-}
 
 # ******************************************
 # Webs Configuration 
 # ******************************************
 
-$DSP_PortalAuthoringDefaultWebUrl = $DSP_PortalAuthoringRootWebUrl + "/default/"
-$DSP_PortalAuthoringDefaultWebName = "Authoring Default Web"
+# Specify an empty array "@()" if there are not subsites
+$DSP_PortalAuthoringRootWebs = @('rh','com')
+
+# ------------------------------------------
+# Common Tokens
+# ------------------------------------------
+. ./Tokens/Tokens.Common.ps1
