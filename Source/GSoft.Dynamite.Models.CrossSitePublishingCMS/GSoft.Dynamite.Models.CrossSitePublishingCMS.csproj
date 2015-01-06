@@ -45,7 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
+    <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Install-CMSSolutions.template" />
     <None Include="Initialize-CMSModel.ps1.template" />
     <None Include="Modules\Docs\DOC_02\Default\ContentPages.xlsx" />
