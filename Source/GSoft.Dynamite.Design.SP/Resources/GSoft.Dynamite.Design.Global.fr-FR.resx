@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Feature_CommonCMS_Bootstrap_Description" xml:space="preserve">
+    <value>Déploie et installe jQuery, bootstrap et une librairie modifiée de bootstrap pour SharePoint</value>
+  </data>
+  <data name="Feature_CommonCMS_Bootstrap_Name" xml:space="preserve">
+    <value>Dynamite CMS - Design Module - Intégration de Bootstrap</value>
+  </data>
   <data name="Feature_CommonCMS_MasterPage_Description" xml:space="preserve">
     <value>Crée la page maitre pour le site de publication</value>
   </data>
