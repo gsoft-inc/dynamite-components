@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Control Id="AdditionalPageHead" Sequence="10" ControlSrc="~/_controltemplates/15/GSoft.Dynamite.Design.Bootstrap/BootstrapCssImport.ascx"></Control>
+  <Control Id="AdditionalPageHead" Sequence="10" ControlSrc="~/_controltemplates/15/GSoft.Dynamite.Design.Bootstrap/BootstrapClientScripts.ascx"></Control>
+</Elements>

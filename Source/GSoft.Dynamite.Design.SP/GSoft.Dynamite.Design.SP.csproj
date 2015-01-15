@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10175\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10190\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -68,6 +68,20 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Design.Bootstrap\BootstrapClientScripts.ascx.cs">
+      <DependentUpon>BootstrapClientScripts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Design.Bootstrap\BootstrapClientScripts.ascx.designer.cs">
+      <DependentUpon>BootstrapClientScripts.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Design.Bootstrap\BootstrapCssImport.ascx.cs">
+      <DependentUpon>BootstrapCssImport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Design.Bootstrap\BootstrapCssImport.ascx.designer.cs">
+      <DependentUpon>BootstrapCssImport.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Design\CssImports.ascx.cs">
       <DependentUpon>CssImports.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -76,6 +90,9 @@
       <DependentUpon>CssImports.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="DesignContainerProxy.cs" />
+    <Compile Include="Features\CommonCMS_Boostrap\CommonCMS_Boostrap.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Boostrap.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CommonCMS_MasterPage\CommonCMS_MasterPage.EventReceiver.cs">
       <DependentUpon>CommonCMS_MasterPage.feature</DependentUpon>
     </Compile>
@@ -87,6 +104,9 @@
   <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
+    </None>
+    <None Include="Artefacts\BootstrapJSCssImports\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1b4c8d63-f97e-4e44-9460-17ab57f70e32}</SharePointProjectItemId>
     </None>
     <None Include="Artefacts\CssImports\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{caf434aa-ac9b-4694-bd42-5788149fcc98}</SharePointProjectItemId>
@@ -107,9 +127,21 @@
     <None Include="Features\CommonCMS_Theme\CommonCMS_Theme.feature">
       <FeatureId>{d29b8f2f-93ee-440d-aef2-31aaa434746b}</FeatureId>
     </None>
+    <None Include="Features\CommonCMS_Boostrap\CommonCMS_Boostrap.feature">
+      <FeatureId>{8bf11bb4-b810-49c3-91e0-07100d9e4464}</FeatureId>
+    </None>
     <None Include="GSoft.Dynamite.Design.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{e7ab564b-e658-4322-a25b-9814ee8cf00c}</SharePointProjectItemId>
+    </None>
+    <None Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap-custom.css.map">
+      <DependentUpon>bootstrap-custom.css</DependentUpon>
+    </None>
+    <None Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </None>
+    <None Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap.min.css.map">
+      <DependentUpon>bootstrap.min.css</DependentUpon>
     </None>
     <None Include="Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.css.map">
       <DependentUpon>GSoft.Dynamite.Design.css</DependentUpon>
@@ -130,14 +162,41 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Artefacts\CssImports\Elements.xml" />
+    <Content Include="Artefacts\BootstrapJSCssImports\Elements.xml" />
+    <Content Include="Artefacts\CssImports\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Artefacts\Theme\dynamite-splogo.png" />
     <Content Include="Artefacts\Theme\Elements.xml" />
+    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Design.Bootstrap\BootstrapClientScripts.ascx" />
+    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Design.Bootstrap\BootstrapCssImport.ascx" />
     <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Design\CssImports.ascx" />
     <Content Include="Features\CommonCMS_Theme\CommonCMS_Theme.Template.xml">
       <DependentUpon>CommonCMS_Theme.feature</DependentUpon>
     </Content>
+    <Content Include="Features\CommonCMS_Boostrap\CommonCMS_Boostrap.Template.xml">
+      <DependentUpon>CommonCMS_Boostrap.feature</DependentUpon>
+    </Content>
     <Content Include="Images\GSoft.Dynamite.Design.SP\logo-32x32-Design.png" />
+    <None Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap-custom.less" />
+    <None Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap.less" />
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap-custom.css">
+      <DependentUpon>bootstrap-custom.less</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap-custom.min.css">
+      <DependentUpon>bootstrap-custom.css</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\CSS\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\JS\bootstrap-custom.js" />
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\JS\bootstrap.js" />
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\JS\jquery-1.11.2.min.js" />
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\JS\modernizr.2.6.2.custom.min.js" />
+    <Content Include="Layouts\GSoft.Dynamite.Design.Bootstrap\JS\respond.min.js" />
     <Content Include="Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.css">
       <DependentUpon>GSoft.Dynamite.Design.less</DependentUpon>
     </Content>
@@ -162,6 +221,7 @@
       <Name>GSoft.Dynamite.Design.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
