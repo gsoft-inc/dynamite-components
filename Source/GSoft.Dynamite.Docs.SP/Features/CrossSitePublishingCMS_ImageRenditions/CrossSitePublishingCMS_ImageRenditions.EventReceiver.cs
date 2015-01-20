@@ -28,7 +28,7 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ImageRenditions
             {
                 using (var featureScope = DocsContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var imageRenditionHelper = featureScope.Resolve<ImageRenditionHelper>();
+                    var imageRenditionHelper = featureScope.Resolve<IImageRenditionHelper>();
                     var baseImageRenditionInfoConfig = featureScope.Resolve<IDocsImageRenditionInfoConfig>();
                     var baseImageRenditions = baseImageRenditionInfoConfig.ImageRenditions;
                     var logger = featureScope.Resolve<ILogger>();
