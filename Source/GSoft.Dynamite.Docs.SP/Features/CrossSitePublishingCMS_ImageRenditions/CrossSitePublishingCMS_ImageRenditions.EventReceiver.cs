@@ -42,7 +42,7 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ImageRenditions
                         imageRenditionHelper.RemoveImageRendition(site, "Display Template");
 
                         // Adds Image Renditions configuration
-                        imageRenditionHelper.EnsureImageRendition(imageRendition);
+                        imageRenditionHelper.EnsureImageRendition(site, imageRendition);
                     }
                 }
             }
