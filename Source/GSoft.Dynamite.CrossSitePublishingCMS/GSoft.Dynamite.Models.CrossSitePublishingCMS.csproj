@@ -48,6 +48,7 @@
     <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec" />
     <None Include="Modules\Docs\DOC_01\Install-DOC01.ps1" />
     <None Include="Modules\Docs\DOC_01\Setup-BlobCache.ps1.template" />
+    <None Include="Modules\Docs\DOC_01\Setup-ImageRenditions.ps1.template" />
     <None Include="Modules\Docs\DOC_02\Default\ContentPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\en\ContentPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\en\NewsPages.xlsx" />

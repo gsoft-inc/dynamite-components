@@ -40,6 +40,12 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-BlobCache.ps1'
 & $Script $LogFolderPath
 
+$values = @{"Step: " = "#2 Setup Image Renditions"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ImageRenditions.ps1'
+& $Script $LogFolderPath
+
 # ********** LOG END ********** #
 # Stop log transcript
 Stop-Transcript
