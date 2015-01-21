@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Configuration\DocsContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\DocsFieldInfoConfig.cs" />
+    <Compile Include="Configuration\DocsImageRenditionInfoConfig.cs" />
     <Compile Include="Configuration\DocsManagedPropertyInfosConfig.cs" />
     <Compile Include="RegistrationModules\DocsRegistrationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

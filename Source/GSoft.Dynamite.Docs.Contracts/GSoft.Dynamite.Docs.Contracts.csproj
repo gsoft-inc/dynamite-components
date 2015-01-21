@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Configuration\IDocsContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\IDocsFieldInfoConfig.cs" />
+    <Compile Include="Configuration\IDocsImageRenditionInfoConfig.cs" />
     <Compile Include="Configuration\IDocsManagedPropertyInfoConfig.cs" />
     <Compile Include="Constants\DocsFieldInfos.cs" />
     <Compile Include="Constants\DocsResources.cs" />
@@ -72,6 +73,7 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
+    <None Include="GSoft.Dynamite.Docs.Contracts.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
