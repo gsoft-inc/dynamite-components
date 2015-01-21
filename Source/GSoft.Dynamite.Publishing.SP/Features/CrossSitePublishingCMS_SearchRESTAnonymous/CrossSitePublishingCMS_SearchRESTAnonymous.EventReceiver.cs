@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Xml;
 using Autofac;
 using GSoft.Dynamite.Lists;
+using GSoft.Dynamite.Lists.Constants;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 
@@ -94,7 +95,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
                     var fileHelper = featureScope.Resolve<Files.IFileHelper>();
 
                     var listTitle = "QueryPropertiesTemplate";
-                    listHelper.EnsureList(site.RootWeb, listTitle, "List holding the Query Properties template used by Search REST API.", SPListTemplateType.DocumentLibrary);
+                    ListInfo listInfo = new ListInfo(listTitle, listTitle, "List holding the Query Properties template used by Search REST API.");
+                    listInfo.ListTemplateInfo = BuiltInListTemplates.DocumentLibrary;
+                    listHelper.EnsureList(site.RootWeb, listInfo);
 
                     var doc = new XmlDocument();
 

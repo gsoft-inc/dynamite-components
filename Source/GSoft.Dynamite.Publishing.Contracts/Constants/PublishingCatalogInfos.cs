@@ -4,6 +4,7 @@ using GSoft.Dynamite.Catalogs;
 using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Lists;
+using GSoft.Dynamite.Lists.Constants;
 using GSoft.Dynamite.Search;
 using GSoft.Dynamite.Taxonomy;
 using GSoft.Dynamite.ValueTypes;
@@ -74,7 +75,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     },
                     DraftVisibilityType = DraftVisibilityType.Approver,
                     EnableRatings = false,
-                    ListTemplate = SPListTemplateType.GenericList,
+                    ListTemplateInfo = BuiltInListTemplates.CustomList,
                     Overwrite = false,
                     RemoveDefaultContentType = true,
                     TaxonomyFieldMap = this._fieldInfoValues.Navigation(),
@@ -119,7 +120,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 },
                 DraftVisibilityType = DraftVisibilityType.Approver,
                 EnableRatings = false,
-                ListTemplate = SPListTemplateType.GenericList,
+                ListTemplateInfo = BuiltInListTemplates.CustomList,
                 Overwrite = false,
                 RemoveDefaultContentType = true,
                 TaxonomyFieldMap = this._fieldInfoValues.Navigation(),
