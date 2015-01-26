@@ -31,5 +31,10 @@
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_OneColumnThreeTabsPageLayout_Desc;" />
     </File>
+    <File Path="TwoColumnsOneColumn.aspx" Url="TwoColumnsOneColumn.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_TwoColumnsOneColumn_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_TwoColumnsOneColumn_Desc;" />
+    </File>
   </Module>
 </Elements>

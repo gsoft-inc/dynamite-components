@@ -387,4 +387,10 @@
   <data name="ContentType_TranslatableArticlePage_Name" xml:space="preserve">
     <value>Translatable Article Page</value>
   </data>
+  <data name="PageLayout_TwoColumnsOneColumn_Desc" xml:space="preserve">
+    <value>Creates two columns and one wide column</value>
+  </data>
+  <data name="PageLayout_TwoColumnsOneColumn_Name" xml:space="preserve">
+    <value>Two columns and One full column</value>
+  </data>
 </root>
