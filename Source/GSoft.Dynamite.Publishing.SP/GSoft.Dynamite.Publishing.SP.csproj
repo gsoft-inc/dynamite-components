@@ -61,10 +61,12 @@
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -137,6 +139,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
     <Compile Include="RegistrationModules\PublishingSPRegistrationModule.cs" />
+    <Compile Include="WebParts\ContactFormWebPart\ContactFormWebPart.cs" />
+    <Compile Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx.cs">
+      <DependentUpon>ContactFormWebPartUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx.designer.cs">
+      <DependentUpon>ContactFormWebPartUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPart.cs" />
     <Compile Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx.cs">
       <DependentUpon>FilteredProductShowcaseWebPartUserControl.ascx</DependentUpon>
@@ -242,6 +252,10 @@
     <None Include="Resources\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6bcc4923-18a8-4804-b127-0aeb964e9c50}</SharePointProjectItemId>
     </None>
+    <None Include="WebParts\ContactFormWebPart\ContactFormWebPart.webpart" />
+    <None Include="WebParts\ContactFormWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{757f16b0-25e2-45f1-9cea-e000d0348792}</SharePointProjectItemId>
+    </None>
     <None Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPart.webpart" />
     <None Include="WebParts\FilteredProductShowcaseWebPart\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9f389ce4-5679-41af-bb83-6dea6855243b}</SharePointProjectItemId>
@@ -305,6 +319,8 @@
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
       <DependentUpon>GSoft.Dynamite.Publishing.js</DependentUpon>
     </Content>
+    <Content Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx" />
+    <Content Include="WebParts\ContactFormWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
     <Content Include="WebParts\ReusableContentWebPart\Elements.xml" />

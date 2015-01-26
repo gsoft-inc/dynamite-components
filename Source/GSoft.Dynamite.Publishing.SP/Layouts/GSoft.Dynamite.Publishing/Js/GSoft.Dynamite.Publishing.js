@@ -216,6 +216,30 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
 }(GSoft.Dynamite.FilteredProductShowcase = GSoft.Dynamite.FilteredProductShowcase || {}, jq110));
 
+// Contact form module
+// It's a Javascript oriented webpart that displays a form based on a template and send an email when the form is posted
+(function (ContactForm, $, undefined) {
+
+    // Public properties
+    ContactForm.ViewModel = null;
+
+    ContactForm.Initialize = function (emailAddress, contactFormTemplate ) {
+        var viewModel = this;
+        $(document).ready(function (viewModel) {
+            ContactForm.ViewModel = new ContactFormViewModel(emailAddress, contactFormTemplate);
+            ko.applyBindings(ContactForm.ViewModel, $(".contact-form")[0]);
+        });
+    };
+
+    function ContactFormViewModel(emailAddress, contactFormTemplate) {
+        var self = this;
+
+        self.EmailAddress = emailAddress;
+        self.ContactFormTemplate = contactFormTemplate;
+    }
+
+}(GSoft.Dynamite.ContactForm = GSoft.Dynamite.ContactForm || {}, jq110));
+
 // Tabs Module 
 // The method creates a tabs navigation. 
 // TODO Refactor the plugin. Was originally taken from http://tympanus.net/Development/TabStylesInspiration/
