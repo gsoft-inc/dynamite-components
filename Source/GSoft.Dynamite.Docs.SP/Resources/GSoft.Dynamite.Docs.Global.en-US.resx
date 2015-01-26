@@ -129,6 +129,12 @@
   <data name="Feature_CrossSitePublishingCMS_Fields_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Docs Module - Columns</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_ImageRenditions_Desc" xml:space="preserve">
+    <value>Creates the image renditions configuration related to the site collection in order to make the image renditions more efficient on the pages.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ImageRenditions_Name" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Docs Module - Image Renditions</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_ManagedProperties_Desc" xml:space="preserve">
     <value>Creates search managed properties for Cross Site Publishing based CMS solutions</value>
   </data>
