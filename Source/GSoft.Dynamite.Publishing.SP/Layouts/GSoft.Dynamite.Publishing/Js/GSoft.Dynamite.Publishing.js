@@ -223,19 +223,46 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
     // Public properties
     ContactForm.ViewModel = null;
 
-    ContactForm.Initialize = function (emailAddress, contactFormTemplate ) {
+    ContactForm.Initialize = function (emailAddress, contactFormTemplate, javaScriptViewModel) {
         var viewModel = this;
         $(document).ready(function (viewModel) {
-            ContactForm.ViewModel = new ContactFormViewModel(emailAddress, contactFormTemplate);
+            ContactForm.ViewModel = new ContactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel);
             ko.applyBindings(ContactForm.ViewModel, $(".contact-form")[0]);
         });
     };
 
-    function ContactFormViewModel(emailAddress, contactFormTemplate) {
+    ContactForm.ConfigureEmail = function (emailAddress, emailTemplate) {
+        $(document).ready(function () {
+            sendEmail("contact@nunavikdev.ca", emailAddress, "test", "formulaire de contact");
+        });
+    };
+
+    function ContactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel) {
         var self = this;
 
         self.EmailAddress = emailAddress;
         self.ContactFormTemplate = contactFormTemplate;
+        self.JavaScriptViewModel = javaScriptViewModel;
+    }
+
+    function sendEmail(from, to, body, subject) {
+
+        var siteurl = _spPageContextInfo.webServerRelativeUrl;
+
+        var urlTemplate = "/_layouts/15/GSoft.Dynamite.Publishing/Handlers/DynamiteEmailService.ashx";
+        $.ajax({
+            url: urlTemplate,
+            type: "POST",
+            dataType: "json",
+            data: { 'emailTo': to, 'subject': subject, 'content': body, '__REQUESTDIGEST': $("#__REQUESTDIGEST").val() },
+            success: function (data) {
+                alert("Email sent");
+            },
+            error: function (err) {
+                alert(err.responseText);
+                debugger;
+            }
+        });
     }
 
 }(GSoft.Dynamite.ContactForm = GSoft.Dynamite.ContactForm || {}, jq110));
