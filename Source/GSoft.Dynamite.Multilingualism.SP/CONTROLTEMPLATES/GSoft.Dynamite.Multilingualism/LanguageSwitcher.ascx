@@ -20,7 +20,7 @@
                 <span style="height:16px;width:16px;position:relative;display:inline-block;overflow:hidden;" class="s4-clust ms-promotedActionButton-icon">
                     <img src="/_layouts/15/images/spcommon.png?rev=23" alt="Follow" style="position: absolute; left: -177px; top: -174px;">
                 </span>
-                <span class="ms-promotedActionButton-text language-switcher-label"><%# DataBinder.Eval(Container.DataItem, "Title") %></span>
+                <span class="ms-promotedActionButton-text language-switcher-label <%# DataBinder.Eval(Container.DataItem, "CssClass") %>"><%# DataBinder.Eval(Container.DataItem, "Title") %></span>
             </a>
         </ItemTemplate>
     </asp:Repeater>

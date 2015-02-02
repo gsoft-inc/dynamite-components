@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Lists;
+using GSoft.Dynamite.Lists.Constants;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
@@ -34,6 +35,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                         this.publishingContentTypeInfos.DefaultPage(),
                         this.publishingContentTypeInfos.DefaultArticlePage()
                     },
+                    ListTemplateInfo = BuiltInListTemplates.Pages
                 };
             }
         }

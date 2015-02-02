@@ -47,8 +47,8 @@
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10175\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10224\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -118,6 +118,9 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_Pub01\CrossSitePublishingCMS_Pub01.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_Pub01.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
@@ -216,6 +219,9 @@
     <None Include="Features\CommonCMS_ReusableContent\CommonCMS_ReusableContent.feature">
       <FeatureId>{b384567a-defd-47f9-b9e9-2f62a47a02b8}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_Pub01\CrossSitePublishingCMS_Pub01.feature">
+      <FeatureId>{efc4765a-e374-4cef-ab35-d6370f5f8365}</FeatureId>
+    </None>
     <None Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.feature">
       <FeatureId>{17abf062-5a4c-4462-8370-ef3c7e84d741}</FeatureId>
     </None>
@@ -270,6 +276,7 @@
     <Content Include="Artefacts\PageLayouts\RightSidebar.aspx" />
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />
+    <Content Include="Artefacts\PageLayouts\TwoColumnsOneColumn.aspx" />
     <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx" />
     <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx" />
     <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
@@ -292,6 +299,9 @@
     </Content>
     <Content Include="Features\CommonCMS_ReusableContent\CommonCMS_ReusableContent.Template.xml">
       <DependentUpon>CommonCMS_ReusableContent.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_Pub01\CrossSitePublishingCMS_Pub01.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_Pub01.feature</DependentUpon>
     </Content>
     <Content Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.Template.xml">
       <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>

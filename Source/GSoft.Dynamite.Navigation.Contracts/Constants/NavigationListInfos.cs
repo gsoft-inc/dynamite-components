@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Lists;
+using GSoft.Dynamite.Lists.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
@@ -64,7 +65,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 {
                     customizedNavigationField
                 };
-
+                
                 return pagesLibrary;
             }
         }

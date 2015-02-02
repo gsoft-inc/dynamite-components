@@ -19,6 +19,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// </summary>
         private const string ItemContentType = "0x01";
 
+        private const string DocumentContentType = ItemContentType + "01";
+
         private const string TranslatableItemContentType = ItemContentType + "008093F9E3678D3D4392C57B0E6929DE05";
 
         private const string BrowsableItemContentType = TranslatableItemContentType + "01";
@@ -32,6 +34,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         private const string NewsItemContentType = CatalogContentItemContentType + "01";
 
         private const string ContentItemContentType = TargetContentItemContentType + "01";
+
+        private const string RichMediaAssetDocumentContentType = DocumentContentType + "009148F5A04DDD49CBA7127AADA5FB792B";
+
+        private const string ImageItemContentType = RichMediaAssetDocumentContentType + "00AADE34325A8B49CDA8BB4DB53328F214";
 
         #endregion
 

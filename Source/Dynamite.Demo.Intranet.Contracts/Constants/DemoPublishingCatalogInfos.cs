@@ -4,6 +4,7 @@ using GSoft.Dynamite.Catalogs;
 using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Lists;
+using GSoft.Dynamite.Lists.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
 using Microsoft.SharePoint;
@@ -50,7 +51,7 @@ namespace Dynamite.Demo.Intranet.Contracts.Constants
                     },
                     DraftVisibilityType = DraftVisibilityType.Approver,
                     EnableRatings = false,
-                    ListTemplate = SPListTemplateType.GenericList,
+                    ListTemplateInfo = BuiltInListTemplates.CustomList,
                     Overwrite = false,
                     RemoveDefaultContentType = true,
                     TaxonomyFieldMap = this._fieldInfoValues.Navigation(),

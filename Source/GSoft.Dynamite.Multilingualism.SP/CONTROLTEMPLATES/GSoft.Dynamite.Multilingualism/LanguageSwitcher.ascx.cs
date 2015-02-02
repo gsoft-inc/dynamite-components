@@ -8,6 +8,7 @@ using System.Web.UI;
 using Autofac;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Globalization.Variations;
+using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
@@ -55,6 +56,11 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// Get the current variation navigation context
         /// </summary>
         public VariationNavigationType CurrentNavigationContext { get; private set; }
+
+        /// <summary>
+        /// The variation navigation helper
+        /// </summary>
+        public IMultilingualismVariationsConfig MultilingualismVariationsConfig { get; private set; }
 
         /// <summary>
         /// The content association key fetched from the catalog item reuse web part.
@@ -124,6 +130,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 var currentWebUrl = new Uri(SPContext.Current.Web.Url);
                 var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);
                 var currentUrl = HttpContext.Current.Request.Url;
+                var variationSettingsInfos = this.MultilingualismVariationsConfig.VariationSettings();
 
                 var formattedLabels = new List<dynamic>();
 
@@ -156,12 +163,31 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                                 break;
                         }
 
+                        // Gets the default title value of the variation label
+                        var title = Languages.TwoLetterISOLanguageNameToFullName(label.Title);
+                        var cssClass = string.Empty;
+
+                        // Gets a corresponding Variation Setting Info Object
+                        var variationSettingsInfo = variationSettingsInfos.Labels.Where(variation => variation.Title == label.Title).FirstOrDefault();
+
+                        // Updates the title if custom title is set
+                        if (variationSettingsInfo != null)
+                        {
+                            if (!string.IsNullOrEmpty(variationSettingsInfo.CustomTitleValue))
+                            {
+                                title = variationSettingsInfo.CustomTitleValue; 
+                            }
+
+                            cssClass = variationSettingsInfo.CssClass;
+                        }
+
                         var itemVariationInfo = new
                         {
-                            Title = Languages.TwoLetterISOLanguageNameToFullName(label.Title),
-                            Url = itemUrl
+                            Title = title,
+                            Url = itemUrl,
+                            CssClass = cssClass
                         };
-
+                        
                         formattedLabels.Add(itemVariationInfo);
                     }
 
@@ -186,7 +212,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
             this.PublishingManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<PublishingManagedPropertyInfos>();
             this.MultilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
             this.PublishingWebPartInfos = MultilingualismContainerProxy.Current.Resolve<PublishingWebPartInfos>();
-            
+            this.MultilingualismVariationsConfig = MultilingualismContainerProxy.Current.Resolve<IMultilingualismVariationsConfig>();
+
             // Determine the navigation context type
             this.CurrentNavigationContext = this.VariationNavigationHelper.CurrentNavigationContextType;
         }

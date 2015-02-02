@@ -6,9 +6,11 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Entities;
 using GSoft.Dynamite.Publishing.Contracts.Repositories;
 using GSoft.Dynamite.Publishing.Contracts.Services;
+using GSoft.Dynamite.Publishing.Contracts.Stories;
 using GSoft.Dynamite.Publishing.Core.Configuration;
 using GSoft.Dynamite.Publishing.Core.Repositories;
 using GSoft.Dynamite.Publishing.Core.Services;
+using GSoft.Dynamite.Publishing.Core.Stories;
 
 namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 {
@@ -105,6 +107,9 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingListInfos>();
             builder.RegisterType<PublishingFacetedNavigationInfos>();
             builder.RegisterType<PublishingMetadataNavigationSettingsInfos>();
+
+            // Stories
+            builder.RegisterType<Pub01XSPConfig>().As<IPub01Config>();
         }
     }
 }

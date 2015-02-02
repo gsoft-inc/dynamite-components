@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution items", ".solution items", "{F8955DA4-DBB6-4AA2-9B75-7B014F55EDB5}"
 	ProjectSection(SolutionItems) = preProject
@@ -98,7 +98,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Models.Cross
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GSoft.Dynamite.VanillaCrossSiteCMS", "GSoft.Dynamite.VanillaCrossSiteCMS", "{5361600E-2F8E-4E80-AC4B-3E7F0A40C4E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.VanillaCrossSiteCMS.SetupScripts", "GSoft.Dynamite.VanillaCrossSiteCMS.SetupScripts\GSoft.Dynamite.VanillaCrossSiteCMS.SetupScripts.csproj", "{A320F957-759C-4FA7-8C60-F3A81F1306AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.VanillaCrossSiteCMS.Scripts", "GSoft.Dynamite.VanillaCrossSiteCMS.Scripts\GSoft.Dynamite.VanillaCrossSiteCMS.Scripts.csproj", "{A320F957-759C-4FA7-8C60-F3A81F1306AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Common.Contracts", "GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj", "{31680A5F-E76D-4501-9DFC-D67CE09863F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -224,6 +226,10 @@ Global
 		{A320F957-759C-4FA7-8C60-F3A81F1306AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A320F957-759C-4FA7-8C60-F3A81F1306AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A320F957-759C-4FA7-8C60-F3A81F1306AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31680A5F-E76D-4501-9DFC-D67CE09863F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31680A5F-E76D-4501-9DFC-D67CE09863F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31680A5F-E76D-4501-9DFC-D67CE09863F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31680A5F-E76D-4501-9DFC-D67CE09863F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -257,5 +263,6 @@ Global
 		{965315C3-65EC-46B7-BF39-76B7FE8F5EEF} = {F0E95EFF-5E01-47A2-AD92-56C8782BB373}
 		{5361600E-2F8E-4E80-AC4B-3E7F0A40C4E9} = {21A4D8E0-9BEE-4CA8-A2C5-94A3B7A9C758}
 		{A320F957-759C-4FA7-8C60-F3A81F1306AB} = {5361600E-2F8E-4E80-AC4B-3E7F0A40C4E9}
+		{31680A5F-E76D-4501-9DFC-D67CE09863F1} = {618C860A-EADE-43FA-8A43-68A2D1700099}
 	EndGlobalSection
 EndGlobal

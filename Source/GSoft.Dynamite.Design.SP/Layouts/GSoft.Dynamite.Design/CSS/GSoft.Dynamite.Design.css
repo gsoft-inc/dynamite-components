@@ -59,7 +59,8 @@ a.hover {
   margin-right: auto;
   margin-left: auto;
 }
-.row .right-sidebar {
+.row .right-sidebar,
+.row .two-columns {
   width: 1000px;
   margin: 0 auto;
 }

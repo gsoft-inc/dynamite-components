@@ -47,8 +47,8 @@
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10175\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10224\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -79,6 +79,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ImageRenditions\CrossSitePublishingCMS_ImageRenditions.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ImageRenditions.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ManagedProperties.feature</DependentUpon>
     </Compile>
@@ -96,6 +99,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.feature">
       <FeatureId>{2ab34b0c-a2c3-41df-8878-bd800027926a}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ImageRenditions\CrossSitePublishingCMS_ImageRenditions.feature">
+      <FeatureId>{6401eb6c-ac4b-4c15-9a2e-b26f898db73d}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Docs.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
@@ -123,6 +129,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ManagedProperties.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ImageRenditions\CrossSitePublishingCMS_ImageRenditions.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ImageRenditions.feature</DependentUpon>
     </Content>
     <Content Include="Images\GSoft.Dynamite.Docs.SP\logo-32x32-Docs.png" />
     <Content Include="Resources\GSoft.Dynamite.Docs.Global.en-US.resx" />

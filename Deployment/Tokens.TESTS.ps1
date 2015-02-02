@@ -1,0 +1,1 @@
+$DSP_DeploySolutions = "$true"
