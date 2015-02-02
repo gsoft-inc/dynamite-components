@@ -24,7 +24,7 @@
         <file src="Modules\**" target="tools\Modules" />
         <file src="Solutions\**" target="tools\Solutions" />
         <file src="Tokens\**" target="tools\Tokens" />
-        <file src="Install-Model.ps1.template" target="content" />
+        <file src="Install-Model.template.ps1" target="content" />
 		<file src="Execute-PostDeploymentScript.ps1" target="content" />
       <file src="PackageAndInstall.ps1" target="content" />
       <file src="Tokens.HOSTNAME.ps1" target="content" />
