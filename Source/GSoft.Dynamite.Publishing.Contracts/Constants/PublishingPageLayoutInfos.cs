@@ -106,6 +106,19 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
             };
         }
+
+        /// <summary>
+        /// A layout with two columns and one large column.
+        /// </summary>
+        /// <returns>The Page Layout Info</returns>
+        public PageLayoutInfo TwoColumnsAndOneColumn()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "TwoColumnsOneColumn.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
         #endregion
     }
 }
