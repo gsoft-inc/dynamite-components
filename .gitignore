@@ -126,3 +126,6 @@ Source/GSoft.Dynamite.CrossSitePublishingCMS/Solutions/Copy-Solutions.ps1
 Source/GSoft.Dynamite.CrossSitePublishingCMS/Solutions/Custom/Custom-Solutions.xml
 Source/GSoft.Dynamite.CrossSitePublishingCMS/Solutions/Default/Default-Solutions.xml
 *.orig
+
+# Ignore files in XSP XMS nuget package
+Libraries/GSoft.Dynamite.CrossSitePublishingCMS*
