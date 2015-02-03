@@ -20,5 +20,15 @@ namespace GSoft.Dynamite.Publishing.Contracts.WebParts
         /// 
         /// </summary>
         string ContactFormTemplate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        string EmailTemplate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        string JavaScriptViewModel { get; set; }
     }
 }

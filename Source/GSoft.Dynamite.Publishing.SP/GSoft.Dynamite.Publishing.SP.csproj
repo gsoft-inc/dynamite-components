@@ -41,6 +41,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\GSoft.Dynamite.Portal.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <TokenReplacementFileExtensions>ashx;</TokenReplacementFileExtensions>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -135,6 +138,9 @@
     </Compile>
     <Compile Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.EventReceiver.cs">
       <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx.cs">
+      <DependentUpon>Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
@@ -233,6 +239,7 @@
     <None Include="Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1ab17249-9879-4179-9e87-da77f66bd9db}</SharePointProjectItemId>
     </None>
+    <None Include="Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx" />
     <None Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
       <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
     </None>

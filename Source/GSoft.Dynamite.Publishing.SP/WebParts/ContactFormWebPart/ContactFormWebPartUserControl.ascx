@@ -9,14 +9,16 @@
 
 <script type="text/javascript">
     GSoft.Dynamite.ContactForm.Initialize("<%=this.EmailAddress%>", "<%=this.ContactFormTemplate%>");
+    
 </script>
 
 <div class="contact-form">
     <div class="contact-form form-header"></div>
     <div class="contact-form form-body">
-        <div class="full-width clearfix">
+        <form accept-charset="UTF-8" class="webform-contact-form" id="webform-client-contact-us">
             <div data-bind="template: { name: function () { return $root.ContactFormTemplate; }, data: $data }"></div>
-        </div>
+            <input type="submit" id="form-submit" value="Send your message" class="form-submit" />
+        </form>
     </div>
     <div class="contact-form form-footer">
         <div class="banner"></div>

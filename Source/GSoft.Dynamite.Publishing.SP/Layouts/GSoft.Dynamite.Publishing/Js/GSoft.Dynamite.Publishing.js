@@ -233,19 +233,11 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
     ContactForm.ConfigureEmail = function (emailAddress, emailTemplate) {
         $(document).ready(function () {
-            sendEmail("contact@nunavikdev.ca", emailAddress, "test", "formulaire de contact");
+            sendEmail(emailAddress, "test", "formulaire de contact");
         });
     };
 
-    function ContactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel) {
-        var self = this;
-
-        self.EmailAddress = emailAddress;
-        self.ContactFormTemplate = contactFormTemplate;
-        self.JavaScriptViewModel = javaScriptViewModel;
-    }
-
-    function sendEmail(from, to, body, subject) {
+    function sendEmail(to, body, subject) {
 
         var siteurl = _spPageContextInfo.webServerRelativeUrl;
 
@@ -260,8 +252,21 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
             },
             error: function (err) {
                 alert(err.responseText);
-                debugger;
             }
+        });
+    }
+
+    function ContactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel) {
+        var self = this;
+
+        self.EmailAddress = emailAddress;
+        self.ContactFormTemplate = contactFormTemplate;
+        self.JavaScriptViewModel = javaScriptViewModel;
+
+        $(document).ready(function () {
+            $('#form-submit').click(function (event) {
+                ContactForm.ConfigureEmail(self.EmailAddress(), 'tt');
+            });
         });
     }
 

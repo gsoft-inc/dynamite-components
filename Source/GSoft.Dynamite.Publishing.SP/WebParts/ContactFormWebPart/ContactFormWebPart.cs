@@ -28,6 +28,18 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
         [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Contact Form Template"), WebDescription(""), Category("Contact Form Configuration")]
         public string ContactFormTemplate { get; set; }
 
+        /// <summary>
+        /// The name of the template to use in the email
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Email Template"), WebDescription(""), Category("Contact Form Configuration")]
+        public string EmailTemplate { get; set; }
+
+        /// <summary>
+        /// The name of the view model JavaScript class to use
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Item Javascript View Model"), WebDescription(""), Category("Contact Form Configuration")]
+        public string JavaScriptViewModel { get; set; }
+
         protected override void CreateChildControls()
         {
             var ContactFormControl = Page.LoadControl(AscxPath) as ContactFormWebPartUserControl;
@@ -36,7 +48,7 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
             {
                 ContactFormControl.EmailAddress = this.EmailAddress;
                 ContactFormControl.ContactFormTemplate = this.ContactFormTemplate;
-
+                ContactFormControl.EmailTemplate = this.EmailTemplate;
                 this.Controls.Add(ContactFormControl);
             }
         }

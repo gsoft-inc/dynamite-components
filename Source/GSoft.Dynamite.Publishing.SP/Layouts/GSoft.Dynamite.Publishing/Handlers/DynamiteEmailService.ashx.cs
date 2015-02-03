@@ -37,13 +37,14 @@ namespace GSoft.Dynamite.Publishing.SP.Layouts.Handlers
         /// <param name="context">An <see cref="T:System.Web.HttpContext"/> object that provides references to the intrinsic server objects (for example, Request, Response, Session, and Server) used to service HTTP requests.</param>
         public void ProcessRequest(HttpContext context)
         {
-            var subject = context.Request["subject"].ToString();
-            var body = context.Request["content"].ToString();
-            var emailTo = context.Request["emailTo"].ToString();
-
             try
             {
-                // Allow post
+                // Gets the parameters
+                var subject = context.Request["subject"].ToString();
+                var body = context.Request["content"].ToString();
+                var emailTo = context.Request["emailTo"].ToString();
+
+                // Sends the email with elevated privileges
                 ElevationExtensions.RunAsSystem(SPContext.Current.Web, (elevatedWeb) =>
                 {
                     SPUtility.SendEmail(elevatedWeb, true, true, emailTo, subject, body);
