@@ -43,25 +43,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Execute-PostDeploymentScript.ps1" />
-    <None Include="Install-Model.ps1.template" />
+    <None Include="Install-Model.template.ps1" />
     <None Include="Modules\Design\Tokens.Design.Custom.ps1" />
     <None Include="Modules\Design\Tokens.Design.Default.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Custom.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Default.ps1" />
-    <None Include="Modules\LifeCycle\Tokens.LifeCycle.Default.ps1" />
+    <None Include="Modules\Lifecycle\Tokens.LifeCycle.Default.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
-    <None Include="PackageAndInstall.ps1" />
     <None Include="packages.config" />
+    <None Include="Publish-DeploymentFolder.ps1" />
     <None Include="Solutions\Custom\Custom-Solutions.xml.template" />
     <None Include="Tokens.sp2013-yohan.ps1" />
     <None Include="Tokens.sp2013tao.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PostDeployment\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Solutions\Custom\Custom-Solutions.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

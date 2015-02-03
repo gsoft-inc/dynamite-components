@@ -48,10 +48,10 @@
     <None Include="GSoft.Dynamite.CrossSitePublishingCMS.nuspec">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Install-Model.template.ps1" />
     <None Include="Modules\Docs\DOC_01\Install-DOC01.ps1" />
     <None Include="Modules\Docs\DOC_01\Setup-BlobCache.ps1.template" />
     <None Include="Modules\Docs\DOC_01\Setup-ImageRenditions.ps1.template" />
-    <None Include="Initialize-CMSModel.ps1.template" />
     <None Include="Modules\Docs\DOC_02\Default\ContentPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\en\ContentPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\en\NewsPages.xlsx" />
@@ -140,7 +140,7 @@
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Webs.ps1.template" />
     <None Include="Nuget\Install.ps1" />
-    <None Include="Publish-CMSDeploymentFolder.ps1" />
+    <None Include="Publish-DeploymentFolder.ps1" />
     <None Include="PackageAndInstall.ps1" />
     <None Include="packages.config" />
     <None Include="Solutions\Copy-Solutions.ps1.template" />
@@ -165,7 +165,7 @@
     <Folder Include="Solutions\Packages\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Install-Model.ps1.template" />
+    <None Include="Install-Model.old.template" />
     <None Include="Modules\Publishing\PUB_01\Default\Default-Sites.xml.template" />
   </ItemGroup>
   <ItemGroup>

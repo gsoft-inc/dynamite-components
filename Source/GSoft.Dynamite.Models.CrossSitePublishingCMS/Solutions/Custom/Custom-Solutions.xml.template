@@ -6,7 +6,7 @@
  Description	: SharePoint solutions configuration file    
 -->
 <Solutions>
-  <Solution Path="Solutions\Packages\Dynamite.Demo.Intranet.SP.wsp" UpgradeExisting="false" Force="true">
+  <Solution Path="Solutions\Dynamite.Demo.Intranet.SP.wsp" UpgradeExisting="false" Force="true">
     <WebApplications>
       <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
     </WebApplications>

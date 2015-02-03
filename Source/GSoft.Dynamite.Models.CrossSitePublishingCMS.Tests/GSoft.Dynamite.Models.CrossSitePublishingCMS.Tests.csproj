@@ -50,7 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <None Include="Integration\Publish-CMSDeploymentFolder.Tests.ps1" />
+    <None Include="Integration\Install-Model.Tests.ps1" />
+    <None Include="Integration\Publish-DeploymentFolder.Tests.ps1" />
     <None Include="Integration\Invoke-IntegrationTests.ps1" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

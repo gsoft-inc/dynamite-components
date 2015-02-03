@@ -6,37 +6,37 @@
  Description	: SharePoint solutions configuration file    
 -->
 <Solutions>
-    <Solution Path="Solutions\WSP\GSoft.Dynamite.wsp" UpgradeExisting="false" Force="true">
+    <Solution Path="Solutions\GSoft.Dynamite.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
     </Solution>
-    <Solution Path="Solutions\WSP\GSoft.Dynamite.Publishing.SP.wsp" UpgradeExisting="false" Force="true">
+    <Solution Path="Solutions\GSoft.Dynamite.Publishing.SP.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
     </Solution>
-    <Solution Path="Solutions\WSP\GSoft.Dynamite.Multilingualism.SP.wsp" UpgradeExisting="false" Force="true">
+    <Solution Path="Solutions\GSoft.Dynamite.Multilingualism.SP.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
     </Solution>
-    <Solution Path="Solutions\WSP\GSoft.Dynamite.Design.SP.wsp" UpgradeExisting="false" Force="true">
+    <Solution Path="Solutions\GSoft.Dynamite.Design.SP.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
     </Solution>
-    <Solution Path="Solutions\WSP\GSoft.Dynamite.Navigation.SP.wsp" UpgradeExisting="false" Force="true">
+    <Solution Path="Solutions\GSoft.Dynamite.Navigation.SP.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
     </Solution>
-    <Solution Path="Solutions\WSP\GSoft.Dynamite.Docs.SP.wsp" UpgradeExisting="false" Force="true">
+    <Solution Path="Solutions\GSoft.Dynamite.Docs.SP.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
     </Solution>
-    <Solution Path="Solutions\WSP\Lapointe.SharePoint.PowerShell.wsp" UpgradeExisting="false" Force="true">
+    <Solution Path="Solutions\Lapointe.SharePoint.PowerShell.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>

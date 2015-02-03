@@ -68,14 +68,14 @@ $scripts += @("\Modules\Docs\DOC_02\Install-DOC02.ps1")
 #endregion
 
 # Install modules in seperate process
-$scripts = $scripts | Select-Object { $CommandDirectory + $_ }
+$scripts = $scripts | ForEach-Object { $CommandDirectory + $_ }
 $scriptBlock = [ScriptBlock]::Create([string]::Join(';', $scripts))
-Start-Process PowerShell -ArgumentList $scriptBlock, $LogFolderPath -Wait
+Start-Process PowerShell -ArgumentList $scriptBlock -Wait
 
 
 #region ********** POST DEPLOYMENT SCRIPTS ********** #
 $Script = $CommandDirectory + "/Execute-PostDeploymentScript.ps1"
-Start-Process PowerShell -ArgumentList $Script, $LogFolderPath -Wait
+Start-Process PowerShell -ArgumentList $Script -Wait
 #endregion
 
 # ********** STOP LOGGING ********** #
