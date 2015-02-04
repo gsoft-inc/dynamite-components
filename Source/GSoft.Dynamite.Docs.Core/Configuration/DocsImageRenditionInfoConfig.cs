@@ -18,7 +18,6 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
         /// </summary>
         public DocsImageRenditionInfoConfig()
         {
-
         }
 
         /// <summary>
@@ -31,7 +30,6 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
                 var baseDocsImageRenditions = new List<ImageRenditionInfo>();
 
                 // TODO: Add the image renditions info
-               
                 return baseDocsImageRenditions;
             }
         }

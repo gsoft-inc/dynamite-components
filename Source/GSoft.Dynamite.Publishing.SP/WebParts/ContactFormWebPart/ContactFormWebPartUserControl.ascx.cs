@@ -6,7 +6,7 @@ using System.Web.UI.WebControls.WebParts;
 namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
 {
     /// <summary>
-    /// 
+    /// The implementation of the partial class ContactFormWebPartUserControl
     /// </summary>
     public partial class ContactFormWebPartUserControl : UserControl
     {

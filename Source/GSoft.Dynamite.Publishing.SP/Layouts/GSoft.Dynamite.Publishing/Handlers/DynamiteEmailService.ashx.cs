@@ -1,13 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Web;
 using System.Web.SessionState;
 using Autofac;
 using GSoft.Dynamite.Extensions;
 using GSoft.Dynamite.Logging;
-using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint;
-using System.IO;
-using System.Collections.Generic;
+using Microsoft.SharePoint.Utilities;
 using Newtonsoft.Json;
 
 // ReSharper disable once CheckNamespace
@@ -45,7 +45,9 @@ namespace GSoft.Dynamite.Publishing.SP.Layouts.Handlers
                 var emailTo = context.Request["emailTo"].ToString();
 
                 // Sends the email with elevated privileges
-                ElevationExtensions.RunAsSystem(SPContext.Current.Web, (elevatedWeb) =>
+                ElevationExtensions.RunAsSystem(
+                    SPContext.Current.Web, 
+                    (elevatedWeb) =>
                 {
                     SPUtility.SendEmail(elevatedWeb, true, false, emailTo, subject, body);
                 });

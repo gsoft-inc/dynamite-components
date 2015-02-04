@@ -7,27 +7,22 @@ using System.Threading.Tasks;
 namespace GSoft.Dynamite.Publishing.Contracts.WebParts
 {
     /// <summary>
-    /// 
+    /// The public interface of ContactFormWebPart
     /// </summary>
     public interface IContactFormWebPart
     {
         /// <summary>
-        /// 
+        /// The email address
         /// </summary>
         string EmailAddress { get; set; }
 
         /// <summary>
-        /// 
+        /// The contact form template
         /// </summary>
         string ContactFormTemplate { get; set; }
-
+        
         /// <summary>
-        /// 
-        /// </summary>
-        string EmailTemplate { get; set; }
-
-        /// <summary>
-        /// 
+        /// he name of the view model JavaScript class to use
         /// </summary>
         string JavaScriptViewModel { get; set; }
     }

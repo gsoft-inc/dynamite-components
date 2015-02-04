@@ -10,6 +10,9 @@ using Microsoft.SharePoint.WebControls;
 
 namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
 {
+    /// <summary>
+    /// The implementation of the ContactWebFormWebPart class.
+    /// </summary>
     [ToolboxItemAttribute(false)]
     public class ContactFormWebPart : WebPart, IContactFormWebPart
     {
@@ -34,6 +37,9 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
         [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Item Javascript View Model"), WebDescription(""), Category("Contact Form Configuration")]
         public string JavaScriptViewModel { get; set; }
 
+        /// <summary>
+        /// Creates child controls
+        /// </summary>
         protected override void CreateChildControls()
         {
             var ContactFormControl = Page.LoadControl(AscxPath) as ContactFormWebPartUserControl;
