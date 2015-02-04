@@ -29,12 +29,6 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
         public string ContactFormTemplate { get; set; }
 
         /// <summary>
-        /// The name of the template to use in the email
-        /// </summary>
-        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Email Template"), WebDescription(""), Category("Contact Form Configuration")]
-        public string EmailTemplate { get; set; }
-
-        /// <summary>
         /// The name of the view model JavaScript class to use
         /// </summary>
         [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Item Javascript View Model"), WebDescription(""), Category("Contact Form Configuration")]
@@ -48,7 +42,7 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
             {
                 ContactFormControl.EmailAddress = this.EmailAddress;
                 ContactFormControl.ContactFormTemplate = this.ContactFormTemplate;
-                ContactFormControl.EmailTemplate = this.EmailTemplate;
+                ContactFormControl.JavaScriptViewModel = this.JavaScriptViewModel;
                 this.Controls.Add(ContactFormControl);
             }
         }

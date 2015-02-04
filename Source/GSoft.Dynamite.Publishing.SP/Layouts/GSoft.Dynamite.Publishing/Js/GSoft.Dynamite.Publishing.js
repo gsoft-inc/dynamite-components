@@ -217,25 +217,40 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 }(GSoft.Dynamite.FilteredProductShowcase = GSoft.Dynamite.FilteredProductShowcase || {}, jq110));
 
 // Contact form module
-// It's a Javascript oriented webpart that displays a form based on a template and send an email when the form is posted
+// It's a Javascript oriented webpart that displays a form based on a template and sends an email when the form is posted
 (function (ContactForm, $, undefined) {
 
     // Public properties
     ContactForm.ViewModel = null;
 
-    ContactForm.Initialize = function (emailAddress, contactFormTemplate, javaScriptViewModel) {
+    ContactForm.Initialize = function (emailAddress, contactFormTemplate, javaScriptViewModel, emailTemplate) {
         var viewModel = this;
         $(document).ready(function (viewModel) {
-            ContactForm.ViewModel = new ContactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel);
-            ko.applyBindings(ContactForm.ViewModel, $(".contact-form")[0]);
+            ContactForm.ViewModel = new contactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel, emailTemplate);
+            ko.applyBindings(ContactForm.ViewModel, $(".contact-form.form-body")[0]);
         });
     };
 
-    ContactForm.ConfigureEmail = function (emailAddress, emailTemplate) {
+    function configureEmail(emailAddress, javaScriptViewModel) {
         $(document).ready(function () {
-            sendEmail(emailAddress, "test", "formulaire de contact");
+            var body = renderEmailBody(javaScriptViewModel);
+            sendEmail(emailAddress, body, "formulaire de contact");
         });
-    };
+    }
+
+    function renderEmailBody(javaScriptViewModel)
+    {
+        // Gets the contact form view model to retrieve form values.
+        var itemViewModel = eval(javaScriptViewModel);
+        var result = new itemViewModel();
+        // Renders the Email body on the page and apply values.
+        ko.applyBindings(result, $(".contact-form.form-footer")[0]);
+        // Gets the content.
+        var body = $('.contact-form.email-body').html();
+        // Removes the content on the page
+        $('.contact-form.email-body').empty();
+        return body;
+    }
 
     function sendEmail(to, body, subject) {
 
@@ -256,7 +271,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         });
     }
 
-    function ContactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel) {
+    function contactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel) {
         var self = this;
 
         self.EmailAddress = emailAddress;
@@ -265,7 +280,9 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
         $(document).ready(function () {
             $('#form-submit').click(function (event) {
-                ContactForm.ConfigureEmail(self.EmailAddress(), 'tt');
+                // TODO: Call validation method
+                //$('#webform-client-contact-us').validate();
+                configureEmail(self.EmailAddress, self.JavaScriptViewModel);
             });
         });
     }

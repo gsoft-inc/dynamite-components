@@ -19,12 +19,7 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
         /// The contact form template
         /// </summary>
         public string ContactFormTemplate { get; set; }
-
-        /// <summary>
-        /// The email template name
-        /// </summary>
-        public string EmailTemplate { get; set; }
-
+        
         /// <summary>
         /// The name of the view model JavaScript class to use
         /// </summary>

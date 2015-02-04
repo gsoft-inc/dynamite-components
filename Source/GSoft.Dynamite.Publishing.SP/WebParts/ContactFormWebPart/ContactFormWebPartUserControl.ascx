@@ -7,20 +7,20 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ContactFormWebPartUserControl.ascx.cs" Inherits="GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart.ContactFormWebPartUserControl" %>
 
+<script type="text/javascript" src="../../../../_layouts/15/GSoft.Dynamite.Publishing/Js/jquery.validate.min.js"></script>
 <script type="text/javascript">
-    GSoft.Dynamite.ContactForm.Initialize("<%=this.EmailAddress%>", "<%=this.ContactFormTemplate%>");
-    
+    GSoft.Dynamite.ContactForm.Initialize("<%=this.EmailAddress%>", "<%=this.ContactFormTemplate%>", "<%=this.JavaScriptViewModel%>", "<%=this.EmailTemplate%>");
+    //jq110('.form-body').validate();
 </script>
 
 <div class="contact-form">
     <div class="contact-form form-header"></div>
-    <div class="contact-form form-body">
-        <form accept-charset="UTF-8" class="webform-contact-form" id="webform-client-contact-us">
-            <div data-bind="template: { name: function () { return $root.ContactFormTemplate; }, data: $data }"></div>
-            <input type="submit" id="form-submit" value="Send your message" class="form-submit" />
-        </form>
-    </div>
+        <div class="contact-form form-body">
+                <div data-bind="template: { name: function () { return $root.ContactFormTemplate; }, data: $data }"></div>
+                <%--<input type="submit" id="form-submit" value="Send your message" class="form-submit" />--%>
+            <span id="form-submit" class="form-submit">Send your message</span>>
+        </div>
     <div class="contact-form form-footer">
-        <div class="banner"></div>
+        <div class="contact-form email-body" style="display:none" data-bind="template: { name: function () { return $root.EmailTemplate; }, data: $data }"></div>
     </div>
 </div>
