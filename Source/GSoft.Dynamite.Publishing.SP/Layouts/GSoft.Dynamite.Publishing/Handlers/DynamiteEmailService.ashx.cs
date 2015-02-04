@@ -47,7 +47,7 @@ namespace GSoft.Dynamite.Publishing.SP.Layouts.Handlers
                 // Sends the email with elevated privileges
                 ElevationExtensions.RunAsSystem(SPContext.Current.Web, (elevatedWeb) =>
                 {
-                    SPUtility.SendEmail(elevatedWeb, true, true, emailTo, subject, body);
+                    SPUtility.SendEmail(elevatedWeb, true, false, emailTo, subject, body);
                 });
             }
             catch (Exception ex)
