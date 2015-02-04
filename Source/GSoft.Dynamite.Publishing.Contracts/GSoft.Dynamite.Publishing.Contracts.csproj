@@ -101,6 +101,7 @@
     <Compile Include="Repositories\IReusableContentRepository.cs" />
     <Compile Include="Resources\PublishingResourceLocatorConfig.cs" />
     <Compile Include="Services\IReusableContentService.cs" />
+    <Compile Include="WebParts\IContactFormWebPart.cs" />
     <Compile Include="WebParts\IFilteredProductShowcaseWebPart.cs" />
     <Compile Include="WebParts\IReusableContentWebPart.cs" />
     <Compile Include="WebParts\ShowcaseFilterDefinition.cs" />
