@@ -28,7 +28,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new FolderInfo()
             {
-                IsRootFolder = true,
                 Name = "ItemPageTemplates",
                 Subfolders = new FolderInfo[]
                 {
@@ -50,7 +49,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         {
             return new FolderInfo()
             {
-                IsRootFolder = true,
                 Name = "CategoryPageTemplates",
                 Subfolders = new FolderInfo[]
                 {

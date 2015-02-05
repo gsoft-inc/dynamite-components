@@ -2,6 +2,7 @@
 using Dynamite.Demo.Intranet.Contracts.Resources;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Globalization;
 
 namespace Dynamite.Demo.Intranet.Contracts.Constants
