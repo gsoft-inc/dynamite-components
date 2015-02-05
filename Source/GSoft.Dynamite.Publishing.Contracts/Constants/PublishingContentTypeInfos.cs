@@ -65,7 +65,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 BrowsableItemContentType,
                 PublishingResources.ContentTypeBrowsableItemTitle,
                 PublishingResources.ContentTypeBrowsableItemDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
                 Fields = new List<IFieldInfo>()
                 {
@@ -88,7 +89,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 TranslatableItemContentType,
                 PublishingResources.ContentTypeTranslatableItemTitle,
                 PublishingResources.ContentTypeTranslatableItemDescription,
-                PublishingResources.ContentTypeGroup);
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global);
         }
 
         #endregion
@@ -105,7 +107,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 DefaultItemContentType,
                 PublishingResources.ContentTypeDefaultItemTitle,
                 PublishingResources.ContentTypeDefaultItemDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
                 Fields = new List<IFieldInfo>()
                 {
@@ -128,7 +131,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 CatalogContentItemContentType,
                 PublishingResources.ContentTypeCatalogContentItemTitle,
                 PublishingResources.ContentTypeCatalogContentItemDescription,
-                PublishingResources.ContentTypeGroup);
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global);
         }
 
         #endregion
@@ -145,7 +149,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 TargetContentItemContentType,
                 PublishingResources.ContentTypeTargetContentItemTitle,
                 PublishingResources.ContentTypeTargetContentItemDescription,
-                PublishingResources.ContentTypeGroup);
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global);
         }
 
         #endregion
@@ -162,7 +167,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 ContentItemContentType,
                 PublishingResources.ContentTypeContentItemTitle,
                 PublishingResources.ContentTypeContentItemDescription,
-                PublishingResources.ContentTypeGroup);
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global);
         }
 
         #endregion
@@ -179,7 +185,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 NewsItemContentType,
                 PublishingResources.ContentTypeNewsItemTitle,
                 PublishingResources.ContentTypeNewsItemDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
                 Fields = new List<IFieldInfo>()
                 {
@@ -204,7 +211,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 this.Page().ContentTypeId + "01",
                 PublishingResources.ContentTypeBrowsablePageTitle,
                 PublishingResources.ContentTypeBrowsablePageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
                 Fields = new List<IFieldInfo>()
                 {
@@ -227,7 +235,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 this.BrowsablePage().ContentTypeId + "01",
                 PublishingResources.ContentTypeTranslatablePageTitle,
                 PublishingResources.ContentTypeTranslatablePageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
             };
         }
@@ -246,7 +255,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 this.TranslatablePage().ContentTypeId + "01",
                 PublishingResources.ContentTypeDefaultPageTitle,
                 PublishingResources.ContentTypeDefaultPageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
             };
         }
@@ -265,7 +275,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 this.ArticlePage().ContentTypeId + "01",
                 PublishingResources.ContentTypeBrowsableArticlePageTitle,
                 PublishingResources.ContentTypeBrowsableArticlePageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
                 Fields = new List<IFieldInfo>()
                 {
@@ -288,7 +299,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 this.BrowsableArticlePage().ContentTypeId + "01",
                 PublishingResources.ContentTypeTranslatableArticlePageTitle,
                 PublishingResources.ContentTypeTranslatableArticlePageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
             };
         }
@@ -307,7 +319,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 this.TranslatableArticlePage().ContentTypeId + "01",
                 PublishingResources.ContentTypeDefaultArticlePageTitle,
                 PublishingResources.ContentTypeDefaultArticlePageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
             };
         }
@@ -326,7 +339,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 this.DefaultPage().ContentTypeId + "01",
                 PublishingResources.ContentTypeTargetContentPageTitle,
                 PublishingResources.ContentTypeTargetContentPageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
             };
         }
@@ -345,7 +359,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 this.DefaultPage().ContentTypeId + "02",
                 PublishingResources.ContentTypeCatalogContentPageTitle,
                 PublishingResources.ContentTypeCatalogContentPageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
             };
         }
