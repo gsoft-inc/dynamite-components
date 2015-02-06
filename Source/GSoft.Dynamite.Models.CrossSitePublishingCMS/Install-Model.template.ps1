@@ -10,6 +10,10 @@
 # Unblock files if they're from another computer
 Get-ChildItem -Recurse | Unblock-File
 
+# Stop on first error
+$ErrorActionPreference = "Stop"
+$scripts = @("`$ErrorActionPreference = `"Stop`"")
+
 # ********** START LOGGING ********** #
 Start-DSPLogging -commandName "Install-Model" -folder ((Get-Location).Path + "\Logs")
 
@@ -22,7 +26,6 @@ if ([System.Convert]::ToBoolean("[[DSP_DeploySolutions]]"))
 $header = @{"Solution Model: " = "[CrossSitePublishingCMS]";}
 New-HeaderDrawing -Values $header
 
-$scripts = @()
 #region ********** PUBLISHING MODULE ********** #
 $scripts += @(`
     "\Modules\Publishing\PUB_01\Install-PUB01.ps1",` 
@@ -68,7 +71,8 @@ $scripts += @("\Modules\Docs\DOC_02\Install-DOC02.ps1")
 #endregion
 
 # Install modules in seperate process
-$scripts = $scripts | ForEach-Object { $CommandDirectory + $_ }
+$currentDirectory = [System.IO.Path]::GetDirectoryName($myInvocation.MyCommand.Definition)
+$scripts = $scripts | ForEach-Object { $currentDirectory + $_ }
 $scriptBlock = [ScriptBlock]::Create([string]::Join(';', $scripts))
 Start-Process PowerShell -ArgumentList $scriptBlock -Wait
 

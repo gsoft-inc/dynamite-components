@@ -6,7 +6,7 @@ $sutPath = "$here\..\..\GSoft.Dynamite.Models.CrossSitePublishingCMS\$sut"
 
 $publishDest = "..\..\..\Deployment"
  
-Describe "Publish-CMSDeploymentFolder.ps1" {
+Describe "Publish-DeploymentFolder.ps1" {
 
 	# Test utility functions
 	function Add-DeploymentFolder {
@@ -48,7 +48,7 @@ Describe "Publish-CMSDeploymentFolder.ps1" {
 			# run the script
 			& $sutPath
 
-			Test-Path "$publishDest\Install.ps1" | Should Be $true
+			Test-Path "$publishDest\Install.ps1" | Should Be $false
 			Test-Path "$publishDest\Modules" | Should Be $true
 			Test-Path "$publishDest\Modules\Publishing\Tokens.Publishing.Custom.ps1" | Should Be $true
 			Test-Path "$publishDest\Modules\Publishing\Tokens.Publishing.Default.ps1" | Should Be $true

@@ -53,8 +53,9 @@ if (-not (Test-Path $DestinationPath))
 	Write-Verbose "Created deployment folder at following path : $DestinationPath... "
 
 	# Start by copying the "vanilla" cross-site CMS setup scripts from the NuGet package
+    # Note: Exclude the NuGet's install script
 	Write-Verbose "Copying reference setup scripts and configuration from NuGet package (source: $DefaultDefinitionsPath)... "
-	Copy-DSPFiles $DefaultDefinitionsPath $DestinationPath
+	Copy-DSPFiles $DefaultDefinitionsPath $DestinationPath -Exclude "Install.ps1"
 
 	# Copy most contents of current "Scripts" folder to Deployment folder (powershell scripts, .template files, folder structure, etc.)
 	Write-Verbose "Copying custom scripts and configuration from current folder (source: $CustomDefinitionsPath)... "
@@ -70,8 +71,8 @@ if (-not (Test-Path $DestinationPath))
 		$BinWspFilter = "*`\bin`\Release"
 	}
 
-	Copy-DSPSolution $ProjectRootPath $WspDestinationPath $LibrariesWspFilter
-	Copy-DSPSolution $ProjectRootPath $WspDestinationPath $BinWspFilter
+	Copy-DSPSolutions $ProjectRootPath $WspDestinationPath $LibrariesWspFilter
+	Copy-DSPSolutions $ProjectRootPath $WspDestinationPath $BinWspFilter
 
 	# Copy DSP PowerShell module so it can be installed on destination server
 	$DSPModuleSourcePath = Join-Path $ProjectRootPath "Libraries\GSoft.Dynamite.SP*\tools\" | Resolve-Path | Select-Object -first 1

@@ -3,11 +3,6 @@
 # -----------------------------------------
 $DSP_IsDistributedEnvironment = "$false"
 
-# ------------------------------------------
-# Common Tokens
-# ------------------------------------------
-. ./Tokens/Tokens.Common.ps1
-
 # ******************************************
 # Deployment Configuration 
 # ******************************************
@@ -30,7 +25,7 @@ $DSP_PortalDefaultLanguage = "1033"
 # ******************************************
 # Multilingualism Configuration 
 # ******************************************
-$DSP_IsMultilingual = $true
+$DSP_IsMultilingual = $false
 $DSP_VariationsLabels = @('en','fr')
 $DSP_SourceLabel = "en"
 
@@ -38,3 +33,8 @@ $DSP_SourceLabel = "en"
 # Webs Configuration 
 # ******************************************
 $DSP_PortalAuthoringRootWebs = @('rh','com')
+
+# ------------------------------------------
+# Common Tokens
+# ------------------------------------------
+. ./Tokens/Tokens.Common.ps1
