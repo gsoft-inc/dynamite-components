@@ -56,8 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Integration\Navigation\" />
-    <Folder Include="Integration\Publishing\" />
     <Folder Include="Unit\" />
   </ItemGroup>
   <Choose>
