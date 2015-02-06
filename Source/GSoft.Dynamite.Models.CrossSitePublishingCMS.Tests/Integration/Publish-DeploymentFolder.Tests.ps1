@@ -85,16 +85,6 @@ Describe "Publish-DeploymentFolder.ps1" {
 			# etc.
 		}
 	
-		It "should copy all WSP's from current solution" {
-			# run the script
-			& $sutPath
-	
-			# slightly strange that this one would make it, but - at publish-time -
-			# we want to bring together all packaged WSPs under the solution root
-			Test-Path "$publishDest\Solutions\Dynamite.Demo.Intranet.SP.wsp" | Should Be $true
-			# etc.
-		}
-	
 		It "should copy Dynamite PowerShell Toolkit, just in case" {
 			# run the script
 			& $sutPath
