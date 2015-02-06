@@ -2,7 +2,7 @@
 <!--
  Copyright		: GSoft @2014
  Model  		  : Cross Site Publishing CMS
- File         : Deploy-Sites.xml.template
+ File         : Default-Solutions.template.xml
  Description	: SharePoint solutions configuration file    
 -->
 <Solutions>
