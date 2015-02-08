@@ -16,25 +16,24 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
 $DefaultConfigurationFile = "[[DSP_DEFAULT_PortalSitesConfigurationFile]]"
 $CustomConfigurationFile = "[[DSP_CUSTOM_PortalSitesConfigurationFile]]"
-
 $ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
 
+# If custom configuration file is defined, use it instead of the default
 if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 {
 	$ConfigurationFilePath = $CommandDirectory + ".\" + $CustomConfigurationFile
 }
 
+# If force parameter is true, remove the previous SharePoint structure
 if ($Force) {
-	# Remove the previous SharePoint structure
 	Remove-DSPStructure $ConfigurationFilePath
 }
 
-# Create the new SharePoint structure
+# Create the new SharePoint site structure
 New-DSPStructure $ConfigurationFilePath
 
-# Check Multilingual settings
+# If multilingual is configured, activate the variation hierarchie features on authoring and publishing sites
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
-
 if($IsMultilingual)
 {
 	$values = @{"Step: " = "#1.1 Setup Sites Variations"}

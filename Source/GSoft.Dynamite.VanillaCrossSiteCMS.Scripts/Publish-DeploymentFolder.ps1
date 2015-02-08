@@ -43,7 +43,9 @@ if ($Force -eq $true)
 {
     Write-Warning "Clearing the following path : $DestinationPath... "
     Get-ChildItem -Path $DestinationPath -Recurse | Remove-Item -force -recurse
-	Remove-Item $DestinationPath
+	if (Test-Path -Path $DestinationPath) {
+		Remove-Item $DestinationPath
+	}
 }
 
 if (-not (Test-Path $DestinationPath)) 
@@ -55,7 +57,7 @@ if (-not (Test-Path $DestinationPath))
 	# Start by copying the "vanilla" cross-site CMS setup scripts from the NuGet package
     # Note: Exclude the NuGet's install script
 	Write-Verbose "Copying reference setup scripts and configuration from NuGet package (source: $DefaultDefinitionsPath)... "
-	Copy-DSPFiles $DefaultDefinitionsPath $DestinationPath -Exclude "Install.ps1"
+	Copy-DSPFiles -Path $DefaultDefinitionsPath -DestinationPath $DestinationPath -Match @("*.ps1","*.template.*","*.xlsx","*.jpg","*.jpeg","*.png","*.sgt", "README*", "*.psd1", "*.psm1") -Exclude "Install.ps1"
 
 	# Copy most contents of current "Scripts" folder to Deployment folder (powershell scripts, .template files, folder structure, etc.)
 	Write-Verbose "Copying custom scripts and configuration from current folder (source: $CustomDefinitionsPath)... "

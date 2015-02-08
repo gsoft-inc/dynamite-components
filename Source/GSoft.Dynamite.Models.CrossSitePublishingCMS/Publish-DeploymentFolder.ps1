@@ -41,9 +41,13 @@ $CustomDefinitionsPath = $CurrentPath | Resolve-Path
 # Force delete all contents of current Deployment folder (and delete the folder itself)
 if ($Force -eq $true)
 {
-    Write-Warning "Clearing the following path : $DestinationPath... "
-    Get-ChildItem -Path $DestinationPath -Recurse | Remove-Item -force -recurse
-	Remove-Item $DestinationPath
+	if (Test-Path $DestinationPath) {
+		Write-Warning "Clearing the following path : $DestinationPath... "
+		Get-ChildItem -Path $DestinationPath -Recurse | Remove-Item -force -recurse
+		if (Test-Path -Path $DestinationPath) {
+			Remove-Item $DestinationPath
+		}
+	}
 }
 
 if (-not (Test-Path $DestinationPath)) 
