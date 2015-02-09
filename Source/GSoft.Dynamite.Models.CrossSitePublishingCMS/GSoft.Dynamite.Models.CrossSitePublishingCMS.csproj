@@ -112,14 +112,14 @@
     <None Include="Modules\Multilingualism\LANG_03\Install-LANG03.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
-    <None Include="Modules\Navigation\NAV_01\Default\Default-KeywordsTermGroup.xml.template">
+    <Content Include="Modules\Navigation\NAV_01\Default\Default-KeywordsTermGroup.template.xml">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
     <None Include="Modules\Navigation\NAV_02\Install-NAV02.ps1" />
     <None Include="Modules\Navigation\NAV_02\Setup-Fields.template.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
-    <None Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.xml.template" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-RestrictedTermGroup.template.xml" />
     <None Include="Modules\Publishing\PUB_01\Export-TermGroups.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Install-PUB01.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Catalogs.template.ps1" />
@@ -144,8 +144,8 @@
     <None Include="Nuget\Install.ps1" />
     <None Include="Publish-DeploymentFolder.ps1" />
     <None Include="packages.config" />
-    <None Include="Solutions\Copy-Solutions.template.ps1" />
-    <None Include="Solutions\Default\Default-Solutions.xml.template" />
+    <Content Include="Solutions\Custom\Custom-Solutions.template.xml" />
+    <Content Include="Solutions\Default\Default-Solutions.template.xml" />
     <None Include="Solutions\Deploy-Solutions.template.ps1" />
     <None Include="Solutions\Tokens.Solutions.Custom.ps1" />
     <None Include="Solutions\Tokens.Solutions.Default.ps1" />
@@ -158,23 +158,22 @@
     <Folder Include="Modules\Search\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
-    <Folder Include="Solutions\Custom\" />
     <Folder Include="Solutions\Packages\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\PUB_01\Default\Default-Sites.xml.template" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-Sites.template.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\PUB_01\Default\Default-Webs.xml.template" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-Webs.template.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\PUB_01\Default\Default-NavigationTermGroup.xml.template" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-NavigationTermGroup.template.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Modules\Publishing\PUB_01\Setup-Fields.template.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Modules\Publishing\PUB_01\Default\Default-Permissions.xml.template" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-Permissions.template.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Execute-PostDeploymentScript.ps1" />

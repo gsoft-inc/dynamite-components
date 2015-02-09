@@ -15,11 +15,13 @@ $ErrorActionPreference = "Stop"
 $scripts = @("`$ErrorActionPreference = `"Stop`"")
 
 # Solutions deployment check
-if (-not (Test-DSPDeployedSolutions -SolutionsConfigurationFilePath ".\Solutions\Default\Default-Solutions.xml")) { 
+if (-not (Test-DSPDeployedSolutions -SolutionsConfigurationFilePath "$(Get-Location)\Solutions\Default\Default-Solutions.xml")) { 
 	Write-Error "Solutions defined in '.\Solutions\Default\Default-Solutions.xml' are not correctly deployed."
 }
-if (-not (Test-DSPDeployedSolutions -SolutionsConfigurationFilePath ".\Solutions\Default\Custom-Solutions.xml")) { 
-	Write-Error "Solutions defined in '.\Solutions\Default\Custom-Solutions.xml' are not correctly deployed."
+if (Test-Path -Path "$(Get-Location)\Solutions\Custom\Custom-Solutions.xml") {
+	if (-not (Test-DSPDeployedSolutions -SolutionsConfigurationFilePath "$(Get-Location)\Solutions\Custom\Custom-Solutions.xml")) { 
+		Write-Error "Solutions defined in '.\Solutions\Default\Custom-Solutions.xml' are not correctly deployed."
+	}
 }
 
 # ********** START LOGGING ********** #

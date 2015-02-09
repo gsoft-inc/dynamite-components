@@ -95,8 +95,3 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-MetadataFiltering.ps1'
 & $Script
-
-# ********** LOG END ********** #
-# Stop log transcript
-Stop-Transcript
-# ***************************** #
