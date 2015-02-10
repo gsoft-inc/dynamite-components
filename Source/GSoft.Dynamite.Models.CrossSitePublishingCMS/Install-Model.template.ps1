@@ -12,7 +12,6 @@ Get-ChildItem -Recurse | Unblock-File
 
 # Stop on first error
 $ErrorActionPreference = "Stop"
-$scripts = @("`$ErrorActionPreference = `"Stop`"")
 
 # Solutions deployment check
 if (-not (Test-DSPDeployedSolutions -SolutionsConfigurationFilePath "$(Get-Location)\Solutions\Default\Default-Solutions.xml")) { 
@@ -28,6 +27,8 @@ if (Test-Path -Path "$(Get-Location)\Solutions\Custom\Custom-Solutions.xml") {
 if ((Get-Module | where { $_.Name -eq "Sharegate" }).Count -ne 1) {
 	Write-Error -Message "Sharegate PowerShell module is not correctly installed."
 }
+
+# TODO: Nice to have a check on which service locator is loaded into the GAC
 
 # ********** START LOGGING ********** #
 Start-DSPLogging -commandName "Install-Model" -folder ((Get-Location).Path + "\Logs")

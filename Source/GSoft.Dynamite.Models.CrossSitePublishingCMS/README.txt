@@ -21,4 +21,5 @@ INSTALLATION
 #########################################
 1. Ensure you have your Tokens.*.ps1 file created and configured
 2. Execute the "Publish-DeploymentFolder.ps1" to create the deployment folder at the root of the working folder
-(TODO)
+3. Deploy solutions if needed with .\Solutions\Deploy-Solutions.ps1
+4. Install-Model.ps1 in a different PowerShell shell
