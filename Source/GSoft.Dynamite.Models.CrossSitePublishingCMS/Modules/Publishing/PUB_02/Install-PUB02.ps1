@@ -6,6 +6,9 @@ param([string]$LogFolderPath)
 
 $UserStory = "PUB_02"
 
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+
 ##### STEP 1: CREATE SEARCH RESULT SOURCES
 $values = @{"Step: " = "Create Search Result Sources";"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values

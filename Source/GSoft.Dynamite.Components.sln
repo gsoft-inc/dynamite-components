@@ -87,7 +87,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.VanillaCross
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Common.Contracts", "GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj", "{31680A5F-E76D-4501-9DFC-D67CE09863F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.VanillaCrossSiteCMS.Tests", "GSoft.Dynamite.VanillaCrossSiteCMS.Tests\GSoft.Dynamite.VanillaCrossSiteCMS.Tests.csproj", "{06A38950-5AB8-40D4-90AF-CBFE40CEFA0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.VanillaCrossSiteCMS.Scripts.Tests", "GSoft.Dynamite.VanillaCrossSiteCMS.Scripts.Tests\GSoft.Dynamite.VanillaCrossSiteCMS.Scripts.Tests.csproj", "{06A38950-5AB8-40D4-90AF-CBFE40CEFA0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

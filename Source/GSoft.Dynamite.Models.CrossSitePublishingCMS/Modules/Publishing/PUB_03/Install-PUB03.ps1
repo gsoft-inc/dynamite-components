@@ -6,6 +6,9 @@ param([string]$LogFolderPath)
 
 $UserStory = "PUB_03"
 
+$0 = $myInvocation.MyCommand.Definition
+$CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
+
 $values = @{"Step: " = "Deploy Language Files";"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 

@@ -22,6 +22,12 @@ $DSP_PortalDatabaseName = "WSS_Content_Dynamite"
 $DSP_PortalDefaultLanguage = "1033"
 
 # ******************************************
+# Search Configuration 
+# ******************************************
+$DSP_SearchServiceApplicationName = "Search Service Application"
+$DSP_SearchContentSourceName = "Local SharePoint sites"
+
+# ******************************************
 # Multilingualism Configuration 
 # ******************************************
 $DSP_IsMultilingual = $false

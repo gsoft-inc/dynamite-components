@@ -5,7 +5,9 @@
 # -----------------------------------------
 
 # Get all files in the PostDeployment folder
-Get-ChildItem PostDeployment/* -include *.ps1 | ForEach-Object {
-Write-Host "Executes the script $_" -ForegroundColor Yellow
-Start-Process powershell.exe -ArgumentList "-file `"$_`"" -Wait -Verbose
+if (Test-Path PostDeployment) {
+    Get-ChildItem PostDeployment/* -include *.ps1 | ForEach-Object {
+        Write-Host "Executes the script $_" -ForegroundColor Yellow
+        Start-Process powershell.exe -ArgumentList "-file `"$_`"" -Wait -Verbose
+    }
 }
