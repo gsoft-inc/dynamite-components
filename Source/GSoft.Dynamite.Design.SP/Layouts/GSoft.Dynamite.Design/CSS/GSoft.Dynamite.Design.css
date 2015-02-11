@@ -65,8 +65,11 @@ a.hover {
   margin: 0 auto;
 }
 .row .two-columns .colunm-half {
-  width: 45%;
+  width: 50%;
   float: left;
+}
+.row .row-notifications {
+  margin-bottom: 15px;
 }
 /***************/
 /* Grid Layout */

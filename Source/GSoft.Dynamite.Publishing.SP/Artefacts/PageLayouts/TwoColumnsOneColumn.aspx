@@ -23,10 +23,11 @@
 	<SharePointWebControls:ListSiteMapPath runat="server" SiteMapProviders="CurrentNavigationSwitchableProvider" RenderCurrentNodeAsLink="false" PathSeparator="" CssClass="s4-breadcrumb" NodeStyle-CssClass="s4-breadcrumbNode" CurrentNodeStyle-CssClass="s4-breadcrumbCurrentNode" RootNodeStyle-CssClass="s4-breadcrumbRootNode" NodeImageOffsetX=0 NodeImageOffsetY=289 NodeImageWidth=16 NodeImageHeight=16 NodeImageUrl="/_layouts/15/images/fgimg.png?rev=23" HideInteriorRootNodes="true" SkipLinkText=""/>
 </asp:Content>
 <asp:Content contentplaceholderid="PlaceHolderMain" runat="server">
-    <div class="row one-column">
+    <div class="row one-column header">
 	    <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Left%>" ID="Header"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
 	</div>
     <div class="row two-columns">
+        <div class="row row-notifications"></div>
         <div class="colunm-half">
 	        <WebPartPages:WebPartZone runat="server" Title="<%$Resources:cms,WebPartZoneTitle_Header%>" ID="Left"><ZoneTemplate></ZoneTemplate></WebPartPages:WebPartZone>
         </div>
