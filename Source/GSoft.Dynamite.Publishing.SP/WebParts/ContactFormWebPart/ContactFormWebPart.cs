@@ -38,6 +38,21 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
         public string JavaScriptViewModel { get; set; }
 
         /// <summary>
+        /// The name of the resource for the success message
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Success Message Resource"), WebDescription(""), Category("Contact Form Configuration")]
+        public string SuccessMessage { get; set; }
+
+        /// <summary>
+        /// The name of the resource for the error message
+        /// </summary>
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Error Message Resource"), WebDescription(""), Category("Contact Form Configuration")]
+        public string ErrorMessage { get; set; }
+
+        [Personalizable(PersonalizationScope.Shared), WebBrowsable(true), WebDisplayName("Validation Rules"), WebDescription(""), Category("Contact Form Configuration")]
+        public string ValidationRules { get; set; }
+
+        /// <summary>
         /// Creates child controls
         /// </summary>
         protected override void CreateChildControls()
@@ -49,6 +64,10 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
                 ContactFormControl.EmailAddress = this.EmailAddress;
                 ContactFormControl.ContactFormTemplate = this.ContactFormTemplate;
                 ContactFormControl.JavaScriptViewModel = this.JavaScriptViewModel;
+                ContactFormControl.SuccessMessage = this.SuccessMessage;
+                ContactFormControl.ErrorMessage = this.ErrorMessage;
+                ContactFormControl.ValidationRules = this.ValidationRules;
+
                 this.Controls.Add(ContactFormControl);
             }
         }

@@ -26,6 +26,18 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart
         public string JavaScriptViewModel { get; set; }
 
         /// <summary>
+        /// The name of the resource for the success message
+        /// </summary>
+        public string SuccessMessage { get; set; }
+
+        /// <summary>
+        /// The name of the resource for the error message
+        /// </summary>
+        public string ErrorMessage { get; set; }
+
+        public string ValidationRules { get; set; }
+
+        /// <summary>
         /// Event handler when the page is loaded
         /// </summary>
         /// <param name="sender">The sender</param>

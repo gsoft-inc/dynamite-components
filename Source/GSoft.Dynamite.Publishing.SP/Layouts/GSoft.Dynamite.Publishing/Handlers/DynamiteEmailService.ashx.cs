@@ -18,6 +18,8 @@ namespace GSoft.Dynamite.Publishing.SP.Layouts.Handlers
     /// </summary>
     public class DynamiteEmailService : IHttpHandler
     {
+        private ILogger logger;
+
         #region IHttpHandler Members
 
         /// <summary>
@@ -37,6 +39,8 @@ namespace GSoft.Dynamite.Publishing.SP.Layouts.Handlers
         /// <param name="context">An <see cref="T:System.Web.HttpContext"/> object that provides references to the intrinsic server objects (for example, Request, Response, Session, and Server) used to service HTTP requests.</param>
         public void ProcessRequest(HttpContext context)
         {
+            this.logger = PublishingContainerProxy.Current.Resolve<ILogger>();
+
             try
             {
                 // Gets the parameters
@@ -51,10 +55,15 @@ namespace GSoft.Dynamite.Publishing.SP.Layouts.Handlers
                 {
                     SPUtility.SendEmail(elevatedWeb, true, false, emailTo, subject, body);
                 });
+
+                // empty JSON object in response to prevent it from exploding the jQuery.ajax call handling
+                context.Response.ContentType = "application/json";
+                context.Response.Write("{}");
             }
             catch (Exception ex)
             {
                 // Make sure the exception keeps bubbling up with full stack trace
+                this.logger.Exception(ex);
                 throw;
             }
         }
