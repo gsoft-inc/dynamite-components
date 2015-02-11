@@ -40,7 +40,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_CategoryP
                     var publishingFolderInfos = featureScope.Resolve<PublishingFolderInfos>();
                     var folders = baseFoldersConfig.RootFolderHierarchies.ToList();
 
-                    // Remove Category Page folder
+                    // Remove Item Page folder
                     folders.RemoveAll(f => f.Name.Equals(publishingFolderInfos.ItemPageTemplates().Name));
 
                     foreach (var rootFolderHierarchy in folders)
