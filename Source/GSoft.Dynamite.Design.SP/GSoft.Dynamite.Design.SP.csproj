@@ -90,9 +90,6 @@
       <DependentUpon>CssImports.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="DesignContainerProxy.cs" />
-    <Compile Include="Features\CommonCMS_Boostrap\CommonCMS_Boostrap.EventReceiver.cs">
-      <DependentUpon>CommonCMS_Boostrap.feature</DependentUpon>
-    </Compile>
     <Compile Include="Features\CommonCMS_MasterPage\CommonCMS_MasterPage.EventReceiver.cs">
       <DependentUpon>CommonCMS_MasterPage.feature</DependentUpon>
     </Compile>
