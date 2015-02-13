@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using GSoft.Dynamite.Caml;
+using GSoft.Dynamite.Extensions;
+using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
@@ -16,19 +19,53 @@ namespace GSoft.Dynamite.Navigation.Core.Services
     {
         private readonly ITaxonomyService taxonomyService;
         private readonly INavigationHelper navigationHelper;
+        private readonly ILogger logger;
+        private readonly ICamlBuilder caml;
         private readonly PublishingFieldInfos publishingFieldInfos;
 
         /// <summary>
         /// Default constructor
         /// </summary>
+        /// <param name="logger">The logger helper</param>
         /// <param name="taxonomyService">The taxonomy service helper</param>
         /// <param name="navigationHelper">The navigation helper</param>
+        /// <param name="caml">The CAML builder helper</param>
         /// <param name="publishingFieldInfos">The publishing field info objects</param>
-        public NavigationTermBuilderService(ITaxonomyService taxonomyService, INavigationHelper navigationHelper, PublishingFieldInfos publishingFieldInfos)
+        public NavigationTermBuilderService(ILogger logger, ITaxonomyService taxonomyService, INavigationHelper navigationHelper, ICamlBuilder caml, PublishingFieldInfos publishingFieldInfos)
         {
             this.taxonomyService = taxonomyService;
             this.navigationHelper = navigationHelper;
+            this.logger = logger;
+            this.caml = caml;
             this.publishingFieldInfos = publishingFieldInfos;
+        }
+
+        /// <summary>
+        /// Associate all pages in the sites pages library to its navigation via a term driven page url.
+        /// Only pages with the Dynamite taxonomy navigation field that have a none null value will be set.
+        /// </summary>
+        /// <param name="web">The web where the pages library is located.</param>
+        public void SetTermDrivenPageForTerms(SPWeb web)
+        {
+            if (web == null)
+            {
+                this.logger.Error("Unable to set term driven page for terms because no web was passed.");
+                return;
+            }
+
+            // Prepare the query to get the pages that have a value in the navigation column
+            var itemNavigationFieldName = this.publishingFieldInfos.Navigation().InternalName;
+            var pagesLib = web.GetPagesLibrary();
+            var query = new SPQuery().Query =
+                this.caml.Where(
+                        this.caml.IsNotNull(this.caml.FieldRef(itemNavigationFieldName)));
+
+            // Execute the query and loop on each page.
+            var pages = pagesLib.GetItems(query);
+            foreach (SPListItem page in pages)
+            {
+                this.SetTermDrivenPageForTerm(web.Site, page);
+            }
         }
 
         /// <summary>

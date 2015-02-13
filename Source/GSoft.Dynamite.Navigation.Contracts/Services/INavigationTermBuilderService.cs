@@ -8,6 +8,13 @@ namespace GSoft.Dynamite.Navigation.Contracts.Services
     public interface INavigationTermBuilderService
     {
         /// <summary>
+        /// Associate all pages in the sites pages library to its navigation via a term driven page url.
+        /// Only pages with the Dynamite taxonomy navigation field that have a none null value will be set.
+        /// </summary>
+        /// <param name="web">The web where the pages library is located.</param>
+        void SetTermDrivenPageForTerms(SPWeb web);
+
+        /// <summary>
         /// Associates the current page to its navigation navigation via a term driven page url
         /// </summary>
         /// <param name="site">The current site</param>
