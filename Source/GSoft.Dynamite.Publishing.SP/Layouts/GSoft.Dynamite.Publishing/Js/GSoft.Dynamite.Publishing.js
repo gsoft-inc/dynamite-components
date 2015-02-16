@@ -223,23 +223,25 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
     // Public properties
     ContactForm.ViewModel = null;
 
-    ContactForm.Initialize = function (emailAddress, contactFormTemplate, javaScriptViewModel, emailTemplate, successMessage, errorMessage, validationRules) {
+    ContactForm.Initialize = function (emailAddress, contactFormTemplate, javaScriptViewModel, emailTemplate) {
         var viewModel = this;
         $(document).ready(function (viewModel) {
-            ContactForm.ViewModel = new contactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel, emailTemplate, successMessage, errorMessage, validationRules);
+            ContactForm.ViewModel = new ContactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel, emailTemplate);
             ko.applyBindings(ContactForm.ViewModel, $(".contact-form.form-body")[0]);
         });
     };
     
-    function contactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel, successMessage, errorMessage, validationRules) {
+    function ContactFormViewModel(emailAddress, contactFormTemplate, javaScriptViewModel) {
         var self = this;
 
         self.EmailAddress = emailAddress;
         self.ContactFormTemplate = contactFormTemplate;
         self.JavaScriptViewModel = javaScriptViewModel;
-        self.SuccessMessage = successMessage;
-        self.ErrorMessage = errorMessage;
-        self.ValidationRules = validationRules;
+        self.ValidationRules = ko.observable();
+
+        var form = eval(self.ContactFormTemplate);
+        self.Form = new form();
+        self.SuccessMessage = self.Form.SuccesMessage;
 
         self.SendEmail = function (to, body, subject) {
 
@@ -275,6 +277,8 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
         self.ConfigureEmail = function () {
             $(document).ready(function () {
+                self.Form.Submit(data);
+
                 var body = renderEmailBody(self.JavaScriptViewModel);
                 resetForm();
                 self.SendEmail(self.EmailAddress, body, "formulaire de contact");
@@ -290,9 +294,9 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                         self.ConfigureEmail();
                     }
                 });
-                $('#aspnetForm').validate({
-                    rules: self.ValidationRules
-                });
+                //$('#aspnetForm').validate({
+                //    rules: self.ValidationRules
+                //});
             }
         });
     }
@@ -309,7 +313,6 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         // Cleans the knockout model.
         ko.cleanNode($(".contact-form.form-footer")[0]);
 
-        //$('.contact-form.email-body').empty();
         return body;
     }
 

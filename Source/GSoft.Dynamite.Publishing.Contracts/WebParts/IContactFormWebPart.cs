@@ -25,17 +25,5 @@ namespace GSoft.Dynamite.Publishing.Contracts.WebParts
         /// he name of the view model JavaScript class to use
         /// </summary>
         string JavaScriptViewModel { get; set; }
-
-        /// <summary>
-        /// The name of the resource for the success message
-        /// </summary>
-        string SuccessMessage { get; set; }
-
-        string ValidationRules { get; set; }
-
-        /// <summary>
-        /// The name of the resource for the error message
-        /// </summary>
-        string ErrorMessage { get; set; }
     }
 }
