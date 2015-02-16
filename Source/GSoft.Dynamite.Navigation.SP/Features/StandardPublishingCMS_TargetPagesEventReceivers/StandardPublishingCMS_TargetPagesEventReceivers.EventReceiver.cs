@@ -6,7 +6,9 @@ using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
+using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
+using System.Linq;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPagesEventReceivers
 {
@@ -38,6 +40,14 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                     var logger = featureScope.Resolve<ILogger>();
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
+                    var navigationTermService = featureScope.Resolve<INavigationTermBuilderService>();
+
+                    // Fix any pages that are no longer properly mapped to their term.
+                    // This is in the case where the term set was updated using PowerShell clearing all term driven page settings.
+                    foreach (SPWeb web in site.AllWebs)
+                    {
+                        navigationTermService.SetTermDrivenPageForTerms(web);
+                    }                   
 
                     // Add only Browsable Page events
                     baseEventReceivers.Clear();

@@ -21,12 +21,17 @@ namespace GSoft.Dynamite.Design.SP.CONTROLTEMPLATES.GSoft.Dynamite.Design.Bootst
         protected void Page_Load(object sender, EventArgs e)
         {
             //Bootstrap core and custom safe registration 
-            var dynamiteMultilingualismCss = new CssRegistration();
-            dynamiteMultilingualismCss.ID = "DynamiteDesignCssBootstrapRegistration";
-            dynamiteMultilingualismCss.After = "corev4.css";
-            dynamiteMultilingualismCss.Name = SPUtility.ConcatUrls(SPContext.Current.Site.ServerRelativeUrl, SPUtility.MakeBrowserCacheSafeLayoutsUrl("GSoft.Dynamite.Design.Bootstrap/CSS/bootstrap-custom.css", false));
-            dynamiteMultilingualismCss.Name = SPUtility.ConcatUrls(SPContext.Current.Site.ServerRelativeUrl, SPUtility.MakeBrowserCacheSafeLayoutsUrl("GSoft.Dynamite.Design.Bootstrap/CSS/bootstrap.css", false));
-            this.Controls.Add(dynamiteMultilingualismCss);
+            var dynamiteBootstrapCss = new CssRegistration();
+            dynamiteBootstrapCss.ID = "dynamiteBootstrapCss";
+            dynamiteBootstrapCss.After = "corev4.css";
+            dynamiteBootstrapCss.Name = SPUtility.ConcatUrls(SPContext.Current.Site.ServerRelativeUrl, SPUtility.MakeBrowserCacheSafeLayoutsUrl("GSoft.Dynamite.Design.Bootstrap/CSS/bootstrap.css", false));
+            this.Controls.Add(dynamiteBootstrapCss);
+
+            var dynamiteBootstrapCustomCss = new CssRegistration();
+            dynamiteBootstrapCustomCss.ID = "dynamiteBootstrapCustomCss";
+            dynamiteBootstrapCustomCss.After = "corev4.css";
+            dynamiteBootstrapCustomCss.Name = SPUtility.ConcatUrls(SPContext.Current.Site.ServerRelativeUrl, SPUtility.MakeBrowserCacheSafeLayoutsUrl("GSoft.Dynamite.Design.Bootstrap/CSS/bootstrap-custom.css", false));
+            this.Controls.Add(dynamiteBootstrapCustomCss);
         }
     }
 }
