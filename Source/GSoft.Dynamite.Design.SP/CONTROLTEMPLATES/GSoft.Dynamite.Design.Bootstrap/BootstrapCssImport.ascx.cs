@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint.WebControls;
@@ -16,11 +14,11 @@ namespace GSoft.Dynamite.Design.SP.CONTROLTEMPLATES.GSoft.Dynamite.Design.Bootst
         /// <summary>
         /// Handles the Load event of the Page control.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Bootstrap core and custom safe registration 
+            // Bootstrap core and custom safe registration 
             var dynamiteBootstrapCss = new CssRegistration();
             dynamiteBootstrapCss.ID = "dynamiteBootstrapCss";
             dynamiteBootstrapCss.After = "corev4.css";

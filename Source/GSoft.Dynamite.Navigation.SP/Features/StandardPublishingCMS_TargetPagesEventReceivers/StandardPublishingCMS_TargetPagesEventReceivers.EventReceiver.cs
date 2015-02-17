@@ -8,7 +8,6 @@ using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
-using System.Linq;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPagesEventReceivers
 {

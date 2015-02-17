@@ -57,7 +57,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     new ResultTypeRuleInfo(
                         this._publishingManagedPropertyInfos.ContentTypeId,
                         PropertyRuleOperator.DefaultOperator.Contains,
-                        new string[] { this._contentTypeInfos.NewsItem().ContentTypeId })
+                        new string[] { this._contentTypeInfos.NewsItem().ContentTypeId.ToString() })
                 }
             };
         }
@@ -85,7 +85,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     new ResultTypeRuleInfo(
                         this._publishingManagedPropertyInfos.ContentTypeId,
                         PropertyRuleOperator.DefaultOperator.Contains,
-                        new string[] { this._contentTypeInfos.ContentItem().ContentTypeId })
+                        new string[] { this._contentTypeInfos.ContentItem().ContentTypeId.ToString() })
                 }
             };
         }
@@ -114,7 +114,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     new ResultTypeRuleInfo(
                         this._publishingManagedPropertyInfos.ContentTypeId,
                         PropertyRuleOperator.DefaultOperator.Contains,
-                        new string[] { this._contentTypeInfos.NewsItem().ContentTypeId })
+                        new string[] { this._contentTypeInfos.NewsItem().ContentTypeId.ToString() })
                 }
             };
         }
