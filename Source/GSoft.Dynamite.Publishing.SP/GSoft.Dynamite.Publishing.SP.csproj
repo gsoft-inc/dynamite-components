@@ -328,6 +328,7 @@
     </Content>
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\jquery.noty.packaged.min.js" />
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\jquery.validate.min.js" />
+    <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\messages_fr.js" />
     <Content Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx" />
     <Content Include="WebParts\ContactFormWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
