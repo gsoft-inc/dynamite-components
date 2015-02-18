@@ -8,6 +8,8 @@
 <WebApplication Url="[[DSP_PortalWebAppUrl]]">
   <!-- Be careful for the relative path ! Empty means root and there is no "/" at start and end -->
   <Site Name="Publishing Site" HostNamePath="[[DSP_PortalPublishingHostNamePath]]" RelativePath="" IsAnonymous="True"  OwnerAlias="[[DSP_PortalAdmin]]" Language="[[DSP_PortalDefaultLanguage]]" Template="BLANKINTERNET#0" ContentDatabase="[[DSP_PortalDatabaseName]]">
+    <!-- Search REST API Anonymous -->
+    <Feature GUID="c172bf31-e0dc-4fcf-b96c-0d0cc0aa3aed" Name="CrossSiteCollectionPublishing" />
   </Site>
   <Site Name="Authoring Site" HostNamePath="[[DSP_PortalAuthoringHostNamePath]]" RelativePath="" OwnerAlias="[[DSP_PortalAdmin]]" Language="[[DSP_PortalDefaultLanguage]]" Template="BLANKINTERNET#0" ContentDatabase="[[DSP_PortalDatabaseName]]">
     <!-- Cross-site publishing -->
