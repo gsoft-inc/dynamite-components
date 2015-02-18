@@ -241,7 +241,6 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
         var form = eval(self.ContactFormTemplate);
         self.Form = new form();
-        self.SuccessMessage = self.Form.SuccesMessage;
 
         self.SendEmail = function (to, body, subject) {
 
@@ -253,36 +252,30 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                 type: "POST",
                 dataType: "json",
                 data: { 'emailTo': to, 'subject': subject, 'content': body, '__REQUESTDIGEST': $("#__REQUESTDIGEST").val() },
-                success: self.OnSucces,
-                error: self.OnError
+                success: self.Form.OnSucces,
+                error: self.Form.OnError
             });
-        };
-
-        self.OnSucces = function (data) {
-            var notification = $('.row.row-notifications').noty(
-                {
-                    text: self.SuccessMessage,
-                    type: 'success',
-                    timeout: 4000,
-                });
-        };
-
-        self.OnError = function (data) {
-            var notification = $('.row.row-notifications').noty(
-                {
-                    text: self.ErrorMessage,
-                    type: 'error',
-                });
         };
 
         self.ConfigureEmail = function () {
             $(document).ready(function () {
-                self.Form.Submit(data);
 
-                var body = renderEmailBody(self.JavaScriptViewModel);
+                var body = self.RenderEmailBody();
                 resetForm();
                 self.SendEmail(self.EmailAddress, body, "formulaire de contact");
             });
+        };
+
+        self.RenderEmailBody = function () {
+            // Renders the Email body on the page and apply values.
+            ko.applyBindings(self.Form, $(".contact-form.form-footer")[0]);
+            // Gets the content.
+            var body = $('.contact-form.email-body').html();
+            // Removes the content on the page
+            // Cleans the knockout model.
+            ko.cleanNode($(".contact-form.form-footer")[0]);
+
+            return body;
         };
 
         $(document).ready(function () {
@@ -294,28 +287,14 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                         self.ConfigureEmail();
                     }
                 });
-                //$('#aspnetForm').validate({
-                //    rules: self.ValidationRules
-                //});
+                $('#aspnetForm').validate({
+                    rules: self.Form.ValidationRules,
+                    messages: self.Form.Messages
+                });
             }
         });
     }
-
-    function renderEmailBody(javaScriptViewModel) {
-        // Gets the contact form view model to retrieve form values.
-        var itemViewModel = eval(javaScriptViewModel);
-        var result = new itemViewModel();
-        // Renders the Email body on the page and apply values.
-        ko.applyBindings(result, $(".contact-form.form-footer")[0]);
-        // Gets the content.
-        var body = $('.contact-form.email-body').html();
-        // Removes the content on the page
-        // Cleans the knockout model.
-        ko.cleanNode($(".contact-form.form-footer")[0]);
-
-        return body;
-    }
-
+    
     function resetForm() {
         var inputs = $(".contact-form.form-body :input");
         _.each(inputs, function (input) {
