@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GSoft.Dynamite.Caml;
 using GSoft.Dynamite.Extensions;
+using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Pages;
@@ -53,16 +54,8 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                 return;
             }
 
-            // Prepare the query to get the pages that have a value in the navigation column
-            var itemNavigationFieldName = this.publishingFieldInfos.Navigation().InternalName;
             var pagesLib = web.GetPagesLibrary();
-            var query = new SPQuery().Query =
-                this.caml.Where(
-                        this.caml.IsNotNull(this.caml.FieldRef(itemNavigationFieldName)));
-
-            // Execute the query and loop on each page.
-            var pages = pagesLib.GetItems(query);
-            foreach (SPListItem page in pages)
+            foreach (SPListItem page in pagesLib.Items)
             {
                 this.SetTermDrivenPageForTerm(web.Site, page);
             }

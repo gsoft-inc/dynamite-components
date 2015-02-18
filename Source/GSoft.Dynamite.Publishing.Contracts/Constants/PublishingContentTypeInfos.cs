@@ -4,6 +4,7 @@ using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Globalization;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
@@ -17,27 +18,23 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// The "out-of-the-box" SharePoint item content type id
         /// </summary>
-        private const string ItemContentType = "0x01";
+        private static readonly SPContentTypeId TranslatableItemContentType = new SPContentTypeId(SPBuiltInContentTypeId.Item + "008093F9E3678D3D4392C57B0E6929DE05");
+        
+        private static readonly SPContentTypeId BrowsableItemContentType = new SPContentTypeId(TranslatableItemContentType + "01");
+        
+        private static readonly SPContentTypeId DefaultItemContentType = new SPContentTypeId(BrowsableItemContentType + "01");
+        
+        private static readonly SPContentTypeId CatalogContentItemContentType = new SPContentTypeId(DefaultItemContentType + "01");
+        
+        private static readonly SPContentTypeId TargetContentItemContentType = new SPContentTypeId(DefaultItemContentType + "02");
+        
+        private static readonly SPContentTypeId NewsItemContentType = new SPContentTypeId(CatalogContentItemContentType + "01");
+        
+        private static readonly SPContentTypeId ContentItemContentType = new SPContentTypeId(TargetContentItemContentType + "01");
 
-        private const string DocumentContentType = ItemContentType + "01";
-
-        private const string TranslatableItemContentType = ItemContentType + "008093F9E3678D3D4392C57B0E6929DE05";
-
-        private const string BrowsableItemContentType = TranslatableItemContentType + "01";
-
-        private const string DefaultItemContentType = BrowsableItemContentType + "01";
-
-        private const string CatalogContentItemContentType = DefaultItemContentType + "01";
-
-        private const string TargetContentItemContentType = DefaultItemContentType + "02";
-
-        private const string NewsItemContentType = CatalogContentItemContentType + "01";
-
-        private const string ContentItemContentType = TargetContentItemContentType + "01";
-
-        private const string RichMediaAssetDocumentContentType = DocumentContentType + "009148F5A04DDD49CBA7127AADA5FB792B";
-
-        private const string ImageItemContentType = RichMediaAssetDocumentContentType + "00AADE34325A8B49CDA8BB4DB53328F214";
+        private static readonly SPContentTypeId RichMediaAssetDocumentContentType = new SPContentTypeId(SPBuiltInContentTypeId.Document + "009148F5A04DDD49CBA7127AADA5FB792B");
+        
+        private static readonly SPContentTypeId ImageItemContentType = new SPContentTypeId(RichMediaAssetDocumentContentType + "00AADE34325A8B49CDA8BB4DB53328F214");
 
         #endregion
 
@@ -208,7 +205,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo BrowsablePage()
         {
             return new ContentTypeInfo(
-                this.Page().ContentTypeId + "01",
+                new SPContentTypeId(this.Page().ContentTypeId + "01"),
                 PublishingResources.ContentTypeBrowsablePageTitle,
                 PublishingResources.ContentTypeBrowsablePageDescription,
                 PublishingResources.ContentTypeGroup,
@@ -232,7 +229,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo TranslatablePage()
         {
             return new ContentTypeInfo(
-                this.BrowsablePage().ContentTypeId + "01",
+                new SPContentTypeId(this.BrowsablePage().ContentTypeId + "01"),
                 PublishingResources.ContentTypeTranslatablePageTitle,
                 PublishingResources.ContentTypeTranslatablePageDescription,
                 PublishingResources.ContentTypeGroup,
@@ -252,7 +249,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo DefaultPage()
         {
             return new ContentTypeInfo(
-                this.TranslatablePage().ContentTypeId + "01",
+                new SPContentTypeId(this.TranslatablePage().ContentTypeId + "01"),
                 PublishingResources.ContentTypeDefaultPageTitle,
                 PublishingResources.ContentTypeDefaultPageDescription,
                 PublishingResources.ContentTypeGroup,
@@ -272,7 +269,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo BrowsableArticlePage()
         {
             return new ContentTypeInfo(
-                this.ArticlePage().ContentTypeId + "01",
+                new SPContentTypeId(this.ArticlePage().ContentTypeId + "01"),
                 PublishingResources.ContentTypeBrowsableArticlePageTitle,
                 PublishingResources.ContentTypeBrowsableArticlePageDescription,
                 PublishingResources.ContentTypeGroup,
@@ -296,7 +293,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo TranslatableArticlePage()
         {
             return new ContentTypeInfo(
-                this.BrowsableArticlePage().ContentTypeId + "01",
+                new SPContentTypeId(this.BrowsableArticlePage().ContentTypeId + "01"),
                 PublishingResources.ContentTypeTranslatableArticlePageTitle,
                 PublishingResources.ContentTypeTranslatableArticlePageDescription,
                 PublishingResources.ContentTypeGroup,
@@ -316,7 +313,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo DefaultArticlePage()
         {
             return new ContentTypeInfo(
-                this.TranslatableArticlePage().ContentTypeId + "01",
+                new SPContentTypeId(this.TranslatableArticlePage().ContentTypeId + "01"),
                 PublishingResources.ContentTypeDefaultArticlePageTitle,
                 PublishingResources.ContentTypeDefaultArticlePageDescription,
                 PublishingResources.ContentTypeGroup,
@@ -336,7 +333,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo TargetContentPage()
         {
             return new ContentTypeInfo(
-                this.DefaultPage().ContentTypeId + "01",
+                new SPContentTypeId(this.DefaultPage().ContentTypeId + "01"),
                 PublishingResources.ContentTypeTargetContentPageTitle,
                 PublishingResources.ContentTypeTargetContentPageDescription,
                 PublishingResources.ContentTypeGroup,
@@ -356,7 +353,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo CatalogContentPage()
         {
             return new ContentTypeInfo(
-                this.DefaultPage().ContentTypeId + "02",
+                new SPContentTypeId(this.DefaultPage().ContentTypeId + "02"),
                 PublishingResources.ContentTypeCatalogContentPageTitle,
                 PublishingResources.ContentTypeCatalogContentPageDescription,
                 PublishingResources.ContentTypeGroup,
@@ -375,7 +372,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo Page()
         {
-            return new ContentTypeInfo("0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39", string.Empty, string.Empty, string.Empty);
+            return new ContentTypeInfo(new SPContentTypeId("0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39"), string.Empty, string.Empty, string.Empty);
         }
 
         /// <summary>
@@ -384,7 +381,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo ArticlePage()
         {
-            return new ContentTypeInfo(this.Page().ContentTypeId + "00" + "242457EFB8B24247815D688C526CD44D", string.Empty, string.Empty, string.Empty);
+            return new ContentTypeInfo(new SPContentTypeId(this.Page().ContentTypeId + "00" + "242457EFB8B24247815D688C526CD44D"), string.Empty, string.Empty, string.Empty);
         }
 
         #endregion

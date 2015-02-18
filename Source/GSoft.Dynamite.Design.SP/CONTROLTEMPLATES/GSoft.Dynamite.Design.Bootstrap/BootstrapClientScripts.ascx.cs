@@ -1,10 +1,8 @@
-﻿using Microsoft.SharePoint;
+﻿using System;
+using System.Web.UI;
+using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint.WebControls;
-using System;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 
 namespace GSoft.Dynamite.Design.SP.CONTROLTEMPLATES.GSoft.Dynamite.Design.Bootstrap
 {
@@ -14,10 +12,10 @@ namespace GSoft.Dynamite.Design.SP.CONTROLTEMPLATES.GSoft.Dynamite.Design.Bootst
     public partial class BootstrapClientScripts : UserControl
     {
         /// <summary>
-        /// At the load of the page
+        /// Handles the Load event of the Page control.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
             MakeBrowserCacheSafeOrRemoveIfMissing(this.JQueryScriptLink);
@@ -30,7 +28,7 @@ namespace GSoft.Dynamite.Design.SP.CONTROLTEMPLATES.GSoft.Dynamite.Design.Bootst
         /// <summary>
         /// Cache the JS files or remove them from the User control
         /// </summary>
-        /// <param name="scriptLink"></param>
+        /// <param name="scriptLink">The script link to cache.</param>
         private static void MakeBrowserCacheSafeOrRemoveIfMissing(ScriptLink scriptLink)
         {
             try

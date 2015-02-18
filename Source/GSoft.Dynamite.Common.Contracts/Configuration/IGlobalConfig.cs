@@ -7,6 +7,12 @@ namespace GSoft.Dynamite.Common.Contract.Configuration
     /// </summary>
     public interface IGlobalConfig
     {
+        /// <summary>
+        /// Gets the model.
+        /// </summary>
+        /// <value>
+        /// The model.
+        /// </value>
         string Model { get; }
 
         /// <summary>
@@ -40,6 +46,5 @@ namespace GSoft.Dynamite.Common.Contract.Configuration
         /// The publishing host URL.
         /// </value>
         string PublishingHostUrl { get; }
-
     }
 }
