@@ -28,7 +28,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
         <IgnoreAllNoiseQuery>true</IgnoreAllNoiseQuery>
         <KeywordInclusion>AllKeywords</KeywordInclusion>
         <SummaryLength>180</SummaryLength>
-        <TrimDuplicates>true</TrimDuplicates>
+        <TrimDuplicates>false</TrimDuplicates>
         <WcfTimeout>120000</WcfTimeout>
         <Properties xmlns:a=""http://schemas.microsoft.com/2003/10/Serialization/Arrays"">
             <a:KeyValueOfstringanyType>
@@ -59,7 +59,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
         <SimilarType>None</SimilarType>
         <SortSimilar>true</SortSimilar>
         <TrimDuplicatesIncludeId>0</TrimDuplicatesIncludeId>
-        <TrimDuplicatesKeepCount>1</TrimDuplicatesKeepCount>
+        <TrimDuplicatesKeepCount>500</TrimDuplicatesKeepCount>
     </QueryProperties>
     <WhiteList xmlns:a=""http://schemas.microsoft.com/2003/10/Serialization/Arrays"">
         <a:string>RowLimit</a:string>
