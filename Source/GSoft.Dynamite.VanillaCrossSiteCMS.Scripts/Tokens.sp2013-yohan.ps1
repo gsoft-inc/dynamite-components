@@ -4,11 +4,6 @@
 $DSP_IsDistributedEnvironment = "$false"
 
 # ******************************************
-# Deployment Configuration 
-# ******************************************
-$DSP_DeploySolutions = "$true"
-
-# ******************************************
 # Application Configuration 
 # ******************************************
 $DSP_PortalWebAppUrl = "http://dynamite.com/"
