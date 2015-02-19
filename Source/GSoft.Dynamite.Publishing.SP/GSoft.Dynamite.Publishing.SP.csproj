@@ -326,7 +326,6 @@
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
       <DependentUpon>GSoft.Dynamite.Publishing.js</DependentUpon>
     </Content>
-    <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\jquery.noty.packaged.min.js" />
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\jquery.validate.min.js" />
     <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\messages_fr.js" />
     <Content Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx" />
