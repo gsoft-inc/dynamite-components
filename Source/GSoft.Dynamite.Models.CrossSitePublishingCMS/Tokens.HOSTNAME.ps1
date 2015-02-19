@@ -1,19 +1,11 @@
-﻿# -----------------------------------------
+﻿# ******************************************
 # Deployment Mode
-# -----------------------------------------
-
+# ******************************************
 $DSP_IsDistributedEnvironment = "$false"
-
-# ------------------------------------------
-# Common Tokens
-# ------------------------------------------
-. ./Tokens/Tokens.Common.ps1
 
 # ******************************************
 # Deployment Configuration 
 # ******************************************
-
-$DSP_DeploySolutions = "$false"
 $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.xml"
 
 # ******************************************
@@ -22,9 +14,7 @@ $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.x
 $DSP_PortalWebAppUrl = "http://HOSTNAME/"
 $DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
 $DSP_PortalAuthoringHostNamePath = "http://authoring.dynamite.com"
-
 $DSP_PortalAuthoringRootWebUrl = $DSP_PortalAuthoringHostNamePath 
-
 $DSP_PortalAdmin = "OFFICE\YOUR.NAME"
 $DSP_PortalDatabaseName = "SP2013_Content_Portal"
 $DSP_PortalDefaultLanguage = "1033"
@@ -46,3 +36,8 @@ $DSP_SourceLabel = "en"
 # Webs Configuration 
 # ******************************************
 $DSP_PortalAuthoringRootWebs = @('rh','com')
+
+# ******************************************
+# Common Tokens
+# ******************************************
+. ./Tokens/Tokens.Common.ps1

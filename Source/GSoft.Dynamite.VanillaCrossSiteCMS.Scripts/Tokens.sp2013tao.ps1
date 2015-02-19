@@ -12,8 +12,6 @@ $DSP_IsDistributedEnvironment = "$false"
 # ******************************************
 # Deployment Configuration 
 # ******************************************
-
-$DSP_DeploySolutions = "$false"
 $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.xml"
 
 # ******************************************
