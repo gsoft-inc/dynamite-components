@@ -48,6 +48,16 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
 & $Script
 
+# ======================================= #
+# ===   MANAGED TAXONOMY NAVIGATION  ==== #
+# ======================================= #
+
+$values = @{"Step: " = "#8 Setup managed navigation"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ManagedNavigation.ps1'
+& $Script
+
 # =============================== #
 # =========   TERM DRIVEN PAGES   ========== #
 # =============================== #
@@ -96,16 +106,6 @@ $values = @{"Step: " = "#7 Create Catalog Connections"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-CatalogConnections.ps1'
-& $Script
-
-# ======================================= #
-# ===   MANAGED TAXONOMY NAVIGATION  ==== #
-# ======================================= #
-
-$values = @{"Step: " = "#8 Setup managed navigation"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-ManagedNavigation.ps1'
 & $Script
 
 # ======================================= #
