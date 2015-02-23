@@ -73,6 +73,10 @@ try {
 	.\Modules\Docs\DOC_02\Install-DOC02.ps1
 	#endregion
 
+	#region ********** SEARCH MODULE ********** #
+	.\Modules\Search\SRCH_02\Install-SRCH02.ps1
+	#endregion
+
 	#region ********** POST DEPLOYMENT SCRIPTS ********** #
 	.\Execute-PostDeploymentScript.ps1
 	#endregion
