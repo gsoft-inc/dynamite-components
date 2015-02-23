@@ -55,7 +55,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
             {
                 this.EventFiringEnabled = false;
 
-                var item = properties.ListItem;
+                // Refetch item to avoid save conflicts
+                var item = properties.ListItem.ParentList.GetItemById(properties.ListItem.ID);
 
                 var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
                 var multilingualismFieldInfos = childScope.Resolve<MultilingualismFieldInfos>();

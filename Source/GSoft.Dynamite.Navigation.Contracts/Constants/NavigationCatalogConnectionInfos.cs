@@ -1,4 +1,5 @@
-﻿using GSoft.Dynamite.Catalogs;
+﻿using System.Globalization;
+using GSoft.Dynamite.Catalogs;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
@@ -35,9 +36,12 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         public CatalogConnectionInfo NewsPagesConnection()
         {
             // Friendly URL format
-            var itemSlug = "/[" + this.navigationManagedPropertyInfos.DateSlugManagedProperty.Name + "]/[" +
-                           this.publishingManagedPropertyInfos.ListItemId.Name + "]/[" + this.navigationManagedPropertyInfos.TitleSlugManagedProperty.Name +
-                           "]";     
+            var urlTemplate = string.Format(
+                CultureInfo.InvariantCulture,
+                "/[{0}]/[{1}]/[{2}]",
+                this.navigationManagedPropertyInfos.DateSlugManagedProperty.Name,
+                this.publishingManagedPropertyInfos.ListItemId.Name,
+                this.navigationManagedPropertyInfos.TitleSlugManagedProperty.Name);
 
             // The SPWeb will be populated during the feature activation
             return new CatalogConnectionInfo(             
@@ -46,7 +50,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 true,
                 false,
                 false,
-                itemSlug);
+                urlTemplate);
         }
 
         /// <summary>
@@ -56,18 +60,21 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         public CatalogConnectionInfo ContentPagesConnection()
         {
             // Friendly URL format
-            var itemSlug = "/[" + this.navigationManagedPropertyInfos.DateSlugManagedProperty.Name + "]/[" +
-                           this.publishingManagedPropertyInfos.ListItemId.Name + "]/[" + this.navigationManagedPropertyInfos.TitleSlugManagedProperty.Name +
-                           "]";
+            var urlTemplate = string.Format(
+                CultureInfo.InvariantCulture, 
+                "/[{0}]/[{1}]", 
+                this.publishingManagedPropertyInfos.ListItemId.Name, 
+                this.navigationManagedPropertyInfos.TitleSlugManagedProperty.Name);
 
             // The SPWeb will be populated during the feature activation
+            // Note: Empty slug for content pages since they are only attached to a specific term.
             return new CatalogConnectionInfo(
                 this.publishingCatalogInfos.ContentPages(),
                 this.publishingManagedPropertyInfos.Navigation.Name,
                 true,
                 false,
                 false,
-                itemSlug);
+                urlTemplate);
         }
     }
 }

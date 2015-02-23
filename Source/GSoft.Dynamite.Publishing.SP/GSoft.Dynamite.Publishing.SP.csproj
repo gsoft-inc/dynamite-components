@@ -51,7 +51,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10265\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10269\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -80,18 +80,18 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx.cs">
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ClientScripts.ascx.cs">
       <DependentUpon>ClientScripts.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx.designer.cs">
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ClientScripts.ascx.designer.cs">
       <DependentUpon>ClientScripts.ascx.cs</DependentUpon>
     </Compile>
-    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx.cs">
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx.cs">
       <DependentUpon>ReusableContentUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx.designer.cs">
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx.designer.cs">
       <DependentUpon>ReusableContentUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
@@ -139,9 +139,7 @@
     <Compile Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.EventReceiver.cs">
       <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx.cs">
-      <DependentUpon>Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx</DependentUpon>
-    </Compile>
+    <Compile Include="SP.Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
     <Compile Include="RegistrationModules\PublishingSPRegistrationModule.cs" />
@@ -184,7 +182,7 @@
     <None Include="Artefacts\PageLayouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{621e215b-d2d9-4c78-85a2-f38af1a379eb}</SharePointProjectItemId>
     </None>
-    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+    <None Include="SP.ControlTemplates\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{48389bc6-84ff-4799-afba-d8e32701b9fb}</SharePointProjectItemId>
     </None>
     <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
@@ -236,17 +234,17 @@
       <FeatureId>{17abf062-5a4c-4462-8370-ef3c7e84d741}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Publishing.SP.nuspec" />
-    <None Include="Images\SharePointProjectItem.spdata">
+    <None Include="SP.Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1ab17249-9879-4179-9e87-da77f66bd9db}</SharePointProjectItemId>
     </None>
-    <None Include="Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx" />
-    <None Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
+    <None Include="SP.Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx" />
+    <None Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
       <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
     </None>
     <None Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.feature">
       <FeatureId>{4bcdc916-d112-42d2-8b25-a91a8f87548f}</FeatureId>
     </None>
-    <None Include="Layouts\SharePointProjectItem.spdata">
+    <None Include="SP.Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{bc3923a2-1855-47ac-9098-f1bba7151d9e}</SharePointProjectItemId>
     </None>
     <None Include="packages.config" />
@@ -256,7 +254,7 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
-    <None Include="Resources\SharePointProjectItem.spdata">
+    <None Include="SP.Resources\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6bcc4923-18a8-4804-b127-0aeb964e9c50}</SharePointProjectItemId>
     </None>
     <None Include="WebParts\ContactFormWebPart\ContactFormWebPart.webpart" />
@@ -292,8 +290,8 @@
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />
     <Content Include="Artefacts\PageLayouts\TwoColumnsOneColumn.aspx" />
-    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ClientScripts.ascx" />
-    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx" />
+    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ClientScripts.ascx" />
+    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx" />
     <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
       <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
@@ -318,16 +316,16 @@
     <Content Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.Template.xml">
       <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Content>
-    <Content Include="Images\GSoft.Dynamite.Publishing.SP\logo-32x32-Pub.png" />
-    <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
+    <Content Include="SP.Images\GSoft.Dynamite.Publishing.SP\logo-32x32-Pub.png" />
+    <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
     <Content Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.Template.xml">
       <DependentUpon>CommonCMS_LanguageFiles.feature</DependentUpon>
     </Content>
-    <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
+    <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
       <DependentUpon>GSoft.Dynamite.Publishing.js</DependentUpon>
     </Content>
-    <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\jquery.validate.min.js" />
-    <Content Include="Layouts\GSoft.Dynamite.Publishing\Js\messages_fr.js" />
+    <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\jquery.validate.min.js" />
+    <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\messages_fr.js" />
     <Content Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx" />
     <Content Include="WebParts\ContactFormWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
@@ -359,12 +357,12 @@
     <Content Include="Features\CommonCMS_Lists\CommonCMS_Lists.Template.xml">
       <DependentUpon>CommonCMS_Lists.feature</DependentUpon>
     </Content>
-    <Content Include="Resources\GSoft.Dynamite.Publishing.Global.en-US.resx">
+    <Content Include="SP.Resources\GSoft.Dynamite.Publishing.Global.en-US.resx">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\GSoft.Dynamite.Publishing.Global.fr-FR.resx" />
+    <Content Include="SP.Resources\GSoft.Dynamite.Publishing.Global.fr-FR.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
