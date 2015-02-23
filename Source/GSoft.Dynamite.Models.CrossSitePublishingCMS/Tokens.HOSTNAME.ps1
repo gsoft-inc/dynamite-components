@@ -24,6 +24,7 @@ $DSP_PortalDefaultLanguage = "1033"
 # ******************************************
 $DSP_SearchServiceApplicationName = "Search Service Application"
 $DSP_SearchContentSourceName = "Local SharePoint sites"
+$DSP_GoogleAnalyticsUA = "UA-XXXXXXXX"
 
 # ******************************************
 # Multilingualism Configuration 
