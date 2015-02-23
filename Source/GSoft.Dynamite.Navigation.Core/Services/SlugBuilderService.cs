@@ -40,21 +40,29 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             var dateSlugFieldName = this._navigationFieldInfos.DateSlug().InternalName;
             var titleSlugFieldName = this._navigationFieldInfos.TitleSlug().InternalName;
 
-            if (item.Fields.ContainsField(dateSlugFieldName) &&
-               item.Fields.ContainsField(itemDateFieldName) && item.Fields.ContainsField(titleSlugFieldName))
+            // Generate title slug
+            if (item.Fields.ContainsField(titleSlugFieldName))
             {
-                item[dateSlugFieldName] = GetFriendlyUrlDate(item, itemDateFieldName);
                 item[titleSlugFieldName] = this._navigationHelper.GenerateFriendlyUrlSlug(item.Title);
-
                 this._logger.Info(
-                    "ContentAssociation.SetFriendlyUrlSlug: Set date slug '{0}' and slug '{1}' on item '{2}' in web '{3}'.",
-                    item[dateSlugFieldName],
+                    "ContentAssociation.SetFriendlyUrlSlug: Set title slug '{0}' on item '{1}' in web '{2}'.",
                     item[titleSlugFieldName],
                     item.Title,
                     item.Web.Url);
-
-                item.SystemUpdate();
             }
+
+            // Generate date slug
+            if (item.Fields.ContainsField(dateSlugFieldName) && item.Fields.ContainsField(itemDateFieldName))
+            {
+                item[dateSlugFieldName] = GetFriendlyUrlDate(item, itemDateFieldName);
+                this._logger.Info(
+                    "ContentAssociation.SetFriendlyUrlSlug: Set date slug '{0}' on item '{1}' in web '{2}'.",
+                    item[dateSlugFieldName],
+                    item.Title,
+                    item.Web.Url);
+            }
+
+            item.SystemUpdate();
         }
 
         private static string GetFriendlyUrlDate(SPListItem item, string fieldName)

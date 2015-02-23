@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10265\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10269\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -68,11 +68,11 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Design\CssImports.ascx.cs">
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Design\CssImports.ascx.cs">
       <DependentUpon>CssImports.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CONTROLTEMPLATES\GSoft.Dynamite.Design\CssImports.ascx.designer.cs">
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Design\CssImports.ascx.designer.cs">
       <DependentUpon>CssImports.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="DesignContainerProxy.cs" />
@@ -98,7 +98,7 @@
     <None Include="Artefacts\Theme\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{87e1ad4b-660f-4dbc-8d38-bae7b92686d9}</SharePointProjectItemId>
     </None>
-    <None Include="CONTROLTEMPLATES\SharePointProjectItem.spdata">
+    <None Include="SP.ControlTemplates\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{65a74cc7-579a-4f5f-8845-cdda49a3f801}</SharePointProjectItemId>
     </None>
     <None Include="Features\CommonCMS_MasterPage\CommonCMS_MasterPage.feature">
@@ -108,14 +108,14 @@
       <FeatureId>{d29b8f2f-93ee-440d-aef2-31aaa434746b}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Design.SP.nuspec" />
-    <None Include="Images\SharePointProjectItem.spdata">
+    <None Include="SP.Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{e7ab564b-e658-4322-a25b-9814ee8cf00c}</SharePointProjectItemId>
     </None>
-    <None Include="Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.css.map">
+    <None Include="SP.Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.css.map">
       <DependentUpon>GSoft.Dynamite.Design.css</DependentUpon>
     </None>
-    <None Include="Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.less" />
-    <None Include="Layouts\SharePointProjectItem.spdata">
+    <None Include="SP.Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.less" />
+    <None Include="SP.Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3c825a18-8816-41e6-9b31-7f9f07f4b80e}</SharePointProjectItemId>
     </None>
     <None Include="packages.config" />
@@ -125,7 +125,7 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
-    <None Include="Resources\SharePointProjectItem.spdata">
+    <None Include="SP.Resources\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1dafcbf2-9a8d-4229-a1f8-f7e9ec61b63c}</SharePointProjectItemId>
     </None>
   </ItemGroup>
@@ -135,18 +135,18 @@
     </Content>
     <Content Include="Artefacts\Theme\dynamite-splogo.png" />
     <Content Include="Artefacts\Theme\Elements.xml" />
-    <Content Include="CONTROLTEMPLATES\GSoft.Dynamite.Design\CssImports.ascx" />
+    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Design\CssImports.ascx" />
     <Content Include="Features\CommonCMS_Theme\CommonCMS_Theme.Template.xml">
       <DependentUpon>CommonCMS_Theme.feature</DependentUpon>
     </Content>
-    <Content Include="Images\GSoft.Dynamite.Design.SP\logo-32x32-Design.png" />
-    <Content Include="Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.css">
+    <Content Include="SP.Images\GSoft.Dynamite.Design.SP\logo-32x32-Design.png" />
+    <Content Include="SP.Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.css">
       <DependentUpon>GSoft.Dynamite.Design.less</DependentUpon>
     </Content>
-    <Content Include="Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.min.css">
+    <Content Include="SP.Layouts\GSoft.Dynamite.Design\CSS\GSoft.Dynamite.Design.min.css">
       <DependentUpon>GSoft.Dynamite.Design.css</DependentUpon>
     </Content>
-    <Content Include="Resources\GSoft.Dynamite.Design.Global.en-US.resx" />
+    <Content Include="SP.Resources\GSoft.Dynamite.Design.Global.en-US.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Artefacts\MasterPage\Elements.xml" />
@@ -156,7 +156,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\GSoft.Dynamite.Design.Global.fr-FR.resx" />
+    <Content Include="SP.Resources\GSoft.Dynamite.Design.Global.fr-FR.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GSoft.Dynamite.Design.Contracts\GSoft.Dynamite.Design.Contracts.csproj">
