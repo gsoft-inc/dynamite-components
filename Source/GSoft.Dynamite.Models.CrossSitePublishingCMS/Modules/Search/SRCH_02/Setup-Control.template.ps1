@@ -7,6 +7,6 @@
 
 Write-Warning "Applying Control configuration..."
 
-$DefaultGoogleTrackerFeatureId = [[DSP_CrossSitePublishingCMS_SRCH_GoogleAnalyticsTracking]]
+$DefaultGoogleTrackerFeatureId = "[[DSP_CrossSitePublishingCMS_SRCH_GoogleAnalyticsTracking]]"
 
 Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id $DefaultGoogleTrackerFeatureId

@@ -39,6 +39,11 @@
 . ./Modules/LifeCycle/Tokens.LifeCycle.Default.ps1
 
 # ******************************************
+# Search Module tokens
+# ******************************************
+. ./Modules/Search/Tokens.Search.Default.ps1
+
+# ******************************************
 # Urls builder
 # ******************************************
 

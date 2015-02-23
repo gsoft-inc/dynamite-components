@@ -6,7 +6,7 @@
 # -----------------------------------------------------------------------
 
 $GoogleAnalyticsKey = "GSOFT_DYNAMITE_GOOGLE_ANALYTICS_TRACKING_ID"
-$GoogleAnalyticsKeyValue = [[DSP_GoogleAnalyticsUA]]
+$GoogleAnalyticsKeyValue = "[[DSP_GoogleAnalyticsUA]]"
 
 if(![string]::IsNullOrEmpty($GoogleAnalyticsKeyValue))
 {
