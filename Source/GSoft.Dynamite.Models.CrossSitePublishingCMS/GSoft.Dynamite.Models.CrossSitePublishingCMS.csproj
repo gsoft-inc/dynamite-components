@@ -141,7 +141,7 @@
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Webs.template.ps1" />
-    <None Include="Modules\Search\SRCH_02\Install-SRCH_02.ps1" />
+    <None Include="Modules\Search\SRCH_02\Install-SRCH02.ps1" />
     <None Include="Modules\Search\SRCH_02\Setup-Control.template.ps1" />
     <None Include="Modules\Search\SRCH_02\Setup-PropertyBag.template.ps1" />
     <None Include="Modules\Search\Tokens.Search.Default.ps1" />
