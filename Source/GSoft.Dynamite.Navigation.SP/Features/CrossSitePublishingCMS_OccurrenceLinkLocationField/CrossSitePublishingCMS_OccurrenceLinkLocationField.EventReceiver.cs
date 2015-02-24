@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Helpers;
+using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
-using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Fields.Types;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_OccurrenceLinkLocationField
 {
