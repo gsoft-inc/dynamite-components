@@ -16,7 +16,6 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
 
         private static readonly string DateSlugFieldName = PublishingFieldInfos.FieldPrefix + "DateSlug";
         private static readonly string TitleSlugFieldName = PublishingFieldInfos.FieldPrefix + "TitleSlug";
-        private static readonly string PublishingStartDateFieldName = PublishingFieldInfos.FieldPrefix + "PublishingStartDate";
         private static readonly string OccurrenceLinkLocationFieldName = PublishingFieldInfos.FieldPrefix + "OccurrenceLinkLocation";
 
         /// <summary>
@@ -92,28 +91,6 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 {
                     TermSet = this.navigationTermSetInfos.NavigationControls()
                 }
-            };
-        }
-
-        /// <summary>
-        /// The title slug field
-        /// </summary>
-        /// <returns>The TitleSlug field</returns>
-        public DateTimeFieldInfo PublishingStartDate()
-        {
-            return new DateTimeFieldInfo(
-                PublishingStartDateFieldName,
-                new Guid("{AAB9602B-934B-4974-BB6B-A94992C7EDA5}"),
-                NavigationResources.FieldPublishingStartDateName,
-                NavigationResources.FieldPublishingStartDateDescription,
-                PublishingResources.FieldGroup)
-            {
-                Required = RequiredType.Required,
-                IsHiddenInDisplayForm  = false,
-                IsHiddenInEditForm = false,
-                IsHiddenInListSettings = false,
-                IsHiddenInNewForm = false,
-                DefaultFormula = "=[Today]"
             };
         }
     }

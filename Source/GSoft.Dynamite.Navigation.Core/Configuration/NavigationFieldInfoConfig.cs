@@ -2,6 +2,7 @@
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
@@ -10,15 +11,20 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
     /// </summary>
     public class NavigationFieldInfoConfig : INavigationFieldInfoConfig
     {
-        private readonly NavigationFieldInfos _baseNavigationFieldInfos;
+        private readonly NavigationFieldInfos baseNavigationFieldInfos;
+        private readonly PublishingFieldInfos basePublishingFieldInfos;
 
         /// <summary>
         /// Default constructor
         /// </summary>
         /// <param name="baseMultilingualismFieldInfos">The fields info for multilingualism</param>
-        public NavigationFieldInfoConfig(NavigationFieldInfos baseMultilingualismFieldInfos)
+        /// <param name="basePublishingFieldInfos">The base publishing field information.</param>
+        public NavigationFieldInfoConfig(
+            NavigationFieldInfos baseMultilingualismFieldInfos,
+            PublishingFieldInfos basePublishingFieldInfos)
         {
-            this._baseNavigationFieldInfos = baseMultilingualismFieldInfos;
+            this.baseNavigationFieldInfos = baseMultilingualismFieldInfos;
+            this.basePublishingFieldInfos = basePublishingFieldInfos;
         }
 
         /// <summary>
@@ -31,10 +37,10 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 // Get the base publishing field info 
                 var baseFieldInfo = new List<IFieldInfo>
                 {
-                    this._baseNavigationFieldInfos.DateSlug(),
-                    this._baseNavigationFieldInfos.TitleSlug(),
-                    this._baseNavigationFieldInfos.PublishingStartDate(),
-                    this._baseNavigationFieldInfos.OccurrenceLinkLocation()
+                    this.baseNavigationFieldInfos.DateSlug(),
+                    this.baseNavigationFieldInfos.TitleSlug(),
+                    this.basePublishingFieldInfos.PublishingStartDate(),
+                    this.baseNavigationFieldInfos.OccurrenceLinkLocation()
                 };
 
                 return baseFieldInfo;
