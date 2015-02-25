@@ -1,9 +1,12 @@
 using System;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Helpers;
+using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
@@ -32,11 +35,14 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var fieldHelper = featureScope.Resolve<IFieldHelper>();
-                    var baseFieldInfos = featureScope.Resolve<NavigationFieldInfos>();
+                    var baseFieldInfoConfig = featureScope.Resolve<INavigationFieldInfoConfig>();
+                    var baseFieldInfos = baseFieldInfoConfig.Fields;
+                    var baseFieldDefinition = featureScope.Resolve<NavigationFieldInfos>();
                     var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
 
                     // Gets the field
-                    var field = baseFieldInfos.OccurrenceLinkLocation();    
+                    var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
+                    var field = baseFieldInfos.Single(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
 
                     // Updates the visibility properties of the field
                     field.IsHiddenInDisplayForm = false;
