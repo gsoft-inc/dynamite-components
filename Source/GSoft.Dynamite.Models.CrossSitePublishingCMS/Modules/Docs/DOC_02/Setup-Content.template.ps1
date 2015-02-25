@@ -88,8 +88,17 @@ $copySettings = New-CopySettings -OnContentItemExists Overwrite
 
 Write-Warning "Importing images..."
 
+$CustomDestinationSite = "[[DSP_PortalAuthoringHostNamePath]]"
+$DocCenterSite = "[[DSP_PortalDocCenterHostNamePath]]"
+$UploadPicturesInDocCenter = [System.Convert]::ToBoolean("[[DSP_UploadPicturesInDocCenter]]")
+
+if(![string]::IsNullOrEmpty($DocCenterSite) -and $UploadPicturesInDocCenter)
+{
+	$CustomDestinationSite = $DocCenterSite
+}
+
 # Add Images to site collection images
-$imagelist = Connect-Site -Url [[DSP_PortalAuthoringHostNamePath]]| Get-List -Name "Site Collection Images"
+$imagelist = Connect-Site -Url $CustomDestinationSite| Get-List -Name "[[DSP_PictureLibraryName]]"
 Import-Document -DestinationList $imagelist -SourceFolder $ImagesConfigurationFolder | Export-Report -Path ($LogFolderPath + "\Images_ImportReport") -Overwrite
 
 # -----------------------------------------------------------------------
