@@ -52,7 +52,7 @@
           <PermissionLevel Name="Contribute"/>
         </PermissionLevels>
         <Users>
-          [[$DSP_DefaultMembersGroupUsers]]
+          [[DSP_DefaultMembersGroupUsers]]
         </Users>
       </Group>
       <Group Name="Default - Owners" OwnerName="[[DSP_PortalAdmin]]" IsAssociatedOwnerGroup="true">
