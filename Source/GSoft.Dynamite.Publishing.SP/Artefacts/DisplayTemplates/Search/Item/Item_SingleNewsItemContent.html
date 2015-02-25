@@ -18,23 +18,10 @@
         <!--#_
             if(!$isNull(ctx.CurrentItem) && !$isNull(ctx.ClientControl))
             {
-                var title = $getItemValue(ctx, "Title");
-            
-                // Set the title of the webpage
-                window.document.title = title;
-
                 var body = $getItemValue(ctx, "PublishingPageContentOWSHTML");
-
-                if ($isEmptyString(title))
-                {
-                    title = $htmlEncode(ctx.CurrentItem.Title);
-                }
         _#-->
         <div>
-            <h2>_#= title =#_</h2>
-            <div>
-                _#= body =#_
-            </div>
+            _#= body =#_
         </div>
         <!--#_
             }

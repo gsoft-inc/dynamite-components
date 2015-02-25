@@ -13,18 +13,22 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
     {
         private readonly PublishingContentTypeInfos _basePublishingContentTypeInfos;
         private readonly NavigationFieldInfos _basenavigationFieldInfos;
+        private readonly PublishingFieldInfos basePublishingFieldInfos;
 
         /// <summary>
         /// Default constructor
         /// </summary>
         /// <param name="basePublishingContentTypeInfos">The content type info objects configuration</param>
         /// <param name="baseMultilingualismFieldInfos">The fields info objects configuration</param>
+        /// <param name="basePublishingFieldInfos">The base publishing field information.</param>
         public NavigationContentTypeInfoConfig(
             PublishingContentTypeInfos basePublishingContentTypeInfos,
-            NavigationFieldInfos baseMultilingualismFieldInfos)
+            NavigationFieldInfos baseMultilingualismFieldInfos,
+            PublishingFieldInfos basePublishingFieldInfos)
         {
             this._basePublishingContentTypeInfos = basePublishingContentTypeInfos;
             this._basenavigationFieldInfos = baseMultilingualismFieldInfos;
+            this.basePublishingFieldInfos = basePublishingFieldInfos;
         }
 
         /// <summary>
@@ -57,7 +61,7 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 var catalogPage = this._basePublishingContentTypeInfos.CatalogContentPage();
 
                 // Adding the Publishing Start Date field
-                catalogItem.Fields.Add(this._basenavigationFieldInfos.PublishingStartDate());
+                catalogItem.Fields.Add(this.basePublishingFieldInfos.PublishingStartDate());
 
                 baseContentTypes.Add(browsableItem);
                 baseContentTypes.Add(browsablePage);

@@ -3,6 +3,7 @@ using System.Globalization;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
 
@@ -16,6 +17,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         private readonly ILogger _logger;
         private readonly INavigationHelper _navigationHelper;
         private readonly NavigationFieldInfos _navigationFieldInfos;
+        private readonly PublishingFieldInfos publishingFieldInfos;
 
         /// <summary>
         /// Default constructor
@@ -23,11 +25,17 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <param name="logger">The logger</param>
         /// <param name="navigationHelper">The navigation helper</param>
         /// <param name="navigationFieldInfos">The field info objects configuration</param>
-        public SlugBuilderService(ILogger logger, INavigationHelper navigationHelper, NavigationFieldInfos navigationFieldInfos)
+        /// <param name="publishingFieldInfos">The publishing field information.</param>
+        public SlugBuilderService(
+            ILogger logger, 
+            INavigationHelper navigationHelper, 
+            NavigationFieldInfos navigationFieldInfos,
+            PublishingFieldInfos publishingFieldInfos)
         {
             this._logger = logger;
             this._navigationHelper = navigationHelper;
             this._navigationFieldInfos = navigationFieldInfos;
+            this.publishingFieldInfos = publishingFieldInfos;
         }
 
         /// <summary>
@@ -36,7 +44,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <param name="item">The item.</param>
         public void SetFriendlyUrlSlug(SPListItem item)
         {
-            var itemDateFieldName = this._navigationFieldInfos.PublishingStartDate().InternalName;
+            var itemDateFieldName = this.publishingFieldInfos.PublishingStartDate().InternalName;
             var dateSlugFieldName = this._navigationFieldInfos.DateSlug().InternalName;
             var titleSlugFieldName = this._navigationFieldInfos.TitleSlug().InternalName;
 

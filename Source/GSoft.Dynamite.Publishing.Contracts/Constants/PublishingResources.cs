@@ -46,6 +46,16 @@
         /// The field Portal Navigation Description
         /// </summary>
         public static readonly string FieldPortalImageDescriptionDescription = "Field_PortalImageDescription_Desc";
+
+        /// <summary>
+        /// The field Publishing Start Date Name
+        /// </summary>
+        public static readonly string FieldPublishingStartDateName = "Field_PublishingStartDate_Name";
+
+        /// <summary>
+        /// The field Publishing Start Date Description
+        /// </summary>
+        public static readonly string FieldPublishingStartDateDescription = "Field_PublishingStartDate_Desc";
   
         #endregion
 

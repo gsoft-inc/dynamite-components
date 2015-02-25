@@ -93,6 +93,28 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 PublishingResources.FieldGroup);
         }
 
+        /// <summary>
+        /// The title slug field
+        /// </summary>
+        /// <returns>The TitleSlug field</returns>
+        public DateTimeFieldInfo PublishingStartDate()
+        {
+            return new DateTimeFieldInfo(
+                PublishingStartDateFieldName,
+                new Guid("{AAB9602B-934B-4974-BB6B-A94992C7EDA5}"),
+                PublishingResources.FieldPublishingStartDateName,
+                PublishingResources.FieldPublishingStartDateDescription,
+                PublishingResources.FieldGroup)
+            {
+                Required = RequiredType.Required,
+                IsHiddenInDisplayForm = false,
+                IsHiddenInEditForm = false,
+                IsHiddenInListSettings = false,
+                IsHiddenInNewForm = false,
+                DefaultFormula = "=[Today]"
+            };
+        }
+
         #endregion
 
         #region Field internal names
@@ -111,6 +133,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// Image Description field internal name
         /// </summary>
         private static readonly string ImageDescriptionFieldName = FieldPrefix + "ImageDescription";
+
+        /// <summary>
+        /// The publishing start date field name
+        /// </summary>
+        private static readonly string PublishingStartDateFieldName = FieldPrefix + "PublishingStartDate";
 
         #endregion
     }
