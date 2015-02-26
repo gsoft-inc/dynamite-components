@@ -24,20 +24,19 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Fields
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
-
             if (site != null)
             {
                 using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var fieldHelper = featureScope.Resolve<IFieldHelper>();
-                    var baseFieldInfoConfig = featureScope.Resolve<IPublishingFieldInfoConfig>();
-                    var baseFields = baseFieldInfoConfig.Fields;
+                    var fieldInfoConfig = featureScope.Resolve<IPublishingFieldInfoConfig>();
+                    var fields = fieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();
 
                     using (new Unsafe(site.RootWeb))
                     {
                         // Create base Fields
-                        foreach (IFieldInfo field in baseFields)
+                        foreach (var field in fields)
                         {
                             logger.Info("Creating field {0} on site {1}", field.InternalName, site.Url);
                             fieldHelper.EnsureField(site.RootWeb.Fields, field);
