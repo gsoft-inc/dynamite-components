@@ -14,6 +14,7 @@
 # Multilingualism Module tokens
 # ******************************************
 . ./Modules/Multilingualism/Tokens.Multilingualism.Default.ps1
+. ./Modules/Multilingualism/Tokens.Multilingualism.Custom.ps1
 
 # ******************************************
 # Navigation Module tokens
