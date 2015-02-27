@@ -16,7 +16,7 @@ $CustomKeywordsConfigurationFile = "[[DSP_CUSTOM_PortalKeywordsConfigurationFile
 
 $KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $DefaultKeywordsConfigurationFile
 
-if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
+if(![string]::IsNullOrEmpty($CustomKeywordsConfigurationFile))
 {
 	$KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $CustomKeywordsConfigurationFile
 }
