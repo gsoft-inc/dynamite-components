@@ -8,4 +8,4 @@
 Write-Warning "Deploying language files in the master page gallery..."
 
 # Activate feature on the root web on the publishing site collection
-Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_PUB_LanguageFiles]]
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_LanguageFiles]]

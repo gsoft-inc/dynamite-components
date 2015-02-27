@@ -3,6 +3,7 @@ using Autofac;
 using GSoft.Dynamite.Design.Contracts.Configuration;
 using GSoft.Dynamite.Security;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 
 namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_Theme
 {
@@ -34,12 +35,16 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_Theme
                         using (new Unsafe(web))
                         {
                             // Set Logo
-                            web.SiteLogoUrl = designConfig.LogoUrl;
+                            web.SiteLogoUrl = SPUtility.ConcatUrls(site.ServerRelativeUrl, designConfig.LogoUrl);
                             web.SiteLogoDescription = designConfig.LogoUrlDescription;
                             web.Update();
 
                             // Set theme
-                            web.ApplyTheme(designConfig.SPColorUrl, designConfig.SPFontUrl, null, true);
+                            web.ApplyTheme(
+                                SPUtility.ConcatUrls(site.ServerRelativeUrl, designConfig.SPColorUrl),
+                                SPUtility.ConcatUrls(site.ServerRelativeUrl, designConfig.SPFontUrl), 
+                                null, 
+                                true);
                         }
                     }
                 }

@@ -12,8 +12,8 @@ $CustomWebPartsFeatureId = "[[DSP_CUSTOM_CrossSitePublishingCMS_PUB_WebParts]]"
 # Deploys custom display templates before.
 if(![string]::IsNullOrEmpty($CustomWebPartsFeatureId))
 {
-	Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id $CustomWebPartsFeatureId
+	Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id $CustomWebPartsFeatureId
 }
 
 # Activate feature on the root web on the publishing site collection
-Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_PUB_WebParts]]
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CommonCMS_PUB_WebParts]]

@@ -30,7 +30,7 @@ if(![string]::IsNullOrEmpty($CustomRestrictedConfigurationFile))
 }
 
 # Portal Navigation Term Group
-Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $NavigationConfigurationFilePath
+Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingSiteUrl]]).TermStores[0] -InputFile $NavigationConfigurationFilePath
 
 # Portal Restricted Term Group
-Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $RestrictedConfigurationFilePath
+Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingSiteUrl]]).TermStores[0] -InputFile $RestrictedConfigurationFilePath
