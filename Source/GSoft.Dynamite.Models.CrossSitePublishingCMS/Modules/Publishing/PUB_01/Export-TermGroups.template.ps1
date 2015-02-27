@@ -50,7 +50,7 @@ if(![string]::IsNullOrEmpty($CustomRestrictedTermGroup))
 }
 
 # Portal Navigation Term Group
-Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingHostNamePath]]").TermStores[0].Groups[$NavigationTermGroup] -OutputFile $NavigationConfigurationFilePath
+Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingSiteUrl]]").TermStores[0].Groups[$NavigationTermGroup] -OutputFile $NavigationConfigurationFilePath
 
 # Portal Restricted Term Group
-Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingHostNamePath]]").TermStores[0].Groups[$RestrictedTermGroup] -OutputFile $RestrictedConfigurationFilePath
+Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingSiteUrl]]").TermStores[0].Groups[$RestrictedTermGroup] -OutputFile $RestrictedConfigurationFilePath

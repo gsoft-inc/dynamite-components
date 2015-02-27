@@ -22,4 +22,4 @@ if(![string]::IsNullOrEmpty($CustomKeywordsConfigurationFile))
 }
 
 # Portal Keywords Term Group
-Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $KeywordsConfigurationFilePath
+Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingSiteUrl]]).TermStores[0] -InputFile $KeywordsConfigurationFilePath

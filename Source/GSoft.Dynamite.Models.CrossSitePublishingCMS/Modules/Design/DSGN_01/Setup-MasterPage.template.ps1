@@ -8,4 +8,4 @@
 Write-Warning "Applying Publishing MasterPage..."
 
 # Activate features on publishing site collection.
-Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]] -Id "[[DSP_CommonCMS_MasterPage]]"
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]] -Id "[[DSP_CommonCMS_MasterPage]]"
