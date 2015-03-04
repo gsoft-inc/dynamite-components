@@ -35,6 +35,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                     this.publishingPageLayoutInfos.TargetItemPageLayout(),
                     this.publishingPageLayoutInfos.CatalogCategoryItemsPageLayout(),
                     this.publishingPageLayoutInfos.RightSidebar(),
+                    this.publishingPageLayoutInfos.BootstrapRightSidebar(),
                     this.publishingPageLayoutInfos.OneColunmWithHeader(),
                     this.publishingPageLayoutInfos.OneColunmWithThreeTabs(),
                     this.publishingPageLayoutInfos.TwoColumnsAndOneColumn()
