@@ -53,7 +53,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 };
 
             // News pages should be automatically tagged with the "Financial" term
-            var customizedDefaultValue = new TaxonomyFullValue()
+            var customizedDefaultValue = new TaxonomyValue()
             {
                 Context = customizedNavigationField.TermStoreMapping,
                 Term = new TermInfo(

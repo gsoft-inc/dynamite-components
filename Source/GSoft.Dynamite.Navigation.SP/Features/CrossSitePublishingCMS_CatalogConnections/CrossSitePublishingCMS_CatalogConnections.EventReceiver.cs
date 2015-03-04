@@ -56,7 +56,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
                                     authoringWeb.Url,
                                     publishingWeb.Url);
 
-                                catalogHelper.EnsureCatalogConnection(publishingSite, catalogConnection, true);
+                                catalogHelper.EnsureCatalogConnection(publishingSite, catalogConnection);
                             }
                         }
                     }
