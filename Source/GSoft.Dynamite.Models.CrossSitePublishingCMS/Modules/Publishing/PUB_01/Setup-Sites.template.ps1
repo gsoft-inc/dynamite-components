@@ -42,10 +42,10 @@ if($IsMultilingual)
 	Write-Warning "Applying Site Variations configuration..."
 
 	# Activate feature on the root web on the authoring site collection
-	Initialize-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
+	Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
 
 	# Activate feature on the root web on the publishing site collection
-	Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
+	Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
 }
 
 

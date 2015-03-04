@@ -12,9 +12,9 @@ $CustomDisplayTemplatesFeatureId = "[[DSP_CUSTOM_CrossSitePublishingCMS_PUB_Disp
 # Deploys custom display templates before.
 if(![string]::IsNullOrEmpty($CustomDisplayTemplatesFeatureId))
 {
-	Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id $CustomDisplayTemplatesFeatureId
+	Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id $CustomDisplayTemplatesFeatureId
 }
 
 # Activate feature on the root web on the publishing site collection
-Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_PUB_DisplayTemplates]]
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_DisplayTemplates]]
 

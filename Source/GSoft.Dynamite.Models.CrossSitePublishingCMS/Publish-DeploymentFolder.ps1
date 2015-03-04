@@ -35,7 +35,7 @@ Param (
 $CurrentPath = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ProjectRootPath = Join-Path $CurrentPath "..\..\" | Resolve-Path
 $DestinationPath = Join-Path $ProjectRootPath "Deployment"
-$DefaultDefinitionsPath = Join-Path $ProjectRootPath "*\GSoft.Dynamite.CrossSitePublishingCMS*\tools" | Resolve-Path | Select-Object -first 1
+$DefaultDefinitionsPath = Join-Path $ProjectRootPath "*\GSoft.Dynamite.CrossSitePublishingCMS*\tools" | Resolve-Path | Select-Object -last 1
 $CustomDefinitionsPath = $CurrentPath | Resolve-Path
 
 # Force delete all contents of current Deployment folder (and delete the folder itself)
@@ -79,7 +79,7 @@ if (-not (Test-Path $DestinationPath))
 	Copy-DSPSolutions $ProjectRootPath $WspDestinationPath $BinWspFilter
 
 	# Copy DSP PowerShell module so it can be installed on destination server
-	$DSPModuleSourcePath = Join-Path $ProjectRootPath "Libraries\GSoft.Dynamite.SP*\tools\" | Resolve-Path | Select-Object -first 1
+	$DSPModuleSourcePath = Join-Path $ProjectRootPath "Libraries\GSoft.Dynamite.SP*\tools\" | Resolve-Path | Select-Object -last 1
 	$DSPDestinationPath = Join-Path $DestinationPath "DSP"
 	Copy-DSPFiles $DSPModuleSourcePath $DSPDestinationPath
 

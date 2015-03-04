@@ -8,4 +8,4 @@
 Write-Warning "Deploying Life Cycle Web Parts..."
 
 # Activate features on publishing site collection.
-Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]] -Id "[[DSP_CrossSitePublishingCMS_LFCL_WebParts]]"
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]] -Id "[[DSP_CrossSitePublishingCMS_LFCL_WebParts]]"

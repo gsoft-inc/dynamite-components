@@ -8,4 +8,4 @@
 Write-Warning "Applying Term Driven Pages configuration..."
 
 # Activate feature on the root web on the publishing site collection
-Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_NAV_TermDrivenPages]]
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_NAV_TermDrivenPages]]

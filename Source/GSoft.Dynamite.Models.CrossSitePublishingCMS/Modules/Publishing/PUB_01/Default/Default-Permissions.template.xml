@@ -7,7 +7,7 @@
 -->
 <Configuration>
   <!-- Publishing: Default -->
-  <Web Name="[[DSP_PortalPublishingHostNamePath]]" BreakRoleInheritance="false">
+  <Web Name="[[DSP_PortalPublishingSiteUrl]]" BreakRoleInheritance="false">
 	  <Groups>
       <Group Name="Dynamite - Visitors" OwnerName="[[DSP_PortalAdmin]]" IsAssociatedVisitorGroup="true">
         <PermissionLevels>

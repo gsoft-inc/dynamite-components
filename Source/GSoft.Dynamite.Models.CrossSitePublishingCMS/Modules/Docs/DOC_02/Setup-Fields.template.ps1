@@ -8,4 +8,4 @@
 Write-Warning "Applying Fields configuration..."
 
 # Activate feature on the root web on the authoring site collection
-Initialize-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_DOC_Fields]]
+Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_Fields]]

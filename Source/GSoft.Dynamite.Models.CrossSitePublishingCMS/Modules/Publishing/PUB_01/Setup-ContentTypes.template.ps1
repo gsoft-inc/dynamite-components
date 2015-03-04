@@ -8,13 +8,13 @@
 Write-Warning "Applying Content Types configuration..."
 
 # Activate feature on the root web on the authoring site collection
-Initialize-DSPFeature -Url [[DSP_PortalAuthoringHostNamePath]]  -Id [[DSP_CommonCMS_PUB_ContentTypes]]
+Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CommonCMS_PUB_ContentTypes]]
 
 # Activate feature on the root web on the publishing site collection
-Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_PUB_ContentTypes]]
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CommonCMS_PUB_ContentTypes]]
 
 # Check Multilingual settings
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 
 # Activate feature on the root web on the publishing site collection
-Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CrossSitePublishingCMS_LANG_ContentTypes]]
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_LANG_ContentTypes]]

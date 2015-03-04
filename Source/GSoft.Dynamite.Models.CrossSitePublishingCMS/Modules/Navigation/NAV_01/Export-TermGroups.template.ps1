@@ -16,7 +16,7 @@ $CustomKeywordsConfigurationFile = "[[DSP_CUSTOM_PortalKeywordsConfigurationFile
 
 $KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $DefaultKeywordsConfigurationFile
 
-if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
+if(![string]::IsNullOrEmpty($CustomKeywordsConfigurationFile))
 {
 	$KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $CustomKeywordsConfigurationFile
 }
@@ -34,4 +34,4 @@ if(![string]::IsNullOrEmpty($CustomKeywordsTermGroup))
 }
 
 # Portal Keywords Term Group
-Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingHostNamePath]]").TermStores[0].Groups[$KeywordsTermGroup] -OutputFile $KeywordsConfigurationFilePath
+Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingSiteUrl]]").TermStores[0].Groups[$KeywordsTermGroup] -OutputFile $KeywordsConfigurationFilePath

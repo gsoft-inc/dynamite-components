@@ -88,7 +88,7 @@ $copySettings = New-CopySettings -OnContentItemExists Overwrite
 
 Write-Warning "Importing images..."
 
-$CustomDestinationSite = "[[DSP_PortalAuthoringHostNamePath]]"
+$CustomDestinationSite = "[[DSP_PortalAuthoringSiteUrl]]"
 $DocCenterSite = "[[DSP_PortalDocCenterHostNamePath]]"
 $UploadPicturesInDocCenter = [System.Convert]::ToBoolean("[[DSP_UploadPicturesInDocCenter]]")
 
@@ -128,7 +128,7 @@ Import-Document -DestinationList $imagelist -SourceFolder $ImagesConfigurationFo
 			$CurrentCatalogName = $_
 
 			# Get a fake random list (not needed in the procedure because we use an Excel file but needed for the cmdlet)
-			$srcList = Connect-Site -Url [[DSP_PortalAuthoringHostNamePath]] | Get-List | Where-Object {$_.BaseType -eq "List"} | Select -First 1
+			$srcList = Connect-Site -Url [[DSP_PortalAuthoringSiteUrl]] | Get-List | Where-Object {$_.BaseType -eq "List"} | Select -First 1
 
 			$dstList = Connect-Site -Url $CurrentAuthoringWeb | Get-List -Name $CurrentCatalogName
 

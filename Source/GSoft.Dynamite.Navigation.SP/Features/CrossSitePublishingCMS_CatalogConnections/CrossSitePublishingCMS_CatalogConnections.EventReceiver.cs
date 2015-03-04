@@ -49,6 +49,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
                                 // Update the connected web with the publishing web
                                 catalogConnection.TargetWeb = publishingWeb;
                                 catalogConnection.SourceWeb = authoringWeb;
+                                catalogConnection.OverwriteIfAlreadyExists = true;
 
                                 logger.Info(
                                     "Connecting catalog {0} form {1} to the site {2}", 

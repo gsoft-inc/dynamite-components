@@ -10,5 +10,5 @@ $GoogleAnalyticsKeyValue = "[[DSP_GoogleAnalyticsUA]]"
 
 if(![string]::IsNullOrEmpty($GoogleAnalyticsKeyValue))
 {
-	Set-DSPWebProperty -Url [[DSP_PortalPublishingHostNamePath]] -Key $GoogleAnalyticsKey -Value $GoogleAnalyticsKeyValue
+	Set-DSPWebProperty -Url [[DSP_PortalPublishingSiteUrl]] -Key $GoogleAnalyticsKey -Value $GoogleAnalyticsKeyValue
 }

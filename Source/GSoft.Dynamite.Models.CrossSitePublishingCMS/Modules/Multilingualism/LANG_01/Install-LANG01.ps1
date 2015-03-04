@@ -41,3 +41,9 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-ResultSources.ps1'
 & $Script
+
+$values = @{"Step: " = "#6 Adjust variations timer job schedule"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Adjust-VariationsTimerJob.ps1'
+& $Script

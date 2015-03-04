@@ -14,6 +14,7 @@
 # Multilingualism Module tokens
 # ******************************************
 . ./Modules/Multilingualism/Tokens.Multilingualism.Default.ps1
+. ./Modules/Multilingualism/Tokens.Multilingualism.Custom.ps1
 
 # ******************************************
 # Navigation Module tokens
@@ -52,6 +53,8 @@ $DSP_AuthoringSourceRootWebUrls = "@("
 $DSP_PublishingSourceRootWebUrls = "@("
 $DSP_AuthoringTargetRootWebUrls = "@("
 $DSP_PublishingTargetRootWebUrls = "@("
+$DSP_PortalAuthoringSiteUrl = $DSP_PortalAuthoringHostNamePath
+$DSP_PortalPublishingSiteUrl = $DSP_PortalPublishingHostNamePath
 
 # Hash table of site url mappings between Authoring and Publishing
 $DSP_CrossSiteMappings = "@{"
@@ -66,10 +69,21 @@ if($DSP_PortalAuthoringRootWebs.Length -gt 0)
 	$DSP_HasSubWebs = $true
 }
 
+# Append the relative host name paths if they exists
+if ($DSP_PortalAuthoringHostNameRelativePath)
+{
+    $DSP_PortalAuthoringSiteUrl += "/" + $DSP_PortalAuthoringHostNameRelativePath.Trim("/")
+}
+
+if ($DSP_PortalPublishingHostNameRelativePath)
+{
+    $DSP_PortalPublishingSiteUrl += "/" + $DSP_PortalPublishingHostNameRelativePath.Trim("/")
+}
+
 if($DSP_IsMultilingual)
 {
 	# Set the source variation site url for authoring site
-	$DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringHostNamePath + "/" + $DSP_SourceLabel
+	$DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringSiteUrl + "/" + $DSP_SourceLabel
 
     $i = 1
 	$DSP_VariationsLabels | Foreach-Object{
@@ -78,7 +92,7 @@ if($DSP_IsMultilingual)
 		$label = $_
 
 		# Publishing
-		$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingHostNamePath + "/" + $label +"'")
+		$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingSiteUrl + "/" + $label +"'")
 		    
 		if($label -eq $DSP_SourceLabel)
         {
@@ -96,7 +110,7 @@ if($DSP_IsMultilingual)
 			# Means there is at least one sub web
 			$DSP_PortalAuthoringRootWebs | Foreach-Object{
 
-				$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label + "/" + $_ +"'")
+				$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $label + "/" + $_ +"'")
 	
 				if($label -eq $DSP_SourceLabel)
 				{
@@ -116,7 +130,7 @@ if($DSP_IsMultilingual)
 		}
 		else
 		{
-			$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $label +"'")
+			$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $label +"'")
 
 			if($label -eq $DSP_SourceLabel)
 			{
@@ -137,10 +151,10 @@ if($DSP_IsMultilingual)
 }
 else
 {
-    $DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringHostNamePath
+    $DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringSiteUrl
 
 	# Publishing
-	$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingHostNamePath + "'")
+	$PublishingCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "'")
 
 	$DSP_PublishingSourceRootWebUrls += $PublishingCurrentUrl
 
@@ -149,7 +163,7 @@ else
 		# Means there is at least one sub web
 		$DSP_PortalAuthoringRootWebs | Foreach-Object{
 
-			$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringHostNamePath + "/" + $_ + "'")
+			$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $_ + "'")
 	
 			$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
 
@@ -162,7 +176,7 @@ else
 	}
 	else
 	{
-		$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringHostNamePath + "'")
+		$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "'")
 
 		$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl
 
