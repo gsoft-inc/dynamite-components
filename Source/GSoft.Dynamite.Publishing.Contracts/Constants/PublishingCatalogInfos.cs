@@ -109,6 +109,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The catalog info</returns>
         public CatalogInfo ContentPages()
         {
+            // Customize the navigation field to enfore unique values (one content per navgiation node)
+            var customizedNavigationField = this._fieldInfoValues.Navigation();
+            customizedNavigationField.EnforceUniqueValues = true;
+
             return new CatalogInfo(
                 "ContentPages",
                 PublishingResources.ContentCatalogTitle,
@@ -124,7 +128,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 Overwrite = false,
                 RemoveDefaultContentType = true,
                 TaxonomyFieldMap = this._fieldInfoValues.Navigation(),
-                EnforceUniqueNavigationValues = true,
                 WriteSecurity = WriteSecurityOptions.AllUser,
                 HasDraftVisibilityType = true,
                 ManagedProperties = new List<ManagedPropertyInfo>()
@@ -134,8 +137,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 AddToQuickLaunch = true,
                 DefaultViewFields = new List<IFieldInfo>()
                 {
-                    this._fieldInfoValues.Navigation()
-                },  
+                    customizedNavigationField
+                },
+                FieldDefinitions = new List<IFieldInfo>()
+                {
+                    customizedNavigationField
+                },
                 IsAnonymous = true,
                 EnableAttachements = false
             };
