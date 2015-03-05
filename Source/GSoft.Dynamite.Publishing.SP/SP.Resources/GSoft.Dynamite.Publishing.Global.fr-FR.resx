@@ -393,4 +393,10 @@
   <data name="PageLayout_TwoColumnsOneColumn_Name" xml:space="preserve">
     <value>Gabarit de page composé de deux colonnes de largeur égale et d'une colonne pleine.</value>
   </data>
+  <data name="PageLayout_BootsrapRightSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Créé une colonne large à gauche et une colonne verticale à droit.</value>
+  </data>
+  <data name="PageLayout_BootsrapRightSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne à droite</value>
+  </data>
 </root>
