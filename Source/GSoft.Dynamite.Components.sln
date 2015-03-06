@@ -91,6 +91,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.VanillaCross
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Search.SP", "GSoft.Dynamite.Search.SP\GSoft.Dynamite.Search.SP.csproj", "{3B697C55-8457-4548-A372-A05E3A4236EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Search.Core", "GSoft.Dynamite.Search.Core\GSoft.Dynamite.Search.Core.csproj", "{0B22EE41-5917-4A55-84AA-602426B6E06A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Search.Contracts", "GSoft.Dynamite.Search.Contracts\GSoft.Dynamite.Search.Contracts.csproj", "{01E245D0-C6A3-4993-B829-3F0EA45E0F56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -211,6 +215,14 @@ Global
 		{3B697C55-8457-4548-A372-A05E3A4236EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B697C55-8457-4548-A372-A05E3A4236EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B697C55-8457-4548-A372-A05E3A4236EC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0B22EE41-5917-4A55-84AA-602426B6E06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B22EE41-5917-4A55-84AA-602426B6E06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B22EE41-5917-4A55-84AA-602426B6E06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B22EE41-5917-4A55-84AA-602426B6E06A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01E245D0-C6A3-4993-B829-3F0EA45E0F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01E245D0-C6A3-4993-B829-3F0EA45E0F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01E245D0-C6A3-4993-B829-3F0EA45E0F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01E245D0-C6A3-4993-B829-3F0EA45E0F56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -242,5 +254,7 @@ Global
 		{31680A5F-E76D-4501-9DFC-D67CE09863F1} = {618C860A-EADE-43FA-8A43-68A2D1700099}
 		{06A38950-5AB8-40D4-90AF-CBFE40CEFA0D} = {F0E95EFF-5E01-47A2-AD92-56C8782BB373}
 		{3B697C55-8457-4548-A372-A05E3A4236EC} = {A9218AE1-A76A-4857-99E7-CE697F0AD53D}
+		{0B22EE41-5917-4A55-84AA-602426B6E06A} = {618C860A-EADE-43FA-8A43-68A2D1700099}
+		{01E245D0-C6A3-4993-B829-3F0EA45E0F56} = {618C860A-EADE-43FA-8A43-68A2D1700099}
 	EndGlobalSection
 EndGlobal
