@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package dslVersion="1.0.0.0" 
-        Id="a8a087f3-9eb2-4e33-9d78-505f773ad6ab" 
-        solutionId="a8a087f3-9eb2-4e33-9d78-505f773ad6ab" 
-        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
-        name="GSoft.Dynamite.Search.SP"
-        sharePointProductVersion="15.0">
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="a8a087f3-9eb2-4e33-9d78-505f773ad6ab" solutionId="a8a087f3-9eb2-4e33-9d78-505f773ad6ab" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Search.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="f1ee7871-73bd-4c91-a487-b0c47e586875" />
+  </features>
 </package>
