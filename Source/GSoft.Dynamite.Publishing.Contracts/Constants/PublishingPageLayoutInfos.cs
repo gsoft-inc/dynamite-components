@@ -82,6 +82,19 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
+        /// The right sidebar generic page layout using Bootstrap
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public PageLayoutInfo BootstrapRightSidebar()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "BootstrapRightSidebar.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
+
+        /// <summary>
         /// A layout with a single column body and an header section
         /// </summary>
         /// <returns>The Page Layout Info</returns>

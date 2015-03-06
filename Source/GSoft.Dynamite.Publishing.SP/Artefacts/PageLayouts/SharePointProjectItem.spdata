@@ -9,5 +9,6 @@
     <ProjectItemFile Source="OneColumnWithHeader.aspx" Target="PageLayouts\" Type="ElementFile" />
     <ProjectItemFile Source="OneColumnWithThreeTabs.aspx" Target="PageLayouts\" Type="ElementFile" />
     <ProjectItemFile Source="TwoColumnsOneColumn.aspx" Target="PageLayouts\" Type="ElementFile" />
+    <ProjectItemFile Source="BootstrapRightSidebar.aspx" Target="PageLayouts\" Type="ElementFile" />
   </Files>
 </ProjectItem>
