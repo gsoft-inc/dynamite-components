@@ -4,6 +4,7 @@ using Autofac;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Search;
+using GSoft.Dynamite.Search.Enums;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_ResultSources
@@ -67,7 +68,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Resu
                     foreach (var resultSource in resultSources)
                     {
                         logger.Info("Revert to publishing result sources");
-                        resultSource.UpdateMode = UpdateBehavior.RevertQuery;
+                        resultSource.UpdateMode = ResultSourceUpdateBehavior.RevertQuery;
                         searchHelper.EnsureResultSource(site, resultSource);
                     }
                 }

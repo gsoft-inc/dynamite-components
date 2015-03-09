@@ -25,11 +25,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// Property that return all the fields to create in the publishing module
         /// </summary>
         /// <returns>The fields</returns>
-        public IList<IFieldInfo> Fields
+        public IList<BaseFieldInfo> Fields
         {
             get
             {
-                var fields = new List<IFieldInfo>
+                var fields = new List<BaseFieldInfo>
                 {
                     { this.fieldInfoValues.Navigation() },
                     { this.fieldInfoValues.Summary() },

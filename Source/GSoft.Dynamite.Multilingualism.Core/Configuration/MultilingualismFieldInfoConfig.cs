@@ -24,12 +24,12 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
         /// <summary>
         /// Property to return the fields needed for the solution
         /// </summary>
-        public IList<IFieldInfo> Fields
+        public IList<BaseFieldInfo> Fields
         {
             get
             {
                 // Get the base publishing field info 
-                var baseFieldInfo = new List<IFieldInfo>
+                var baseFieldInfo = new List<BaseFieldInfo>
                 {
                     this.baseMultilingualismFieldInfos.ContentAssociationKey(),
                     this.baseMultilingualismFieldInfos.ItemLanguage()

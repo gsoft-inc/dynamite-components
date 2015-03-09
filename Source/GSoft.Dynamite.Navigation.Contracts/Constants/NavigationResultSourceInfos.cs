@@ -1,5 +1,6 @@
 ﻿using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
+using GSoft.Dynamite.Search.Enums;
 using Microsoft.Office.Server.Search.Administration;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
@@ -47,7 +48,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
 
             // Extend the existing query 
-            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = ResultSourceUpdateBehavior.AppendToQuery;
             singleCatalogItem.Query = 
               string.Format("{0}:{{Term}}" + " {1}:{{URLToken.1}}" + " {2}={{URLToken.2}}" + " {3}:{{URLToken.3}}", navigation, titleSlug, listItemId, dateSlug);
 
@@ -61,7 +62,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         public ResultSourceInfo SingleTargetItem()
         {
             var singleCatalogItem = this.resultSourceInfos.SingleTargetItem();
-            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = ResultSourceUpdateBehavior.AppendToQuery;
 
             var navigation = this.publishingManagedPropertyInfos.Navigation.Name;
             var targetContentTypeId = this.publishingContentTypeInfos.TargetContentItem().ContentTypeId;
@@ -82,7 +83,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
             {
                 Name = "All Menu Items",
                 Level = SearchObjectLevel.Ssa,
-                UpdateMode = UpdateBehavior.OverwriteResultSource,
+                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
                 Query = PublishingResultSourceInfos.AppendToSearchKqlPrefix(string.Empty)
             };
         }

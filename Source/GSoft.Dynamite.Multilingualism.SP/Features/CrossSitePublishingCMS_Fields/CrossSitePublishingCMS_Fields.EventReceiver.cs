@@ -34,7 +34,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Fiel
                     var logger = featureScope.Resolve<ILogger>();
 
                     // Create base Fields
-                    foreach (IFieldInfo field in baseFields)
+                    foreach (BaseFieldInfo field in baseFields)
                     {
                         logger.Info("Creating field {0}", field.InternalName);
                         fieldHelper.EnsureField(site.RootWeb.Fields, field);

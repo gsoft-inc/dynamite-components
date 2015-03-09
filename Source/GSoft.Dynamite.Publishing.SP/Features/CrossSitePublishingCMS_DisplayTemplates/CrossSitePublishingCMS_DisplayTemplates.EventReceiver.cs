@@ -39,7 +39,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
                     // Populate the SPFiles list
                     foreach (var displayTemplate in displayTemplates)
                     {
-                        fileList.Add(catalog.RootFolder.SubFolders[displayTemplateHelper.DisplayTemplatesFolder].SubFolders[displayTemplate.Category].Files[displayTemplate.HtmlFileName]);
+                        fileList.Add(catalog.RootFolder.SubFolders[displayTemplateHelper.DisplayTemplatesFolder].SubFolders[displayTemplate.CategoryFolderName].Files[displayTemplate.HtmlFileName]);
                     }
 
                     if (fileList.Count > 0)

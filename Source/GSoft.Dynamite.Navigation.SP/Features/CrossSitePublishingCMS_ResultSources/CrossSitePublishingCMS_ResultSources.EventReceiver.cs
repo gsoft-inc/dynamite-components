@@ -4,6 +4,7 @@ using Autofac;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Search;
+using GSoft.Dynamite.Search.Enums;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSources
@@ -67,7 +68,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
                     foreach (var resultSource in resultSources)
                     {
                         logger.Info("Revert result source {0}", resultSource.Name);
-                        resultSource.UpdateMode = UpdateBehavior.RevertQuery;
+                        resultSource.UpdateMode = ResultSourceUpdateBehavior.RevertQuery;
                         searchHelper.EnsureResultSource(site, resultSource);
                     }
                 }

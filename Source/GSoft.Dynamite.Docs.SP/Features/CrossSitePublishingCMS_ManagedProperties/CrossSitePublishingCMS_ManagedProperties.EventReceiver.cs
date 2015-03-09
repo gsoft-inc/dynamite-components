@@ -32,10 +32,10 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ManagedProperti
                    var managedProperties = featureScope.Resolve<IDocsManagedPropertyInfoConfig>().ManagedProperties;
                    var logger = featureScope.Resolve<ILogger>();
 
-                   foreach (var managedProperty in managedProperties)
+                   foreach (ManagedPropertyInfo managedProperty in managedProperties)
                    {
                        logger.Info("Creating search managed property {0}", managedProperty.Name);
-                       searchHelper.EnsureManagedProperty(site, managedProperty, true);
+                       searchHelper.EnsureManagedProperty(site, managedProperty);
                    }
                }
            }

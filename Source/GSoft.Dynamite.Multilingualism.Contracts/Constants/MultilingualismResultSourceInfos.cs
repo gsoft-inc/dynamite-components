@@ -1,5 +1,6 @@
 ﻿using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
+using GSoft.Dynamite.Search.Enums;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {
@@ -35,7 +36,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             var itemLanguage = this.multilingualismManagedPropertyInfos.ItemLanguage.Name;
 
             // Extend the existing query 
-            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = ResultSourceUpdateBehavior.AppendToQuery;
             singleCatalogItem.Query =
                 itemLanguage + ":{Page.DynamiteItemLanguage}";
 
@@ -49,7 +50,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         public ResultSourceInfo SingleTargetItem()
         {
             var singleCatalogItem = this.publishingResultSourceInfos.SingleTargetItem();
-            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = ResultSourceUpdateBehavior.AppendToQuery;
 
             var itemLanguage = this.multilingualismManagedPropertyInfos.ItemLanguage.Name;
 
@@ -66,7 +67,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         public ResultSourceInfo CatalogCategoryItems()
         {
             var singleCatalogItem = this.publishingResultSourceInfos.CatalogCategoryItems();
-            singleCatalogItem.UpdateMode = UpdateBehavior.AppendToQuery;
+            singleCatalogItem.UpdateMode = ResultSourceUpdateBehavior.AppendToQuery;
 
             var itemLanguage = this.multilingualismManagedPropertyInfos.ItemLanguage.Name;
 

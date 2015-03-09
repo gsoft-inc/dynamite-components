@@ -1,4 +1,5 @@
 ﻿using GSoft.Dynamite.Search;
+using GSoft.Dynamite.Search.Enums;
 using Microsoft.Office.Server.Search.Administration;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
@@ -20,7 +21,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Single Catalog Item",
                 Level = SearchObjectLevel.Ssa,
-                UpdateMode = UpdateBehavior.OverwriteResultSource,
+                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
                 Query = string.Empty,
             };
         }
@@ -35,7 +36,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Single Target Item",
                 Level = SearchObjectLevel.Ssa,
-                UpdateMode = UpdateBehavior.OverwriteResultSource,
+                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
                 Query = string.Empty
             };
         }
@@ -50,7 +51,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Catalog Category Items",
                 Level = SearchObjectLevel.Ssa,
-                UpdateMode = UpdateBehavior.OverwriteResultSource,
+                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
                 Query = "GPP|{Term.IdWithChildren}"
             };
         }

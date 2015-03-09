@@ -24,11 +24,11 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
         /// <summary>
         /// Property that return all the fields to create or configure in the document management module
         /// </summary>
-        public IList<IFieldInfo> Fields 
+        public IList<BaseFieldInfo> Fields 
         {
             get
             {
-                return new List<IFieldInfo>()
+                return new List<BaseFieldInfo>()
                 {
                     this.docsFieldInfos.InternalId()
                 };

@@ -40,7 +40,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 customizedNavigationField.CreateValuesInEditForm = true;
 
                 var contentPages = this.publishingCatalogInfos.ContentPages();
-                contentPages.FieldDefinitions = new List<IFieldInfo>()
+                contentPages.FieldDefinitions = new List<BaseFieldInfo>()
                 {
                     customizedNavigationField
                 };
@@ -61,7 +61,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 customizedNavigationField.CreateValuesInEditForm = true;
 
                 var pagesLibrary = this.publishingListInfos.PagesLibrary;
-                pagesLibrary.FieldDefinitions = new List<IFieldInfo>()
+                pagesLibrary.FieldDefinitions = new List<BaseFieldInfo>()
                 {
                     customizedNavigationField
                 };

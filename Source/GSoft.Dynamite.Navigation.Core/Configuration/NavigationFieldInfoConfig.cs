@@ -30,12 +30,12 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         /// <summary>
         /// Property that return all the fields to create or configure in the navigation module
         /// </summary>
-        public IList<IFieldInfo> Fields
+        public IList<BaseFieldInfo> Fields
         {
             get
             {
                 // Get the base publishing field info 
-                var baseFieldInfo = new List<IFieldInfo>
+                var baseFieldInfo = new List<BaseFieldInfo>
                 {
                     this.baseNavigationFieldInfos.DateSlug(),
                     this.baseNavigationFieldInfos.TitleSlug(),

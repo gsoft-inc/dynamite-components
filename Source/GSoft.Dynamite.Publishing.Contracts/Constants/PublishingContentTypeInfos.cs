@@ -65,7 +65,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 PublishingResources.ContentTypeGroup,
                 PublishingResources.Global)
             {
-                Fields = new List<IFieldInfo>()
+                Fields = new List<BaseFieldInfo>()
                 {
                    this.fieldInfoValues.Navigation()
                 }
@@ -107,7 +107,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 PublishingResources.ContentTypeGroup,
                 PublishingResources.Global)
             {
-                Fields = new List<IFieldInfo>()
+                Fields = new List<BaseFieldInfo>()
                 {
                     PublishingFields.PublishingPageContent
                 }
@@ -185,7 +185,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 PublishingResources.ContentTypeGroup,
                 PublishingResources.Global)
             {
-                Fields = new List<IFieldInfo>()
+                Fields = new List<BaseFieldInfo>()
                 {
                     this.fieldInfoValues.Summary(),
                     PublishingFields.PublishingPageImage,
@@ -211,7 +211,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 PublishingResources.ContentTypeGroup,
                 PublishingResources.Global)
             {
-                Fields = new List<IFieldInfo>()
+                Fields = new List<BaseFieldInfo>()
                 {
                    this.fieldInfoValues.Navigation()
                 }
@@ -275,7 +275,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 PublishingResources.ContentTypeGroup,
                 PublishingResources.Global)
             {
-                Fields = new List<IFieldInfo>()
+                Fields = new List<BaseFieldInfo>()
                 {
                    this.fieldInfoValues.Navigation()
                 }

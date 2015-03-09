@@ -86,11 +86,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                         new ManagedPropertyInfo("ListItemID")
                     },
                     AddToQuickLaunch = true,
-                    DefaultViewFields = new List<IFieldInfo>()
+                    DefaultViewFields = new List<BaseFieldInfo>()
                     {
                         customizedNavigationField
                     },
-                    FieldDefinitions = new List<IFieldInfo>()
+                    FieldDefinitions = new List<BaseFieldInfo>()
                     {
                        customizedNavigationField
                     },                
@@ -135,11 +135,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     new ManagedPropertyInfo("ListItemID")
                 },
                 AddToQuickLaunch = true,
-                DefaultViewFields = new List<IFieldInfo>()
+                DefaultViewFields = new List<BaseFieldInfo>()
                 {
                     customizedNavigationField
                 },
-                FieldDefinitions = new List<IFieldInfo>()
+                FieldDefinitions = new List<BaseFieldInfo>()
                 {
                     customizedNavigationField
                 },

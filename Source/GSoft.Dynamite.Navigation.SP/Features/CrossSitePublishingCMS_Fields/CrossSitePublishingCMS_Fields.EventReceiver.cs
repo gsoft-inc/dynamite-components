@@ -40,7 +40,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Fields
                     using (new Unsafe(site.RootWeb))
                     {
                         // Create fields
-                        foreach (IFieldInfo field in baseFields)
+                        foreach (BaseFieldInfo field in baseFields)
                         {
                             logger.Info("Creating field {0}", field.InternalName);
                             fieldHelper.EnsureField(site.RootWeb.Fields, field);

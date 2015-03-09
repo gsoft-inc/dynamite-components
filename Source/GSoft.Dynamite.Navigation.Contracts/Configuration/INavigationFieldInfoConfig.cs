@@ -11,6 +11,6 @@ namespace GSoft.Dynamite.Navigation.Contracts.Configuration
         /// <summary>
         /// Property that return all the fields to create or configure in the navigation module
         /// </summary>
-        IList<IFieldInfo> Fields { get; }
+        IList<BaseFieldInfo> Fields { get; }
     }
 }
