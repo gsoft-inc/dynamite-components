@@ -2,6 +2,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Extensions;
+using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Folders;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -35,12 +36,15 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_CategoryP
                 if (web != null && PublishingWeb.IsPublishingWeb(web))
                 {
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
-
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
                     var publishingFolderInfos = featureScope.Resolve<PublishingFolderInfos>();
-                    var folders = baseFoldersConfig.RootFolderHierarchies.ToList();
+
+                    // Activate feature dependencies defined in this configuration
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    ActivateFeatureDependencies(featureScope, baseFoldersConfig as IFeatureDependencyConfig, web.Site, web);
 
                     // Remove Item Page folder
+                    var folders = baseFoldersConfig.RootFolderHierarchies.ToList();
                     folders.RemoveAll(f => f.Name.Equals(publishingFolderInfos.ItemPageTemplates().Name));
 
                     foreach (var rootFolderHierarchy in folders)
@@ -91,6 +95,24 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_CategoryP
 
                     // TODO: Delete existing pages and folder
                     folderHelper.ResetWelcomePageToDefault(web);
+                }
+            }
+        }
+
+        private static void ActivateFeatureDependencies(IComponentContext scope, IFeatureDependencyConfig config, SPSite site, SPWeb web)
+        {
+            // Activate feature dependencies if defined
+            if (config != null)
+            {
+                // Resolve feature dependency activator
+                var featureDependencyActivator =
+                    scope.Resolve<IFeatureDependencyActivator>(
+                        new TypedParameter(typeof(SPSite), site),
+                        new TypedParameter(typeof(SPWeb), web));
+
+                foreach (var featureDependency in config.FeatureDependencies)
+                {
+                    featureDependencyActivator.EnsureFeatureActivation(featureDependency);
                 }
             }
         }
