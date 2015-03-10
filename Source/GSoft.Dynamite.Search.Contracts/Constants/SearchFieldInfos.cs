@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GSoft.Dynamite.Fields;
-using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Fields.Constants;
+using GSoft.Dynamite.Fields.Types;
 
 namespace GSoft.Dynamite.Search.Contracts.Constants
 {

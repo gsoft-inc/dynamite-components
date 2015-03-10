@@ -20,7 +20,6 @@ namespace GSoft.Dynamite.Search.SP.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
-           
         }
     }
 }

@@ -2,14 +2,14 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
-using Microsoft.SharePoint;
+using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search.Contracts.Configuration;
 using GSoft.Dynamite.Security;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.ContentTypes;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Search.SP.Features.CrossSitePublishingCMS_SeoFields
 {
@@ -22,7 +22,7 @@ namespace GSoft.Dynamite.Search.SP.Features.CrossSitePublishingCMS_SeoFields
     [Guid("bccbefd1-ec8c-4b00-a9e8-8955d5b334d2")]
     public class CrossSitePublishingCMS_SeoFieldsEventReceiver : SPFeatureReceiver
     {
-        // <summary>
+        /// <summary>
         /// Feature activated event
         /// </summary>
         /// <param name="properties">Context properties</param>
@@ -41,10 +41,11 @@ namespace GSoft.Dynamite.Search.SP.Features.CrossSitePublishingCMS_SeoFields
                     var logger = featureScope.Resolve<ILogger>();
 
                     var browsableItem = contentTypeInfos.BrowsableItem();
+
                     foreach (var field in fields)
-	                {
-                        browsableItem.Fields.Add(field); 
-	                }
+                    {
+                        browsableItem.Fields.Add(field);
+                    }
 
                     using (new Unsafe(site.RootWeb))
                     {
