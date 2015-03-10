@@ -4,13 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{31680A5F-E76D-4501-9DFC-D67CE09863F1}</ProjectGuid>
+    <ProjectGuid>{3B697C55-8457-4548-A372-A05E3A4236EC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GSoft.Dynamite.Common.Contract</RootNamespace>
-    <AssemblyName>GSoft.Dynamite.Common.Contract</AssemblyName>
+    <RootNamespace>GSoft.Dynamite.Search.SP</RootNamespace>
+    <AssemblyName>GSoft.Dynamite.Search.SP</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
     <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -42,47 +48,67 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10353\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.1-pre10358\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Configuration\IGlobalConfig.cs" />
+    <Compile Include="Features\CrossSitePublishingCMS_SeoFields\CrossSitePublishingCMS_SeoFields.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_SeoFields.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistrationModules\GlobalRegistrationModule.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj">
-      <Project>{13C3CFC3-4328-4047-9B62-15B19E2E5922}</Project>
-      <Name>GSoft.Dynamite.Multilingualism.Contracts</Name>
-    </ProjectReference>
+    <Compile Include="RegistrationModules\SearchSPRegistrationModule.cs" />
+    <Compile Include="SearchContainerProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_SeoFields\CrossSitePublishingCMS_SeoFields.feature">
+      <FeatureId>{f1ee7871-73bd-4c91-a487-b0c47e586875}</FeatureId>
+    </None>
+    <None Include="GSoft.Dynamite.Search.SP.nuspec" />
     <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{a8a087f3-9eb2-4e33-9d78-505f773ad6ab}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
+      <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
+      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Search.Contracts\GSoft.Dynamite.Search.Contracts.csproj">
+      <Project>{01e245d0-c6a3-4993-b829-3f0ea45e0f56}</Project>
+      <Name>GSoft.Dynamite.Search.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\CrossSitePublishingCMS_SeoFields\CrossSitePublishingCMS_SeoFields.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_SeoFields.feature</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
