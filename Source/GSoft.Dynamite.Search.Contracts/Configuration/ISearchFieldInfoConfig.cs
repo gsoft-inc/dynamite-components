@@ -12,6 +12,6 @@ namespace GSoft.Dynamite.Search.Contracts.Configuration
         /// Property that return all the field to create in the search module
         /// </summary>
         /// <returns>he fields</returns>
-        IList<IFieldInfo> Fields { get; }
+        IList<BaseFieldInfo> Fields { get; }
     }
 }

@@ -19,7 +19,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// The OOTB Browser Title Field Info
         /// </summary>
         /// <returns>Field Info</returns>
-        public IFieldInfo BrowserTitle()
+        public BaseFieldInfo BrowserTitle()
         {
             var browserTitle = PublishingFields.BrowserTitle;
             browserTitle.IsHiddenInNewForm = false;
@@ -33,7 +33,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// The OOTB Meta Description Field Info
         /// </summary>
         /// <returns>Field Info</returns>
-        public IFieldInfo MetaDescription()
+        public BaseFieldInfo MetaDescription()
         {
             var metaDescription = PublishingFields.MetaDescription;
             metaDescription.IsHiddenInNewForm = false;
@@ -47,7 +47,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// The OOTB Meta Keywords Field Info
         /// </summary>
         /// <returns>Field Info</returns>
-        public IFieldInfo MetaKeywords()
+        public BaseFieldInfo MetaKeywords()
         {
             var metaKeywords = PublishingFields.MetaKeywords;
             metaKeywords.IsHiddenInNewForm = false;
@@ -61,7 +61,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// The OOTB Hide From Internet Search Engines Field Info
         /// </summary>
         /// <returns>Field Info</returns>
-        public IFieldInfo HideFromInternetSearchEngines()
+        public BaseFieldInfo HideFromInternetSearchEngines()
         {
             var hideFromInternetSearchEngines = PublishingFields.HideFromInternetSearchEngines;
             hideFromInternetSearchEngines.IsHiddenInNewForm = false;
