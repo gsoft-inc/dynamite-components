@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="a8a087f3-9eb2-4e33-9d78-505f773ad6ab" solutionId="a8a087f3-9eb2-4e33-9d78-505f773ad6ab" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Search.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Search.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Search.Contracts\GSoft.Dynamite.Search.Contracts.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Search.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Search.Core\GSoft.Dynamite.Search.Core.csproj" />
+  </assemblies>
   <features>
     <featureReference itemId="f1ee7871-73bd-4c91-a487-b0c47e586875" />
   </features>

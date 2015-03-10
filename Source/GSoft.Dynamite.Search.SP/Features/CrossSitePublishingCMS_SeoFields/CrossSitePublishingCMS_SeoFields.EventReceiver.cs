@@ -4,11 +4,14 @@ using System.Security.Permissions;
 using Autofac;
 using Microsoft.SharePoint;
 using GSoft.Dynamite.Fields;
-using GSoft.Dynamite.Search.Contracts.Configuration;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Search.Contracts.Configuration;
 using GSoft.Dynamite.Security;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.ContentTypes;
 
-namespace GSoft.Dynamite.Search.SP.Features.CrossSitePublishingCMS_Fields
+namespace GSoft.Dynamite.Search.SP.Features.CrossSitePublishingCMS_SeoFields
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -16,8 +19,8 @@ namespace GSoft.Dynamite.Search.SP.Features.CrossSitePublishingCMS_Fields
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-    [Guid("2557a658-3616-4dbd-82dc-f031561a0117")]
-    public class CrossSitePublishingCMS_FieldsEventReceiver : SPFeatureReceiver
+    [Guid("bccbefd1-ec8c-4b00-a9e8-8955d5b334d2")]
+    public class CrossSitePublishingCMS_SeoFieldsEventReceiver : SPFeatureReceiver
     {
         // <summary>
         /// Feature activated event
@@ -31,18 +34,21 @@ namespace GSoft.Dynamite.Search.SP.Features.CrossSitePublishingCMS_Fields
                 using (var featureScope = SearchContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var fieldHelper = featureScope.Resolve<IFieldHelper>();
+                    var contentTypeHelper = featureScope.Resolve<IContentTypeHelper>();
                     var fieldInfoConfig = featureScope.Resolve<ISearchFieldInfoConfig>();
+                    var contentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
                     var fields = fieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();
 
+                    var browsableItem = contentTypeInfos.BrowsableItem();
+                    foreach (var field in fields)
+	                {
+                        browsableItem.Fields.Add(field); 
+	                }
+
                     using (new Unsafe(site.RootWeb))
                     {
-                        // Create base Fields
-                        foreach (var field in fields)
-                        {
-                            logger.Info("Creating field {0} on site {1}", field.InternalName, site.Url);
-                            fieldHelper.EnsureField(site.RootWeb.Fields, field);
-                        }
+                        contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, browsableItem);
                     }
                 }
             }

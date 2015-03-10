@@ -12,16 +12,20 @@ namespace GSoft.Dynamite.Search.Core.Configuration
     /// <summary>
     /// The fields configuration for the search module
     /// </summary>
-    public class SearchFieldInfoConfig, ISearchFieldInfoConfig
+    public class SearchFieldInfoConfig : ISearchFieldInfoConfig
     {
         private readonly SearchFieldInfos searchFieldInfos;
 
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
+        /// <param name="searchFieldInfos">Field Info for the search module</param>
         public SearchFieldInfoConfig(SearchFieldInfos searchFieldInfos)
         {
             this.searchFieldInfos = searchFieldInfos;
         }
 
-        /// <summary>
+        /// <summary>   
         /// Property that return all the fields to create in the search module
         /// </summary>
         /// <returns>The fields</returns>
@@ -31,7 +35,10 @@ namespace GSoft.Dynamite.Search.Core.Configuration
             {
                 var fields = new List<IFieldInfo>()
                 {
-                    // Add fields.
+                    { this.searchFieldInfos.BrowserTitle() },
+                    { this.searchFieldInfos.MetaDescription() },
+                    { this.searchFieldInfos.MetaKeywords() },
+                    { this.searchFieldInfos.HideFromInternetSearchEngines() }
                 };
 
                 return fields;
