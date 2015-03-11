@@ -93,10 +93,10 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         public BaseFieldInfo HideFromInternetSearchEngines()
         {
             return new BooleanFieldInfo(
-                 MetaKeywordsName,
+                 HideFromInternetSearchEnginesName,
                  new Guid("{F2D201C1-C8AF-421A-9646-ACD6B313BEAD}"),
-                 SearchResources.FieldMetaKeywordsName,
-                 SearchResources.FieldMetaKeywordsDescription,
+                 SearchResources.FieldHideFromInternetSearchEnginesName,
+                 SearchResources.FieldHideFromInternetSearchEnginesDescription,
                  PublishingResources.FieldGroup
                  )
             {

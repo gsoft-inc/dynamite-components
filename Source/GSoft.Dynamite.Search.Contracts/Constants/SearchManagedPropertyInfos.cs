@@ -29,7 +29,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
                     {
                         CrawledProperties = new Dictionary<string, int>()
                         {
-                            { "ows_DynamiteBrowserTitle", 1 }
+                            { "ows_q_TEXT_DynamiteBrowserTitle", 1 }
                         },
                         RespectPriority = true,
                         Retrievable = true,
@@ -50,7 +50,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
                 {
                     CrawledProperties = new Dictionary<string, int>()
                         {
-                            { "ows_DynamiteMetaDescription", 1 }
+                            { "ows_q_TEXT_DynamiteMetaDescription", 1 }
                         },
                     RespectPriority = true,
                     Retrievable = true,
@@ -71,7 +71,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
                 {
                     CrawledProperties = new Dictionary<string, int>()
                         {
-                            { "ows_DynamiteMetaKeywords", 1 }
+                            { "ows_q_TEXT_DynamiteMetaKeywords", 1 }
                         },
                     RespectPriority = true,
                     Retrievable = true,
