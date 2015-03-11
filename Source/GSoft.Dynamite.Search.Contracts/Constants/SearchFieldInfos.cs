@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Fields.Types;
+using GSoft.Dynamite.Binding;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Search.Contracts.Constants
 {
@@ -14,6 +16,21 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
     /// </summary>
     public class SearchFieldInfos
     {
+        #region Field prefix
+
+        /// <summary>
+        /// The Dynamite field prefix for all fields
+        /// </summary>
+        public static string FieldPrefix
+        {
+            get
+            {
+                return "Dynamite";
+            }
+        }
+
+        #endregion
+
         #region OOTB Fields
         /// <summary>
         /// The OOTB Browser Title Field Info
@@ -21,12 +38,16 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// <returns>Field Info</returns>
         public BaseFieldInfo BrowserTitle()
         {
-            var browserTitle = PublishingFields.BrowserTitle;
-            browserTitle.IsHiddenInNewForm = false;
-            browserTitle.IsHiddenInEditForm = false;
-            browserTitle.IsHiddenInListSettings = false;
-
-            return browserTitle;
+            return new TextFieldInfo(
+                 BrowserTitleName,
+                 new Guid("{6A4AA5E6-B714-4BAA-B56E-E5F316A11AAF}"),
+                 SearchResources.FieldBrowserTitleName,
+                 SearchResources.FieldBrowserTitleDescription,
+                 PublishingResources.FieldGroup
+                 )
+            {
+                Required = RequiredType.NotRequired
+            };
         }
 
         /// <summary>
@@ -35,12 +56,16 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// <returns>Field Info</returns>
         public BaseFieldInfo MetaDescription()
         {
-            var metaDescription = PublishingFields.MetaDescription;
-            metaDescription.IsHiddenInNewForm = false;
-            metaDescription.IsHiddenInEditForm = false;
-            metaDescription.IsHiddenInListSettings = false;
-
-            return metaDescription;
+            return new TextFieldInfo(
+                 MetaDescriptionName,
+                 new Guid("{F61DE7B0-8A48-4EEF-955E-71641887AE3C}"),
+                 SearchResources.FieldMetaDescriptionName,
+                 SearchResources.FieldMetaDescriptionDescription,
+                 PublishingResources.FieldGroup
+                 )
+            {
+                Required = RequiredType.NotRequired
+            };
         }
 
         /// <summary>
@@ -49,12 +74,16 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// <returns>Field Info</returns>
         public BaseFieldInfo MetaKeywords()
         {
-            var metaKeywords = PublishingFields.MetaKeywords;
-            metaKeywords.IsHiddenInNewForm = false;
-            metaKeywords.IsHiddenInEditForm = false;
-            metaKeywords.IsHiddenInListSettings = false;
-
-            return metaKeywords;
+            return new TextFieldInfo(
+                 MetaKeywordsName,
+                 new Guid("{26AD764E-0328-434F-8C34-D56DA997FC88}"),
+                 SearchResources.FieldMetaKeywordsName,
+                 SearchResources.FieldMetaKeywordsDescription,
+                 PublishingResources.FieldGroup
+                 )
+            {
+                Required = RequiredType.NotRequired
+            };
         }
 
         /// <summary>
@@ -63,13 +92,41 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// <returns>Field Info</returns>
         public BaseFieldInfo HideFromInternetSearchEngines()
         {
-            var hideFromInternetSearchEngines = PublishingFields.HideFromInternetSearchEngines;
-            hideFromInternetSearchEngines.IsHiddenInNewForm = false;
-            hideFromInternetSearchEngines.IsHiddenInEditForm = false;
-            hideFromInternetSearchEngines.IsHiddenInListSettings = false;
-
-            return hideFromInternetSearchEngines;
+            return new BooleanFieldInfo(
+                 MetaKeywordsName,
+                 new Guid("{F2D201C1-C8AF-421A-9646-ACD6B313BEAD}"),
+                 SearchResources.FieldMetaKeywordsName,
+                 SearchResources.FieldMetaKeywordsDescription,
+                 PublishingResources.FieldGroup
+                 )
+            {
+                Required = RequiredType.NotRequired
+            };
         }
+        #endregion
+
+        #region Field internal Name
+
+        /// <summary>
+        /// Browser Title Internal name.
+        /// </summary>
+        private static readonly string BrowserTitleName = FieldPrefix + "BrowserTitle";
+
+        /// <summary>
+        /// Meta Description Internal name.
+        /// </summary>
+        private static readonly string MetaDescriptionName = FieldPrefix + "MetaDescription";
+
+        /// <summary>
+        /// Meta Keywords Internal name.
+        /// </summary>
+        private static readonly string MetaKeywordsName = FieldPrefix + "MetaKeywords";
+
+        /// <summary>
+        /// Meta Description Internal name.
+        /// </summary>
+        private static readonly string HideFromInternetSearchEnginesName = FieldPrefix + "RobotsNoIndex";
+
         #endregion
     }
 }
