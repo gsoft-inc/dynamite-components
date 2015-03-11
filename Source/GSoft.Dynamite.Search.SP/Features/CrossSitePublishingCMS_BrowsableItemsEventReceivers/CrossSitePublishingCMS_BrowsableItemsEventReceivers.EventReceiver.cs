@@ -1,14 +1,14 @@
 using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Autofac;
-using Microsoft.SharePoint;
 using GSoft.Dynamite.Events;
-using GSoft.Dynamite.Search.Contracts.Configuration;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Search.Contracts.Configuration;
 using GSoft.Dynamite.Search.Contracts.Constants;
-using System.Reflection;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Search.SP.Features.CrossSitePublishingCMS_BrowsableItemsEventReceivers
 {

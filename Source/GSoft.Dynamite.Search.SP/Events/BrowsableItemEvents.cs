@@ -1,14 +1,17 @@
-﻿using Microsoft.SharePoint;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using GSoft.Dynamite.Search.Contracts.Services;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Search.SP.Events
 {
+    /// <summary>
+    /// Event receiver on the content type
+    /// </summary>
     public class BrowsableItemEvents : SPItemEventReceiver
     {
         /// <summary>

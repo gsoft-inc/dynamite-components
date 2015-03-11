@@ -7,9 +7,9 @@ using Autofac;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search.Contracts.Configuration;
 using GSoft.Dynamite.Search.Contracts.Constants;
+using GSoft.Dynamite.Search.Contracts.Services;
 using GSoft.Dynamite.Search.Core.Configuration;
 using GSoft.Dynamite.Search.Core.Services;
-using GSoft.Dynamite.Search.Contracts.Services;
 
 namespace GSoft.Dynamite.Search.Core.RegistrationModules
 {
@@ -38,7 +38,7 @@ namespace GSoft.Dynamite.Search.Core.RegistrationModules
             builder.RegisterType<SearchManagedPropertyInfoConfig>().As<ICommonManagedPropertyInfosConfig>();
             builder.RegisterType<SearchManagedPropertyInfoConfig>().Named<ICommonManagedPropertyInfosConfig>("search");
 
-            //Events Receivers
+            // Events Receivers
             builder.RegisterType<SearchEventReceiverInfoConfig>().As<ISearchEventReceiverInfoConfig>();
             builder.RegisterType<SearchEventReceiverInfoConfig>().Named<ISearchEventReceiverInfoConfig>("search");
 
@@ -47,7 +47,7 @@ namespace GSoft.Dynamite.Search.Core.RegistrationModules
             builder.RegisterType<SearchManagedPropertyInfos>();
             builder.RegisterType<SearchEventReceiverInfos>();
 
-            //Services
+            // Services
             builder.RegisterType<BrowserTitleBuilderService>().As<IBrowserTitleBuilderService>();
         }
     }

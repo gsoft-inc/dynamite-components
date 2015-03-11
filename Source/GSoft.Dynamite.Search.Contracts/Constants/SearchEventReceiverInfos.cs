@@ -1,14 +1,17 @@
-﻿using GSoft.Dynamite.Events;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-using Microsoft.SharePoint;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSoft.Dynamite.Events;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Search.Contracts.Constants
 {
+    /// <summary>
+    /// The info about the event receivers for the search module.
+    /// </summary>
     public class SearchEventReceiverInfos
     {
         private readonly PublishingContentTypeInfos publishingContentTypeInfos;

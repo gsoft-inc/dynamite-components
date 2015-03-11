@@ -19,7 +19,7 @@ namespace GSoft.Dynamite.Search.Core.Configuration
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="navigationEventReceiverInfos">The event receivers info objects configuration</param>
+        /// <param name="searchEventReceiverInfos">The event receivers info objects configuration</param>
         public SearchEventReceiverInfoConfig(SearchEventReceiverInfos searchEventReceiverInfos)
         {
             this.searchEventReceiverInfos = searchEventReceiverInfos;
