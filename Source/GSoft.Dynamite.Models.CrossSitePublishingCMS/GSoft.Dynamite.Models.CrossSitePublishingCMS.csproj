@@ -148,6 +148,7 @@
     <None Include="Modules\Search\SRCH_02\Setup-PropertyBag.template.ps1" />
     <None Include="Modules\Search\SRCH_03\Install-SRCH03.ps1" />
     <None Include="Modules\Search\SRCH_03\Setup-ContentTypes.template.ps1" />
+    <None Include="Modules\Search\SRCH_03\Setup-EventReceivers.template.ps1" />
     <None Include="Modules\Search\SRCH_03\Setup-Fields.template.ps1" />
     <None Include="Modules\Search\Tokens.Search.Default.ps1" />
     <None Include="Nuget\Install.ps1" />
