@@ -67,6 +67,10 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Events\BrowsableItemEvents.cs" />
+    <Compile Include="Features\CrossSitePublishingCMS_BrowsableItemsEventReceivers\CrossSitePublishingCMS_BrowsableItemsEventReceivers.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_BrowsableItemsEventReceivers.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
     </Compile>
@@ -86,6 +90,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
       <FeatureId>{2b5a9278-f9d1-4bfa-9b6f-2e64e0f7b5b0}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_BrowsableItemsEventReceivers\CrossSitePublishingCMS_BrowsableItemsEventReceivers.feature">
+      <FeatureId>{4554cf76-f116-42cc-80f1-ab0b62841390}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Search.SP.nuspec" />
     <None Include="packages.config" />
@@ -115,6 +122,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_BrowsableItemsEventReceivers\CrossSitePublishingCMS_BrowsableItemsEventReceivers.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_BrowsableItemsEventReceivers.feature</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
