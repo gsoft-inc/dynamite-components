@@ -17,6 +17,11 @@ namespace GSoft.Dynamite.Search.Core.Configuration
         private readonly PublishingContentTypeInfos contentTypeInfoValues;
         private readonly ISearchFieldInfoConfig searchFieldInfoConfig;
 
+        /// <summary>
+        /// Default Constructor
+        /// </summary>
+        /// <param name="contentTypeInfoValues">Content types info</param>
+        /// <param name="searchFieldInfoConfig">Fields info</param>
         public SearchContentTypeInfoConfig(PublishingContentTypeInfos contentTypeInfoValues, ISearchFieldInfoConfig searchFieldInfoConfig)
         {
             this.contentTypeInfoValues = contentTypeInfoValues;

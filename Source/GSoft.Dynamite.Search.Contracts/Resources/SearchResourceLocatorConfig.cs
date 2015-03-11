@@ -8,6 +8,9 @@ using GSoft.Dynamite.Search.Contracts.Constants;
 
 namespace GSoft.Dynamite.Search.Contracts.Resources
 {
+    /// <summary>
+    /// Resource locator for the search module.
+    /// </summary>
     public class SearchResourceLocatorConfig : IResourceLocatorConfig
     {
          private ICollection<string> resourceFileKeys = new List<string>() { SearchResources.Global };
