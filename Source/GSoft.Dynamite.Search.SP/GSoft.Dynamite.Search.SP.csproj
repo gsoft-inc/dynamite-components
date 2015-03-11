@@ -67,8 +67,11 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_SeoFields\CrossSitePublishingCMS_SeoFields.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_SeoFields.feature</DependentUpon>
+    <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\SearchSPRegistrationModule.cs" />
@@ -78,8 +81,11 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_SeoFields\CrossSitePublishingCMS_SeoFields.feature">
+    <None Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.feature">
       <FeatureId>{f1ee7871-73bd-4c91-a487-b0c47e586875}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
+      <FeatureId>{2b5a9278-f9d1-4bfa-9b6f-2e64e0f7b5b0}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Search.SP.nuspec" />
     <None Include="packages.config" />
@@ -88,6 +94,9 @@
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="SP.Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b23c2959-efb8-4e4b-bf75-55fb8f33c9a1}</SharePointProjectItemId>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +110,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Features\CrossSitePublishingCMS_SeoFields\CrossSitePublishingCMS_SeoFields.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_SeoFields.feature</DependentUpon>
+    <Content Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
     </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SP.Resources\GSoft.Dynamite.Search.Global.fr-FR.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SP.Resources\GSoft.Dynamite.Search.Global.en-US.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
