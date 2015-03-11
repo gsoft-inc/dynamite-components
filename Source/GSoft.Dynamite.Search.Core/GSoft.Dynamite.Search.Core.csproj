@@ -60,7 +60,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Configuration\SearchContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\SearchFieldInfoConfig.cs" />
+    <Compile Include="Configuration\SearchManagedPropertyInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\SearchRegistrationModule.cs" />
   </ItemGroup>
@@ -70,6 +72,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
+      <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
+      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Search.Contracts\GSoft.Dynamite.Search.Contracts.csproj">
       <Project>{01e245d0-c6a3-4993-b829-3f0ea45e0f56}</Project>
       <Name>GSoft.Dynamite.Search.Contracts</Name>
