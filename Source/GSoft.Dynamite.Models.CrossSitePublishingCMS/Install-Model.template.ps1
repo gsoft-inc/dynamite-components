@@ -70,7 +70,12 @@ try {
 
 	#region ********** SEARCH MODULE ********** #
 	.\Modules\Search\SRCH_02\Install-SRCH02.ps1
-	.\Modules\Search\SRCH_03\Install-SRCH03.ps1
+
+	$EnableCustomSEOFeature = [System.Convert]::ToBoolean("[[DSP_EnableSEOFields]]")
+	if($EnableCustomSEOFeature)
+	{
+		.\Modules\Search\SRCH_03\Install-SRCH03.ps1
+	}
 	#endregion
 
 	#region ********** DOCUMENT MANAGEMENT MODULE ********** #
