@@ -69,7 +69,9 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
                  SearchResources.FieldBrowserTitleDescription,
                  PublishingResources.FieldGroup)
             {
-                Required = RequiredType.NotRequired
+                Required = RequiredType.NotRequired,
+                IsHiddenInEditForm = true,
+                IsHiddenInNewForm = true
             };
         }
 

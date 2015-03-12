@@ -123,6 +123,12 @@
   <data name="Feature_CommonCMS_ContentTypes_Name" xml:space="preserve">
     <value>Dynamite CMS de base - Module de recherche - Types de contenus</value>
   </data>
+  <data name="Feature_CommonCMS_EventReceivers_Desc" xml:space="preserve">
+    <value>Ajoute les récépteurs d'événements du module de recherche sur le type de contenu Élément navigable</value>
+  </data>
+  <data name="Feature_CommonCMS_EventReceivers_Name" xml:space="preserve">
+    <value>Dynamite CMS de publication standard - Module de recherche - Récépteurs d'événements</value>
+  </data>
   <data name="Feature_CommonCMS_Fields_Desc" xml:space="preserve">
     <value>Déploie les colonnes du module de recherche pour une solution de type CMS générique</value>
   </data>

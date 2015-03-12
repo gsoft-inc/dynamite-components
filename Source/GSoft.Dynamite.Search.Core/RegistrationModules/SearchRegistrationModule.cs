@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search.Contracts.Configuration;
 using GSoft.Dynamite.Search.Contracts.Constants;
+using GSoft.Dynamite.Search.Contracts.Resources;
 using GSoft.Dynamite.Search.Contracts.Services;
 using GSoft.Dynamite.Search.Core.Configuration;
 using GSoft.Dynamite.Search.Core.Services;
@@ -26,6 +28,10 @@ namespace GSoft.Dynamite.Search.Core.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
+            // Resource Locator
+            builder.RegisterType<SearchResourceLocatorConfig>().As<IResourceLocatorConfig>();
+            builder.RegisterType<SearchResourceLocatorConfig>().Named<IResourceLocatorConfig>("search");
+
             // Fields
             builder.RegisterType<SearchFieldInfoConfig>().As<ISearchFieldInfoConfig>();
             builder.RegisterType<SearchFieldInfoConfig>().Named<ISearchFieldInfoConfig>("search");

@@ -123,6 +123,12 @@
   <data name="Feature_CommonCMS_ContentTypes_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Search Module - Content Types</value>
   </data>
+  <data name="Feature_CommonCMS_EventReceivers_Desc" xml:space="preserve">
+    <value>Add event receivers for the search module for simple CMS solution for "Browsable Item" content type</value>
+  </data>
+  <data name="Feature_CommonCMS_EventReceivers_Name" xml:space="preserve">
+    <value>Dynamite Standard Publishing CMS - Search Module - Event Receivers </value>
+  </data>
   <data name="Feature_CommonCMS_Fields_Desc" xml:space="preserve">
     <value>Deploys columns for common CMS solutions</value>
   </data>
