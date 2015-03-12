@@ -89,7 +89,6 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                                 "{0}:{1}",
                                 navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
                                 this.FeaturedIn)
-
                         },
                         TargetItemFilters = new[]
                         {
