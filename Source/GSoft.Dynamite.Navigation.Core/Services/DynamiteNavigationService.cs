@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
-using Microsoft.SharePoint.Publishing.Navigation;
-using Microsoft.SharePoint.Utilities;
 
 namespace GSoft.Dynamite.Navigation.Core.Services
 {
@@ -30,12 +26,14 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// Gets all navigation arborescence
         /// </summary>
         /// <param name="web">The current web</param>
-        /// <param name="properties">The properties object</param>
+        /// <param name="queryParameters">The query parameters.</param>
         /// <param name="max">The value max of nodes</param>
-        /// <returns>List of Navigation Nodes</returns>
-        public IList<NavigationNode> GetMenuNodes(SPWeb web, NavigationManagedProperties properties, int max)
+        /// <returns>
+        /// List of Navigation Nodes
+        /// </returns>
+        public IList<NavigationNode> GetMenuNodes(SPWeb web, NavigationQueryParameters queryParameters, int max)
         {
-            var nodes = this.navigationService.GetAllNavigationNodes(SPContext.Current.Web, properties);
+            var nodes = this.navigationService.GetAllNavigationNodes(web, queryParameters);
 
             // SortTree the Nodes vs Leafs (Nodes first)
             return this.SortTree(nodes.ToList(), 12);
