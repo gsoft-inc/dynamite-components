@@ -80,9 +80,6 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
 
             // Navigation Term Builder Service
             builder.RegisterType<NavigationTermBuilderService>().As<INavigationTermBuilderService>();
-            
-            // Navigation Service
-            builder.RegisterType<DynamiteNavigationService>().As<IDynamiteNavigationService>();
         }
     }
 }

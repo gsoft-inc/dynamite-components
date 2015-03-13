@@ -37,7 +37,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                 var navigationManagedPropertyInfos = scope.Resolve<NavigationManagedPropertyInfos>();
                 var multilingualismManagedPropertyInfos = scope.Resolve<MultilingualismManagedPropertyInfos>();
                 var publishingContentTypeInfos = scope.Resolve<PublishingContentTypeInfos>();
-                var dynamiteNavigationService = scope.Resolve<IDynamiteNavigationService>();
+                var navigationService = scope.Resolve<INavigationService>();
                 var navigationResultSourceInfos = scope.Resolve<NavigationResultSourceInfos>();
 
                 var queryParameters = new NavigationQueryParameters()
@@ -95,7 +95,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                 };
 
                 // Call the navigation service
-                var navigationData = dynamiteNavigationService.GetMenuNodes(SPContext.Current.Web, queryParameters, 12);
+                var navigationData = navigationService.GetAllNavigationNodes(SPContext.Current.Web, queryParameters);
 
                 // Serializes the data
                 this.MenuJson = serializer.Serialize(navigationData);
