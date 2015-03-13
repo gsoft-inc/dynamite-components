@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Branding;
+using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 
@@ -36,6 +37,11 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
                     var displayTemplates = displayTemplateConfig.DisplayTemplates;
                     var fileList = new List<SPFile>();
 
+                    // Activate feature dependencies defined in this configuration
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    // TODO: Refactor this method into Dynamite
+                    ActivateFeatureDependencies(featureScope, displayTemplateConfig as IFeatureDependencyConfig, site, site.RootWeb);
+
                     // Populate the SPFiles list
                     foreach (var displayTemplate in displayTemplates)
                     {
@@ -47,6 +53,24 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
                         // Create the JavaScript files
                         displayTemplateHelper.GenerateJavaScriptFile(fileList);
                     }
+                }
+            }
+        }
+
+        private static void ActivateFeatureDependencies(IComponentContext scope, IFeatureDependencyConfig config, SPSite site, SPWeb web)
+        {
+            // Activate feature dependencies if defined
+            if (config != null)
+            {
+                // Resolve feature dependency activator
+                var featureDependencyActivator =
+                    scope.Resolve<IFeatureDependencyActivator>(
+                        new TypedParameter(typeof(SPSite), site),
+                        new TypedParameter(typeof(SPWeb), web));
+
+                foreach (var featureDependency in config.FeatureDependencies)
+                {
+                    featureDependencyActivator.EnsureFeatureActivation(featureDependency);
                 }
             }
         }
