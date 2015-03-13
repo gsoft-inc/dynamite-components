@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Branding;
+using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 
@@ -35,6 +36,16 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
                     var displayTemplateConfig = featureScope.Resolve<IPublishingDisplayTemplateInfoConfig>();
                     var displayTemplates = displayTemplateConfig.DisplayTemplates;
                     var fileList = new List<SPFile>();
+
+                    // Resolve feature dependency activator
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    var featureDependencyActivator =
+                        featureScope.Resolve<IFeatureDependencyActivator>(
+                            new TypedParameter(typeof(SPSite), site),
+                            new TypedParameter(typeof(SPWeb), site.RootWeb));
+
+                    // Activate feature dependencies defined in this configuration
+                    featureDependencyActivator.EnsureFeatureActivation(displayTemplateConfig as IFeatureDependencyConfig);
 
                     // Populate the SPFiles list
                     foreach (var displayTemplate in displayTemplates)
