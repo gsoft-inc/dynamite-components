@@ -2,6 +2,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Extensions;
+using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Folders;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -35,10 +36,19 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ItemPages
                 if (web != null && PublishingWeb.IsPublishingWeb(web))
                 {
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
-
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
                     var publishingFolderInfos = featureScope.Resolve<PublishingFolderInfos>();
                     var folders = baseFoldersConfig.RootFolderHierarchies.ToList();
+
+                    // Resolve feature dependency activator
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    var featureDependencyActivator =
+                        featureScope.Resolve<IFeatureDependencyActivator>(
+                            new TypedParameter(typeof(SPSite), web.Site),
+                            new TypedParameter(typeof(SPWeb), web));
+
+                    // Activate feature dependencies defined in this configuration
+                    featureDependencyActivator.EnsureFeatureActivation(baseFoldersConfig as IFeatureDependencyConfig);
 
                     // Remove Category Page folder
                     folders.RemoveAll(f => f.Name.Equals(publishingFolderInfos.CategoryPageTemplates().Name));
