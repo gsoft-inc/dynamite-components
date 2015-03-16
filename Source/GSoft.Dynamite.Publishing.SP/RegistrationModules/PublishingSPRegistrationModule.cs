@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using GSoft.Dynamite.Publishing.Contracts.WebParts;
-using GSoft.Dynamite.Publishing.SP.WebParts.ContactFormWebPart;
 using GSoft.Dynamite.Publishing.SP.WebParts.FilteredProductShowcaseWebPart;
 using GSoft.Dynamite.Publishing.SP.WebParts.ReusableContentWebPart;
 
