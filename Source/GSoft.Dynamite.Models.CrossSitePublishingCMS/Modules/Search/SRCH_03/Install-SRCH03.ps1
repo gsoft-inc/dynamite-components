@@ -41,3 +41,13 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-EventReceivers.ps1'
 & $Script
+
+# ========================================= #
+# =========   Social MetaTag Control   ========== #
+# ======================================= #
+
+$values = @{"Step: " = "#4 Enable Social MetaTag Additional control"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-SocialMetaTags.ps1'
+& $Script

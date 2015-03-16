@@ -51,7 +51,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.1-pre10370\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.1-pre10375\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -139,18 +139,9 @@
     <Compile Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.EventReceiver.cs">
       <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Compile>
-    <Compile Include="SP.Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
     <Compile Include="RegistrationModules\PublishingSPRegistrationModule.cs" />
-    <Compile Include="WebParts\ContactFormWebPart\ContactFormWebPart.cs" />
-    <Compile Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx.cs">
-      <DependentUpon>ContactFormWebPartUserControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx.designer.cs">
-      <DependentUpon>ContactFormWebPartUserControl.ascx.cs</DependentUpon>
-    </Compile>
     <Compile Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPart.cs" />
     <Compile Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx.cs">
       <DependentUpon>FilteredProductShowcaseWebPartUserControl.ascx</DependentUpon>
@@ -237,7 +228,6 @@
     <None Include="SP.Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1ab17249-9879-4179-9e87-da77f66bd9db}</SharePointProjectItemId>
     </None>
-    <None Include="SP.Layouts\GSoft.Dynamite.Publishing\Handlers\DynamiteEmailService.ashx" />
     <None Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
       <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
     </None>
@@ -256,10 +246,6 @@
     </None>
     <None Include="SP.Resources\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6bcc4923-18a8-4804-b127-0aeb964e9c50}</SharePointProjectItemId>
-    </None>
-    <None Include="WebParts\ContactFormWebPart\ContactFormWebPart.webpart" />
-    <None Include="WebParts\ContactFormWebPart\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{757f16b0-25e2-45f1-9cea-e000d0348792}</SharePointProjectItemId>
     </None>
     <None Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPart.webpart" />
     <None Include="WebParts\FilteredProductShowcaseWebPart\SharePointProjectItem.spdata">
@@ -327,8 +313,6 @@
     </Content>
     <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\jquery.validate.min.js" />
     <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\messages_fr.js" />
-    <Content Include="WebParts\ContactFormWebPart\ContactFormWebPartUserControl.ascx" />
-    <Content Include="WebParts\ContactFormWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
     <Content Include="WebParts\ReusableContentWebPart\Elements.xml" />
