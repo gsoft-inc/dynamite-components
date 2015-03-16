@@ -27,7 +27,6 @@ namespace GSoft.Dynamite.Publishing.SP.RegistrationModules
             // WebParts
             builder.RegisterType<FilteredProductShowcaseWebPart>().As<IFilteredProductShowcaseWebPart>().ExternallyOwned();
             builder.RegisterType<ReusableContentWebPart>().As<IReusableContentWebPart>().ExternallyOwned();
-            builder.RegisterType<ContactFormWebPart>().As<IContactFormWebPart>().ExternallyOwned();
         }
     }
 }
