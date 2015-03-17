@@ -21,7 +21,7 @@ namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search
             var title = new TemplatedControlWrapper()
             {
                 Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.Title),
-                ContentTemplate = new MetaTagTemplate("name","og:title")
+                ContentTemplate = new MetaTagTemplate("name", "og:title")
             };
             this.OpenGraph.Controls.Add(title);
 
