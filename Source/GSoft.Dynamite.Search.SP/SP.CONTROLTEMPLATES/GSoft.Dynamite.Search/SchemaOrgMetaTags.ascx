@@ -7,27 +7,4 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="GSoft" Namespace="GSoft.Dynamite.Search.Core.Controls" Assembly="GSoft.Dynamite.Search.Core, Version=15.0.0.0, Culture=neutral, PublicKeyToken=1e3bb3fbc94d83df" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SchemaOrgMetaTags.ascx.cs" Inherits="GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search.SchemaOrgMetaTags" %>
-<GSoft:TemplatedControlWrapper ID="SchemaOrgName" runat="server">
-    <Control>      
-<Control type="Microsoft.Office.Server.Search.WebControls.CatalogItemReuseWebPart" assembly="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" NumberOfItems="1"  UseSharedDataProvider="True"  QueryGroupName="SingleItem" SelectedPropertiesJson="[&quot;Title&quot;]" />
-    </Control>
-    <contenttemplate><meta itemprop="name" content="$Value$"></contenttemplate>
-</GSoft:TemplatedControlWrapper>
-<GSoft:ImageElementControlWrapper ID="SchemaOrgImage" runat="server">
-    <Control>      
-<Control type="Microsoft.Office.Server.Search.WebControls.CatalogItemReuseWebPart" assembly="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" NumberOfItems="1"  UseSharedDataProvider="True"  QueryGroupName="SingleItem" SelectedPropertiesJson="[&quot;PublishingImage&quot;]" />
-    </Control>
-    <contenttemplate><meta itemprop="image" content="$Url$"/></contenttemplate>
-</GSoft:ImageElementControlWrapper>
-<GSoft:UrlElementControlWrapper ID="SchemaOrgLink" runat="server">
-    <Control>      
-<Control type="Microsoft.Office.Server.Search.WebControls.CatalogItemReuseWebPart" assembly="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" NumberOfItems="1"  UseSharedDataProvider="True"  QueryGroupName="SingleItem" SelectedPropertiesJson="[&quot;Path&quot;]" />
-    </Control>
-    <contenttemplate><meta itemprop="url" content="$Value$"/></contenttemplate>
-</GSoft:UrlElementControlWrapper>
-<GSoft:TemplatedControlWrapper ID="SchemaOrgDescription" runat="server">
-    <Control>      
-<Control type="Microsoft.Office.Server.Search.WebControls.CatalogItemReuseWebPart" assembly="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" NumberOfItems="1"  UseSharedDataProvider="True"  QueryGroupName="SingleItem" SelectedPropertiesJson="[&quot;SeoMetaDescriptionOWSTEXT&quot;]" />
-    </Control>
-    <contenttemplate><meta itemprop="description" content="$Value$"/></contenttemplate>
-</GSoft:TemplatedControlWrapper>
+<asp:PlaceHolder runat="server" ID="SchemaOrg"></asp:PlaceHolder>

@@ -25,18 +25,18 @@ namespace GSoft.Dynamite.Search.Core.Controls
             {
                 // get content template
                 var template = new StringBuilder();
-                using (var sw = new StringWriter(template))
+                using (var stringWriter = new StringWriter(template))
                 {
-                    using (var htw = new HtmlTextWriter(sw))
+                    using (var htmlTextWriter = new HtmlTextWriter(stringWriter))
                     {
-                        ContentTemplateContainer.RenderControl(htw);
+                        this.ContentTemplateContainer.RenderControl(htmlTextWriter);
                     }
                 }
                 
-                var url = SPUtility.GetPageUrlPath(HttpContext.Current);
-                if (url != null)
+                var currentPageUrl = SPUtility.GetPageUrlPath(HttpContext.Current);
+                if (currentPageUrl != null)
                 {
-                    writer.Write(template.ToString().Replace("$Value$", Uri.EscapeUriString(url)));
+                    writer.Write(template.ToString().Replace("$Value$", Uri.EscapeUriString(currentPageUrl)));
                 }
             }
         }

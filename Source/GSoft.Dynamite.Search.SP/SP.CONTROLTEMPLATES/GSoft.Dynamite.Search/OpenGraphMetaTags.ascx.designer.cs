@@ -10,42 +10,15 @@
 namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search {
     
     
-    public partial class SocialMetaTags {
+    public partial class OpenGraphMetaTags {
         
         /// <summary>
-        /// OpenGraphTitle control.
+        /// OpenGraph control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::GSoft.Dynamite.Search.Core.Controls.TemplatedControlWrapper OpenGraphTitle;
-        
-        /// <summary>
-        /// OpenGraphImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::GSoft.Dynamite.Search.Core.Controls.ImageElementControlWrapper OpenGraphImage;
-        
-        /// <summary>
-        /// OpenGraphUrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::GSoft.Dynamite.Search.Core.Controls.UrlElementControlWrapper OpenGraphUrl;
-        
-        /// <summary>
-        /// OpenGraphDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::GSoft.Dynamite.Search.Core.Controls.TemplatedControlWrapper OpenGraphDescription;
+        protected global::System.Web.UI.WebControls.PlaceHolder OpenGraph;
     }
 }

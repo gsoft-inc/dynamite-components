@@ -59,7 +59,7 @@ namespace GSoft.Dynamite.Search.Core.Controls
                         imageUrl = Uri.UnescapeDataString(SPContext.Current.Web.SiteLogoUrl);
                     }
 
-                    writer.Write(template.ToString().Replace("$Url$", Uri.EscapeUriString(imageUrl)));
+                    writer.Write(template.ToString().Replace("$Value$", Uri.EscapeUriString(imageUrl)));
                 }
             }
         }

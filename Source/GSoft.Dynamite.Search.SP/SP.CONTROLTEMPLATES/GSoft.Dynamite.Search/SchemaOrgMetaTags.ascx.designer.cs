@@ -13,39 +13,12 @@ namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search {
     public partial class SchemaOrgMetaTags {
         
         /// <summary>
-        /// SchemaOrgName control.
+        /// SchemaOrg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::GSoft.Dynamite.Search.Core.Controls.TemplatedControlWrapper SchemaOrgName;
-        
-        /// <summary>
-        /// SchemaOrgImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::GSoft.Dynamite.Search.Core.Controls.ImageElementControlWrapper SchemaOrgImage;
-        
-        /// <summary>
-        /// SchemaOrgLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::GSoft.Dynamite.Search.Core.Controls.UrlElementControlWrapper SchemaOrgLink;
-        
-        /// <summary>
-        /// SchemaOrgDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::GSoft.Dynamite.Search.Core.Controls.TemplatedControlWrapper SchemaOrgDescription;
+        protected global::System.Web.UI.WebControls.PlaceHolder SchemaOrg;
     }
 }
