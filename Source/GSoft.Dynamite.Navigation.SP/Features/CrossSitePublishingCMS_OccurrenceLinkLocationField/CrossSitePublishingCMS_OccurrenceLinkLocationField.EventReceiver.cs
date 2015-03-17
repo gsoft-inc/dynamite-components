@@ -29,7 +29,6 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
-
             if (site != null)
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
@@ -38,7 +37,6 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
                     var baseFieldInfoConfig = featureScope.Resolve<INavigationFieldInfoConfig>();
                     var baseFieldInfos = baseFieldInfoConfig.Fields;
                     var baseFieldDefinition = featureScope.Resolve<NavigationFieldInfos>();
-                    var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
 
                     // Gets the field
                     var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
@@ -63,17 +61,18 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
-
             if (site != null)
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var fieldHelper = featureScope.Resolve<IFieldHelper>();
-                    var baseFieldInfos = featureScope.Resolve<NavigationFieldInfos>();
-                    var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
+                    var baseFieldInfoConfig = featureScope.Resolve<INavigationFieldInfoConfig>();
+                    var baseFieldInfos = baseFieldInfoConfig.Fields;
+                    var baseFieldDefinition = featureScope.Resolve<NavigationFieldInfos>();
 
                     // Gets the field
-                    var field = baseFieldInfos.OccurrenceLinkLocation();
+                    var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
+                    var field = baseFieldInfos.Single(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
 
                     // Updates the visibility properties of the field
                     field.IsHiddenInDisplayForm = true;
