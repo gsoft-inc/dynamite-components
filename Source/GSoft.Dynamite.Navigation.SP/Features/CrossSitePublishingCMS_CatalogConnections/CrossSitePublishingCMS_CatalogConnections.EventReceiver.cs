@@ -1,14 +1,9 @@
-using System;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Catalogs;
 using GSoft.Dynamite.Configuration;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogConnections
@@ -19,10 +14,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("7c9333fa-7084-46bc-bb7a-7a793eb5b694")]
     public class CrossSitePublishingCMS_CatalogConnectionsEventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var authoringWeb = properties.Feature.Parent as SPWeb;
@@ -33,7 +31,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
                 {
                     var propertyBagHelper = featureScope.Resolve<IPropertyBagHelper>();
                     var catalogHelper = featureScope.Resolve<ICatalogHelper>();
-                    var catalogConnections= featureScope.Resolve<INavigationCatalogConnectionInfoConfig>().CatalogConnections;
+                    var catalogConnections = featureScope.Resolve<INavigationCatalogConnectionInfoConfig>().CatalogConnections;
                     var logger = featureScope.Resolve<ILogger>();
 
                     // Get the url of the associated publishing site for the current web
@@ -51,14 +49,15 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
                                 // Update the connected web with the publishing web
                                 catalogConnection.TargetWeb = publishingWeb;
                                 catalogConnection.SourceWeb = authoringWeb;
+                                catalogConnection.OverwriteIfAlreadyExists = true;
 
-                                logger.Info("Connecting catalog {0} form {1} to the site {2}", 
+                                logger.Info(
+                                    "Connecting catalog {0} form {1} to the site {2}", 
                                     catalogConnection.Catalog.WebRelativeUrl,
                                     authoringWeb.Url,
-                                    publishingWeb.Url
-                                    );
+                                    publishingWeb.Url);
 
-                                catalogHelper.EnsureCatalogConnection(publishingSite, catalogConnection, true);
+                                catalogHelper.EnsureCatalogConnection(publishingSite, catalogConnection);
                             }
                         }
                     }
@@ -70,6 +69,10 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
             }
         }
 
+        /// <summary>
+        /// Feature deactivating event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var authoringWeb = properties.Feature.Parent as SPWeb;
@@ -99,11 +102,11 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_CatalogCo
                                 catalogConnection.TargetWeb = publishingWeb;
                                 catalogConnection.SourceWeb = authoringWeb;
 
-                                logger.Info("Deleting catalog {0} form {1} to the site {2}",
+                                logger.Info(
+                                    "Deleting catalog {0} form {1} to the site {2}",
                                     catalogConnection.Catalog.WebRelativeUrl,
                                     authoringWeb.Url,
-                                    publishingWeb.Url
-                                    );
+                                    publishingWeb.Url);
 
                                 catalogHelper.DeleteCatalogConnection(publishingSite, catalogConnection);
                             }

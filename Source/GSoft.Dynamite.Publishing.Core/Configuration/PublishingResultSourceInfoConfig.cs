@@ -13,24 +13,25 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         private readonly PublishingResultSourceInfos resultSourceValues;
 
         /// <summary>
-        /// Constructor of the configuration.
+        /// Default constructor
         /// </summary>
-        /// <param name="resultSourceValues"></param>
+        /// <param name="resultSourceValues">The result sources info configuration objects</param>
         public PublishingResultSourceInfoConfig(PublishingResultSourceInfos resultSourceValues)
         {
             this.resultSourceValues = resultSourceValues;
         }
 
         /// <summary>
-        /// Method to get the ResultSources to create
+        /// Property that return all the result sources to create in the publishing module
         /// </summary>
-        /// <returns>A list of result source info</returns>
+        /// <returns>The result sources</returns>
         public IList<ResultSourceInfo> ResultSources()
         {
             var resultSources = new List<ResultSourceInfo>
             {
-                {resultSourceValues.SingleTargetItem()},
-                {resultSourceValues.SingleCatalogItem()}
+                this.resultSourceValues.SingleTargetItem(),
+                this.resultSourceValues.SingleCatalogItem(),
+                this.resultSourceValues.CatalogCategoryItems()
             };
 
             return resultSources;

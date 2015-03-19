@@ -1,29 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
-    public class PublishingResultTypeInfoConfig: IPublishingResultTypeInfoConfig
-    {
+    /// <summary>
+    /// Configuration for the creation of the Result Types
+    /// </summary>
+    public class PublishingResultTypeInfoConfig : IPublishingResultTypeInfoConfig
+    {        
         private readonly PublishingResultTypeInfos _basePublishingResultTypeInfos;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="basePublishingResultTypeInfos">The result types info objects</param>
         public PublishingResultTypeInfoConfig(PublishingResultTypeInfos basePublishingResultTypeInfos)
         {
             this._basePublishingResultTypeInfos = basePublishingResultTypeInfos;
         }
 
-        public IList<ResultTypeInfo> ResultTypes()
+        /// <summary>
+        /// Property that return all the result types to create in the publishing module
+        /// </summary>
+        public IList<ResultTypeInfo> ResultTypes
         {
-            var resultTypes = new List<ResultTypeInfo>()
+            get
             {
-                {this._basePublishingResultTypeInfos.NewsPageResultType()},
-                {this._basePublishingResultTypeInfos.ContentPageResultType()}
-            };
+                var resultTypes = new List<ResultTypeInfo>()
+                {
+                    this._basePublishingResultTypeInfos.NewsPageResultType(),
+                    this._basePublishingResultTypeInfos.ContentPageResultType(),
+                    this._basePublishingResultTypeInfos.CategoryItemResultType()
+                };
 
-            return resultTypes;
+                return resultTypes;               
+            }         
         }
     }
 }

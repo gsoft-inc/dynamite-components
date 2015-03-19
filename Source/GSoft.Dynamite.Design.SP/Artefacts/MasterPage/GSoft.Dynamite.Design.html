@@ -15,18 +15,14 @@ To build the master page directly from this HTML file, simply edit the page as y
     <meta name="viewport" content="width=1080, user-scalable=yes">
     <meta name="author" content="GSoft" />
     <!-- OpenGraph -->
-    <meta property="og:site_name" content="" />
-    <!--MS:<asp:ContentPlaceHolder id="OpenGraphPlaceHolder" runat="server">-->
-    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="OpenGraphPlaceHolder" AllowMultipleControls="true"/>-->
     <!-- Schema.org -->
-    <!--MS:<asp:ContentPlaceHolder id="SchemaOrgPlaceHolder" runat="server">-->
-    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="SchemaOrgPlaceHolder" AllowMultipleControls="true"/>-->
     <!-- Twitter Card -->
-    <!--MS:<asp:ContentPlaceHolder id="TwitterCardPlaceHolder" runat="server">-->
-    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="TwitterCardPlaceHolder" AllowMultipleControls="true"/>-->
     <!-- iOS -->
     <!--SPM:<SharePoint:RobotsMetaTag runat="server"/>-->
-    <!--MS:<SharePoint:SPShortcutIcon runat="server" IconUrl="/_catalogs/theme/15/favicon.ico"/>-->
+    <!--MS:<SharePoint:SPShortcutIcon runat="server" IconUrl="/_layouts/15/images/favicon.ico?rev=23"/>-->
     <!--MS:<SharePoint:SPPinnedSiteTile runat="server" TileUrl="" TileColor="#0072C6"/>-->
     <!--MS:<SharePoint:PageTitle runat="server">-->
     <!--SPM:<asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server">-->
@@ -108,6 +104,9 @@ To build the master page directly from this HTML file, simply edit the page as y
                         <div class="searchInputBox">
                             <!--ME:<SharePoint:DelegateControl runat="server" ControlId="SmallSearchInputBox" />-->
                         </div>
+                        <div class="languageSwitcherToggle">
+                            <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="LanguageSwitcherControlPlaceHolder" AllowMultipleControls="true"/>-->
+                        </div>
                         <!--CS: Start Footer Control -->
                         <!--CE: End Footer Control -->
                         <div class="ms-dialogHidden logo">
@@ -119,13 +118,17 @@ To build the master page directly from this HTML file, simply edit the page as y
                             <!--ME:</SharePoint:SiteLogoImage>-->
                             <!--ME:</SharePoint:SPLinkButton>-->
                         </div>
+                        <div class="row row-menu" role="navigation">
+                            <div class="full-width">
+                                <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="NavigationControlPlaceHolder" AllowMultipleControls="true"/>-->
+                            </div>
+                        </div>
                     </div>
                     <!--start: Row -->
-                    <div class="row row-menu" role="navigation">
+                    <div class="row row-title">
                         <div class="full-width">
-                            <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="NavigationControlPlaceHolder" AllowMultipleControls="true"/>-->
-                            <!--CS: Start Navigation Control -->
-                            <!--CE: End Navigation Control -->
+                            <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="PlaceHolderPageTitleInHeaderArea" AllowMultipleControls="true"/>-->
+                            <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="PlaceHolderPageTitleInTitleArea" AllowMultipleControls="true"/>-->
                         </div>
                     </div>
                 </div>
@@ -157,8 +160,11 @@ To build the master page directly from this HTML file, simply edit the page as y
                         <div class="full-width">
                             <div class="ms-dialogHidden col-md-offset-5">
                                 <footer>
-                                    <!--CS: Start Footer Control -->
-                                    <!--CE: End Footer Control -->
+                                    <div class="footer-wrapper">
+                                        <!--CS: Start Footer Control -->
+                                        <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="FooterPlaceHolder" AllowMultipleControls="true"/>-->
+                                        <!--CE: End Footer Control -->
+                                    </div>
                                 </footer>
                             </div>
                         </div>

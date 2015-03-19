@@ -1,18 +1,29 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Lists;
+using GSoft.Dynamite.Lists.Constants;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
+    /// <summary>
+    /// List definitions for the publishing module
+    /// </summary>
     public class PublishingListInfos
     {
-        private readonly PublishingContentTypeInfos publishingFieldInfos;
+        private readonly PublishingContentTypeInfos publishingContentTypeInfos;
 
-        public PublishingListInfos(PublishingContentTypeInfos publishingFieldInfos)
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="publishingContentTypeInfos">The content type info objects configuration</param>
+        public PublishingListInfos(PublishingContentTypeInfos publishingContentTypeInfos)
         {
-            this.publishingFieldInfos = publishingFieldInfos;
+            this.publishingContentTypeInfos = publishingContentTypeInfos;
         }
 
+        /// <summary>
+        /// The OOTB Pages Library list
+        /// </summary>
         public ListInfo PagesLibrary
         {
             get
@@ -21,8 +32,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 {
                     ContentTypes = new List<ContentTypeInfo>()
                     {
-                        this.publishingFieldInfos.DefaultPage()
-                    }
+                        this.publishingContentTypeInfos.DefaultPage(),
+                        this.publishingContentTypeInfos.DefaultArticlePage()
+                    },
+                    ListTemplateInfo = BuiltInListTemplates.Pages
                 };
             }
         }

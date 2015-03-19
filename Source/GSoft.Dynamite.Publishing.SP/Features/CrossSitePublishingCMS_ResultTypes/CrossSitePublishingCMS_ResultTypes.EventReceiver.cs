@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search;
-using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTypes
@@ -16,12 +14,15 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTyp
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("19aff989-e6ab-4b69-a793-ad0473157ec8")]
     public class CrossSitePublishingCMS_ResultTypesEventReceiver : SPFeatureReceiver
     {
-       public override void FeatureActivated(SPFeatureReceiverProperties properties)
-       {
+        /// <summary>
+        /// Feature activated event
+        /// </summary>
+        /// <param name="properties">Context properties</param>
+        public override void FeatureActivated(SPFeatureReceiverProperties properties)
+        {
             var site = properties.Feature.Parent as SPSite;
 
             if (site != null)
@@ -33,17 +34,22 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTyp
 
                     var baseResultTypeInfoConfig = featureScope.Resolve<IPublishingResultTypeInfoConfig>();
 
-                    IList<ResultTypeInfo> resultTypes = baseResultTypeInfoConfig.ResultTypes();
+                    IList<ResultTypeInfo> resultTypes = baseResultTypeInfoConfig.ResultTypes;
 
                     // Create base result types
                     foreach (var resultType in resultTypes)
                     {
+                        logger.Info("Creating the result type {0}", resultType.Name);
                         searchHelper.EnsureResultType(site, resultType);
                     }
                 }
             }
        }
 
+       /// <summary>
+       /// Feature deactivating event
+       /// </summary>
+       /// <param name="properties">Context properties</param>
        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
        {
            var site = properties.Feature.Parent as SPSite;
@@ -57,11 +63,12 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultTyp
 
                    var baseResultTypInfoConfig = featureScope.Resolve<IPublishingResultTypeInfoConfig>();
 
-                   IList<ResultTypeInfo> resultTypes = baseResultTypInfoConfig.ResultTypes();
+                   IList<ResultTypeInfo> resultTypes = baseResultTypInfoConfig.ResultTypes;
 
                    // Delete base result types
                    foreach (var resultType in resultTypes)
                    {
+                       logger.Info("Deleting the result type {0}", resultType.Name);
                        searchHelper.DeleteResultType(site, resultType);
                    }
                }

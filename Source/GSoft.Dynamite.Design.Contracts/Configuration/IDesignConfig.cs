@@ -1,28 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GSoft.Dynamite.Design.Contracts.Configuration
+﻿namespace GSoft.Dynamite.Design.Contracts.Configuration
 {
     /// <summary>
-    /// Configuration contract for masterpage
+    /// Configuration contract for master page
     /// </summary>
     public interface IDesignConfig
     {
         /// <summary>
-        /// The MasterPage HTMT Filename eg: GSoft.Dynamite.html
+        /// The MasterPage HTMT Filename e.g.: GSoft.Dynamite.html
         /// </summary>
         string MasterPageHTMLFilename { get; }
 
         /// <summary>
-        /// The MasterPage MASTER Filename eg: GSoft.Dynamite.master
+        /// The MasterPage MASTER Filename e.g.: GSoft.Dynamite.master
         /// </summary>
         string MasterPageMASTERFilename { get; }
 
         /// <summary>
-        /// The Logo URL eg: /Style%20Library/GSoft.Dynamite.Component/Images/dynamite-logo.png
+        /// The Logo URL e.g.: <c>/Style%20Library/GSoft.Dynamite.Component/Images/dynamite-logo.png</c>
         /// </summary>
         string LogoUrl { get; }
 
@@ -32,12 +26,12 @@ namespace GSoft.Dynamite.Design.Contracts.Configuration
         string LogoUrlDescription { get; }
 
         /// <summary>
-        /// The SPColor file URL eg: /_catalogs/theme/15/GSoft.Dynamite.spcolor
+        /// The SPColor file URL e.g.: <c>/_catalogs/theme/15/GSoft.Dynamite.spcolor</c>
         /// </summary>
         string SPColorUrl { get; }
 
         /// <summary>
-        /// The SPFont file URL eg: /_catalogs/theme/15/GSoft.Dynamite.spfont
+        /// The SPFont file URL e.g.: <c>/_catalogs/theme/15/GSoft.Dynamite.spfont</c>
         /// </summary>
         string SPFontUrl { get; }
     }

@@ -8,8 +8,10 @@
     <featureReference itemId="861b42d0-7e93-4295-bcbb-e89a76ebb7e2" />
     <featureReference itemId="af76eb89-446e-4e5f-8253-48695b9762fa" />
     <featureReference itemId="2ab34b0c-a2c3-41df-8878-bd800027926a" />
+    <featureReference itemId="6401eb6c-ac4b-4c15-9a2e-b26f898db73d" />
   </features>
   <projectItems>
     <projectItemReference itemId="516af786-f562-4fed-abaa-c4b5dc1086ef" />
+    <projectItemReference itemId="8a1baf1e-e291-4e7c-a37d-ac8b351d042d" />
   </projectItems>
 </package>

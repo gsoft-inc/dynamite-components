@@ -4,6 +4,7 @@ using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Globalization;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
@@ -12,8 +13,31 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public class PublishingContentTypeInfos
     {
-        private readonly IResourceLocator resourceLocator;
-        private readonly string resourceFileName = PublishingResources.Global;
+        #region Item Content Type Hierarchy
+
+        /// <summary>
+        /// The "out-of-the-box" SharePoint item content type id
+        /// </summary>
+        private static readonly SPContentTypeId TranslatableItemContentType = new SPContentTypeId(SPBuiltInContentTypeId.Item + "008093F9E3678D3D4392C57B0E6929DE05");
+        
+        private static readonly SPContentTypeId BrowsableItemContentType = new SPContentTypeId(TranslatableItemContentType + "01");
+        
+        private static readonly SPContentTypeId DefaultItemContentType = new SPContentTypeId(BrowsableItemContentType + "01");
+        
+        private static readonly SPContentTypeId CatalogContentItemContentType = new SPContentTypeId(DefaultItemContentType + "01");
+        
+        private static readonly SPContentTypeId TargetContentItemContentType = new SPContentTypeId(DefaultItemContentType + "02");
+        
+        private static readonly SPContentTypeId NewsItemContentType = new SPContentTypeId(CatalogContentItemContentType + "01");
+        
+        private static readonly SPContentTypeId ContentItemContentType = new SPContentTypeId(TargetContentItemContentType + "01");
+
+        private static readonly SPContentTypeId RichMediaAssetDocumentContentType = new SPContentTypeId(SPBuiltInContentTypeId.Document + "009148F5A04DDD49CBA7127AADA5FB792B");
+        
+        private static readonly SPContentTypeId ImageItemContentType = new SPContentTypeId(RichMediaAssetDocumentContentType + "00AADE34325A8B49CDA8BB4DB53328F214");
+
+        #endregion
+
         private readonly PublishingFieldInfos fieldInfoValues;
 
         /// <summary>
@@ -23,26 +47,25 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <param name="fieldInfoValues">The field info instance</param>
         public PublishingContentTypeInfos(IResourceLocator resourceLocator, PublishingFieldInfos fieldInfoValues)
         {
-            this.resourceLocator = resourceLocator;
             this.fieldInfoValues = fieldInfoValues;
         }
 
         #region Browsable Item
 
         /// <summary>
-        /// The browsable item content type
+        /// The <c>browsable</c> item content type
         /// </summary>
         /// <returns>The content type info</returns>
-        public  ContentTypeInfo BrowsableItem()
+        public ContentTypeInfo BrowsableItem()
         {
             return new ContentTypeInfo(
                 BrowsableItemContentType,
                 PublishingResources.ContentTypeBrowsableItemTitle,
                 PublishingResources.ContentTypeBrowsableItemDescription,
-                PublishingResources.ContentTypeGroup
-                )
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
-                Fields = new List<IFieldInfo>()
+                Fields = new List<BaseFieldInfo>()
                 {
                    this.fieldInfoValues.Navigation()
                 }
@@ -63,8 +86,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 TranslatableItemContentType,
                 PublishingResources.ContentTypeTranslatableItemTitle,
                 PublishingResources.ContentTypeTranslatableItemDescription,
-                PublishingResources.ContentTypeGroup
-                );
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global);
         }
 
         #endregion
@@ -81,14 +104,14 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 DefaultItemContentType,
                 PublishingResources.ContentTypeDefaultItemTitle,
                 PublishingResources.ContentTypeDefaultItemDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
-                Fields = new List<IFieldInfo>()
+                Fields = new List<BaseFieldInfo>()
                 {
                     PublishingFields.PublishingPageContent
                 }
-            };
-           
+            }; 
         }
 
         #endregion
@@ -105,7 +128,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 CatalogContentItemContentType,
                 PublishingResources.ContentTypeCatalogContentItemTitle,
                 PublishingResources.ContentTypeCatalogContentItemDescription,
-                PublishingResources.ContentTypeGroup);
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global);
         }
 
         #endregion
@@ -122,7 +146,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 TargetContentItemContentType,
                 PublishingResources.ContentTypeTargetContentItemTitle,
                 PublishingResources.ContentTypeTargetContentItemDescription,
-                PublishingResources.ContentTypeGroup);
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global);
         }
 
         #endregion
@@ -139,7 +164,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 ContentItemContentType,
                 PublishingResources.ContentTypeContentItemTitle,
                 PublishingResources.ContentTypeContentItemDescription,
-                PublishingResources.ContentTypeGroup);
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global);
         }
 
         #endregion
@@ -156,14 +182,39 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 NewsItemContentType,
                 PublishingResources.ContentTypeNewsItemTitle,
                 PublishingResources.ContentTypeNewsItemDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
-                Fields = new List<IFieldInfo>()
+                Fields = new List<BaseFieldInfo>()
                 {
                     this.fieldInfoValues.Summary(),
                     PublishingFields.PublishingPageImage,
                     this.fieldInfoValues.ImageDescription()
                 },
+            };
+        }
+
+        #endregion
+
+        #region Browsable Page
+
+        /// <summary>
+        /// The translatable page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo BrowsablePage()
+        {
+            return new ContentTypeInfo(
+                new SPContentTypeId(this.Page().ContentTypeId + "01"),
+                PublishingResources.ContentTypeBrowsablePageTitle,
+                PublishingResources.ContentTypeBrowsablePageDescription,
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
+            {
+                Fields = new List<BaseFieldInfo>()
+                {
+                   this.fieldInfoValues.Navigation()
+                }
             };
         }
 
@@ -178,13 +229,18 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo TranslatablePage()
         {
             return new ContentTypeInfo(
-                this.Page().ContentTypeId + "01",
+                new SPContentTypeId(this.BrowsablePage().ContentTypeId + "01"),
                 PublishingResources.ContentTypeTranslatablePageTitle,
                 PublishingResources.ContentTypeTranslatablePageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
             };
         }
+
+        #endregion
+
+        #region Default Page
 
         /// <summary>
         /// The default page content type
@@ -193,14 +249,119 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         public ContentTypeInfo DefaultPage()
         {
             return new ContentTypeInfo(
-                this.TranslatablePage().ContentTypeId + "01",
+                new SPContentTypeId(this.TranslatablePage().ContentTypeId + "01"),
                 PublishingResources.ContentTypeDefaultPageTitle,
                 PublishingResources.ContentTypeDefaultPageDescription,
-                PublishingResources.ContentTypeGroup)
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
             {
             };
         }
         
+        #endregion
+
+        #region Browsable Article Page
+
+        /// <summary>
+        /// The <c>browsable</c> article page content type information.
+        /// </summary>
+        /// <returns>Content type information</returns>
+        public ContentTypeInfo BrowsableArticlePage()
+        {
+            return new ContentTypeInfo(
+                new SPContentTypeId(this.ArticlePage().ContentTypeId + "01"),
+                PublishingResources.ContentTypeBrowsableArticlePageTitle,
+                PublishingResources.ContentTypeBrowsableArticlePageDescription,
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
+            {
+                Fields = new List<BaseFieldInfo>()
+                {
+                   this.fieldInfoValues.Navigation()
+                }
+            };
+        }
+
+        #endregion
+
+        #region Translatable Article Page
+
+        /// <summary>
+        /// The translatable article page content type information.
+        /// </summary>
+        /// <returns>Content type information</returns>
+        public ContentTypeInfo TranslatableArticlePage()
+        {
+            return new ContentTypeInfo(
+                new SPContentTypeId(this.BrowsableArticlePage().ContentTypeId + "01"),
+                PublishingResources.ContentTypeTranslatableArticlePageTitle,
+                PublishingResources.ContentTypeTranslatableArticlePageDescription,
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
+            {
+            };
+        }
+
+        #endregion
+
+        #region Default Article Page
+
+        /// <summary>
+        /// The default article page content type information.
+        /// </summary>
+        /// <returns>Content type information</returns>
+        public ContentTypeInfo DefaultArticlePage()
+        {
+            return new ContentTypeInfo(
+                new SPContentTypeId(this.TranslatableArticlePage().ContentTypeId + "01"),
+                PublishingResources.ContentTypeDefaultArticlePageTitle,
+                PublishingResources.ContentTypeDefaultArticlePageDescription,
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
+            {
+            };
+        }
+
+        #endregion
+
+        #region Target Content Page
+
+        /// <summary>
+        /// The default page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo TargetContentPage()
+        {
+            return new ContentTypeInfo(
+                new SPContentTypeId(this.DefaultPage().ContentTypeId + "01"),
+                PublishingResources.ContentTypeTargetContentPageTitle,
+                PublishingResources.ContentTypeTargetContentPageDescription,
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
+            {
+            };
+        }
+
+        #endregion
+
+        #region Catalog Content Page
+
+        /// <summary>
+        /// The default page content type
+        /// </summary>
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo CatalogContentPage()
+        {
+            return new ContentTypeInfo(
+                new SPContentTypeId(this.DefaultPage().ContentTypeId + "02"),
+                PublishingResources.ContentTypeCatalogContentPageTitle,
+                PublishingResources.ContentTypeCatalogContentPageDescription,
+                PublishingResources.ContentTypeGroup,
+                PublishingResources.Global)
+            {
+            };
+        }
+
         #endregion
 
         #region SharePoint Content Types
@@ -211,31 +372,17 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <returns>The content type info</returns>
         public ContentTypeInfo Page()
         {
-            return new ContentTypeInfo("0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39", string.Empty, string.Empty, string.Empty);
+            return new ContentTypeInfo(new SPContentTypeId("0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39"), string.Empty, string.Empty, string.Empty);
         }
 
-        #endregion
-
-        #region Item Content Type Hierarchy
-
         /// <summary>
-        /// The "out-of-the-box" SharePoint item content type id
+        /// The SharePoint Article page content type
         /// </summary>
-        private const string ItemContentType = "0x01";
-
-        private const string TranslatableItemContentType = ItemContentType + "008093F9E3678D3D4392C57B0E6929DE05";
-
-        private const string BrowsableItemContentType = TranslatableItemContentType + "01";
-
-        private const string DefaultItemContentType = BrowsableItemContentType + "01";
-
-        private const string CatalogContentItemContentType = DefaultItemContentType + "01";
-
-        private const string TargetContentItemContentType = DefaultItemContentType + "02";
-
-        private const string NewsItemContentType = CatalogContentItemContentType + "01";
-
-        private const string ContentItemContentType = TargetContentItemContentType + "01";
+        /// <returns>The content type info</returns>
+        public ContentTypeInfo ArticlePage()
+        {
+            return new ContentTypeInfo(new SPContentTypeId(this.Page().ContentTypeId + "00" + "242457EFB8B24247815D688C526CD44D"), string.Empty, string.Empty, string.Empty);
+        }
 
         #endregion
     }

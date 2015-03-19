@@ -1,65 +1,65 @@
-﻿using System.Collections.Generic;
-using GSoft.Dynamite.Globalization;
-using GSoft.Dynamite.Lists;
-using Microsoft.SharePoint;
-using GSoft.Dynamite.Taxonomy;
-using System;
-using GSoft.Dynamite.ValueTypes;
+﻿using System;
+using System.Collections.Generic;
 using GSoft.Dynamite.Catalogs;
-using GSoft.Dynamite.Search;
-using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.ContentTypes;
+using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.Lists;
+using GSoft.Dynamite.Lists.Constants;
+using GSoft.Dynamite.Search;
+using GSoft.Dynamite.Taxonomy;
+using GSoft.Dynamite.ValueTypes;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     /// <summary>
-    /// Base CatalogInfo values
+    /// Catalog definitions for the publishing module
     /// </summary>
     public class PublishingCatalogInfos
     {
-        private readonly IResourceLocator _resourceLocator;
-        private readonly string _resourceFileName = PublishingResources.Global;
         private readonly PublishingContentTypeInfos _contentTypeInfoValues;
         private readonly PublishingFieldInfos _fieldInfoValues;
-        private readonly PublishingTermGroupInfos _termGroupValues;
-        private readonly PublishingTermInfos _termInfoValues;
         private readonly PublishingTermSetInfos _termSetInfoValues;
 
-        public PublishingCatalogInfos(IResourceLocator resourceLocator,
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="contentTypeInfoValues">The content type info objects configuration</param>
+        /// <param name="fieldInfoValues">The field info objects configuration</param>
+        /// <param name="termSetInfoValues">The term set info objects configuration</param>
+        public PublishingCatalogInfos(
             PublishingContentTypeInfos contentTypeInfoValues,
             PublishingFieldInfos fieldInfoValues,
-            PublishingTermGroupInfos termGroupValues,
-            PublishingTermInfos termInfoValues,
-            PublishingTermSetInfos termSetInfoValues
-            )
+            PublishingTermSetInfos termSetInfoValues)
         {
-            this._resourceLocator = resourceLocator;
             this._contentTypeInfoValues = contentTypeInfoValues;
             this._fieldInfoValues = fieldInfoValues;
-            this._termGroupValues = termGroupValues;
-            this._termInfoValues = termInfoValues;
             this._termSetInfoValues = termSetInfoValues;
         }
 
         #region News Pages Catalog
 
+        /// <summary>
+        /// The news pages catalog that contains only catalog pages typed items
+        /// </summary>
+        /// <returns>The catalog info</returns>
         public CatalogInfo NewsPages()
         {
             // News pages editors should be limited to a different taxonomy term set
             var customizedNavigationField = this._fieldInfoValues.Navigation();
             customizedNavigationField.TermStoreMapping = new TaxonomyContext()
                 {
-                    TermSet = _termSetInfoValues.RestrictedNews()
+                    TermSet = this._termSetInfoValues.RestrictedNews()
                 };
 
             // News pages should be automatically tagged with the "Financial" term
-            var customizedDefaultValue = new TaxonomyFullValue()
+            var customizedDefaultValue = new TaxonomyValue()
             {
                 Context = customizedNavigationField.TermStoreMapping,
                 Term = new TermInfo(
                     new Guid("{61639a70-1c62-42a4-a265-7533d27bbf65}"),
                     "Financial",
-                    _termSetInfoValues.RestrictedNews())
+                    this._termSetInfoValues.RestrictedNews())
             };
 
             customizedNavigationField.DefaultValue = customizedDefaultValue;
@@ -67,19 +67,18 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             return new CatalogInfo(
                     "NewsPages",
                     PublishingResources.NewsCatalogTitle,
-                    PublishingResources.NewsCatalogDescription
-                    )
+                    PublishingResources.NewsCatalogDescription)
                 {
                     ContentTypes = new List<ContentTypeInfo>()
                     {
-                        _contentTypeInfoValues.NewsItem()
+                        this._contentTypeInfoValues.NewsItem()
                     },
                     DraftVisibilityType = DraftVisibilityType.Approver,
                     EnableRatings = false,
-                    ListTemplate = SPListTemplateType.GenericList,
+                    ListTemplateInfo = BuiltInListTemplates.CustomList,
                     Overwrite = false,
                     RemoveDefaultContentType = true,
-                    TaxonomyFieldMap = _fieldInfoValues.Navigation(),
+                    TaxonomyFieldMap = this._fieldInfoValues.Navigation(),
                     WriteSecurity = WriteSecurityOptions.AllUser,
                     HasDraftVisibilityType = true,
                     ManagedProperties = new List<ManagedPropertyInfo>()
@@ -87,11 +86,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                         new ManagedPropertyInfo("ListItemID")
                     },
                     AddToQuickLaunch = true,
-                    DefaultViewFields = new List<IFieldInfo>()
+                    DefaultViewFields = new List<BaseFieldInfo>()
                     {
                         customizedNavigationField
                     },
-                    FieldDefinitions = new List<IFieldInfo>()
+                    FieldDefinitions = new List<BaseFieldInfo>()
                     {
                        customizedNavigationField
                     },                
@@ -104,8 +103,16 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
         #region Content Pages Catalog
 
+        /// <summary>
+        /// The content pages catalog that contains only target pages typed items
+        /// </summary>
+        /// <returns>The catalog info</returns>
         public CatalogInfo ContentPages()
         {
+            // Customize the navigation field to enfore unique values (one content per navgiation node)
+            var customizedNavigationField = this._fieldInfoValues.Navigation();
+            customizedNavigationField.EnforceUniqueValues = true;
+
             return new CatalogInfo(
                 "ContentPages",
                 PublishingResources.ContentCatalogTitle,
@@ -117,21 +124,24 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 },
                 DraftVisibilityType = DraftVisibilityType.Approver,
                 EnableRatings = false,
-                ListTemplate = SPListTemplateType.GenericList,
+                ListTemplateInfo = BuiltInListTemplates.CustomList,
                 Overwrite = false,
                 RemoveDefaultContentType = true,
-                TaxonomyFieldMap = _fieldInfoValues.Navigation(),
-                EnforceUniqueNavigationValues = true,
+                TaxonomyFieldMap = this._fieldInfoValues.Navigation(),
                 WriteSecurity = WriteSecurityOptions.AllUser,
                 HasDraftVisibilityType = true,
                 ManagedProperties = new List<ManagedPropertyInfo>()
                 {
-                    {new ManagedPropertyInfo("ListItemID")}
+                    new ManagedPropertyInfo("ListItemID")
                 },
                 AddToQuickLaunch = true,
-                DefaultViewFields = new List<IFieldInfo>()
+                DefaultViewFields = new List<BaseFieldInfo>()
                 {
-                    this._fieldInfoValues.Navigation()
+                    customizedNavigationField
+                },
+                FieldDefinitions = new List<BaseFieldInfo>()
+                {
+                    customizedNavigationField
                 },
                 IsAnonymous = true,
                 EnableAttachements = false

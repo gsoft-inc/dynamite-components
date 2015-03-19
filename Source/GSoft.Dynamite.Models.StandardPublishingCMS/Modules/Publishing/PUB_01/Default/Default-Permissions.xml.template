@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Model  		  : Cross Site Publishing CMS
+ File         : Setup-Permissions.xml.template
+ Description	: Base SharePoint sites and webs permissions
+-->
+<Configuration>
+  <!-- Publishing: Default -->
+  <Web Name="[[DSP_PortalPublishingHostNamePath]]" BreakRoleInheritance="false">
+	  <Groups>
+      <Group Name="Dynamite - Visitors" OwnerName="[[DSP_PortalAdmin]]" IsAssociatedVisitorGroup="true">
+        <PermissionLevels>
+          <PermissionLevel Name="Read"/>
+        </PermissionLevels>
+        <Users>
+          <!-- Add all users -->
+          <User>NT Authority\Authenticated Users</User>
+        </Users>
+      </Group>
+      <Group Name="Dynamite - Members" OwnerName="[[DSP_PortalAdmin]]">
+        <PermissionLevels>
+          <PermissionLevel Name="Contribute"/>
+        </PermissionLevels>
+        <Users>
+          <User>[[DSP_PortalAdmin]]</User>
+        </Users>
+      </Group>
+      <Group Name="Dynamite - Owners" OwnerName="[[DSP_PortalAdmin]]" IsAssociatedOwnerGroup="true">
+        <PermissionLevels>
+          <PermissionLevel Name="Full Control"/>
+        </PermissionLevels>
+        <Users>
+          <User>[[DSP_PortalAdmin]]</User>
+        </Users>
+      </Group>
+	  </Groups>
+  </Web>
+</Configuration>

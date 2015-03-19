@@ -1,15 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
   <Module Name="PublishingPageLayouts" Url="_catalogs/masterpage" Path="PageLayouts" RootWebOnly="TRUE">
-    <File Path="TargetItemPageLayout.aspx" Url="TargetItemPageLayout.aspx" Type="GhostableInLibrary">
+    <File Path="TargetItemPageLayout.aspx" Url="TargetItemPageLayout.aspx" Type="GhostableInLibrary" >
       <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_TargetItemPageLayout_Name;" />
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
-      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_TargetItemPageLayout_Desc;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_TargetItemPageLayout_Desc;" />
     </File>
-    <File Path="CatalogItemPageLayout.aspx" Url="CatalogItemPageLayout.aspx" Type="GhostableInLibrary">
+    <File Path="CatalogItemPageLayout.aspx" Url="CatalogItemPageLayout.aspx" Type="GhostableInLibrary" >
       <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_CatalogItemPageLayout_Name;" />
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
-      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.PageLayout_CatalogItemPageLayout_Desc;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_CatalogItemPageLayout_Desc;" />
+    </File>
+    <File Path="CatalogCategoryPageTemplate.aspx" Url="CatalogCategoryPageTemplate.aspx" Type="GhostableInLibrary" >
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_CatalogCategoryPageTemplate_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_CatalogCategoryPageTemplate_Desc;" />
+    </File>
+    <File Path="RightSidebar.aspx" Url="RightSidebar.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_RightSidebarPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_RightSidebarPageLayout_Desc;" />
+    </File>
+    <File Path="OneColumnWithHeader.aspx" Url="OneColumnWithHeader.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_OneColumnPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_OneColumnPageLayout_Desc;" />
+    </File>
+    <File Path="OneColumnWithThreeTabs.aspx" Url="OneColumnWithThreeTabs.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_OneColumnThreeTabsPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_OneColumnThreeTabsPageLayout_Desc;" />
+    </File>
+    <File Path="TwoColumnsOneColumn.aspx" Url="TwoColumnsOneColumn.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_TwoColumnsOneColumn_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_TwoColumnsOneColumn_Desc;" />
+    </File>
+    <File Path="BootstrapRightSidebar.aspx" Url="BootstrapRightSidebar.aspx" Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootsrapRightSidebarPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootsrapRightSidebarPageLayout_Desc;" />
     </File>
   </Module>
 </Elements>

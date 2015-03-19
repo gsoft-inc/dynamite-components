@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Branding;
 using GSoft.Dynamite.Design.Contracts.Configuration;
+using GSoft.Dynamite.Features;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
@@ -29,6 +30,16 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
                 {
                     var masterPageHelper = featureScope.Resolve<IMasterPageHelper>();
                     var designConfig = featureScope.Resolve<IDesignConfig>();
+
+                    // Resolve feature dependency activator
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    var featureDependencyActivator =
+                        featureScope.Resolve<IFeatureDependencyActivator>(
+                            new TypedParameter(typeof(SPSite), site),
+                            new TypedParameter(typeof(SPWeb), site.RootWeb));
+
+                    // Activate feature dependencies defined in this configuration
+                    featureDependencyActivator.EnsureFeatureActivation(designConfig as IFeatureDependencyConfig);
 
                     // Generate masterpage file from HTML design file
                     masterPageHelper.GenerateMasterPage(site, designConfig.MasterPageHTMLFilename);

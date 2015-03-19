@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="a8a087f3-9eb2-4e33-9d78-505f773ad6ab" solutionId="a8a087f3-9eb2-4e33-9d78-505f773ad6ab" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Search.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Search.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Search.Contracts\GSoft.Dynamite.Search.Contracts.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Search.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Search.Core\GSoft.Dynamite.Search.Core.csproj" />
+  </assemblies>
+  <features>
+    <featureReference itemId="f1ee7871-73bd-4c91-a487-b0c47e586875" />
+    <featureReference itemId="2b5a9278-f9d1-4bfa-9b6f-2e64e0f7b5b0" />
+    <featureReference itemId="4554cf76-f116-42cc-80f1-ab0b62841390" />
+    <featureReference itemId="97e572e3-9df5-4590-bd09-f982765c7166" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="b23c2959-efb8-4e4b-bf75-55fb8f33c9a1" />
+    <projectItemReference itemId="c445b089-bb03-4fa7-b37f-caf976fcdf7f" />
+  </projectItems>
+</package>

@@ -15,8 +15,18 @@
     <featureReference itemId="65b1a649-5c6d-4ca5-93e1-6c3bd34e9618" />
     <featureReference itemId="253da52f-d048-4d13-82d4-fffb42b21a34" />
     <featureReference itemId="00090562-f78d-4a5e-a3ec-e5d9c1fe1455" />
+    <featureReference itemId="91490df6-476f-41b1-bea2-4df55c15aba6" />
+    <featureReference itemId="afb7008d-3245-440f-bb75-58bfb521c4b8" />
+    <featureReference itemId="4bcdc916-d112-42d2-8b25-a91a8f87548f" />
+    <featureReference itemId="f3356d64-196b-4626-b89a-4c4daf52d8ac" />
+    <featureReference itemId="17abf062-5a4c-4462-8370-ef3c7e84d741" />
+    <featureReference itemId="c172bf31-e0dc-4fcf-b96c-0d0cc0aa3aed" />
+    <featureReference itemId="b384567a-defd-47f9-b9e9-2f62a47a02b8" />
   </features>
   <projectItems>
     <projectItemReference itemId="6bcc4923-18a8-4804-b127-0aeb964e9c50" />
+    <projectItemReference itemId="bc3923a2-1855-47ac-9098-f1bba7151d9e" />
+    <projectItemReference itemId="48389bc6-84ff-4799-afba-d8e32701b9fb" />
+    <projectItemReference itemId="1ab17249-9879-4179-9e87-da77f66bd9db" />
   </projectItems>
 </package>

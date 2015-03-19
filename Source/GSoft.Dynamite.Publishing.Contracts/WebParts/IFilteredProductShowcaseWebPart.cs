@@ -26,8 +26,19 @@ namespace GSoft.Dynamite.Publishing.Contracts.WebParts
         /// </summary>
         string FilterDefinitions { get; set; }
 
+        /// <summary>
+        /// The knockout template name
+        /// </summary>
         string ItemKnockoutTemplate { get; set; }
 
+        /// <summary>
+        /// The View Model name
+        /// </summary>
         string ItemJavaScriptViewModel { get; set; }
+
+        /// <summary>
+        /// Callback functions names
+        /// </summary>
+        string Callbacks { get; set; }
     }
 }

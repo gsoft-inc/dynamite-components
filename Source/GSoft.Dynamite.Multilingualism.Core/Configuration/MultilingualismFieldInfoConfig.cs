@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
 
 namespace GSoft.Dynamite.Multilingualism.Core.Configuration
 {
@@ -18,9 +13,9 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
         private readonly MultilingualismFieldInfos baseMultilingualismFieldInfos;
 
         /// <summary>
-        /// Base constructor
+        /// Default constructor
         /// </summary>
-        /// <param name="baseMultilingualismFieldInfos">The fields infos for multilingualism</param>
+        /// <param name="baseMultilingualismFieldInfos">The fields info for multilingualism</param>
         public MultilingualismFieldInfoConfig(MultilingualismFieldInfos baseMultilingualismFieldInfos)
         {
             this.baseMultilingualismFieldInfos = baseMultilingualismFieldInfos;
@@ -29,15 +24,15 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
         /// <summary>
         /// Property to return the fields needed for the solution
         /// </summary>
-        public IList<IFieldInfo> Fields
+        public IList<BaseFieldInfo> Fields
         {
             get
             {
                 // Get the base publishing field info 
-                var baseFieldInfo = new List<IFieldInfo>
+                var baseFieldInfo = new List<BaseFieldInfo>
                 {
-                    {this.baseMultilingualismFieldInfos.ContentAssociationKey()},
-                    {this.baseMultilingualismFieldInfos.ItemLanguage()}
+                    this.baseMultilingualismFieldInfos.ContentAssociationKey(),
+                    this.baseMultilingualismFieldInfos.ItemLanguage()
                 };
 
                 return baseFieldInfo;

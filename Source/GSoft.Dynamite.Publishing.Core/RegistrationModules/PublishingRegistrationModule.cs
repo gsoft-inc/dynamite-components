@@ -3,7 +3,12 @@ using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Portal.Core.Resources;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Publishing.Contracts.Entities;
+using GSoft.Dynamite.Publishing.Contracts.Repositories;
+using GSoft.Dynamite.Publishing.Contracts.Services;
 using GSoft.Dynamite.Publishing.Core.Configuration;
+using GSoft.Dynamite.Publishing.Core.Repositories;
+using GSoft.Dynamite.Publishing.Core.Services;
 
 namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 {
@@ -22,6 +27,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
         {
             // Resource Locator
             builder.RegisterType<PublishingResourceLocatorConfig>().As<IResourceLocatorConfig>();
+            builder.RegisterType<PublishingResourceLocatorConfig>().Named<IResourceLocatorConfig>("publishing");
 
             // Content Types
             builder.RegisterType<PublishingContentTypeInfoConfig>().As<IPublishingContentTypeInfoConfig>();
@@ -33,6 +39,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Term Sets
             builder.RegisterType<PublishingTaxonomyConfig>().As<IPublishingTaxonomyConfig>();
+            builder.RegisterType<PublishingTaxonomyConfig>().Named<IPublishingTaxonomyConfig>("publishing");
 
             // Catalogs
             builder.RegisterType<PublishingCatalogInfoConfig>().As<IPublishingCatalogInfoConfig>();
@@ -44,6 +51,7 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 
             // Folders
             builder.RegisterType<PublishingFolderInfoConfig>().As<IPublishingFolderInfoConfig>();
+            builder.RegisterType<PublishingFolderInfoConfig>().Named<IPublishingFolderInfoConfig>("publishing");
 
             // Display Templates
             builder.RegisterType<PublishingDisplayTemplateInfoConfig>().As<IPublishingDisplayTemplateInfoConfig>();
@@ -54,14 +62,31 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingResultTypeInfoConfig>().Named<IPublishingResultTypeInfoConfig>("publishing");
 
             // Managed Properties
-            builder.RegisterType<PublishingManagedPropertyConfig>().As<IGlobalManagedPropertyInfosConfig>();
+            builder.RegisterType<PublishingManagedPropertyConfig>().As<ICommonManagedPropertyInfosConfig>();
+            builder.RegisterType<PublishingManagedPropertyConfig>().Named<ICommonManagedPropertyInfosConfig>("publishing");
 
             // Page Layouts
             builder.RegisterType<PublishingPageLayoutInfoConfig>().As<IPublishingPageLayoutInfoConfig>();
+            builder.RegisterType<PublishingPageLayoutInfoConfig>().Named<IPublishingPageLayoutInfoConfig>("publishing");
 
             // Page Layouts
             builder.RegisterType<PublishingListInfoConfig>().As<IPublishingListInfoConfig>();
-                    
+            builder.RegisterType<PublishingListInfoConfig>().Named<IPublishingListInfoConfig>("publishing");
+
+            // Faceted navigation
+            builder.RegisterType<PublishingFacetedNavigationInfoConfig>().As<IPublishingFacetedNavigationInfoConfig>();
+            builder.RegisterType<PublishingFacetedNavigationInfoConfig>().Named<IPublishingFacetedNavigationInfoConfig>("publishing");
+
+            // Metadata navigation
+            builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().As<IPublishingMetadataNavigationSettingsConfig>();
+            builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().Named<IPublishingMetadataNavigationSettingsConfig>("publishing");
+     
+            // Reusable Content
+            builder.RegisterType<ReusableContentRepository>().As<IReusableContentRepository>();
+            builder.RegisterType<ReusableHtmlContent>().As<ReusableHtmlContent>();
+            builder.RegisterType<ReusableContentService>().As<IReusableContentService>();
+            builder.RegisterType<PublishingReusableContentConfig>().As<IPublishingReusableContentConfig>();
+
             // Configuration Values
             builder.RegisterType<PublishingContentTypeInfos>();
             builder.RegisterType<PublishingFieldInfos>();
@@ -78,6 +103,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingResultTypeInfos>();
             builder.RegisterType<PublishingManagedPropertyInfos>();
             builder.RegisterType<PublishingListInfos>();
+            builder.RegisterType<PublishingFacetedNavigationInfos>();
+            builder.RegisterType<PublishingMetadataNavigationSettingsInfos>();
         }
     }
 }

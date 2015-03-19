@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
     <Control ControlSrc="/_controltemplates/15/GSoft.Dynamite.Multilingualism/LanguageSwitcher.ascx" Id="PromotedActions" Sequence="10" />
+  <Control ControlSrc="/_controltemplates/15/GSoft.Dynamite.Multilingualism/LanguageSwitcher.ascx" Id="LanguageSwitcherControlPlaceHolder" Sequence="10" />
 </Elements>

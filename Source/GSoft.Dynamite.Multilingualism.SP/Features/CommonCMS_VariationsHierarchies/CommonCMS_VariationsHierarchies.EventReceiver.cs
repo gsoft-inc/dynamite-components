@@ -14,10 +14,13 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_VariationsHierarc
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-
     [Guid("63800021-8d04-45d0-9c74-bff6bcc6d3d8")]
     public class CommonCmsVariationsHierarchiesventReceiver : SPFeatureReceiver
     {
+        /// <summary>
+        /// Creates variations hierarchies. Run the timer job.
+        /// </summary>
+        /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;

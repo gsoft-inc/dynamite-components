@@ -41,29 +41,35 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\GSoft.Dynamite.Portal.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <TokenReplacementFileExtensions>ashx;</TokenReplacementFileExtensions>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10131\lib\net45\GSoft.Dynamite.dll</HintPath>
+    <Reference Include="GSoft.Dynamite, Version=2.1.0.263, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.1.0.263\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.Taxonomy, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +77,23 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ClientScripts.ascx.cs">
+      <DependentUpon>ClientScripts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ClientScripts.ascx.designer.cs">
+      <DependentUpon>ClientScripts.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx.cs">
+      <DependentUpon>ReusableContentUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx.designer.cs">
+      <DependentUpon>ReusableContentUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
       <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Compile>
@@ -80,14 +103,23 @@
     <Compile Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.EventReceiver.cs">
       <DependentUpon>CommonCMS_PageLayouts.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CommonCMS_ReusableContent\CommonCMS_ReusableContent.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ReusableContent.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_CategoryPages.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_DisplayTemplates\CrossSitePublishingCMS_DisplayTemplates.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_DisplayTemplates.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_Lists.feature</DependentUpon>
+    <Compile Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_FacetedNavigation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_Pages.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_Lists\CommonCMS_Lists.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Lists.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ItemPages.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
@@ -97,6 +129,15 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_SearchRESTAnonymous.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_MetadataNavigation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.EventReceiver.cs">
+      <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublishingContainerProxy.cs" />
@@ -109,17 +150,31 @@
     <Compile Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx.designer.cs">
       <DependentUpon>FilteredProductShowcaseWebPartUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebParts\ReusableContentWebPart\CustomToolPart.cs" />
+    <Compile Include="WebParts\ReusableContentWebPart\ReusableContentWebPart.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
     <None Include="app.config" />
+    <None Include="Artefacts\LanguageFiles_EN\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c1753265-9f9a-4eb6-9911-101eeaeb7d01}</SharePointProjectItemId>
+    </None>
+    <None Include="Artefacts\ClientScripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{110c9cce-c137-496c-bd6d-c5ab0d1278a1}</SharePointProjectItemId>
+    </None>
+    <None Include="Artefacts\LanguageFiles_FR\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{68a7e912-b6a9-4369-b974-9fe00d9ae804}</SharePointProjectItemId>
+    </None>
     <None Include="Artefacts\DisplayTemplates\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{330f2e34-1131-4bec-915e-8ae22b2d7a66}</SharePointProjectItemId>
     </None>
     <None Include="Artefacts\PageLayouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{621e215b-d2d9-4c78-85a2-f38af1a379eb}</SharePointProjectItemId>
+    </None>
+    <None Include="SP.ControlTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{48389bc6-84ff-4799-afba-d8e32701b9fb}</SharePointProjectItemId>
     </None>
     <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
       <FeatureId>{0ccccbeb-e932-4b6a-a336-c85c3dfdf2e2}</FeatureId>
@@ -133,7 +188,7 @@
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
       <FeatureId>{740401de-77f4-4e5e-8ef5-7ac745b1600d}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.feature">
+    <None Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.feature">
       <FeatureId>{32341c87-bf6e-4fb5-a67a-58eacd99f905}</FeatureId>
     </None>
     <None Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.feature">
@@ -145,11 +200,42 @@
     <None Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.feature">
       <FeatureId>{65b1a649-5c6d-4ca5-93e1-6c3bd34e9618}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.feature">
+    <None Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.feature">
+      <FeatureId>{c172bf31-e0dc-4fcf-b96c-0d0cc0aa3aed}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_Lists\CommonCMS_Lists.feature">
       <FeatureId>{253da52f-d048-4d13-82d4-fffb42b21a34}</FeatureId>
     </None>
     <None Include="Features\CommonCMS_WebParts\CommonCMS_WebParts.feature">
       <FeatureId>{00090562-f78d-4a5e-a3ec-e5d9c1fe1455}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.feature">
+      <FeatureId>{91490df6-476f-41b1-bea2-4df55c15aba6}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.feature">
+      <FeatureId>{afb7008d-3245-440f-bb75-58bfb521c4b8}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.feature">
+      <FeatureId>{f3356d64-196b-4626-b89a-4c4daf52d8ac}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_ReusableContent\CommonCMS_ReusableContent.feature">
+      <FeatureId>{b384567a-defd-47f9-b9e9-2f62a47a02b8}</FeatureId>
+    </None>
+    <None Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.feature">
+      <FeatureId>{17abf062-5a4c-4462-8370-ef3c7e84d741}</FeatureId>
+    </None>
+    <None Include="GSoft.Dynamite.Publishing.SP.nuspec" />
+    <None Include="SP.Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1ab17249-9879-4179-9e87-da77f66bd9db}</SharePointProjectItemId>
+    </None>
+    <None Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js.map">
+      <DependentUpon>GSoft.Dynamite.Publishing.min.js</DependentUpon>
+    </None>
+    <None Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.feature">
+      <FeatureId>{4bcdc916-d112-42d2-8b25-a91a8f87548f}</FeatureId>
+    </None>
+    <None Include="SP.Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bc3923a2-1855-47ac-9098-f1bba7151d9e}</SharePointProjectItemId>
     </None>
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -158,22 +244,41 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
-    <None Include="Resources\SharePointProjectItem.spdata">
+    <None Include="SP.Resources\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6bcc4923-18a8-4804-b127-0aeb964e9c50}</SharePointProjectItemId>
     </None>
     <None Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPart.webpart" />
     <None Include="WebParts\FilteredProductShowcaseWebPart\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9f389ce4-5679-41af-bb83-6dea6855243b}</SharePointProjectItemId>
     </None>
+    <None Include="WebParts\ReusableContentWebPart\ReusableContentWebPart.webpart" />
+    <None Include="WebParts\ReusableContentWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3d82f165-e06e-45b8-9871-26bebf713de8}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Artefacts\ClientScripts\Elements.xml" />
+    <Content Include="Artefacts\LanguageFiles_EN\Elements.xml" />
+    <Content Include="Artefacts\LanguageFiles_EN\Dynamite_Refinements.js" />
+    <Content Include="Artefacts\LanguageFiles_FR\Elements.xml" />
+    <Content Include="Artefacts\LanguageFiles_FR\Dynamite_Refinements.js" />
     <Content Include="Artefacts\DisplayTemplates\Elements.xml" />
+    <Content Include="Artefacts\DisplayTemplates\Filters\Filter_DefaultCategoryRefinement.html" />
+    <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_NewsCategorySingleResult.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleContentItem.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemContent.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemHeader.html" />
     <Content Include="Artefacts\PageLayouts\CatalogItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\Elements.xml" />
+    <Content Include="Artefacts\PageLayouts\OneColumnWithHeader.aspx" />
+    <Content Include="Artefacts\PageLayouts\OneColumnWithThreeTabs.aspx" />
+    <Content Include="Artefacts\PageLayouts\BootstrapRightSidebar.aspx" />
+    <Content Include="Artefacts\PageLayouts\RightSidebar.aspx" />
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
+    <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />
+    <Content Include="Artefacts\PageLayouts\TwoColumnsOneColumn.aspx" />
+    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ClientScripts.ascx" />
+    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx" />
     <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
       <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
@@ -183,8 +288,34 @@
     <Content Include="Features\CommonCMS_WebParts\CommonCMS_WebParts.Template.xml">
       <DependentUpon>CommonCMS_WebParts.feature</DependentUpon>
     </Content>
+    <Content Include="Features\CrossSitePublishingCMS_CategoryPages\CrossSitePublishingCMS_CategoryPages.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_CategoryPages.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_FacetedNavigation\CrossSitePublishingCMS_FacetedNavigation.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_FacetedNavigation.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_MetadataNavigation\CrossSitePublishingCMS_MetadataNavigation.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_MetadataNavigation.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CommonCMS_ReusableContent\CommonCMS_ReusableContent.Template.xml">
+      <DependentUpon>CommonCMS_ReusableContent.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\StandardPublishingCMS_MetadataNavigation\StandardPublishingCMS_MetadataNavigation.Template.xml">
+      <DependentUpon>StandardPublishingCMS_MetadataNavigation.feature</DependentUpon>
+    </Content>
+    <Content Include="SP.Images\GSoft.Dynamite.Publishing.SP\logo-32x32-Pub.png" />
+    <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.js" />
+    <Content Include="Features\CommonCMS_LanguageFiles\CommonCMS_LanguageFiles.Template.xml">
+      <DependentUpon>CommonCMS_LanguageFiles.feature</DependentUpon>
+    </Content>
+    <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\GSoft.Dynamite.Publishing.min.js">
+      <DependentUpon>GSoft.Dynamite.Publishing.js</DependentUpon>
+    </Content>
+    <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\jquery.validate.min.js" />
+    <Content Include="SP.Layouts\GSoft.Dynamite.Publishing\Js\messages_fr.js" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\Elements.xml" />
     <Content Include="WebParts\FilteredProductShowcaseWebPart\FilteredProductShowcaseWebPartUserControl.ascx" />
+    <Content Include="WebParts\ReusableContentWebPart\Elements.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.Template.xml">
@@ -193,8 +324,8 @@
     <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_Pages\CrossSitePublishingCMS_Pages.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_Pages.feature</DependentUpon>
+    <Content Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ItemPages.feature</DependentUpon>
     </Content>
     <Content Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.Template.xml">
       <DependentUpon>CommonCMS_PageLayouts.feature</DependentUpon>
@@ -205,21 +336,27 @@
     <Content Include="Features\CrossSitePublishingCMS_ResultTypes\CrossSitePublishingCMS_ResultTypes.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultTypes.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_Lists.feature</DependentUpon>
+    <Content Include="Features\CrossSitePublishingCMS_SearchRESTAnonymous\CrossSitePublishingCMS_SearchRESTAnonymous.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_SearchRESTAnonymous.feature</DependentUpon>
     </Content>
-    <Content Include="Resources\GSoft.Dynamite.Publishing.Global.en-US.resx">
+    <Content Include="Features\CommonCMS_Lists\CommonCMS_Lists.Template.xml">
+      <DependentUpon>CommonCMS_Lists.feature</DependentUpon>
+    </Content>
+    <Content Include="SP.Resources\GSoft.Dynamite.Publishing.Global.en-US.resx">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\GSoft.Dynamite.Publishing.Global.fr-FR.resx" />
+    <Content Include="SP.Resources\GSoft.Dynamite.Publishing.Global.fr-FR.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
       <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
       <Name>GSoft.Dynamite.Publishing.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

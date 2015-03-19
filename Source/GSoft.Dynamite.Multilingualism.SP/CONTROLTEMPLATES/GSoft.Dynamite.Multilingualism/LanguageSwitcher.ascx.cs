@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.UI;
 using Autofac;
 using GSoft.Dynamite.Globalization;
+using GSoft.Dynamite.Globalization.Variations;
+using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
@@ -16,19 +20,52 @@ using Microsoft.SharePoint.Publishing;
 
 namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Multilingualism
 {
+    /// <summary>
+    /// Use control for the language switcher
+    /// </summary>
     public partial class LanguageSwitcher : UserControl
     {
         private const string CatalogItemReuseWebPartId = "CatalogItemAssociationWebPart";
 
         /// <summary>
-        /// Gets or sets the view model.
-        /// </summary>
-        /// <value>
         /// The view model.
-        /// </value>
-        public ILanguageSwitcherService LanguageSwitcherService { get; private set; }
+        /// </summary>
+        public IVariationNavigationHelper VariationNavigationHelper { get; private set; }
 
-        private string AssociationKey
+        /// <summary>
+        /// The variation navigation helper
+        /// </summary>
+        public IVariationHelper VariationsHelper { get; private set; }
+
+        /// <summary>
+        /// The multilingualism module managed properties
+        /// </summary>
+        public MultilingualismManagedPropertyInfos MultilingualismManagedPropertyInfos { get; private set; }
+
+        /// <summary>
+        /// The publishing module managed properties
+        /// </summary>
+        public PublishingManagedPropertyInfos PublishingManagedPropertyInfos { get; private set; }
+
+        /// <summary>
+        /// The publishing module web parts properties
+        /// </summary>
+        public PublishingWebPartInfos PublishingWebPartInfos { get; private set; }
+
+        /// <summary>
+        /// Get the current variation navigation context
+        /// </summary>
+        public VariationNavigationType CurrentNavigationContext { get; private set; }
+
+        /// <summary>
+        /// The variation navigation helper
+        /// </summary>
+        public IMultilingualismVariationsConfig MultilingualismVariationsConfig { get; private set; }
+
+        /// <summary>
+        /// The content association key fetched from the catalog item reuse web part.
+        /// </summary>
+        private string ContentAssociationKeyValue
         {
             get
             {
@@ -61,23 +98,23 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// </summary>
         protected override void CreateChildControls()
         {
-            var multilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
-
-            //If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
-            //shared search results from the Content by Search Web Part
-            //if (CatalogNavigationContext.Current.Type == CatalogNavigationType.ItemPage)
-            //{
-            var catalogItemWebPart = new CatalogItemReuseWebPart()
+            // If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
+            // shared search results from the Content by Search Web Part
+            if (this.CurrentNavigationContext == VariationNavigationType.ItemPage)
             {
-                ID = CatalogItemReuseWebPartId,
-                NumberOfItems = 1,
-                UseSharedDataProvider = true,
-                QueryGroupName = "Default",
-                SelectedPropertiesJson = string.Format("['{0}']", multilingualismManagedPropertyInfos.ContentAssociationKey),
-            };
+                var catalogItemWebPart = new CatalogItemReuseWebPart()
+                {
+                    ID = CatalogItemReuseWebPartId,
+                    NumberOfItems = 1,
+                    UseSharedDataProvider = true,
 
-            Controls.Add(catalogItemWebPart);
-            //}
+                    // The query group name must be the same as the search webpart which display the current item to get the association key correctly
+                    QueryGroupName = ((ResultScriptWebPart)this.PublishingWebPartInfos.CatalogItemContentWebPart(string.Empty).WebPart).QueryGroupName,
+                    SelectedPropertiesJson = string.Format("['{0}']", this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name),
+                };
+
+                Controls.Add(catalogItemWebPart);
+            }
         }
 
         /// <summary>
@@ -86,18 +123,73 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter" /> object that receives the server control content.</param>
         protected override void Render(HtmlTextWriter writer)
         {
-            MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(SPContext.Current.Web, delegate()
+            MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(
+                SPContext.Current.Web, 
+                delegate
             {
                 var currentWebUrl = new Uri(SPContext.Current.Web.Url);
-                var labels = this.LanguageSwitcherService.GetPeerVariationLabels(currentWebUrl, Variations.Current, SPContext.Current.Web.CurrentUser);
+                var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);
+                var currentUrl = HttpContext.Current.Request.Url;
+                var variationSettingsInfos = this.MultilingualismVariationsConfig.VariationSettings();
+
+                var formattedLabels = new List<dynamic>();
 
                 if (labels != null && labels.Any())
                 {
-                    var formattedLabels = labels.Select(label => new
+                    foreach (VariationLabel label in labels)
                     {
-                        Title = Languages.TwoLetterISOLanguageNameToFullName(label.Title),
-                        Url = this.LanguageSwitcherService.GetPeerUrl(label, this.AssociationKey).ToString()
-                    }).ToList();
+                        var variationLabel = new VariationLabelInfo(label);
+
+                        Uri itemUrl;
+                        switch (this.CurrentNavigationContext)
+                        {
+                            case VariationNavigationType.ItemPage:
+                                itemUrl = this.VariationNavigationHelper.GetPeerCatalogItemUrl(
+                                    currentUrl,
+                                    variationLabel,
+                                    this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name,
+                                    this.ContentAssociationKeyValue,
+                                    this.MultilingualismManagedPropertyInfos.ItemLanguage.Name,
+                                    this.PublishingManagedPropertyInfos.Navigation.Name);
+                                break;
+
+                            case VariationNavigationType.CategoryPage:
+                                itemUrl = this.VariationNavigationHelper.GetPeerCatalogCategoryUrl(currentUrl, variationLabel);
+                                break;
+
+                            // Default SharePoint Page
+                            default:
+                                itemUrl = this.VariationNavigationHelper.GetPeerPageUrl(currentUrl, variationLabel);
+                                break;
+                        }
+
+                        // Gets the default title value of the variation label
+                        var title = Languages.TwoLetterISOLanguageNameToFullName(label.Title);
+                        var cssClass = string.Empty;
+
+                        // Gets a corresponding Variation Setting Info Object
+                        var variationSettingsInfo = variationSettingsInfos.Labels.Where(variation => variation.Title == label.Title).FirstOrDefault();
+
+                        // Updates the title if custom title is set
+                        if (variationSettingsInfo != null)
+                        {
+                            if (!string.IsNullOrEmpty(variationSettingsInfo.CustomTitleValue))
+                            {
+                                title = variationSettingsInfo.CustomTitleValue; 
+                            }
+
+                            cssClass = variationSettingsInfo.CssClass;
+                        }
+
+                        var itemVariationInfo = new
+                        {
+                            Title = title,
+                            Url = itemUrl,
+                            CssClass = cssClass
+                        };
+                        
+                        formattedLabels.Add(itemVariationInfo);
+                    }
 
                     this.LabelsRepeater.DataSource = formattedLabels;
                     this.LabelsRepeater.DataBind();
@@ -107,9 +199,23 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
             base.Render(writer);
         }
 
+        /// <summary>
+        /// Event occurs on the page loading
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">The event arguments</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.LanguageSwitcherService = MultilingualismContainerProxy.Current.Resolve<ILanguageSwitcherService>();
+            // Initialize helpers
+            this.VariationNavigationHelper = MultilingualismContainerProxy.Current.Resolve<IVariationNavigationHelper>();
+            this.VariationsHelper = MultilingualismContainerProxy.Current.Resolve<IVariationHelper>();
+            this.PublishingManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<PublishingManagedPropertyInfos>();
+            this.MultilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
+            this.PublishingWebPartInfos = MultilingualismContainerProxy.Current.Resolve<PublishingWebPartInfos>();
+            this.MultilingualismVariationsConfig = MultilingualismContainerProxy.Current.Resolve<IMultilingualismVariationsConfig>();
+
+            // Determine the navigation context type
+            this.CurrentNavigationContext = this.VariationNavigationHelper.CurrentNavigationContextType;
         }
     }
 }

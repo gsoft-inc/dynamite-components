@@ -1,12 +1,11 @@
 ﻿using System.Web.UI.WebControls.WebParts;
-using GSoft.Dynamite.Helpers;
 using GSoft.Dynamite.WebParts;
 using Microsoft.Office.Server.Search.WebControls;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     /// <summary>
-    /// Class to create the Basic Web Parts
+    /// WebPart definitions for the publishing module
     /// </summary>
     public class PublishingWebPartInfos
     {
@@ -18,8 +17,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// Default Constructor
         /// </summary>
         /// <param name="webPartHelper">The WebPart helper</param>
-        /// <param name="resultSourceInfos">The Result Source infos</param>
-        /// <param name="displayTemplateInfos">The display templates infos</param>
+        /// <param name="resultSourceInfos">The Result Source info</param>
+        /// <param name="displayTemplateInfos">The display templates info</param>
         public PublishingWebPartInfos(IWebPartHelper webPartHelper, PublishingResultSourceInfos resultSourceInfos, PublishingDisplayTemplateInfos displayTemplateInfos)
         {
             this.webPartHelper = webPartHelper;
@@ -28,9 +27,10 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
-        /// Web part for Item Content
+        /// WebPart for a single target item display (e.g. the "About Us" page)
         /// </summary>
-        /// <returns>WebPart info object</returns>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
+        /// <returns>The WebPart info object</returns>
         public WebPartInfo TargetItemContentWebPart(string zoneName)
         {
             // When you set a result source to a Search WebPart, you need to use at least the Properties["SourceName"] and Properties["SourceLevel"] attributes
@@ -39,36 +39,41 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["SourceLevel"] = this.resultSourceInfos.SingleTargetItem().Level.ToString();
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
-
-            return new WebPartInfo("Target Item Content Webpart", zoneName)
+            // To set a display template manually, use this line
+            // ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl
+            var webpart = new ResultScriptWebPart()
             {
-                WebPart = new ResultScriptWebPart()
-                {
-                    DataProviderJSON = querySettings.PropertiesJson,
-                    // To set a display template manually, use this line
-                    //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
-                    ChromeType = PartChromeType.None,
-                    ShowAdvancedLink = false,
-                    ShowBestBets = false,
-                    ShowAlertMe = false,
-                    ShowLanguageOptions = false,
-                    ShowDidYouMean = false,
-                    ShowPaging = false,
-                    ShowResultCount = false,
-                    ShowPersonalFavorites = false,
-                    ShowSortOptions = false,
-                    ShowViewDuplicates = false,
-                    ShowDataErrors = false,
-                    ShowDefinitions = false,
-                    ShowPreferencesLink = false,
-                    ShowUpScopeMessage = false,
-                    ShowResults = true,
-                    BypassResultTypes = false,
-                    ResultsPerPage = 1
-                }
+                Title = "Target Item Content Webpart",
+                DataProviderJSON = querySettings.PropertiesJson,
+                ChromeType = PartChromeType.None,
+                ShowAdvancedLink = false,
+                ShowBestBets = false,
+                ShowAlertMe = false,
+                ShowLanguageOptions = false,
+                ShowDidYouMean = false,
+                ShowPaging = false,
+                ShowResultCount = false,
+                ShowPersonalFavorites = false,
+                ShowSortOptions = false,
+                ShowViewDuplicates = false,
+                ShowDataErrors = false,
+                ShowDefinitions = false,
+                ShowPreferencesLink = false,
+                ShowUpScopeMessage = false,
+                ShowResults = true,
+                BypassResultTypes = false,
+                ResultsPerPage = 1,
+                QueryGroupName = "SingleItem"
             };
+
+            return new WebPartInfo(zoneName, webpart);
         }
 
+        /// <summary>
+        /// WebPart for a single catalog item display (e.g. a single news)
+        /// </summary>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
+        /// <returns>The WebPart info object</returns>
         public WebPartInfo CatalogItemContentWebPart(string zoneName)
         {
             var querySettings = new DataProviderScriptWebPart();
@@ -76,49 +81,107 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             querySettings.Properties["SourceLevel"] = this.resultSourceInfos.SingleCatalogItem().Level.ToString();
             querySettings.Properties["QueryTemplate"] = string.Empty;
 
-
-            return new WebPartInfo("Catalog Item Content Webpart", zoneName)
+            var webpart = new ResultScriptWebPart()
             {
-                WebPart = new ResultScriptWebPart()
-                {
-                    DataProviderJSON = querySettings.PropertiesJson,
-                    //ItemBodyTemplateId = this._displayTemplateInfos.ItemSingleContentItem().ItemTemplateIdUrl,
-                    ChromeType = PartChromeType.None,
-                    ShowAdvancedLink = false,
-                    ShowBestBets = false,
-                    ShowAlertMe = false,
-                    ShowLanguageOptions = false,
-                    ShowDidYouMean = false,
-                    ShowPaging = false,
-                    ShowResultCount = false,
-                    ShowPersonalFavorites = false,
-                    ShowSortOptions = false,
-                    ShowViewDuplicates = false,
-                    ShowDataErrors = false,
-                    ShowDefinitions = false,
-                    ShowPreferencesLink = false,
-                    ShowUpScopeMessage = false,
-                    ShowResults = true,
-                    BypassResultTypes = false,
-                    ResultsPerPage = 1
-                }
+                Title = "Catalog Item Content Webpart",
+                DataProviderJSON = querySettings.PropertiesJson,
+                ChromeType = PartChromeType.None,
+                ShowAdvancedLink = false,
+                ShowBestBets = false,
+                ShowAlertMe = false,
+                ShowLanguageOptions = false,
+                ShowDidYouMean = false,
+                ShowPaging = false,
+                ShowResultCount = false,
+                ShowPersonalFavorites = false,
+                ShowSortOptions = false,
+                ShowViewDuplicates = false,
+                ShowDataErrors = false,
+                ShowDefinitions = false,
+                ShowPreferencesLink = false,
+                ShowUpScopeMessage = false,
+                ShowResults = true,
+                BypassResultTypes = false,
+                ResultsPerPage = 1,
+                QueryGroupName = "SingleItem"
             };
+
+            return new WebPartInfo(zoneName, webpart);
         }
 
         /// <summary>
-        /// Create a Place Holder webpartinfo
+        /// Create a place holder WebPart
         /// </summary>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
         /// <param name="x">Horizontal dimension in pixel</param>
         /// <param name="y">Vertical dimension in pixel</param>
         /// <param name="backgroundColor">Background color in hex ex: <c>"ffffff"</c> or <c>"e3b489"</c></param>
         /// <param name="fontColor">font color in hex ex: <c>"ffffff"</c> or <c>"e3b489"</c></param>
-        /// <returns>A webpartinfo containing the webpart</returns>
+        /// <returns>The WebPart definition</returns>
         public WebPartInfo PlaceHolder(string zoneName, int x, int y, string backgroundColor, string fontColor)
         {
-            return new WebPartInfo("Place Holder", zoneName)
+            var webpart = this.webPartHelper.CreatePlaceholderWebPart(x, y, backgroundColor, fontColor);
+
+            return new WebPartInfo(zoneName, webpart);
+        }
+
+        /// <summary>
+        /// WebPart for a multiple catalog items display (e.g. all news)
+        /// </summary>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
+        /// <returns>The WebPart info object</returns>
+        public WebPartInfo CatalogCategoryItemsMainWebPart(string zoneName)
+        {
+            var querySettings = new DataProviderScriptWebPart();
+            querySettings.Properties["SourceName"] = this.resultSourceInfos.CatalogCategoryItems().Name;
+            querySettings.Properties["SourceLevel"] = this.resultSourceInfos.CatalogCategoryItems().Level.ToString();
+            querySettings.Properties["QueryTemplate"] = string.Empty;
+
+            var webpart = new ResultScriptWebPart()
             {
-                WebPart = this.webPartHelper.CreatePlaceholderWebPart(x, y, backgroundColor, fontColor)
+                Title = "Catalog Category Items Main Content Webpart",
+                DataProviderJSON = querySettings.PropertiesJson,
+                ChromeType = PartChromeType.None,
+                ShowAdvancedLink = false,
+                ShowBestBets = false,
+                ShowAlertMe = false,
+                ShowLanguageOptions = false,
+                ShowDidYouMean = false,
+                ShowPaging = true,
+                ShowResultCount = false,
+                ShowPersonalFavorites = false,
+                ShowSortOptions = false,
+                ShowViewDuplicates = false,
+                ShowDataErrors = false,
+                ShowDefinitions = false,
+                ShowPreferencesLink = false,
+                ShowUpScopeMessage = false,
+                ShowResults = true,
+                BypassResultTypes = false,
+                ResultsPerPage = 20,
+                QueryGroupName = "CatalogCategoryItems"
             };
+
+            return new WebPartInfo(zoneName, webpart);
+        }
+
+        /// <summary>
+        /// WebPart for a catalog items refinements (e.g. all news)
+        /// </summary>
+        /// <param name="zoneName">The name of the zone in the page layout</param>
+        /// <returns>The WebPart info object</returns>
+        public WebPartInfo CatalogCategoryRefinementWepart(string zoneName)
+        {
+            var webpart = new RefinementScriptWebPart()
+            {
+                Title = "Catalog Category Items Refinement Content Webpart",
+                UseManagedNavigationRefiners = true,
+                ChromeType = PartChromeType.None,
+                ShowDataErrors = false,
+                QueryGroupName = "CatalogCategoryItems"
+            };
+
+            return new WebPartInfo(zoneName, webpart);
         }
     }
 }

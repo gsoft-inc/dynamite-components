@@ -5,23 +5,37 @@ using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
+    /// <summary>
+    /// Configuration for the reference of the Taxonomy Term Groups
+    /// </summary>
     public class PublishingTaxonomyConfig : IPublishingTaxonomyConfig
     {
-        private readonly PublishingTermGroupInfos _termGroupInfoValues;
+        private readonly PublishingTermGroupInfos termGroupInfoValues;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="termGroupInfoValues">The term groups info objects</param>
         public PublishingTaxonomyConfig(PublishingTermGroupInfos termGroupInfoValues)
         {
-            _termGroupInfoValues = termGroupInfoValues;
+            this.termGroupInfoValues = termGroupInfoValues;
         }
 
-        public IList<TermGroupInfo> TermGroups()
+        /// <summary>
+        /// Property that return all references of taxonomy term groups used across the solution
+        /// </summary>
+        /// <returns>The term groups</returns>
+        public IList<TermGroupInfo> TermGroups
         {
-            var termGroups = new List<TermGroupInfo>
+            get
             {
-                {_termGroupInfoValues.Navigation()}
-            };
+                var termGroups = new List<TermGroupInfo>
+                {
+                    this.termGroupInfoValues.Navigation()
+                };
 
-            return termGroups;
+                return termGroups;
+            }          
         }
     }
 }

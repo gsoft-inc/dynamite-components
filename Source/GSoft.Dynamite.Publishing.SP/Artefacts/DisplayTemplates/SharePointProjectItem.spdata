@@ -5,5 +5,7 @@
     <ProjectItemFile Source="Search\Item\Item_SingleContentItem.html" Target="DisplayTemplates\Search\Item\" Type="ElementFile" />
     <ProjectItemFile Source="Search\Item\Item_SingleNewsItemContent.html" Target="DisplayTemplates\Search\Item\" Type="ElementFile" />
     <ProjectItemFile Source="Search\Item\Item_SingleNewsItemHeader.html" Target="DisplayTemplates\Search\Item\" Type="ElementFile" />
+    <ProjectItemFile Source="Search\Item\Item_NewsCategorySingleResult.html" Target="DisplayTemplates\Search\Item\" Type="ElementFile" />
+    <ProjectItemFile Source="Filters\Filter_DefaultCategoryRefinement.html" Target="DisplayTemplates\Filters\" Type="ElementFile" />
   </Files>
 </ProjectItem>

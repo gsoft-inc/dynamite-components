@@ -1,0 +1,157 @@
+﻿/* GSoft.Dynamite.Design */
+@fixed-width: 1000px;
+@width-home-big: 760px;
+@width-home-small: 210px;
+@width-page-big: 690px;
+@width-page-small: 250px;
+
+/****************/
+/* Base Element */
+/****************/
+a {
+    text-decoration: none;
+}
+
+a.hover {
+    text-decoration: underline;
+}
+
+/*******************/
+/* Generic Classes */
+/*******************/
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.fclear-left {
+    float: left;
+    clear: left;
+}
+
+.fclear-right {
+    float: right;
+    clear: right;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.br {
+    clear: left;
+}
+
+/*********************/
+/* Base Classes */
+/*********************/
+
+.fixed-width {
+    width: @fixed-width;
+}
+
+.container, .row, .col-md-12 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row .right-sidebar, .row .two-columns {
+    width: @fixed-width;
+    margin: 0 auto;
+}
+
+.row .two-columns .colunm-half {
+    width: 50%;
+    float: left;
+}
+
+.row .row-notifications {
+    margin-bottom: 15px;
+}
+
+/***************/
+/* Grid Layout */
+/***************/
+.row {
+}
+
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+    display: table;
+    content: " ";
+}
+
+.container:after,
+.row:after {
+    clear: both;
+}
+
+.col-big, .col-small {
+    position: relative;
+    min-height: 1px;
+}
+
+/*******************/
+/* Page Layouts */
+/*******************/
+
+.right-sidebar .col-wide {
+    float: left;
+    width: @width-page-big;
+}
+
+.right-sidebar .col-narrow {
+    float: right;
+    width: @width-page-small;
+}
+
+
+//Two columns and one column
+
+/*******************/
+/* Base MasterPage */
+/*******************/
+
+.searchInputBox {
+    float: right;
+}
+
+#s4-titlerow {
+    padding: 0;
+}
+
+.breadcrumb {
+    padding: 5px 0;
+}
+
+.languageSwitcherToggle {
+    float: right;
+}
+
+.languageSwitcherToggle img {
+    display: none;
+}

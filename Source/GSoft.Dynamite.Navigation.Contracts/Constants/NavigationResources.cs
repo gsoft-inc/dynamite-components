@@ -1,5 +1,8 @@
 ﻿namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {
+    /// <summary>
+    /// Resources configurations for the navigation module
+    /// </summary>
     public static class NavigationResources
     {
         /// <summary>
@@ -30,16 +33,6 @@
         public static readonly string FieldTitleSlugDescription = "Field_TitleSlug_Desc";
 
         /// <summary>
-        /// The field Publishing Start Date Name
-        /// </summary>
-        public static readonly string FieldPublishingStartDateName = "Field_PublishingStartDate_Name";
-
-        /// <summary>
-        /// The field Publishing Start Date Description
-        /// </summary>
-        public static readonly string FieldPublishingStartDateDescription = "Field_PublishingStartDate_Desc";
-
-        /// <summary>
         /// The field Occurrence Link Location Name
         /// </summary>
         public static readonly string FieldOccurrenceLinkLocationName = "Field_OccurrenceLinkLocation_Name";
@@ -50,7 +43,5 @@
         public static readonly string FieldOccurrenceLinkLocationDescription = "Field_OccurrenceLinkLocation_Description";
 
         #endregion
-
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 <head>
-    <title>Single Content Item</title>
+    <title>Dynamite - Single Content Item</title>
 
     <!--[if gte mso 9]><xml>
     <mso:CustomDocumentProperties>
@@ -17,20 +17,11 @@
     <div id="Item_DynamiteSingleContentItem">
         <!--#_
             if(!$isNull(ctx.CurrentItem) && !$isNull(ctx.ClientControl))
-            {
-            var title = $getItemValue(ctx, "Title");
-            var body = $getItemValue(ctx, "PublishingPageContentOWSHTML");
-
-            if ($isEmptyString(title))
-            {
-                title = $htmlEncode(ctx.CurrentItem.Title);
-            }
+            {            
+                var body = $getItemValue(ctx, "PublishingPageContentOWSHTML");
         _#-->
         <div>
-            <h2>_#= title =#_</h2>
-            <div>
-                _#= body =#_
-            </div>
+            _#= body =#_
         </div>
         <!--#_
             }

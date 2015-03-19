@@ -4,57 +4,119 @@ using ManagedPropertyInfo = GSoft.Dynamite.Search.ManagedPropertyInfo;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
+    /// <summary>
+    /// Search managed properties for the publishing module
+    /// </summary>
     public class PublishingManagedPropertyInfos
     {
         /// <summary>
         /// The navigation managed property name
         /// </summary>
-        public ManagedPropertyInfo Navigation = new ManagedPropertyInfo("owstaxIdDynamiteNavigation",
-            ManagedDataType.Text)
+        public ManagedPropertyInfo Navigation
         {
-            CrawledProperties = new Dictionary<string, int>()
+            get
             {
-                {"ows_taxId_DynamiteNavigation", 1}
-            },
-            RespectPriority = true,
-            Retrievable = true
-        };
+                return new ManagedPropertyInfo("owstaxIdDynamiteNavigation", ManagedDataType.Text);
+            }
+        }
 
         /// <summary>
-        /// The navigation text managed property name
+        /// The navigation text managed property
         /// </summary>
-        public ManagedPropertyInfo NavigationText = new ManagedPropertyInfo("DynamiteNavigationOWSTEXT",
-            ManagedDataType.Text)
+        public ManagedPropertyInfo NavigationText
         {
-            CrawledProperties = new Dictionary<string, int>()
+            get
             {
-                {"ows_DynamiteNavigation", 1}
-            },
-            RespectPriority = true,
-            Retrievable = true
-        };
-   
+                return new ManagedPropertyInfo(
+                    "DynamiteNavigationOWSTEXT",
+                    ManagedDataType.Text)
+                    {
+                        CrawledProperties = new Dictionary<string, int>()
+                        {
+                            { "ows_DynamiteNavigation", 1 }
+                        },
+                        RespectPriority = true,
+                        Retrievable = true,
+                    };
+            }
+        } 
+
+        /// <summary>
+        /// The summary text managed property
+        /// </summary>
+        public ManagedPropertyInfo Summary
+        {
+            get
+            {
+                return new ManagedPropertyInfo(
+                    "DynamiteSummaryOWSMTXT",
+                    ManagedDataType.Text)
+                    {
+                        CrawledProperties = new Dictionary<string, int>()
+                        {
+                            { "ows_r_MTXT_DynamiteSummary", 1 }
+                        },
+                        RespectPriority = true
+                    };
+                }
+        } 
+
         #region SharePoint builtin Managed Properties
 
         /// <summary>
-        /// List item Id
+        /// The OOTB ListItemId managed property
         /// </summary>
-        public ManagedPropertyInfo ListItemId = new ManagedPropertyInfo("ListItemID", ManagedDataType.Text);
+        public ManagedPropertyInfo ListItemId 
+        {
+            get
+            {
+                return new ManagedPropertyInfo("ListItemID", ManagedDataType.Text);
+            }
+        } 
 
         /// <summary>
-        /// ContentTypeId
+        /// The OOTB ContentTypeId managed property
         /// </summary>
-        public ManagedPropertyInfo ContentTypeId = new ManagedPropertyInfo("ContentTypeId", ManagedDataType.Text);
+        public ManagedPropertyInfo ContentTypeId
+        {
+            get
+            {
+                return new ManagedPropertyInfo("ContentTypeId", ManagedDataType.Text);
+            }
+        } 
 
         /// <summary>
-        /// Title
+        /// The OOTB Title managed property
         /// </summary>
-        public ManagedPropertyInfo Title = new ManagedPropertyInfo("Title", ManagedDataType.Text);
+        public ManagedPropertyInfo Title
+        {
+            get
+            {
+                return new ManagedPropertyInfo("Title", ManagedDataType.Text);
+            }
+        } 
 
         /// <summary>
-        /// PublishingPageContent
+        /// The OOTB PublishingPageContent managed property
         /// </summary>
-        public ManagedPropertyInfo PublishingPageContent = new ManagedPropertyInfo("PublishingPageContentOWSHTML", ManagedDataType.Text);  
+        public ManagedPropertyInfo PublishingPageContent
+        {
+            get
+            {
+                return new ManagedPropertyInfo("PublishingPageContentOWSHTML", ManagedDataType.Text);
+            }
+        }
+
+        /// <summary>
+        /// The OOTB PublishingImage managed property
+        /// </summary>
+        public ManagedPropertyInfo PublishingImage
+        {
+            get
+            {
+                return new ManagedPropertyInfo("PublishingImage", ManagedDataType.Text);
+            }
+        }
 
         #endregion
     }

@@ -21,7 +21,7 @@ namespace GSoft.Dynamite.LifeCycle.Contracts.Controls
         List<RefinementCategory> BuildDateRangeRefiners(string startDatePropertyName, string endDatePropertyName);
 
         /// <summary>
-        /// Method to build a date range filter used with the keywordsearch
+        /// Method to build a date range filter used with the search keyword
         /// </summary>
         /// <param name="startDatePropertyName">The start date property name</param>
         /// <param name="endDatePropertyName">The end date property name</param>

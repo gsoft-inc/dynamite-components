@@ -53,7 +53,7 @@ namespace GSoft.Dynamite.LifeCycle.Core.Controls
         }
 
         /// <summary>
-        /// Method to build a date range filter used with the keywordsearch
+        /// Method to build a date range filter used with the search keyword
         /// </summary>
         /// <param name="startDatePropertyName">The start date property name</param>
         /// <param name="endDatePropertyName">The end date property name</param>
@@ -66,7 +66,8 @@ namespace GSoft.Dynamite.LifeCycle.Core.Controls
             {
                 var today = SPUtility.CreateISO8601DateTimeFromSystemDateTime(DateTime.Now.ToUniversalTime());
 
-                return string.Format("and({0}:range(min,{2},to=\"le\"), {1}:range({2},max, from=\"ge\"))",
+                return string.Format(
+                    "and({0}:range(min,{2},to=\"le\"), {1}:range({2},max, from=\"ge\"))",
                     startDatePropertyName,
                     endDatePropertyName,
                     today);

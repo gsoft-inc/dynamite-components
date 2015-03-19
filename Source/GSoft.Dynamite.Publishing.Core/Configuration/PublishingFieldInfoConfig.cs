@@ -5,20 +5,31 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
-    public class PublishingFieldInfoConfig: IPublishingFieldInfoConfig
+    /// <summary>
+    /// The fields configuration for the publishing module
+    /// </summary>
+    public class PublishingFieldInfoConfig : IPublishingFieldInfoConfig
     {
         private readonly PublishingFieldInfos fieldInfoValues;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="fieldInfoValues">The filed info objects configuration</param>
         public PublishingFieldInfoConfig(PublishingFieldInfos fieldInfoValues)
         {
             this.fieldInfoValues = fieldInfoValues;
         }
 
-        public IList<IFieldInfo> Fields
+        /// <summary>
+        /// Property that return all the fields to create in the publishing module
+        /// </summary>
+        /// <returns>The fields</returns>
+        public IList<BaseFieldInfo> Fields
         {
             get
             {
-                var fields = new List<IFieldInfo>
+                var fields = new List<BaseFieldInfo>
                 {
                     { this.fieldInfoValues.Navigation() },
                     { this.fieldInfoValues.Summary() },

@@ -43,9 +43,9 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.0.0-pre10131\lib\net45\GSoft.Dynamite.dll</HintPath>
+    <Reference Include="GSoft.Dynamite, Version=2.1.0.263, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.1.0.263\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -61,6 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Configuration\PublishingFacetedNavigationInfoConfig.cs" />
     <Compile Include="Configuration\PublishingListInfoConfig.cs" />
     <Compile Include="Configuration\PublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\PublishingContentTypeInfoConfig.cs" />
@@ -68,12 +72,16 @@
     <Compile Include="Configuration\PublishingFieldInfoConfig.cs" />
     <Compile Include="Configuration\PublishingFolderInfoConfig.cs" />
     <Compile Include="Configuration\PublishingManagedPropertyConfig.cs" />
+    <Compile Include="Configuration\PublishingMetadataNavigationSettingsConfig.cs" />
     <Compile Include="Configuration\PublishingPageLayoutInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultTypeInfoConfig.cs" />
+    <Compile Include="Configuration\PublishingReusableContentConfig.cs" />
     <Compile Include="Configuration\PublishingTaxonomyConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\PublishingRegistrationModule.cs" />
+    <Compile Include="Repositories\ReusableContentRepository.cs" />
+    <Compile Include="Services\ReusableContentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
@@ -87,6 +95,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

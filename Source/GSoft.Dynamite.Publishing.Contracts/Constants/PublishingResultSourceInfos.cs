@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using GSoft.Dynamite.Search;
+﻿using GSoft.Dynamite.Search;
+using GSoft.Dynamite.Search.Enums;
 using Microsoft.Office.Server.Search.Administration;
-using Microsoft.Office.Server.Search.Query;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
     /// <summary>
-    /// Holds the Result Source infos for the Publishing module
+    /// Result Source definitions for the publishing module
     /// </summary>
     public class PublishingResultSourceInfos
     {
@@ -22,12 +21,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Single Catalog Item",
                 Level = SearchObjectLevel.Ssa,
-                UpdateMode = UpdateBehavior.OverwriteResultSource,
+                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
                 Query = string.Empty,
-                SortSettings = new Dictionary<string, SortDirection>()
-                {
-                    {"ListItemID",SortDirection.Ascending}
-                }
             };
         }
 
@@ -41,15 +36,30 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
             {
                 Name = "Single Target Item",
                 Level = SearchObjectLevel.Ssa,
-                UpdateMode = UpdateBehavior.OverwriteResultSource,
+                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
                 Query = string.Empty
+            };
+        }
+
+        /// <summary>
+        /// A single target item
+        /// </summary>
+        /// <returns>A result source info object</returns>
+        public ResultSourceInfo CatalogCategoryItems()
+        {
+            return new ResultSourceInfo()
+            {
+                Name = "Catalog Category Items",
+                Level = SearchObjectLevel.Ssa,
+                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
+                Query = "GPP|{Term.IdWithChildren}"
             };
         }
 
         /// <summary>
         /// Method to Append a query to the Search KQL prefix
         /// </summary>
-        /// <param name="queryToAppend"></param>
+        /// <param name="queryToAppend">Query text to append to the existing query</param>
         /// <returns>The string prefixed with the Search KQL</returns>
         public static string AppendToSearchKqlPrefix(string queryToAppend)
         {

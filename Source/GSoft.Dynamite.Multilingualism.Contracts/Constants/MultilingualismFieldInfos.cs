@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {
     /// <summary>
-    /// Field infos for Multilingualism module
+    /// Fields settings for the multilingualism module
     /// </summary>
     public class MultilingualismFieldInfos
     {
@@ -35,8 +32,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 new Guid("{71154E23-E1A9-48B7-8DC7-556F6F76E4EB}"),
                 MultilingualismResources.FieldContentAssociationKeyName,
                 MultilingualismResources.FieldContentAssociationKeyDescription,
-                PublishingResources.FieldGroup
-                )
+                PublishingResources.FieldGroup)
             {
                 Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,
@@ -57,8 +53,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 new Guid("{75DC379D-2A78-4EC0-A95B-CFE04AF6631E}"),
                 MultilingualismResources.FieldItemLanguageName,
                 MultilingualismResources.FieldItemLanguageDescription,
-                PublishingResources.FieldGroup
-                )
+                PublishingResources.FieldGroup)
             {
                 Required = RequiredType.NotRequired,
                 IsHiddenInDisplayForm = false,

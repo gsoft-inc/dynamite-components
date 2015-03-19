@@ -7,12 +7,13 @@ using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Multilingualism.Core.Configuration;
 using GSoft.Dynamite.Multilingualism.Core.Services;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Constants;
-
 
 namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
 {
-    public class MultilingualismRegistrationModule: Module
+    /// <summary>
+    /// Multilingualism <c>Autofac</c> module
+    /// </summary>
+    public class MultilingualismRegistrationModule : Module
     {
         /// <summary>
         /// Registers the modules type bindings
@@ -38,9 +39,6 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
             builder.RegisterType<MultilingualismVariationsConfig>().Named<IMultilingualismVariationsConfig>("multilingualism");
 
-            // Multilingualism Service
-            builder.RegisterType<LanguageSwitcherService>().As<ILanguageSwitcherService>();
-
             // Content Types
             builder.RegisterType<MultilingualismContentTypeInfoConfig>().As<IMultilingualismContentTypeInfoConfig>();
 
@@ -54,7 +52,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismEventReceiverInfoConfig>().As<IMultilingualismEventReceiverInfoConfig>();
 
             // Managed Properties
-            builder.RegisterType<MultilingualismManagedPropertyInfoConfig>().As<IGlobalManagedPropertyInfosConfig>();
+            builder.RegisterType<MultilingualismManagedPropertyInfoConfig>().As<ICommonManagedPropertyInfosConfig>();
 
             // Result Sources
             builder.RegisterType<MultilingualismResultSourceInfoConfig>().As<IMultilingualismResultSourceInfoConfig>();

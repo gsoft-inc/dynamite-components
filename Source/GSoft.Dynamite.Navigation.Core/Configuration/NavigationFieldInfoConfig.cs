@@ -2,36 +2,45 @@
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
+    /// <summary>
+    /// Fields configuration for the navigation module
+    /// </summary>
     public class NavigationFieldInfoConfig : INavigationFieldInfoConfig
     {
-        private readonly NavigationFieldInfos _baseNavigationFieldInfos;
+        private readonly NavigationFieldInfos baseNavigationFieldInfos;
+        private readonly PublishingFieldInfos basePublishingFieldInfos;
 
         /// <summary>
-        /// Base constructor
+        /// Default constructor
         /// </summary>
-        /// <param name="baseMultilingualismFieldInfos">The fields infos for multilingualism</param>
-        public NavigationFieldInfoConfig(NavigationFieldInfos baseMultilingualismFieldInfos)
+        /// <param name="baseMultilingualismFieldInfos">The fields info for multilingualism</param>
+        /// <param name="basePublishingFieldInfos">The base publishing field information.</param>
+        public NavigationFieldInfoConfig(
+            NavigationFieldInfos baseMultilingualismFieldInfos,
+            PublishingFieldInfos basePublishingFieldInfos)
         {
-            this._baseNavigationFieldInfos = baseMultilingualismFieldInfos;
+            this.baseNavigationFieldInfos = baseMultilingualismFieldInfos;
+            this.basePublishingFieldInfos = basePublishingFieldInfos;
         }
 
         /// <summary>
-        /// Property to return the fields needed for the solution
+        /// Property that return all the fields to create or configure in the navigation module
         /// </summary>
-        public IList<IFieldInfo> Fields
+        public IList<BaseFieldInfo> Fields
         {
             get
             {
                 // Get the base publishing field info 
-                var baseFieldInfo = new List<IFieldInfo>
+                var baseFieldInfo = new List<BaseFieldInfo>
                 {
-                    this._baseNavigationFieldInfos.DateSlug(),
-                    this._baseNavigationFieldInfos.TitleSlug(),
-                    this._baseNavigationFieldInfos.PublishingStartDate(),
-                    this._baseNavigationFieldInfos.OccurrenceLinkLocation()
+                    this.baseNavigationFieldInfos.DateSlug(),
+                    this.baseNavigationFieldInfos.TitleSlug(),
+                    this.basePublishingFieldInfos.PublishingStartDate(),
+                    this.baseNavigationFieldInfos.OccurrenceLinkLocation()
                 };
 
                 return baseFieldInfo;
