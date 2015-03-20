@@ -14,8 +14,7 @@
           <PermissionLevel Name="Read"/>
         </PermissionLevels>
         <Users>
-          <!-- Add all users -->
-          <User>NT Authority\Authenticated Users</User>
+          [[DSP_DefaultPublishingVisitorsGroupUsers]]
         </Users>
       </Group>
       <Group Name="Dynamite - Members" OwnerName="[[DSP_PortalAdmin]]">
@@ -23,7 +22,6 @@
           <PermissionLevel Name="Contribute"/>
         </PermissionLevels>
         <Users>
-          <User>[[DSP_PortalAdmin]]</User>
         </Users>
       </Group>
       <Group Name="Dynamite - Owners" OwnerName="[[DSP_PortalAdmin]]" IsAssociatedOwnerGroup="true">
@@ -44,7 +42,6 @@
           <PermissionLevel Name="Read"/>
         </PermissionLevels>
         <Users>
-          [[DSP_DefaultVisitorsGroupUsers]]
         </Users>
       </Group>
       <Group Name="Default - Members" OwnerName="[[DSP_PortalAdmin]]">
@@ -52,7 +49,6 @@
           <PermissionLevel Name="Contribute"/>
         </PermissionLevels>
         <Users>
-          [[DSP_DefaultMembersGroupUsers]]
         </Users>
       </Group>
       <Group Name="Default - Owners" OwnerName="[[DSP_PortalAdmin]]" IsAssociatedOwnerGroup="true">

@@ -50,6 +50,15 @@ $DSP_PictureLibraryName = "Site Collection Images"
 $DSP_PortalAuthoringRootWebs = @('rh','com')
 
 # ******************************************
+# Permissions Configuration 
+# ******************************************
+$DSP_PortalAuthoringOwners = @"
+	<User>OFFICE\yohan.belval</User>
+	<User>OFFICE\alexandre.masse</User>
+	<User>OFFICE\louis-philippe.valle</User>
+"@
+
+# ******************************************
 # Common Tokens
 # ******************************************
 . ./Tokens/Tokens.Common.ps1
