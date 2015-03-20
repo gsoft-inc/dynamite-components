@@ -29,7 +29,6 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         public EventReceiverInfo TranslatableItemEventAdded()
         {
             return new EventReceiverInfo(
-                
                 this.publishingContentTypeInfos.TranslatableItem(),
                 SPEventReceiverType.ItemAdded);
         }
