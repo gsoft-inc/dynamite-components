@@ -40,8 +40,6 @@ $DSP_SourceLabel = "en"
 # ******************************************
 # By default, pictures are uploaded in the specified pictures library on the authoring root site.
 # If you need to upload pictures on another site collection, modify tokens bellow.
-
-$DSP_PortalDocCenterHostNamePath = ""
 $DSP_UploadPicturesInDocCenter = $false
 $DSP_PictureLibraryName = "Site Collection Images"
 
