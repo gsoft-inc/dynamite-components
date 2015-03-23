@@ -81,6 +81,7 @@ try {
 
 	#region ********** DOCUMENT MANAGEMENT MODULE ********** #
 	# Notes: We need to import content after all content types were created
+	.\Modules\Docs\DOC_01\Install-DOC01.ps1
 	.\Modules\Docs\DOC_02\Install-DOC02.ps1
 	#endregion
 
