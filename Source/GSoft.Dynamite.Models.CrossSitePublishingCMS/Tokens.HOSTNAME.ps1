@@ -14,6 +14,7 @@ $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.x
 $DSP_PortalWebAppUrl = "http://HOSTNAME/"
 $DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
 $DSP_PortalAuthoringHostNamePath = "http://authoring.dynamite.com"
+$DSP_PortalDocsHostNamePath = "http://docs.dynamite.com"
 $DSP_PortalAuthoringRootWebUrl = $DSP_PortalAuthoringHostNamePath 
 $DSP_PortalAdmin = "OFFICE\YOUR.NAME"
 $DSP_PortalDatabaseName = "SP2013_Content_Portal"
@@ -39,8 +40,6 @@ $DSP_SourceLabel = "en"
 # ******************************************
 # By default, pictures are uploaded in the specified pictures library on the authoring root site.
 # If you need to upload pictures on another site collection, modify tokens bellow.
-
-$DSP_PortalDocCenterHostNamePath = ""
 $DSP_UploadPicturesInDocCenter = $false
 $DSP_PictureLibraryName = "Site Collection Images"
 

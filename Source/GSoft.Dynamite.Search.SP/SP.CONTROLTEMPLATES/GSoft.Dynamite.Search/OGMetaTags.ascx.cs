@@ -7,6 +7,9 @@ using GSoft.Dynamite.Search.Core.Controls.Templates;
 
 namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search
 {
+    /// <summary>
+    /// The user control for the Social Meta Tags.
+    /// </summary>
     public partial class OGMetaTags : SocialMetaTagsControl
     {
         /// <summary>
@@ -42,10 +45,6 @@ namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search
                 ContentTemplate = new MetaTagTemplate("name", "og:image")
             };
             this.OpenGraph.Controls.Add(picture);
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
         }
     }
 }

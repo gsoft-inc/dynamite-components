@@ -40,16 +40,19 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
 
                     // Gets the field
                     var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
-                    var field = baseFieldInfos.Single(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
+                    var field = baseFieldInfos.SingleOrDefault(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
 
-                    // Updates the visibility properties of the field
-                    field.IsHiddenInDisplayForm = false;
-                    field.IsHiddenInEditForm = false;
-                    field.IsHiddenInNewForm = false;
-                    field.IsHiddenInListSettings = false;
+                    if (field != null)
+                    {
+                        // Updates the visibility properties of the field
+                        field.IsHiddenInDisplayForm = false;
+                        field.IsHiddenInEditForm = false;
+                        field.IsHiddenInNewForm = false;
+                        field.IsHiddenInListSettings = false;
 
-                    // Ensures the field
-                    fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        // Ensures the field
+                        fieldHelper.EnsureField(site.RootWeb.Fields, field); 
+                    }
                 }
             }
         }
@@ -72,16 +75,19 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
 
                     // Gets the field
                     var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
-                    var field = baseFieldInfos.Single(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
+                    var field = baseFieldInfos.SingleOrDefault(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
 
-                    // Updates the visibility properties of the field
-                    field.IsHiddenInDisplayForm = true;
-                    field.IsHiddenInEditForm = true;
-                    field.IsHiddenInNewForm = true;
-                    field.IsHiddenInListSettings = true;
+                    if (field != null)
+                    {
+                        // Updates the visibility properties of the field
+                        field.IsHiddenInDisplayForm = true;
+                        field.IsHiddenInEditForm = true;
+                        field.IsHiddenInNewForm = true;
+                        field.IsHiddenInListSettings = true;
 
-                    // Ensures the field
-                    fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        // Ensures the field
+                        fieldHelper.EnsureField(site.RootWeb.Fields, field); 
+                    }
                 }
             }
         }
