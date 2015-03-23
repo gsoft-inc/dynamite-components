@@ -399,4 +399,10 @@
   <data name="PageLayout_BootsrapRightSidebarPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page Bootstrap avec une colonne à droite</value>
   </data>
+  <data name="WebPart_ReusableContentWebPart_Desc" xml:space="preserve">
+    <value>Affiche du contenu HTML réutilisable</value>
+  </data>
+  <data name="WebPart_ReusableContentWebPart_Name" xml:space="preserve">
+    <value>Composant web de contenu réutisable</value>
+  </data>
 </root>

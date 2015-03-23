@@ -2,7 +2,7 @@
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
   <Module Name="ReusableContentWebPart" List="113" Url="_catalogs/wp">
     <File Path="ReusableContentWebPart\ReusableContentWebPart.webpart" Url="GSoft.Dynamite.Publishing.SP_ReusableContentWebPart.webpart" Type="GhostableInLibrary">
-      <Property Name="Group" Value="GSoft.Dynamite.Publishing" />
+      <Property Name="Group" Value="GSoft" />
     </File>
   </Module>
 </Elements>

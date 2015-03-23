@@ -27,14 +27,8 @@ $DSP_CUSTOM_PortalRestrictedConfigurationFile = ""
 $DSP_CUSTOM_PortalNavigationTermGroup = ""
 $DSP_CUSTOM_PortalRestrictedTermGroup = ""
 
-# Display Templates
-$DSP_CUSTOM_CrossSitePublishingCMS_PUB_DisplayTemplates = ""
-
 # ============================================
 # STEP 3: Define security
 # ============================================
 
 $DSP_CUSTOM_PortalPermissionsConfigurationFile = ""
-
-# Web Part
-$DSP_CUSTOM_CrossSitePublishingCMS_PUB_WebParts = ""

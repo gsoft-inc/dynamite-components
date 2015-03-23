@@ -7,8 +7,8 @@
     </metaData>
     <data>
       <properties>
-        <property name="Title" type="string">GSoft.Dynamite.Publishing.SP - ReusableContentWebPart</property>
-        <property name="Description" type="string">My Web Part</property>
+        <property name="Title" type="string">$Resources:GSoft.Dynamite.Publishing.Global,WebPart_ReusableContentWebPart_Name;</property>
+        <property name="Description" type="string">$Resources:GSoft.Dynamite.Publishing.Global,WebPart_ReusableContentWebPart_Desc;</property>
       </properties>
     </data>
   </webPart>
