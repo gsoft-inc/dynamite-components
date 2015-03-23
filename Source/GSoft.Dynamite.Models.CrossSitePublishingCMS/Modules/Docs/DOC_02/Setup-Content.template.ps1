@@ -91,9 +91,9 @@ Write-Warning "Importing images..."
 $CustomDestinationSite = "[[DSP_PortalAuthoringSiteUrl]]"
 $UploadPicturesInDocCenter = [System.Convert]::ToBoolean("[[DSP_UploadPicturesInDocCenter]]")
 
-if(![string]::IsNullOrEmpty("[[DSP_PortalDocsSiteUrl]]") -and $UploadPicturesInDocCenter)
+if(![string]::IsNullOrEmpty("[[DSP_PortalDocCenterHostNamePath]]") -and $UploadPicturesInDocCenter)
 {
-	$CustomDestinationSite = "[[DSP_PortalDocsSiteUrl]]"
+	$CustomDestinationSite = "[[DSP_PortalDocCenterHostNamePath]]"
 }
 
 # Add Images to site collection images
