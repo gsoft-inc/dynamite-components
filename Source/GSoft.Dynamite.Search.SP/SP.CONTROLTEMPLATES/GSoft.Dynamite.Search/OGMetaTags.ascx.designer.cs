@@ -10,7 +10,7 @@
 namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search {
     
     
-    public partial class OpenGraphMetaTags {
+    public partial class OGMetaTags {
         
         /// <summary>
         /// OpenGraph control.

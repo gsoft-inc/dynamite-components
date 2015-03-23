@@ -7,10 +7,7 @@ using GSoft.Dynamite.Search.Core.Controls.Templates;
 
 namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search
 {
-    /// <summary>
-    /// The user control for the Social Meta Tags.
-    /// </summary>
-    public partial class OpenGraphMetaTags : SocialMetaTagsControl
+    public partial class OGMetaTags : SocialMetaTagsControl
     {
         /// <summary>
         /// On PreRender override
@@ -47,11 +44,6 @@ namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search
             this.OpenGraph.Controls.Add(picture);
         }
 
-        /// <summary>
-        /// The Page Load method
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">The event arguments</param>
         protected void Page_Load(object sender, EventArgs e)
         {
         }
