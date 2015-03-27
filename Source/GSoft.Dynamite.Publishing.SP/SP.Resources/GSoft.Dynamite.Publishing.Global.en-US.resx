@@ -411,4 +411,10 @@
   <data name="WebPart_ReusableContentWebPart_Name" xml:space="preserve">
     <value>Reusable Content Web Part</value>
   </data>
+  <data name="PageLayout_BootsrapTwoColumnsPageLayout_Desc" xml:space="preserve">
+    <value>Create a 2 columns with the same width page layout</value>
+  </data>
+  <data name="PageLayout_BootsrapTwoColumnsPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap two columsn Page Layout</value>
+  </data>
 </root>
