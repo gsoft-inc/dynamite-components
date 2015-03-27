@@ -267,6 +267,7 @@
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleContentItem.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemContent.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemHeader.html" />
+    <Content Include="Artefacts\PageLayouts\BootstrapTwoColumns.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\Elements.xml" />
     <Content Include="Artefacts\PageLayouts\OneColumnWithHeader.aspx" />
