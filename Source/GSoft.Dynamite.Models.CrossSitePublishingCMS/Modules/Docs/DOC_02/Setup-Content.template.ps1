@@ -88,6 +88,10 @@ $copySettings = New-CopySettings -OnContentItemExists Overwrite
 
 Write-Warning "Importing images..."
 
+# Fix ACLs before importing images
+$AclScript = $CommandDirectory + "\Restore-AclInheritance.ps1" 
+& $AclScript -folderPath $ImagesConfigurationFolder
+
 $CustomDestinationSite = "[[DSP_PortalAuthoringSiteUrl]]"
 $UploadPicturesInDocCenter = [System.Convert]::ToBoolean("[[DSP_UploadPicturesInDocCenter]]")
 
