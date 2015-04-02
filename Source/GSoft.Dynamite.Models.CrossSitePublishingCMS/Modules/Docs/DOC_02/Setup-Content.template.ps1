@@ -95,9 +95,9 @@ $AclScript = $CommandDirectory + "\Restore-AclInheritance.ps1"
 $CustomDestinationSite = "[[DSP_PortalAuthoringSiteUrl]]"
 $UploadPicturesInDocCenter = [System.Convert]::ToBoolean("[[DSP_UploadPicturesInDocCenter]]")
 
-if(![string]::IsNullOrEmpty("[[DSP_PortalDocCenterHostNamePath]]") -and $UploadPicturesInDocCenter)
+if(![string]::IsNullOrEmpty("[[DSP_PortalDocsSiteUrl]]") -and $UploadPicturesInDocCenter)
 {
-	$CustomDestinationSite = "[[DSP_PortalDocCenterHostNamePath]]"
+	$CustomDestinationSite = "[[DSP_PortalDocsSiteUrl]]"
 }
 
 # Add Images to site collection images
