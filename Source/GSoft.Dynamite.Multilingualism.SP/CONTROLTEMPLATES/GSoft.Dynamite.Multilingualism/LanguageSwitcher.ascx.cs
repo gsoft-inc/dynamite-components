@@ -62,6 +62,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// </summary>
         public IMultilingualismVariationsConfig MultilingualismVariationsConfig { get; private set; }
 
+        private string contentAssociationKeyValue = null;
+
         /// <summary>
         /// The content association key fetched from the catalog item reuse web part.
         /// </summary>
@@ -69,27 +71,32 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         {
             get
             {
-                var catalogItemWebPart = FindControl(CatalogItemReuseWebPartId);
-                var stringBuilder = new StringBuilder();
-                StringWriter stringWriter = null;
-                try
+                if (string.IsNullOrEmpty(this.contentAssociationKeyValue))
                 {
-                    stringWriter = new StringWriter(stringBuilder);
-                    using (var htmlWriter = new HtmlTextWriter(stringWriter))
+                    var catalogItemWebPart = FindControl(CatalogItemReuseWebPartId);
+                    var stringBuilder = new StringBuilder();
+                    StringWriter stringWriter = null;
+                    try
                     {
-                        catalogItemWebPart.RenderControl(htmlWriter);
+                        stringWriter = new StringWriter(stringBuilder);
+                        using (var htmlWriter = new HtmlTextWriter(stringWriter))
+                        {
+                            catalogItemWebPart.RenderControl(htmlWriter);
+                        }
                     }
-                }
-                finally
-                {
-                    if (stringWriter != null)
+                    finally
                     {
-                        stringWriter.Dispose();
+                        if (stringWriter != null)
+                        {
+                            stringWriter.Dispose();
+                        }
                     }
+
+                    catalogItemWebPart.Visible = false;
+                    this.contentAssociationKeyValue = stringBuilder.ToString();
                 }
 
-                catalogItemWebPart.Visible = false;
-                return stringBuilder.ToString();
+                return this.contentAssociationKeyValue;
             }
         }
 
@@ -124,78 +131,78 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         protected override void Render(HtmlTextWriter writer)
         {
             MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(
-                SPContext.Current.Web, 
+                SPContext.Current.Web,
                 delegate
-            {
-                var currentWebUrl = new Uri(SPContext.Current.Web.Url);
-                var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);
-                var currentUrl = HttpContext.Current.Request.Url;
-                var variationSettingsInfos = this.MultilingualismVariationsConfig.VariationSettings();
-
-                var formattedLabels = new List<dynamic>();
-
-                if (labels != null && labels.Any())
                 {
-                    foreach (VariationLabel label in labels)
+                    var currentWebUrl = new Uri(SPContext.Current.Web.Url);
+                    var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);
+                    var currentUrl = HttpContext.Current.Request.Url;
+                    var variationSettingsInfos = this.MultilingualismVariationsConfig.VariationSettings();
+
+                    var formattedLabels = new List<dynamic>();
+
+                    if (labels != null && labels.Any())
                     {
-                        var variationLabel = new VariationLabelInfo(label);
-
-                        Uri itemUrl;
-                        switch (this.CurrentNavigationContext)
+                        foreach (VariationLabel label in labels)
                         {
-                            case VariationNavigationType.ItemPage:
-                                itemUrl = this.VariationNavigationHelper.GetPeerCatalogItemUrl(
-                                    currentUrl,
-                                    variationLabel,
-                                    this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name,
-                                    this.ContentAssociationKeyValue,
-                                    this.MultilingualismManagedPropertyInfos.ItemLanguage.Name,
-                                    this.PublishingManagedPropertyInfos.Navigation.Name);
-                                break;
+                            var variationLabel = new VariationLabelInfo(label);
 
-                            case VariationNavigationType.CategoryPage:
-                                itemUrl = this.VariationNavigationHelper.GetPeerCatalogCategoryUrl(currentUrl, variationLabel);
-                                break;
-
-                            // Default SharePoint Page
-                            default:
-                                itemUrl = this.VariationNavigationHelper.GetPeerPageUrl(currentUrl, variationLabel);
-                                break;
-                        }
-
-                        // Gets the default title value of the variation label
-                        var title = Languages.TwoLetterISOLanguageNameToFullName(label.Title);
-                        var cssClass = string.Empty;
-
-                        // Gets a corresponding Variation Setting Info Object
-                        var variationSettingsInfo = variationSettingsInfos.Labels.Where(variation => variation.Title == label.Title).FirstOrDefault();
-
-                        // Updates the title if custom title is set
-                        if (variationSettingsInfo != null)
-                        {
-                            if (!string.IsNullOrEmpty(variationSettingsInfo.CustomTitleValue))
+                            Uri itemUrl;
+                            switch (this.CurrentNavigationContext)
                             {
-                                title = variationSettingsInfo.CustomTitleValue; 
+                                case VariationNavigationType.ItemPage:
+                                    itemUrl = this.VariationNavigationHelper.GetPeerCatalogItemUrl(
+                                        currentUrl,
+                                        variationLabel,
+                                        this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name,
+                                        this.ContentAssociationKeyValue,
+                                        this.MultilingualismManagedPropertyInfos.ItemLanguage.Name,
+                                        this.PublishingManagedPropertyInfos.Navigation.Name);
+                                    break;
+
+                                case VariationNavigationType.CategoryPage:
+                                    itemUrl = this.VariationNavigationHelper.GetPeerCatalogCategoryUrl(currentUrl, variationLabel);
+                                    break;
+
+                                // Default SharePoint Page
+                                default:
+                                    itemUrl = this.VariationNavigationHelper.GetPeerPageUrl(currentUrl, variationLabel);
+                                    break;
                             }
 
-                            cssClass = variationSettingsInfo.CssClass;
+                            // Gets the default title value of the variation label
+                            var title = Languages.TwoLetterISOLanguageNameToFullName(label.Title);
+                            var cssClass = string.Empty;
+
+                            // Gets a corresponding Variation Setting Info Object
+                            var variationSettingsInfo = variationSettingsInfos.Labels.Where(variation => variation.Title == label.Title).FirstOrDefault();
+
+                            // Updates the title if custom title is set
+                            if (variationSettingsInfo != null)
+                            {
+                                if (!string.IsNullOrEmpty(variationSettingsInfo.CustomTitleValue))
+                                {
+                                    title = variationSettingsInfo.CustomTitleValue;
+                                }
+
+                                cssClass = variationSettingsInfo.CssClass;
+                            }
+
+                            var itemVariationInfo = new
+                            {
+                                Title = title,
+                                Url = itemUrl,
+                                CssClass = cssClass
+                            };
+
+                            formattedLabels.Add(itemVariationInfo);
                         }
 
-                        var itemVariationInfo = new
-                        {
-                            Title = title,
-                            Url = itemUrl,
-                            CssClass = cssClass
-                        };
-                        
-                        formattedLabels.Add(itemVariationInfo);
+                        this.LabelsRepeater.DataSource = formattedLabels;
+                        this.LabelsRepeater.DataBind();
                     }
+                });
 
-                    this.LabelsRepeater.DataSource = formattedLabels;
-                    this.LabelsRepeater.DataBind();
-                }
-            });               
-            
             base.Render(writer);
         }
 
