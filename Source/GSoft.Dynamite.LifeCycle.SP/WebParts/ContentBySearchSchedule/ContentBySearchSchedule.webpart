@@ -7,8 +7,8 @@
     </metaData>
     <data>
       <properties>
-        <property name="Title" type="string">GSoft.Dynamite.LifeCycle.SP - ContentBySearchSchedule</property>
-        <property name="Description" type="string">My Web Part</property>
+        <property name="Title" type="string">$Resources:GSoft.Dynamite.LifeCycle.Global,WebPart_ContentBySearchSchedule_Name;</property>
+        <property name="Description" type="string">$Resources:GSoft.Dynamite.LifeCycle.Global,WebPart_ContentBySearchSchedule_Desc;</property>
       </properties>
     </data>
   </webPart>

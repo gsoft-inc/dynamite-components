@@ -31,9 +31,15 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
                     var masterPageHelper = featureScope.Resolve<IMasterPageHelper>();
                     var designConfig = featureScope.Resolve<IDesignConfig>();
 
-                    // Activate feature dependencies defined in this configuration
+                    // Resolve feature dependency activator
                     // Note: Need to pass the site and web objects to support site and web scoped features.
-                    ActivateFeatureDependencies(featureScope, designConfig as IFeatureDependencyConfig, site, site.RootWeb);
+                    var featureDependencyActivator =
+                        featureScope.Resolve<IFeatureDependencyActivator>(
+                            new TypedParameter(typeof(SPSite), site),
+                            new TypedParameter(typeof(SPWeb), site.RootWeb));
+
+                    // Activate feature dependencies defined in this configuration
+                    featureDependencyActivator.EnsureFeatureActivation(designConfig as IFeatureDependencyConfig);
 
                     // Generate masterpage file from HTML design file
                     masterPageHelper.GenerateMasterPage(site, designConfig.MasterPageHTMLFilename);
@@ -57,24 +63,6 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_MasterPage
                 {
                     var masterPageHelper = featureScope.Resolve<IMasterPageHelper>();
                     masterPageHelper.RevertToSeattle(site);
-                }
-            }
-        }
-
-        private static void ActivateFeatureDependencies(IComponentContext scope, IFeatureDependencyConfig config, SPSite site, SPWeb web)
-        {
-            // Activate feature dependencies if defined
-            if (config != null)
-            {
-                // Resolve feature dependency activator
-                var featureDependencyActivator =
-                    scope.Resolve<IFeatureDependencyActivator>(
-                        new TypedParameter(typeof(SPSite), site),
-                        new TypedParameter(typeof(SPWeb), web));
-
-                foreach (var featureDependency in config.FeatureDependencies)
-                {
-                    featureDependencyActivator.EnsureFeatureActivation(featureDependency);
                 }
             }
         }

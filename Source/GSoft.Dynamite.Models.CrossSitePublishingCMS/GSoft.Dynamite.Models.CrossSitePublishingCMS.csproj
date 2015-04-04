@@ -64,6 +64,7 @@
     <None Include="Modules\Docs\DOC_02\Default\NewsPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\DynamitePropertyTemplate.sgt" />
     <None Include="Modules\Docs\DOC_02\Install-DOC02.ps1" />
+    <None Include="Modules\Docs\DOC_02\Restore-AclInheritance.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Content.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-ContentTypes.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Fields.template.ps1" />
@@ -146,6 +147,11 @@
     <None Include="Modules\Search\SRCH_02\Install-SRCH02.ps1" />
     <None Include="Modules\Search\SRCH_02\Setup-Control.template.ps1" />
     <None Include="Modules\Search\SRCH_02\Setup-PropertyBag.template.ps1" />
+    <None Include="Modules\Search\SRCH_03\Install-SRCH03.ps1" />
+    <None Include="Modules\Search\SRCH_03\Setup-ContentTypes.template.ps1" />
+    <None Include="Modules\Search\SRCH_03\Setup-EventReceivers.template.ps1" />
+    <None Include="Modules\Search\SRCH_03\Setup-Fields.template.ps1" />
+    <None Include="Modules\Search\SRCH_03\Setup-SocialMetaTags.template.ps1" />
     <None Include="Modules\Search\Tokens.Search.Default.ps1" />
     <None Include="Nuget\Install.ps1" />
     <None Include="Publish-DeploymentFolder.ps1" />

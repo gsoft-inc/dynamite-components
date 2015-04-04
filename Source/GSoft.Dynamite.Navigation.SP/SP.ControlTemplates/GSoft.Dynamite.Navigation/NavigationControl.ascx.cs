@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Web.UI;
 using Autofac;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
@@ -51,31 +52,65 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                 var navigationManagedPropertyInfos = scope.Resolve<NavigationManagedPropertyInfos>();
                 var multilingualismManagedPropertyInfos = scope.Resolve<MultilingualismManagedPropertyInfos>();
                 var publishingContentTypeInfos = scope.Resolve<PublishingContentTypeInfos>();
-                var dynamiteNavigationService = scope.Resolve<IDynamiteNavigationService>();
+                var navigationService = scope.Resolve<INavigationService>();
                 var navigationResultSourceInfos = scope.Resolve<NavigationResultSourceInfos>();
 
-                // Creates the properties object
-                var properties = new NavigationManagedProperties()
+                var queryParameters = new NavigationQueryParameters()
                 {
-                    Title = BuiltInManagedProperties.Title,
-                    ResultSourceName = navigationResultSourceInfos.AllMenuItems().Name,
-                    Navigation = publishingManagedPropertyInfos.Navigation.Name,
-                    ItemLanguage = multilingualismManagedPropertyInfos.ItemLanguage.Name,
-                    CatalogItemContentTypeId = publishingContentTypeInfos.CatalogContentItem().ContentTypeId,
-                    TargetItemContentTypeId = publishingContentTypeInfos.TargetContentItem().ContentTypeId,
-                    FilterManagedPropertyName = navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
-                    FilterManagedPropertyValue = this.FeaturedIn,
-                    FriendlyUrlRequiredProperties = new[] 
-                     { 
-                         publishingManagedPropertyInfos.Navigation.Name, 
-                         BuiltInManagedProperties.Url, 
-                         BuiltInManagedProperties.SiteUrl, 
-                         BuiltInManagedProperties.ListId                                           
-                     },
+                    NodeMatchingSettings = new NavigationNodeMatchingSettings()
+                    {
+                        IncludeCatalogItems = true,
+                        RestrictToReachableTargetItems = true
+                    },
+                    SearchSettings = new NavigationSearchSettings()
+                    {
+                        NavigationManagedPropertyName = publishingManagedPropertyInfos.Navigation.Name,
+                        ResultSourceName = navigationResultSourceInfos.AllMenuItems().Name,
+                        SelectedProperties = new[] 
+                        { 
+                            // These properties are required for the generation of the friendly URL
+                            publishingManagedPropertyInfos.Navigation.Name, 
+                            BuiltInManagedProperties.Url, 
+                            BuiltInManagedProperties.SiteUrl, 
+                            BuiltInManagedProperties.ListId                                           
+                        },
+                        GlobalFilters = new[]
+                        {
+                            // Filter items on the web's language
+                            string.Format(
+                                CultureInfo.InvariantCulture,
+                                "{0}:{1}",
+                                multilingualismManagedPropertyInfos.ItemLanguage.Name,
+                                new CultureInfo((int)SPContext.Current.Web.Language).TwoLetterISOLanguageName),
+
+                            // Filter items on occurence link location (featured in)
+                            string.Format(
+                                CultureInfo.InvariantCulture,
+                                "{0}:{1}",
+                                navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
+                                this.FeaturedIn)
+                        },
+                        TargetItemFilters = new[]
+                        {
+                            string.Format(
+                                CultureInfo.InvariantCulture, 
+                                "{0}:{1}*", 
+                                BuiltInManagedProperties.ContentTypeId, 
+                                publishingContentTypeInfos.TargetContentItem().ContentTypeId)
+                        },
+                        CatalogItemFilters = new[]
+                        {
+                            string.Format(
+                                CultureInfo.InvariantCulture, 
+                                "{0}:{1}*", 
+                                BuiltInManagedProperties.ContentTypeId, 
+                                publishingContentTypeInfos.CatalogContentItem().ContentTypeId)
+                        }
+                    }
                 };
 
                 // Call the navigation service
-                var navigationData = dynamiteNavigationService.GetMenuNodes(SPContext.Current.Web, properties, 12);
+                var navigationData = navigationService.GetAllNavigationNodes(SPContext.Current.Web, queryParameters);
 
                 this.NavigationRepeater.DataSource = navigationData;
                 this.NavigationRepeater.DataBind();

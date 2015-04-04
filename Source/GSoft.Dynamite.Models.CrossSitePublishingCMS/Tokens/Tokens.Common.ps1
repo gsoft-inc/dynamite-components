@@ -53,8 +53,9 @@ $DSP_AuthoringSourceRootWebUrls = "@("
 $DSP_PublishingSourceRootWebUrls = "@("
 $DSP_AuthoringTargetRootWebUrls = "@("
 $DSP_PublishingTargetRootWebUrls = "@("
-$DSP_PortalAuthoringSiteUrl = $DSP_PortalAuthoringHostNamePath
-$DSP_PortalPublishingSiteUrl = $DSP_PortalPublishingHostNamePath
+$DSP_PortalAuthoringSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalAuthoringHostNamePath)) { $DSP_PortalWebAppUrl } else { $DSP_PortalAuthoringHostNamePath }
+$DSP_PortalPublishingSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalPublishingHostNamePath)) { $DSP_PortalWebAppUrl } else { $DSP_PortalPublishingHostNamePath }
+$DSP_PortalDocsSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalDocsHostNamePath)) { $DSP_PortalWebAppUrl } else { $DSP_PortalDocsHostNamePath }
 
 # Hash table of site url mappings between Authoring and Publishing
 $DSP_CrossSiteMappings = "@{"
@@ -79,6 +80,12 @@ if ($DSP_PortalPublishingHostNameRelativePath)
 {
     $DSP_PortalPublishingSiteUrl += "/" + $DSP_PortalPublishingHostNameRelativePath.Trim("/")
 }
+
+if ($DSP_PortalDocsHostNameRelativePath)
+{
+    $DSP_PortalDocsSiteUrl += "/" + $DSP_PortalDocsHostNameRelativePath.Trim("/")
+}
+
 
 if($DSP_IsMultilingual)
 {

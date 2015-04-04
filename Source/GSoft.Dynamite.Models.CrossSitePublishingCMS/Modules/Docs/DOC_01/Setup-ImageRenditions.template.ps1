@@ -7,5 +7,14 @@
 
 Write-Warning "Applying Image Renditions configuration..."
 
-# Activate feature on the root web on the authoring site collection
-Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_ImageRenditions]]
+$UploadPicturesInDocCenter = [System.Convert]::ToBoolean("[[DSP_UploadPicturesInDocCenter]]")
+if(![string]::IsNullOrEmpty("[[DSP_PortalDocsSiteUrl]]") -and $UploadPicturesInDocCenter)
+{
+	# Activate feature on the root web on the docs site collection
+	Initialize-DSPFeature -Url [[DSP_PortalDocsSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_ImageRenditions]]
+}
+else 
+{
+	# Activate feature on the root web on the authoring site collection
+	Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_ImageRenditions]]
+}

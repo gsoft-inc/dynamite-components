@@ -7,14 +7,6 @@
 
 Write-Warning "Applying Display Templates configuration..."
 
-$CustomDisplayTemplatesFeatureId = "[[DSP_CUSTOM_CrossSitePublishingCMS_PUB_DisplayTemplates]]"
-
-# Deploys custom display templates before.
-if(![string]::IsNullOrEmpty($CustomDisplayTemplatesFeatureId))
-{
-	Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id $CustomDisplayTemplatesFeatureId
-}
-
 # Activate feature on the root web on the publishing site collection
 Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_DisplayTemplates]]
 

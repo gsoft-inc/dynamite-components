@@ -68,13 +68,21 @@ try {
 	}
 	#endregion
 
-	#region ********** DOCUMENT MANAGEMENT MODULE ********** #
-	# Notes: We need to import content after all content types were created
-	.\Modules\Docs\DOC_02\Install-DOC02.ps1
-	#endregion
-
 	#region ********** SEARCH MODULE ********** #
 	.\Modules\Search\SRCH_02\Install-SRCH02.ps1
+
+	$EnableCustomSEOFeature = $false
+	[System.Boolean]::TryParse("[[DSP_EnableSEOFields]]", [ref]$EnableCustomSEOFeature)
+	if($EnableCustomSEOFeature)
+	{
+		.\Modules\Search\SRCH_03\Install-SRCH03.ps1
+	}
+	#endregion
+
+	#region ********** DOCUMENT MANAGEMENT MODULE ********** #
+	# Notes: We need to import content after all content types were created
+	.\Modules\Docs\DOC_01\Install-DOC01.ps1
+	.\Modules\Docs\DOC_02\Install-DOC02.ps1
 	#endregion
 
 	#region ********** POST DEPLOYMENT SCRIPTS ********** #

@@ -29,7 +29,6 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
-
             if (site != null)
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
@@ -38,20 +37,22 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
                     var baseFieldInfoConfig = featureScope.Resolve<INavigationFieldInfoConfig>();
                     var baseFieldInfos = baseFieldInfoConfig.Fields;
                     var baseFieldDefinition = featureScope.Resolve<NavigationFieldInfos>();
-                    var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
 
                     // Gets the field
                     var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
-                    var field = baseFieldInfos.Single(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
+                    var field = baseFieldInfos.SingleOrDefault(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
 
-                    // Updates the visibility properties of the field
-                    field.IsHiddenInDisplayForm = false;
-                    field.IsHiddenInEditForm = false;
-                    field.IsHiddenInNewForm = false;
-                    field.IsHiddenInListSettings = false;
+                    if (field != null)
+                    {
+                        // Updates the visibility properties of the field
+                        field.IsHiddenInDisplayForm = false;
+                        field.IsHiddenInEditForm = false;
+                        field.IsHiddenInNewForm = false;
+                        field.IsHiddenInListSettings = false;
 
-                    // Ensures the field
-                    fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        // Ensures the field
+                        fieldHelper.EnsureField(site.RootWeb.Fields, field); 
+                    }
                 }
             }
         }
@@ -63,26 +64,30 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
-
             if (site != null)
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var fieldHelper = featureScope.Resolve<IFieldHelper>();
-                    var baseFieldInfos = featureScope.Resolve<NavigationFieldInfos>();
-                    var baseContentTypeInfos = featureScope.Resolve<PublishingContentTypeInfos>();
+                    var baseFieldInfoConfig = featureScope.Resolve<INavigationFieldInfoConfig>();
+                    var baseFieldInfos = baseFieldInfoConfig.Fields;
+                    var baseFieldDefinition = featureScope.Resolve<NavigationFieldInfos>();
 
                     // Gets the field
-                    var field = baseFieldInfos.OccurrenceLinkLocation();
+                    var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
+                    var field = baseFieldInfos.SingleOrDefault(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
 
-                    // Updates the visibility properties of the field
-                    field.IsHiddenInDisplayForm = true;
-                    field.IsHiddenInEditForm = true;
-                    field.IsHiddenInNewForm = true;
-                    field.IsHiddenInListSettings = true;
+                    if (field != null)
+                    {
+                        // Updates the visibility properties of the field
+                        field.IsHiddenInDisplayForm = true;
+                        field.IsHiddenInEditForm = true;
+                        field.IsHiddenInNewForm = true;
+                        field.IsHiddenInListSettings = true;
 
-                    // Ensures the field
-                    fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        // Ensures the field
+                        fieldHelper.EnsureField(site.RootWeb.Fields, field); 
+                    }
                 }
             }
         }
