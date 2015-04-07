@@ -82,6 +82,9 @@
     <Compile Include="Features\CrossSitePublishingCMS_ImageRenditions\CrossSitePublishingCMS_ImageRenditions.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ImageRenditions.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_Lists.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ManagedProperties.feature</DependentUpon>
     </Compile>
@@ -102,6 +105,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_ImageRenditions\CrossSitePublishingCMS_ImageRenditions.feature">
       <FeatureId>{6401eb6c-ac4b-4c15-9a2e-b26f898db73d}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.feature">
+      <FeatureId>{f6c40906-c4a0-49fb-aa68-41207591c2ff}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Docs.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
@@ -132,6 +138,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ImageRenditions\CrossSitePublishingCMS_ImageRenditions.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ImageRenditions.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_Lists\CrossSitePublishingCMS_Lists.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_Lists.feature</DependentUpon>
     </Content>
     <Content Include="Images\GSoft.Dynamite.Docs.SP\logo-32x32-Docs.png" />
     <Content Include="Resources\GSoft.Dynamite.Docs.Global.en-US.resx" />
