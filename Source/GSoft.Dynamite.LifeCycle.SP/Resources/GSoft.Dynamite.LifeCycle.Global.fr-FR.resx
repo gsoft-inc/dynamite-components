@@ -123,4 +123,10 @@
   <data name="Feature_CrossSitePublishingCMS_WebParts_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Life Cycle Module - Web Parts</value>
   </data>
+  <data name="WebPart_ContentBySearchSchedule_Desc" xml:space="preserve">
+    <value>Recherche de contenu avec un contrôle sur la planification des résultats</value>
+  </data>
+  <data name="WebPart_ContentBySearchSchedule_Name" xml:space="preserve">
+    <value>Recherche de contenu avec planification</value>
+  </data>
 </root>

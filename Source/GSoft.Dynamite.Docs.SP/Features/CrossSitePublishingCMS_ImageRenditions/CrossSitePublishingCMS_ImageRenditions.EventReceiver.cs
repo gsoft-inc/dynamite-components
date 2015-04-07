@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Branding;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
+using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Logging;
 using Microsoft.SharePoint;
 
@@ -29,12 +30,22 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ImageRenditions
                 using (var featureScope = DocsContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var imageRenditionHelper = featureScope.Resolve<IImageRenditionHelper>();
-                    var baseImageRenditionInfoConfig = featureScope.Resolve<IDocsImageRenditionInfoConfig>();
-                    var baseImageRenditions = baseImageRenditionInfoConfig.ImageRenditions;
+                    var imageRenditionInfoConfig = featureScope.Resolve<IDocsImageRenditionInfoConfig>();
+                    var imageRenditions = imageRenditionInfoConfig.ImageRenditions;
                     var logger = featureScope.Resolve<ILogger>();
 
+                    // Resolve feature dependency activator
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    var featureDependencyActivator =
+                        featureScope.Resolve<IFeatureDependencyActivator>(
+                            new TypedParameter(typeof(SPSite), site),
+                            new TypedParameter(typeof(SPWeb), site.RootWeb));
+
+                    // Activate feature dependencies defined in this configuration
+                    featureDependencyActivator.EnsureFeatureActivation(imageRenditionInfoConfig as IFeatureDependencyConfig);
+
                     // Create base image renditions
-                    foreach (ImageRenditionInfo imageRendition in baseImageRenditions)
+                    foreach (var imageRendition in imageRenditions)
                     {
                         logger.Info("Creating field {0} in site {1}", imageRendition.Name, site.Url);
 

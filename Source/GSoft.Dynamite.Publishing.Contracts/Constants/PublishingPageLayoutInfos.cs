@@ -95,6 +95,19 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
+        /// The two columns generic page layout using Bootstrap
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public PageLayoutInfo BootstrapTwoColumns()
+        {
+            return new PageLayoutInfo()
+            {
+                Name = "BootstrapTwoColumns.aspx",
+                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
+            };
+        }
+
+        /// <summary>
         /// A layout with a single column body and an header section
         /// </summary>
         /// <returns>The Page Layout Info</returns>

@@ -35,13 +35,8 @@ $DSP_DEFAULT_PortalPermissionsConfigurationFile = "./Default/Default-Permissions
 
 #### USERS
 
-$DSP_DefaultVisitorsGroupUsers = @"
-	<User>dev\danb</User>
-	<User>dev\ibent</User>
-"@
-
-$DSP_DefaultMembersGroupUsers = @"
-	<User>dev\arturol</User>
+$DSP_DefaultPublishingVisitorsGroupUsers = @"
+<User>NT Authority\Authenticated Users</User>
 "@
 
 # ============================================

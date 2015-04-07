@@ -49,7 +49,7 @@ namespace GSoft.Dynamite.Search.Core.Controls.Templates
             {
                 var label = new LiteralControl();
 
-                label.Text = string.Format("<meta {0}=\"{1}\" content=\"$Value$\">", this.AttributeName, this.AttributeValue);
+                label.Text = string.Format("<meta {0}=\"{1}\" content=\"$Value$\" />", this.AttributeName, this.AttributeValue);
 
                 container.Controls.Add(label);
             }

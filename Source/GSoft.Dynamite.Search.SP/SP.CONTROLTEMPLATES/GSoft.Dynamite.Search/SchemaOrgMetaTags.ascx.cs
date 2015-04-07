@@ -46,14 +46,5 @@ namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search
             };
             this.SchemaOrg.Controls.Add(picture);
         }
-
-        /// <summary>
-        /// The Page Load method
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">The event arguments</param>
-        protected void Page_Load(object sender, EventArgs e)
-        {
-        }
     }
 }
