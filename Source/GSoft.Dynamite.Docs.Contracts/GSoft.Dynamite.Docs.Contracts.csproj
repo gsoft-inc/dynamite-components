@@ -40,9 +40,9 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="GSoft.Dynamite, Version=2.2.0.264, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.0.264\lib\net45\GSoft.Dynamite.dll</HintPath>
+    <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10404\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -63,6 +63,7 @@
     <Compile Include="Configuration\IDocsContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\IDocsFieldInfoConfig.cs" />
     <Compile Include="Configuration\IDocsImageRenditionInfoConfig.cs" />
+    <Compile Include="Configuration\IDocsListInfoConfig.cs" />
     <Compile Include="Configuration\IDocsManagedPropertyInfoConfig.cs" />
     <Compile Include="Constants\DocsFieldInfos.cs" />
     <Compile Include="Constants\DocsResources.cs" />

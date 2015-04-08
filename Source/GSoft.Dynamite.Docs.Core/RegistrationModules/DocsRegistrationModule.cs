@@ -32,6 +32,9 @@ namespace GSoft.Dynamite.Docs.Core.RegistrationModules
             // Content Types Configuration
             builder.RegisterType<DocsContentTypeInfoConfig>().As<IDocsContentTypeInfoConfig>();
 
+            // Lists Configuration
+            builder.RegisterType<DocsListInfoConfig>().As<IDocsListInfoConfig>();
+
             // Managed Properties
             builder.RegisterType<DocsManagedPropertyInfosConfig>().As<IDocsManagedPropertyInfoConfig>();
 

@@ -24,6 +24,18 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
 & $Script $LogFolderPath
 
+$values = @{"Step: " = "#3 Setup webs"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Webs.ps1'
+& $Script $LogFolderPath
+
+$values = @{"Step: " = "#4 Setup documents libraries"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-DocLibraries.ps1'
+& $Script $LogFolderPath
+
 $values = @{"Step: " = "#3 Setup Content"}
 New-HeaderDrawing -Values $Values
 

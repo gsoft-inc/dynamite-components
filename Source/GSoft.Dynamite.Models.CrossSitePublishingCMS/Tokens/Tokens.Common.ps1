@@ -70,6 +70,13 @@ if($DSP_PortalAuthoringRootWebs.Length -gt 0)
 	$DSP_HasSubWebs = $true
 }
 
+# Check if an array of SPWeb urls is defined (for the documents site collection) and if it contains more than the root web
+$DSP_DocCenterHasSubWebs = $false
+if($DSP_PortalDocumentCenterWebs -and $DSP_PortalDocumentCenterWebs.Length -gt 1)
+{
+	$DSP_DocCenterHasSubWebs = $true
+}
+
 # Append the relative host name paths if they exists
 if ($DSP_PortalAuthoringHostNameRelativePath)
 {
