@@ -4,7 +4,7 @@
 
 param([string]$LogFolderPath)
 
-$UserStory = "DOC_02"
+$UserStory = "DOC02"
 
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -22,16 +22,4 @@ $values = @{"Step: " = "#2 Setup Content Types"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
-& $Script $LogFolderPath
-
-$values = @{"Step: " = "#3 Setup Content"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-Content.ps1'
-& $Script $LogFolderPath
-
-$values = @{"Step: " = "#4 Setup Search Managed Properties"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-ManagedProperties.ps1'
 & $Script $LogFolderPath

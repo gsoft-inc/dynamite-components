@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
-using GSoft.Dynamite.Docs.Contracts.Configuration;
+using GSoft.Dynamite.Migration.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search;
 
-namespace GSoft.Dynamite.Docs.Core.Configuration
+namespace GSoft.Dynamite.Migration.Core.Configuration
 {
     /// <summary>
-    /// Search managed properties configuration for the whole solution. Remember, managed properties are only created in the document management module, after the content is uploaded.
+    /// Search managed properties configuration for the whole solution. Remember, managed properties are only created in the migration module, after the content is uploaded.
     /// </summary>
-    public class DocsManagedPropertyInfosConfig : IDocsManagedPropertyInfoConfig
+    public class MigrationManagedPropertyInfosConfig : IMigrationManagedPropertyInfoConfig
     {
         private readonly IList<ICommonManagedPropertyInfosConfig> modulesConfiguration;
 
@@ -16,7 +16,7 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
         /// Default constructor
         /// </summary>
         /// <param name="modulesConfiguration">A list of managed properties configuration got from all modules in the solution</param>
-        public DocsManagedPropertyInfosConfig(IList<ICommonManagedPropertyInfosConfig> modulesConfiguration)
+        public MigrationManagedPropertyInfosConfig(IList<ICommonManagedPropertyInfosConfig> modulesConfiguration)
         {
             this.modulesConfiguration = modulesConfiguration;
         }

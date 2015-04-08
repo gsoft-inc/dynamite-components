@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Search;
 
-namespace GSoft.Dynamite.Docs.Contracts.Configuration
+namespace GSoft.Dynamite.Migration.Contracts.Configuration
 {
     /// <summary>
-    /// Search managed properties configuration for the whole solution. Remember, managed properties are only created in the document management module, after the content is uploaded.
+    /// Search managed properties configuration for the whole solution. Remember, managed properties are only created in the migration module, after the content is uploaded.
     /// </summary>
-    public interface IDocsManagedPropertyInfoConfig
+    public interface IMigrationManagedPropertyInfoConfig
     {
         /// <summary>
         /// Property that return all the managed properties to create or configure from all the modules in the solution

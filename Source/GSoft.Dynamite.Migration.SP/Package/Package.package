@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="df4260d0-f152-4afb-b814-1d60b5bdc26f" solutionId="df4260d0-f152-4afb-b814-1d60b5bdc26f" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Migration.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Migration.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Migration.Core\GSoft.Dynamite.Migration.Core.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Migration.Constants.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Migration.Constants\GSoft.Dynamite.Migration.Contracts.csproj" />
+  </assemblies>
+  <features>
+    <featureReference itemId="4ab42785-c039-47b7-8eb0-4c87efbacda6" />
+    <featureReference itemId="26b8ca2f-e015-4d75-9838-c4c81e6a4c6e" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="808b614d-1256-4a80-8ce2-9b0b116135ae" />
+  </projectItems>
+</package>

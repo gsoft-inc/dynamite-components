@@ -7,5 +7,13 @@
 
 Write-Warning "Applying Fields configuration..."
 
-# Activate feature on the root web on the authoring site collection
-Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_Fields]]
+if(![string]::IsNullOrEmpty("[[DSP_PortalDocsSiteUrl]]"))
+{
+	# Activate feature on the root web on the docs site collection
+	Initialize-DSPFeature -Url [[DSP_PortalDocsSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_Fields]]
+}
+else 
+{
+	# Activate feature on the root web on the authoring site collection
+	Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_Fields]]
+}
