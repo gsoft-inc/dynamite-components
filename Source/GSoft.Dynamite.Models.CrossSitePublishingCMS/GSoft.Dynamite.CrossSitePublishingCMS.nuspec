@@ -37,6 +37,7 @@
       <file src="..\GSoft.Dynamite.Docs.SP\bin\$configuration$\GSoft.Dynamite.Docs.SP.wsp" target="tools\Solutions\WSP" />
       <file src="..\GSoft.Dynamite.LifeCycle.SP\bin\$configuration$\GSoft.Dynamite.LifeCycle.SP.wsp" target="tools\Solutions\WSP" />
       <file src="..\GSoft.Dynamite.Search.SP\bin\$configuration$\GSoft.Dynamite.Search.SP.wsp" target="tools\Solutions\WSP" />
+      <file src="..\GSoft.Dynamite.Search.SP\bin\$configuration$\GSoft.Dynamite.Migration.SP.wsp" target="tools\Solutions\WSP" />
       <file src="Nuget\Install.ps1" target="tools\Install.ps1" />
     </files>
 </package>
