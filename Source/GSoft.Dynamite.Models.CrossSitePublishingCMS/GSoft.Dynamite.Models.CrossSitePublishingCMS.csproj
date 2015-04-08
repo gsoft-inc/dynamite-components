@@ -67,8 +67,10 @@
     <None Include="Modules\Docs\DOC_02\Restore-AclInheritance.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Content.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-ContentTypes.template.ps1" />
+    <None Include="Modules\Docs\DOC_02\Setup-DocLibraries.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Fields.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-ManagedProperties.template.ps1" />
+    <None Include="Modules\Docs\DOC_02\Setup-Webs.template.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Custom.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Default.ps1" />
     <None Include="Modules\Design\DSGN_01\Install-DSGN01.ps1" />
