@@ -35,6 +35,12 @@
 . ./Modules/Docs/Tokens.Docs.Custom.ps1
 
 # ******************************************
+# Migration Module tokens
+# ******************************************
+. ./Modules/Migration/Tokens.Migration.Default.ps1
+. ./Modules/Migration/Tokens.Migration.Custom.ps1
+
+# ******************************************
 # Lifecycle Module tokens
 # ******************************************
 . ./Modules/LifeCycle/Tokens.LifeCycle.Default.ps1
