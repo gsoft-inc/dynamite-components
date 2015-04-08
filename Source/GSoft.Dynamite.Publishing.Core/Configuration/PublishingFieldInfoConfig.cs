@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
@@ -10,15 +13,15 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// </summary>
     public class PublishingFieldInfoConfig : IPublishingFieldInfoConfig
     {
-        private readonly PublishingFieldInfos fieldInfoValues;
+        private readonly ICommonTaxonomyConfig commonTaxonomyConfig;
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="fieldInfoValues">The filed info objects configuration</param>
-        public PublishingFieldInfoConfig(PublishingFieldInfos fieldInfoValues)
+        /// <param name="commonTaxonomyConfig">The common taxonomy configuration.</param>
+        public PublishingFieldInfoConfig(ICommonTaxonomyConfig commonTaxonomyConfig)
         {
-            this.fieldInfoValues = fieldInfoValues;
+            this.commonTaxonomyConfig = commonTaxonomyConfig;
         }
 
         /// <summary>
@@ -31,12 +34,32 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             {
                 var fields = new List<BaseFieldInfo>
                 {
-                    { this.fieldInfoValues.Navigation() },
-                    { this.fieldInfoValues.Summary() },
-                    { this.fieldInfoValues.ImageDescription() },
+                    this.NavigationFieldInfo,
+                    PublishingFieldInfos.Summary,
+                    PublishingFieldInfos.ImageDescription
                 };
 
                 return fields;
+            }
+        }
+
+        /// <summary>
+        /// Gets the navigation field information.
+        /// </summary>
+        /// <value>
+        /// The navigation field information.
+        /// </value>
+        private TaxonomyFieldInfo NavigationFieldInfo
+        {
+            get
+            {
+                // By default, use the first defined navigation term set info as the
+                // field term set mapping.
+                var fieldInfo = PublishingFieldInfos.Navigation;
+                fieldInfo.TermStoreMapping = new TaxonomyContext(
+                    this.commonTaxonomyConfig.NavigationTermSetInfos[0]);
+
+                return fieldInfo;
             }
         }
     }

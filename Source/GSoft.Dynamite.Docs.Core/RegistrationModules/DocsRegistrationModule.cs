@@ -23,9 +23,6 @@ namespace GSoft.Dynamite.Docs.Core.RegistrationModules
             // Resource locator
             builder.RegisterType<DocsResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
-            // Configuration Values
-            builder.RegisterType<DocsFieldInfos>();
-
             // Fields Configuration
             builder.RegisterType<DocsFieldInfoConfig>().As<IDocsFieldInfoConfig>();
 

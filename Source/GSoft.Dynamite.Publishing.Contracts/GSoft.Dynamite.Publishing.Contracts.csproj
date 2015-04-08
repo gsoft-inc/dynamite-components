@@ -92,7 +92,6 @@
     <Compile Include="Constants\PublishingResources.cs" />
     <Compile Include="Constants\PublishingResultSourceInfos.cs" />
     <Compile Include="Constants\PublishingResultTypeInfos.cs" />
-    <Compile Include="Constants\PublishingTermGroupInfos.cs" />
     <Compile Include="Constants\PublishingTermInfos.cs" />
     <Compile Include="Constants\PublishingTermSetInfos.cs" />
     <Compile Include="Constants\PublishingWebPartInfos.cs" />

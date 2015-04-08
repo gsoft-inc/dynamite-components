@@ -10,17 +10,6 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
     /// </summary>
     public class DocsFieldInfoConfig : IDocsFieldInfoConfig
     {
-        private readonly DocsFieldInfos docsFieldInfos;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="docsFieldInfos">The field definitions from the multilingualism module</param>
-        public DocsFieldInfoConfig(DocsFieldInfos docsFieldInfos)
-        {
-            this.docsFieldInfos = docsFieldInfos;
-        }
-
         /// <summary>
         /// Property that return all the fields to create or configure in the document management module
         /// </summary>
@@ -30,7 +19,7 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
             {
                 return new List<BaseFieldInfo>()
                 {
-                    this.docsFieldInfos.InternalId()
+                    DocsFieldInfos.InternalId;
                 };
             }
         }

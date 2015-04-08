@@ -29,7 +29,6 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
             get
             {
                 var managedProperties = new List<ManagedPropertyInfo>();
-
                 foreach (var configuration in this.modulesConfiguration)
                 {
                     managedProperties.AddRange(configuration.ManagedProperties);

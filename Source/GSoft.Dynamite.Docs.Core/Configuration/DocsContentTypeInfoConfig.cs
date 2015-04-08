@@ -12,17 +12,14 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
     public class DocsContentTypeInfoConfig : IDocsContentTypeInfoConfig
     {
         private readonly PublishingContentTypeInfos basePublishingContentTypeInfos;
-        private readonly DocsFieldInfos docsFieldInfos;
 
         /// <summary>
         /// Default constructor
         /// </summary>
         /// <param name="publishingContentTypeInfos">The content types settings from the publishing module</param>
-        /// <param name="docsFieldInfos">The fields settings from the document management module</param>
-        public DocsContentTypeInfoConfig(PublishingContentTypeInfos publishingContentTypeInfos, DocsFieldInfos docsFieldInfos)
+        public DocsContentTypeInfoConfig(PublishingContentTypeInfos publishingContentTypeInfos)
         {
             this.basePublishingContentTypeInfos = publishingContentTypeInfos;
-            this.docsFieldInfos = docsFieldInfos;
         }
 
         /// <summary>
@@ -38,7 +35,7 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
                 var defaultItem = this.basePublishingContentTypeInfos.DefaultItem();
 
                 // Adding the ContentAssociationKey field
-                defaultItem.Fields.Add(this.docsFieldInfos.InternalId());
+                defaultItem.Fields.Add(DocsFieldInfos.InternalId);
 
                 baseDocsContentTypes.Add(defaultItem);
 
