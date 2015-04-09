@@ -86,7 +86,7 @@ try {
 
 	#region ********** MIGRATION MODULE ********** #
 	# Notes: We need to import content after all content types were created
-	.\Modules\Docs\MIG_01\Install-MIG01.ps1
+	.\Modules\Migration\MIG_01\Install-MIG01.ps1
 	#endregion
 
 	#region ********** POST DEPLOYMENT SCRIPTS ********** #

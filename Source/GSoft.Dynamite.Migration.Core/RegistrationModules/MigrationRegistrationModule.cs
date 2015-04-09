@@ -27,13 +27,19 @@ namespace GSoft.Dynamite.Migration.Core.RegistrationModules
             builder.RegisterType<MigrationFieldInfos>();
 
             // Fields Configuration
-            builder.RegisterType<MigrationFieldInfoConfig>().As<IMigrationFieldInfoConfig>();
+            builder.RegisterType<MigrationFieldInfoConfig>()
+                .As<IMigrationFieldInfoConfig>()
+                .Named<IMigrationFieldInfoConfig>("migration");
 
             // Content Types Configuration
-            builder.RegisterType<MigrationContentTypeInfoConfig>().As<IMigrationContentTypeInfoConfig>();
+            builder.RegisterType<MigrationContentTypeInfoConfig>()
+                .As<IMigrationContentTypeInfoConfig>()
+                .Named<IMigrationContentTypeInfoConfig>("migration");
 
             // Managed Properties
-            builder.RegisterType<MigrationManagedPropertyInfosConfig>().As<IMigrationManagedPropertyInfoConfig>();
+            builder.RegisterType<MigrationManagedPropertyInfosConfig>()
+                .As<IMigrationManagedPropertyInfoConfig>()
+                .Named<IMigrationManagedPropertyInfoConfig>("migration");
         }
     }
 }
