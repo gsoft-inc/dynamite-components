@@ -10,7 +10,6 @@ using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
-using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using GSoft.Dynamite.Navigation;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Utils;
@@ -26,6 +25,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
     public partial class LanguageSwitcher : UserControl
     {
         private const string CatalogItemReuseWebPartId = "CatalogItemAssociationWebPart";
+
+        private string contentAssociationKeyValue = null;
 
         /// <summary>
         /// The view model.
@@ -61,8 +62,6 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// The variation navigation helper
         /// </summary>
         public IMultilingualismVariationsConfig MultilingualismVariationsConfig { get; private set; }
-
-        private string contentAssociationKeyValue = null;
 
         /// <summary>
         /// The content association key fetched from the catalog item reuse web part.

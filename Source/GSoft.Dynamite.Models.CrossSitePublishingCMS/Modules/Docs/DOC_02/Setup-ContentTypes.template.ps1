@@ -7,5 +7,13 @@
 
 Write-Warning "Applying Content Types configuration..."
 
-# Activate feature on the root web on the authoring site collection
-Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_ContentTypes]]
+if(![string]::IsNullOrEmpty("[[DSP_PortalDocsSiteUrl]]"))
+{
+	# Activate feature on the root web on the docs site collection
+	Initialize-DSPFeature -Url [[DSP_PortalDocsSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_ContentTypes]]
+}
+else 
+{
+	# Activate feature on the root web on the authoring site collection
+	Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_DOC_ContentTypes]]
+}

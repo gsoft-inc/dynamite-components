@@ -1,5 +1,5 @@
 ﻿# ----------------------------------------
-# DOC 02: IMPORT CONTENT
+# MIG 01: IMPORT CONTENT
 # ----------------------------------------
 
 -------------------------------------------------------------------------------------------------------------------------------------------
@@ -15,7 +15,7 @@ alors vous devez respecter la structure de dossiers suivante:
 		- [Label n]
 
 Le nom de dossier pour chaque label doit correspondre à ceux que vous avez mis adans votre fichier de tokens ($DSP_VariationsLabels). 
-Exemple: $DSP_VariationsLabels = @('en','fr','jb') ==> [DOC_02]
+Exemple: $DSP_VariationsLabels = @('en','fr','jb') ==> [MIG_01]
 														- Custom
 															- en
 															- fr

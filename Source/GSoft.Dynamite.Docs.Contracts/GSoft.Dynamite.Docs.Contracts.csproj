@@ -64,7 +64,6 @@
     <Compile Include="Configuration\IDocsFieldInfoConfig.cs" />
     <Compile Include="Configuration\IDocsImageRenditionInfoConfig.cs" />
     <Compile Include="Configuration\IDocsListInfoConfig.cs" />
-    <Compile Include="Configuration\IDocsManagedPropertyInfoConfig.cs" />
     <Compile Include="Constants\DocsFieldInfos.cs" />
     <Compile Include="Constants\DocsResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

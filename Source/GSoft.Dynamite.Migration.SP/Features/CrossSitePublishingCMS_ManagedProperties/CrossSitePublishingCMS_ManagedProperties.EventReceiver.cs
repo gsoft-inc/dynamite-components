@@ -1,11 +1,11 @@
 using System.Runtime.InteropServices;
 using Autofac;
-using GSoft.Dynamite.Docs.Contracts.Configuration;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Migration.Contracts.Configuration;
 using GSoft.Dynamite.Search;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ManagedProperties
+namespace GSoft.Dynamite.Migration.SP.Features.CrossSitePublishingCMS_ManagedProperties
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -26,13 +26,13 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ManagedProperti
 
            if (site != null)
            {
-               using (var featureScope = DocsContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
+               using (var featureScope = MigrationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                {
                    var searchHelper = featureScope.Resolve<ISearchHelper>();
-                   var managedProperties = featureScope.Resolve<IDocsManagedPropertyInfoConfig>().ManagedProperties;
+                   var managedProperties = featureScope.Resolve<IMigrationManagedPropertyInfoConfig>().ManagedProperties;
                    var logger = featureScope.Resolve<ILogger>();
 
-                   foreach (ManagedPropertyInfo managedProperty in managedProperties)
+                   foreach (var managedProperty in managedProperties)
                    {
                        logger.Info("Creating search managed property {0}", managedProperty.Name);
                        searchHelper.EnsureManagedProperty(site, managedProperty);
@@ -51,10 +51,10 @@ namespace GSoft.Dynamite.Docs.SP.Features.CrossSitePublishingCMS_ManagedProperti
 
            if (site != null)
            {
-               using (var featureScope = DocsContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
+               using (var featureScope = MigrationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                {
                    var searchHelper = featureScope.Resolve<ISearchHelper>();
-                   var managedProperties = featureScope.Resolve<IDocsManagedPropertyInfoConfig>().ManagedProperties;
+                   var managedProperties = featureScope.Resolve<IMigrationManagedPropertyInfoConfig>().ManagedProperties;
                    var logger = featureScope.Resolve<ILogger>();
 
                    foreach (var managedProperty in managedProperties)

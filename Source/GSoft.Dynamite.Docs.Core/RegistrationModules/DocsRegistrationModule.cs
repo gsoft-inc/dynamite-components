@@ -35,9 +35,6 @@ namespace GSoft.Dynamite.Docs.Core.RegistrationModules
             // Lists Configuration
             builder.RegisterType<DocsListInfoConfig>().As<IDocsListInfoConfig>();
 
-            // Managed Properties
-            builder.RegisterType<DocsManagedPropertyInfosConfig>().As<IDocsManagedPropertyInfoConfig>();
-
             // Image Renditions
             builder.RegisterType<DocsImageRenditionInfoConfig>().As<IDocsImageRenditionInfoConfig>();
             builder.RegisterType<DocsImageRenditionInfoConfig>().Named<IDocsImageRenditionInfoConfig>("docs");

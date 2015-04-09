@@ -57,20 +57,29 @@
     <None Include="Modules\Docs\DOC_01\Setup-BlobCache.template.ps1" />
     <None Include="Modules\Docs\DOC_01\Setup-ImageRenditions.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Default\ContentPages.xlsx" />
+    <None Include="Modules\Docs\DOC_02\Default\DynamitePropertyTemplate.sgt" />
     <None Include="Modules\Docs\DOC_02\Default\en\ContentPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\en\NewsPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\fr\ContentPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\fr\NewsPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Default\NewsPages.xlsx" />
-    <None Include="Modules\Docs\DOC_02\Default\DynamitePropertyTemplate.sgt" />
     <None Include="Modules\Docs\DOC_02\Install-DOC02.ps1" />
-    <None Include="Modules\Docs\DOC_02\Restore-AclInheritance.ps1" />
-    <None Include="Modules\Docs\DOC_02\Setup-Content.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-ContentTypes.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-DocLibraries.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Fields.template.ps1" />
-    <None Include="Modules\Docs\DOC_02\Setup-ManagedProperties.template.ps1" />
-    <None Include="Modules\Docs\DOC_02\Setup-Webs.template.ps1" />
+    <None Include="Modules\Migration\MIG_01\Default\ContentPages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\en\ContentPages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\en\NewsPages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\fr\ContentPages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\fr\NewsPages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\NewsPages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\DynamitePropertyTemplate.sgt" />
+    <None Include="Modules\Migration\MIG_01\Install-MIG01.ps1" />
+    <None Include="Modules\Migration\MIG_01\Restore-AclInheritance.ps1" />
+    <None Include="Modules\Migration\MIG_01\Setup-Content.template.ps1" />
+    <None Include="Modules\Migration\MIG_01\Setup-ContentTypes.template.ps1" />
+    <None Include="Modules\Migration\MIG_01\Setup-Fields.template.ps1" />
+    <None Include="Modules\Migration\MIG_01\Setup-ManagedProperties.template.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Custom.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Default.ps1" />
     <None Include="Modules\Design\DSGN_01\Install-DSGN01.ps1" />
@@ -78,6 +87,8 @@
     <None Include="Modules\LifeCycle\LFCL_01\Install-LFCL01.ps1" />
     <None Include="Modules\LifeCycle\LFCL_01\Setup-WebParts.template.ps1" />
     <None Include="Modules\LifeCycle\Tokens.LifeCycle.Default.ps1" />
+    <None Include="Modules\Migration\Tokens.Migration.Custom.ps1" />
+    <None Include="Modules\Migration\Tokens.Migration.Default.ps1" />
     <None Include="Modules\Multilingualism\LANG_01\Adjust-VariationsTimerJob.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_01\Install-LANG01.ps1" />
     <None Include="Modules\Multilingualism\LANG_01\Setup-CatalogConnections.template.ps1" />
@@ -168,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\Docs\DOC_02\Custom\" />
+    <Folder Include="Modules\Migration\MIG_01\Custom\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
@@ -192,18 +204,18 @@
     <None Include="Execute-PostDeploymentScript.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image1.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image10.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image11.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image2.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image3.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image4.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image5.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image6.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image7.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image8.jpg" />
-    <Content Include="Modules\Docs\DOC_02\Default\Images\Image9.jpg" />
-    <Content Include="Modules\Docs\DOC_02\README.txt" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image1.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image10.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image11.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image2.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image3.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image4.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image5.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image6.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image7.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image8.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Images\Image9.jpg" />
+    <Content Include="Modules\Migration\MIG_01\README.txt" />
     <Content Include="README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
