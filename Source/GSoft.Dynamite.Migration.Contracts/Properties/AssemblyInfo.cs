@@ -7,4 +7,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("GSoft.Dynamite.Migration.Contracts")]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("784d7443-ea1e-45b0-8bef-19ce698e855b")]
+[assembly: Guid("5B2ADB66-2039-4407-9E08-C93B7E27A25A")]

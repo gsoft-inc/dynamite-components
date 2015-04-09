@@ -8,7 +8,7 @@ namespace GSoft.Dynamite.Migration.Core.Configuration
     /// <summary>
     /// Search managed properties configuration for the whole solution. Remember, managed properties are only created in the migration module, after the content is uploaded.
     /// </summary>
-    public class MigrationManagedPropertyInfosConfig : IMigrationManagedPropertyInfoConfig
+    public class MigrationManagedPropertyInfoConfig : IMigrationManagedPropertyInfoConfig
     {
         private readonly IList<ICommonManagedPropertyInfosConfig> modulesConfiguration;
 
@@ -16,7 +16,7 @@ namespace GSoft.Dynamite.Migration.Core.Configuration
         /// Default constructor
         /// </summary>
         /// <param name="modulesConfiguration">A list of managed properties configuration got from all modules in the solution</param>
-        public MigrationManagedPropertyInfosConfig(IList<ICommonManagedPropertyInfosConfig> modulesConfiguration)
+        public MigrationManagedPropertyInfoConfig(IList<ICommonManagedPropertyInfosConfig> modulesConfiguration)
         {
             this.modulesConfiguration = modulesConfiguration;
         }
@@ -29,7 +29,6 @@ namespace GSoft.Dynamite.Migration.Core.Configuration
             get
             {
                 var managedProperties = new List<ManagedPropertyInfo>();
-
                 foreach (var configuration in this.modulesConfiguration)
                 {
                     managedProperties.AddRange(configuration.ManagedProperties);

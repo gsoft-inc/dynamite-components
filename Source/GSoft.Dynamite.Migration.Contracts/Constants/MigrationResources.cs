@@ -1,7 +1,7 @@
 ﻿namespace GSoft.Dynamite.Migration.Contracts.Constants
 {
     /// <summary>
-    /// Resources strings configuration for the document management module
+    /// Resources strings configuration for the migration module
     /// </summary>
     public static class MigrationResources
     {
@@ -20,7 +20,7 @@
         /// <summary>
         /// The field Content Association Key Description
         /// </summary>
-        public static readonly string FieldInternalIdDescription = "Field_InternalId_Desc";
+        public static readonly string FieldInternalIdDescription = "Field_InternalId_Desc"; 
 
         #endregion
     }

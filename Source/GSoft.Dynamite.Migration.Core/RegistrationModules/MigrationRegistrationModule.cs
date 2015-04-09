@@ -20,11 +20,13 @@ namespace GSoft.Dynamite.Migration.Core.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
-            // Resource locator
-            builder.RegisterType<MigrationResourceLocatorConfig>().As<IResourceLocatorConfig>();
-
             // Configuration Values
             builder.RegisterType<MigrationFieldInfos>();
+
+            // Resource locator
+            builder.RegisterType<MigrationResourceLocatorConfig>()
+                .As<IResourceLocatorConfig>()
+                .Named<IResourceLocatorConfig>("migration");
 
             // Fields Configuration
             builder.RegisterType<MigrationFieldInfoConfig>()
@@ -37,7 +39,7 @@ namespace GSoft.Dynamite.Migration.Core.RegistrationModules
                 .Named<IMigrationContentTypeInfoConfig>("migration");
 
             // Managed Properties
-            builder.RegisterType<MigrationManagedPropertyInfosConfig>()
+            builder.RegisterType<MigrationManagedPropertyInfoConfig>()
                 .As<IMigrationManagedPropertyInfoConfig>()
                 .Named<IMigrationManagedPropertyInfoConfig>("migration");
         }

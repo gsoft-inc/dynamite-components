@@ -77,6 +77,10 @@
       <Project>{b35ace7c-9459-4726-b1ff-9fb627815d13}</Project>
       <Name>GSoft.Dynamite.Docs.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Migration.Contracts\GSoft.Dynamite.Migration.Contracts.csproj">
+      <Project>{CFFD1AAB-48E5-4019-BB84-CCAE430353BB}</Project>
+      <Name>GSoft.Dynamite.Migration.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
       <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
       <Name>GSoft.Dynamite.Publishing.Contracts</Name>

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DEE67951-8711-4767-8E8E-3E3891AD4679}</ProjectGuid>
+    <ProjectGuid>{CFFD1AAB-48E5-4019-BB84-CCAE430353BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GSoft.Dynamite.Migration.Contracts</RootNamespace>
@@ -72,6 +72,7 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
+    <None Include="GSoft.Dynamite.Migration.Contracts.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

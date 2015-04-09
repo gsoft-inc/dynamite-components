@@ -7,42 +7,44 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 namespace GSoft.Dynamite.Migration.Core.Configuration
 {
     /// <summary>
-    /// Content types configuration for the document management module
+    /// Content types configuration for the migration module
     /// </summary>
     public class MigrationContentTypeInfoConfig : IMigrationContentTypeInfoConfig
     {
-        private readonly PublishingContentTypeInfos basePublishingContentTypeInfos;
-        private readonly MigrationFieldInfos fieldInfos;
+        private readonly PublishingContentTypeInfos publishingContentTypeInfos;
+        private readonly MigrationFieldInfos migrationFieldInfos;
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="MigrationContentTypeInfoConfig"/> class.
         /// </summary>
-        /// <param name="publishingContentTypeInfos">The content types settings from the publishing module</param>
-        /// <param name="fieldInfos">The fields settings from the migration module</param>
-        public MigrationContentTypeInfoConfig(PublishingContentTypeInfos publishingContentTypeInfos, MigrationFieldInfos fieldInfos)
+        /// <param name="publishingContentTypeInfos">The publishing content type information.</param>
+        /// <param name="migrationFieldInfos">The migration field information.</param>
+        public MigrationContentTypeInfoConfig(
+            PublishingContentTypeInfos publishingContentTypeInfos, 
+            MigrationFieldInfos migrationFieldInfos)
         {
-            this.basePublishingContentTypeInfos = publishingContentTypeInfos;
-            this.fieldInfos = fieldInfos;
+            this.publishingContentTypeInfos = publishingContentTypeInfos;
+            this.migrationFieldInfos = migrationFieldInfos;
         }
 
         /// <summary>
-        /// Property that return all the content types to create or configure in the document management module
+        /// Property that return all the content types to create or configure in the migration module
         /// </summary>
         public IList<ContentTypeInfo> ContentTypes
         {
             get
             {
-                var baseDocsContentTypes = new List<ContentTypeInfo>();
+                var contentTypes = new List<ContentTypeInfo>();
 
                 // Get the translatable item
-                var defaultItem = this.basePublishingContentTypeInfos.DefaultItem();
+                var defaultItem = this.publishingContentTypeInfos.DefaultItem();
 
                 // Adding the ContentAssociationKey field
-                defaultItem.Fields.Add(this.fieldInfos.InternalId());
+                defaultItem.Fields.Add(this.migrationFieldInfos.InternalId());
 
-                baseDocsContentTypes.Add(defaultItem);
+                contentTypes.Add(defaultItem);
 
-                return baseDocsContentTypes;
+                return contentTypes;
             }
         }
     }

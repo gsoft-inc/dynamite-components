@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9D2C762C-ECEC-4304-AB88-14C902A7FF87}</ProjectGuid>
+    <ProjectGuid>{AC0EFAE0-0999-4547-82DD-F4EFFB3C9DDC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GSoft.Dynamite.Migration.Core</RootNamespace>
@@ -42,7 +42,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10406\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10404\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -62,9 +62,9 @@
     </Compile>
     <Compile Include="Configuration\MigrationContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\MigrationFieldInfoConfig.cs" />
-    <Compile Include="Configuration\MigrationManagedPropertyInfosConfig.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Configuration\MigrationManagedPropertyInfoConfig.cs" />
     <Compile Include="RegistrationModules\MigrationRegistrationModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
@@ -73,8 +73,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GSoft.Dynamite.Migration.Constants\GSoft.Dynamite.Migration.Contracts.csproj">
-      <Project>{dee67951-8711-4767-8e8e-3e3891ad4679}</Project>
+    <ProjectReference Include="..\GSoft.Dynamite.Docs.Contracts\GSoft.Dynamite.Docs.Contracts.csproj">
+      <Project>{b35ace7c-9459-4726-b1ff-9fb627815d13}</Project>
+      <Name>GSoft.Dynamite.Docs.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Migration.Contracts\GSoft.Dynamite.Migration.Contracts.csproj">
+      <Project>{CFFD1AAB-48E5-4019-BB84-CCAE430353BB}</Project>
       <Name>GSoft.Dynamite.Migration.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">

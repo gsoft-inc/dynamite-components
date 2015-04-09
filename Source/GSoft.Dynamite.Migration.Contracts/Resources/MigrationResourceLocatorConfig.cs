@@ -9,7 +9,7 @@ namespace GSoft.Dynamite.Migration.Contracts.Resources
     /// </summary>
     public class MigrationResourceLocatorConfig : IResourceLocatorConfig
     {
-        private ICollection<string> resourceFileKeys = new List<string>() { MigrationResources.Global };
+        private readonly ICollection<string> resourceFileKeys = new List<string>() { MigrationResources.Global };
 
         /// <summary>
         /// File Keys

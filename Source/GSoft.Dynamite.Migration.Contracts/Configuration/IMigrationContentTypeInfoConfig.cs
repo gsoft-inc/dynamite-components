@@ -9,7 +9,7 @@ namespace GSoft.Dynamite.Migration.Contracts.Configuration
     public interface IMigrationContentTypeInfoConfig
     {
         /// <summary>
-        /// Property that return all the content types to create or configure in the migration module
+        /// Property that return all the content types to create or configure in the document management module
         /// </summary>
         IList<ContentTypeInfo> ContentTypes { get; }
     }

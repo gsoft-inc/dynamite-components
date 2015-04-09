@@ -10,19 +10,19 @@ namespace GSoft.Dynamite.Migration.Core.Configuration
     /// </summary>
     public class MigrationFieldInfoConfig : IMigrationFieldInfoConfig
     {
-        private readonly MigrationFieldInfos fieldInfos;
+        private readonly MigrationFieldInfos migrationFieldInfos;
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="MigrationFieldInfoConfig"/> class.
         /// </summary>
-        /// <param name="fieldInfos">The field definitions from the migration module</param>
-        public MigrationFieldInfoConfig(MigrationFieldInfos fieldInfos)
+        /// <param name="migrationFieldInfos">The migration field information.</param>
+        public MigrationFieldInfoConfig(MigrationFieldInfos migrationFieldInfos)
         {
-            this.fieldInfos = fieldInfos;
+            this.migrationFieldInfos = migrationFieldInfos;
         }
 
         /// <summary>
-        /// Property that return all the fields to create or configure in the document management module
+        /// Property that return all the fields to create or configure in the migration module
         /// </summary>
         public IList<BaseFieldInfo> Fields 
         {
@@ -30,7 +30,7 @@ namespace GSoft.Dynamite.Migration.Core.Configuration
             {
                 return new List<BaseFieldInfo>()
                 {
-                    this.fieldInfos.InternalId()
+                    this.migrationFieldInfos.InternalId()
                 };
             }
         }
