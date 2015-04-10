@@ -56,17 +56,11 @@
     <None Include="Modules\Docs\DOC_01\Install-DOC01.ps1" />
     <None Include="Modules\Docs\DOC_01\Setup-BlobCache.template.ps1" />
     <None Include="Modules\Docs\DOC_01\Setup-ImageRenditions.template.ps1" />
-    <None Include="Modules\Docs\DOC_02\Default\ContentPages.xlsx" />
-    <None Include="Modules\Docs\DOC_02\Default\DynamitePropertyTemplate.sgt" />
-    <None Include="Modules\Docs\DOC_02\Default\en\ContentPages.xlsx" />
-    <None Include="Modules\Docs\DOC_02\Default\en\NewsPages.xlsx" />
-    <None Include="Modules\Docs\DOC_02\Default\fr\ContentPages.xlsx" />
-    <None Include="Modules\Docs\DOC_02\Default\fr\NewsPages.xlsx" />
-    <None Include="Modules\Docs\DOC_02\Default\NewsPages.xlsx" />
     <None Include="Modules\Docs\DOC_02\Install-DOC02.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-ContentTypes.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-DocLibraries.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Fields.template.ps1" />
+    <None Include="Modules\Docs\DOC_02\Setup-Permissions.template.ps1" />
     <None Include="Modules\Migration\MIG_01\Default\ContentPages.xlsx" />
     <None Include="Modules\Migration\MIG_01\Default\en\ContentPages.xlsx" />
     <None Include="Modules\Migration\MIG_01\Default\en\NewsPages.xlsx" />
@@ -179,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\Docs\DOC_02\Custom\" />
+    <Folder Include="Modules\Docs\DOC_02\Default\" />
     <Folder Include="Modules\Migration\MIG_01\Custom\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Social\" />
