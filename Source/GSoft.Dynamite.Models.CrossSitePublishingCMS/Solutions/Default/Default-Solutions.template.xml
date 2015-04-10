@@ -46,6 +46,11 @@
         <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
       </WebApplications>
     </Solution>
+  <Solution Path="Solutions\GSoft.Dynamite.Migration.SP.wsp" UpgradeExisting="false" Force="true">
+    <WebApplications>
+      <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
+    </WebApplications>
+  </Solution>
     <Solution Path="Solutions\Lapointe.SharePoint.PowerShell.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>

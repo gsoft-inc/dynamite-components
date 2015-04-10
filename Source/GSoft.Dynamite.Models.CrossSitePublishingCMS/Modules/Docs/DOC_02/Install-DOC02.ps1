@@ -23,15 +23,14 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
 & $Script $LogFolderPath
-
-$values = @{"Step: " = "#3 Setup Content"}
+$values = @{"Step: " = "#3 Setup webs"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-Content.ps1'
+$Script = $CommandDirectory + '\Setup-Webs.ps1'
 & $Script $LogFolderPath
 
-$values = @{"Step: " = "#4 Setup Search Managed Properties"}
+$values = @{"Step: " = "#4 Setup documents libraries"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-ManagedProperties.ps1'
+$Script = $CommandDirectory + '\Setup-DocLibraries.ps1'
 & $Script $LogFolderPath

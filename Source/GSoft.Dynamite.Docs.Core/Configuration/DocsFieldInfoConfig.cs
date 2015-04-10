@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
-using GSoft.Dynamite.Docs.Contracts.Constants;
 using GSoft.Dynamite.Fields;
 
 namespace GSoft.Dynamite.Docs.Core.Configuration
@@ -17,10 +16,7 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
         {
             get
             {
-                return new List<BaseFieldInfo>()
-                {
-                    DocsFieldInfos.InternalId
-                };
+                return new List<BaseFieldInfo>();
             }
         }
     }
