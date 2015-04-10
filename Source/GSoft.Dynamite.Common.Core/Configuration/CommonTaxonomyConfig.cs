@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Common.Contract.Constants;
 using GSoft.Dynamite.Taxonomy;
@@ -31,12 +33,12 @@ namespace GSoft.Dynamite.Common.Core.Configuration
 
         /// <summary>
         /// Gets the term set infos.
-        /// NOTE: The first term set info is used as the SOURCE term set.
+        /// NOTE: The first term
         /// </summary>
         /// <value>
         /// The term set infos.
         /// </value>
-        public IList<TermSetInfo> NavigationTermSetInfos
+        public IList<TermSetInfo> TermSetInfos
         {
             get
             {
@@ -49,18 +51,27 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         }
 
         /// <summary>
-        /// Gets the term set infos.
-        /// NOTE: The first term
+        /// Gets the term group information by identifier from this configuration.
         /// </summary>
-        /// <value>
-        /// The term set infos.
-        /// </value>
-        public IList<TermSetInfo> TermSetInfos
+        /// <param name="id">The unique identifier of the term group.</param>
+        /// <returns>
+        /// The term group information
+        /// </returns>
+        public TermGroupInfo GetTermGroupInfoById(Guid id)
         {
-            get
-            {
-                return new List<TermSetInfo>();
-            }
+            return this.TermGroupInfos.Single(termGroup => termGroup.Id.Equals(id));
+        }
+
+        /// <summary>
+        /// Gets the term set information by identifier from this configuration.
+        /// </summary>
+        /// <param name="id">The identifier of the term set.</param>
+        /// <returns>
+        /// The term set information
+        /// </returns>
+        public TermSetInfo GetTermSetInfoById(Guid id)
+        {
+            return this.TermSetInfos.Single(termSet => termSet.Id.Equals(id));
         }
     }
 }

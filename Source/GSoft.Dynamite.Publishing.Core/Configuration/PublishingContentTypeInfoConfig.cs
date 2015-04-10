@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using GSoft.Dynamite.ContentTypes;
+using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Fields.Constants;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
@@ -10,15 +15,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// </summary>
     public class PublishingContentTypeInfoConfig : IPublishingContentTypeInfoConfig
     {
-        private readonly PublishingContentTypeInfos contentTypeInfoValues;
+        private readonly IPublishingFieldInfoConfig publishingFieldInfoConfig;
 
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="contentTypeInfoValues">The content types info objects configuration</param>
-        public PublishingContentTypeInfoConfig(PublishingContentTypeInfos contentTypeInfoValues)
+        public PublishingContentTypeInfoConfig(IPublishingFieldInfoConfig publishingFieldInfoConfig)
         {
-            this.contentTypeInfoValues = contentTypeInfoValues;
+            this.publishingFieldInfoConfig = publishingFieldInfoConfig;
         }
 
         /// <summary>
@@ -30,24 +31,115 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             {
                 var contentTypes = new List<ContentTypeInfo>
                 {
-                    this.contentTypeInfoValues.TranslatableItem(),
-                    this.contentTypeInfoValues.BrowsableItem(),
-                    this.contentTypeInfoValues.DefaultItem(),
-                    this.contentTypeInfoValues.CatalogContentItem(),
-                    this.contentTypeInfoValues.TargetContentItem(),
-                    this.contentTypeInfoValues.NewsItem(),
-                    this.contentTypeInfoValues.ContentItem(),
-                    this.contentTypeInfoValues.BrowsablePage(),
-                    this.contentTypeInfoValues.TranslatablePage(),
-                    this.contentTypeInfoValues.DefaultPage(),
-                    this.contentTypeInfoValues.BrowsableArticlePage(),
-                    this.contentTypeInfoValues.TranslatableArticlePage(),
-                    this.contentTypeInfoValues.DefaultArticlePage(),
-                    this.contentTypeInfoValues.TargetContentPage(),
-                    this.contentTypeInfoValues.CatalogContentPage(),
+                    PublishingContentTypeInfos.TranslatableItem,
+                    this.GetConfiguredBrowsableItemContentType,
+                    this.GetConfiguredDefaultItemContentType,
+                    PublishingContentTypeInfos.CatalogContentItem,
+                    PublishingContentTypeInfos.TargetContentItem,
+                    this.GetConfiguredNewsItemContentType,
+                    PublishingContentTypeInfos.ContentItem,
+                    this.GetConfiguredBrowsablePageContentType,
+                    PublishingContentTypeInfos.TranslatablePage,
+                    PublishingContentTypeInfos.DefaultPage,
+                    this.GetConfiguredBrowsableArticlePageContentType,
+                    PublishingContentTypeInfos.TranslatableArticlePage,
+                    PublishingContentTypeInfos.DefaultArticlePage,
+                    PublishingContentTypeInfos.TargetContentPage,
+                    PublishingContentTypeInfos.CatalogContentPage,
                 };
 
                 return contentTypes;
+            }
+        }
+
+        /// <summary>
+        /// Gets the content type from the ContentTypes property where the id of that content type is passed by parameter.
+        /// </summary>
+        /// <param name="contentTypeId">The unique identifier of the content type we are looking for.</param>
+        /// <returns>
+        /// The content type information.
+        /// </returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">When the ContentTypes collection of this configuration does not have a content type with the proper identifier.</exception>
+        public ContentTypeInfo GetContentTypeById(SPContentTypeId contentTypeId)
+        {
+            var contentType = this.ContentTypes.FirstOrDefault(c => c.ContentTypeId.Equals(contentTypeId));
+            if (contentType == null)
+            {
+                throw new ArgumentOutOfRangeException("contentTypeId", string.Format("Unable to find content type in this configuration with the id '{0}'.", contentTypeId));
+            }
+
+            return contentType;
+        }
+
+        private ContentTypeInfo GetConfiguredBrowsableItemContentType
+        {
+            get
+            {
+                var contentType = PublishingContentTypeInfos.BrowsableItem;
+                contentType.Fields = new List<BaseFieldInfo>()
+                {
+                    this.publishingFieldInfoConfig.GetFieldById(PublishingFieldInfos.Navigation.Id)
+                };
+
+                return contentType;
+            }
+        }
+
+        private ContentTypeInfo GetConfiguredDefaultItemContentType
+        {
+            get
+            {
+                var contentType = PublishingContentTypeInfos.DefaultItem;
+                contentType.Fields = new List<BaseFieldInfo>()
+                {
+                    PublishingFields.PublishingPageContent
+                };
+
+                return contentType;
+            }
+        }
+
+        private ContentTypeInfo GetConfiguredNewsItemContentType
+        {
+            get
+            {
+                var contentType = PublishingContentTypeInfos.NewsItem;
+                contentType.Fields = new List<BaseFieldInfo>()
+                {
+                    this.publishingFieldInfoConfig.GetFieldById(PublishingFieldInfos.Summary.Id),
+                    PublishingFields.PublishingPageImage,
+                    this.publishingFieldInfoConfig.GetFieldById(PublishingFieldInfos.ImageDescription.Id)
+                };
+
+                return contentType;
+            }
+        }
+
+        private ContentTypeInfo GetConfiguredBrowsablePageContentType
+        {
+            get
+            {
+                var contentType = PublishingContentTypeInfos.BrowsablePage;
+                contentType.Fields = new List<BaseFieldInfo>()
+                {
+                    this.publishingFieldInfoConfig.GetFieldById(PublishingFieldInfos.Navigation.Id)
+                };
+
+                return contentType;
+            }
+        }
+
+        private ContentTypeInfo GetConfiguredBrowsableArticlePageContentType
+        {
+            get
+            {
+                var contentType = PublishingContentTypeInfos.BrowsableArticlePage;
+                contentType.Fields = new List<BaseFieldInfo>()
+                {
+                    this.publishingFieldInfoConfig.GetFieldById(PublishingFieldInfos.Navigation.Id)
+                };
+
+                return contentType;
             }
         }
     }

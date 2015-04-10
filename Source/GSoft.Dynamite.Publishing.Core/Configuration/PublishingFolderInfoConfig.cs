@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.Folders;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
@@ -11,15 +13,14 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// </summary>
     public class PublishingFolderInfoConfig : IPublishingFolderInfoConfig
     {
-        private readonly PublishingFolderInfos folderInfos;
+        private readonly IPublishingPageInfoConfig publishingPageInfoConfig;
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="folderInfos">The folder info objects configuration</param>
-        public PublishingFolderInfoConfig(PublishingFolderInfos folderInfos)
+        public PublishingFolderInfoConfig(IPublishingPageInfoConfig publishingPageInfoConfig)
         {
-            this.folderInfos = folderInfos;
+            this.publishingPageInfoConfig = publishingPageInfoConfig;
         }
 
         /// <summary>
@@ -31,10 +32,76 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             {
                 return new List<FolderInfo>()
                 {
-                    this.folderInfos.ItemPageTemplates(),
-                    this.folderInfos.CategoryPageTemplates()
+                    this.ItemPageTemplates,
+                    this.CategoryPageTemplates
                 };
             }
+        }
+
+        public FolderInfo ItemPageTemplates
+        {
+            get
+            {
+                var folder = PublishingFolderInfos.ItemPageTemplates;
+                folder.Subfolders = new[]
+                {
+                    this.FolderTest
+                };
+                folder.Pages = new[]
+                {
+                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.TargetItemPageTemplate.FileName),
+                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogItemPageTemplate.FileName),
+                };
+
+                return folder;
+            }
+        }
+
+        public FolderInfo CategoryPageTemplates
+        {
+            get
+            {
+                var folder = PublishingFolderInfos.ItemPageTemplates;
+                folder.Subfolders = new[]
+                {
+                    this.FolderTest
+                };
+                folder.Pages = new[]
+                {
+                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogCategoryItemsPageTemplate.FileName)
+                };
+
+                return folder;
+            }
+        }
+
+        public FolderInfo FolderTest
+        {
+            get
+            {
+                var folder = PublishingFolderInfos.ItemPageTemplates;
+                folder.Subfolders = new[]
+                {
+                    this.FolderTest2
+                };
+
+                return folder;
+            }
+        }
+
+        public FolderInfo FolderTest2
+        {
+            get
+            {
+                var folder = PublishingFolderInfos.ItemPageTemplates;
+                folder.Pages = new[]
+                {
+                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.TargetItemPageTemplate.FileName),
+                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogItemPageTemplate.FileName)
+                };
+
+                return folder;
+            }            
         }
     }
 }

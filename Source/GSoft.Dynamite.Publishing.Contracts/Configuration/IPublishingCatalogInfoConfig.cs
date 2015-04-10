@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GSoft.Dynamite.Catalogs;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Configuration
@@ -12,5 +13,19 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         /// Property that return all the catalogs to use in the publishing module
         /// </summary>
         IList<CatalogInfo> Catalogs { get; }
+
+        /// <summary>
+        /// Gets the catalog information by web relative URL from this configuration.
+        /// </summary>
+        /// <param name="webRelativeUrl">The web relative URL.</param>
+        /// <returns>The catalog information</returns>
+        CatalogInfo GetCatalogInfoByWebRelativeUrl(string webRelativeUrl);
+
+        /// <summary>
+        /// Gets the catalog information by web relative URL from this configuration.
+        /// </summary>
+        /// <param name="webRelativeUrl">The web relative URL.</param>
+        /// <returns>The catalog information</returns>
+        CatalogInfo GetCatalogInfoByWebRelativeUrl(Uri webRelativeUrl);
     }
 }

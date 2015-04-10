@@ -11,7 +11,7 @@ namespace GSoft.Dynamite.Search.Core.Configuration
     /// <summary>
     /// The Managed properties configuration for the search module
     /// </summary>
-    public class SearchManagedPropertyInfoConfig : ICommonManagedPropertyInfosConfig
+    public class SearchManagedPropertyInfoConfig : IPublishingManagedPropertyInfoConfig
     {
         private readonly SearchManagedPropertyInfos searchManagedPropertyInfos;
 

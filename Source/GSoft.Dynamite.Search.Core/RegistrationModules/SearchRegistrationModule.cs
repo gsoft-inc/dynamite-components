@@ -41,8 +41,8 @@ namespace GSoft.Dynamite.Search.Core.RegistrationModules
             builder.RegisterType<SearchContentTypeInfoConfig>().Named<ISearchContentTypeInfoConfig>("search");
 
             // Managed properties
-            builder.RegisterType<SearchManagedPropertyInfoConfig>().As<ICommonManagedPropertyInfosConfig>();
-            builder.RegisterType<SearchManagedPropertyInfoConfig>().Named<ICommonManagedPropertyInfosConfig>("search");
+            builder.RegisterType<SearchManagedPropertyInfoConfig>().As<IPublishingManagedPropertyInfoConfig>();
+            builder.RegisterType<SearchManagedPropertyInfoConfig>().Named<IPublishingManagedPropertyInfoConfig>("search");
 
             // Events Receivers
             builder.RegisterType<SearchEventReceiverInfoConfig>().As<ISearchEventReceiverInfoConfig>();

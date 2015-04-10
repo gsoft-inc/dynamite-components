@@ -19,7 +19,7 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
             {
                 return new List<BaseFieldInfo>()
                 {
-                    DocsFieldInfos.InternalId;
+                    DocsFieldInfos.InternalId
                 };
             }
         }

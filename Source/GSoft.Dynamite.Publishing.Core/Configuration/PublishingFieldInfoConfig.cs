@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.Common.Contract.Configuration;
+using GSoft.Dynamite.Common.Contract.Constants;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -56,11 +59,22 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 // By default, use the first defined navigation term set info as the
                 // field term set mapping.
                 var fieldInfo = PublishingFieldInfos.Navigation;
-                fieldInfo.TermStoreMapping = new TaxonomyContext(
-                    this.commonTaxonomyConfig.NavigationTermSetInfos[0]);
+                fieldInfo.TermStoreMapping = new TaxonomyContext(this.commonTaxonomyConfig.GetTermSetInfoById(CommonTermSetInfo.EnglishNavigation.Id));
 
                 return fieldInfo;
             }
+        }
+
+        /// <summary>
+        /// Gets the field from the Fields property where the id of that field is passed by parameter.
+        /// </summary>
+        /// <param name="fieldId">The unique identifier of the field we are looking for.</param>
+        /// <returns>
+        /// The field information.
+        /// </returns>
+        public BaseFieldInfo GetFieldById(Guid fieldId)
+        {
+            return this.Fields.Single(f => f.Id.Equals(fieldId));
         }
     }
 }

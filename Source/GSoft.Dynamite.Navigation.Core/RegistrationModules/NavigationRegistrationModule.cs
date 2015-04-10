@@ -49,8 +49,8 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationCatalogConnectionInfoConfig>().Named<INavigationCatalogConnectionInfoConfig>("navigation");
 
             // Managed Properties
-            builder.RegisterType<NavigationManagedPropertyConfig>().As<ICommonManagedPropertyInfosConfig>();
-            builder.RegisterType<NavigationManagedPropertyConfig>().Named<ICommonManagedPropertyInfosConfig>("navigation");
+            builder.RegisterType<NavigationManagedPropertyConfig>().As<IPublishingManagedPropertyInfoConfig>();
+            builder.RegisterType<NavigationManagedPropertyConfig>().Named<IPublishingManagedPropertyInfoConfig>("navigation");
 
             // Managed Navigation
             builder.RegisterType<NavigationManagedNavigationInfoConfig>().As<INavigationManagedNavigationInfoConfig>();

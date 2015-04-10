@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj">
-      <Project>{31680A5F-E76D-4501-9DFC-D67CE09863F1}</Project>
+      <Project>{31680a5f-e76d-4501-9dfc-d67ce09863f1}</Project>
       <Name>GSoft.Dynamite.Common.Contracts</Name>
     </ProjectReference>
   </ItemGroup>

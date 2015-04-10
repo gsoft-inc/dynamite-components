@@ -11,7 +11,7 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
     /// this configuration interface is used by all the modules across the solution. 
     /// At the end, this configuration is processed in the "Docs" module, after the content provisioning, prerequisite of a search managed property creation.
     /// </summary>
-    public class NavigationManagedPropertyConfig : ICommonManagedPropertyInfosConfig
+    public class NavigationManagedPropertyConfig : IPublishingManagedPropertyInfoConfig
     {
         private readonly NavigationManagedPropertyInfos navigationManagedPropertyInfos;
 

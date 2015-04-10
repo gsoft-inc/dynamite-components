@@ -63,12 +63,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj">
-      <Project>{13C3CFC3-4328-4047-9B62-15B19E2E5922}</Project>
-      <Name>GSoft.Dynamite.Multilingualism.Contracts</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>

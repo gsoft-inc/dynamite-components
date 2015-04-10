@@ -8,7 +8,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
     /// <summary>
     /// Search managed properties configuration for the multilingualism module
     /// </summary>
-    public class MultilingualismManagedPropertyInfoConfig : ICommonManagedPropertyInfosConfig
+    public class MultilingualismManagedPropertyInfoConfig : IPublishingManagedPropertyInfoConfig
     {
         private readonly MultilingualismManagedPropertyInfos multilingualismManagedPropertyInfos;
 

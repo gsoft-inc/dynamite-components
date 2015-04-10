@@ -84,8 +84,19 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
                 Name = "All Menu Items",
                 Level = SearchObjectLevel.Ssa,
                 UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
-                Query = PublishingResultSourceInfos.AppendToSearchKqlPrefix(string.Empty)
+                Query = NavigationResultSourceInfos.AppendToSearchKqlPrefix(string.Empty)
             };
+        }
+
+        /// <summary>
+        /// Method to Append a query to the Search KQL prefix
+        /// </summary>
+        /// <param name="queryToAppend">Query text to append to the existing query</param>
+        /// <returns>The string prefixed with the Search KQL</returns>
+        private static string AppendToSearchKqlPrefix(string queryToAppend)
+        {
+            string SearchKqlprefix = "{?{searchTerms} -ContentClass=urn:content-class:SPSPeople}";
+            return string.Format("{0} {1}", SearchKqlprefix, queryToAppend);
         }
     }
 }

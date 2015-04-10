@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
+using Microsoft.Office.Server.Search.Administration;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
@@ -9,16 +12,25 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// Configuration for the creation of the Result Types
     /// </summary>
     public class PublishingResultTypeInfoConfig : IPublishingResultTypeInfoConfig
-    {        
-        private readonly PublishingResultTypeInfos _basePublishingResultTypeInfos;
+    {
+        private readonly IPublishingDisplayTemplateInfoConfig publishingDisplayTemplateInfoConfig;
+        private readonly IPublishingResultSourceInfoConfig publishingResultSourceInfoConfig;
+        private readonly IPublishingManagedPropertyInfoConfig publishingManagedPropertyInfoConfig;
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="PublishingResultTypeInfoConfig"/> class.
         /// </summary>
-        /// <param name="basePublishingResultTypeInfos">The result types info objects</param>
-        public PublishingResultTypeInfoConfig(PublishingResultTypeInfos basePublishingResultTypeInfos)
+        /// <param name="publishingDisplayTemplateInfoConfig">The publishing display template information configuration.</param>
+        /// <param name="publishingResultSourceInfoConfig">The publishing result source information configuration.</param>
+        /// <param name="publishingManagedPropertyInfoConfig">The publishing managed property information configuration.</param>
+        public PublishingResultTypeInfoConfig(
+            IPublishingDisplayTemplateInfoConfig publishingDisplayTemplateInfoConfig,
+            IPublishingResultSourceInfoConfig publishingResultSourceInfoConfig,
+            IPublishingManagedPropertyInfoConfig publishingManagedPropertyInfoConfig)
         {
-            this._basePublishingResultTypeInfos = basePublishingResultTypeInfos;
+            this.publishingDisplayTemplateInfoConfig = publishingDisplayTemplateInfoConfig;
+            this.publishingResultSourceInfoConfig = publishingResultSourceInfoConfig;
+            this.publishingManagedPropertyInfoConfig = publishingManagedPropertyInfoConfig;
         }
 
         /// <summary>
@@ -30,13 +42,55 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             {
                 var resultTypes = new List<ResultTypeInfo>()
                 {
-                    this._basePublishingResultTypeInfos.NewsPageResultType(),
-                    this._basePublishingResultTypeInfos.ContentPageResultType(),
-                    this._basePublishingResultTypeInfos.CategoryItemResultType()
+                    this.NewsPageResultType,
+                    this.ContentPageResultType,
+                    this.CategoryItemResultType
                 };
 
                 return resultTypes;               
             }         
+        }
+
+        private ResultTypeInfo NewsPageResultType
+        {
+            get
+            {
+                var resultType = PublishingResultTypeInfos.NewsPageResultType;
+                resultType.DisplayTemplate = this.publishingDisplayTemplateInfoConfig.GetDisplayTemplateInfoByName(PublishingDisplayTemplateInfos.ItemSingleNewsItemContent.Name);
+                resultType.ResultSource = this.publishingResultSourceInfoConfig.GetResultSourceInfoByName(PublishingResultSourceInfos.SingleCatalogItem.Name);
+
+                return resultType;
+            }
+        }
+
+        private ResultTypeInfo ContentPageResultType
+        {
+            get
+            {
+                var resultType = PublishingResultTypeInfos.ContentPageResultType;
+                resultType.DisplayTemplate = this.publishingDisplayTemplateInfoConfig.GetDisplayTemplateInfoByName(PublishingDisplayTemplateInfos.ItemSingleContentItem.Name);
+                resultType.ResultSource = this.publishingResultSourceInfoConfig.GetResultSourceInfoByName(PublishingResultSourceInfos.SingleTargetItem.Name);
+
+                return resultType;
+            }
+        }
+
+        private ResultTypeInfo CategoryItemResultType
+        {
+            get
+            {
+                var resultType = PublishingResultTypeInfos.ContentPageResultType;
+                resultType.DisplayTemplate = this.publishingDisplayTemplateInfoConfig.GetDisplayTemplateInfoByName(PublishingDisplayTemplateInfos.ItemNewsCategoryItem.Name);
+                resultType.ResultSource = this.publishingResultSourceInfoConfig.GetResultSourceInfoByName(PublishingResultSourceInfos.CatalogCategoryItems.Name);
+                resultType.DisplayProperties.Add(this.publishingManagedPropertyInfoConfig.GetManagedPropertyInfoByName(PublishingManagedPropertyInfos.Summary.Name));
+
+                return resultType;
+            }
+        }
+
+        public ResultTypeInfo GetResultTypeInfoByName(string name)
+        {
+            return this.ResultTypes.Single(r => r.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
