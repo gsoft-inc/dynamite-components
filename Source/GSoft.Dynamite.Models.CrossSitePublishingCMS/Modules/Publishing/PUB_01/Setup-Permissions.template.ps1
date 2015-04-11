@@ -10,9 +10,6 @@
 # setup will abort.
 param([switch] $Force=$false)
 
-# Verbose preference
-$VerbosePreference ="Continue"
-
 # Define working directory
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
