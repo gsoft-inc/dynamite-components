@@ -6,84 +6,82 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
     /// <summary>
     /// Defines the language settings for the SharePoint variations configuration
     /// </summary>
-    public class MultilingualismVariationSettingsInfos
+    public static class MultilingualismVariationSettingsInfos
     {
-        private readonly MultilingualismVariationLabelInfos _variationLabelInfos;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="variationLabelInfos">The variation labels settings from the multilingualism module</param>
-        public MultilingualismVariationSettingsInfos(MultilingualismVariationLabelInfos variationLabelInfos)
-        {
-            this._variationLabelInfos = variationLabelInfos;
-        }
-
         /// <summary>
         /// Represents the variations configuration for english and french languages
         /// </summary>
         /// <returns>The variations settings info</returns>
-        public VariationSettingsInfo EnglishAndFrench()
+        public static VariationSettingsInfo EnglishAndFrench
         {
-            return new VariationSettingsInfo()
+            get
             {
-                AutoSpawnStopAfterDelete = "true",
-                CopyResources = "true",
-                CreateHierarchies = "true",
-                EnableAutoSpawn = "false",
-                SourceVarRootWebTemplate = "CMSPUBLISHING#0",
-                UpdateWebParts = "false",
-                SendNotificationEmail = "false",
-                Labels = new List<VariationLabelInfo>()
+                return new VariationSettingsInfo()
                 {
-                    this._variationLabelInfos.EnglishLabel(),
-                    this._variationLabelInfos.FrenchLabel()
-                }
-            };
+                    AutoSpawnStopAfterDelete = "true",
+                    CopyResources = "true",
+                    CreateHierarchies = "true",
+                    EnableAutoSpawn = "false",
+                    SourceVarRootWebTemplate = "CMSPUBLISHING#0",
+                    UpdateWebParts = "false",
+                    SendNotificationEmail = "false",
+                    Labels = new List<VariationLabelInfo>()
+                    {
+                        MultilingualismVariationLabelInfos.EnglishLabel,
+                        MultilingualismVariationLabelInfos.FrenchLabel
+                    }
+                };
+            }
         }
 
         /// <summary>
         /// Represents the variations configuration for english language only
         /// </summary>
         /// <returns>The variations settings info</returns>
-        public VariationSettingsInfo EnglishOnly()
+        public static VariationSettingsInfo EnglishOnly
         {
-            return new VariationSettingsInfo()
+            get
             {
-                AutoSpawnStopAfterDelete = "true",
-                CopyResources = "true",
-                CreateHierarchies = "true",
-                EnableAutoSpawn = "false",
-                SourceVarRootWebTemplate = "CMSPUBLISHING#0",
-                UpdateWebParts = "false",
-                SendNotificationEmail = "false",
-                Labels = new List<VariationLabelInfo>()
+                return new VariationSettingsInfo()
                 {
-                    this._variationLabelInfos.EnglishLabel(),
-                }
-            };
+                    AutoSpawnStopAfterDelete = "true",
+                    CopyResources = "true",
+                    CreateHierarchies = "true",
+                    EnableAutoSpawn = "false",
+                    SourceVarRootWebTemplate = "CMSPUBLISHING#0",
+                    UpdateWebParts = "false",
+                    SendNotificationEmail = "false",
+                    Labels = new List<VariationLabelInfo>()
+                    {
+                        MultilingualismVariationLabelInfos.EnglishLabel,
+                    }
+                };
+            }
         }
 
         /// <summary>
         /// Represents the variations configuration for french language only
         /// </summary>
         /// <returns>The variations settings info</returns>
-        public VariationSettingsInfo FrenchOnly()
+        public static VariationSettingsInfo FrenchOnly
         {
-            return new VariationSettingsInfo()
+            get
             {
-                AutoSpawnStopAfterDelete = "true",
-                CopyResources = "true",
-                CreateHierarchies = "true",
-                EnableAutoSpawn = "false",
-                SourceVarRootWebTemplate = "CMSPUBLISHING#0",
-                UpdateWebParts = "false",
-                SendNotificationEmail = "false",
-                Labels = new List<VariationLabelInfo>()
+                return new VariationSettingsInfo()
                 {
-                    this._variationLabelInfos.FrenchLabel(),
-                }
-            };
-        }   
+                    AutoSpawnStopAfterDelete = "true",
+                    CopyResources = "true",
+                    CreateHierarchies = "true",
+                    EnableAutoSpawn = "false",
+                    SourceVarRootWebTemplate = "CMSPUBLISHING#0",
+                    UpdateWebParts = "false",
+                    SendNotificationEmail = "false",
+                    Labels = new List<VariationLabelInfo>()
+                    {
+                        MultilingualismVariationLabelInfos.FrenchLabel,
+                    }
+                };
+            }
+        }
     }
 }

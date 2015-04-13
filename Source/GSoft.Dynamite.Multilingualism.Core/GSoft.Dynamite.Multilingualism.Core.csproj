@@ -65,7 +65,6 @@
     <Compile Include="Configuration\MultilingualismContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismFieldInfoConfig.cs" />
-    <Compile Include="Configuration\MultilingualismListInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismManagedPropertyInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismVariationsConfig.cs" />

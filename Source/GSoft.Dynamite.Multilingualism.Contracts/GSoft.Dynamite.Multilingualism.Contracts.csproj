@@ -76,8 +76,6 @@
     <Compile Include="Constants\MultilingualismFieldInfos.cs" />
     <Compile Include="Constants\MultilingualismManagedPropertyInfos.cs" />
     <Compile Include="Constants\MultilingualismResources.cs" />
-    <Compile Include="Constants\MultilingualismResultSourceInfos.cs" />
-    <Compile Include="Constants\MultilingualismTermSetInfos.cs" />
     <Compile Include="Constants\MultilingualismVariationLabelInfos.cs" />
     <Compile Include="Constants\MultilingualismVariationSettingsInfos.cs" />
     <Compile Include="Configuration\IMultilingualismContentTypeInfoConfig.cs" />
