@@ -48,6 +48,11 @@ try {
 	.\Modules\Navigation\NAV_05\Install-NAV05.ps1
 	#endregion
 
+	#region ********** DOCUMENT MANAGEMENT MODULE ********** #
+	.\Modules\Docs\DOC_01\Install-DOC01.ps1
+	.\Modules\Docs\DOC_02\Install-DOC02.ps1
+	#endregion
+
 	#region ********** LIFE CYCLE MODULE ********** #
 	.\Modules\Lifecycle\LFCL_01\Install-LFCL01.ps1
 	#endregion
@@ -77,11 +82,6 @@ try {
 	{
 		.\Modules\Search\SRCH_03\Install-SRCH03.ps1
 	}
-	#endregion
-
-	#region ********** DOCUMENT MANAGEMENT MODULE ********** #
-	.\Modules\Docs\DOC_01\Install-DOC01.ps1
-	.\Modules\Docs\DOC_02\Install-DOC02.ps1
 	#endregion
 
 	#region ********** MIGRATION MODULE ********** #
