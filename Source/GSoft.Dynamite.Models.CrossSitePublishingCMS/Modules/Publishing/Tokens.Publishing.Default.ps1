@@ -58,6 +58,7 @@ $DSP_CrossSitePublishingCMS_PUB_CategoryPages = "70a9d0da-3bf8-4660-8787-5d9d66a
 $DSP_CrossSitePublishingCMS_PUB_FacetedNavigation = "9ef56381-c35b-4c7e-980d-f1e616a74e67"
 $DSP_CrossSitePublishingCMS_PUB_LanguageFiles = "9fb465fb-0bb7-4a3c-ba30-ef2231cce45e"
 $DSP_CrossSitePublishingCMS_PUB_MetadataNavigation = "246b965b-f1cb-451f-923f-8fac5812dfec"
+$DSP_CrossSitePublishingCMS_PUB_SearchRESTAnonymous = "c172bf31-e0dc-4fcf-b96c-0d0cc0aa3aed"
 
 # ============================================
 # SHAREPOINT OOTB FEATURES

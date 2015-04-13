@@ -5,6 +5,7 @@
 # Description	: Setup Property Bag Mappings
 # -----------------------------------------------------------------------
 
+# Mappings from authoring to publishing site collection
 $HashTable = [[DSP_CrossSiteMappings]]
 
 $HashTable.Keys | Foreach-Object { 
