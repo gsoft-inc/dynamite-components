@@ -64,7 +64,6 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Configuration\IPublishingManagedPropertyInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingFacetedNavigationInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingCatalogInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingContentTypeInfoConfig.cs" />

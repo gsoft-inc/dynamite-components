@@ -6,6 +6,7 @@ using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Pages;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Taxonomy;
 using Microsoft.SharePoint;
@@ -22,7 +23,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         private readonly INavigationHelper navigationHelper;
         private readonly ILogger logger;
         private readonly ICamlBuilder caml;
-        private readonly PublishingFieldInfos publishingFieldInfos;
+        private readonly IPublishingFieldInfoConfig publishingFieldConfig;
 
         /// <summary>
         /// Default constructor
@@ -31,14 +32,14 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <param name="taxonomyService">The taxonomy service helper</param>
         /// <param name="navigationHelper">The navigation helper</param>
         /// <param name="caml">The CAML builder helper</param>
-        /// <param name="publishingFieldInfos">The publishing field info objects</param>
-        public NavigationTermBuilderService(ILogger logger, ITaxonomyService taxonomyService, INavigationHelper navigationHelper, ICamlBuilder caml, PublishingFieldInfos publishingFieldInfos)
+        /// <param name="publishingFieldConfig">The publishing field info objects</param>
+        public NavigationTermBuilderService(ILogger logger, ITaxonomyService taxonomyService, INavigationHelper navigationHelper, ICamlBuilder caml, IPublishingFieldInfoConfig publishingFieldConfig)
         {
             this.taxonomyService = taxonomyService;
             this.navigationHelper = navigationHelper;
             this.logger = logger;
             this.caml = caml;
-            this.publishingFieldInfos = publishingFieldInfos;
+            this.publishingFieldConfig = publishingFieldConfig;
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         {
             if (item != null)
             {
-                var itemNavigationFieldName = this.publishingFieldInfos.Navigation().InternalName;
+                var itemNavigationFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id).InternalName;
 
                 if (item.Fields.ContainsField(itemNavigationFieldName))
                 {
@@ -105,7 +106,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         {
             if (item != null)
             {
-                var itemNavigationFieldName = this.publishingFieldInfos.Navigation().InternalName;
+                var itemNavigationFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id).InternalName;
 
                 if (item.Fields.ContainsField(itemNavigationFieldName))
                 {
@@ -188,7 +189,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         {
             if (item != null)
             {
-                var itemNavigationFieldName = this.publishingFieldInfos.Navigation().InternalName;
+                var itemNavigationFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id).InternalName;
 
                 if (item.Fields.ContainsField(itemNavigationFieldName))
                 {

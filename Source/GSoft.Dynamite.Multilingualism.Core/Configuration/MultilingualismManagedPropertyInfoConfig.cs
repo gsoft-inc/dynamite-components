@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search;
@@ -8,7 +9,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
     /// <summary>
     /// Search managed properties configuration for the multilingualism module
     /// </summary>
-    public class MultilingualismManagedPropertyInfoConfig : IPublishingManagedPropertyInfoConfig
+    public class MultilingualismManagedPropertyInfoConfig : ICommonManagedPropertyConfig
     {
         private readonly MultilingualismManagedPropertyInfos multilingualismManagedPropertyInfos;
 

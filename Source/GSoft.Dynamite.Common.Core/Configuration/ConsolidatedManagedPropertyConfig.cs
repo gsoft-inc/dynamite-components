@@ -1,22 +1,23 @@
-﻿using System.Collections.Generic;
-using GSoft.Dynamite.Migration.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Search;
 
-namespace GSoft.Dynamite.Migration.Core.Configuration
+namespace GSoft.Dynamite.Common.Core.Configuration
 {
     /// <summary>
     /// Search managed properties configuration for the whole solution. Remember, managed properties are only created in the migration module, after the content is uploaded.
     /// </summary>
-    public class MigrationManagedPropertyInfoConfig : IMigrationManagedPropertyInfoConfig
+    public class ConsolidatedManagedPropertyConfig : IConsolidatedManagedPropertyConfig
     {
-        private readonly IList<ICommonManagedPropertyInfosConfig> modulesConfiguration;
+        private readonly IList<ICommonManagedPropertyConfig> modulesConfiguration;
 
         /// <summary>
         /// Default constructor
         /// </summary>
         /// <param name="modulesConfiguration">A list of managed properties configuration got from all modules in the solution</param>
-        public MigrationManagedPropertyInfoConfig(IList<ICommonManagedPropertyInfosConfig> modulesConfiguration)
+        public ConsolidatedManagedPropertyConfig(IList<ICommonManagedPropertyConfig> modulesConfiguration)
         {
             this.modulesConfiguration = modulesConfiguration;
         }
@@ -36,6 +37,16 @@ namespace GSoft.Dynamite.Migration.Core.Configuration
 
                 return managedProperties;
             }
+        }
+
+        /// <summary>
+        /// Gets the managed property information by name from this configuration.
+        /// </summary>
+        /// <param name="ManagedPropertyName">Name of the managed property.</param>
+        /// <returns>The managed property information</returns>
+        public ManagedPropertyInfo GetManagedPropertyInfoByName(string managedPropertyName)
+        {
+            return this.ManagedProperties.Single(m => m.Name.Equals(managedPropertyName, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

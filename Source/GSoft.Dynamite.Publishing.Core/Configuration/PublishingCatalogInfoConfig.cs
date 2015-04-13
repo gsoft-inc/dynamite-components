@@ -89,19 +89,19 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 var newsPagesCatalog = PublishingCatalogInfos.NewsPages;
                 newsPagesCatalog.TaxonomyFieldMap = customNavigationField;
                 newsPagesCatalog.ContentTypes = new[] 
-            {
-                this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.NewsItem.ContentTypeId)
-            };
+                {
+                    this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.NewsItem.ContentTypeId)
+                };
 
                 newsPagesCatalog.DefaultViewFields = new[]
-            {
-                customNavigationField
-            };
+                {
+                    customNavigationField
+                };
 
                 newsPagesCatalog.FieldDefinitions = new[]
-            {
-                customNavigationField
-            };
+                {
+                    customNavigationField
+                };
 
                 return newsPagesCatalog;
             }
@@ -119,19 +119,19 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 var contentPagesCatalog = PublishingCatalogInfos.ContentPages;
                 contentPagesCatalog.TaxonomyFieldMap = customNavigationField;
                 contentPagesCatalog.ContentTypes = new[] 
-            {
-                this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.ContentItem.ContentTypeId)
-            };
+                {
+                    this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.ContentItem.ContentTypeId)
+                };
 
                 contentPagesCatalog.DefaultViewFields = new[]
-            {
-                customNavigationField
-            };
+                {
+                    customNavigationField
+                };
 
                 contentPagesCatalog.FieldDefinitions = new[]
-            {
-                customNavigationField
-            };
+                {
+                    customNavigationField
+                };
 
                 return contentPagesCatalog;
             }

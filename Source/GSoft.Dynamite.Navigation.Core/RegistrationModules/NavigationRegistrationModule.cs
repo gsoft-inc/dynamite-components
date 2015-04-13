@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
@@ -49,8 +50,8 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationCatalogConnectionInfoConfig>().Named<INavigationCatalogConnectionInfoConfig>("navigation");
 
             // Managed Properties
-            builder.RegisterType<NavigationManagedPropertyConfig>().As<IPublishingManagedPropertyInfoConfig>();
-            builder.RegisterType<NavigationManagedPropertyConfig>().Named<IPublishingManagedPropertyInfoConfig>("navigation");
+            builder.RegisterType<NavigationManagedPropertyConfig>().As<ICommonManagedPropertyConfig>();
+            builder.RegisterType<NavigationManagedPropertyConfig>().Named<ICommonManagedPropertyConfig>("navigation");
 
             // Managed Navigation
             builder.RegisterType<NavigationManagedNavigationInfoConfig>().As<INavigationManagedNavigationInfoConfig>();
@@ -64,16 +65,7 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationCatalogInfoConfig>().Named<INavigationCatalogInfoConfig>("navigation");
 
             // Configuration Values
-            builder.RegisterType<NavigationTermDrivenPageSettingsInfos>();
-            builder.RegisterType<NavigationFieldInfos>();
             builder.RegisterType<NavigationEventReceiverInfos>();
-            builder.RegisterType<NavigationResultSourceInfos>();
-            builder.RegisterType<NavigationCatalogConnectionInfos>();
-            builder.RegisterType<NavigationTermGroupInfos>();
-            builder.RegisterType<NavigationTermSetInfos>();
-            builder.RegisterType<NavigationManagedPropertyInfos>();
-            builder.RegisterType<NavigationManagedNavigationInfos>();
-            builder.RegisterType<NavigationListInfos>(); 
 
             // Slug Builder Service
             builder.RegisterType<SlugBuilderService>().As<ISlugBuilderService>();

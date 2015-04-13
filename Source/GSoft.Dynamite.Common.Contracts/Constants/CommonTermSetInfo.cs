@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Common.Contract.Constants
@@ -39,6 +41,21 @@ namespace GSoft.Dynamite.Common.Contract.Constants
                     new Guid("ec024dae-b413-4c85-a407-b058ad7f6554"),
                     "Navigation (FR)",
                     CommonTermGroupInfo.Navigation);
+            }
+        }
+
+        /// <summary>
+        /// The Navigation Controls TermSet
+        /// </summary>
+        /// <returns>TermSet Info</returns>
+        public static TermSetInfo NavigationControls
+        {
+            get
+            {
+                return new TermSetInfo(
+                    new Guid("8f547d50-5f96-4741-a105-2d1fa91e3165"),
+                    "Navigation Controls",
+                    CommonTermGroupInfo.Keywords);
             }
         }
     }

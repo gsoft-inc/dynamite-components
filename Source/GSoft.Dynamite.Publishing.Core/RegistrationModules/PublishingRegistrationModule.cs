@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Portal.Core.Resources;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -62,8 +63,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingResultTypeInfoConfig>().Named<IPublishingResultTypeInfoConfig>("publishing");
 
             // Managed Properties
-            builder.RegisterType<PublishingManagedPropertyConfig>().As<IPublishingManagedPropertyInfoConfig>();
-            builder.RegisterType<PublishingManagedPropertyConfig>().Named<IPublishingManagedPropertyInfoConfig>("publishing");
+            builder.RegisterType<PublishingManagedPropertyConfig>().As<ICommonManagedPropertyConfig>();
+            builder.RegisterType<PublishingManagedPropertyConfig>().Named<ICommonManagedPropertyConfig>("publishing");
 
             // Page Layouts
             builder.RegisterType<PublishingPageLayoutInfoConfig>().As<IPublishingPageLayoutInfoConfig>();

@@ -59,16 +59,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// <returns>
         /// The content type information.
         /// </returns>
-        /// <exception cref="System.ArgumentOutOfRangeException">When the ContentTypes collection of this configuration does not have a content type with the proper identifier.</exception>
         public ContentTypeInfo GetContentTypeById(SPContentTypeId contentTypeId)
         {
-            var contentType = this.ContentTypes.FirstOrDefault(c => c.ContentTypeId.Equals(contentTypeId));
-            if (contentType == null)
-            {
-                throw new ArgumentOutOfRangeException("contentTypeId", string.Format("Unable to find content type in this configuration with the id '{0}'.", contentTypeId));
-            }
-
-            return contentType;
+            return this.ContentTypes.Single(c => c.ContentTypeId.Equals(contentTypeId));
         }
 
         private ContentTypeInfo GetConfiguredBrowsableItemContentType

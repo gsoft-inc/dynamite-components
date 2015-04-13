@@ -62,7 +62,6 @@
     </Compile>
     <Compile Include="Configuration\IMigrationContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\IMigrationFieldInfoConfig.cs" />
-    <Compile Include="Configuration\IMigrationManagedPropertyInfoConfig.cs" />
     <Compile Include="Constants\MigrationFieldInfos.cs" />
     <Compile Include="Constants\MigrationResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

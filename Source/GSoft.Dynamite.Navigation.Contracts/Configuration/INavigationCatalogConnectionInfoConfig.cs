@@ -12,5 +12,12 @@ namespace GSoft.Dynamite.Navigation.Contracts.Configuration
         /// Property that return all the catalog connections to create or configure in the navigation module
         /// </summary>
         IList<CatalogConnectionInfo> CatalogConnections { get; }
+
+        /// <summary>
+        /// Gets the catalog connection information by catalog information from this configuration.
+        /// </summary>
+        /// <param name="catalog">The catalog information.</param>
+        /// <returns>The catalog connection information</returns>
+        CatalogConnectionInfo GetCatalogConnectionInfoByCatalog(CatalogInfo catalog);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
@@ -13,7 +14,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// this configuration implementation is used by all the modules across the solution. 
     /// At the end, this configuration is processed in the "Docs" module, after the content provisioning, prerequisite of a search managed property creation.
     /// </summary>
-    public class PublishingManagedPropertyConfig : IPublishingManagedPropertyInfoConfig
+    public class PublishingManagedPropertyConfig : ICommonManagedPropertyConfig
     {
         /// <summary>
         /// Property that return all the search managed properties to create in the publishing module

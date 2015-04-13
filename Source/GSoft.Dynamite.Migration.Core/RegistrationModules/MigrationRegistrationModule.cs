@@ -37,11 +37,6 @@ namespace GSoft.Dynamite.Migration.Core.RegistrationModules
             builder.RegisterType<MigrationContentTypeInfoConfig>()
                 .As<IMigrationContentTypeInfoConfig>()
                 .Named<IMigrationContentTypeInfoConfig>("migration");
-
-            // Managed Properties
-            builder.RegisterType<MigrationManagedPropertyInfoConfig>()
-                .As<IMigrationManagedPropertyInfoConfig>()
-                .Named<IMigrationManagedPropertyInfoConfig>("migration");
         }
     }
 }

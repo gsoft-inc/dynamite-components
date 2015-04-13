@@ -17,10 +17,15 @@ namespace GSoft.Dynamite.Common.Core.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
-            // Configurations
+            // Taxonomy
             builder.RegisterType<CommonTaxonomyConfig>()
                 .As<ICommonTaxonomyConfig>()
                 .Named<ICommonTaxonomyConfig>("common");
+
+            // Managed Properties
+            builder.RegisterType<ConsolidatedManagedPropertyConfig>()
+                .As<IConsolidatedManagedPropertyConfig>()
+                .Named<IConsolidatedManagedPropertyConfig>("common");
         }
     }
 }

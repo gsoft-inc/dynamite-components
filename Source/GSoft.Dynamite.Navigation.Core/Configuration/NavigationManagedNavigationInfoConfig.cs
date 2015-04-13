@@ -1,4 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using GSoft.Dynamite.Common.Contract.Configuration;
+using GSoft.Dynamite.Common.Contract.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 
@@ -9,15 +13,15 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
     /// </summary>
     public class NavigationManagedNavigationInfoConfig : INavigationManagedNavigationInfoConfig
     {
-        private readonly NavigationManagedNavigationInfos navigationManagedNavigationInfos;
+        private readonly ICommonTaxonomyConfig commonTaxonomyConfig;
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="navigationManagedNavigationInfos">The managed navigation info objects configuration</param>
-        public NavigationManagedNavigationInfoConfig(NavigationManagedNavigationInfos navigationManagedNavigationInfos)
+        /// <param name="commonTaxonomyConfig">The managed navigation info objects configuration</param>
+        public NavigationManagedNavigationInfoConfig(ICommonTaxonomyConfig commonTaxonomyConfig)
         {
-            this.navigationManagedNavigationInfos = navigationManagedNavigationInfos;
+            this.commonTaxonomyConfig = commonTaxonomyConfig;
         }
 
         /// <summary>
@@ -29,9 +33,43 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             {
                 return new List<ManagedNavigationInfo>()
                 {
-                    this.navigationManagedNavigationInfos.ManagedNavigationSettingsEnglish,
-                    this.navigationManagedNavigationInfos.ManagedNavigationSettingsFrench
+                    this.ManagedNavigationSettingsEnglish,
+                    this.ManagedNavigationSettingsFrench
                 };
+            }
+        }
+
+        /// <summary>
+        /// Gets the managed navigation information by culture from this configuration.
+        /// </summary>
+        /// <param name="cultureInfo">The culture information.</param>
+        /// <returns>
+        /// The managed navigation information
+        /// </returns>
+        public ManagedNavigationInfo GetManagedNavigationInfoByCulture(CultureInfo cultureInfo)
+        {
+            return this.NavigationSettings.Single(s => s.AssociatedLanguage.Equals(cultureInfo));
+        }
+
+        private ManagedNavigationInfo ManagedNavigationSettingsEnglish
+        {
+            get
+            {
+                return new ManagedNavigationInfo(
+                    this.commonTaxonomyConfig.GetTermSetInfoById(CommonTermSetInfo.EnglishNavigation.Id),
+                    this.commonTaxonomyConfig.GetTermGroupInfoById(CommonTermGroupInfo.Navigation.Id),
+                    new CultureInfo(1033));
+            }
+        }
+
+        private ManagedNavigationInfo ManagedNavigationSettingsFrench
+        {
+            get
+            {
+                return new ManagedNavigationInfo(
+                    this.commonTaxonomyConfig.GetTermSetInfoById(CommonTermSetInfo.FrenchNavigation.Id),
+                    this.commonTaxonomyConfig.GetTermGroupInfoById(CommonTermGroupInfo.Navigation.Id),
+                    new CultureInfo(1036));
             }
         }
     }
