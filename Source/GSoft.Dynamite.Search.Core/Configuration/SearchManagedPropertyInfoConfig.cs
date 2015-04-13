@@ -14,17 +14,6 @@ namespace GSoft.Dynamite.Search.Core.Configuration
     /// </summary>
     public class SearchManagedPropertyInfoConfig : ICommonManagedPropertyConfig
     {
-        private readonly SearchManagedPropertyInfos searchManagedPropertyInfos;
-
-        /// <summary>
-        /// Default Constructor
-        /// </summary>
-        /// <param name="searchManagedPropertyInfos">Search module managed property info</param>
-        public SearchManagedPropertyInfoConfig(SearchManagedPropertyInfos searchManagedPropertyInfos)
-        {
-            this.searchManagedPropertyInfos = searchManagedPropertyInfos;
-        }
-
         /// <summary>
         /// Property that return all the Managed properties to create in the search module
         /// </summary>
@@ -34,10 +23,10 @@ namespace GSoft.Dynamite.Search.Core.Configuration
             {
                 var managedProperties = new List<ManagedPropertyInfo>()
                 {
-                    { this.searchManagedPropertyInfos.BrowserTitle },
-                    { this.searchManagedPropertyInfos.MetaDescription },
-                    { this.searchManagedPropertyInfos.MetaKeywords },
-                    { this.searchManagedPropertyInfos.RobotsNoIndex }
+                    SearchManagedPropertyInfos.BrowserTitle,
+                    SearchManagedPropertyInfos.MetaDescription,
+                    SearchManagedPropertyInfos.MetaKeywords,
+                    SearchManagedPropertyInfos.RobotsNoIndex
                 };
 
                 return managedProperties;

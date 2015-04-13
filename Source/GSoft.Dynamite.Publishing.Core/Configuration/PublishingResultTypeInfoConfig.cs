@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
@@ -15,22 +16,22 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     {
         private readonly IPublishingDisplayTemplateInfoConfig publishingDisplayTemplateInfoConfig;
         private readonly IPublishingResultSourceInfoConfig publishingResultSourceInfoConfig;
-        private readonly IPublishingManagedPropertyInfoConfig publishingManagedPropertyInfoConfig;
+        private readonly ICommonManagedPropertyConfig commonManagedPropertyConfig;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PublishingResultTypeInfoConfig"/> class.
         /// </summary>
         /// <param name="publishingDisplayTemplateInfoConfig">The publishing display template information configuration.</param>
         /// <param name="publishingResultSourceInfoConfig">The publishing result source information configuration.</param>
-        /// <param name="publishingManagedPropertyInfoConfig">The publishing managed property information configuration.</param>
+        /// <param name="commonManagedPropertyConfig">The publishing managed property information configuration.</param>
         public PublishingResultTypeInfoConfig(
             IPublishingDisplayTemplateInfoConfig publishingDisplayTemplateInfoConfig,
             IPublishingResultSourceInfoConfig publishingResultSourceInfoConfig,
-            IPublishingManagedPropertyInfoConfig publishingManagedPropertyInfoConfig)
+            ICommonManagedPropertyConfig commonManagedPropertyConfig)
         {
             this.publishingDisplayTemplateInfoConfig = publishingDisplayTemplateInfoConfig;
             this.publishingResultSourceInfoConfig = publishingResultSourceInfoConfig;
-            this.publishingManagedPropertyInfoConfig = publishingManagedPropertyInfoConfig;
+            this.commonManagedPropertyConfig = commonManagedPropertyConfig;
         }
 
         /// <summary>
@@ -82,7 +83,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 var resultType = PublishingResultTypeInfos.ContentPageResultType;
                 resultType.DisplayTemplate = this.publishingDisplayTemplateInfoConfig.GetDisplayTemplateInfoByName(PublishingDisplayTemplateInfos.ItemNewsCategoryItem.Name);
                 resultType.ResultSource = this.publishingResultSourceInfoConfig.GetResultSourceInfoByName(PublishingResultSourceInfos.CatalogCategoryItems.Name);
-                resultType.DisplayProperties.Add(this.publishingManagedPropertyInfoConfig.GetManagedPropertyInfoByName(PublishingManagedPropertyInfos.Summary.Name));
+                resultType.DisplayProperties.Add(this.commonManagedPropertyConfig.GetManagedPropertyInfoByName(PublishingManagedPropertyInfos.Summary.Name));
 
                 return resultType;
             }

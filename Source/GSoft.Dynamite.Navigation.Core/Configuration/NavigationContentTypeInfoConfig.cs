@@ -5,6 +5,7 @@ using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
@@ -67,6 +68,18 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                     catalogPage
                 };
             }
+        }
+
+        /// <summary>
+        /// Gets the content type from the ContentTypes property where the id of that content type is passed by parameter.
+        /// </summary>
+        /// <param name="contentTypeId">The unique identifier of the content type we are looking for.</param>
+        /// <returns>
+        /// The content type information.
+        /// </returns>
+        public ContentTypeInfo GetContentTypeById(SPContentTypeId contentTypeId)
+        {
+            return this.ContentTypes.Single(c => c.ContentTypeId.Equals(contentTypeId));
         }
     }
 }

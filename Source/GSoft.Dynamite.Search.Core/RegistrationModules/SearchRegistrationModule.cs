@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search.Contracts.Configuration;
@@ -41,16 +42,14 @@ namespace GSoft.Dynamite.Search.Core.RegistrationModules
             builder.RegisterType<SearchContentTypeInfoConfig>().Named<ISearchContentTypeInfoConfig>("search");
 
             // Managed properties
-            builder.RegisterType<SearchManagedPropertyInfoConfig>().As<IPublishingManagedPropertyInfoConfig>();
-            builder.RegisterType<SearchManagedPropertyInfoConfig>().Named<IPublishingManagedPropertyInfoConfig>("search");
+            builder.RegisterType<SearchManagedPropertyInfoConfig>().As<ICommonManagedPropertyConfig>();
+            builder.RegisterType<SearchManagedPropertyInfoConfig>().Named<ICommonManagedPropertyConfig>("search");
 
             // Events Receivers
             builder.RegisterType<SearchEventReceiverInfoConfig>().As<ISearchEventReceiverInfoConfig>();
             builder.RegisterType<SearchEventReceiverInfoConfig>().Named<ISearchEventReceiverInfoConfig>("search");
 
             // Configuration Values
-            builder.RegisterType<SearchFieldInfos>();
-            builder.RegisterType<SearchManagedPropertyInfos>();
             builder.RegisterType<SearchEventReceiverInfos>();
 
             // Services

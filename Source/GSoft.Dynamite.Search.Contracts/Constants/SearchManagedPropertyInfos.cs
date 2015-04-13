@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.Office.Server.Search.Administration;
 
 namespace GSoft.Dynamite.Search.Contracts.Constants
@@ -10,7 +6,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
     /// <summary>
     /// Search managed properties for the search module
     /// </summary>
-    public class SearchManagedPropertyInfos
+    public static class SearchManagedPropertyInfos
     {
         /// We map the custom crawled properties to the default managed properties of sharepoint (seo)
         /// in order to use the default seo publishing features of sharepoint
@@ -19,7 +15,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// <summary>
         /// The OOTB Browser Title managed property
         /// </summary>
-        public ManagedPropertyInfo BrowserTitle
+        public static ManagedPropertyInfo BrowserTitle
         {
             get
             {
@@ -40,7 +36,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// <summary>
         /// The OOTB Meta Description managed property
         /// </summary>
-        public ManagedPropertyInfo MetaDescription
+        public static ManagedPropertyInfo MetaDescription
         {
             get
             {
@@ -61,7 +57,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// <summary>
         /// The OOTB Meta Keywords managed property
         /// </summary>
-        public ManagedPropertyInfo MetaKeywords
+        public static ManagedPropertyInfo MetaKeywords
         {
             get
             {
@@ -82,7 +78,7 @@ namespace GSoft.Dynamite.Search.Contracts.Constants
         /// <summary>
         /// The OOTB Meta Keywords managed property
         /// </summary>
-        public ManagedPropertyInfo RobotsNoIndex
+        public static ManagedPropertyInfo RobotsNoIndex
         {
             get
             {

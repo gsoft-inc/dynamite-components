@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
@@ -14,7 +15,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     public class PublishingFacetedNavigationInfoConfig : IPublishingFacetedNavigationInfoConfig
     {
         private readonly IPublishingTaxonomyConfig publishingTaxonomyConfig;
-        private readonly IPublishingManagedPropertyInfoConfig publishingManagedPropertyInfosConfig;
+        private readonly ICommonManagedPropertyConfig commonManagedPropertyConfig;
         private readonly IPublishingDisplayTemplateInfoConfig publishingDisplayTemplateInfoConfig;
 
         /// <summary>
@@ -23,11 +24,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// <param name="publishingFacetedNavigationInfos">The faceted navigation info objects configuration</param>
         public PublishingFacetedNavigationInfoConfig(
             IPublishingTaxonomyConfig publishingTaxonomyConfig,
-            IPublishingManagedPropertyInfoConfig publishingManagedPropertyInfosConfig,
+            ICommonManagedPropertyConfig commonManagedPropertyConfig,
             IPublishingDisplayTemplateInfoConfig publishingDisplayTemplateInfoConfig)
         {
             this.publishingTaxonomyConfig = publishingTaxonomyConfig;
-            this.publishingManagedPropertyInfosConfig = publishingManagedPropertyInfosConfig;
+            this.commonManagedPropertyConfig = commonManagedPropertyConfig;
             this.publishingDisplayTemplateInfoConfig = publishingDisplayTemplateInfoConfig;
         }
 
@@ -50,7 +51,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         {
             get
             {
-                var navigationManagedProperty = this.publishingManagedPropertyInfosConfig.GetManagedPropertyInfoByName(PublishingManagedPropertyInfos.NavigationText.Name);
+                var navigationManagedProperty = this.commonManagedPropertyConfig.GetManagedPropertyInfoByName(PublishingManagedPropertyInfos.NavigationText.Name);
                 var displayTemplate = this.publishingDisplayTemplateInfoConfig.GetDisplayTemplateInfoByName(PublishingDisplayTemplateInfos.DefaultFilterCategoryRefinement.Name);
                 var newsTerm = this.publishingTaxonomyConfig.GetTermById(PublishingTermInfos.News.Id);
 
