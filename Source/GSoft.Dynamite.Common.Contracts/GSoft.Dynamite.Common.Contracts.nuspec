@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0"?>
 <package >
     <metadata>
-        <id>GSoft.Dynamite.Common.Contractss</id>
+        <id>GSoft.Dynamite.Common.Contracts</id>
         <version>0.0.0</version>
-        <title>GSoft.Dynamite.Common.Contractss</title>
+        <title>GSoft.Dynamite.Common.Contracts</title>
         <authors>GSoft</authors>
         <owners>GSoft</owners>
         <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite/blob/master/LICENSE</licenseUrl>
