@@ -37,7 +37,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ItemPages
                 {
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
                     var baseFoldersConfig = featureScope.Resolve<IPublishingFolderInfoConfig>();
-                    var publishingFolderInfos = featureScope.Resolve<PublishingFolderInfos>();
                     var folders = baseFoldersConfig.RootFolderHierarchies.ToList();
 
                     // Resolve feature dependency activator
@@ -51,7 +50,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ItemPages
                     featureDependencyActivator.EnsureFeatureActivation(baseFoldersConfig as IFeatureDependencyConfig);
 
                     // Remove Category Page folder
-                    folders.RemoveAll(f => f.Name.Equals(publishingFolderInfos.CategoryPageTemplates().Name));
+                    folders.RemoveAll(f => f.Name.Equals(PublishingFolderInfos.CategoryPageTemplates.Name));
 
                     foreach (var rootFolderHierarchy in folders)
                     {

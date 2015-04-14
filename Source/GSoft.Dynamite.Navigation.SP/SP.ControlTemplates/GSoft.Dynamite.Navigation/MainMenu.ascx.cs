@@ -3,9 +3,13 @@ using System.Globalization;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using Autofac;
+using GSoft.Dynamite.Common.Contract.Configuration;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
+using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
 using Microsoft.SharePoint;
@@ -33,12 +37,10 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
 
             using (var scope = NavigationContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
             {
-                var publishingManagedPropertyInfos = scope.Resolve<PublishingManagedPropertyInfos>();
-                var navigationManagedPropertyInfos = scope.Resolve<NavigationManagedPropertyInfos>();
-                var multilingualismManagedPropertyInfos = scope.Resolve<MultilingualismManagedPropertyInfos>();
-                var publishingContentTypeInfos = scope.Resolve<PublishingContentTypeInfos>();
                 var navigationService = scope.Resolve<INavigationService>();
-                var navigationResultSourceInfos = scope.Resolve<NavigationResultSourceInfos>();
+                var publishingFieldInfoConfig = scope.Resolve<IPublishingFieldInfoConfig>();
+
+                var navigationField = publishingFieldInfoConfig.GetFieldById(PublishingFieldInfos.Navigation.Id) as TaxonomyFieldInfo;
 
                 var queryParameters = new NavigationQueryParameters()
                 {
@@ -49,15 +51,15 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                     },
                     SearchSettings = new NavigationSearchSettings()
                     {
-                        NavigationManagedPropertyName = publishingManagedPropertyInfos.Navigation.Name,
-                        ResultSourceName = navigationResultSourceInfos.AllMenuItems().Name,
+                        NavigationManagedPropertyName = navigationField.OWSTaxIdManagedPropertyInfo.Name,
+                        ResultSourceName = NavigationResultSourceInfos.AllMenuItems.Name,
                         SelectedProperties = new[] 
                         { 
                             // These properties are required for the generation of the friendly URL
-                            publishingManagedPropertyInfos.Navigation.Name, 
-                            BuiltInManagedProperties.Url, 
-                            BuiltInManagedProperties.SiteUrl, 
-                            BuiltInManagedProperties.ListId                                           
+                            navigationField.OWSTaxIdManagedPropertyInfo.Name, 
+                            BuiltInManagedProperties.Url.Name, 
+                            BuiltInManagedProperties.SiteUrl.Name, 
+                            BuiltInManagedProperties.ListId.Name                                           
                         },
                         GlobalFilters = new[]
                         {
@@ -65,14 +67,14 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                             string.Format(
                                 CultureInfo.InvariantCulture,
                                 "{0}:{1}",
-                                multilingualismManagedPropertyInfos.ItemLanguage.Name,
+                                MultilingualismManagedPropertyInfos.ItemLanguage.Name,
                                 new CultureInfo((int)SPContext.Current.Web.Language).TwoLetterISOLanguageName),
 
                             // Filter items on occurence link location (featured in) main menu
                             string.Format(
                                 CultureInfo.InvariantCulture,
                                 "{0}:{1}",
-                                navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
+                                NavigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
                                 "Main Menu")
                         },
                         TargetItemFilters = new[]
@@ -81,7 +83,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                                 CultureInfo.InvariantCulture, 
                                 "{0}:{1}*", 
                                 BuiltInManagedProperties.ContentTypeId, 
-                                publishingContentTypeInfos.TargetContentItem().ContentTypeId)
+                                PublishingContentTypeInfos.TargetContentItem.ContentTypeId)
                         },
                         CatalogItemFilters = new[]
                         {
@@ -89,7 +91,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                                 CultureInfo.InvariantCulture, 
                                 "{0}:{1}*", 
                                 BuiltInManagedProperties.ContentTypeId, 
-                                publishingContentTypeInfos.CatalogContentItem().ContentTypeId)
+                                PublishingContentTypeInfos.CatalogContentItem.ContentTypeId)
                         }
                     }
                 };

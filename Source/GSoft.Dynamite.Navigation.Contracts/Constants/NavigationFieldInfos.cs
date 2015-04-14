@@ -2,6 +2,7 @@
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Common.Contract.Constants;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {
@@ -10,9 +11,9 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
     /// </summary>
     public static class NavigationFieldInfos
     {
-        private static readonly string DateSlugFieldName = PublishingFieldInfos.FieldPrefix + "DateSlug";
-        private static readonly string TitleSlugFieldName = PublishingFieldInfos.FieldPrefix + "TitleSlug";
-        private static readonly string OccurrenceLinkLocationFieldName = PublishingFieldInfos.FieldPrefix + "OccurrenceLinkLocation";
+        private static readonly string DateSlugFieldName = CommonFieldInfo.FieldPrefix + "DateSlug";
+        private static readonly string TitleSlugFieldName = CommonFieldInfo.FieldPrefix + "TitleSlug";
+        private static readonly string OccurrenceLinkLocationFieldName = CommonFieldInfo.FieldPrefix + "OccurrenceLinkLocation";
 
         /// <summary>
         /// The date slug field

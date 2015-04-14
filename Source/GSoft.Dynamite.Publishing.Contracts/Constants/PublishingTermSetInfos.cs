@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using GSoft.Dynamite.Common.Contract.Constants;
 using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants

@@ -1,5 +1,6 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
+using GSoft.Dynamite.Common.Contract.Constants;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
@@ -11,8 +12,8 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
     /// </summary>
     public static class MultilingualismFieldInfos
     {
-        private static readonly string ContentAssociationKeyFieldName = PublishingFieldInfos.FieldPrefix + "ContentAssociationKey";
-        private static readonly string ItemLanguageFieldName = PublishingFieldInfos.FieldPrefix + "ItemLanguage";
+        private static readonly string ContentAssociationKeyFieldName = CommonFieldInfo.FieldPrefix + "ContentAssociationKey";
+        private static readonly string ItemLanguageFieldName = CommonFieldInfo.FieldPrefix + "ItemLanguage";
 
         /// <summary>
         /// The ContentAssociationKey field information

@@ -36,11 +36,9 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
                     var fieldHelper = featureScope.Resolve<IFieldHelper>();
                     var baseFieldInfoConfig = featureScope.Resolve<INavigationFieldInfoConfig>();
                     var baseFieldInfos = baseFieldInfoConfig.Fields;
-                    var baseFieldDefinition = featureScope.Resolve<NavigationFieldInfos>();
 
                     // Gets the field
-                    var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
-                    var field = baseFieldInfos.SingleOrDefault(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
+                    var field = baseFieldInfos.SingleOrDefault(baseField => baseField.Id == NavigationFieldInfos.OccurrenceLinkLocation.Id) as TaxonomyMultiFieldInfo;
 
                     if (field != null)
                     {
@@ -71,11 +69,9 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Occurrenc
                     var fieldHelper = featureScope.Resolve<IFieldHelper>();
                     var baseFieldInfoConfig = featureScope.Resolve<INavigationFieldInfoConfig>();
                     var baseFieldInfos = baseFieldInfoConfig.Fields;
-                    var baseFieldDefinition = featureScope.Resolve<NavigationFieldInfos>();
 
                     // Gets the field
-                    var fieldReference = baseFieldDefinition.OccurrenceLinkLocation();
-                    var field = baseFieldInfos.SingleOrDefault(baseField => baseField.Id == fieldReference.Id) as TaxonomyMultiFieldInfo;
+                    var field = baseFieldInfos.SingleOrDefault(baseField => baseField.Id == NavigationFieldInfos.OccurrenceLinkLocation.Id) as TaxonomyMultiFieldInfo;
 
                     if (field != null)
                     {

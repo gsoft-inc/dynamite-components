@@ -1,5 +1,6 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
+using GSoft.Dynamite.Common.Contract.Constants;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Taxonomy;
 
@@ -10,21 +11,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public static class PublishingFieldInfos
     {
-        #region Field prefix
-
-        /// <summary>
-        /// The Dynamite field prefix for all fields
-        /// </summary>
-        public static string FieldPrefix
-        {
-            get
-            {
-                return "Dynamite";
-            }
-        }
-
-        #endregion
-
         #region FieldInfo reference objects
 
         /// <summary>
@@ -113,22 +99,22 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// Navigation field internal name
         /// </summary>
-        private static readonly string NavigationFieldName = FieldPrefix + "Navigation";
+        private static readonly string NavigationFieldName = CommonFieldInfo.FieldPrefix + "Navigation";
 
         /// <summary>
         /// Summary field internal name
         /// </summary>
-        private static readonly string SummaryFieldName = FieldPrefix + "Summary";
+        private static readonly string SummaryFieldName = CommonFieldInfo.FieldPrefix + "Summary";
 
         /// <summary>
         /// Image Description field internal name
         /// </summary>
-        private static readonly string ImageDescriptionFieldName = FieldPrefix + "ImageDescription";
+        private static readonly string ImageDescriptionFieldName = CommonFieldInfo.FieldPrefix + "ImageDescription";
 
         /// <summary>
         /// The publishing start date field name
         /// </summary>
-        private static readonly string PublishingStartDateFieldName = FieldPrefix + "PublishingStartDate";
+        private static readonly string PublishingStartDateFieldName = CommonFieldInfo.FieldPrefix + "PublishingStartDate";
 
         #endregion
     }

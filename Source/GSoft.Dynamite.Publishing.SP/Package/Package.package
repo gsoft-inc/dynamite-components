@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="39449225-6dec-4063-a39a-dea11765218e" solutionId="39449225-6dec-4063-a39a-dea11765218e" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Publishing.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Common.Contract.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Common.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Common.Core\GSoft.Dynamite.Common.Core.csproj" />
     <projectOutputAssembly location="GSoft.Dynamite.Publishing.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj" />
     <projectOutputAssembly location="GSoft.Dynamite.Publishing.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Publishing.Core\GSoft.Dynamite.Publishing.Core.csproj" />
   </assemblies>

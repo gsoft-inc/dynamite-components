@@ -66,6 +66,7 @@
     <Compile Include="Configuration\IConsolidatedManagedPropertyConfig.cs" />
     <Compile Include="Constants\CommonTermSetInfo.cs" />
     <Compile Include="Constants\CommonTermGroupInfo.cs" />
+    <Compile Include="Constants\CommonFieldInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

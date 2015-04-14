@@ -20,7 +20,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Publishing.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Publishing.SP", "GSoft.Dynamite.Publishing.SP\GSoft.Dynamite.Publishing.SP.csproj", "{B221EF54-8FA2-4563-B5BD-D3EE1255E199}"
 	ProjectSection(ProjectDependencies) = postProject
+		{31680A5F-E76D-4501-9DFC-D67CE09863F1} = {31680A5F-E76D-4501-9DFC-D67CE09863F1}
 		{1484F2A1-E3D0-4372-9692-6759D64846EA} = {1484F2A1-E3D0-4372-9692-6759D64846EA}
+		{E47C1EB6-F0BC-46D1-8713-256738AF8955} = {E47C1EB6-F0BC-46D1-8713-256738AF8955}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Multilingualism.Contracts", "GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj", "{13C3CFC3-4328-4047-9B62-15B19E2E5922}"

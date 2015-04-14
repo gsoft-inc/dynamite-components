@@ -1,6 +1,7 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Fields.Types;
+using GSoft.Dynamite.Common.Contract.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Migration.Contracts.Constants
@@ -10,7 +11,7 @@ namespace GSoft.Dynamite.Migration.Contracts.Constants
     /// </summary>
     public static class MigrationFieldInfos
     {
-        private static readonly string InternalIdFieldName = PublishingFieldInfos.FieldPrefix + "InternalId";
+        private static readonly string InternalIdFieldName = CommonFieldInfo.FieldPrefix + "InternalId";
 
         /// <summary>
         /// The Item Language field information

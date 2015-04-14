@@ -1,5 +1,6 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
+using GSoft.Dynamite.Common.Contract.Constants;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
@@ -10,7 +11,7 @@ namespace GSoft.Dynamite.Docs.Contracts.Constants
     /// </summary>
     public static class DocsFieldInfos
     {
-        private static readonly string InternalIdFieldName = PublishingFieldInfos.FieldPrefix + "InternalId";
+        private static readonly string InternalIdFieldName = CommonFieldInfo.FieldPrefix + "InternalId";
 
         /// <summary>
         /// The Item Language field information
