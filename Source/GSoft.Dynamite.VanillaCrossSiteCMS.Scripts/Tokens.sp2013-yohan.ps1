@@ -10,8 +10,6 @@ $DSP_PortalWebAppUrl = "http://dynamite.com/"
 $DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
 $DSP_PortalAuthoringHostNamePath = "http://authoring.dynamite.com"
 
-$DSP_PortalAuthoringRootWebUrl = $DSP_PortalAuthoringHostNamePath 
-
 $DSP_PortalAdmin = "OFFICE\yohan.belval"
 $DSP_PortalDatabaseName = "WSS_Content_Dynamite"
 $DSP_PortalDefaultLanguage = "1033"

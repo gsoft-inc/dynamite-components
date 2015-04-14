@@ -8,10 +8,10 @@
 <WebApplication Url="[[DSP_PortalWebAppUrl]]">
   <!-- Be careful for the relative path ! Empty means root and there is no "/" at start and end -->
   <Site Name="Publishing Site" HostNamePath="[[DSP_PortalPublishingHostNamePath]]" RelativePath="" IsAnonymous="True"  OwnerAlias="[[DSP_PortalAdmin]]" Language="[[DSP_PortalDefaultLanguage]]" Template="BLANKINTERNET#0" ContentDatabase="[[DSP_PortalDatabaseName]]">
-    <!-- Search REST API Anonymous -->
-    <Feature GUID="c172bf31-e0dc-4fcf-b96c-0d0cc0aa3aed" Name="CrossSiteCollectionPublishing" />
+    <!-- WARNING: If you add Feature elements nested under the Site element, be sure to use ONLY out-of-the-box feature which DO NOT depend on any ServiceLocator -->
   </Site>
   <Site Name="Authoring Site" HostNamePath="[[DSP_PortalAuthoringHostNamePath]]" RelativePath="" OwnerAlias="[[DSP_PortalAdmin]]" Language="[[DSP_PortalDefaultLanguage]]" Template="BLANKINTERNET#0" ContentDatabase="[[DSP_PortalDatabaseName]]">
+    <!-- WARNING: If you add Feature elements nested under the Site element, be sure to use ONLY out-of-the-box feature which DO NOT depend on any ServiceLocator -->
     <!-- Cross-site publishing -->
     <Feature GUID="151d22d9-95a8-4904-a0a3-22e4db85d1e0" Name="CrossSiteCollectionPublishing" />
   </Site>

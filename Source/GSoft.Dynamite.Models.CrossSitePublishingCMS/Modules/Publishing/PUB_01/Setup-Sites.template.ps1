@@ -32,6 +32,17 @@ if ($Force) {
 # Create the new SharePoint site structure
 New-DSPStructure $ConfigurationFilePath
 
+# FIRST THING TO DO ONCE SITE COLLECTIONS ARE CREATED:
+# Configure Service Locator assembly name preference (if left un-initialized, the default FallbackServiceLocator will be used - 
+# or, if found, the first DLL matching *ServiceLocator.DLL in the GAC will be used)
+$assemblyName = "[[DSP_ServiceLocatorAssemblyName]]"
+if ([string]::IsNullOrEmpty($assemblyName) -eq $false)
+{
+	# assume that the same service locator should be used on authoring and publishing site collections
+	Set-DSPWebProperty -Url "[[DSP_PortalPublishingHostNamePath]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
+	Set-DSPWebProperty -Url "[[DSP_PortalAuthoringHostNamePath]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
+}
+
 # If multilingual is configured, activate the variation hierarchie features on authoring and publishing sites
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 if($IsMultilingual)

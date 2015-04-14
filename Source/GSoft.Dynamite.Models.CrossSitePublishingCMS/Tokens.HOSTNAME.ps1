@@ -15,10 +15,14 @@ $DSP_PortalWebAppUrl = "http://HOSTNAME/"
 $DSP_PortalPublishingHostNamePath = "http://intranet.dynamite.com"
 $DSP_PortalAuthoringHostNamePath = "http://authoring.dynamite.com"
 $DSP_PortalDocsHostNamePath = "http://docs.dynamite.com"
-$DSP_PortalAuthoringRootWebUrl = $DSP_PortalAuthoringHostNamePath 
 $DSP_PortalAdmin = "OFFICE\YOUR.NAME"
 $DSP_PortalDatabaseName = "SP2013_Content_Portal"
 $DSP_PortalDefaultLanguage = "1033"
+
+# ******************************************
+# Container/Service Locator Configuration 
+# ******************************************
+$DSP_ServiceLocatorAssemblyName = ""
 
 # ******************************************
 # Search Configuration 

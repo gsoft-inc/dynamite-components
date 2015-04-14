@@ -5,7 +5,6 @@ using GSoft.Dynamite.Common.Contract.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
-using Microsoft.Office.Server.Search.Administration;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
