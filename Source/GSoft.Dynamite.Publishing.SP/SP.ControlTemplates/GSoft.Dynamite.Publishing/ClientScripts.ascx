@@ -7,4 +7,4 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ClientScripts.ascx.cs" Inherits="GSoft.Dynamite.Publishing.SP.CONTROLTEMPLATES.GSoft.Dynamite.Publishing.ClientScripts" %>
 
-<SharePoint:ScriptLink ID="DynamitePublishingScriptLink" Language="javascript" Name="~sitecollection/_layouts/15/GSoft.Dynamite.Publishing/Js/GSoft.Dynamite.Publishing.js" Localizable="false" OnDemand="false" runat="server"/>
+<SharePoint:ScriptLink ID="DynamitePublishingScriptLink" Language="javascript" Name="~sitecollection/_layouts/15/GSoft.Dynamite.Publishing/Js/GSoft.Dynamite.Publishing.min.js" Localizable="false" OnDemand="false" runat="server"/>

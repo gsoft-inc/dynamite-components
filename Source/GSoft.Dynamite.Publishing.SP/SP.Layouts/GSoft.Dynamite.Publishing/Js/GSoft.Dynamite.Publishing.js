@@ -29,7 +29,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         });
     };
 
-}(GSoft.Dynamite.Search = GSoft.Dynamite.Search || {}, jq110));
+}(GSoft.Dynamite.Search = GSoft.Dynamite.Search || {}, jq111));
 
 // Filtered Product Showcase
 // It's a Javascript oriented webpart that query a REST service to receive Items and showcase them
@@ -214,7 +214,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         };
     }
 
-}(GSoft.Dynamite.FilteredProductShowcase = GSoft.Dynamite.FilteredProductShowcase || {}, jq110));
+}(GSoft.Dynamite.FilteredProductShowcase = GSoft.Dynamite.FilteredProductShowcase || {}, jq111));
 
 // Tabs Module 
 // The method creates a tabs navigation. 
@@ -301,5 +301,5 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         }
         return a;
     }
-}(GSoft.Dynamite.Tabs = GSoft.Dynamite.Tabs || {}, jq110));
+}(GSoft.Dynamite.Tabs = GSoft.Dynamite.Tabs || {}, jq111));
 

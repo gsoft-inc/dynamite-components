@@ -46,8 +46,9 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="GSoft.Dynamite">
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10421\lib\net45\GSoft.Dynamite.dll</HintPath>
+    <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10422\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -196,6 +197,9 @@
       <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.css</DependentUpon>
     </None>
     <None Include="SP.Layouts\GSoft.Dynamite.Navigation.SP\CSS\GSoft.Dynamite.Navigation.MainMenu.less" />
+    <None Include="SP.Layouts\GSoft.Dynamite.Navigation.SP\JS\GSoft.Dynamite.Navigation.min.js.map">
+      <DependentUpon>GSoft.Dynamite.Navigation.min.js</DependentUpon>
+    </None>
     <None Include="SP.Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6b6cdb0b-6308-46c9-967b-e4f8b1baad3c}</SharePointProjectItemId>
     </None>
@@ -278,6 +282,9 @@
       <DependentUpon>GSoft.Dynamite.Navigation.MainMenu.css</DependentUpon>
     </Content>
     <Content Include="SP.Layouts\GSoft.Dynamite.Navigation.SP\JS\GSoft.Dynamite.Navigation.js" />
+    <Content Include="SP.Layouts\GSoft.Dynamite.Navigation.SP\JS\GSoft.Dynamite.Navigation.min.js">
+      <DependentUpon>GSoft.Dynamite.Navigation.js</DependentUpon>
+    </Content>
     <Content Include="SP.Resources\GSoft.Dynamite.Navigation.Global.en-US.resx" />
   </ItemGroup>
   <ItemGroup>

@@ -7,8 +7,8 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MainMenu.ascx.cs" Inherits="GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigation.MainMenu" %>
 
-<SharePoint:ScriptLink ID="GSoftDynamiteNavigationMainMenuJS" Language="javascript" Name="~sitecollection/_layouts/15/GSoft.Dynamite.Navigation.SP/JS/GSoft.Dynamite.Navigation.js" Localizable="false" OnDemand="false" runat="server" />
-<SharePoint:CssRegistration ID="GSoftDynamiteNavigationMainMenuCSS" Name="/_layouts/15/GSoft.Dynamite.Navigation.SP/CSS/GSoft.Dynamite.Navigation.MainMenu.css" After="Corev4.css" runat="server" />
+<SharePoint:ScriptLink ID="GSoftDynamiteNavigationMainMenuJS" Language="javascript" Name="~sitecollection/_layouts/15/GSoft.Dynamite.Navigation.SP/JS/GSoft.Dynamite.Navigation.min.js" Localizable="false" OnDemand="false" runat="server" />
+<SharePoint:CssRegistration ID="GSoftDynamiteNavigationMainMenuCSS" Name="/_layouts/15/GSoft.Dynamite.Navigation.SP/CSS/GSoft.Dynamite.Navigation.MainMenu.min.css" After="Corev4.css" runat="server" />
 
 <nav class="main-menu" id="main-menu">
     <ul data-bind="template: { name: 'menu-level-template1', foreach: Nodes }" class="main-menu-level-1"></ul>

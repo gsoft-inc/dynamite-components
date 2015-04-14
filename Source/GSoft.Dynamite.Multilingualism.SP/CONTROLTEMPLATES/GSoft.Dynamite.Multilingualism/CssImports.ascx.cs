@@ -22,7 +22,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
             var dynamiteMultilingualismCss = new CssRegistration();
             dynamiteMultilingualismCss.ID = "DynamiteMultilingualismCssRegistration";
             dynamiteMultilingualismCss.After = "corev4.css";
-            dynamiteMultilingualismCss.Name = SPUtility.ConcatUrls(SPContext.Current.Site.ServerRelativeUrl, SPUtility.MakeBrowserCacheSafeLayoutsUrl("GSoft.Dynamite.Multilingualism/CSS/GSoft.Dynamite.Multilingualism.css", false));
+            dynamiteMultilingualismCss.Name = SPUtility.ConcatUrls(SPContext.Current.Site.ServerRelativeUrl, SPUtility.MakeBrowserCacheSafeLayoutsUrl("GSoft.Dynamite.Multilingualism/CSS/GSoft.Dynamite.Multilingualism.min.css", false));
             this.Controls.Add(dynamiteMultilingualismCss);
         }
     }
