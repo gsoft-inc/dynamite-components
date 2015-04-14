@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GSoft.Dynamite.Common.Contract.Constants
+namespace GSoft.Dynamite.Common.Contracts.Constants
 {
     /// <summary>
     /// Field information used across all modules.

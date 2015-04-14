@@ -7,8 +7,8 @@
     <ProjectGuid>{31680A5F-E76D-4501-9DFC-D67CE09863F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GSoft.Dynamite.Common.Contract</RootNamespace>
-    <AssemblyName>GSoft.Dynamite.Common.Contract</AssemblyName>
+    <RootNamespace>GSoft.Dynamite.Common.Contracts</RootNamespace>
+    <AssemblyName>GSoft.Dynamite.Common.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GSoft.Dynamite.Search;
 
-namespace GSoft.Dynamite.Common.Contract.Configuration
+namespace GSoft.Dynamite.Common.Contracts.Configuration
 {
     /// <summary>
     /// Configuration for the creation of the Search Managed Properties

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GSoft.Dynamite.Common.Contract.Configuration;
+using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search.Contracts.Constants;
 

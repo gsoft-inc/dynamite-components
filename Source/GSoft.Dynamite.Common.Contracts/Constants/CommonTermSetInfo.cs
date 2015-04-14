@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using GSoft.Dynamite.Taxonomy;
 
-namespace GSoft.Dynamite.Common.Contract.Constants
+namespace GSoft.Dynamite.Common.Contracts.Constants
 {
     /// <summary>
     /// Common taxonomy term set information.

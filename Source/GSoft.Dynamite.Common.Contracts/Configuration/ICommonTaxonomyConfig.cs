@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using GSoft.Dynamite.Taxonomy;
 
-namespace GSoft.Dynamite.Common.Contract.Configuration
+namespace GSoft.Dynamite.Common.Contracts.Configuration
 {
     /// <summary>
     /// Interface for common configuration for taxonomy in components.

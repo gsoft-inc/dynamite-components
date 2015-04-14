@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 using Autofac;
-using GSoft.Dynamite.Common.Contract.Configuration;
+using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Migration.Contracts.Configuration;
 using GSoft.Dynamite.Search;

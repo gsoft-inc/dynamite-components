@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GSoft.Dynamite.Common.Contract.Configuration;
-using GSoft.Dynamite.Common.Contract.Constants;
+using GSoft.Dynamite.Common.Contracts.Configuration;
+using GSoft.Dynamite.Common.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Pages;

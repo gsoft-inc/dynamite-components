@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using GSoft.Dynamite.Search;
 
-namespace GSoft.Dynamite.Common.Contract.Configuration
+namespace GSoft.Dynamite.Common.Contracts.Configuration
 {
     /// <summary>
     /// Search managed properties configuration for the whole solution. Remember, managed properties are only created in the migration module, after the content is uploaded.

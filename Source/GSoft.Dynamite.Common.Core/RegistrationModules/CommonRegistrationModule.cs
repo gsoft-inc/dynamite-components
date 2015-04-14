@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using GSoft.Dynamite.Common.Contract.Configuration;
+using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Common.Core.Configuration;
 
 namespace GSoft.Dynamite.Common.Core.RegistrationModules

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GSoft.Dynamite.Common.Contract.Configuration;
+using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Search;
 
 namespace GSoft.Dynamite.Common.Core.Configuration

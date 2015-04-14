@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using GSoft.Dynamite.Catalogs;
-using GSoft.Dynamite.Common.Contract.Configuration;
+using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
