@@ -70,9 +70,9 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                         { 
                             // These properties are required for the generation of the friendly URL
                             publishingManagedPropertyInfos.Navigation.Name, 
-                            BuiltInManagedProperties.Url, 
-                            BuiltInManagedProperties.SiteUrl, 
-                            BuiltInManagedProperties.ListId                                           
+                            BuiltInManagedProperties.Url.Name, 
+                            BuiltInManagedProperties.SiteUrl.Name, 
+                            BuiltInManagedProperties.ListId.Name                                           
                         },
                         GlobalFilters = new[]
                         {

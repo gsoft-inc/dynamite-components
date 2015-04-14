@@ -20,28 +20,28 @@ namespace GSoft.Dynamite.Search.SP.SP.CONTROLTEMPLATES.GSoft.Dynamite.Search
         {
             var title = new TemplatedControlWrapper()
             {
-                Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.Title),
+                Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.Title.Name),
                 ContentTemplate = new MetaTagTemplate("name", "og:title")
             };
             this.OpenGraph.Controls.Add(title);
 
             var description = new TemplatedControlWrapper()
             {
-                Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.MetaDescription),
+                Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.MetaDescription.Name),
                 ContentTemplate = new MetaTagTemplate("name", "og:description")
             };
             this.OpenGraph.Controls.Add(description);
 
             var path = new UrlElementControlWrapper()
             {
-                Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.Url),
+                Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.Url.Name),
                 ContentTemplate = new MetaTagTemplate("name", "og:url")
             };
             this.OpenGraph.Controls.Add(path);
 
             var picture = new ImageElementControlWrapper()
             {
-                Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.PublishingImage),
+                Control = this.GetCatalogItemReuseXmlControl(BuiltInManagedProperties.PublishingImage.Name),
                 ContentTemplate = new MetaTagTemplate("name", "og:image")
             };
             this.OpenGraph.Controls.Add(picture);
