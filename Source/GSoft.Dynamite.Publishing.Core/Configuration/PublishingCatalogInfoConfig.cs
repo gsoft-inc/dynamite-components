@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using GSoft.Dynamite.Catalogs;
+using GSoft.Dynamite.ContentTypes;
+using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
@@ -88,17 +90,17 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 // Configure the news pages catalog
                 var newsPagesCatalog = PublishingCatalogInfos.NewsPages;
                 newsPagesCatalog.TaxonomyFieldMap = customNavigationField;
-                newsPagesCatalog.ContentTypes = new[] 
+                newsPagesCatalog.ContentTypes = new List<ContentTypeInfo>()
                 {
                     this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.NewsItem.ContentTypeId)
                 };
 
-                newsPagesCatalog.DefaultViewFields = new[]
+                newsPagesCatalog.DefaultViewFields = new List<BaseFieldInfo>()
                 {
                     customNavigationField
                 };
 
-                newsPagesCatalog.FieldDefinitions = new[]
+                newsPagesCatalog.FieldDefinitions = new List<BaseFieldInfo>()
                 {
                     customNavigationField
                 };
@@ -118,17 +120,17 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 // Configure the content pages catalog
                 var contentPagesCatalog = PublishingCatalogInfos.ContentPages;
                 contentPagesCatalog.TaxonomyFieldMap = customNavigationField;
-                contentPagesCatalog.ContentTypes = new[] 
+                contentPagesCatalog.ContentTypes = new List<ContentTypeInfo>()
                 {
                     this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.ContentItem.ContentTypeId)
                 };
 
-                contentPagesCatalog.DefaultViewFields = new[]
+                contentPagesCatalog.DefaultViewFields = new List<BaseFieldInfo>()
                 {
                     customNavigationField
                 };
 
-                contentPagesCatalog.FieldDefinitions = new[]
+                contentPagesCatalog.FieldDefinitions = new List<BaseFieldInfo>()
                 {
                     customNavigationField
                 };

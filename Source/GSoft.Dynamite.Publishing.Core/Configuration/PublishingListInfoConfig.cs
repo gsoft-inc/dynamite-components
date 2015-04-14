@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
@@ -32,13 +33,13 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 var pagesLibrary = PublishingListInfos.PagesLibrary;
-                pagesLibrary.ContentTypes = new []
+                pagesLibrary.ContentTypes = new List<ContentTypeInfo>()
                 {
                     this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.DefaultPage.ContentTypeId),
                     this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.DefaultArticlePage.ContentTypeId)
                 };
 
-                return new []
+                return new List<ListInfo>()
                 {
                     pagesLibrary
                 };

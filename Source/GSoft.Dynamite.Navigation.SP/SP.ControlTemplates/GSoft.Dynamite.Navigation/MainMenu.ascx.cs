@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Web.Script.Serialization;
 using System.Web.UI;
@@ -50,7 +51,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                     {
                         NavigationManagedPropertyName = navigationField.OWSTaxIdManagedPropertyInfo.Name,
                         ResultSourceName = NavigationResultSourceInfos.AllMenuItems.Name,
-                        SelectedProperties = new[] 
+                        SelectedProperties = new List<string>
                         { 
                             // These properties are required for the generation of the friendly URL
                             navigationField.OWSTaxIdManagedPropertyInfo.Name, 
@@ -58,7 +59,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                             BuiltInManagedProperties.SiteUrl.Name, 
                             BuiltInManagedProperties.ListId.Name                                           
                         },
-                        GlobalFilters = new[]
+                        GlobalFilters = new List<string>
                         {
                             // Filter items on the web's language
                             string.Format(
@@ -74,7 +75,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                                 NavigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
                                 "Main Menu")
                         },
-                        TargetItemFilters = new[]
+                        TargetItemFilters = new List<string>
                         {
                             string.Format(
                                 CultureInfo.InvariantCulture, 
@@ -82,7 +83,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                                 BuiltInManagedProperties.ContentTypeId, 
                                 PublishingContentTypeInfos.TargetContentItem.ContentTypeId)
                         },
-                        CatalogItemFilters = new[]
+                        CatalogItemFilters = new List<string>
                         {
                             string.Format(
                                 CultureInfo.InvariantCulture, 

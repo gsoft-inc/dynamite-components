@@ -36,11 +36,10 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get 
             {
                 // Get the term group on the possibly customized term group infos
-                var restrictedTermGroupInfo = this.commonTaxonomyConfig.GetTermGroupInfoById(CommonTermGroupInfo.Restricted.Id);
-                var restrictedNewsTermSetInfo = this.GetTermSetById(PublishingTermSetInfos.RestrictedNews.Id);
-                restrictedNewsTermSetInfo.Group = restrictedTermGroupInfo;
+                var restrictedNewsTermSetInfo = PublishingTermSetInfos.RestrictedNews;
+                restrictedNewsTermSetInfo.Group = this.commonTaxonomyConfig.GetTermGroupInfoById(CommonTermGroupInfo.Restricted.Id);
 
-                return new[] 
+                return new List<TermSetInfo>
                 {
                     restrictedNewsTermSetInfo
                 };
@@ -60,7 +59,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 var newsTerm = PublishingTermInfos.News;
                 newsTerm.TermSet = this.GetTermSetById(PublishingTermSetInfos.RestrictedNews.Id);
 
-                return new[]
+                return new List<TermInfo>
                 {
                     newsTerm
                 };
@@ -78,8 +77,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         {
             return this.TermSets.Single(termSet => termSet.Id == termSetId);
         }
-
-
+        
         /// <summary>
         /// Gets the term by identifier from this configuration.
         /// </summary>

@@ -23,11 +23,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     Name = "Dynamite - News Page",
                     OptimizeForFrequenUse = true,
                     Priority = 1,
-                    DisplayProperties = new[]{
+                    DisplayProperties = new List<ManagedPropertyInfo>() {
                         BuiltInManagedProperties.Title,
                         BuiltInManagedProperties.PublishingPageContent
                     },
-                    Rules = new[]
+                    Rules = new List<ResultTypeRuleInfo>()
                     {
                         new ResultTypeRuleInfo(
                                 BuiltInManagedProperties.ContentTypeId,
@@ -51,11 +51,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     Name = "Dynamite - Content Page",
                     OptimizeForFrequenUse = true,
                     Priority = 1,
-                    DisplayProperties = new[]{
+                    DisplayProperties = new List<ManagedPropertyInfo>() {
                         BuiltInManagedProperties.Title,
                         BuiltInManagedProperties.PublishingPageContent
                     },
-                    Rules = new[]
+                    Rules = new List<ResultTypeRuleInfo>()
                     {
                         new ResultTypeRuleInfo(
                                 BuiltInManagedProperties.ContentTypeId,
@@ -79,11 +79,11 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     Name = "Dynamite - Category Item",
                     OptimizeForFrequenUse = true,
                     Priority = 1,
-                    DisplayProperties = new[]{
+                    DisplayProperties = new List<ManagedPropertyInfo>() {
                         BuiltInManagedProperties.Title,
                         BuiltInManagedProperties.PublishingImage
                     },
-                    Rules = new[]
+                    Rules = new List<ResultTypeRuleInfo>()
                     {
                         new ResultTypeRuleInfo(
                                 BuiltInManagedProperties.ContentTypeId,

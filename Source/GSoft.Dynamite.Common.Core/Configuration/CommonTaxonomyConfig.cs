@@ -22,7 +22,7 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         {
             get
             {
-                return new[]
+                return new List<TermGroupInfo>
                 {
                     CommonTermGroupInfo.Navigation, 
                     CommonTermGroupInfo.Restricted,
@@ -42,7 +42,7 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         {
             get
             {
-                return new[]
+                return new List<TermSetInfo>
                 {
                     CommonTermSetInfo.EnglishNavigation,
                     CommonTermSetInfo.FrenchNavigation

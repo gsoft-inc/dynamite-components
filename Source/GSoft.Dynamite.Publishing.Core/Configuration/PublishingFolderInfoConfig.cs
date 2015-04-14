@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GSoft.Dynamite.Folders;
+using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
@@ -43,11 +44,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 var folder = PublishingFolderInfos.ItemPageTemplates;
-                folder.Subfolders = new[]
+                folder.Subfolders = new List<FolderInfo>()
                 {
                     this.FolderTest
                 };
-                folder.Pages = new[]
+                folder.Pages = new List<PageInfo>()
                 {
                     this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.TargetItemPageTemplate.FileName),
                     this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogItemPageTemplate.FileName),
@@ -62,11 +63,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 var folder = PublishingFolderInfos.ItemPageTemplates;
-                folder.Subfolders = new[]
+                folder.Subfolders = new List<FolderInfo>()
                 {
                     this.FolderTest
                 };
-                folder.Pages = new[]
+                folder.Pages = new List<PageInfo>()
                 {
                     this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogCategoryItemsPageTemplate.FileName)
                 };
@@ -80,7 +81,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 var folder = PublishingFolderInfos.ItemPageTemplates;
-                folder.Subfolders = new[]
+                folder.Subfolders = new List<FolderInfo>()
                 {
                     this.FolderTest2
                 };
@@ -94,7 +95,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 var folder = PublishingFolderInfos.ItemPageTemplates;
-                folder.Pages = new[]
+                folder.Pages = new List<PageInfo>()
                 {
                     this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.TargetItemPageTemplate.FileName),
                     this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogItemPageTemplate.FileName)

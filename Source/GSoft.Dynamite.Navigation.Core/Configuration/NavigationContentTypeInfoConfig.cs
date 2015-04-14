@@ -60,7 +60,7 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 catalogItem.Fields.Add(this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.PublishingStartDate.Id));
 
                 // Return the content types.
-                return new[]
+                return new List<ContentTypeInfo>()
                 {
                     browsableItem,
                     browsablePage,
