@@ -69,6 +69,7 @@ function Wait-VariationSyncTimerJob {
 # ******************************************
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 $SourceLabel ="[[DSP_SourceLabel]]"
+$DSP_MigrationFolderMappings = [[DSP_MigrationFolderMappings]]
 
 # If not already defined, create default folder to URL mappings
 if($DSP_MigrationFolderMappings -eq $null) {
@@ -94,6 +95,7 @@ if($DSP_MigrationFolderMappings -eq $null) {
 # ******************************************
 # Configure migration data before import
 # ******************************************
+$DSP_MigrationDataConfigurationScript = "[[DSP_MigrationDataConfigurationScript]]"
 if ($DSP_MigrationDataConfigurationScript -eq $null) {
     $DSP_MigrationDataConfigurationScript = ".\Default\Configure-MigrationData.ps1"
 }

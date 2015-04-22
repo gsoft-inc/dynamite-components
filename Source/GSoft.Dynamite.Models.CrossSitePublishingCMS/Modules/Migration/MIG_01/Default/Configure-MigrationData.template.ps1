@@ -18,8 +18,7 @@ $ExcelFiles | ForEach-Object {
     $ExcelFile = Open-DSPExcelFile -Path $_.FullName
 
     # Change logins to default portal administrator
-    #$ExcelFile | Edit-DSPExcelColumnValue -Pattern "\\w+\\.+" -Value "[[DSP_PortalAdmin]]" -NoDispose
-    $ExcelFile | Edit-DSPExcelColumnValue -Pattern "office\\.+" -Value "jambon\franck" -NoDispose
+    $ExcelFile | Edit-DSPExcelColumnValue -Pattern "\\w+\\.+" -Value "[[DSP_PortalAdmin]]" -NoDispose
 
     # Need to dispose the file before trying to open with Sharegate API
 	$ExcelFile.Dispose()
