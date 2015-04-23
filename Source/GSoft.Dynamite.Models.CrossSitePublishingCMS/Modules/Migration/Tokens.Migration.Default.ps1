@@ -6,14 +6,24 @@ if ((Get-Variable -Name "DSP_MigrationDataConfigurationScript" -ErrorAction Igno
 	$DSP_MigrationDataConfigurationScript = ".\Default\Configure-MigrationData.ps1" 
 }
 
-# If the DSP_MigrationDataPropertyMappingsName hasn't been set, initialize and default
-if ((Get-Variable -Name "DSP_MigrationDataPropertyMappingsName" -ErrorAction Ignore) -eq $null) { 
-	$DSP_MigrationDataPropertyMappingsName = "CrossSitePublishingCMSTemplate" 
+# If the DSP_MigrationDataSourceMappingsName hasn't been set, initialize and default
+if ((Get-Variable -Name "DSP_MigrationDataSourceMappingsName" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationDataSourceMappingsName = "CrossSitePublishingCMSTemplate" 
 }
 
-# If the DSP_MigrationDataPropertyMappingsFile hasn't been set, initialize and default
-if ((Get-Variable -Name "DSP_MigrationDataPropertyMappingsFile" -ErrorAction Ignore) -eq $null) { 
-	$DSP_MigrationDataPropertyMappingsFile = ".\Default\DynamitePropertyTemplate.sgt" 
+# If the DSP_MigrationDataSourceMappings hasn't been set, initialize and default
+if ((Get-Variable -Name "DSP_MigrationDataSourceMappings" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationDataSourceMappings = ".\Default\Multilingual\Source\DynamitePropertyTemplate.sgt" 
+}
+
+# If the DSP_MigrationDataTargetMappingsName hasn't been set, initialize and default
+if ((Get-Variable -Name "DSP_MigrationDataTargetMappingsName" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationDataTargetMappingsName = "CrossSitePublishingCMSTemplate" 
+}
+
+# If the DSP_MigrationDataTargetMappings hasn't been set, initialize and default
+if ((Get-Variable -Name "DSP_MigrationDataTargetMappings" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationDataTargetMappings = ".\Default\Multilingual\Targets\DynamitePropertyTemplate.sgt" 
 }
 
 # If the DSP_MigrationAssociationKeys hasn't been set, initialize and default to use the content association key

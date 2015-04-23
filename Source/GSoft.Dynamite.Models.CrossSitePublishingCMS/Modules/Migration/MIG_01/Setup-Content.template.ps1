@@ -128,10 +128,10 @@ $mappingKeys | ForEach-Object {
 	    $MappingSettings = Get-CustomPropertyMappings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
 
 		# Configure property settings
-		$DSP_MigrationDataPropertyMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataPropertyMappingsFile]]"
-		$DSP_MigrationDataPropertyMappingsName = "[[DSP_MigrationDataPropertyMappingsName]]"
+		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataSourceMappings]]"
+		$DSP_MigrationDataMappingsName = "[[DSP_MigrationDataSourceMappingsName]]"
 
-        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataPropertyMappingsFile -TemplateName $DSP_MigrationDataPropertyMappingsName
+        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName
     } else {
         Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath 
     }
@@ -162,10 +162,10 @@ if($IsMultilingual) {
 	    $MappingSettings = Get-CustomPropertyMappings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
 
 		# Configure property settings
-		$DSP_MigrationDataPropertyMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataPropertyMappingsFile]]"
-		$DSP_MigrationDataPropertyMappingsName = "[[DSP_MigrationDataPropertyMappingsName]]"
+		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataTargetMappings]]"
+		$DSP_MigrationDataMappingsName = "[[DSP_MigrationDataTargetMappingsName]]"
 
 		# Import data
-        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataPropertyMappingsFile -TemplateName $DSP_MigrationDataPropertyMappingsName
+        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName
     }
 }
