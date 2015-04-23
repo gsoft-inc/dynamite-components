@@ -39,16 +39,19 @@ function Get-FullPath {
 }
 
 function Get-CustomPropertyMappings {
+    param(
+		[Parameter(Mandatory=$true)]
+        [string]$PropertyDisplayName)
 
     # Custom property mapping settings
 	$MappingSettings = New-MappingSettings 
 
 	# Remove default keys
-	Remove-PropertyMapping -MappingSettings $MappingSettings -Destination Title
-	Remove-PropertyMapping -MappingSettings $MappingSettings -Destination Created
+	Remove-PropertyMapping -MappingSettings $MappingSettings -Destination Title | Out-Null
+	Remove-PropertyMapping -MappingSettings $MappingSettings -Destination Created | Out-Null
 
 	# Add custom keys
-	Set-PropertyMapping -MappingSettings $MappingSettings -Source DynamiteContentAssociationKey -Destination DynamiteContentAssociationKey -Key
+	Set-PropertyMapping -MappingSettings $MappingSettings -Source $PropertyDisplayName -Destination $PropertyDisplayName -Key | Out-Null
 
     return $MappingSettings
 }
@@ -70,6 +73,7 @@ function Wait-VariationSyncTimerJob {
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 $SourceLabel ="[[DSP_SourceLabel]]"
 $DSP_MigrationFolderMappings = [[DSP_MigrationFolderMappings]]
+$DSP_MigrationAssociationKeys = [[DSP_MigrationAssociationKeys]]
 
 # If not already defined, create default folder to URL mappings
 if($DSP_MigrationFolderMappings -eq $null) {
@@ -118,7 +122,19 @@ $mappingKeys | ForEach-Object {
     # Fix ACLs before importing data
     & $AclScript -folderPath $fromFolder
 
-    Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath
+    if ($_.ToUpperInvariant().Contains("SOURCE")) {
+
+		# Configure mapping settings
+	    $MappingSettings = Get-CustomPropertyMappings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
+
+		# Configure property settings
+		$DSP_MigrationDataPropertyMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataPropertyMappingsFile]]"
+		$DSP_MigrationDataPropertyMappingsName = "[[DSP_MigrationDataPropertyMappingsName]]"
+
+        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataPropertyMappingsFile -TemplateName $DSP_MigrationDataPropertyMappingsName
+    } else {
+        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath 
+    }
 }
 
 # ******************************************
@@ -129,9 +145,6 @@ if($IsMultilingual) {
     # Wait for variations to sync data to target label(s)
     Wait-VariationSyncTimerJob
 
-    # Get Sharegate custom property mappings
-    $MappingSettings = Get-CustomPropertyMappings
-
     # Defines mappings keys for variation targets
     $TargetMappingKeys = $DSP_MigrationFolderMappings.Keys | where { $_.ToUpperInvariant().Contains("TARGETS") }
     $TargetMappingKeys | ForEach-Object {
@@ -141,6 +154,18 @@ if($IsMultilingual) {
         # Fix ACLs before importing data
         & $AclScript -folderPath $FromFolder
 
-        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings
+        # Get target label language to determine what association key display name to use
+        $IndexOfTargetLanguage = $FromFolder.LastIndexOf("\") + 1
+        $TargetLabelLanguage = $FromFolder.Substring($IndexOfTargetLanguage)
+
+		# Configure mapping settings
+	    $MappingSettings = Get-CustomPropertyMappings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
+
+		# Configure property settings
+		$DSP_MigrationDataPropertyMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataPropertyMappingsFile]]"
+		$DSP_MigrationDataPropertyMappingsName = "[[DSP_MigrationDataPropertyMappingsName]]"
+
+		# Import data
+        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataPropertyMappingsFile -TemplateName $DSP_MigrationDataPropertyMappingsName
     }
 }
