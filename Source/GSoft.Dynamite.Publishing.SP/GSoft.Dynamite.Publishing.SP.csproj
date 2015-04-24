@@ -173,6 +173,7 @@
     <None Include="Artefacts\PageLayouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{621e215b-d2d9-4c78-85a2-f38af1a379eb}</SharePointProjectItemId>
     </None>
+    <None Include="JSHintConfig.json" />
     <None Include="SP.ControlTemplates\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{48389bc6-84ff-4799-afba-d8e32701b9fb}</SharePointProjectItemId>
     </None>
