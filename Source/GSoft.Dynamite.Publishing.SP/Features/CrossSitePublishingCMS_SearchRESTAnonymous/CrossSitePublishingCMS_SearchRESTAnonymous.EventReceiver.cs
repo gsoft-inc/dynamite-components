@@ -109,7 +109,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
                         doc.DocumentElement["QueryProperties"]["WebId"].InnerText = site.RootWeb.ID.ToString();
                         doc.Save(stream);
 
-                        var fileInfo = new Files.FileInfo("queryparametertemplate.xml", stream);
+                        var fileInfo = new Files.FileInfo("queryparametertemplate.xml", stream, true);
 
                         fileHelper.EnsureFile(site.RootWeb, listTitle, fileInfo);
                     }
