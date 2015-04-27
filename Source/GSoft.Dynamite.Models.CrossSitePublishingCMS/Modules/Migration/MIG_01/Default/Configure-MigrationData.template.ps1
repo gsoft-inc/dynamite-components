@@ -13,7 +13,7 @@ param(
 
 
 # Get Sharegate configuration Excel files
-$ExcelFiles = Get-ChildItem -Path $FolderPath -Recurse  |  Where-Object { ($_.Extension -eq ".xlsx") -and ($_.Name -match $_.Parent.Name) }
+$ExcelFiles = Get-ChildItem -Path $FolderPath -Recurse  |  Where-Object { ($_.Extension -eq ".xlsx") -and ($_.Name -match $_.Directory.Name) } | Select-Object -First 1
 $ExcelFiles | ForEach-Object {
     $ExcelFile = Open-DSPExcelFile -Path $_.FullName
 

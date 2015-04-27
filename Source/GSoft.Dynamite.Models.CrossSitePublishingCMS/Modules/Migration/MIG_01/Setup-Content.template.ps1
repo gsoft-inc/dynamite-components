@@ -61,8 +61,8 @@ function Wait-VariationSyncTimerJob {
 	# We don't need to sync manually items because we force the "Approved" status which automatically fires variations event receiver 
 	# Sync item with timer job
 	$WebApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
-	Wait-SPTimerJob -Name "VariationsPropagateListItem" -WebApplication $WebApplication
 	Write-Warning "Waiting for 'VariationsPropagateListItem' timer job to finish..."
+	Wait-SPTimerJob -Name "VariationsPropagateListItem" -WebApplication $WebApplication
 	Start-Sleep -Seconds 15
 }
 
@@ -100,10 +100,6 @@ if($DSP_MigrationFolderMappings -eq $null) {
 # Configure migration data before import
 # ******************************************
 $DSP_MigrationDataConfigurationScript = "[[DSP_MigrationDataConfigurationScript]]"
-if ($DSP_MigrationDataConfigurationScript -eq $null) {
-    $DSP_MigrationDataConfigurationScript = ".\Default\Configure-MigrationData.ps1"
-}
-    
 $DSP_MigrationFolderMappings.Keys | ForEach-Object {
     $Folder = Get-FullPath -Path $_
     $ConfigurationScript = Get-FullPath -Path $DSP_MigrationDataConfigurationScript
