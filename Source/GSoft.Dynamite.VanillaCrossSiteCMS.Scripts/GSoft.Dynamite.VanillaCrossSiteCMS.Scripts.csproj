@@ -61,6 +61,8 @@
     <None Include="Modules\Docs\Tokens.Docs.Custom.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Default.ps1" />
     <None Include="Modules\Lifecycle\Tokens.LifeCycle.Default.ps1" />
+    <None Include="Modules\Migration\Tokens.Migration.Custom.ps1" />
+    <None Include="Modules\Migration\Tokens.Migration.Default.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
