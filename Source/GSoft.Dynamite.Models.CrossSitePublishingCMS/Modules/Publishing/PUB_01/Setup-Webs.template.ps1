@@ -42,11 +42,14 @@ if($IsMultilingual)
 
 		Initialize-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
 	}
+	
+	# Avoid duplicate web variations sync if publishing site is also authoring site
+	if ("[[DSP_AuthoringSourceRootWebUrls]]".CompareTo("[[DSP_PublishingSourceRootWebUrls]]") -ne 0) {
+		# Activate features on source sites - Publishing side
+		[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
 
-	# Activate features on source sites - Publishing side
-	[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
-
-		Initialize-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
+			Initialize-DSPFeature -Url $_ -Id "[[DSP_CommonCMS_LANG_SyncWeb]]"
+		}
 	}
 
 	$webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
