@@ -25,8 +25,8 @@
 # ******************************************
 # Design Module tokens
 # ******************************************
-#. ./Modules/Design/Tokens.Design.Default.ps1
-#. ./Modules/Design/Tokens.Design.Custom.ps1
+. ./Modules/Design/Tokens.Design.Default.ps1
+. ./Modules/Design/Tokens.Design.Custom.ps1
 
 # ******************************************
 # Docs Module tokens

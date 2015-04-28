@@ -38,7 +38,7 @@ New-HeaderDrawing -Values $header
 try {
 	#region ********** PUBLISHING MODULE ********** #
 	.\Modules\Publishing\PUB_01\Install-PUB01.ps1
-	#.\Modules\Publishing\PUB_02\Install-PUB02.ps1
+	.\Modules\Publishing\PUB_02\Install-PUB02.ps1
 	#endregion
 
 	#region ********** NAVIGATION MODULE ********** #
@@ -47,7 +47,7 @@ try {
 	#endregion
 
 	#region ********** DESIGN MODULE ********** #
-	#.\Modules\Design\DSGN_01\Install-DSGN01.ps1
+	.\Modules\Design\DSGN_01\Install-DSGN01.ps1
 	#endregion
 
 	#region ********** MULTILINGUALISM MODULE ********** #

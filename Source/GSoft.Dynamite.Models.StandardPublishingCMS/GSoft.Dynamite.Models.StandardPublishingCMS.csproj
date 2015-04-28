@@ -56,8 +56,14 @@
     <None Include="Execute-PostDeploymentScript.ps1" />
     <None Include="GSoft.Dynamite.StandardPublishingCMS.nuspec" />
     <None Include="Install-Model.template.ps1" />
+    <None Include="Modules\Design\DSGN_01\Install-DSGN01.ps1" />
+    <None Include="Modules\Design\DSGN_01\Setup-JavascriptImports.template.ps1" />
+    <None Include="Modules\Design\DSGN_01\Setup-MasterPage.template.ps1" />
+    <None Include="Modules\Design\DSGN_01\Setup-Theme.template.ps1" />
+    <None Include="Modules\Design\Tokens.Design.Custom.ps1" />
+    <None Include="Modules\Design\Tokens.Design.Default.ps1" />
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
-    <None Include="Modules\Navigation\NAV_01\Setup-ManagedNavigation.ps1.template" />
+    <None Include="Modules\Navigation\NAV_01\Setup-ManagedNavigation.template.ps1" />
     <None Include="Modules\Navigation\NAV_05\Install-NAV05.ps1" />
     <None Include="Modules\Navigation\NAV_05\Setup-EventReceivers.ps1.template" />
     <None Include="Modules\Navigation\NAV_05\Setup-Lists.ps1.template" />
