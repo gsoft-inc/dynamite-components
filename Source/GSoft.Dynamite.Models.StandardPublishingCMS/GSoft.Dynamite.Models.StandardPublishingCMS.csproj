@@ -91,7 +91,7 @@
     <None Include="Publish-DeploymentFolder.ps1" />
     <None Include="Solutions\Copy-Solutions.ps1.template" />
     <None Include="Solutions\Custom\Custom-Solutions.xml.template" />
-    <None Include="Solutions\Default\Default-Solutions.xml.template" />
+    <Content Include="Solutions\Default\Default-Solutions.template.xml" />
     <None Include="Solutions\Deploy-Solutions.ps1.template" />
     <None Include="Solutions\Tokens.Solutions.Custom.ps1" />
     <None Include="Solutions\Tokens.Solutions.Default.ps1" />
