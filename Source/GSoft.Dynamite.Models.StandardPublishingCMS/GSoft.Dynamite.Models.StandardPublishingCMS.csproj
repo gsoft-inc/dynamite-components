@@ -69,9 +69,9 @@
     <None Include="Modules\Navigation\NAV_05\Setup-Lists.ps1.template" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
-    <None Include="Modules\Publishing\PUB_01\Default\Default-NavigationTermGroup.xml.template" />
-    <None Include="Modules\Publishing\PUB_01\Default\Default-Permissions.xml.template" />
-    <None Include="Modules\Publishing\PUB_01\Default\Default-Sites.xml.template" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-NavigationTermGroup.template.xml" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-Permissions.template.xml" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-Sites.template.xml" />
     <None Include="Modules\Publishing\PUB_01\Export-TermGroups.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Import-TermGroups.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Install-PUB01.ps1" />
