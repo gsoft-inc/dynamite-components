@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>GSoft.Dynamite.StandardPublishingCMS</id>
+    <version>2.2.1-pre10440</version>
+    <title>GSoft.Dynamite.StandardPublishingCMS</title>
+    <authors>GSoft</authors>
+    <owners>GSoft</owners>
+    <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
+    <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Closed-source reusable components and modules for SharePoint 2013 based on the Dynamite (2013) toolkit</description>
+    <releaseNotes />
+    <tags>SharePoint</tags>
+    <dependencies>
+      <dependency id="GSoft.Dynamite.SP" />
+    </dependencies>
+  </metadata>
+</package>

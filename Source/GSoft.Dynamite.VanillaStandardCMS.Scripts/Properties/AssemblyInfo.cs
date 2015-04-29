@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GSoft.Dynamite.VanillaCrossSiteCMS.Scripts")]
+[assembly: AssemblyTitle("GSoft.Dynamite.VanillaStandardCMS.Scripts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GSoft.Dynamite.VanillaCrossSiteCMS.Scripts")]
+[assembly: AssemblyProduct("GSoft.Dynamite.VanillaStandardCMS.Scripts")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b8571dbc-4fa7-4e22-80ab-301fb742afce")]
+[assembly: Guid("66d6c154-bebb-4685-af5c-1fea4c274460")]
 
 // Version information for an assembly consists of the following four values:
 //
