@@ -66,7 +66,7 @@ $Script = $CommandDirectory + '\Setup-Lists.ps1'
 # =========   METADATA FILTERING   ========== #
 # =========================================== #
 
-$values = @{"Step: " = "#11 Configure metadata navigation for catalogs"}
+$values = @{"Step: " = "#8 Configure metadata navigation for pages librairies"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-MetadataFiltering.ps1'

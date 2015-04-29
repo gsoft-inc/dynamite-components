@@ -9,18 +9,6 @@
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
-# Configuration Files
-$DefaultNavigationConfigurationFile = "[[DSP_DEFAULT_PortalNavigationConfigurationFile]]"
-
-$CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfigurationFile]]"
-
-$NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
-
-if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
-{
-	$NavigationConfigurationFilePath = $CommandDirectory + ".\" + $CustomNavigationConfigurationFile
-}
-
 # Taxonomy Settings
 $DefautNavigationtermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
 
