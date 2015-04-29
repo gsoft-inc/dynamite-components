@@ -72,6 +72,7 @@
     <None Include="Modules\Search\Tokens.Search.Default.ps1" />
     <None Include="packages.config" />
     <None Include="Publish-DeploymentFolder.ps1" />
+    <None Include="Tokens.HOSTNAME.ps1" />
     <None Include="Tokens.sp2013-yohan.ps1" />
     <None Include="Tokens.sp2013tao.ps1" />
   </ItemGroup>
