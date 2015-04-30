@@ -26,6 +26,9 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
     {
         private const string CatalogItemReuseWebPartId = "CatalogItemAssociationWebPart";
 
+        /// <summary>
+        /// The Content Association Key Value
+        /// </summary>
         private string contentAssociationKeyValue = null;
 
         /// <summary>
@@ -98,7 +101,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 return this.contentAssociationKeyValue;
             }
         }
-
+        
         /// <summary>
         /// Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
         /// </summary>
