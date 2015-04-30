@@ -29,6 +29,11 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         private string contentAssociationKeyValue = null;
 
         /// <summary>
+        /// The Content Association Key Value
+        /// </summary>
+        private string contentAssociationKeyValue = null;
+
+        /// <summary>
         /// The view model.
         /// </summary>
         public IVariationNavigationHelper VariationNavigationHelper { get; private set; }
@@ -98,7 +103,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 return this.contentAssociationKeyValue;
             }
         }
-
+        
         /// <summary>
         /// Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
         /// </summary>
