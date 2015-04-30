@@ -26,8 +26,6 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
     {
         private const string CatalogItemReuseWebPartId = "CatalogItemAssociationWebPart";
 
-        private string contentAssociationKeyValue = null;
-
         /// <summary>
         /// The Content Association Key Value
         /// </summary>
