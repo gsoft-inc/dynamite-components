@@ -28,6 +28,11 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         private const string CatalogItemReuseWebPartId = "CatalogItemAssociationWebPart";
 
         /// <summary>
+        /// The Content Association Key Value
+        /// </summary>
+        private string contentAssociationKeyValue = null;
+
+        /// <summary>
         /// The view model.
         /// </summary>
         public IVariationNavigationHelper VariationNavigationHelper { get; private set; }
@@ -61,8 +66,6 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// The variation navigation helper
         /// </summary>
         public IMultilingualismVariationsConfig MultilingualismVariationsConfig { get; private set; }
-
-        private string contentAssociationKeyValue = null;
 
         /// <summary>
         /// The content association key fetched from the catalog item reuse web part.
@@ -99,7 +102,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 return this.contentAssociationKeyValue;
             }
         }
-
+        
         /// <summary>
         /// Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
         /// </summary>
