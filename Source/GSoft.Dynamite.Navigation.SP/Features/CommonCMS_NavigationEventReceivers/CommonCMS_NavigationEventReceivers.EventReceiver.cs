@@ -1,17 +1,14 @@
 using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using Autofac;
 using GSoft.Dynamite.Events;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Navigation.Contracts.Constants;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetItemsEventReceivers
+namespace GSoft.Dynamite.Navigation.SP.Features.CommonCMS_NavigationEventReceivers
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -19,11 +16,11 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-    [Guid("8cb2ec32-a732-4818-acfd-16ff2826d617")]
-    public class CrossSitePublishingCMS_TargetItemsEventReceiversEventReceiver : SPFeatureReceiver
+    [Guid("7c3fcc9d-c9b4-4e75-bde4-7d052a102383")]
+    public class CommonCMS_NavigationEventReceiversEventReceiver : SPFeatureReceiver
     {
         /// <summary>
-        /// Adds event receivers for the target item content type. Only used with Cross Site Publishing CMS based solutions.
+        /// Creates event receivers for the <c>browsable</c> item content type
         /// </summary>
         /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
@@ -34,35 +31,24 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
-                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
+                    var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
-                    var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
-
-                    // Add only Target Item events
-                    baseEventReceivers.Clear();
-
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
-
-                    foreach (var eventReceiver in baseEventReceivers)
+                    foreach (var eventReceiverInfo in baseReceiversConfig.EventReceivers)
                     {
-                        logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
-
-                        eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
-
-                        eventReceiverHelper.AddEventReceiverDefinition(site, eventReceiver);
+                        // Do it for content type and list
+                        // eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
+                        // eventReceiverHelper.AddListEventReceiverDefinition(web, eventReceiver);
+                        logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiverInfo.ContentType.DisplayNameResourceKey));
                     }
                 }
             }
         }
 
         /// <summary>
-        /// Removes event receivers for the target item content type. Only used with Cross Site Publishing CMS based solutions.
+        /// Deletes event receivers for the <c>browsable</c> item content type
         /// </summary>
         /// <param name="properties">The event properties</param>
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
@@ -73,19 +59,12 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
+                    var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
-                    var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
-
-                    // Add only Target Item events
-                    var baseEventReceivers = new List<EventReceiverInfo>();
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
-
-                    foreach (var eventReceiver in baseEventReceivers)
+                    foreach (var eventReceiver in baseReceiversConfig.EventReceivers)
                     {
                         logger.Info("Deleting event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 

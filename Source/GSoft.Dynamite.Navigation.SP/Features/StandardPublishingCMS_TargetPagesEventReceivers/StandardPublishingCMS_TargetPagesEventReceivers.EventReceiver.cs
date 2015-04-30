@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Autofac;
@@ -33,8 +34,6 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
-                    var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
-                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
@@ -49,8 +48,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                     }                   
 
                     // Add only Browsable Page events
-                    baseEventReceivers.Clear();
-
+                    var baseEventReceivers = new List<EventReceiverInfo>();
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());

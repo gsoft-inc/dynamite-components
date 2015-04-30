@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using Autofac;
@@ -32,16 +33,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Browsable
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
-                    var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
-                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
                     // Add only Browsable Item events
-                    baseEventReceivers.Clear();
-
+                    var baseEventReceivers = new List<EventReceiverInfo>();
                     baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
 
@@ -70,16 +68,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Browsable
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
-                    var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
-                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
-                    // Add only Browsable Item events
-                    baseEventReceivers.Clear();
-
+                    // Remove only Browsable Item events
+                    var baseEventReceivers = new List<EventReceiverInfo>();
                     baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.BrowsableItemItemUpdated());
 
