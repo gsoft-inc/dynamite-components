@@ -39,8 +39,9 @@ $assemblyName = "[[DSP_ServiceLocatorAssemblyName]]"
 if ([string]::IsNullOrEmpty($assemblyName) -eq $false)
 {
 	# assume that the same service locator should be used on authoring and publishing site collections
-	Set-DSPWebProperty -Url "[[DSP_PortalPublishingHostNamePath]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
-	Set-DSPWebProperty -Url "[[DSP_PortalAuthoringHostNamePath]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
++	Set-DSPWebProperty -Url "[[DSP_PortalPublishingSiteUrl]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
++	Set-DSPWebProperty -Url "[[DSP_PortalAuthoringSiteUrl]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
++	Set-DSPWebProperty -Url "[[DSP_PortalDocsSiteUrl]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
 }
 
 # If multilingual is configured, activate the variation hierarchie features on authoring and publishing sites
