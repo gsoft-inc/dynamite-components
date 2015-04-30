@@ -61,12 +61,14 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                         },
                         GlobalFilters = new[]
                         {
+                            // Use the Locale of the web instead of the Language because when we implement unsupported languages as Inuktitut, 
+                            // the variation label language is en-US.
                             // Filter items on the web's language
                             string.Format(
                                 CultureInfo.InvariantCulture,
                                 "{0}:{1}",
                                 multilingualismManagedPropertyInfos.ItemLanguage.Name,
-                                new CultureInfo((int)SPContext.Current.Web.Language).TwoLetterISOLanguageName),
+                                SPContext.Current.Web.Locale.TwoLetterISOLanguageName),
 
                             // Filter items on occurence link location (featured in) main menu
                             string.Format(
