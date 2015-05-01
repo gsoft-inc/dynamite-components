@@ -105,9 +105,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// <returns>
         /// The Managed navigation settings
         /// </returns>
-        public MetadataNavigationSettingsInfo GetMetadataNavigationSettingsInfoByListInfo(ListInfo list)
+        public MetadataNavigationSettingsInfo GetMetadataNavigationSettingsInfo(ListInfo list)
         {
-            return this.MetadataNavigationSettings.Single(s => s.List.Equals(list));
+            return this.MetadataNavigationSettings.Single(s => s.List.WebRelativeUrl.Equals(list.WebRelativeUrl));
         }
     }
 }

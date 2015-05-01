@@ -18,6 +18,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         /// </summary>
         /// <param name="list">The list information.</param>
         /// <returns>The Managed navigation settings</returns>
-        MetadataNavigationSettingsInfo GetMetadataNavigationSettingsInfoByListInfo(ListInfo list);
+        MetadataNavigationSettingsInfo GetMetadataNavigationSettingsInfo(ListInfo list);
     }
 }
