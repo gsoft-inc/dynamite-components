@@ -48,12 +48,12 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                     }                   
 
                     // Add only Browsable Page events
-                    var baseEventReceivers = new List<EventReceiverInfo>();
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());
+                    var targetContentPageEventReceivers = new List<EventReceiverInfo>();
+                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
+                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
+                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());
 
-                    foreach (var eventReceiver in baseEventReceivers)
+                    foreach (var eventReceiver in targetContentPageEventReceivers)
                     {
                         logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 
@@ -78,21 +78,19 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
-                    var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
-                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
                     // Add only Browsable Page events
-                    baseEventReceivers.Clear();
+                    var targetContentPageEventReceivers = new List<EventReceiverInfo>();
 
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());
+                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
+                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
+                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());
 
-                    foreach (var eventReceiver in baseEventReceivers)
+                    foreach (var eventReceiver in targetContentPageEventReceivers)
                     {
                         logger.Info("Deleting event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 

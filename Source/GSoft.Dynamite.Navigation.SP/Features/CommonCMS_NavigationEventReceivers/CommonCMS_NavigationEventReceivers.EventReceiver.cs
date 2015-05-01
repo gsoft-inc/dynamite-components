@@ -39,8 +39,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CommonCMS_NavigationEventReceive
                     foreach (var eventReceiverInfo in baseReceiversConfig.EventReceivers)
                     {
                         // Do it for content type and list
-                        // eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
-                        // eventReceiverHelper.AddListEventReceiverDefinition(web, eventReceiver);
+                        eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiverInfo);
                         logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiverInfo.ContentType.DisplayNameResourceKey));
                     }
                 }
