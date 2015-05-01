@@ -49,7 +49,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Browsable
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
 
-                        eventReceiverHelper.AddEventReceiverDefinition(site, eventReceiver);
+                        eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
                     }
                 }
             }
@@ -84,7 +84,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_Browsable
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
 
-                        eventReceiverHelper.DeleteEventReceiverDefinition(site, eventReceiver);
+                        eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
                     }
                 }
             }

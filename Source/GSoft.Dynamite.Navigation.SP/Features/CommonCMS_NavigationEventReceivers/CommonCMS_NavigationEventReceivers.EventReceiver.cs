@@ -70,7 +70,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CommonCMS_NavigationEventReceive
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
 
-                        eventReceiverHelper.DeleteEventReceiverDefinition(site, eventReceiver);
+                        eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
                     }
                 }
             }
