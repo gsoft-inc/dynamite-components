@@ -8,7 +8,7 @@
         <owners>GSoft</owners>
         <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/GSoft-SharePoint/Dynamite/</projectUrl>
-        <iconUrl>https://avatars3.githubusercontent.com/u/5606578?s=140</iconUrl>
+        <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Interfaces for the Migration Module in the Dynamite.Components schema</description>
         <releaseNotes></releaseNotes>

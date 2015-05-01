@@ -8,7 +8,7 @@
     <owners>GSoft</owners>
     <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
-    <iconUrl>https://avatars3.githubusercontent.com/u/5606578?s=140</iconUrl>
+    <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Closed-source reusable components and modules for SharePoint 2013 based on the Dynamite (2013) toolkit</description>
     <releaseNotes></releaseNotes>

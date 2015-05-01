@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution items", ".solution items", "{F8955DA4-DBB6-4AA2-9B75-7B014F55EDB5}"
 	ProjectSection(SolutionItems) = preProject
+		fxcop.Debug.FxCop = fxcop.Debug.FxCop
+		fxcop.Release.FxCop = fxcop.Release.FxCop
 		GSoft.Dynamite.Portal.snk = GSoft.Dynamite.Portal.snk
 		nuget.config = nuget.config
 	EndProjectSection

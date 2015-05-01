@@ -99,7 +99,6 @@
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-Fields.template.ps1" />
-    <None Include="Modules\Multilingualism\LANG_02\Setup-LanguageSwitcher.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.template.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
     <None Include="Modules\Navigation\NAV_01\Export-TermGroups.template.ps1" />
