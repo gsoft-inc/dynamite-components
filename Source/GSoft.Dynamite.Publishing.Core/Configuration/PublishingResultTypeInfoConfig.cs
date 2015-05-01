@@ -88,6 +88,13 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the result type information by name from this configuration.
+        /// </summary>
+        /// <param name="name">The name of the Result Type.</param>
+        /// <returns>
+        /// The result type information
+        /// </returns>
         public ResultTypeInfo GetResultTypeInfoByName(string name)
         {
             return this.ResultTypes.Single(r => r.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));

@@ -50,18 +50,6 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
         }
 
         /// <summary>
-        /// Gets the result source information by name from this configuration.
-        /// </summary>
-        /// <param name="name">The result source name.</param>
-        /// <returns>
-        /// The result source information
-        /// </returns>
-        public ResultSourceInfo GetResultSourceInfoByName(string name)
-        {
-            return this.ResultSources.Single(s => s.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
-        }
-
-        /// <summary>
         /// Override the single catalog item result source query by appending the language condition
         /// </summary>
         /// <returns>The updated result source info</returns>
@@ -117,6 +105,18 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
 
                 return resultSource;
             }
+        }
+
+        /// <summary>
+        /// Gets the result source information by name from this configuration.
+        /// </summary>
+        /// <param name="name">The result source name.</param>
+        /// <returns>
+        /// The result source information
+        /// </returns>
+        public ResultSourceInfo GetResultSourceInfoByName(string name)
+        {
+            return this.ResultSources.Single(s => s.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

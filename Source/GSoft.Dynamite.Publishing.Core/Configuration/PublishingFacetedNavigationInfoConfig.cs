@@ -21,7 +21,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="publishingFacetedNavigationInfos">The faceted navigation info objects configuration</param>
+        /// <param name="publishingTaxonomyConfig">The publishing taxonomy configuration.</param>
+        /// <param name="commonManagedPropertyConfig">The common managed property configuration.</param>
+        /// <param name="publishingDisplayTemplateInfoConfig">The publishing display template information configuration.</param>
         public PublishingFacetedNavigationInfoConfig(
             IPublishingTaxonomyConfig publishingTaxonomyConfig,
             ICommonManagedPropertyConfig commonManagedPropertyConfig,

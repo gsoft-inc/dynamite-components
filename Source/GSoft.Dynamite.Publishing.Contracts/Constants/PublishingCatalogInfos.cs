@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Catalogs;
-using GSoft.Dynamite.ContentTypes;
-using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Lists.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Search;
-using GSoft.Dynamite.Taxonomy;
-using GSoft.Dynamite.ValueTypes;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
@@ -24,7 +18,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// The news pages catalog that contains only catalog pages typed items
         /// </summary>
         /// <returns>The catalog info</returns>
-        public static CatalogInfo NewsPages { 
+        public static CatalogInfo NewsPages 
+        { 
             get 
             {
                 return new CatalogInfo(

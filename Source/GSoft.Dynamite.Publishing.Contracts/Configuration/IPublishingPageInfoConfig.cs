@@ -22,7 +22,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         /// <summary>
         /// Gets the page information by file name from this configuration.
         /// </summary>
-        /// <param name="fileName">The file name of the page without the aspx extention.</param>
+        /// <param name="fileName">The file name of the page without the file extension.</param>
         /// <returns>The page information</returns>
         PageInfo GetPageInfoByFileName(string fileName);
     }

@@ -1,11 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Collections.Generic;
 using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Fields.Constants;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
@@ -17,6 +16,10 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     {
         private readonly IPublishingFieldInfoConfig publishingFieldInfoConfig;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PublishingContentTypeInfoConfig"/> class.
+        /// </summary>
+        /// <param name="publishingFieldInfoConfig">The publishing field information configuration.</param>
         public PublishingContentTypeInfoConfig(IPublishingFieldInfoConfig publishingFieldInfoConfig)
         {
             this.publishingFieldInfoConfig = publishingFieldInfoConfig;
@@ -50,18 +53,6 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 
                 return contentTypes;
             }
-        }
-
-        /// <summary>
-        /// Gets the content type from the ContentTypes property where the id of that content type is passed by parameter.
-        /// </summary>
-        /// <param name="contentTypeId">The unique identifier of the content type we are looking for.</param>
-        /// <returns>
-        /// The content type information.
-        /// </returns>
-        public ContentTypeInfo GetContentTypeById(SPContentTypeId contentTypeId)
-        {
-            return this.ContentTypes.Single(c => c.ContentTypeId.Equals(contentTypeId));
         }
 
         private ContentTypeInfo GetConfiguredBrowsableItemContentType
@@ -134,6 +125,18 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 
                 return contentType;
             }
+        }
+
+        /// <summary>
+        /// Gets the content type from the ContentTypes property where the id of that content type is passed by parameter.
+        /// </summary>
+        /// <param name="contentTypeId">The unique identifier of the content type we are looking for.</param>
+        /// <returns>
+        /// The content type information.
+        /// </returns>
+        public ContentTypeInfo GetContentTypeById(SPContentTypeId contentTypeId)
+        {
+            return this.ContentTypes.Single(c => c.ContentTypeId.Equals(contentTypeId));
         }
     }
 }

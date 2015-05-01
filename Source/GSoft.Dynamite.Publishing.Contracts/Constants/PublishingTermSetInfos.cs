@@ -14,7 +14,8 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// The restricted navigation term set
         /// </summary>
         /// <returns>The term set</returns>
-        public static TermSetInfo RestrictedNews { 
+        public static TermSetInfo RestrictedNews 
+        { 
             get
             {
                 return new TermSetInfo(

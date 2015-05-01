@@ -132,7 +132,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// WebPart for a catalog items refinements (e.g. all news)
         /// </summary>
-        /// <param name="zoneName">The name of the zone in the page layout</param>
         /// <returns>The WebPart info object</returns>
         public static WebPartInfo CatalogCategoryRefinementWepart
         {
@@ -149,8 +148,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
 
                 return new WebPartInfo()
                 {
-                    WebPart = webpart,
-                    //ZoneName = add in page config.
+                    WebPart = webpart
                 };
             }
         }

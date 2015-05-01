@@ -22,6 +22,13 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         private readonly IPublishingFieldInfoConfig publishingFieldInfoConfig;
         private readonly IPublishingContentTypeInfoConfig publishingContentTypeInfoConfig;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NavigationResultSourceInfoConfig"/> class.
+        /// </summary>
+        /// <param name="publishingResultSourceInfoConfig">The publishing result source information configuration.</param>
+        /// <param name="consolidatedManagedPropertyConfig">The consolidated managed property configuration.</param>
+        /// <param name="publishingFieldInfoConfig">The publishing field information configuration.</param>
+        /// <param name="publishingContentTypeInfoConfig">The publishing content type information configuration.</param>
         public NavigationResultSourceInfoConfig(
             IPublishingResultSourceInfoConfig publishingResultSourceInfoConfig,
             IConsolidatedManagedPropertyConfig consolidatedManagedPropertyConfig,
@@ -50,18 +57,6 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
 
                 return resultSources;
             }
-        }
-
-        /// <summary>
-        /// Gets the result source information by name from this configuration.
-        /// </summary>
-        /// <param name="name">The result source name.</param>
-        /// <returns>
-        /// The result source information
-        /// </returns>
-        public ResultSourceInfo GetResultSourceInfoByName(string name)
-        {
-            return this.ResultSources.Single(s => s.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
         }
 
         /// <summary>
@@ -103,6 +98,18 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
 
                 return singleCatalogItem;
             }
+        }
+
+        /// <summary>
+        /// Gets the result source information by name from this configuration.
+        /// </summary>
+        /// <param name="name">The result source name.</param>
+        /// <returns>
+        /// The result source information
+        /// </returns>
+        public ResultSourceInfo GetResultSourceInfoByName(string name)
+        {
+            return this.ResultSources.Single(s => s.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

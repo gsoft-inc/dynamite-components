@@ -1,11 +1,11 @@
-﻿using System.Linq;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.Common.Contracts.Configuration;
+using GSoft.Dynamite.Common.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Taxonomy;
-using GSoft.Dynamite.Common.Contracts.Constants;
-using System;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {

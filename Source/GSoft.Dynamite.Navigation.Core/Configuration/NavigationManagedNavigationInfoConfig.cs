@@ -39,18 +39,6 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             }
         }
 
-        /// <summary>
-        /// Gets the managed navigation information by culture from this configuration.
-        /// </summary>
-        /// <param name="cultureInfo">The culture information.</param>
-        /// <returns>
-        /// The managed navigation information
-        /// </returns>
-        public ManagedNavigationInfo GetManagedNavigationInfoByCulture(CultureInfo cultureInfo)
-        {
-            return this.NavigationSettings.Single(s => s.AssociatedLanguage.Equals(cultureInfo));
-        }
-
         private ManagedNavigationInfo ManagedNavigationSettingsEnglish
         {
             get
@@ -71,6 +59,18 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                     this.commonTaxonomyConfig.GetTermGroupInfoById(CommonTermGroupInfo.Navigation.Id),
                     new CultureInfo(1036));
             }
+        }
+
+        /// <summary>
+        /// Gets the managed navigation information by culture from this configuration.
+        /// </summary>
+        /// <param name="cultureInfo">The culture information.</param>
+        /// <returns>
+        /// The managed navigation information
+        /// </returns>
+        public ManagedNavigationInfo GetManagedNavigationInfoByCulture(CultureInfo cultureInfo)
+        {
+            return this.NavigationSettings.Single(s => s.AssociatedLanguage.Equals(cultureInfo));
         }
     }
 }

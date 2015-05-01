@@ -10,18 +10,18 @@ namespace GSoft.Dynamite.Common.Contracts.Configuration
     public interface ICommonTaxonomyConfig
     {
         /// <summary>
-        /// Gets the term group infos.
+        /// Gets the term group information.
         /// </summary>
         /// <value>
-        /// The term group infos.
+        /// The term group information.
         /// </value>
         IList<TermGroupInfo> TermGroupInfos { get; }
 
         /// <summary>
-        /// Gets the term set infos.
+        /// Gets the term set information.
         /// </summary>
         /// <value>
-        /// The term set infos.
+        /// The term set information.
         /// </value>
         IList<TermSetInfo> TermSetInfos { get; }
 

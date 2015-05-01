@@ -42,8 +42,10 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         /// <summary>
         /// Gets the managed property information by name from this configuration.
         /// </summary>
-        /// <param name="ManagedPropertyName">Name of the managed property.</param>
-        /// <returns>The managed property information</returns>
+        /// <param name="managedPropertyName">Name of the managed property.</param>
+        /// <returns>
+        /// The managed property information
+        /// </returns>
         public ManagedPropertyInfo GetManagedPropertyInfoByName(string managedPropertyName)
         {
             return this.ManagedProperties.Single(m => m.Name.Equals(managedPropertyName, StringComparison.InvariantCultureIgnoreCase));

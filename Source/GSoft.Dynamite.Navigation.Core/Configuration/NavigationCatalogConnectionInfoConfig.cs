@@ -21,6 +21,12 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         private readonly IPublishingCatalogInfoConfig publishingCatalogInfoConfig;
         private readonly IPublishingFieldInfoConfig publishingFieldInfoConfig;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NavigationCatalogConnectionInfoConfig"/> class.
+        /// </summary>
+        /// <param name="consolidatedManagedPropertyConfig">The consolidated managed property configuration.</param>
+        /// <param name="publishingCatalogInfoConfig">The publishing catalog information configuration.</param>
+        /// <param name="publishingFieldInfoConfig">The publishing field information configuration.</param>
         public NavigationCatalogConnectionInfoConfig(
             IConsolidatedManagedPropertyConfig consolidatedManagedPropertyConfig,
             IPublishingCatalogInfoConfig publishingCatalogInfoConfig,
@@ -44,18 +50,6 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                     this.ContentPagesConnection
                 };
             }         
-        }
-
-        /// <summary>
-        /// Gets the catalog connection information by catalog information from this configuration.
-        /// </summary>
-        /// <param name="catalog">The catalog information.</param>
-        /// <returns>
-        /// The catalog connection information
-        /// </returns>
-        public CatalogConnectionInfo GetCatalogConnectionInfoByCatalog(CatalogInfo catalog)
-        {
-            return this.CatalogConnections.Single(c => c.Catalog.Equals(catalog));
         }
 
         /// <summary>
@@ -112,6 +106,18 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                     false,
                     urlTemplate);
             }
+        }
+
+        /// <summary>
+        /// Gets the catalog connection information by catalog information from this configuration.
+        /// </summary>
+        /// <param name="catalog">The catalog information.</param>
+        /// <returns>
+        /// The catalog connection information
+        /// </returns>
+        public CatalogConnectionInfo GetCatalogConnectionInfoByCatalog(CatalogInfo catalog)
+        {
+            return this.CatalogConnections.Single(c => c.Catalog.Equals(catalog));
         }
     }
 }

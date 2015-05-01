@@ -18,6 +18,12 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         private readonly INavigationFieldInfoConfig navigationFieldConfig;
         private readonly IPublishingFieldInfoConfig publishingFieldConfig;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NavigationContentTypeInfoConfig"/> class.
+        /// </summary>
+        /// <param name="publishingContentTypeConfig">The publishing content type configuration.</param>
+        /// <param name="navigationFieldConfig">The navigation field configuration.</param>
+        /// <param name="publishingFieldConfig">The publishing field configuration.</param>
         public NavigationContentTypeInfoConfig(
             IPublishingContentTypeInfoConfig publishingContentTypeConfig,
             INavigationFieldInfoConfig navigationFieldConfig,
@@ -35,7 +41,6 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         {
             get
             {
-
                 // Get the Browsable Item & Page
                 var browsableItem = this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.BrowsableItem.ContentTypeId);
                 var browsablePage = this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.BrowsablePage.ContentTypeId);

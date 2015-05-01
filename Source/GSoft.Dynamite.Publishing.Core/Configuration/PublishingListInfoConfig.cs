@@ -18,7 +18,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="publishingListInfos">The list info objects configuration</param>
+        /// <param name="publishingContentTypeInfoConfig">The publishing content type information configuration.</param>
         public PublishingListInfoConfig(IPublishingContentTypeInfoConfig publishingContentTypeInfoConfig)
         {
             this.publishingContentTypeInfoConfig = publishingContentTypeInfoConfig;

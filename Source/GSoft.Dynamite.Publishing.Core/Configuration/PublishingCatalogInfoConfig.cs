@@ -52,30 +52,6 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
-        /// <summary>
-        /// Gets the catalog information by web relative URL from this configuration.
-        /// </summary>
-        /// <param name="webRelativeUrl">The web relative URL.</param>
-        /// <returns>
-        /// The catalog information
-        /// </returns>
-        public CatalogInfo GetCatalogInfoByWebRelativeUrl(string webRelativeUrl)
-        {
-            return this.GetCatalogInfoByWebRelativeUrl(new Uri(webRelativeUrl, UriKind.Relative));
-        }
-
-        /// <summary>
-        /// Gets the catalog information by web relative URL from this configuration.
-        /// </summary>
-        /// <param name="webRelativeUrl">The web relative URL.</param>
-        /// <returns>
-        /// The catalog information
-        /// </returns>
-        public CatalogInfo GetCatalogInfoByWebRelativeUrl(Uri webRelativeUrl)
-        {
-            return this.Catalogs.Single(c => c.WebRelativeUrl.Equals(webRelativeUrl));
-        }
-
         private CatalogInfo NewsPagesCatalogInfo
         {
             get
@@ -137,6 +113,30 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 
                 return contentPagesCatalog;
             }
+        }
+
+        /// <summary>
+        /// Gets the catalog information by web relative URL from this configuration.
+        /// </summary>
+        /// <param name="webRelativeUrl">The web relative URL.</param>
+        /// <returns>
+        /// The catalog information
+        /// </returns>
+        public CatalogInfo GetCatalogInfoByWebRelativeUrl(string webRelativeUrl)
+        {
+            return this.GetCatalogInfoByWebRelativeUrl(new Uri(webRelativeUrl, UriKind.Relative));
+        }
+
+        /// <summary>
+        /// Gets the catalog information by web relative URL from this configuration.
+        /// </summary>
+        /// <param name="webRelativeUrl">The web relative URL.</param>
+        /// <returns>
+        /// The catalog information
+        /// </returns>
+        public CatalogInfo GetCatalogInfoByWebRelativeUrl(Uri webRelativeUrl)
+        {
+            return this.Catalogs.Single(c => c.WebRelativeUrl.Equals(webRelativeUrl));
         }
     }
 }

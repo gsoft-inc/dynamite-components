@@ -3,7 +3,6 @@ using System.Linq;
 using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Common.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
@@ -20,6 +19,12 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         private readonly IPublishingPageInfoConfig publishingPageInfoConfig;
         private readonly IPublishingTaxonomyConfig publishingTaxonomyConfig;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NavigationTermDrivenPageSettingsInfoConfig"/> class.
+        /// </summary>
+        /// <param name="commonTaxonomyConfig">The common taxonomy configuration.</param>
+        /// <param name="publishingPageInfoConfig">The publishing page information configuration.</param>
+        /// <param name="publishingTaxonomyConfig">The publishing taxonomy configuration.</param>
         public NavigationTermDrivenPageSettingsInfoConfig(
             ICommonTaxonomyConfig commonTaxonomyConfig,
             IPublishingPageInfoConfig publishingPageInfoConfig,
@@ -45,32 +50,6 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                     this.NewsTerm,
                 };
             }        
-        }
-
-        /// <summary>
-        /// Gets the term driven page setting information by term from this configuration.
-        /// </summary>
-        /// <param name="term">The term information.</param>
-        /// <returns>
-        /// The term driven page setting information
-        /// </returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public TermDrivenPageSettingInfo GetTermDrivenPageSettingInfoByTerm(TermInfo term)
-        {
-            return this.TermDrivenPageSettingInfos.Single(s => s.IsTerm && s.Term.Equals(term));
-        }
-
-        /// <summary>
-        /// Gets the term driven page setting information by term set from this configuration.
-        /// </summary>
-        /// <param name="termSet">The term set information.</param>
-        /// <returns>
-        /// The term driven page setting information
-        /// </returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public TermDrivenPageSettingInfo GetTermDrivenPageSettingInfoByTermSet(TermSetInfo termSet)
-        {
-            return this.TermDrivenPageSettingInfos.Single(s => s.IsTermSet && s.TermSet.Equals(termSet));
         }
 
         /// <summary>
@@ -119,6 +98,30 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                     false,
                     false);
             }
+        }
+
+        /// <summary>
+        /// Gets the term driven page setting information by term from this configuration.
+        /// </summary>
+        /// <param name="term">The term information.</param>
+        /// <returns>
+        /// The term driven page setting information
+        /// </returns>
+        public TermDrivenPageSettingInfo GetTermDrivenPageSettingInfoByTerm(TermInfo term)
+        {
+            return this.TermDrivenPageSettingInfos.Single(s => s.IsTerm && s.Term.Equals(term));
+        }
+
+        /// <summary>
+        /// Gets the term driven page setting information by term set from this configuration.
+        /// </summary>
+        /// <param name="termSet">The term set information.</param>
+        /// <returns>
+        /// The term driven page setting information
+        /// </returns>
+        public TermDrivenPageSettingInfo GetTermDrivenPageSettingInfoByTermSet(TermSetInfo termSet)
+        {
+            return this.TermDrivenPageSettingInfos.Single(s => s.IsTermSet && s.TermSet.Equals(termSet));
         }
     }
 }

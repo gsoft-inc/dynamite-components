@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using GSoft.Dynamite.Folders;
 using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -17,8 +15,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         private readonly IPublishingPageInfoConfig publishingPageInfoConfig;
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="PublishingFolderInfoConfig"/> class.
         /// </summary>
+        /// <param name="publishingPageInfoConfig">The publishing page information configuration.</param>
         public PublishingFolderInfoConfig(IPublishingPageInfoConfig publishingPageInfoConfig)
         {
             this.publishingPageInfoConfig = publishingPageInfoConfig;
@@ -39,6 +38,12 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the item page templates.
+        /// </summary>
+        /// <value>
+        /// The item page templates.
+        /// </value>
         public FolderInfo ItemPageTemplates
         {
             get
@@ -58,6 +63,12 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the category page templates.
+        /// </summary>
+        /// <value>
+        /// The category page templates.
+        /// </value>
         public FolderInfo CategoryPageTemplates
         {
             get
@@ -76,6 +87,12 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the folder test.
+        /// </summary>
+        /// <value>
+        /// The folder test.
+        /// </value>
         public FolderInfo FolderTest
         {
             get
@@ -90,6 +107,12 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets the folder test 2.
+        /// </summary>
+        /// <value>
+        /// The folder test2.
+        /// </value>
         public FolderInfo FolderTest2
         {
             get

@@ -50,18 +50,6 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
-        /// <summary>
-        /// Gets the metadata navigation settings information by list information from this configuration.
-        /// </summary>
-        /// <param name="list">The list information.</param>
-        /// <returns>
-        /// The Managed navigation settings
-        /// </returns>
-        public MetadataNavigationSettingsInfo GetMetadataNavigationSettingsInfoByListInfo(ListInfo list)
-        {
-            return this.MetadataNavigationSettings.Single(s => s.List.Equals(list));
-        }
-
         private MetadataNavigationSettingsInfo ContentPagesNavigation
         {
             get
@@ -108,6 +96,18 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
 
                 return new MetadataNavigationSettingsInfo(listInfo, false, false, false, hierarchies, filters);
             }
+        }
+
+        /// <summary>
+        /// Gets the metadata navigation settings information by list information from this configuration.
+        /// </summary>
+        /// <param name="list">The list information.</param>
+        /// <returns>
+        /// The Managed navigation settings
+        /// </returns>
+        public MetadataNavigationSettingsInfo GetMetadataNavigationSettingsInfoByListInfo(ListInfo list)
+        {
+            return this.MetadataNavigationSettings.Single(s => s.List.Equals(list));
         }
     }
 }

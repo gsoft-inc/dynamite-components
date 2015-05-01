@@ -147,7 +147,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                             switch (this.CurrentNavigationContext)
                             {
                                 case VariationNavigationType.ItemPage:
-                                    var navigationField = PublishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id) as TaxonomyFieldInfo;
+                                    var navigationField = this.PublishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id) as TaxonomyFieldInfo;
                                     itemUrl = this.VariationNavigationHelper.GetPeerCatalogItemUrl(
                                         currentUrl,
                                         variationLabel,

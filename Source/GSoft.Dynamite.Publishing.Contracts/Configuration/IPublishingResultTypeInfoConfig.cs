@@ -17,7 +17,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         /// Gets the result type information by name from this configuration.
         /// </summary>
         /// <param name="name">The name of the Result Type.</param>
-        /// <returns>The result tyme information</returns>
+        /// <returns>The result type information</returns>
         ResultTypeInfo GetResultTypeInfoByName(string name);
     }
 }

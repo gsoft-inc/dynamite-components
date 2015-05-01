@@ -1,8 +1,8 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
+using GSoft.Dynamite.Common.Contracts.Constants;
 using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Common.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Constants
 {

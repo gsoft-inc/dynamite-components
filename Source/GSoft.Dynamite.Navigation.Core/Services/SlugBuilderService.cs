@@ -16,19 +16,26 @@ namespace GSoft.Dynamite.Navigation.Core.Services
     /// </summary>
     public class SlugBuilderService : ISlugBuilderService
     {
-        private readonly ILogger _logger;
-        private readonly INavigationHelper _navigationHelper;
+        private readonly ILogger logger;
+        private readonly INavigationHelper navigationHelper;
         private readonly INavigationFieldInfoConfig navigationFieldConfig;
         private readonly IPublishingFieldInfoConfig publishingFieldConfig;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SlugBuilderService"/> class.
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        /// <param name="navigationHelper">The navigation helper.</param>
+        /// <param name="navigationFieldConfig">The navigation field configuration.</param>
+        /// <param name="publishingFieldConfig">The publishing field configuration.</param>
         public SlugBuilderService(
             ILogger logger, 
             INavigationHelper navigationHelper, 
             INavigationFieldInfoConfig navigationFieldConfig,
             IPublishingFieldInfoConfig publishingFieldConfig)
         {
-            this._logger = logger;
-            this._navigationHelper = navigationHelper;
+            this.logger = logger;
+            this.navigationHelper = navigationHelper;
             this.navigationFieldConfig = navigationFieldConfig;
             this.publishingFieldConfig = publishingFieldConfig;
         }
@@ -46,8 +53,8 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             // Generate title slug
             if (item.Fields.ContainsField(titleSlugFieldName))
             {
-                item[titleSlugFieldName] = this._navigationHelper.GenerateFriendlyUrlSlug(item.Title);
-                this._logger.Info(
+                item[titleSlugFieldName] = this.navigationHelper.GenerateFriendlyUrlSlug(item.Title);
+                this.logger.Info(
                     "ContentAssociation.SetFriendlyUrlSlug: Set title slug '{0}' on item '{1}' in web '{2}'.",
                     item[titleSlugFieldName],
                     item.Title,
@@ -58,7 +65,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             if (item.Fields.ContainsField(dateSlugFieldName) && item.Fields.ContainsField(itemDateFieldName))
             {
                 item[dateSlugFieldName] = GetFriendlyUrlDate(item, itemDateFieldName);
-                this._logger.Info(
+                this.logger.Info(
                     "ContentAssociation.SetFriendlyUrlSlug: Set date slug '{0}' on item '{1}' in web '{2}'.",
                     item[dateSlugFieldName],
                     item.Title,

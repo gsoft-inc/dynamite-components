@@ -14,9 +14,9 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         IList<PageLayoutInfo> PageLayouts { get; }
 
         /// <summary>
-        /// Gets Page layout from this configuration using its file name including the aspx extention.
+        /// Gets Page layout from this configuration using its file name including the file extension.
         /// </summary>
-        /// <param name="name">The page layout name including aspx extention.</param>
+        /// <param name="name">The page layout name including file extension.</param>
         /// <returns>The page layout information.</returns>
         PageLayoutInfo GetPageLayoutByName(string name);
     }

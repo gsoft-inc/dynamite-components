@@ -2,7 +2,6 @@
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Common.Contracts.Constants;
 using GSoft.Dynamite.Fields.Types;
-using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
 {
@@ -11,6 +10,30 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// </summary>
     public static class PublishingFieldInfos
     {
+        #region Field internal names
+
+        /// <summary>
+        /// Navigation field internal name
+        /// </summary>
+        private static readonly string NavigationFieldName = CommonFieldInfo.FieldPrefix + "Navigation";
+
+        /// <summary>
+        /// Summary field internal name
+        /// </summary>
+        private static readonly string SummaryFieldName = CommonFieldInfo.FieldPrefix + "Summary";
+
+        /// <summary>
+        /// Image Description field internal name
+        /// </summary>
+        private static readonly string ImageDescriptionFieldName = CommonFieldInfo.FieldPrefix + "ImageDescription";
+
+        /// <summary>
+        /// The publishing start date field name
+        /// </summary>
+        private static readonly string PublishingStartDateFieldName = CommonFieldInfo.FieldPrefix + "PublishingStartDate";
+
+        #endregion
+
         #region FieldInfo reference objects
 
         /// <summary>
@@ -91,30 +114,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     };
             }
         }
-
-        #endregion
-
-        #region Field internal names
-
-        /// <summary>
-        /// Navigation field internal name
-        /// </summary>
-        private static readonly string NavigationFieldName = CommonFieldInfo.FieldPrefix + "Navigation";
-
-        /// <summary>
-        /// Summary field internal name
-        /// </summary>
-        private static readonly string SummaryFieldName = CommonFieldInfo.FieldPrefix + "Summary";
-
-        /// <summary>
-        /// Image Description field internal name
-        /// </summary>
-        private static readonly string ImageDescriptionFieldName = CommonFieldInfo.FieldPrefix + "ImageDescription";
-
-        /// <summary>
-        /// The publishing start date field name
-        /// </summary>
-        private static readonly string PublishingStartDateFieldName = CommonFieldInfo.FieldPrefix + "PublishingStartDate";
 
         #endregion
     }

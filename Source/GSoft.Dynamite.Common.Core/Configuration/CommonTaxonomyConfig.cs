@@ -13,10 +13,10 @@ namespace GSoft.Dynamite.Common.Core.Configuration
     public class CommonTaxonomyConfig : ICommonTaxonomyConfig
     {
         /// <summary>
-        /// Gets the term group infos.
+        /// Gets the term group information.
         /// </summary>
         /// <value>
-        /// The term group infos.
+        /// The term group information.
         /// </value>
         public IList<TermGroupInfo> TermGroupInfos
         {
@@ -32,11 +32,11 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         }
 
         /// <summary>
-        /// Gets the term set infos.
+        /// Gets the term set information.
         /// NOTE: The first term
         /// </summary>
         /// <value>
-        /// The term set infos.
+        /// The term set information.
         /// </value>
         public IList<TermSetInfo> TermSetInfos
         {
