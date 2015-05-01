@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GSoft.Dynamite.LifeCycle.Contracts.Controls;
 using Microsoft.Office.Server.Search.WebControls;
 using Microsoft.SharePoint.Utilities;

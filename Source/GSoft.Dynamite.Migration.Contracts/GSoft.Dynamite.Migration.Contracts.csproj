@@ -44,6 +44,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10455\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -62,7 +63,6 @@
     </Compile>
     <Compile Include="Configuration\IMigrationContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\IMigrationFieldInfoConfig.cs" />
-    <Compile Include="Configuration\IMigrationManagedPropertyInfoConfig.cs" />
     <Compile Include="Constants\MigrationFieldInfos.cs" />
     <Compile Include="Constants\MigrationResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj">
+      <Project>{31680a5f-e76d-4501-9dfc-d67ce09863f1}</Project>
+      <Name>GSoft.Dynamite.Common.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
       <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
       <Name>GSoft.Dynamite.Publishing.Contracts</Name>

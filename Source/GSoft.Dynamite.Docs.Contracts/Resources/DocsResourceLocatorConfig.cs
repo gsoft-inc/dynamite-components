@@ -9,15 +9,8 @@ namespace GSoft.Dynamite.Docs.Contracts.Resources
     /// </summary>
     public class DocsResourceLocatorConfig : IResourceLocatorConfig
     {
-        private ICollection<string> resourceFileKeys = new List<string>() { DocsResources.Global };
+        private readonly ICollection<string> resourceFileKeys = new List<string>() { DocsResources.Global };
              
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public DocsResourceLocatorConfig()
-        {
-        }
-
         /// <summary>
         /// File Keys
         /// </summary>

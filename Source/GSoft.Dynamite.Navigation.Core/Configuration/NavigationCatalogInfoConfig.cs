@@ -23,5 +23,29 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
                 return new List<CatalogInfo>();
             }
         }
+
+        /// <summary>
+        /// Gets the catalog information by web relative URL from this configuration.
+        /// </summary>
+        /// <param name="webRelativeUrl">The web relative URL.</param>
+        /// <returns>
+        /// The catalog information
+        /// </returns>
+        public CatalogInfo GetCatalogInfoByWebRelativeUrl(string webRelativeUrl)
+        {
+            return this.GetCatalogInfoByWebRelativeUrl(new Uri(webRelativeUrl, UriKind.Relative));
+        }
+
+        /// <summary>
+        /// Gets the catalog information by web relative URL from this configuration.
+        /// </summary>
+        /// <param name="webRelativeUrl">The web relative URL.</param>
+        /// <returns>
+        /// The catalog information
+        /// </returns>
+        public CatalogInfo GetCatalogInfoByWebRelativeUrl(Uri webRelativeUrl)
+        {
+            return this.Catalogs.Single(c => c.WebRelativeUrl.Equals(webRelativeUrl));
+        }
     }
 }

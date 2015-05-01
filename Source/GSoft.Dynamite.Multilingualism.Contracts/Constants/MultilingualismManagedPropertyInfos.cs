@@ -7,12 +7,12 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
     /// <summary>
     /// Search managed properties for the multilingualism module
     /// </summary>
-    public class MultilingualismManagedPropertyInfos
+    public static class MultilingualismManagedPropertyInfos
     {
         /// <summary>
         /// The content association key managed property
         /// </summary>
-        public ManagedPropertyInfo ContentAssociationKey
+        public static ManagedPropertyInfo ContentAssociationKey
         {
             get
             {
@@ -35,7 +35,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         /// <summary>
         /// The item language managed property
         /// </summary>
-        public ManagedPropertyInfo ItemLanguage
+        public static ManagedPropertyInfo ItemLanguage
         {
             get
             {

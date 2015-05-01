@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Search.Contracts.Configuration;
 using GSoft.Dynamite.Search.Contracts.Constants;
 using GSoft.Dynamite.Search.Contracts.Services;
 using Microsoft.SharePoint;
@@ -16,17 +17,17 @@ namespace GSoft.Dynamite.Search.Core.Services
     public class BrowserTitleBuilderService : IBrowserTitleBuilderService
     {
         private readonly ILogger logger;
-        private readonly SearchFieldInfos searchFieldInfos;
+        private readonly ISearchFieldInfoConfig searchFieldConfig;
 
         /// <summary>
         /// Default constructor
         /// </summary>
         /// <param name="logger">The logger</param>
-        /// <param name="searchFieldInfos">Search module field info</param>
-        public BrowserTitleBuilderService(ILogger logger, SearchFieldInfos searchFieldInfos)
+        /// <param name="searchFieldConfig">Search module field info</param>
+        public BrowserTitleBuilderService(ILogger logger, ISearchFieldInfoConfig searchFieldConfig)
         {
             this.logger = logger;
-            this.searchFieldInfos = searchFieldInfos;
+            this.searchFieldConfig = searchFieldConfig;
         }
 
         /// <summary>
@@ -36,7 +37,7 @@ namespace GSoft.Dynamite.Search.Core.Services
         /// <param name="item">The current list item</param>
         public void SetBrowserTitle(SPWeb web, SPListItem item)
         {
-            var browserTitleFieldName = this.searchFieldInfos.BrowserTitle().InternalName;
+            var browserTitleFieldName = this.searchFieldConfig.GetFieldById(SearchFieldInfos.BrowserTitle.Id).InternalName;
             var siteNameValue = web.Title;
 
             if (!string.IsNullOrEmpty(browserTitleFieldName) && item.Fields.ContainsField(browserTitleFieldName))

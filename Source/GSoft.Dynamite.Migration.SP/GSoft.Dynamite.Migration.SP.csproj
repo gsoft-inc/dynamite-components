@@ -106,6 +106,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj">
+      <Project>{31680a5f-e76d-4501-9dfc-d67ce09863f1}</Project>
+      <Name>GSoft.Dynamite.Common.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Migration.Contracts\GSoft.Dynamite.Migration.Contracts.csproj">
       <Project>{CFFD1AAB-48E5-4019-BB84-CCAE430353BB}</Project>
       <Name>GSoft.Dynamite.Migration.Contracts</Name>

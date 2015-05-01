@@ -7,12 +7,12 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
     /// <summary>
     /// Search managed properties configuration for the navigation module
     /// </summary>
-    public class NavigationManagedPropertyInfos
+    public static class NavigationManagedPropertyInfos
     {
         /// <summary>
         /// The date slug managed property name
         /// </summary>
-        public ManagedPropertyInfo DateSlugManagedProperty
+        public static ManagedPropertyInfo DateSlugManagedProperty
         {
             get
             {
@@ -37,7 +37,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// <summary>
         /// The title slug managed property name
         /// </summary>
-        public ManagedPropertyInfo TitleSlugManagedProperty
+        public static ManagedPropertyInfo TitleSlugManagedProperty
         {
             get
             {
@@ -62,7 +62,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// <summary>
         /// The occurrence link location managed property name
         /// </summary>
-        public ManagedPropertyInfo OccurrenceLinkLocationManagedProperty
+        public static ManagedPropertyInfo OccurrenceLinkLocationManagedProperty
         {
             get
             {
@@ -90,7 +90,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// <summary>
         /// The occurrence link location managed property name (Get directly the text value of the term)
         /// </summary>
-        public ManagedPropertyInfo OccurrenceLinkLocationManagedPropertyText
+        public static ManagedPropertyInfo OccurrenceLinkLocationManagedPropertyText
         {
             get
             {

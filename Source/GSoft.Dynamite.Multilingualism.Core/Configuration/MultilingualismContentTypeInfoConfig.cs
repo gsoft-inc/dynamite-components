@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Multilingualism.Core.Configuration
 {
@@ -11,20 +14,20 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
     /// </summary>
     public class MultilingualismContentTypeInfoConfig : IMultilingualismContentTypeInfoConfig
     {
-        private readonly PublishingContentTypeInfos basePublishingContentTypeInfos;
-        private readonly MultilingualismFieldInfos baseMultilingualismFieldInfos;
+        private readonly IPublishingContentTypeInfoConfig publishingContentTypeInfoConfig;
+        private readonly IMultilingualismFieldInfoConfig multilingualismFieldInfoConfig;
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="basePublishingContentTypeInfos">The content type definitions from the publishing module</param>
-        /// <param name="baseMultilingualismFieldInfos">The field definitions from the publishing module</param>
+        /// <param name="publishingContentTypeInfoConfig">The content type definitions from the publishing module</param>
+        /// <param name="multilingualismFieldInfoConfig">The field definitions from the publishing module</param>
         public MultilingualismContentTypeInfoConfig(
-            PublishingContentTypeInfos basePublishingContentTypeInfos,
-            MultilingualismFieldInfos baseMultilingualismFieldInfos)
+            IPublishingContentTypeInfoConfig publishingContentTypeInfoConfig,
+            IMultilingualismFieldInfoConfig multilingualismFieldInfoConfig)
         {
-            this.basePublishingContentTypeInfos = basePublishingContentTypeInfos;
-            this.baseMultilingualismFieldInfos = baseMultilingualismFieldInfos;
+            this.publishingContentTypeInfoConfig = publishingContentTypeInfoConfig;
+            this.multilingualismFieldInfoConfig = multilingualismFieldInfoConfig;
         }
         
         /// <summary>
@@ -37,24 +40,36 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
                 var baseMultilingualContentTypes = new List<ContentTypeInfo>();
 
                 // Get the translatable item
-                var translatableItem = this.basePublishingContentTypeInfos.TranslatableItem();
+                var translatableItem = this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatableItem.ContentTypeId);
 
                 // Get the translatable item
-                var translatablePage = this.basePublishingContentTypeInfos.TranslatablePage();
+                var translatablePage = this.publishingContentTypeInfoConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatablePage.ContentTypeId);
 
                 // Adding the ContentAssociationKey field
-                translatableItem.Fields.Add(this.baseMultilingualismFieldInfos.ContentAssociationKey());
-                translatablePage.Fields.Add(this.baseMultilingualismFieldInfos.ContentAssociationKey());
+                translatableItem.Fields.Add(this.multilingualismFieldInfoConfig.GetFieldById(MultilingualismFieldInfos.ContentAssociationKey.Id));
+                translatablePage.Fields.Add(this.multilingualismFieldInfoConfig.GetFieldById(MultilingualismFieldInfos.ContentAssociationKey.Id));
 
                 // Adding the Item Language field
-                translatableItem.Fields.Add(this.baseMultilingualismFieldInfos.ItemLanguage());
-                translatablePage.Fields.Add(this.baseMultilingualismFieldInfos.ItemLanguage());
+                translatableItem.Fields.Add(this.multilingualismFieldInfoConfig.GetFieldById(MultilingualismFieldInfos.ItemLanguage.Id));
+                translatablePage.Fields.Add(this.multilingualismFieldInfoConfig.GetFieldById(MultilingualismFieldInfos.ItemLanguage.Id));
 
                 baseMultilingualContentTypes.Add(translatableItem);
                 baseMultilingualContentTypes.Add(translatablePage);
 
                 return baseMultilingualContentTypes;
             }
+        }
+
+        /// <summary>
+        /// Gets the content type from the ContentTypes property where the id of that content type is passed by parameter.
+        /// </summary>
+        /// <param name="contentTypeId">The unique identifier of the content type we are looking for.</param>
+        /// <returns>
+        /// The content type information.
+        /// </returns>
+        public ContentTypeInfo GetContentTypeById(SPContentTypeId contentTypeId)
+        {
+            return this.ContentTypes.Single(c => c.ContentTypeId.Equals(contentTypeId));
         }
     }
 }

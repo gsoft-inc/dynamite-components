@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Multilingualism.Contracts.Services;
 using Microsoft.SharePoint;
@@ -26,13 +27,13 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
                 var item = properties.ListItem;
 
                 var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
-                var multilingualismFieldInfos = childScope.Resolve<MultilingualismFieldInfos>();
+                var multilingualismFieldConfig = childScope.Resolve<IMultilingualismFieldInfoConfig>();
 
                 // Set source association unique identifier
-                item = contentAssociationHelper.SetSourceGuid(item, multilingualismFieldInfos.ContentAssociationKey().InternalName);
+                item = contentAssociationHelper.SetSourceGuid(item, multilingualismFieldConfig.GetFieldById(MultilingualismFieldInfos.ContentAssociationKey.Id).InternalName);
 
                 // Set the translation language for the detected language managed property
-                item = contentAssociationHelper.SetTranslationLanguage(item, multilingualismFieldInfos.ItemLanguage().InternalName);
+                item = contentAssociationHelper.SetTranslationLanguage(item, multilingualismFieldConfig.GetFieldById(MultilingualismFieldInfos.ItemLanguage.Id).InternalName);
 
                 // Set source item creator/author since the variation system
                 // overwrites the created by value
@@ -59,13 +60,13 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
                 var item = properties.ListItem.ParentList.GetItemById(properties.ListItem.ID);
 
                 var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
-                var multilingualismFieldInfos = childScope.Resolve<MultilingualismFieldInfos>();
+                var multilingualismFieldConfig = childScope.Resolve<IMultilingualismFieldInfoConfig>();
 
                 // Set source association unique identifier
-                item = contentAssociationHelper.SetSourceGuid(item, multilingualismFieldInfos.ContentAssociationKey().InternalName);
+                item = contentAssociationHelper.SetSourceGuid(item, multilingualismFieldConfig.GetFieldById(MultilingualismFieldInfos.ContentAssociationKey.Id).InternalName);
 
                 // Set the translation language for the detected language managed property
-                item = contentAssociationHelper.SetTranslationLanguage(item, multilingualismFieldInfos.ItemLanguage().InternalName);
+                item = contentAssociationHelper.SetTranslationLanguage(item, multilingualismFieldConfig.GetFieldById(MultilingualismFieldInfos.ItemLanguage.Id).InternalName);
 
                 item.SystemUpdate();
 

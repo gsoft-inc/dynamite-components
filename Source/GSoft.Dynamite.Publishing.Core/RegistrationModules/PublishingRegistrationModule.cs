@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Portal.Core.Resources;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -62,8 +63,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingResultTypeInfoConfig>().Named<IPublishingResultTypeInfoConfig>("publishing");
 
             // Managed Properties
-            builder.RegisterType<PublishingManagedPropertyConfig>().As<ICommonManagedPropertyInfosConfig>();
-            builder.RegisterType<PublishingManagedPropertyConfig>().Named<ICommonManagedPropertyInfosConfig>("publishing");
+            builder.RegisterType<PublishingManagedPropertyConfig>().As<ICommonManagedPropertyConfig>();
+            builder.RegisterType<PublishingManagedPropertyConfig>().Named<ICommonManagedPropertyConfig>("publishing");
 
             // Page Layouts
             builder.RegisterType<PublishingPageLayoutInfoConfig>().As<IPublishingPageLayoutInfoConfig>();
@@ -83,28 +84,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
      
             // Reusable Content
             builder.RegisterType<ReusableContentRepository>().As<IReusableContentRepository>();
-            builder.RegisterType<ReusableHtmlContent>().As<ReusableHtmlContent>();
             builder.RegisterType<ReusableContentService>().As<IReusableContentService>();
             builder.RegisterType<PublishingReusableContentConfig>().As<IPublishingReusableContentConfig>();
-
-            // Configuration Values
-            builder.RegisterType<PublishingContentTypeInfos>();
-            builder.RegisterType<PublishingFieldInfos>();
-            builder.RegisterType<PublishingCatalogInfos>();
-            builder.RegisterType<PublishingTermGroupInfos>();
-            builder.RegisterType<PublishingTermSetInfos>();
-            builder.RegisterType<PublishingTermInfos>();
-            builder.RegisterType<PublishingResultSourceInfos>();
-            builder.RegisterType<PublishingPageInfos>();
-            builder.RegisterType<PublishingPageLayoutInfos>();
-            builder.RegisterType<PublishingFolderInfos>();
-            builder.RegisterType<PublishingDisplayTemplateInfos>();
-            builder.RegisterType<PublishingWebPartInfos>();
-            builder.RegisterType<PublishingResultTypeInfos>();
-            builder.RegisterType<PublishingManagedPropertyInfos>();
-            builder.RegisterType<PublishingListInfos>();
-            builder.RegisterType<PublishingFacetedNavigationInfos>();
-            builder.RegisterType<PublishingMetadataNavigationSettingsInfos>();
         }
     }
 }

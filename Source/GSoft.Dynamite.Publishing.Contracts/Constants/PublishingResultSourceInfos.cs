@@ -7,63 +7,60 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// <summary>
     /// Result Source definitions for the publishing module
     /// </summary>
-    public class PublishingResultSourceInfos
+    public static class PublishingResultSourceInfos
     {
-        private const string SearchKqlprefix = "{?{searchTerms} -ContentClass=urn:content-class:SPSPeople}";
-
         /// <summary>
         /// A single Catalog Item result source
         /// </summary>
         /// <returns>A ResultSourceInfo object</returns>
-        public ResultSourceInfo SingleCatalogItem()
+        public static ResultSourceInfo SingleCatalogItem
         {
-            return new ResultSourceInfo()
+            get
             {
-                Name = "Single Catalog Item",
-                Level = SearchObjectLevel.Ssa,
-                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
-                Query = string.Empty,
-            };
+                return new ResultSourceInfo()
+                {
+                    Name = "Single Catalog Item",
+                    Level = SearchObjectLevel.Ssa,
+                    UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
+                    Query = string.Empty,
+                };
+            }
         }
 
         /// <summary>
         /// A single target item
         /// </summary>
         /// <returns>A result source info object</returns>
-        public ResultSourceInfo SingleTargetItem()
+        public static ResultSourceInfo SingleTargetItem
         {
-            return new ResultSourceInfo()
+            get
             {
-                Name = "Single Target Item",
-                Level = SearchObjectLevel.Ssa,
-                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
-                Query = string.Empty
-            };
+                return new ResultSourceInfo()
+                {
+                    Name = "Single Target Item",
+                    Level = SearchObjectLevel.Ssa,
+                    UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
+                    Query = string.Empty
+                };
+            }
         }
 
         /// <summary>
         /// A single target item
         /// </summary>
         /// <returns>A result source info object</returns>
-        public ResultSourceInfo CatalogCategoryItems()
+        public static ResultSourceInfo CatalogCategoryItems
         {
-            return new ResultSourceInfo()
+            get
             {
-                Name = "Catalog Category Items",
-                Level = SearchObjectLevel.Ssa,
-                UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
-                Query = "GPP|{Term.IdWithChildren}"
-            };
-        }
-
-        /// <summary>
-        /// Method to Append a query to the Search KQL prefix
-        /// </summary>
-        /// <param name="queryToAppend">Query text to append to the existing query</param>
-        /// <returns>The string prefixed with the Search KQL</returns>
-        public static string AppendToSearchKqlPrefix(string queryToAppend)
-        {
-            return string.Format("{0} {1}", SearchKqlprefix, queryToAppend);
+                return new ResultSourceInfo()
+                {
+                    Name = "Catalog Category Items",
+                    Level = SearchObjectLevel.Ssa,
+                    UpdateMode = ResultSourceUpdateBehavior.OverwriteResultSource,
+                    Query = "GPP|{Term.IdWithChildren}"
+                };
+            }
         }
     }
 }
