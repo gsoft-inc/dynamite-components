@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.WebParts;
-using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.WebParts;
 using Microsoft.Office.Server.Search.WebControls;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
@@ -42,18 +39,6 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                     PublishingWebPartInfos.CatalogCategoryRefinementWepart
                 };
             }
-        }
-
-        /// <summary>
-        /// Gets the web part information by title from this configuration.
-        /// </summary>
-        /// <param name="title">The title of the web part.</param>
-        /// <returns>
-        /// The web part information
-        /// </returns>
-        public WebPartInfo GetWebPartInfoByTitle(string title)
-        {
-            return this.WebParts.Single(w => w.WebPart.Title.Equals(title, StringComparison.InvariantCultureIgnoreCase));
         }
 
         private WebPartInfo TargetItemContentWebPart
@@ -120,6 +105,18 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 // Return the webpart
                 return webPartInfo;
             }
+        }
+
+        /// <summary>
+        /// Gets the web part information by title from this configuration.
+        /// </summary>
+        /// <param name="title">The title of the web part.</param>
+        /// <returns>
+        /// The web part information
+        /// </returns>
+        public WebPartInfo GetWebPartInfoByTitle(string title)
+        {
+            return this.WebParts.Single(w => w.WebPart.Title.Equals(title, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
