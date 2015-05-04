@@ -86,6 +86,10 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<ReusableContentRepository>().As<IReusableContentRepository>();
             builder.RegisterType<ReusableContentService>().As<IReusableContentService>();
             builder.RegisterType<PublishingReusableContentConfig>().As<IPublishingReusableContentConfig>();
+
+            // WebPart
+            builder.RegisterType<PublishingWebPartInfoConfig>().As<IPublishingWebPartInfoConfig>();
+            builder.RegisterType<PublishingWebPartInfoConfig>().Named<IPublishingWebPartInfoConfig>("publishing");
         }
     }
 }

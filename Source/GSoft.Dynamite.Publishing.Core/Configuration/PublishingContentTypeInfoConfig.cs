@@ -55,6 +55,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
+        #region Private Properties
         private ContentTypeInfo GetConfiguredBrowsableItemContentType
         {
             get
@@ -126,6 +127,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 return contentType;
             }
         }
+        #endregion
 
         /// <summary>
         /// Gets the content type from the ContentTypes property where the id of that content type is passed by parameter.
