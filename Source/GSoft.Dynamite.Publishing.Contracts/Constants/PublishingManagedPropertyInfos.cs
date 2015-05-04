@@ -10,6 +10,35 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     public static class PublishingManagedPropertyInfos
     {
         /// <summary>
+        /// Gets the navigation taxonomy managed property.
+        /// </summary>
+        /// <value>
+        /// The managed property information.
+        /// </value>
+        public static ManagedPropertyInfo Navigation
+        {
+            get
+            {
+                return new ManagedPropertyInfo(
+                    "owstaxIdDynamiteNavigation",
+                    ManagedDataType.Text)
+                {
+                    CrawledProperties = new Dictionary<string, int>()
+                    {
+                        { "ows_taxid_DynamiteNavigation", 1 }
+                    },
+                    RespectPriority = true,
+                    Searchable = true,
+                    Queryable = true,
+                    Retrievable = true,
+                    HasMultipleValues = true,
+                    SafeForAnonymous = true,
+                    OverwriteIfAlreadyExists = false
+                };
+            }
+        } 
+
+        /// <summary>
         /// The navigation text managed property
         /// </summary>
         public static ManagedPropertyInfo NavigationText
