@@ -50,6 +50,10 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingResultSourceInfoConfig>().As<IPublishingResultSourceInfoConfig>();
             builder.RegisterType<PublishingResultSourceInfoConfig>().Named<IPublishingResultSourceInfoConfig>("publishing");
 
+            // Page instances
+            builder.RegisterType<PublishingPageInfoConfig>().As<IPublishingPageInfoConfig>();
+            builder.RegisterType<PublishingPageInfoConfig>().Named<IPublishingPageInfoConfig>("publishing");
+
             // Folders
             builder.RegisterType<PublishingFolderInfoConfig>().As<IPublishingFolderInfoConfig>();
             builder.RegisterType<PublishingFolderInfoConfig>().Named<IPublishingFolderInfoConfig>("publishing");

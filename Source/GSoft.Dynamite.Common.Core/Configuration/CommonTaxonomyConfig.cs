@@ -45,7 +45,8 @@ namespace GSoft.Dynamite.Common.Core.Configuration
                 return new List<TermSetInfo>
                 {
                     CommonTermSetInfo.EnglishNavigation,
-                    CommonTermSetInfo.FrenchNavigation
+                    CommonTermSetInfo.FrenchNavigation,
+                    CommonTermSetInfo.NavigationControls
                 };
             }
         }

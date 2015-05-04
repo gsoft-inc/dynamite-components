@@ -36,7 +36,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                     this.TargetItemContentWebPart,
                     this.CatalogItemContentWebPart,
                     this.CatalogCategoryItemsMainWebPart,
-                    PublishingWebPartInfos.CatalogCategoryRefinementWepart
+                    PublishingWebPartInfos.CatalogCategoryRefinementWebPart
                 };
             }
         }
@@ -75,7 +75,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 querySettings.Properties["QueryTemplate"] = string.Empty;
 
                 // Update the web part information
-                var webPartInfo = PublishingWebPartInfos.TargetItemContentWebPart;
+                var webPartInfo = PublishingWebPartInfos.CatalogItemContentWebPart;
                 var webPart = webPartInfo.WebPart as ResultScriptWebPart;
                 webPart.DataProviderJSON = querySettings.PropertiesJson;
                 webPartInfo.WebPart = webPart;
@@ -97,7 +97,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 querySettings.Properties["QueryTemplate"] = string.Empty;
 
                 // Update the web part information
-                var webPartInfo = PublishingWebPartInfos.TargetItemContentWebPart;
+                var webPartInfo = PublishingWebPartInfos.CatalogCategoryItemsMainWebPart;
                 var webPart = webPartInfo.WebPart as ResultScriptWebPart;
                 webPart.DataProviderJSON = querySettings.PropertiesJson;
                 webPartInfo.WebPart = webPart;

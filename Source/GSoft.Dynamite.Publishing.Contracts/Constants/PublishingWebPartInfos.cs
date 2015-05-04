@@ -133,7 +133,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// WebPart for a catalog items refinements (e.g. all news)
         /// </summary>
         /// <returns>The WebPart info object</returns>
-        public static WebPartInfo CatalogCategoryRefinementWepart
+        public static WebPartInfo CatalogCategoryRefinementWebPart
         {
             get
             {
