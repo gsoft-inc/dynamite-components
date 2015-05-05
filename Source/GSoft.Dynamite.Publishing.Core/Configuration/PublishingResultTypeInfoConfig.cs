@@ -15,22 +15,22 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     {
         private readonly IPublishingDisplayTemplateInfoConfig publishingDisplayTemplateInfoConfig;
         private readonly IPublishingResultSourceInfoConfig publishingResultSourceInfoConfig;
-        private readonly ICommonManagedPropertyConfig commonManagedPropertyConfig;
+        private readonly IConsolidatedManagedPropertyConfig consolidatedManagedPropertyConfig;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PublishingResultTypeInfoConfig"/> class.
         /// </summary>
         /// <param name="publishingDisplayTemplateInfoConfig">The publishing display template information configuration.</param>
         /// <param name="publishingResultSourceInfoConfig">The publishing result source information configuration.</param>
-        /// <param name="commonManagedPropertyConfig">The publishing managed property information configuration.</param>
+        /// <param name="consolidatedManagedPropertyConfig">The publishing managed property information configuration.</param>
         public PublishingResultTypeInfoConfig(
             IPublishingDisplayTemplateInfoConfig publishingDisplayTemplateInfoConfig,
             IPublishingResultSourceInfoConfig publishingResultSourceInfoConfig,
-            ICommonManagedPropertyConfig commonManagedPropertyConfig)
+            IConsolidatedManagedPropertyConfig consolidatedManagedPropertyConfig)
         {
             this.publishingDisplayTemplateInfoConfig = publishingDisplayTemplateInfoConfig;
             this.publishingResultSourceInfoConfig = publishingResultSourceInfoConfig;
-            this.commonManagedPropertyConfig = commonManagedPropertyConfig;
+            this.consolidatedManagedPropertyConfig = consolidatedManagedPropertyConfig;
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 var resultType = PublishingResultTypeInfos.ContentPageResultType;
                 resultType.DisplayTemplate = this.publishingDisplayTemplateInfoConfig.GetDisplayTemplateInfoByName(PublishingDisplayTemplateInfos.ItemNewsCategoryItem.Name);
                 resultType.ResultSource = this.publishingResultSourceInfoConfig.GetResultSourceInfoByName(PublishingResultSourceInfos.CatalogCategoryItems.Name);
-                resultType.DisplayProperties.Add(this.commonManagedPropertyConfig.GetManagedPropertyInfoByName(PublishingManagedPropertyInfos.Summary.Name));
+                resultType.DisplayProperties.Add(this.consolidatedManagedPropertyConfig.GetManagedPropertyInfoByName(PublishingManagedPropertyInfos.Summary.Name));
 
                 return resultType;
             }

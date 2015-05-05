@@ -79,6 +79,7 @@
     <Compile Include="Configuration\PublishingFolderInfoConfig.cs" />
     <Compile Include="Configuration\PublishingManagedPropertyConfig.cs" />
     <Compile Include="Configuration\PublishingMetadataNavigationSettingsConfig.cs" />
+    <Compile Include="Configuration\PublishingPageInfoConfig.cs" />
     <Compile Include="Configuration\PublishingPageLayoutInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultTypeInfoConfig.cs" />

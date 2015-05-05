@@ -10,13 +10,18 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
     /// <summary>
-    /// Default page configuratiosn for the publishing module
+    /// Default page configurations for the publishing module
     /// </summary>
     public class PublishingPageInfoConfig : IPublishingPageInfoConfig
     {
         private readonly IPublishingWebPartInfoConfig publishingWebPartInfoConfig;
         private readonly IPublishingPageLayoutInfoConfig publishingPageLayoutInfoConfig;
 
+        /// <summary>
+        /// Creates a new publishing page instance configuration
+        /// </summary>
+        /// <param name="publishingWebPartInfoConfig">Web part configuration</param>
+        /// <param name="publishingPageLayoutInfoConfig">Page layout configuration</param>
         public PublishingPageInfoConfig(
             IPublishingWebPartInfoConfig publishingWebPartInfoConfig, 
             IPublishingPageLayoutInfoConfig publishingPageLayoutInfoConfig)
@@ -28,29 +33,17 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// <summary>
         /// Property that returns all page configurations for the publishing module.
         /// </summary>
-        /// <exception cref="System.NotImplementedException"></exception>
         public IList<PageInfo> Pages
         {
-            get {
-                return new[]
+            get 
+            {
+                return new List<PageInfo>()
                 {
                     this.TargetItemPageTemplate,
                     this.CatalogItemPageTemplate,
                     this.CatalogCategoryItemsPageTemplate
                 };
             }
-        }
-
-        /// <summary>
-        /// Gets the page information by file name from this configuration.
-        /// </summary>
-        /// <param name="fileName">The file name of the page without the aspx extention.</param>
-        /// <returns>
-        /// The page information
-        /// </returns>
-        public PageInfo GetPageInfoByFileName(string fileName)
-        {
-            return this.Pages.Single(p => p.FileName.Equals(fileName, StringComparison.InvariantCultureIgnoreCase));
         }
 
         private PageInfo TargetItemPageTemplate
@@ -106,11 +99,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 var CatalogCategoryItemsMainWebPart = this.publishingWebPartInfoConfig.GetWebPartInfoByTitle(PublishingWebPartInfos.CatalogCategoryItemsMainWebPart.WebPart.Title);
                 CatalogCategoryItemsMainWebPart.ZoneName = "Main";
 
-                var CatalogCategoryRefinementWepart = this.publishingWebPartInfoConfig.GetWebPartInfoByTitle(PublishingWebPartInfos.CatalogCategoryRefinementWepart.WebPart.Title);
+                var CatalogCategoryRefinementWepart = this.publishingWebPartInfoConfig.GetWebPartInfoByTitle(PublishingWebPartInfos.CatalogCategoryRefinementWebPart.WebPart.Title);
                 CatalogCategoryRefinementWepart.ZoneName = "RightColumn";
 
                 // Prepare the page
-                var page = PublishingPageInfos.CatalogItemPageTemplate;
+                var page = PublishingPageInfos.CatalogCategoryItemsPageTemplate;
                 page.PageLayout = this.publishingPageLayoutInfoConfig.GetPageLayoutByName(PublishingPageLayoutInfos.CatalogCategoryItemsPageLayout.Name);
                 page.WebParts = new[]
                 {
@@ -122,6 +115,18 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 // Return the page
                 return page;
             }
+        }
+
+        /// <summary>
+        /// Gets the page information by file name from this configuration.
+        /// </summary>
+        /// <param name="fileName">The file name of the page without the ASPX extension.</param>
+        /// <returns>
+        /// The page information
+        /// </returns>
+        public PageInfo GetPageInfoByFileName(string fileName)
+        {
+            return this.Pages.Single(p => p.FileName.Equals(fileName, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
