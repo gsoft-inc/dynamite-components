@@ -134,7 +134,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                         var originalTerm = reusedTermSet.GetTerm(parentTerm.Id);
 
                                         // Add the term
-                                        originalTerm.ReuseTermWithPinning(term);
+                                        originalTerm.ReuseTerm(term, true);
                                     }
                                 }
                             }
@@ -168,7 +168,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                 {
                                     foreach (var reusedTermSet in reusedTermSets)
                                     {
-                                        reusedTermSet.ReuseTermWithPinning(term);
+                                        reusedTermSet.ReuseTerm(term, true);
                                     }
                                 }
                             }
