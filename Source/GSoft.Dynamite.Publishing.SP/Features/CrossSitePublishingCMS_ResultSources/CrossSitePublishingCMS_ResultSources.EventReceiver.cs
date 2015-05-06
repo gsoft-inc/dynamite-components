@@ -34,7 +34,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                     var searchHelper = featureScope.Resolve<ISearchHelper>();
                     var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
 
-                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
+                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources;
 
                     // Create base result sources
                     foreach (var resultSource in resultSources)
@@ -62,7 +62,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
                     var searchHelper = featureScope.Resolve<ISearchHelper>();
                     var baseResultSourceInfoConfig = featureScope.Resolve<IPublishingResultSourceInfoConfig>();
 
-                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources();
+                    IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources;
 
                    // Delete base result sources
                    foreach (var resultSource in resultSources)

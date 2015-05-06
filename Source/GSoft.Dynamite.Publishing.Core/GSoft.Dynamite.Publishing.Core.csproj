@@ -44,8 +44,12 @@
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10449\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10457\lib\net45\GSoft.Dynamite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -54,6 +58,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,17 +79,23 @@
     <Compile Include="Configuration\PublishingFolderInfoConfig.cs" />
     <Compile Include="Configuration\PublishingManagedPropertyConfig.cs" />
     <Compile Include="Configuration\PublishingMetadataNavigationSettingsConfig.cs" />
+    <Compile Include="Configuration\PublishingPageInfoConfig.cs" />
     <Compile Include="Configuration\PublishingPageLayoutInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultTypeInfoConfig.cs" />
     <Compile Include="Configuration\PublishingReusableContentConfig.cs" />
     <Compile Include="Configuration\PublishingTaxonomyConfig.cs" />
+    <Compile Include="Configuration\PublishingWebPartInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\PublishingRegistrationModule.cs" />
     <Compile Include="Repositories\ReusableContentRepository.cs" />
     <Compile Include="Services\ReusableContentService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj">
+      <Project>{31680a5f-e76d-4501-9dfc-d67ce09863f1}</Project>
+      <Name>GSoft.Dynamite.Common.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
       <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>
       <Name>GSoft.Dynamite.Publishing.Contracts</Name>

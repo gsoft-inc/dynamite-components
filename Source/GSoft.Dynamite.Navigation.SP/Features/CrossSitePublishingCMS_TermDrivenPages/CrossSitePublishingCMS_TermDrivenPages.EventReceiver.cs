@@ -32,7 +32,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TermDrive
                     var logger = featureScope.Resolve<ILogger>();
                     var navigationHelper = featureScope.Resolve<INavigationHelper>();
 
-                    var baseTermDrivenPageSettingsInfoConfig = featureScope.Resolve<INavigationTermDrivenpageSettingsInfoConfig>();
+                    var baseTermDrivenPageSettingsInfoConfig = featureScope.Resolve<INavigationTermDrivenPageSettingsInfoConfig>();
 
                     IList<TermDrivenPageSettingInfo> termDrivenPageSettingInfos = baseTermDrivenPageSettingsInfoConfig.TermDrivenPageSettingInfos;
 

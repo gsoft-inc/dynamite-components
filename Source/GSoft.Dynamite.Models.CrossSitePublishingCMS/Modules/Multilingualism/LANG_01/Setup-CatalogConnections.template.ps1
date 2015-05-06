@@ -14,7 +14,7 @@ $HashTable = [[DSP_CrossSiteMappings]]
 
 $HashTable.Keys | Foreach-Object { 
 
-# Activate feature on each authoring webs
-Initialize-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_NAV_CatalogConnections]]
+	# Activate feature on each authoring webs
+	Initialize-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_NAV_CatalogConnections]]
 
 }

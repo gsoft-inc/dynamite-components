@@ -47,8 +47,8 @@
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10449\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10457\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -77,6 +77,9 @@
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Features\CommonCMS_NavigationEventReceivers\CommonCMS_NavigationEventReceivers.EventReceiver.cs">
+      <DependentUpon>CommonCMS_NavigationEventReceivers.feature</DependentUpon>
     </Compile>
     <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Navigation\MainMenu.ascx.cs">
       <DependentUpon>MainMenu.ascx</DependentUpon>
@@ -143,6 +146,9 @@
     </None>
     <None Include="Artefacts\NavigationControl\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{bafc23b4-07a4-45b2-abda-1c8b569c5830}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\CommonCMS_NavigationEventReceivers\CommonCMS_NavigationEventReceivers.feature">
+      <FeatureId>{9870da7d-d224-45ee-81a6-2a747ee5181f}</FeatureId>
     </None>
     <None Include="SP.ControlTemplates\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{99ffa066-2c05-44c1-81f5-18f45cad9bbe}</SharePointProjectItemId>
@@ -230,6 +236,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Artefacts\NavigationControl\Elements.xml" />
+    <Content Include="Features\CommonCMS_NavigationEventReceivers\CommonCMS_NavigationEventReceivers.Template.xml">
+      <DependentUpon>CommonCMS_NavigationEventReceivers.feature</DependentUpon>
+    </Content>
     <Content Include="SP.ControlTemplates\GSoft.Dynamite.Navigation\MainMenu.ascx" />
     <Content Include="SP.ControlTemplates\GSoft.Dynamite.Navigation\NavigationControl.ascx" />
     <Content Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.Template.xml">

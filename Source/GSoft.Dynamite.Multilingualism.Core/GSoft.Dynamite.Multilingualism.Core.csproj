@@ -41,8 +41,8 @@
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10449\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10457\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
@@ -65,7 +65,6 @@
     <Compile Include="Configuration\MultilingualismContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismFieldInfoConfig.cs" />
-    <Compile Include="Configuration\MultilingualismListInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismManagedPropertyInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\MultilingualismVariationsConfig.cs" />
@@ -80,6 +79,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj">
+      <Project>{31680a5f-e76d-4501-9dfc-d67ce09863f1}</Project>
+      <Name>GSoft.Dynamite.Common.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj">
       <Project>{13c3cfc3-4328-4047-9b62-15b19e2e5922}</Project>
       <Name>GSoft.Dynamite.Multilingualism.Contracts</Name>

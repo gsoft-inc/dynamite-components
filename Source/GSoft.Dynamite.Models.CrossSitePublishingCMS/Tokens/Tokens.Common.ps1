@@ -59,6 +59,8 @@ $DSP_AuthoringSourceRootWebUrls = "@("
 $DSP_PublishingSourceRootWebUrls = "@("
 $DSP_AuthoringTargetRootWebUrls = "@("
 $DSP_PublishingTargetRootWebUrls = "@("
+
+# TODO: review if using the DSP_PortalWebAppUrl value is really always such a good idea (i.e. are we really sometimes going to leave the Pub, Auth and Docs URL tokens empty?)
 $DSP_PortalAuthoringSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalAuthoringHostNamePath)) { $DSP_PortalWebAppUrl } else { $DSP_PortalAuthoringHostNamePath }
 $DSP_PortalPublishingSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalPublishingHostNamePath)) { $DSP_PortalWebAppUrl } else { $DSP_PortalPublishingHostNamePath }
 $DSP_PortalDocsSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalDocsHostNamePath)) { $DSP_PortalWebAppUrl } else { $DSP_PortalDocsHostNamePath }
@@ -174,7 +176,7 @@ else
     $DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringSiteUrl
 
 	# Publishing
-	$PublishingCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "'")
+	$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingSiteUrl + "'")
 
 	$DSP_PublishingSourceRootWebUrls += $PublishingCurrentUrl
 

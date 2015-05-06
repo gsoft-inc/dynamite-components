@@ -6,6 +6,7 @@ using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Pages;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Taxonomy;
 using Microsoft.SharePoint;
@@ -22,7 +23,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         private readonly INavigationHelper navigationHelper;
         private readonly ILogger logger;
         private readonly ICamlBuilder caml;
-        private readonly PublishingFieldInfos publishingFieldInfos;
+        private readonly IPublishingFieldInfoConfig publishingFieldConfig;
 
         /// <summary>
         /// Default constructor
@@ -31,14 +32,14 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <param name="taxonomyService">The taxonomy service helper</param>
         /// <param name="navigationHelper">The navigation helper</param>
         /// <param name="caml">The CAML builder helper</param>
-        /// <param name="publishingFieldInfos">The publishing field info objects</param>
-        public NavigationTermBuilderService(ILogger logger, ITaxonomyService taxonomyService, INavigationHelper navigationHelper, ICamlBuilder caml, PublishingFieldInfos publishingFieldInfos)
+        /// <param name="publishingFieldConfig">The publishing field info objects</param>
+        public NavigationTermBuilderService(ILogger logger, ITaxonomyService taxonomyService, INavigationHelper navigationHelper, ICamlBuilder caml, IPublishingFieldInfoConfig publishingFieldConfig)
         {
             this.taxonomyService = taxonomyService;
             this.navigationHelper = navigationHelper;
             this.logger = logger;
             this.caml = caml;
-            this.publishingFieldInfos = publishingFieldInfos;
+            this.publishingFieldConfig = publishingFieldConfig;
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         {
             if (item != null)
             {
-                var itemNavigationFieldName = this.publishingFieldInfos.Navigation().InternalName;
+                var itemNavigationFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id).InternalName;
 
                 if (item.Fields.ContainsField(itemNavigationFieldName))
                 {
@@ -105,7 +106,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         {
             if (item != null)
             {
-                var itemNavigationFieldName = this.publishingFieldInfos.Navigation().InternalName;
+                var itemNavigationFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id).InternalName;
 
                 if (item.Fields.ContainsField(itemNavigationFieldName))
                 {
@@ -133,7 +134,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                         var originalTerm = reusedTermSet.GetTerm(parentTerm.Id);
 
                                         // Add the term
-                                        originalTerm.ReuseTermWithPinning(term);
+                                        originalTerm.ReuseTerm(term, true);
                                     }
                                 }
                             }
@@ -167,7 +168,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                 {
                                     foreach (var reusedTermSet in reusedTermSets)
                                     {
-                                        reusedTermSet.ReuseTermWithPinning(term);
+                                        reusedTermSet.ReuseTerm(term, true);
                                     }
                                 }
                             }
@@ -188,7 +189,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         {
             if (item != null)
             {
-                var itemNavigationFieldName = this.publishingFieldInfos.Navigation().InternalName;
+                var itemNavigationFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id).InternalName;
 
                 if (item.Fields.ContainsField(itemNavigationFieldName))
                 {
@@ -196,22 +197,43 @@ namespace GSoft.Dynamite.Navigation.Core.Services
 
                     if (termValue != null)
                     {
-                        // Delete the term and its reuses
+                        // Delete the term and its reuses (but only if none have child terms - in order to 
+                        // avoid accidently ruining a contributor's entire navigation hierarchy, for instance)
                         var term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
+                        var reusedTermsToDelete = new List<Term>();
 
-                        if (term.IsReused)
+                        bool isAtLeastOneReuseHasChildTerms = term.Terms.Count > 0;
+
+                        if (term.IsReused && !isAtLeastOneReuseHasChildTerms)
                         {
                             foreach (var reusedTerm in term.ReusedTerms)
                             {
-                                reusedTerm.Delete();
+                                if (reusedTerm.Terms.Count > 0)
+                                {
+                                    isAtLeastOneReuseHasChildTerms = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    reusedTermsToDelete.Add(reusedTerm);
+                                }
                             }
                         }
 
-                        // Delete the term after all reuses deletes
-                        term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
-                        var termStore = term.TermStore;
-                        term.Delete();
-                        termStore.CommitAll();
+                        // If the term or any reuse has children, then avoid deletion altogether
+                        if (!isAtLeastOneReuseHasChildTerms)
+                        {
+                            foreach (var reusedTerm in reusedTermsToDelete)
+                            {
+                                reusedTerm.Delete();
+                            }
+
+                            // Delete the term after all reuses deletes
+                            term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
+                            var termStore = term.TermStore;
+                            term.Delete();
+                            termStore.CommitAll();
+                        }
                     }
                 }
             }

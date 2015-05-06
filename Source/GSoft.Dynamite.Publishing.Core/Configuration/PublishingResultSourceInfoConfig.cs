@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
@@ -10,31 +12,35 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// </summary>
     public class PublishingResultSourceInfoConfig : IPublishingResultSourceInfoConfig
     {
-        private readonly PublishingResultSourceInfos resultSourceValues;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="resultSourceValues">The result sources info configuration objects</param>
-        public PublishingResultSourceInfoConfig(PublishingResultSourceInfos resultSourceValues)
-        {
-            this.resultSourceValues = resultSourceValues;
-        }
-
         /// <summary>
         /// Property that return all the result sources to create in the publishing module
         /// </summary>
         /// <returns>The result sources</returns>
-        public IList<ResultSourceInfo> ResultSources()
+        public IList<ResultSourceInfo> ResultSources
         {
-            var resultSources = new List<ResultSourceInfo>
+            get
             {
-                this.resultSourceValues.SingleTargetItem(),
-                this.resultSourceValues.SingleCatalogItem(),
-                this.resultSourceValues.CatalogCategoryItems()
-            };
+                var resultSources = new List<ResultSourceInfo>
+                {
+                    PublishingResultSourceInfos.SingleTargetItem,
+                    PublishingResultSourceInfos.SingleCatalogItem,
+                    PublishingResultSourceInfos.CatalogCategoryItems
+                };
 
-            return resultSources;
+                return resultSources;
+            }
+        }
+
+        /// <summary>
+        /// Gets the result source information by name from this configuration.
+        /// </summary>
+        /// <param name="name">The name of the result source.</param>
+        /// <returns>
+        /// The result source information
+        /// </returns>
+        public ResultSourceInfo GetResultSourceInfoByName(string name)
+        {
+            return this.ResultSources.Single(r => r.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

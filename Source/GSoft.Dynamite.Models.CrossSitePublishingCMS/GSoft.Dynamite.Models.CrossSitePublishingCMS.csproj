@@ -61,13 +61,17 @@
     <None Include="Modules\Docs\DOC_02\Setup-DocLibraries.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Fields.template.ps1" />
     <None Include="Modules\Docs\DOC_02\Setup-Permissions.template.ps1" />
-    <None Include="Modules\Migration\MIG_01\Default\ContentPages.xlsx" />
-    <None Include="Modules\Migration\MIG_01\Default\en\ContentPages.xlsx" />
-    <None Include="Modules\Migration\MIG_01\Default\en\NewsPages.xlsx" />
-    <None Include="Modules\Migration\MIG_01\Default\fr\ContentPages.xlsx" />
-    <None Include="Modules\Migration\MIG_01\Default\fr\NewsPages.xlsx" />
-    <None Include="Modules\Migration\MIG_01\Default\NewsPages.xlsx" />
-    <None Include="Modules\Migration\MIG_01\Default\DynamitePropertyTemplate.sgt" />
+    <None Include="Modules\Migration\MIG_01\Default\Configure-MigrationData.template.ps1" />
+    <None Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Content Pages\Content Pages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\Default %28english only%29\News Pages\News Pages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Site Collection Images.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Site Collection Images.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\Multilingual\Source\Content Pages\Content Pages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\Multilingual\Source\DynamitePropertyTemplate.sgt" />
+    <None Include="Modules\Migration\MIG_01\Default\Multilingual\Source\News Pages\News Pages.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\DynamitePropertyTemplate.sgt" />
+    <None Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de contenu\Pages de contenu.xlsx" />
+    <None Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de nouvelles\Pages de nouvelles.xlsx" />
     <None Include="Modules\Migration\MIG_01\Install-MIG01.ps1" />
     <None Include="Modules\Migration\MIG_01\Restore-AclInheritance.ps1" />
     <None Include="Modules\Migration\MIG_01\Setup-Content.template.ps1" />
@@ -95,7 +99,6 @@
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-Fields.template.ps1" />
-    <None Include="Modules\Multilingualism\LANG_02\Setup-LanguageSwitcher.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.template.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
     <None Include="Modules\Navigation\NAV_01\Export-TermGroups.template.ps1" />
@@ -122,6 +125,28 @@
     <None Include="Modules\Multilingualism\LANG_03\Install-LANG03.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image1.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image10.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image11.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image2.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image3.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image4.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image5.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image6.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image7.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image8.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Site Collection Images\Documents\Image9.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image1.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image10.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image11.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image2.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image3.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image4.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image5.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image6.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image7.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image8.jpg" />
+    <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image9.jpg" />
     <Content Include="Modules\Navigation\NAV_01\Default\Default-KeywordsTermGroup.template.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -175,6 +200,12 @@
     <Folder Include="Modules\Docs\DOC_02\Custom\" />
     <Folder Include="Modules\Docs\DOC_02\Default\" />
     <Folder Include="Modules\Migration\MIG_01\Custom\" />
+    <Folder Include="Modules\Migration\MIG_01\Default\Default %28english only%29\Content Pages\Attachments\" />
+    <Folder Include="Modules\Migration\MIG_01\Default\Default %28english only%29\News Pages\Attachments\" />
+    <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Source\Content Pages\Attachments\" />
+    <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Source\News Pages\Attachments\" />
+    <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de contenu\Attachments\" />
+    <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de nouvelles\Attachments\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Social\" />
     <Folder Include="Modules\Targeting\" />
@@ -199,17 +230,6 @@
     <None Include="Execute-PostDeploymentScript.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image1.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image10.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image11.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image2.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image3.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image4.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image5.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image6.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image7.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image8.jpg" />
-    <Content Include="Modules\Migration\MIG_01\Default\Images\Image9.jpg" />
     <Content Include="Modules\Migration\MIG_01\README.txt" />
     <Content Include="README.txt" />
   </ItemGroup>

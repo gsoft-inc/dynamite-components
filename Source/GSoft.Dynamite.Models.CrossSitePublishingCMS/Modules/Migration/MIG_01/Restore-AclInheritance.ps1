@@ -13,7 +13,7 @@ param(
 	[string]
 	$folderPath)
 
-$files = Get-ChildItem -Path $folderPath
+$files = Get-ChildItem -Path $folderPath -Recurse
 foreach ($file in $files) {
 	
 	# Get access control lists of the file

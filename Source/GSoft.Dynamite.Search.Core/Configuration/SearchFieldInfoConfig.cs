@@ -14,17 +14,6 @@ namespace GSoft.Dynamite.Search.Core.Configuration
     /// </summary>
     public class SearchFieldInfoConfig : ISearchFieldInfoConfig
     {
-        private readonly SearchFieldInfos searchFieldInfos;
-
-        /// <summary>
-        /// Default Constructor
-        /// </summary>
-        /// <param name="searchFieldInfos">Field Info for the search module</param>
-        public SearchFieldInfoConfig(SearchFieldInfos searchFieldInfos)
-        {
-            this.searchFieldInfos = searchFieldInfos;
-        }
-
         /// <summary>   
         /// Property that return all the fields to create in the search module
         /// </summary>
@@ -35,14 +24,26 @@ namespace GSoft.Dynamite.Search.Core.Configuration
             {
                 var fields = new List<BaseFieldInfo>()
                 {
-                    { this.searchFieldInfos.BrowserTitle() },
-                    { this.searchFieldInfos.MetaDescription() },
-                    { this.searchFieldInfos.MetaKeywords() },
-                    { this.searchFieldInfos.HideFromInternetSearchEngines() }
+                    SearchFieldInfos.BrowserTitle,
+                    SearchFieldInfos.MetaDescription,
+                    SearchFieldInfos.MetaKeywords,
+                    SearchFieldInfos.HideFromInternetSearchEngines
                 };
 
                 return fields;
             }
+        }
+
+        /// <summary>
+        /// Gets the field from the Fields property where the id of that field is passed by parameter.
+        /// </summary>
+        /// <param name="fieldId">The unique identifier of the field we are looking for.</param>
+        /// <returns>
+        /// The field information.
+        /// </returns>
+        public BaseFieldInfo GetFieldById(Guid fieldId)
+        {
+            return this.Fields.Single(f => f.Id.Equals(fieldId));
         }
     }
 }

@@ -8,57 +8,24 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// <summary>
     /// Term Group definitions for the publishing module
     /// </summary>
-    public class PublishingTermSetInfos
+    public static class PublishingTermSetInfos
     {
-        private PublishingTermGroupInfos termGroupInfos;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="termGroupInfos">The term group info objects configuration</param>
-        public PublishingTermSetInfos(PublishingTermGroupInfos termGroupInfos)
-        {
-            this.termGroupInfos = termGroupInfos;
-        }
-
-        #region Global Navigation Term Set
-
-        /// <summary>
-        /// The global navigation term set
-        /// </summary>
-        /// <returns>The term set</returns>
-        public TermSetInfo GlobalNavigation()
-        {   
-            return new TermSetInfo(
-                new Guid("f92bc16f-f73b-4568-b6af-f8dd87044653"),
-                new Dictionary<CultureInfo, string>
-                {           
-                    { new CultureInfo(Language.French.Culture.LCID), "Navigation (FR)" },
-                    { new CultureInfo(Language.English.Culture.LCID), "Navigation (EN)" }
-                },
-                this.termGroupInfos.Navigation());
-        }
-
-        #endregion
-
-        #region Restricted News Term Set
-
         /// <summary>
         /// The restricted navigation term set
         /// </summary>
         /// <returns>The term set</returns>
-        public TermSetInfo RestrictedNews()
-        {
-            return new TermSetInfo(
+        public static TermSetInfo RestrictedNews 
+        { 
+            get
+            {
+                return new TermSetInfo(
                     new Guid("700c0057-26b7-455c-a1de-7b5b7c4c0f71"),
                     new Dictionary<CultureInfo, string>
                     {           
                         { new CultureInfo(Language.French.Culture.LCID), "Défault - Nouvelles" },
                         { new CultureInfo(Language.English.Culture.LCID), "Default - News" },
-                    },
-                    this.termGroupInfos.Restricted());
+                    });
+            }
         }
-        
-        #endregion
     }
 }

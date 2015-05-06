@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using Autofac;
+using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Migration.Contracts.Configuration;
 using GSoft.Dynamite.Search;
@@ -29,7 +30,7 @@ namespace GSoft.Dynamite.Migration.SP.Features.CrossSitePublishingCMS_ManagedPro
                using (var featureScope = MigrationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                {
                    var searchHelper = featureScope.Resolve<ISearchHelper>();
-                   var managedProperties = featureScope.Resolve<IMigrationManagedPropertyInfoConfig>().ManagedProperties;
+                   var managedProperties = featureScope.Resolve<IConsolidatedManagedPropertyConfig>().ManagedProperties;
                    var logger = featureScope.Resolve<ILogger>();
 
                    foreach (var managedProperty in managedProperties)
@@ -54,7 +55,7 @@ namespace GSoft.Dynamite.Migration.SP.Features.CrossSitePublishingCMS_ManagedPro
                using (var featureScope = MigrationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                {
                    var searchHelper = featureScope.Resolve<ISearchHelper>();
-                   var managedProperties = featureScope.Resolve<IMigrationManagedPropertyInfoConfig>().ManagedProperties;
+                   var managedProperties = featureScope.Resolve<IConsolidatedManagedPropertyConfig>().ManagedProperties;
                    var logger = featureScope.Resolve<ILogger>();
 
                    foreach (var managedProperty in managedProperties)

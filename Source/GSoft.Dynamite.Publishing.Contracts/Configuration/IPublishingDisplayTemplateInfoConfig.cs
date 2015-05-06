@@ -12,5 +12,12 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         /// Property that return all the display templates to create in the publishing module
         /// </summary>
         IList<DisplayTemplateInfo> DisplayTemplates { get; }
+
+        /// <summary>
+        /// Gets the display template information by name from this configuration.
+        /// </summary>
+        /// <param name="name">The display template name.</param>
+        /// <returns>The display template information</returns>
+        DisplayTemplateInfo GetDisplayTemplateInfoByName(string name);
     }
 }

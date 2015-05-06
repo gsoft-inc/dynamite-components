@@ -43,7 +43,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";
 
-                        eventReceiverHelper.AddEventReceiverDefinition(site, eventReceiver);
+                        eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
                     }
                 }
             }
@@ -74,7 +74,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
                         eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";
 
-                        eventReceiverHelper.DeleteEventReceiverDefinition(site, eventReceiver);
+                        eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
                     }
                 }
             }

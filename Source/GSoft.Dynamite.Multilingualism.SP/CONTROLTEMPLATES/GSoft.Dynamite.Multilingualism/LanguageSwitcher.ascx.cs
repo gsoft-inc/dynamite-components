@@ -6,11 +6,13 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using Autofac;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Navigation;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Utils;
 using Microsoft.Office.Server.Search.WebControls;
@@ -26,6 +28,9 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
     {
         private const string CatalogItemReuseWebPartId = "CatalogItemAssociationWebPart";
 
+        /// <summary>
+        /// The Content Association Key Value
+        /// </summary>
         private string contentAssociationKeyValue = null;
 
         /// <summary>
@@ -39,19 +44,14 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         public IVariationHelper VariationsHelper { get; private set; }
 
         /// <summary>
-        /// The multilingualism module managed properties
-        /// </summary>
-        public MultilingualismManagedPropertyInfos MultilingualismManagedPropertyInfos { get; private set; }
-
-        /// <summary>
-        /// The publishing module managed properties
-        /// </summary>
-        public PublishingManagedPropertyInfos PublishingManagedPropertyInfos { get; private set; }
-
-        /// <summary>
         /// The publishing module web parts properties
         /// </summary>
-        public PublishingWebPartInfos PublishingWebPartInfos { get; private set; }
+        public IPublishingWebPartInfoConfig PublishingWebPartConfig { get; private set; }
+
+        /// <summary>
+        /// Gets the publishing field configuration.
+        /// </summary>
+        public IPublishingFieldInfoConfig PublishingFieldConfig { get; private set; }
 
         /// <summary>
         /// Get the current variation navigation context
@@ -98,7 +98,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                 return this.contentAssociationKeyValue;
             }
         }
-
+        
         /// <summary>
         /// Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
         /// </summary>
@@ -115,8 +115,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                     UseSharedDataProvider = true,
 
                     // The query group name must be the same as the search webpart which display the current item to get the association key correctly
-                    QueryGroupName = ((ResultScriptWebPart)this.PublishingWebPartInfos.CatalogItemContentWebPart(string.Empty).WebPart).QueryGroupName,
-                    SelectedPropertiesJson = string.Format("['{0}']", this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name),
+                    QueryGroupName = ((ResultScriptWebPart)this.PublishingWebPartConfig.GetWebPartInfoByTitle(PublishingWebPartInfos.CatalogItemContentWebPart.WebPart.Title).WebPart).QueryGroupName,
+                    SelectedPropertiesJson = string.Format("['{0}']", MultilingualismManagedPropertyInfos.ContentAssociationKey.Name),
                 };
 
                 Controls.Add(catalogItemWebPart);
@@ -150,13 +150,14 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                             switch (this.CurrentNavigationContext)
                             {
                                 case VariationNavigationType.ItemPage:
+                                    var navigationField = this.PublishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id) as TaxonomyFieldInfo;
                                     itemUrl = this.VariationNavigationHelper.GetPeerCatalogItemUrl(
                                         currentUrl,
                                         variationLabel,
-                                        this.MultilingualismManagedPropertyInfos.ContentAssociationKey.Name,
+                                        MultilingualismManagedPropertyInfos.ContentAssociationKey.Name,
                                         this.ContentAssociationKeyValue,
-                                        this.MultilingualismManagedPropertyInfos.ItemLanguage.Name,
-                                        this.PublishingManagedPropertyInfos.Navigation.Name);
+                                        MultilingualismManagedPropertyInfos.ItemLanguage.Name,
+                                        navigationField.OWSTaxIdManagedPropertyInfo.Name);
                                     break;
 
                                 case VariationNavigationType.CategoryPage:
@@ -215,10 +216,9 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
             // Initialize helpers
             this.VariationNavigationHelper = MultilingualismContainerProxy.Current.Resolve<IVariationNavigationHelper>();
             this.VariationsHelper = MultilingualismContainerProxy.Current.Resolve<IVariationHelper>();
-            this.PublishingManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<PublishingManagedPropertyInfos>();
-            this.MultilingualismManagedPropertyInfos = MultilingualismContainerProxy.Current.Resolve<MultilingualismManagedPropertyInfos>();
-            this.PublishingWebPartInfos = MultilingualismContainerProxy.Current.Resolve<PublishingWebPartInfos>();
+            this.PublishingWebPartConfig = MultilingualismContainerProxy.Current.Resolve<IPublishingWebPartInfoConfig>();
             this.MultilingualismVariationsConfig = MultilingualismContainerProxy.Current.Resolve<IMultilingualismVariationsConfig>();
+            this.PublishingFieldConfig = MultilingualismContainerProxy.Current.Resolve<IPublishingFieldInfoConfig>();
 
             // Determine the navigation context type
             this.CurrentNavigationContext = this.VariationNavigationHelper.CurrentNavigationContextType;

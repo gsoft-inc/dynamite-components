@@ -1,6 +1,7 @@
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Design.Contracts.Configuration;
+using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Security;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
@@ -28,6 +29,16 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_Theme
                 using (var featureScope = DesignContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var designConfig = featureScope.Resolve<IDesignConfig>();
+
+                    // Resolve feature dependency activator
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    var featureDependencyActivator =
+                        featureScope.Resolve<IFeatureDependencyActivator>(
+                            new TypedParameter(typeof(SPSite), site),
+                            new TypedParameter(typeof(SPWeb), site.RootWeb));
+
+                    // Activate feature dependencies defined in this configuration
+                    featureDependencyActivator.EnsureFeatureActivation(designConfig as IFeatureDependencyConfig);
 
                     // Set the Site Logo and theme
                     foreach (SPWeb web in site.AllWebs)
