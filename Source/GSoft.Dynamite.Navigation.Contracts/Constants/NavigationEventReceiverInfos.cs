@@ -80,14 +80,14 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         }
 
         /// <summary>
-        /// The item deleted event for the target page content type
+        /// The item deleting event for the target page content type
         /// </summary>
         /// <returns>The event receiver info</returns>
-        public EventReceiverInfo TargetContentPageDeleted()
+        public EventReceiverInfo TargetContentPageDeleting()
         {
             var eventReceiver = new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.BrowsablePage.ContentTypeId),
-                SPEventReceiverType.ItemDeleted) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents" };
+                SPEventReceiverType.ItemDeleting) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents" };
 
             return eventReceiver;
         }

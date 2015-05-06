@@ -197,22 +197,43 @@ namespace GSoft.Dynamite.Navigation.Core.Services
 
                     if (termValue != null)
                     {
-                        // Delete the term and its reuses
+                        // Delete the term and its reuses (but only if none have child terms - in order to 
+                        // avoid accidently ruining a contributor's entire navigation hierarchy, for instance)
                         var term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
+                        var reusedTermsToDelete = new List<Term>();
 
-                        if (term.IsReused)
+                        bool isAtLeastOneReuseHasChildTerms = term.Terms.Count > 0;
+
+                        if (term.IsReused && !isAtLeastOneReuseHasChildTerms)
                         {
                             foreach (var reusedTerm in term.ReusedTerms)
                             {
-                                reusedTerm.Delete();
+                                if (reusedTerm.Terms.Count > 0)
+                                {
+                                    isAtLeastOneReuseHasChildTerms = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    reusedTermsToDelete.Add(reusedTerm);
+                                }
                             }
                         }
 
-                        // Delete the term after all reuses deletes
-                        term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
-                        var termStore = term.TermStore;
-                        term.Delete();
-                        termStore.CommitAll();
+                        // If the term or any reuse has children, then avoid deletion altogether
+                        if (!isAtLeastOneReuseHasChildTerms)
+                        {
+                            foreach (var reusedTerm in reusedTermsToDelete)
+                            {
+                                reusedTerm.Delete();
+                            }
+
+                            // Delete the term after all reuses deletes
+                            term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
+                            var termStore = term.TermStore;
+                            term.Delete();
+                            termStore.CommitAll();
+                        }
                     }
                 }
             }

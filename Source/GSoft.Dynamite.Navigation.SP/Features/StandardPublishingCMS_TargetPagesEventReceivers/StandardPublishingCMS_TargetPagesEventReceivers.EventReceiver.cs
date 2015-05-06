@@ -51,7 +51,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                     var targetContentPageEventReceivers = new List<EventReceiverInfo>();
                     targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
                     targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
-                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());
+                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleting());
 
                     foreach (var eventReceiver in targetContentPageEventReceivers)
                     {
@@ -88,7 +88,12 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
 
                     targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageItemAdded());
                     targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageUpdated());
-                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleted());
+                    targetContentPageEventReceivers.Add(eventReceiversInfos.TargetContentPageDeleting());
+
+                    // For legacy purposes: unregister the old broken ItemDeleted event
+                    var itemDeleted = eventReceiversInfos.TargetContentPageDeleting();
+                    itemDeleted.ReceiverType = SPEventReceiverType.ItemDeleted;
+                    targetContentPageEventReceivers.Add(itemDeleted);
 
                     foreach (var eventReceiver in targetContentPageEventReceivers)
                     {

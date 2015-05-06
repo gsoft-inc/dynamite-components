@@ -74,12 +74,12 @@ namespace GSoft.Dynamite.Navigation.SP.Events
         }
 
         /// <summary>
-        /// Asynchronous After event that occurs after an existing item is deleted.
+        /// Synchronous event that occurs as an existing item is being deleted.
         /// </summary>
         /// <param name="properties">An <see cref="T:Microsoft.SharePoint.SPItemEventProperties" /> object that represents properties of the event handler.</param>
-        public override void ItemDeleted(SPItemEventProperties properties)
+        public override void ItemDeleting(SPItemEventProperties properties)
         {
-            base.ItemDeleted(properties);
+            base.ItemDeleting(properties);
 
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
