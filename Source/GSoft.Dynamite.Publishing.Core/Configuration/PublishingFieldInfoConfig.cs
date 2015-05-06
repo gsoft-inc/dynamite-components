@@ -40,8 +40,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                     this.NavigationFieldInfo,
                     PublishingFieldInfos.Summary,
                     PublishingFieldInfos.ImageDescription,
-                    PublishingFieldInfos.PublishingStartDate,
-                    PublishingFieldInfos.PublishingPageContent
+                    PublishingFieldInfos.PublishingStartDate
                 };
 
                 return fields;

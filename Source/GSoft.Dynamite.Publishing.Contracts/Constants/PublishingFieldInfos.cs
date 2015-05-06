@@ -1,8 +1,6 @@
 ﻿using System;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Common.Contracts.Constants;
-using GSoft.Dynamite.Fields;
-using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Fields.Types;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Constants
@@ -114,20 +112,6 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                         IsHiddenInNewForm = false,
                         DefaultFormula = "=[Today]"
                     };
-            }
-        }
-
-        /// <summary>
-        /// The publishing page content field information.
-        /// </summary>
-        /// <returns>The field information.</returns>
-        public static BaseFieldInfo PublishingPageContent
-        {
-            get
-            {
-                return new MinimalFieldInfo<string>(
-                    PublishingFields.PublishingPageContent.InternalName,
-                    PublishingFields.PublishingPageContent.Id);
             }
         }
 
