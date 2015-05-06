@@ -13,7 +13,7 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
     /// <summary>
     /// Term driven pages settings configuration for the navigation module
     /// </summary>
-    public class NavigationTermDrivenPageSettingsInfoConfig : INavigationTermDrivenpageSettingsInfoConfig
+    public class NavigationTermDrivenPageSettingsInfoConfig : INavigationTermDrivenPageSettingsInfoConfig
     {
         private readonly ICommonTaxonomyConfig commonTaxonomyConfig;
         private readonly IPublishingPageInfoConfig publishingPageInfoConfig;

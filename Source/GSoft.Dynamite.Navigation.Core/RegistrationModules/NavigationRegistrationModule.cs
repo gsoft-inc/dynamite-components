@@ -28,8 +28,8 @@ namespace GSoft.Dynamite.Navigation.Core.RegistrationModules
             builder.RegisterType<NavigationResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Term Driven Pages
-            builder.RegisterType<NavigationTermDrivenPageSettingsInfoConfig>().As<INavigationTermDrivenpageSettingsInfoConfig>();
-            builder.RegisterType<NavigationTermDrivenPageSettingsInfoConfig>().Named<INavigationTermDrivenpageSettingsInfoConfig>("navigation");
+            builder.RegisterType<NavigationTermDrivenPageSettingsInfoConfig>().As<INavigationTermDrivenPageSettingsInfoConfig>();
+            builder.RegisterType<NavigationTermDrivenPageSettingsInfoConfig>().Named<INavigationTermDrivenPageSettingsInfoConfig>("navigation");
 
             // Content Types
             builder.RegisterType<NavigationContentTypeInfoConfig>().As<INavigationContentTypeInfoConfig>();

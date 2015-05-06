@@ -7,7 +7,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Configuration
     /// <summary>
     /// Term driven pages settings configuration for the navigation module
     /// </summary>
-    public interface INavigationTermDrivenpageSettingsInfoConfig
+    public interface INavigationTermDrivenPageSettingsInfoConfig
     {
         /// <summary>
         /// Property that return all the term driven page settings in the navigation module
