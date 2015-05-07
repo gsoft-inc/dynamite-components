@@ -7,9 +7,18 @@
 
 Write-Warning "Applying Pages Library configuration..."
 
-# Activate features on all publishing sites (sources an targets)
-[[DSP_PublishingTargetRootWebUrls]] | Foreach-Object{
+# Activate features on all publishing sites (source an targets)
+
+Write-Warning "Applying Pages Library configuration..."
+
+# Activate features on all publishing sites (source an targets)
+
+[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
 
 	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_PUB_Lists]]
 }
 
+[[DSP_PublishingTargetRootWebUrls]] | Foreach-Object{
+
+	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_PUB_Lists]]
+}
