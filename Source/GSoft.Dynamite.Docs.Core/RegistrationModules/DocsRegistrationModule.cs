@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
-using GSoft.Dynamite.Docs.Contracts.Constants;
 using GSoft.Dynamite.Docs.Contracts.Resources;
 using GSoft.Dynamite.Docs.Core.Configuration;
 using GSoft.Dynamite.Globalization;
@@ -21,20 +20,29 @@ namespace GSoft.Dynamite.Docs.Core.RegistrationModules
         protected override void Load(ContainerBuilder builder)
         {
             // Resource locator
-            builder.RegisterType<DocsResourceLocatorConfig>().As<IResourceLocatorConfig>();
+            builder.RegisterType<DocsResourceLocatorConfig>()
+                .As<IResourceLocatorConfig>()
+                .Named<IResourceLocatorConfig>("docs");
 
             // Fields Configuration
-            builder.RegisterType<DocsFieldInfoConfig>().As<IDocsFieldInfoConfig>();
+            builder.RegisterType<DocsFieldInfoConfig>()
+                .As<IDocsFieldInfoConfig>()
+                .Named<IDocsFieldInfoConfig>("docs");
 
             // Content Types Configuration
-            builder.RegisterType<DocsContentTypeInfoConfig>().As<IDocsContentTypeInfoConfig>();
+            builder.RegisterType<DocsContentTypeInfoConfig>()
+                .As<IDocsContentTypeInfoConfig>()
+                .Named<IDocsContentTypeInfoConfig>("docs");
 
             // Lists Configuration
-            builder.RegisterType<DocsListInfoConfig>().As<IDocsListInfoConfig>();
+            builder.RegisterType<DocsListInfoConfig>()
+                .As<IDocsListInfoConfig>()
+                .Named<IDocsListInfoConfig>("docs");
 
             // Image Renditions
-            builder.RegisterType<DocsImageRenditionInfoConfig>().As<IDocsImageRenditionInfoConfig>();
-            builder.RegisterType<DocsImageRenditionInfoConfig>().Named<IDocsImageRenditionInfoConfig>("docs");
+            builder.RegisterType<DocsImageRenditionInfoConfig>()
+                .As<IDocsImageRenditionInfoConfig>()
+                .Named<IDocsImageRenditionInfoConfig>("docs");
         }
     }
 }
