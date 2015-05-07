@@ -65,8 +65,8 @@
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
     <None Include="Modules\Navigation\NAV_01\Setup-ManagedNavigation.template.ps1" />
     <None Include="Modules\Navigation\NAV_05\Install-NAV05.ps1" />
-    <None Include="Modules\Navigation\NAV_05\Setup-EventReceivers.ps1.template" />
-    <None Include="Modules\Navigation\NAV_05\Setup-Lists.ps1.template" />
+    <None Include="Modules\Navigation\NAV_05\Setup-EventReceivers.template.ps1" />
+    <None Include="Modules\Navigation\NAV_05\Setup-Lists.template.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
     <Content Include="Modules\Publishing\PUB_01\Default\Default-NavigationTermGroup.template.xml" />

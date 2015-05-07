@@ -1,6 +1,6 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
+# Model  		: Standard Publishing CMS
 # File          : Setup-JavascriptImports.ps1.template
 # Description	: Install Javascript Imports
 # -----------------------------------------------------------------------
