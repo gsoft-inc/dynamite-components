@@ -19,8 +19,8 @@
 # ******************************************
 # Navigation Module tokens
 # ******************************************
-#. ./Modules/Navigation/Tokens.Navigation.Default.ps1
-#. ./Modules/Navigation/Tokens.Navigation.Custom.ps1
+. ./Modules/Navigation/Tokens.Navigation.Default.ps1
+. ./Modules/Navigation/Tokens.Navigation.Custom.ps1
 
 # ******************************************
 # Design Module tokens

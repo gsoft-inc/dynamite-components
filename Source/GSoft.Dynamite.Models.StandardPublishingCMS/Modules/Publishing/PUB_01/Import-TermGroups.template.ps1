@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Import-TermGroups.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Import-TermGroups.template.ps1
 # Description	: Import Portal Taxonomy
 # -----------------------------------------------------------------------
 

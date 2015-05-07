@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Remove-TermGroups.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Remove-TermGroups.template.ps1
 # Description	: Remove Portal Taxonomy
 # -----------------------------------------------------------------------
 

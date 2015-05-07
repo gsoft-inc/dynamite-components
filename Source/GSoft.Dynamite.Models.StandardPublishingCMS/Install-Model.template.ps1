@@ -43,7 +43,7 @@ try {
 
 	#region ********** NAVIGATION MODULE ********** #
 	#.\Modules\Navigation\NAV_01\Install-NAV01.ps1
-	#.\Modules\Navigation\NAV_05\Install-NAV05.ps1
+	.\Modules\Navigation\NAV_05\Install-NAV05.ps1
 	#endregion
 
 	#region ********** DESIGN MODULE ********** #

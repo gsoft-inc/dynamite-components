@@ -4,7 +4,7 @@
 
 param([string]$LogFolderPath)
 
-$UserStory = "DSGN_01"
+$UserStory = "DSGN01"
 
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -12,11 +12,19 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
+# ==================================== #
+# =========   MASTER PAGE   ========== #
+# ==================================== #
+
 $values = @{"Step: " = "#1 MasterPage"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-MasterPage.ps1'
 & $Script
+
+# =============================== #
+# =========   THEMES   ========== #
+# =============================== #
 
 $values = @{"Step: " = "#2 Theme and Logo"}
 New-HeaderDrawing -Values $Values

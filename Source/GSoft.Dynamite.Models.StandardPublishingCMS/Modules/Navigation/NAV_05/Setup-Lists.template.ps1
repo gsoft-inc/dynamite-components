@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Setup-Lists.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Setup-Lists.template.ps1
 # Description	: Setup pages library
 # -----------------------------------------------------------------------
 

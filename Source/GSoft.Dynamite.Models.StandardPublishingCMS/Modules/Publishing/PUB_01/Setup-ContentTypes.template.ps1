@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Setup-ContentTypes.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Setup-ContentTypes.template.ps1
 # Description	: Create content types structure
 # -----------------------------------------------------------------------
 

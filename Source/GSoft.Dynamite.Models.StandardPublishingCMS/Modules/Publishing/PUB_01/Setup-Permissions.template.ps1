@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Setup-Permissions.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Setup-Permissions.template.ps1
 # Description	: Set SharePoint Permissions
 # -----------------------------------------------------------------------
 

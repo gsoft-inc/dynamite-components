@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Export-TermGroups.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Export-TermGroups.template.ps1
 # Description	: Export Portal Taxonomy
 # -----------------------------------------------------------------------
 

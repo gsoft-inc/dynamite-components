@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Setup-MetadataFiltreing.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Setup-MetadataFiltreing.template.ps1
 # Description	: Activate the SharePoint metadata navigation and filtering
 # -----------------------------------------------------------------------
 
@@ -10,7 +10,10 @@ Write-Warning "Activate Metadata and filtering feature configuration..."
 # Activate features on source authoring webs
 [[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
 
+	# SharePoint base feature
 	Initialize-DSPFeature -Url $_ -Id "[[DSP_SharePoint_MetadataAndFiltering]]"
+
+	# Standard CMS Publishing feature applies only on the Pages library
 	Initialize-DSPFeature -Url $_ -Id "[[DSP_StandardPublishingCMS_PUB_MetadataNavigation]]"
 	
 }

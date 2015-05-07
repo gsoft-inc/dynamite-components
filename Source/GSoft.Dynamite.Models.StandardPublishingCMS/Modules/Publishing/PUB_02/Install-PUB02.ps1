@@ -3,7 +3,7 @@
 # ----------------------------------------
 param([string]$LogFolderPath)
 
-$UserStory = "PUB_02"
+$UserStory = "PUB02"
 
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)

@@ -1,6 +1,6 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
+# Model  		: Standard Publishing CMS
 # File          : Setup-MasterPage.ps1.template
 # Description	: Install Master Page
 # -----------------------------------------------------------------------

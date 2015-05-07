@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Setup-EventReceivers.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Setup-EventReceivers.template.ps1
 # Description	: Attach event receivers
 # -----------------------------------------------------------------------
 

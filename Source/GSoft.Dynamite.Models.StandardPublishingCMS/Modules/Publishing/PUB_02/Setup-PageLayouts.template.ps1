@@ -1,7 +1,7 @@
 ﻿# -----------------------------------------------------------------------
 # Copyright		: GSoft @2014
-# Model  		: Cross Site Publishing CMS
-# File          : Setup-PageLayouts.ps1.template
+# Model  		: Standard Publishing CMS
+# File          : Setup-PageLayouts.template.ps1
 # Description	: Create page layouts
 # -----------------------------------------------------------------------
 

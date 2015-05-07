@@ -67,6 +67,7 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             get
             {
                 // Page editors can create terms directly in the form so find the navigation field and set CreateValuesInEditForm to true.
+                // By default, Navigation Term Set must be set to IsOpenForTermCreation = True
                 var list = this.publishingListInfoConfig.GetListInfoByWebRelativeUrl(PublishingListInfos.PagesLibrary.WebRelativeUrl);
                 foreach (var field in list.FieldDefinitions)
                 {
