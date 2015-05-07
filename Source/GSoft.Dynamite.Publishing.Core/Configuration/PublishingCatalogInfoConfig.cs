@@ -57,10 +57,8 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 // Customize navigation field for the news catalog 
-                // 1. Enfore unique values 
-                // 2. Set the term store mapping
+                // 1. Set the term store mapping
                 var customNavigationField = this.publishingFieldInfoConfig.GetFieldById(PublishingFieldInfos.Navigation.Id) as TaxonomyFieldInfo;
-                customNavigationField.EnforceUniqueValues = true;
                 customNavigationField.TermStoreMapping = new TaxonomyContext(this.publishingTaxonomyConfig.GetTermSetById(PublishingTermSetInfos.RestrictedNews.Id));
 
                 // Configure the news pages catalog
