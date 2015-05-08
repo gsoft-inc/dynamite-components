@@ -1,5 +1,5 @@
 ﻿# ----------------------------------------
-# NAV_05:MANAGE THE SITE MAP
+# NAV_05: MANAGE THE SITE MAP
 # ----------------------------------------
 
 param([string]$LogFolderPath)

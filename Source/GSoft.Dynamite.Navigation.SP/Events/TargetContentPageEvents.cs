@@ -31,7 +31,6 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                 // Set Term driven page
                 navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
 
-                // If the content is created at the source label, create the unique identifier
                 if (variationHelper.IsCurrentWebSourceLabel(item.Web))
                 {
                     // Create term in other term sets
@@ -62,7 +61,6 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                 // Set Term driven page
                 navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
 
-                // If the content is created at the source label, create the unique identifier
                 if (variationHelper.IsCurrentWebSourceLabel(item.Web))
                 {
                     // Create term in other term sets
