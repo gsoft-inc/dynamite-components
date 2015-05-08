@@ -8,7 +8,12 @@
 Write-Warning "Applying Pages Library configuration..."
 
 # Only apply the open term creation on the source authoring webs in the content pages list
-[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
+[[DSP_PublishingSourceRootWebUrls]] | Foreach-Object {
+
+	Initialize-DSPFeature -Url $_ -Id [[DSP_StandardPublishingCMS_NAV_PagesLibraryList]]
+}
+
+[[DSP_PublishingTargetRootWebUrls]] | Foreach-Object {
 
 	Initialize-DSPFeature -Url $_ -Id [[DSP_StandardPublishingCMS_NAV_PagesLibraryList]]
 }
