@@ -411,4 +411,10 @@
   <data name="PageLayout_BootsrapTwoColumnsPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page Bootstrap avec 2 colonnes</value>
   </data>
+  <data name="PageLayout_BootsrapTwoColumnsLeftSlimSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Créé une colonne de 1/5 de largeur à gauche et une colonne de 4/5 de largeur droite.</value>
+  </data>
+  <data name="PageLayout_BootsrapTwoColumnsLeftSlimSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une petite colonne à gauche</value>
+  </data>
 </root>

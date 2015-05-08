@@ -11,5 +11,6 @@
     <ProjectItemFile Source="TwoColumnsOneColumn.aspx" Target="PageLayouts\" Type="ElementFile" />
     <ProjectItemFile Source="BootstrapRightSidebar.aspx" Target="PageLayouts\" Type="ElementFile" />
     <ProjectItemFile Source="BootstrapTwoColumns.aspx" Target="PageLayouts\" Type="ElementFile" />
+    <ProjectItemFile Source="BootstrapLeftSlimSidebar.aspx" Target="PageLayouts\" Type="ElementFile" />
   </Files>
 </ProjectItem>
