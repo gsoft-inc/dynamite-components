@@ -21,6 +21,9 @@
   <IgnoreGeneratedCode>True</IgnoreGeneratedCode>
  </ProjectOptions>
  <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>$(ProjectDir)/GSoft.Dynamite.VanillaCrossSiteCMS.Scripts/bin/Debug/</Directory>
+  </AssemblyReferenceDirectories>
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Design.Contracts/bin/Debug/GSoft.Dynamite.Design.Contracts.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Design.Core/bin/Debug/GSoft.Dynamite.Design.Core.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Design.SP/bin/Debug/GSoft.Dynamite.Design.SP.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -33,6 +36,8 @@
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Migration.Contracts/bin/Debug/GSoft.Dynamite.Migration.Contracts.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Migration.Core/bin/Debug/GSoft.Dynamite.Migration.Core.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Migration.SP/bin/Debug/GSoft.Dynamite.Migration.SP.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/GSoft.Dynamite.Models.CrossSitePublishingCMS/bin/Debug/GSoft.Dynamite.Models.CrossSitePublishingCMS.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/GSoft.Dynamite.Models.StandardPublishingCMS/bin/Debug/GSoft.Dynamite.Models.StandardPublishingCMS.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Multilingualism.Contracts/bin/Debug/GSoft.Dynamite.Multilingualism.Contracts.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Multilingualism.Core/bin/Debug/GSoft.Dynamite.Multilingualism.Core.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Multilingualism.SP/bin/Debug/GSoft.Dynamite.Multilingualism.SP.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -44,11 +49,6 @@
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Publishing.SP/bin/Debug/GSoft.Dynamite.Publishing.SP.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Search.Contracts/bin/Debug/GSoft.Dynamite.Search.Contracts.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Search.Core/bin/Debug/GSoft.Dynamite.Search.Core.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/GSoft.Dynamite.Search.SP/bin/Debug/GSoft.Dynamite.Search.SP.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/GSoft.Dynamite.Models.CrossSitePublishingCMS/bin/Debug/GSoft.Dynamite.Models.CrossSitePublishingCMS.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/GSoft.Dynamite.Models.StandardPublishingCMS/bin/Debug/GSoft.Dynamite.Models.StandardPublishingCMS.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/GSoft.Dynamite.VanillaCrossSiteCMS.Scripts/bin/Debug/GSoft.Dynamite.VanillaCrossSiteCMS.Scripts.dll" Analyze="True" AnalyzeAllChildren="True" />
-  <Target Name="$(ProjectDir)/GSoft.Dynamite.Search.SP/bin/Debug/GSoft.Dynamite.Search.SP.dll" Analyze="True" AnalyzeAllChildren="True" />
   <Target Name="$(ProjectDir)/GSoft.Dynamite.Search.SP/bin/Debug/GSoft.Dynamite.Search.SP.dll" Analyze="True" AnalyzeAllChildren="True" />
  </Targets>
  <Rules>
