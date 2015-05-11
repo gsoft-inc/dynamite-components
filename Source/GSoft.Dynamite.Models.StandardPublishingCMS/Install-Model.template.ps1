@@ -56,8 +56,8 @@ try {
 	if($IsMultilingual)
 	{
 		# Why LANG02 before LANG01?
-		#.\Modules\Multilingualism\LANG_02\Install-LANG02.ps1
-		#.\Modules\Multilingualism\LANG_01\Install-LANG01.ps1
+		.\Modules\Multilingualism\LANG_02\Install-LANG02.ps1
+		.\Modules\Multilingualism\LANG_01\Install-LANG01.ps1
 		#.\Modules\Multilingualism\LANG_03\Install-LANG03.ps1
 	}
 	#endregion
