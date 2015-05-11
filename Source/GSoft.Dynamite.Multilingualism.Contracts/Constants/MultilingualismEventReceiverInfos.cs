@@ -31,7 +31,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         {
             return new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatableItem.ContentTypeId),
-                SPEventReceiverType.ItemAdded);
+                SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents" };
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         {
             return new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatableItem.ContentTypeId),
-                SPEventReceiverType.ItemUpdated);
+                SPEventReceiverType.ItemUpdated) { ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents" };
         }
 
         #endregion
@@ -57,7 +57,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         {
             return new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatablePage.ContentTypeId),
-                SPEventReceiverType.ItemAdded);
+                SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatablePageEvents" };
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             return new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatablePage.ContentTypeId),
                 SPEventReceiverType.ItemUpdated,
-                SPEventReceiverSynchronization.Synchronous);
+                SPEventReceiverSynchronization.Synchronous) { ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatablePageEvents" };
         }
 
         #endregion

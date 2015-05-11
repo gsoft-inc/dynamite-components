@@ -62,6 +62,14 @@
     <None Include="Modules\Design\DSGN_01\Setup-Theme.template.ps1" />
     <None Include="Modules\Design\Tokens.Design.Custom.ps1" />
     <None Include="Modules\Design\Tokens.Design.Default.ps1" />
+    <None Include="Modules\Multilingualism\LANG_01\Adjust-VariationsTimerJob.template.ps1" />
+    <None Include="Modules\Multilingualism\LANG_01\Install-LANG01.ps1" />
+    <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
+    <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.template.ps1" />
+    <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.template.ps1" />
+    <None Include="Modules\Multilingualism\LANG_02\Setup-Fields.template.ps1" />
+    <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
+    <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
     <None Include="Modules\Navigation\NAV_01\Setup-ManagedNavigation.template.ps1" />
     <None Include="Modules\Navigation\NAV_05\Install-NAV05.ps1" />

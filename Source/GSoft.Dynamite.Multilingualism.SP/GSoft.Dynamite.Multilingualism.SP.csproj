@@ -90,20 +90,21 @@
       <DependentUpon>LanguageSwitcher.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\TranslatableItemEvents.cs" />
+    <Compile Include="Events\TranslatablePageEvents.cs" />
     <Compile Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.EventReceiver.cs">
       <DependentUpon>CommonCMS_SyncWeb.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CommonCMS_VariationsHierarchies\CommonCMS_VariationsHierarchies.EventReceiver.cs">
       <DependentUpon>CommonCMS_VariationsHierarchies.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_EventReceivers\CommonCMS_EventReceivers.EventReceiver.cs">
+      <DependentUpon>CommonCMS_EventReceivers.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
@@ -139,13 +140,13 @@
     <None Include="Features\CrossSitePublishingCMS_LanguageSwitcher\CrossSitePublishingCMS_LanguageSwitcher.feature">
       <FeatureId>{058d4a42-7b65-40a4-8067-b83113f6644d}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
+    <None Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.feature">
       <FeatureId>{1a372bcd-f963-4376-8daa-20f04367c6b3}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.feature">
+    <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
       <FeatureId>{2b7a1022-bf45-46d4-a48a-e871264e8abf}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
+    <None Include="Features\CommonCMS_EventReceivers\CommonCMS_EventReceivers.feature">
       <FeatureId>{f1802c45-cdce-4b07-9f86-9574f16b0c12}</FeatureId>
     </None>
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
@@ -205,14 +206,14 @@
     <Content Include="Features\CrossSitePublishingCMS_LanguageSwitcher\CrossSitePublishingCMS_LanguageSwitcher.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_LanguageSwitcher.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.Template.xml">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_EventReceivers\CommonCMS_EventReceivers.Template.xml">
+      <DependentUpon>CommonCMS_EventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>

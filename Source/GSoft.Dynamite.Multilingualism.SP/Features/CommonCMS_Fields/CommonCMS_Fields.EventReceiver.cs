@@ -1,11 +1,11 @@
 using System.Runtime.InteropServices;
 using Autofac;
-using GSoft.Dynamite.ContentTypes;
+using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_ContentTypes
+namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_Fields
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -13,11 +13,11 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Cont
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-    [Guid("4a54780e-a34c-4d70-bb97-2ff049a57ccd")]
-    public class CrossSitePublishingCMS_ContentTypesEventReceiver : SPFeatureReceiver
+    [Guid("3807deb0-3421-4525-ac09-34270c8d6d82")]
+    public class CommonCmsFieldsEventReceiver : SPFeatureReceiver
     {
         /// <summary>
-        /// Creates content types for the multilingualism module
+        /// Creates fields for the multilingualism module
         /// </summary>
         /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
@@ -28,15 +28,16 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Cont
             {
                 using (var featureScope = MultilingualismContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var contentTypeHelper = featureScope.Resolve<IContentTypeHelper>();
-                    var baseContentTypeConfig = featureScope.Resolve<IMultilingualismContentTypeInfoConfig>();
-                    var baseContentTypes = baseContentTypeConfig.ContentTypes;
+                    var fieldHelper = featureScope.Resolve<IFieldHelper>();
+                    var baseFieldInfoConfig = featureScope.Resolve<IMultilingualismFieldInfoConfig>();
+                    var baseFields = baseFieldInfoConfig.Fields;
                     var logger = featureScope.Resolve<ILogger>();
 
-                    // Create base content types
-                    foreach (var contentType in baseContentTypes)
+                    // Create base Fields
+                    foreach (BaseFieldInfo field in baseFields)
                     {
-                        contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
+                        logger.Info("Creating field {0}", field.InternalName);
+                        fieldHelper.EnsureField(site.RootWeb.Fields, field);
                     }
                 }
             }

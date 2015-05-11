@@ -7,7 +7,7 @@ using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_EventReceivers
+namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_EventReceivers
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -16,7 +16,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
     [Guid("ebb45495-7d0c-407e-abb6-2a64c7322e25")]
-    public class CrossSitePublishingCMS_EventReceiversEventReceiver : SPFeatureReceiver
+    public class CommonCmsEventReceiversEventReceiver : SPFeatureReceiver
     {
         /// <summary>
         /// Adds event receivers for the multilingualism module
@@ -38,12 +38,10 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
-
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
-                        eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";
-
                         eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
+
+                        logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
                     }
                 }
             }
@@ -69,12 +67,10 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Even
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        logger.Info("Deleting event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
-
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
-                        eventReceiver.ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents";
-
                         eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
+
+                        logger.Info("Deleting event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
                     }
                 }
             }
