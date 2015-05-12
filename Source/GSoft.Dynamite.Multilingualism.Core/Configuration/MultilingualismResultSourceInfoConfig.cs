@@ -63,7 +63,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
                 // Extend the existing query 
                 resultSource.UpdateMode = ResultSourceUpdateBehavior.AppendToQuery;
                 resultSource.Query =
-                    itemLanguage + ":{Page.DynamiteItemLanguage}";
+                    itemLanguage + ":{Site.Locale}";
 
                 return resultSource;
             }
@@ -82,7 +82,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
 
                 // Extend the existing query 
                 resultSource.UpdateMode = ResultSourceUpdateBehavior.AppendToQuery;
-                resultSource.Query = itemLanguage + ":{Page.DynamiteItemLanguage}";
+                resultSource.Query = itemLanguage + ":{Site.Locale}";
 
                 return resultSource;
             }
@@ -101,7 +101,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
 
                 // Extend the existing query 
                 resultSource.UpdateMode = ResultSourceUpdateBehavior.AppendToQuery;
-                resultSource.Query = itemLanguage + ":{Page.DynamiteItemLanguage}";
+                resultSource.Query = itemLanguage + ":{Site.Locale}";
 
                 return resultSource;
             }

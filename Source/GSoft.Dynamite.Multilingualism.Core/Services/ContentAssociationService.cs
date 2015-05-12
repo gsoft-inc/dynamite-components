@@ -115,25 +115,10 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
         {
             if (item.Fields.ContainsField(fieldInternalName))
             {
-                // Check if the web is a publishing web
-                var publishingWeb = PublishingWeb.GetPublishingWeb(item.Web);
-                if (publishingWeb != null)
-                {
-                    var label = publishingWeb.Label;
-                    string localeAgnosticLanguage;
-
-                    if (label != null)
-                    {
-                        localeAgnosticLanguage = label.Title;
-                    }
-                    else
-                    {
-                        localeAgnosticLanguage = new CultureInfo((int)item.Web.Language).TwoLetterISOLanguageName;
-                    }
-
-                    item[fieldInternalName] = localeAgnosticLanguage;
-                }
-
+                // Use the ll-cc format to match with the search token {Site.Locale}
+                string locale = new CultureInfo((int)item.Web.Language).Name;                 
+                item[fieldInternalName] = locale;
+                
                 this._logger.Info(
                     "ContentAssociation.SetTranslationLanguage: Set item language to '{0}' on item '{1}' in web '{2}'.",
                     item[fieldInternalName],
