@@ -75,5 +75,39 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         #endregion
+
+        /// <summary>
+        /// The english home page information.
+        /// </summary>
+        /// <returns>The page information.</returns>
+        public static PageInfo HomepageEn
+        {
+            get
+            {
+                return new PageInfo()
+                {
+                    FileName = "Home",
+                    Title = "Home",
+                    IsPublished = true,
+                };
+            }
+        }
+
+        /// <summary>
+        /// The french home page information.
+        /// </summary>
+        /// <returns>The page information.</returns>
+        public static PageInfo HomepageFr
+        {
+            get
+            {
+                return new PageInfo()
+                {
+                    FileName = "Accueil",
+                    Title = "Accueil",
+                    IsPublished = true,
+                };
+            }
+        }
     }
 }

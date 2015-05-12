@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.WebParts;
+using Microsoft.SharePoint.WebPartPages;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
@@ -14,20 +16,27 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// </summary>
     public class PublishingPageInfoConfig : IPublishingPageInfoConfig
     {
+        private const string PlaceholderBackgroundColor = "#0092d7";
+        private const string PlaceholderTextColor = "#ffffff";
+
         private readonly IPublishingWebPartInfoConfig publishingWebPartInfoConfig;
+        private readonly IWebPartHelper webPartHelper;
         private readonly IPublishingPageLayoutInfoConfig publishingPageLayoutInfoConfig;
 
         /// <summary>
         /// Creates a new publishing page instance configuration
         /// </summary>
+        /// <param name="webPartHelper">Web part helper</param>
         /// <param name="publishingWebPartInfoConfig">Web part configuration</param>
         /// <param name="publishingPageLayoutInfoConfig">Page layout configuration</param>
         public PublishingPageInfoConfig(
+            IWebPartHelper webPartHelper,
             IPublishingWebPartInfoConfig publishingWebPartInfoConfig, 
             IPublishingPageLayoutInfoConfig publishingPageLayoutInfoConfig)
         {
             this.publishingWebPartInfoConfig = publishingWebPartInfoConfig;
             this.publishingPageLayoutInfoConfig = publishingPageLayoutInfoConfig;
+            this.webPartHelper = webPartHelper;
         }
 
         /// <summary>
@@ -41,7 +50,9 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 {
                     this.TargetItemPageTemplate,
                     this.CatalogItemPageTemplate,
-                    this.CatalogCategoryItemsPageTemplate
+                    this.CatalogCategoryItemsPageTemplate,
+                    this.HomePageEn,
+                    this.HomePageFr
                 };
             }
         }
@@ -117,6 +128,42 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             }
         }
 
+        private PageInfo HomePageEn
+        {
+            get
+            {
+                var page = PublishingPageInfos.HomepageEn;
+                page.PageLayout = this.publishingPageLayoutInfoConfig.GetPageLayoutByName(PublishingPageLayoutInfos.RightSidebar.Name);
+                page.WebParts = new[]
+                {
+                    new WebPartInfo("Header", this.GetPlaceholderWebPart(391, "Header content"), 0),
+                    new WebPartInfo("Main", this.GetPlaceholderWebPart(391, "Main content"), 0),
+                    new WebPartInfo("RightColumn", this.GetPlaceholderWebPart(391, "Right column content"), 0),
+                };
+
+                // Return the page
+                return page;
+            }
+        }
+
+        private PageInfo HomePageFr
+        {
+            get
+            {
+                var page = PublishingPageInfos.HomepageFr;
+                page.PageLayout = this.publishingPageLayoutInfoConfig.GetPageLayoutByName(PublishingPageLayoutInfos.RightSidebar.Name);
+                page.WebParts = new[]
+                {
+                    new WebPartInfo("Header", this.GetPlaceholderWebPart(391, "Contenu en-tête"), 0),
+                    new WebPartInfo("Main", this.GetPlaceholderWebPart(391, "Contenu principal"), 0),
+                    new WebPartInfo("RightColumn", this.GetPlaceholderWebPart(391, "Contenu colonne de droite"), 0),
+                };
+
+                // Return the page
+                return page;
+            }
+        }
+
         /// <summary>
         /// Gets the page information by file name from this configuration.
         /// </summary>
@@ -127,6 +174,13 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         public PageInfo GetPageInfoByFileName(string fileName)
         {
             return this.Pages.Single(p => p.FileName.Equals(fileName, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        private WebPart GetPlaceholderWebPart(int height, string title)
+        {
+            var webPart = this.webPartHelper.CreateResponsivePlaceholderWebPart(height, PlaceholderBackgroundColor, PlaceholderTextColor, title);
+            webPart.Title = title;
+            return webPart;
         }
     }
 }

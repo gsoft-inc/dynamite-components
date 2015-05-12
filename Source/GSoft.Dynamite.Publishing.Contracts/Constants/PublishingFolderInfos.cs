@@ -40,31 +40,31 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
-        /// Test nested folder
+        /// The French folder
         /// </summary>
-        /// <returns>The folder info</returns>
-        public static FolderInfo FolderTest
+        /// <returns>A Root FolderInfo for the french language</returns>
+        public static FolderInfo RootFolderFr
         {
             get
             {
                 return new FolderInfo()
                 {
-                    Name = "Folder1",
+                    Name = "RootFolderFr",
                 };
             }
         }
 
         /// <summary>
-        /// Test nested folder
+        /// The English folder
         /// </summary>
-        /// <returns>The folder info</returns>
-        public static FolderInfo FolderTest2
+        /// <returns>A Root FolderInfo for the english language</returns>
+        public static FolderInfo RootFolderEn
         {
             get
             {
                 return new FolderInfo()
                 {
-                    Name = "Folder2",
+                    Name = "RootFolderEn",                  
                 };
             }
         }

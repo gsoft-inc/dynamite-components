@@ -80,6 +80,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Features\CommonCMS_HomePages\CommonCMS_HomePages.EventReceiver.cs">
+      <DependentUpon>CommonCMS_HomePages.feature</DependentUpon>
+    </Compile>
     <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ClientScripts.ascx.cs">
       <DependentUpon>ClientScripts.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -172,6 +175,9 @@
     </None>
     <None Include="Artefacts\PageLayouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{621e215b-d2d9-4c78-85a2-f38af1a379eb}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\CommonCMS_HomePages\CommonCMS_HomePages.feature">
+      <FeatureId>{01c3d7b8-c960-4a09-8d75-f045e9f24d7d}</FeatureId>
     </None>
     <None Include="JSHintConfig.json" />
     <None Include="SP.ControlTemplates\SharePointProjectItem.spdata">
@@ -283,6 +289,9 @@
     <Content Include="Artefacts\PageLayouts\TargetItemPageLayout.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogCategoryPageTemplate.aspx" />
     <Content Include="Artefacts\PageLayouts\TwoColumnsOneColumn.aspx" />
+    <Content Include="Features\CommonCMS_HomePages\CommonCMS_HomePages.Template.xml">
+      <DependentUpon>CommonCMS_HomePages.feature</DependentUpon>
+    </Content>
     <Content Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ClientScripts.ascx" />
     <Content Include="SP.ControlTemplates\GSoft.Dynamite.Publishing\ReusableContentUserControl.ascx" />
     <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">

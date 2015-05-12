@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Folders;
 using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -33,7 +34,22 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 return new List<FolderInfo>()
                 {
                     this.ItemPageTemplates,
-                    this.CategoryPageTemplates
+                    this.CategoryPageTemplates,
+                };
+            }
+        }
+
+        /// <summary>
+        /// Property that return all the folder hierarchies used for home pages by language
+        /// </summary>
+        public IList<FolderInfo> HomePages
+        {
+            get
+            {
+                return new List<FolderInfo>()
+                {
+                    this.RootFolderFr,
+                    this.RootFolderEn
                 };
             }
         }
@@ -49,10 +65,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 var folder = PublishingFolderInfos.ItemPageTemplates;
-                folder.Subfolders = new List<FolderInfo>()
-                {
-                    this.FolderTest
-                };
+
                 folder.Pages = new List<PageInfo>()
                 {
                     this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.TargetItemPageTemplate.FileName),
@@ -74,10 +87,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             get
             {
                 var folder = PublishingFolderInfos.ItemPageTemplates;
-                folder.Subfolders = new List<FolderInfo>()
-                {
-                    this.FolderTest
-                };
+
                 folder.Pages = new List<PageInfo>()
                 {
                     this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogCategoryItemsPageTemplate.FileName)
@@ -88,44 +98,47 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         }
 
         /// <summary>
-        /// Gets the folder test.
+        /// The English folder
         /// </summary>
-        /// <value>
-        /// The folder test.
-        /// </value>
-        public FolderInfo FolderTest
+        /// <returns>A Root FolderInfo for the english language</returns>
+        private FolderInfo RootFolderEn
         {
             get
             {
-                var folder = PublishingFolderInfos.ItemPageTemplates;
-                folder.Subfolders = new List<FolderInfo>()
+                var folder = PublishingFolderInfos.RootFolderEn;
+                var englishHomepage = this.publishingPageInfoConfig.GetPageInfoByFileName("Home");
+
+                folder.Pages = new List<PageInfo>()
                 {
-                    this.FolderTest2
+                    englishHomepage,
                 };
+                folder.WelcomePage = englishHomepage;
+                folder.Locale = Language.English.Culture;
 
                 return folder;
             }
         }
 
         /// <summary>
-        /// Gets the folder test 2.
+        /// The French folder
         /// </summary>
-        /// <value>
-        /// The folder test2.
-        /// </value>
-        public FolderInfo FolderTest2
+        /// <returns>A Root FolderInfo for the french language</returns>
+        private FolderInfo RootFolderFr
         {
             get
             {
-                var folder = PublishingFolderInfos.ItemPageTemplates;
+                var folder = PublishingFolderInfos.RootFolderFr;
+                var frenchHomepage = this.publishingPageInfoConfig.GetPageInfoByFileName("Accueil");
+
                 folder.Pages = new List<PageInfo>()
                 {
-                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.TargetItemPageTemplate.FileName),
-                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogItemPageTemplate.FileName)
+                    frenchHomepage,
                 };
+                folder.WelcomePage = frenchHomepage;
+                folder.Locale = Language.French.Culture;
 
                 return folder;
-            }            
+            }
         }
     }
 }

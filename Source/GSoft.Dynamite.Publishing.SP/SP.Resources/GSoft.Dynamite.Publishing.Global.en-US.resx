@@ -423,4 +423,10 @@
   <data name="PageLayout_BootsrapOneColumnPageLayout_Name" xml:space="preserve">
     <value>Bootstrap 1 column Page Layout</value>
   </data>
+  <data name="Feature_CommonCMS_HomePages_Desc" xml:space="preserve">
+    <value>Creates home page in the Pages library for the web</value>
+  </data>
+  <data name="Feature_CommonCMS_HomePages_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Home Page</value>
+  </data>
 </root>

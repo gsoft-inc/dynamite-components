@@ -43,6 +43,7 @@ $DSP_CommonCMS_PUB_Lists = "3be0c334-1fa9-4631-ade5-f9e044b1289d"
 $DSP_CommonCMS_PUB_PageLayouts = "374b7569-9e11-4ecd-8771-da59be52141e"
 $DSP_StandardPublishingCMS_PUB_MetadataNavigation = "20b34b37-095a-437a-a5ab-65af7616da8f"
 $DSP_CommonCMS_LANG_CreateVariationsHierarchies = "50213452-1d24-4eae-b915-9ade611bbeb5"
+$DSP_CommonCMS_PUB_HomePages = "3d805cb5-21fe-400d-9b22-6c3ef057988b"
 
 # ============================================
 # SHAREPOINT OOTB FEATURES

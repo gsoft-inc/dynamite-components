@@ -92,6 +92,7 @@
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.template.ps1" />
     <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
     <None Include="Modules\Publishing\PUB_02\Setup-PageLayouts.template.ps1" />
+    <None Include="Modules\Publishing\PUB_02\Setup-Pages.template.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Nuget\Install.ps1" />
