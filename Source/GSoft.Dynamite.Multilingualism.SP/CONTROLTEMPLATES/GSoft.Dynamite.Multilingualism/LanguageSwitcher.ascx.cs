@@ -104,23 +104,28 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         /// </summary>
         protected override void CreateChildControls()
         {
-            // If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
-            // shared search results from the Content by Search Web Part
-            if (this.CurrentNavigationContext == VariationNavigationType.ItemPage)
-            {
-                var catalogItemWebPart = new CatalogItemReuseWebPart()
+            MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(
+                SPContext.Current.Web, 
+                () =>
                 {
-                    ID = CatalogItemReuseWebPartId,
-                    NumberOfItems = 1,
-                    UseSharedDataProvider = true,
+                    // If catalog item page, insert a CatalogItemReuseWebPart to fetch the association key for the
+                    // shared search results from the Content by Search Web Part
+                    if (this.CurrentNavigationContext == VariationNavigationType.ItemPage)
+                    {
+                        var catalogItemWebPart = new CatalogItemReuseWebPart()
+                        {
+                            ID = CatalogItemReuseWebPartId,
+                            NumberOfItems = 1,
+                            UseSharedDataProvider = true,
 
-                    // The query group name must be the same as the search webpart which display the current item to get the association key correctly
-                    QueryGroupName = ((ResultScriptWebPart)this.PublishingWebPartConfig.GetWebPartInfoByTitle(PublishingWebPartInfos.CatalogItemContentWebPart.WebPart.Title).WebPart).QueryGroupName,
-                    SelectedPropertiesJson = string.Format("['{0}']", MultilingualismManagedPropertyInfos.ContentAssociationKey.Name),
-                };
+                            // The query group name must be the same as the search webpart which display the current item to get the association key correctly
+                            QueryGroupName = ((ResultScriptWebPart)this.PublishingWebPartConfig.GetWebPartInfoByTitle(PublishingWebPartInfos.CatalogItemContentWebPart.WebPart.Title).WebPart).QueryGroupName,
+                            SelectedPropertiesJson = string.Format("['{0}']", MultilingualismManagedPropertyInfos.ContentAssociationKey.Name),
+                        };
 
-                Controls.Add(catalogItemWebPart);
-            }
+                        Controls.Add(catalogItemWebPart);
+                    }
+                });
         }
 
         /// <summary>

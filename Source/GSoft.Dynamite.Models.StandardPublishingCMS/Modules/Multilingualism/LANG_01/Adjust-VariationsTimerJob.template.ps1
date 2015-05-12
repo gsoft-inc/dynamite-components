@@ -8,7 +8,7 @@
 $webApp = "[[DSP_PortalWebAppUrl]]"
 $defaultTimerSchedule = "[[DSP_DEFAULT_VariationTimerJobFrequence]]"
 $customTimerSchedule = "[[DSP_CUSTOM_VariationTimerJobFrequence]]"
-$timerJob = "VariationsPropagateListItem"
+$timerJob = "VariationsPropagatePage"
 
 $timerSchedule = $defaultTimerSchedule
 
