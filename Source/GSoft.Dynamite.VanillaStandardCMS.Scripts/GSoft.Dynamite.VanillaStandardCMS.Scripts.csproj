@@ -46,6 +46,8 @@
     <None Include="Install-Model.template.ps1" />
     <None Include="Modules\Design\Tokens.Design.Custom.ps1" />
     <None Include="Modules\Design\Tokens.Design.Default.ps1" />
+    <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
+    <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
@@ -53,6 +55,7 @@
     <None Include="packages.config" />
     <None Include="Publish-DeploymentFolder.ps1" />
     <None Include="Tokens.FRANCK-VM2013.ps1" />
+    <None Include="Tokens.SVD1100SHRP03.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PostDeployment\" />
@@ -60,7 +63,6 @@
   <ItemGroup>
     <Content Include="README.txt" />
     <Content Include="Solutions\Custom\Custom-Solutions.template.xml" />
-    <Content Include="Solutions\Custom\Custom-Solutions.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

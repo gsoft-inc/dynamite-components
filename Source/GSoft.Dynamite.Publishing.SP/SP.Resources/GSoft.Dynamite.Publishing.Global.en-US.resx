@@ -415,6 +415,12 @@
     <value>Create a 2 columns with the same width page layout</value>
   </data>
   <data name="PageLayout_BootsrapTwoColumnsPageLayout_Name" xml:space="preserve">
-    <value>Bootstrap two columsn Page Layout</value>
+    <value>Bootstrap two columns Page Layout</value>
+  </data>
+  <data name="PageLayout_BootsrapOneColumnPageLayout_Desc" xml:space="preserve">
+    <value>Create a 1 column page lazout</value>
+  </data>
+  <data name="PageLayout_BootsrapOneColumnPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap 1 column Page Layout</value>
   </data>
 </root>

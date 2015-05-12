@@ -115,6 +115,22 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
+        /// The one column generic page layout using Bootstrap
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapOneColumn
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapOneColumn.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
         /// The left slim sidebar generic page layout using Bootstrap
         /// </summary>
         /// <returns>The page layout info</returns>
