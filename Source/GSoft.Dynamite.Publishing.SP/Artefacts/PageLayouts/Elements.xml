@@ -46,7 +46,7 @@
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootsrapOneColumnPageLayout_Desc;" />
     </File>
-    <File Path="BootstrapOneColumns.aspx" Url="BootstrapOneColumns.aspx"  Type="GhostableInLibrary">
+    <File Path="BootstrapOneColumn.aspx" Url="BootstrapOneColumn.aspx"  Type="GhostableInLibrary">
       <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootsrapTwoColumnsPageLayout_Name;" />
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootsrapTwoColumnsPageLayout_Desc;" />
