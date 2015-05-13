@@ -5,7 +5,7 @@
 # Description	: Create page instances
 # -----------------------------------------------------------------------
 
-Write-Warning "Applying Page instances configuration (with Home Pages)..."
+Write-Warning "Configuring home pages..."
 
 # Activate features on all publishing sites (sources an targets)
 [[DSP_PublishingTargetRootWebUrls]] | Foreach-Object{

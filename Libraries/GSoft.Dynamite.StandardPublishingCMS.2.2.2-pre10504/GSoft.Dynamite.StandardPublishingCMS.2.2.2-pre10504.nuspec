@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>GSoft.Dynamite.StandardPublishingCMS</id>
-    <version>2.2.2-pre10502</version>
+    <version>2.2.2-pre10504</version>
     <title>GSoft.Dynamite.StandardPublishingCMS</title>
     <authors>GSoft</authors>
     <owners>GSoft</owners>

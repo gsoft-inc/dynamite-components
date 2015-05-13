@@ -20,13 +20,3 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-PageLayouts.ps1'
 & $Script -Force
-
-# ==================================== #
-# =========  PAGE INSTANCES   ======== #
-# ==================================== #
-
-$values = @{"Step: " = "#2 Create Page Instances"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-Pages.ps1'
-& $Script -Force

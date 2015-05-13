@@ -31,3 +31,13 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Theme.ps1'
 & $Script
+
+# =================================== #
+# =========   HOME PAGES   ========== #
+# =================================== #
+
+$values = @{"Step: " = "#3 Home pages"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-pages.ps1'
+& $Script
