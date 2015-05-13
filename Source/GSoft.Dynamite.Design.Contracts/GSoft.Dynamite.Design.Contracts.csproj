@@ -61,7 +61,11 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Configuration\IDesignConfig.cs" />
+    <Compile Include="Configuration\IDesignPageInfoConfig.cs" />
+    <Compile Include="Configuration\IDesignFolderInfoConfig.cs" />
     <Compile Include="Constants\DesignInfos.cs" />
+    <Compile Include="Constants\DesignPageInfos.cs" />
+    <Compile Include="Constants\DesignFolderInfos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

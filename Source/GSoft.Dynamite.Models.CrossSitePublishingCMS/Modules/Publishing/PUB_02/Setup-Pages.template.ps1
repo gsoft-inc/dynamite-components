@@ -11,11 +11,9 @@ Write-Warning "Applying Page instances configuration (with Home Pages)..."
 [[DSP_PublishingTargetRootWebUrls]] | Foreach-Object{
 
 	Initialize-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_PUB_ItemPages]]
-	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_PUB_HomePages]]
 }
 
 [[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
 
 	Initialize-DSPFeature -Url $_ -Id [[DSP_CrossSitePublishingCMS_PUB_ItemPages]]
-	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_PUB_HomePages]]
 }

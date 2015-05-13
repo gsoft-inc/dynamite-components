@@ -40,21 +40,6 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         }
 
         /// <summary>
-        /// Property that return all the folder hierarchies used for home pages by language
-        /// </summary>
-        public IList<FolderInfo> HomePages
-        {
-            get
-            {
-                return new List<FolderInfo>()
-                {
-                    this.RootFolderFr,
-                    this.RootFolderEn
-                };
-            }
-        }
-
-        /// <summary>
         /// Gets the item page templates.
         /// </summary>
         /// <value>
@@ -92,50 +77,6 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 {
                     this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogCategoryItemsPageTemplate.FileName)
                 };
-
-                return folder;
-            }
-        }
-
-        /// <summary>
-        /// The English folder
-        /// </summary>
-        /// <returns>A Root FolderInfo for the english language</returns>
-        private FolderInfo RootFolderEn
-        {
-            get
-            {
-                var folder = PublishingFolderInfos.RootFolderEn;
-                var englishHomepage = this.publishingPageInfoConfig.GetPageInfoByFileName("Home");
-
-                folder.Pages = new List<PageInfo>()
-                {
-                    englishHomepage,
-                };
-                folder.WelcomePage = englishHomepage;
-                folder.Locale = Language.English.Culture;
-
-                return folder;
-            }
-        }
-
-        /// <summary>
-        /// The French folder
-        /// </summary>
-        /// <returns>A Root FolderInfo for the french language</returns>
-        private FolderInfo RootFolderFr
-        {
-            get
-            {
-                var folder = PublishingFolderInfos.RootFolderFr;
-                var frenchHomepage = this.publishingPageInfoConfig.GetPageInfoByFileName("Accueil");
-
-                folder.Pages = new List<PageInfo>()
-                {
-                    frenchHomepage,
-                };
-                folder.WelcomePage = frenchHomepage;
-                folder.Locale = Language.French.Culture;
 
                 return folder;
             }

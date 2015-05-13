@@ -11,10 +11,10 @@ $DSP_CUSTOM_PortalSetupSolutionsConfigurationFile = ".\Custom\Custom-Solutions.x
 # ******************************************
 # Application Configuration 
 # ******************************************
-$DSP_PortalWebAppUrl = "http://HOSTNAME/"
+$DSP_PortalWebAppUrl = "http://franck-vm2013/"
 $DSP_PortalPublishingHostNamePath = "http://standard.dynamite.com"
 $DSP_PortalDocsHostNamePath = "http://docs.dynamite.com"
-$DSP_PortalAdmin = "OFFICE\YOUR.NAME"
+$DSP_PortalAdmin = "OFFICE\franck.cornu"
 $DSP_PortalDatabaseName = "SP2013_Content_Portal"
 $DSP_PortalDefaultLanguage = "1033"
 
@@ -26,7 +26,7 @@ $DSP_ServiceLocatorAssemblyName = ""
 # ******************************************
 # Search Configuration 
 # ******************************************
-$DSP_SearchServiceApplicationName = "Search Service Application"
+$DSP_SearchServiceApplicationName = "Search"
 $DSP_SearchContentSourceName = "Local SharePoint sites"
 $DSP_GoogleAnalyticsUA = "UA-XXXXXXXX"
 $DSP_EnableSEOFields = $false

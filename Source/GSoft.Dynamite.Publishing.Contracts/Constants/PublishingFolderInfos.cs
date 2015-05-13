@@ -38,35 +38,5 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                 };
             }
         }
-
-        /// <summary>
-        /// The French folder
-        /// </summary>
-        /// <returns>A Root FolderInfo for the french language</returns>
-        public static FolderInfo RootFolderFr
-        {
-            get
-            {
-                return new FolderInfo()
-                {
-                    Name = "RootFolderFr",
-                };
-            }
-        }
-
-        /// <summary>
-        /// The English folder
-        /// </summary>
-        /// <returns>A Root FolderInfo for the english language</returns>
-        public static FolderInfo RootFolderEn
-        {
-            get
-            {
-                return new FolderInfo()
-                {
-                    Name = "RootFolderEn",                  
-                };
-            }
-        }
     }
 }

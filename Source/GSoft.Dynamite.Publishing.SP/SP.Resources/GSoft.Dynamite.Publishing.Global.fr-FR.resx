@@ -423,10 +423,4 @@
   <data name="PageLayout_BootsrapOneColumnPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page Bootstrap avec 1 colonne</value>
   </data>
-  <data name="Feature_CommonCMS_HomePages_Desc" xml:space="preserve">
-    <value>Créer la page d'accueil la bibliothèque de pages du site</value>
-  </data>
-  <data name="Feature_CommonCMS_HomePages_Name" xml:space="preserve">
-    <value>Dynamite CMS de publication commun - Module de publication - Page d'accueil</value>
-  </data>
 </root>

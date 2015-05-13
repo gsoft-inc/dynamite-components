@@ -13,10 +13,5 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         /// Property that return all the folder hierarchies to create in the publishing module
         /// </summary>
         IList<FolderInfo> RootFolderHierarchies { get; }
-
-        /// <summary>
-        /// Property that return all the folder hierarchies used for home pages by language
-        /// </summary>
-        IList<FolderInfo> HomePages { get; }
     }
 }
