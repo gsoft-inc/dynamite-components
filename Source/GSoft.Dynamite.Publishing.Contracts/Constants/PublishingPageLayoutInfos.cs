@@ -147,6 +147,70 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         }
 
         /// <summary>
+        /// The Bootstrap Three Equal Columns Page Layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapThreeColumns
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapThreeColumns.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The Bootstrap Four Equal Columns Page Layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapFourColumns
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapFourColumns.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The Bootstrap Left Sidebar Page Layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapLeftSidebar
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapLeftSidebar.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The Bootstrap Right Slim Sidebar
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapRightSlimSidebar
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapRightSlimSidebar.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
         /// A layout with a single column body and an header section
         /// </summary>
         /// <returns>The Page Layout Info</returns>

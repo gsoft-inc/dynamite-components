@@ -30,6 +30,10 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                     PublishingPageLayoutInfos.BootstrapTwoColumns,
                     PublishingPageLayoutInfos.BootstrapOneColumn,
                     PublishingPageLayoutInfos.BootstrapLeftSlimSidebar,
+                    PublishingPageLayoutInfos.BootstrapThreeColumns,
+                    PublishingPageLayoutInfos.BootstrapFourColumns,
+                    PublishingPageLayoutInfos.BootstrapLeftSidebar,
+                    PublishingPageLayoutInfos.BootstrapRightSlimSidebar,
                     PublishingPageLayoutInfos.OneColunmWithHeader,
                     PublishingPageLayoutInfos.OneColunmWithThreeTabs,
                     PublishingPageLayoutInfos.TwoColumnsAndOneColumn
