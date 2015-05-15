@@ -75,29 +75,21 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         {
             if (item != null)
             {
-                var itemNavigationFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id).InternalName;
+                var navigationFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.Navigation.Id).InternalName;
 
-                if (item.Fields.ContainsField(itemNavigationFieldName))
+                if (item.Fields.ContainsField(navigationFieldName))
                 {
-                    var termValue = item[itemNavigationFieldName] as TaxonomyFieldValue;
+                    var termValue = item[navigationFieldName] as TaxonomyFieldValue;
 
                     if (termValue != null)
                     {
                         var pageUrl = "~site/" + item.Url;
                         var termInfo = new TermInfo(new Guid(termValue.TermGuid), string.Empty, null);
-
-                        var termDrivenpage = new TermDrivenPageSettingInfo(
-                            termInfo, 
-                            pageUrl, 
-                            null, 
-                            null, 
-                            null, 
-                            false,
-                            false);
+                        var termDrivenpage = new TermDrivenPageSettingInfo(termInfo, pageUrl, null, null, null, false, false);
 
                         this.navigationHelper.SetTermDrivenPageSettings(site, termDrivenpage);
                     }
-                }             
+                }
             }
         }
 
@@ -154,7 +146,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         }
 
                         if (isSyncAvailable)
-                        { 
+                        {
                             // Check if there are some peer webs and add corresponding navigation term sets if so
                             if (publishingWeb.VariationPublishingWebUrls.Count > 0)
                             {
@@ -192,7 +184,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                         termExists = true;
                                     }
                                 }
-                            
+
                                 // Check if the current term is under a parent one
                                 if (!termExists)
                                 {
@@ -242,7 +234,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                     }
 
                                     termStore.CommitAll();
-                                }  
+                                }
                             }
                         }
                     }
@@ -265,7 +257,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                 {
                     var webLanguage = item.Web.Locale.LCID;
                     var termValue = item[itemNavigationFieldName] as TaxonomyFieldValue;
-                  
+
                     if (termValue != null)
                     {
                         var term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
@@ -290,7 +282,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                             // If the term is not the source, it will be deleted only in the target term set, not in the source one
                             term.Delete();
                             termStore.CommitAll();
-                        }  
+                        }
                     }
                 }
             }
