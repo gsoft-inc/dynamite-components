@@ -16,6 +16,11 @@
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
     </Solution>
+    <Solution Path="Solutions\GSoft.Dynamite.Navigation.SP.wsp" UpgradeExisting="false" Force="true">
+      <WebApplications>
+        <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
+      </WebApplications>
+    </Solution>
     <Solution Path="Solutions\GSoft.Dynamite.Multilingualism.SP.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
@@ -26,20 +31,10 @@
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
     </Solution>
-    <Solution Path="Solutions\GSoft.Dynamite.Navigation.SP.wsp" UpgradeExisting="false" Force="true">
-        <WebApplications>
-            <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
-        </WebApplications>
-    </Solution>
     <Solution Path="Solutions\GSoft.Dynamite.Docs.SP.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
             <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
         </WebApplications>
-    </Solution>
-    <Solution Path="Solutions\GSoft.Dynamite.Multilingualism.SP.wsp" UpgradeExisting="false" Force="true">
-      <WebApplications>
-        <WebApplication>[[DSP_PortalWebAppUrl]]</WebApplication>
-      </WebApplications>
     </Solution>
     <Solution Path="Solutions\Lapointe.SharePoint.PowerShell.wsp" UpgradeExisting="false" Force="true">
         <WebApplications>
