@@ -418,9 +418,33 @@
     <value>Bootstrap two columns Page Layout</value>
   </data>
   <data name="PageLayout_BootsrapOneColumnPageLayout_Desc" xml:space="preserve">
-    <value>Create a 1 column page lazout</value>
+    <value>Create a single column page lazout</value>
   </data>
   <data name="PageLayout_BootsrapOneColumnPageLayout_Name" xml:space="preserve">
-    <value>Bootstrap 1 column Page Layout</value>
+    <value>Bootstrap single column Page Layout</value>
+  </data>
+  <data name="PageLayout_BootstrapFourColumnsPageLayout_Desc" xml:space="preserve">
+    <value>A bootstrap page layout with four equal columns and a full width header.</value>
+  </data>
+  <data name="PageLayout_BootstrapFourColumnsPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap Four Equal Columns Page Layout</value>
+  </data>
+  <data name="PageLayout_BootstrapLeftSidebarPageLayout_Desc" xml:space="preserve">
+    <value>A bootstrap page layout with a left sidebar and a full width header.</value>
+  </data>
+  <data name="PageLayout_BootstrapLeftSidebarPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap Left Sidebar Page Layout</value>
+  </data>
+  <data name="PageLayout_BootstrapRightSlimSidebarPageLayout_Desc" xml:space="preserve">
+    <value>A bootstrap page layout with a slim right sidebar and a full width header.</value>
+  </data>
+  <data name="PageLayout_BootstrapRightSlimSidebarPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap Right Slim Sidebar</value>
+  </data>
+  <data name="PageLayout_BootstrapThreeColumnsPageLayout_Desc" xml:space="preserve">
+    <value>A bootstrap page layout with three equal columns and a full width header.</value>
+  </data>
+  <data name="PageLayout_BootstrapThreeColumnsPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap Three Equal Columns Page Layout</value>
   </data>
 </root>

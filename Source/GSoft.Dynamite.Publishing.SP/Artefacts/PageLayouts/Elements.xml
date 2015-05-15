@@ -51,10 +51,30 @@
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootsrapTwoColumnsPageLayout_Desc;" />
     </File>
-    <File Path="BootstrapLeftSlimSidebar.aspx" Url="PageLayouts/BootstrapLeftSlimSidebar.aspx"  Type="GhostableInLibrary">
+    <File Path="BootstrapLeftSlimSidebar.aspx" Url="BootstrapLeftSlimSidebar.aspx"  Type="GhostableInLibrary">
       <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootsrapTwoColumnsLeftSlimSidebarPageLayout_Name;" />
       <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
       <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootsrapLeftSlimSidebarPageLayout_Desc;" />
+    </File>    
+    <File Path="BootstrapThreeColumns.aspx" Url="BootstrapThreeColumns.aspx"  Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootstrapThreeColumnsPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootstrapThreeColumnsPageLayout_Desc;" />
+    </File>
+    <File Path="BootstrapFourColumns.aspx" Url="BootstrapFourColumns.aspx"  Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootstrapFourColumnsPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootstrapFourColumnsPageLayout_Desc;" />
+    </File>
+    <File Path="BootstrapLeftSidebar.aspx" Url="BootstrapLeftSidebar.aspx"  Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootstrapLeftSidebarPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootstrapLeftSidebarPageLayout_Desc;" />
+    </File>
+    <File Path="BootstrapRightSlimSidebar.aspx" Url="BootstrapRightSlimSidebar.aspx"  Type="GhostableInLibrary">
+      <Property Name="Title" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootstrapRightSlimSidebarPageLayout_Name;" />
+      <Property Name="ContentType" Value="$Resources:cmscore,contenttype_pagelayout_name;" />
+      <Property Name="MasterPageDescription" Value="$Resources:GSoft.Dynamite.Publishing.Global,PageLayout_BootstrapRightSlimSidebarPageLayout_Desc;" />
     </File>
   </Module>
 </Elements>

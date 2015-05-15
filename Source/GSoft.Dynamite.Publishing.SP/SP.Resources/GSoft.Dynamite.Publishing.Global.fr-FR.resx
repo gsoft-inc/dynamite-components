@@ -423,4 +423,28 @@
   <data name="PageLayout_BootsrapOneColumnPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page Bootstrap avec 1 colonne</value>
   </data>
+  <data name="PageLayout_BootstrapFourColumnsPageLayout_Desc" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec quatre colonnes égale</value>
+  </data>
+  <data name="PageLayout_BootstrapFourColumnsPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec quatre colonnes égale</value>
+  </data>
+  <data name="PageLayout_BootstrapLeftSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne à gauche</value>
+  </data>
+  <data name="PageLayout_BootstrapLeftSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne à gauche</value>
+  </data>
+  <data name="PageLayout_BootstrapRightSlimSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne mince à droite</value>
+  </data>
+  <data name="PageLayout_BootstrapRightSlimSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne mince à droite</value>
+  </data>
+  <data name="PageLayout_BootstrapThreeColumnsPageLayout_Desc" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec trois colonnes égale</value>
+  </data>
+  <data name="PageLayout_BootstrapThreeColumnsPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec trois colonnes égale</value>
+  </data>
 </root>

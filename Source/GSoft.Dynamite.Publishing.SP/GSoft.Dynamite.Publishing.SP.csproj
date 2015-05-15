@@ -269,7 +269,11 @@
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleContentItem.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemContent.html" />
     <Content Include="Artefacts\DisplayTemplates\Search\Item\Item_SingleNewsItemHeader.html" />
+    <Content Include="Artefacts\PageLayouts\BootstrapRightSlimSidebar.aspx" />
     <Content Include="Artefacts\PageLayouts\BootstrapLeftSlimSidebar.aspx" />
+    <Content Include="Artefacts\PageLayouts\BootstrapFourColumns.aspx" />
+    <Content Include="Artefacts\PageLayouts\BootstrapLeftSidebar.aspx" />
+    <Content Include="Artefacts\PageLayouts\BootstrapThreeColumns.aspx" />
     <Content Include="Artefacts\PageLayouts\BootstrapOneColumn.aspx" />
     <Content Include="Artefacts\PageLayouts\BootstrapTwoColumns.aspx" />
     <Content Include="Artefacts\PageLayouts\CatalogItemPageLayout.aspx" />
