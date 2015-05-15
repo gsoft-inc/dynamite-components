@@ -1,7 +1,11 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Navigation.Contracts.Services;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Taxonomy;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Taxonomy;
 
 namespace GSoft.Dynamite.Navigation.SP.Events
 {
@@ -55,8 +59,18 @@ namespace GSoft.Dynamite.Navigation.SP.Events
 
                 var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
                 var variationHelper = childScope.Resolve<IVariationHelper>();
+                var navigationHelper = childScope.Resolve<INavigationHelper>();
 
                 var item = properties.ListItem;
+
+                var before = new TaxonomyFieldValue(properties.BeforeProperties[PublishingFieldInfos.Navigation.InternalName].ToString());
+                var after = new TaxonomyFieldValue(properties.AfterProperties[PublishingFieldInfos.Navigation.InternalName].ToString());
+
+                // Reset the previous term if different from the current term
+                if (before != null && after != null && after.TermGuid != before.TermGuid)
+                {
+                    navigationHelper.ResetTermDrivenPageToSimpleLinkUrl(item.Web.Site, new TermInfo() { Id = new Guid(before.TermGuid) });
+                }
 
                 // Set Term driven page
                 navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
@@ -66,7 +80,7 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                     // Create term in other term sets
                     navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
                 }
-           
+
                 this.EventFiringEnabled = true;
             }
         }

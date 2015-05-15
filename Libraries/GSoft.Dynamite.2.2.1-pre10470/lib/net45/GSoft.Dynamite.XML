@@ -6829,6 +6829,43 @@
             <param name="web">The web</param>
             <param name="settings">The managed navigation settings. Set null if you want to keep the associated termset unchanged</param>
         </member>
+        <member name="M:GSoft.Dynamite.Navigation.INavigationHelper.ResetTermDrivenPageToSimpleLinkUrl(Microsoft.SharePoint.SPSite,GSoft.Dynamite.Taxonomy.TermInfo)">
+            <summary>
+            Method to take a term configured as a term driven page to a simple link url.
+            </summary>
+            <param name="site">The Site Collection</param>
+            <param name="termInfo">The term to reset</param>
+        </member>
+        <member name="F:GSoft.Dynamite.Navigation.NavigationHelper.SystemTargetUrl">
+            <summary>
+            System custom property for the Target Url
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Navigation.NavigationHelper.SystemCatalogTargetUrl">
+            <summary>
+            System custom property for the Catalog Target Url
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Navigation.NavigationHelper.SystemSimpleLinkUrl">
+            <summary>
+            System custom property for the Simple Link Url
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Navigation.NavigationHelper.SystemIsNavigationTermSet">
+            <summary>
+            System custom property Fo the Navigation Term Set
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Navigation.NavigationHelper.SystemTargetUrlForChildTerms">
+            <summary>
+            System custom property for the Target Url for Child terms
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Navigation.NavigationHelper.SystemCatalogTargetUrlForChildTerms">
+            <summary>
+            System custom property for the catalog target url for child terms
+            </summary>
+        </member>
         <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.#ctor(GSoft.Dynamite.Taxonomy.ITaxonomyService)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Navigation.NavigationHelper"/> class.
@@ -6848,6 +6885,13 @@
             </summary>
             <param name="web">The web</param>
             <param name="settings">The managed navigation settings. Set null if you want to keep the associated termset unchanged</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.ResetTermDrivenPageToSimpleLinkUrl(Microsoft.SharePoint.SPSite,GSoft.Dynamite.Taxonomy.TermInfo)">
+            <summary>
+            Method to take a term configured as a term driven page to a simple link url.
+            </summary>
+            <param name="site">The Site Collection</param>
+            <param name="termInfo">The term to reset</param>
         </member>
         <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.FindNavigationTermById(System.Collections.Generic.IEnumerable{Microsoft.SharePoint.Publishing.Navigation.NavigationTerm},System.Guid)">
             <summary>
