@@ -59,7 +59,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         /// The item added event for the translatable page content type
         /// </summary>
         /// <returns>The event receiver info</returns>
-        public EventReceiverInfo TranslatablePageEventAddded()
+        public EventReceiverInfo TranslatablePageEventAdded()
         {
             return new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatablePage.ContentTypeId),
