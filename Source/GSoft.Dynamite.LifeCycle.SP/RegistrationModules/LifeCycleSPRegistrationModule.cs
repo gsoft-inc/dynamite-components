@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autofac;
 using GSoft.Dynamite.LifeCycle.Contracts.WebParts;
 using GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule;
+using GSoft.Dynamite.LifeCycle.SP.WebParts.SearchResultsSchedule;
 
 namespace GSoft.Dynamite.LifeCycle.SP.RegistrationModules
 {
@@ -24,6 +21,7 @@ namespace GSoft.Dynamite.LifeCycle.SP.RegistrationModules
         {
             // WebParts
             builder.RegisterType<ContentBySearchSchedule>().As<IContentBySearchSchedule>().ExternallyOwned();
+            builder.RegisterType<SearchResultsSchedule>().As<ISearchResultsSchedule>().ExternallyOwned();
         }
     }
 }

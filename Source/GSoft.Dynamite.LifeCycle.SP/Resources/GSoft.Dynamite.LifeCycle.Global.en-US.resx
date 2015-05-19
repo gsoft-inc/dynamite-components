@@ -129,4 +129,10 @@
   <data name="WebPart_ContentBySearchSchedule_Name" xml:space="preserve">
     <value>Content By Search Schedule Web Part</value>
   </data>
+  <data name="WebPart_SearchResultsSchedule_Desc" xml:space="preserve">
+    <value>Search results Web Part with scheduling controls</value>
+  </data>
+  <data name="WebPart_SearchResultsSchedule_Name" xml:space="preserve">
+    <value>Search Results Schedule Web Part</value>
+  </data>
 </root>

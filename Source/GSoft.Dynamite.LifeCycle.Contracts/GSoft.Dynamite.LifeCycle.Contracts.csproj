@@ -67,6 +67,7 @@
     <Compile Include="Controls\ISchedulingControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebParts\IContentBySearchSchedule.cs" />
+    <Compile Include="WebParts\ISearchResultsSchedule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
