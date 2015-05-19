@@ -48,3 +48,9 @@ $DSP_CommonCMS_LANG_CreateVariationsHierarchies = "50213452-1d24-4eae-b915-9ade6
 # SHAREPOINT OOTB FEATURES
 # ============================================
 $DSP_SharePoint_MetadataAndFiltering = "7201d6a4-a5d3-49a1-8c19-19c4bac6e668" 
+
+# ============================================
+# SERVICE LOCATOR
+# ============================================
+# If the DSP_ServiceLocatorAssemblyName hasn't been set, initialize and default to null
+if ((Get-Variable -Name "DSP_ServiceLocatorAssemblyName" -ErrorAction Ignore) -eq $null) { $DSP_ServiceLocatorAssemblyName = "`$null" }
