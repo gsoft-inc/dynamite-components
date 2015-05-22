@@ -6,6 +6,7 @@ using Autofac;
 using GSoft.Dynamite.LifeCycle.Contracts.Controls;
 using GSoft.Dynamite.LifeCycle.Contracts.WebParts;
 using Microsoft.Office.Server.Search.WebControls;
+using Microsoft.SharePoint;
 using Microsoft.SharePoint.WebPartPages;
 
 namespace GSoft.Dynamite.LifeCycle.SP.WebParts.SearchResultsSchedule
@@ -19,16 +20,6 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.SearchResultsSchedule
         private const string WebpartCategory = "Publishing Schedule Control";
         private const string StartDatePropertyname = "Publishing Start Date Managed Property Name";
         private const string EndDatePropertyname = "Publishing End Date Managed Property Name";
-
-        private ISchedulingControl schedulingControlHelper;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SearchResultsSchedule"/> class.
-        /// </summary>
-        public SearchResultsSchedule()
-        {
-            this.schedulingControlHelper = LifeCycleContainerProxy.Current.Resolve<ISchedulingControl>();
-        }
 
         /// <summary>
         /// Start date property name
@@ -81,11 +72,15 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.SearchResultsSchedule
 
             if (dataProvider != null)
             {
-                var refinements = this.schedulingControlHelper.BuildDateRangeRefiners(this.StartDatePropertyName, this.EndDatePropertyName);
-
-                if (refinements.Count > 0)
+                using (var scope = LifeCycleContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
                 {
-                    dataProvider.FallbackRefinementFilters = refinements;
+                    var schedulingControlHelper = scope.Resolve<ISchedulingControl>();
+                    var refinements = schedulingControlHelper.BuildDateRangeRefiners(this.StartDatePropertyName, this.EndDatePropertyName);
+
+                    if (refinements.Count > 0)
+                    {
+                        dataProvider.FallbackRefinementFilters = refinements;
+                    }
                 }
             }
         }

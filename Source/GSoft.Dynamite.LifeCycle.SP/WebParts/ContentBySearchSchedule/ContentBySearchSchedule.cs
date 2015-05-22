@@ -27,17 +27,7 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
         private const string EndDatePropertyname = "Publishing End Date Managed Property Name";
         private const string WebPartDescriptionResourceKey = "WebPart_PublishingControlWebPart_CSWP_Description";
 
-        private ISchedulingControl schedulingControlHelper;
-        private IResourceLocator resourceLocator;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public ContentBySearchSchedule()
-        {
-            this.schedulingControlHelper = LifeCycleContainerProxy.Current.Resolve<ISchedulingControl>();
-            this.resourceLocator = LifeCycleContainerProxy.Current.Resolve<IResourceLocator>();
-        }
+        private string description;
 
         /// <summary>
         /// The Mosaic mode to decide which data we get
@@ -62,8 +52,8 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
         /// </summary>
         public override string Description
         {
-            get { return this.resourceLocator.Find(WebPartDescriptionResourceKey); }
-            set { }
+            get { return this.description; }
+            set { this.description = value; }
         }
 
         /// <summary>
@@ -82,6 +72,8 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
         /// <param name="e">The event arguments</param>
         protected override void OnLoad(EventArgs e)
         {
+            this.InitializeDescriptionResource();
+
             if (this.AppManager != null)
             {
                 if (this.AppManager.QueryGroups.ContainsKey(this.QueryGroupName) &&
@@ -121,11 +113,15 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
 
             if (dataProvider != null)
             {
-                var refinements = this.schedulingControlHelper.BuildDateRangeRefiners(this.StartDatePropertyName, this.EndDatePropertyName);
-
-                if (refinements.Count > 0)
+                using (var scope = LifeCycleContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
                 {
-                    dataProvider.FallbackRefinementFilters = refinements;
+                    var schedulingControlHelper = scope.Resolve<ISchedulingControl>();
+                    var refinements = schedulingControlHelper.BuildDateRangeRefiners(this.StartDatePropertyName, this.EndDatePropertyName);
+
+                    if (refinements.Count > 0)
+                    {
+                        dataProvider.FallbackRefinementFilters = refinements;
+                    } 
                 }
             }
         }
@@ -136,6 +132,19 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
             var resultTable = syncResult.Filter("TableType", this.TargetResultTable).FirstOrDefault();
 
             return resultTable != null ? resultTable.TotalRows : -1;
+        }
+
+        private void InitializeDescriptionResource()
+        {
+            if (string.IsNullOrEmpty(this.description))
+            {
+                // Set the description from the resource value
+                using (var scope = LifeCycleContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
+                {
+                    var resourceLocator = scope.Resolve<IResourceLocator>();
+                    this.description = resourceLocator.Find(WebPartDescriptionResourceKey);
+                }
+            }
         }
     }
 }
