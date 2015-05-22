@@ -6866,11 +6866,12 @@
             System custom property for the catalog target url for child terms
             </summary>
         </member>
-        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.#ctor(GSoft.Dynamite.Taxonomy.ITaxonomyService)">
+        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.#ctor(GSoft.Dynamite.Taxonomy.ITaxonomyService,GSoft.Dynamite.Taxonomy.ITaxonomyHelper)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Navigation.NavigationHelper"/> class.
             </summary>
-            <param name="taxonomyService">The taxonomy service</param>
+            <param name="taxonomyService">The taxonomy service.</param>
+            <param name="taxonomyHelper">The taxonomy helper.</param>
         </member>
         <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.SetWebNavigationSettings(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Navigation.ManagedNavigationInfo)">
             <summary>
@@ -7676,7 +7677,7 @@
             Service for main menu navigation nodes.
             </summary>
         </member>
-        <member name="M:GSoft.Dynamite.Navigation.NavigationService.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Navigation.INavigationHelper,GSoft.Dynamite.Search.ISearchHelper,GSoft.Dynamite.Navigation.IVariationNavigationHelper)">
+        <member name="M:GSoft.Dynamite.Navigation.NavigationService.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Navigation.INavigationHelper,GSoft.Dynamite.Search.ISearchHelper,GSoft.Dynamite.Navigation.IVariationNavigationHelper,GSoft.Dynamite.Taxonomy.ITaxonomyHelper)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Navigation.NavigationService"/> class.
             </summary>
@@ -7684,6 +7685,7 @@
             <param name="navigationHelper">The navigation helper.</param>
             <param name="searchHelper">The search helper.</param>
             <param name="catalogNavigation">The catalog navigation.</param>
+            <param name="taxonomyHelper">The taxonomy helper.</param>
         </member>
         <member name="M:GSoft.Dynamite.Navigation.NavigationService.GetAllNavigationNodes(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Navigation.NavigationQueryParameters)">
             <summary>
@@ -14201,6 +14203,13 @@
             <param name="list">The list</param>
             <param name="keywordsAsSocialTags">Whether the list's keywords should be used as MySite social tags</param>
         </member>
+        <member name="M:GSoft.Dynamite.Taxonomy.ITaxonomyHelper.GetDefaultSiteCollectionTermStore(Microsoft.SharePoint.Taxonomy.TaxonomySession)">
+            <summary>
+            Gets the default term store for the site collection.
+            </summary>
+            <param name="session">The taxonomy session.</param>
+            <returns>The default term store or null if none is found.</returns>
+        </member>
         <member name="T:GSoft.Dynamite.Taxonomy.PerRequestSiteTaxonomyCacheManager">
             <summary>
             The site taxonomy cache manager.
@@ -14211,20 +14220,22 @@
             Interface for a Site Taxonomy cache manager.
             </summary>
         </member>
-        <member name="M:GSoft.Dynamite.Taxonomy.ISiteTaxonomyCacheManager.GetSiteTaxonomyCache(Microsoft.SharePoint.SPSite,System.String)">
+        <member name="M:GSoft.Dynamite.Taxonomy.ISiteTaxonomyCacheManager.GetSiteTaxonomyCache(Microsoft.SharePoint.SPSite,System.String,GSoft.Dynamite.Taxonomy.ITaxonomyHelper)">
             <summary>
             Method to get the Taxonomy Cache from a Site scope
             </summary>
             <param name="site">The site containing the cache</param>
             <param name="termStoreName">The name of the term store</param>
+            <param name="taxonomyHelper">The taxonomy helper to use.</param>
             <returns>A site taxonomy cache</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Taxonomy.PerRequestSiteTaxonomyCacheManager.#ctor">
+        <member name="M:GSoft.Dynamite.Taxonomy.PerRequestSiteTaxonomyCacheManager.#ctor(GSoft.Dynamite.Taxonomy.ITaxonomyHelper)">
             <summary>
             Per-request taxonomy cache manager (using HttpContext.Items)
             </summary>
+            <param name="taxonomyHelper">The taxonomy helper.</param>
         </member>
-        <member name="M:GSoft.Dynamite.Taxonomy.PerRequestSiteTaxonomyCacheManager.GetSiteTaxonomyCache(Microsoft.SharePoint.SPSite,System.String)">
+        <member name="M:GSoft.Dynamite.Taxonomy.PerRequestSiteTaxonomyCacheManager.GetSiteTaxonomyCache(Microsoft.SharePoint.SPSite,System.String,GSoft.Dynamite.Taxonomy.ITaxonomyHelper)">
             <summary>
             The get site taxonomy cache.
             </summary>
@@ -14234,6 +14245,7 @@
             <param name="termStoreName">
             The term store name.
             </param>
+            <param name="taxonomyHelper">The taxonomy helper.</param>
             <returns>
             The <see cref="T:GSoft.Dynamite.Taxonomy.SiteTaxonomyCache"/>.
             </returns>
@@ -14848,7 +14860,7 @@
             The site.
             </param>
         </member>
-        <member name="M:GSoft.Dynamite.Taxonomy.SiteTaxonomyCache.#ctor(Microsoft.SharePoint.SPSite,System.String)">
+        <member name="M:GSoft.Dynamite.Taxonomy.SiteTaxonomyCache.#ctor(Microsoft.SharePoint.SPSite,System.String,GSoft.Dynamite.Taxonomy.ITaxonomyHelper)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Taxonomy.SiteTaxonomyCache"/> class.
             </summary>
@@ -14858,6 +14870,7 @@
             <param name="termStoreName">
             The term store name.
             </param>
+            <param name="taxonomyHelper">The taxonomy helper.</param>
         </member>
         <member name="P:GSoft.Dynamite.Taxonomy.SiteTaxonomyCache.SiteId">
             <summary>
@@ -14996,6 +15009,13 @@
             <param name="list">The list</param>
             <param name="keywordsAsSocialTags">Whether the list's keywords should be used as MySite social tags</param>
         </member>
+        <member name="M:GSoft.Dynamite.Taxonomy.TaxonomyHelper.GetDefaultSiteCollectionTermStore(Microsoft.SharePoint.Taxonomy.TaxonomySession)">
+            <summary>
+            Returns the default term store for the site collection.
+            </summary>
+            <param name="session">The taxonomy session.</param>
+            <returns>The default term store or null if none is found.</returns>
+        </member>
         <member name="T:GSoft.Dynamite.Taxonomy.TaxonomyContext">
             <summary>
             Represents a SharePoint taxonomy field binding context.
@@ -15056,11 +15076,12 @@
             languages should be attempted.
             </remarks>
         </member>
-        <member name="M:GSoft.Dynamite.Taxonomy.TaxonomyService.#ctor(GSoft.Dynamite.Taxonomy.ISiteTaxonomyCacheManager)">
+        <member name="M:GSoft.Dynamite.Taxonomy.TaxonomyService.#ctor(GSoft.Dynamite.Taxonomy.ISiteTaxonomyCacheManager,GSoft.Dynamite.Taxonomy.ITaxonomyHelper)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Taxonomy.TaxonomyService"/> class.
             </summary>
             <param name="taxonomyCacheManager">The taxonomy cache manager</param>
+            <param name="taxonomyHelper">The taxonomy helper to use.</param>
         </member>
         <member name="M:GSoft.Dynamite.Taxonomy.TaxonomyService.GetTaxonomyValueForLabel(Microsoft.SharePoint.SPSite,System.String,System.String,System.String,System.String)">
             <summary>

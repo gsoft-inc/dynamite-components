@@ -5,7 +5,7 @@
 # Description	: Install Javascript Imports
 # -----------------------------------------------------------------------
 
-Write-Warning "Applying Javacript Imports..."
+Write-Warning "Applying JS Imports on Publishing site..."
 
 # Activate features on publishing site collection.
-Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]] -Id "[[DSP_CommonCMS_MasterPage]]"
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]] -Id "[[DSP_CommonCMS_JavascriptImports]]"
