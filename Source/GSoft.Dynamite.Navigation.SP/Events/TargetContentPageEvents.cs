@@ -63,15 +63,6 @@ namespace GSoft.Dynamite.Navigation.SP.Events
 
                 var item = properties.ListItem;
 
-                var before = new TaxonomyFieldValue(properties.BeforeProperties[PublishingFieldInfos.Navigation.InternalName].ToString());
-                var after = new TaxonomyFieldValue(properties.AfterProperties[PublishingFieldInfos.Navigation.InternalName].ToString());
-
-                // Reset the previous term if different from the current term
-                if (before != null && after != null && after.TermGuid != before.TermGuid)
-                {
-                    navigationHelper.ResetTermDrivenPageToSimpleLinkUrl(item.Web.Site, new TermInfo() { Id = new Guid(before.TermGuid) });
-                }
-
                 // Set Term driven page
                 navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
 
@@ -79,6 +70,20 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                 {
                     // Create term in other term sets
                     navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
+                }
+
+                // Get Navigation value. It can be null if never setted.
+                var beforeNavigationValue = properties.BeforeProperties[PublishingFieldInfos.Navigation.InternalName];
+                var afterNavigationValue = properties.AfterProperties[PublishingFieldInfos.Navigation.InternalName];
+
+                // Get the TaxonomyFieldValue, if the Navigation was never set, simply set it as null
+                var before = (beforeNavigationValue != null) ? new TaxonomyFieldValue(beforeNavigationValue.ToString()) : null;
+                var after = (afterNavigationValue != null) ? new TaxonomyFieldValue(afterNavigationValue.ToString()) : null;
+
+                // Reset the previous term if different from the current term
+                if (before != null && after != null && after.TermGuid != before.TermGuid)
+                {
+                    navigationHelper.ResetTermDrivenPageToSimpleLinkUrl(item.Web.Site, new TermInfo() { Id = new Guid(before.TermGuid) });
                 }
 
                 this.EventFiringEnabled = true;
