@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
@@ -11,7 +13,7 @@ using GSoft.Dynamite.Logging;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
 
-namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePages
+namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePage
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -20,7 +22,7 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePages
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
     [Guid("55e3a044-1cbc-4128-b254-4bd582571215")]
-    public class CommonCmsHomePagesEventReceiver : SPFeatureReceiver
+    public class CommonCmsHomePageEventReceiver : SPFeatureReceiver
     {
         /// <summary>
         /// Feature activated event
@@ -37,10 +39,7 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePages
                 if (web != null && PublishingWeb.IsPublishingWeb(web))
                 {
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
-                    var baseFoldersConfig = featureScope.Resolve<IDesignFolderInfoConfig>();
-
-                    // Get only the home pages configuration
-                    var folders = baseFoldersConfig.RootFolderHierarchies.ToList();
+                    var homePageConfig = featureScope.Resolve<IHomePageConfig>();
 
                     // Resolve feature dependency activator
                     // Note: Need to pass the site and web objects to support site and web scoped features.
@@ -50,30 +49,20 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePages
                             new TypedParameter(typeof(SPWeb), web));
 
                     // Activate feature dependencies defined in this configuration
-                    featureDependencyActivator.EnsureFeatureActivation(baseFoldersConfig as IFeatureDependencyConfig);
+                    featureDependencyActivator.EnsureFeatureActivation(homePageConfig as IFeatureDependencyConfig);
 
-                    foreach (var rootFolderHierarchy in folders)
-                    {
-                        var pagesLibrary = web.GetPagesLibrary();
+                    var pagesLibrary = web.GetPagesLibrary();
 
-                        if (rootFolderHierarchy.Locale != null)
-                        {
-                            if (web.Locale.TwoLetterISOLanguageName == rootFolderHierarchy.Locale.TwoLetterISOLanguageName)
-                            {
-                                // Create folder hierarchy starting by the root folder
-                                // NOTE: All pages are created through folders hierachy
-                                folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolderHierarchy);
-                            }
-                            else
-                            {
-                                logger.Info("The root folder {0} does not apply on this web according to its locale {1}", rootFolderHierarchy.Name, rootFolderHierarchy.Locale.TwoLetterISOLanguageName);
-                            }
-                        }
-                        else
-                        {
-                            folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolderHierarchy);
-                        }
-                    }
+                    // Put home page in dummy folder
+                    var rootFolder = new FolderInfo();
+                    var homePage = homePageConfig.GetHomePageInfoByCulture(web.Locale);
+
+                    rootFolder.Pages.Add(homePage);
+                    rootFolder.WelcomePage = homePage;
+                    rootFolder.Locale = web.Locale; 
+
+                    // Ensure
+                    folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolder);
                 }
                 else
                 {

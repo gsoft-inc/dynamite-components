@@ -123,10 +123,10 @@
   <data name="Feature_CommonCMS_Bootstrap_Name" xml:space="preserve">
     <value>Dynamite CMS - Design Module - Intégration de Bootstrap</value>
   </data>
-  <data name="Feature_CommonCMS_HomePages_Desc" xml:space="preserve">
+  <data name="Feature_CommonCMS_HomePage_Desc" xml:space="preserve">
     <value>Créer la page d'accueil la bibliothèque de pages du site</value>
   </data>
-  <data name="Feature_CommonCMS_HomePages_Name" xml:space="preserve">
+  <data name="Feature_CommonCMS_HomePage_Name" xml:space="preserve">
     <value>Dynamite CMS de publication commun - Module de publication - Page d'accueil</value>
   </data>
   <data name="Feature_CommonCMS_MasterPage_Description" xml:space="preserve">
