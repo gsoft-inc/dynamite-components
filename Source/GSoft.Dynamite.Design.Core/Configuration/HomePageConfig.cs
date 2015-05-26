@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
+using GSoft.Dynamite;
 using GSoft.Dynamite.Design.Contracts.Configuration;
 using GSoft.Dynamite.Design.Contracts.Constants;
 using GSoft.Dynamite.Pages;
@@ -12,9 +13,9 @@ using Microsoft.SharePoint.WebPartPages;
 namespace GSoft.Dynamite.Design.Core.Configuration
 {
     /// <summary>
-    /// Home pages configurations for the design module
+    /// Configuration for the home page
     /// </summary>
-    public class DesignPageInfoConfig : IDesignPageInfoConfig
+    public class HomePageConfig : IHomePageConfig
     {
         private const string PlaceholderBackgroundColor = "#F1F1F1";
         private const string PlaceholderTextColor = "#696C72";
@@ -23,31 +24,16 @@ namespace GSoft.Dynamite.Design.Core.Configuration
         private readonly IPublishingPageLayoutInfoConfig publishingPageLayoutInfoConfig;
 
         /// <summary>
-        /// Creates a new design page instance configuration
+        /// Creates a new home page instance configuration
         /// </summary>
         /// <param name="webPartHelper">Dynamite web part helper</param>
         /// <param name="publishingPageLayoutInfoConfig">The publishing page layout configuration</param>
-        public DesignPageInfoConfig(
+        public HomePageConfig(
             IWebPartHelper webPartHelper,
             IPublishingPageLayoutInfoConfig publishingPageLayoutInfoConfig)
         {
             this.publishingPageLayoutInfoConfig = publishingPageLayoutInfoConfig;
             this.webPartHelper = webPartHelper;
-        }
-
-        /// <summary>
-        /// Property that returns all page configurations for the design module.
-        /// </summary>
-        public IList<PageInfo> Pages
-        {
-            get 
-            {
-                return new List<PageInfo>()
-                {
-                    this.HomePageEn,
-                    this.HomePageFr
-                };
-            }
         }
 
         private PageInfo HomePageEn
@@ -63,7 +49,6 @@ namespace GSoft.Dynamite.Design.Core.Configuration
                     new WebPartInfo("RightColumn", this.GetPlaceholderWebPart(391, "Right column content"), 0),
                 };
 
-                // Return the page
                 return page;
             }
         }
@@ -81,21 +66,38 @@ namespace GSoft.Dynamite.Design.Core.Configuration
                     new WebPartInfo("RightColumn", this.GetPlaceholderWebPart(391, "Contenu colonne de droite"), 0),
                 };
 
-                // Return the page
                 return page;
             }
         }
 
         /// <summary>
-        /// Gets the page information by file name from this configuration.
+        /// Method that returns the appropriate home page according to its culture info
         /// </summary>
-        /// <param name="fileName">The file name of the page without the ASPX extension.</param>
-        /// <returns>
-        /// The page information
-        /// </returns>
-        public PageInfo GetPageInfoByFileName(string fileName)
+        /// <param name="cultureInfo">The home page's CultureInfo</param>
+        /// <returns>Home page associated with <paramref name="cultureInfo"/>.</returns>
+        public PageInfo GetHomePageInfoByCulture(CultureInfo cultureInfo)
         {
-            return this.Pages.Single(p => p.FileName.Equals(fileName, StringComparison.InvariantCultureIgnoreCase));
+            // Try exact cultureinfo match
+            if (cultureInfo.LCID == Language.English.Culture.LCID)
+            {
+                return this.HomePageEn;
+            }
+            else if (cultureInfo.LCID == Language.French.Culture.LCID)
+            {
+                return this.HomePageFr;
+            }
+
+            // Try partial match using TwoLetterISOName
+            if (cultureInfo.TwoLetterISOLanguageName == Language.English.Culture.TwoLetterISOLanguageName)
+            {
+                return this.HomePageEn;
+            }
+            else if (cultureInfo.TwoLetterISOLanguageName == Language.French.Culture.TwoLetterISOLanguageName)
+            {
+                return this.HomePageFr;
+            }
+
+            throw new ArgumentException("No home page correspond to cultureInfo " + cultureInfo.DisplayName);
         }
 
         private WebPart GetPlaceholderWebPart(int height, string title)
