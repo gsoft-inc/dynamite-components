@@ -16,11 +16,12 @@ New-HeaderDrawing -Values $Values
 # =========   TAXONOMY OPEN TERM COLUMN   ========== #
 # ================================================== #
 
-$values = @{"Step: " = "#1 Setup open term creation for the pages library"}
-New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-Lists.ps1'
-& $Script 
+#$values = @{"Step: " = "#1 Setup open term creation for the pages library"}
+#New-HeaderDrawing -Values $Values
+
+#$Script = $CommandDirectory + '\Setup-Lists.ps1'
+#& $Script 
 
 # =============================== #
 # =====   EVENT RECEIVERS   ===== #
