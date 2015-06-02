@@ -335,6 +335,55 @@
             Filters display templates
             </summary>
         </member>
+        <member name="T:GSoft.Dynamite.Cache.BlobCacheHelper">
+            <summary>
+            Methods to help manage BLOB Cache storage in SharePoint.
+            </summary>
+        </member>
+        <member name="T:GSoft.Dynamite.Cache.IBlobCacheHelper">
+            <summary>
+            Methods to help manage BLOB Cache storage in SharePoint.
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.Cache.IBlobCacheHelper.FlushBlobCache(Microsoft.SharePoint.Administration.SPWebApplication)">
+            <summary>
+            Flushes the BLOB cache for the specified Web Application.
+            WARNING: This method needs to be run as Farm Admin and have security_admin SQL server role and the db_owner role 
+            on the web app's content DB in order to successfully flush the web app's BLOB cache.
+            </summary>
+            <param name="webApplication">The SharePoint web application.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Cache.IBlobCacheHelper.EnsureBlobCache(Microsoft.SharePoint.Administration.SPWebApplication,System.Boolean)">
+            <summary>
+            Ensures the BLOB cache is enabled or disabled in the specified Web Application.
+            This method Updates the web application web.config file in order to enable or disable BLOB Cache.
+            </summary>
+            <param name="webApplication">The SharePoint web application.</param>
+            <param name="enabled">Enable or disable the BLOB Cache.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Cache.BlobCacheHelper.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Configuration.IWebConfigModificationHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.Cache.BlobCacheHelper"/> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="webConfigModificationHelper">The web configuration modification helper.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Cache.BlobCacheHelper.FlushBlobCache(Microsoft.SharePoint.Administration.SPWebApplication)">
+            <summary>
+            Flushes the BLOB cache for the specified Web Application.
+            WARNING: This method needs to be run as Farm Admin and have security_admin SQL server role and the db_owner role
+            on the web app's content DB in order to successfully flush the web app's BLOB cache.
+            </summary>
+            <param name="webApplication">The SharePoint web application.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Cache.BlobCacheHelper.EnsureBlobCache(Microsoft.SharePoint.Administration.SPWebApplication,System.Boolean)">
+            <summary>
+            Ensures the BLOB cache is enabled or disabled in the specified Web Application.
+            This method Updates the web application web.config file in order to enable or disable BLOB Cache.
+            </summary>
+            <param name="webApplication">The SharePoint web application.</param>
+            <param name="enabled">Enable or disable the BLOB Cache.</param>
+        </member>
         <member name="T:GSoft.Dynamite.ContentTypes.ContentTypeIdBuilder">
             <summary>
             Static utility to help you build properly formatted Content Type identifiers
@@ -4762,11 +4811,12 @@
             Helper class for display template work
             </summary>
         </member>
-        <member name="M:GSoft.Dynamite.Branding.DisplayTemplateHelper.#ctor(GSoft.Dynamite.Logging.ILogger)">
+        <member name="M:GSoft.Dynamite.Branding.DisplayTemplateHelper.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Cache.IBlobCacheHelper)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Branding.DisplayTemplateHelper"/> class.
             </summary>
             <param name="logger">The logger.</param>
+            <param name="blobCacheHelper">The BLOB cache helper.</param>
         </member>
         <member name="M:GSoft.Dynamite.Branding.DisplayTemplateHelper.GenerateJavaScriptFile(System.Collections.Generic.IList{Microsoft.SharePoint.SPFile})">
             <summary>
@@ -7793,6 +7843,11 @@
             The OOTB ListItemId managed property
             </summary>
         </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInManagedProperties.ContentType">
+            <summary>
+            The OOTB Content Type managed property
+            </summary>
+        </member>
         <member name="P:GSoft.Dynamite.Search.BuiltInManagedProperties.ContentTypeId">
             <summary>
             The OOTB ContentTypeId managed property
@@ -7811,6 +7866,21 @@
         <member name="P:GSoft.Dynamite.Search.BuiltInManagedProperties.PublishingImage">
             <summary>
             The OOTB PublishingImage managed property
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInManagedProperties.FileName">
+            <summary>
+            The OOTB Filename managed property
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInManagedProperties.FileExtension">
+            <summary>
+            The OOTB FileExtension managed property
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInManagedProperties.SecondaryFileExtension">
+            <summary>
+            The OOTB SecondaryFileExtension managed property
             </summary>
         </member>
         <member name="T:GSoft.Dynamite.Caml.CamlBuilder">
@@ -17923,6 +17993,12 @@
             <summary>
             Gets or sets the custom title value. This value will be displayed instead of the default title value of the variation label. 
             If the property is not set, the default value of the variation label is displayed.
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.IsAutomaticUpdate">
+            <summary>
+            This is the "Page Update Behavior" option. In the variation wizard (at /_layouts/15/VariationLabelWizard.aspx)
+            there is an option for automatic update. Sadly, the Field in the list item is "NotificationMode". We decided to keep the UI name here because it is more meaningful.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.CssClass">
