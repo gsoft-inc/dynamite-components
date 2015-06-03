@@ -47,8 +47,11 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Sync
                         // Sync catalogs
                         foreach (var catalog in baseCatalogs)
                         {
-                            logger.Info("Synchronize variations for catalog {0} in web {1}", resourceLocator.Find(catalog.DisplayNameResourceKey), web.Url);
-                            variationSyncHelper.SyncList(web, catalog, baseVariationSettings.Labels.ToList());
+                            if (catalog.IsSynced)
+                            {
+                                logger.Info("Synchronize variations for catalog {0} in web {1}", resourceLocator.Find(catalog.DisplayNameResourceKey), web.Url);
+                                variationSyncHelper.SyncList(web, catalog, baseVariationSettings.Labels.ToList());
+                            }
                         }
                     }
                 }
