@@ -55,6 +55,7 @@
     <None Include="packages.config" />
     <None Include="Publish-DeploymentFolder.ps1" />
     <None Include="Tokens.FRANCK-VM2013.ps1" />
+    <None Include="Tokens.VMSPPHIL.ps1" />
     <None Include="Tokens.SVD1100SHRP03.ps1" />
   </ItemGroup>
   <ItemGroup>
