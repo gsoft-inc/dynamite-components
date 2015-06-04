@@ -41,3 +41,13 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-pages.ps1'
 & $Script
+
+# =========================================== #
+# =========   Javascript Imports   ========== #
+# =========================================== #
+
+$values = @{"Step: " = "#3 Home pages"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-JavascriptImports.ps1'
+& $Script
