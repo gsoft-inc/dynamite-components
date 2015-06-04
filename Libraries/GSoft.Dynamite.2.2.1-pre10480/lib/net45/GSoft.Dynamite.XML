@@ -5343,6 +5343,11 @@
             Specifies if the catalog must be anonymous
             </summary>
         </member>
+        <member name="P:GSoft.Dynamite.Catalogs.CatalogInfo.IsSynced">
+            <summary>
+            Indicates whether or not the catalog will be variations-synced
+            </summary>
+        </member>
         <member name="T:GSoft.Dynamite.Folders.FolderInfo">
             <summary>
             Definition of a folder in a library
