@@ -153,10 +153,10 @@
   <data name="Feature_CrossSitePublishingCMS_Fields_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Multilingualism Module - Columns</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Desc" xml:space="preserve">
+  <data name="Feature_CommonCMS_LanguageSwitcher_Desc" xml:space="preserve">
     <value>Add a control to switch the language.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_LanguageSwitcher_Name" xml:space="preserve">
+  <data name="Feature_CommonCMS_LanguageSwitcher_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS -  Multilingualism Module - Language switcher control</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_ResultSources_Desc" xml:space="preserve">

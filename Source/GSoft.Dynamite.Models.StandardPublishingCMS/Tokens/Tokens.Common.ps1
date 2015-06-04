@@ -75,14 +75,14 @@ $DSP_AuthoringUrlsByLabels = "@{"
 $DSP_HasSubWebs = $false
 if($DSP_PortalAuthoringRootWebs.Length -gt 0)
 {
-	$DSP_HasSubWebs = $true
+    $DSP_HasSubWebs = $true
 }
 
 # Check if an array of SPWeb urls is defined (for the documents site collection) and if it contains more than the root web
 $DSP_DocCenterHasSubWebs = $false
 if($DSP_PortalDocumentCenterWebs -and $DSP_PortalDocumentCenterWebs.Length -gt 1)
 {
-	$DSP_DocCenterHasSubWebs = $true
+    $DSP_DocCenterHasSubWebs = $true
 }
 
 # Append the relative host name paths if they exists
@@ -104,110 +104,110 @@ if ($DSP_PortalDocsHostNameRelativePath)
 
 if($DSP_IsMultilingual)
 {
-	# Set the source variation site url for authoring site
-	$DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringSiteUrl + "/" + $DSP_SourceLabel
+    # Set the source variation site url for authoring site
+    $DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringSiteUrl + "/" + $DSP_SourceLabel
 
     $i = 1
-	$DSP_VariationsLabels | Foreach-Object{
-	    
+    $DSP_VariationsLabels | Foreach-Object{
+        
         $DSP_VariationsTargetLabels += "'" + $_ + "'" + ","
-		$label = $_
+        $label = $_
 
-		# Publishing
-		$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingSiteUrl + "/" + $label +"'")
-		    
-		if($label -eq $DSP_SourceLabel)
+        # Publishing
+        $PublishingCurrentUrl = ("'" + $DSP_PortalPublishingSiteUrl + "/" + $label +"'")
+            
+        if($label -eq $DSP_SourceLabel)
         {
-			
-			$DSP_PublishingSourceRootWebUrls +=  $PublishingCurrentUrl + ","
+            
+            $DSP_PublishingSourceRootWebUrls +=  $PublishingCurrentUrl + ","
         }
         else
         {
             $DSP_PublishingTargetRootWebUrls += $PublishingCurrentUrl + ","
         }	
 
-		# Authoring
-		if ($DSP_HasSubWebs)
-		{
-			# Means there is at least one sub web
-			$DSP_PortalAuthoringRootWebs | Foreach-Object{
+        # Authoring
+        if ($DSP_HasSubWebs)
+        {
+            # Means there is at least one sub web
+            $DSP_PortalAuthoringRootWebs | Foreach-Object{
 
-				$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $label + "/" + $_ +"'")
-	
-				if($label -eq $DSP_SourceLabel)
-				{
-				   $DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
-				}
-				else
-				{
-				   $DSP_AuthoringTargetRootWebUrls += $AuthoringCurrentUrl + ","
-				}		
+                $AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $label + "/" + $_ +"'")
+    
+                if($label -eq $DSP_SourceLabel)
+                {
+                   $DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
+                }
+                else
+                {
+                   $DSP_AuthoringTargetRootWebUrls += $AuthoringCurrentUrl + ","
+                }		
 
-				# Add the source labels mapping
-				$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )		
+                # Add the source labels mapping
+                $DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )		
 
-				# Add the URL for the current label
-				$DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
-			}   
-		}
-		else
-		{
-			$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $label +"'")
+                # Add the URL for the current label
+                $DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
+            }   
+        }
+        else
+        {
+            $AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $label +"'")
 
-			if($label -eq $DSP_SourceLabel)
-			{
-				$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
-			}
-			else
-			{
-				$DSP_AuthoringTargetRootWebUrls += $AuthoringCurrentUrl + ","
-			}
-			
-			# Add the source labels mapping
-			$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )			
-			
-			# Add the URL for the current label
-			$DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
-		}	            
-	}
+            if($label -eq $DSP_SourceLabel)
+            {
+                $DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
+            }
+            else
+            {
+                $DSP_AuthoringTargetRootWebUrls += $AuthoringCurrentUrl + ","
+            }
+            
+            # Add the source labels mapping
+            $DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )			
+            
+            # Add the URL for the current label
+            $DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
+        }	            
+    }
 }
 else
 {
     $DSP_PortalAuthoringSourceWebUrl = $DSP_PortalAuthoringSiteUrl
 
-	# Publishing
-	$PublishingCurrentUrl = ("'" + $DSP_PortalPublishingSiteUrl + "'")
+    # Publishing
+    $PublishingCurrentUrl = ("'" + $DSP_PortalPublishingSiteUrl + "'")
 
-	$DSP_PublishingSourceRootWebUrls += $PublishingCurrentUrl
+    $DSP_PublishingSourceRootWebUrls += $PublishingCurrentUrl
 
-	if ($DSP_HasSubWebs)
-	{
-		# Means there is at least one sub web
-		$DSP_PortalAuthoringRootWebs | Foreach-Object{
+    if ($DSP_HasSubWebs)
+    {
+        # Means there is at least one sub web
+        $DSP_PortalAuthoringRootWebs | Foreach-Object{
 
-			$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $_ + "'")
-	
-			$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
+            $AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "/" + $_ + "'")
+    
+            $DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl + ","
 
-			# Add the source labels mapping
-			$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )	
+            # Add the source labels mapping
+            $DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )	
 
-			# Add the URL for the current label
-			$DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
-		}
-	}
-	else
-	{
-		$AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "'")
+            # Add the URL for the current label
+            $DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
+        }
+    }
+    else
+    {
+        $AuthoringCurrentUrl = ("'" + $DSP_PortalAuthoringSiteUrl + "'")
 
-		$DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl
+        $DSP_AuthoringSourceRootWebUrls += $AuthoringCurrentUrl
 
-		# Add the source labels mapping
-		$DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )
-		
-		# Add the URL for the current label
-		$DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
-	}
+        # Add the source labels mapping
+        $DSP_CrossSiteMappings += ( $AuthoringCurrentUrl + "=" + $PublishingCurrentUrl + ";" )
+        
+        # Add the URL for the current label
+        $DSP_AuthoringUrlsByLabels += ( $AuthoringCurrentUrl + "=" + "'" + $label + "'" + ";" )
+    }
 }
 
 $DSP_AuthoringTargetRootWebUrls = $DSP_AuthoringTargetRootWebUrls.TrimEnd(",") + ")"

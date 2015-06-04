@@ -68,6 +68,8 @@
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-Fields.template.ps1" />
+    <None Include="Modules\Multilingualism\LANG_03\Install-LANG03.ps1" />
+    <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.template.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />

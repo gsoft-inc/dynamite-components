@@ -137,7 +137,7 @@
     <None Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.feature">
       <FeatureId>{7afac8fc-db08-45b6-a809-710ef968c434}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_LanguageSwitcher\CrossSitePublishingCMS_LanguageSwitcher.feature">
+    <None Include="Features\CommonCMS_LanguageSwitcher\CommonCMS_LanguageSwitcher.feature">
       <FeatureId>{058d4a42-7b65-40a4-8067-b83113f6644d}</FeatureId>
     </None>
     <None Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.feature">
@@ -203,8 +203,8 @@
     <Content Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.Template.xml">
       <DependentUpon>CommonCMS_SyncWeb.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_LanguageSwitcher\CrossSitePublishingCMS_LanguageSwitcher.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_LanguageSwitcher.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_LanguageSwitcher\CommonCMS_LanguageSwitcher.Template.xml">
+      <DependentUpon>CommonCMS_LanguageSwitcher.feature</DependentUpon>
     </Content>
     <Content Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.Template.xml">
       <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
@@ -229,10 +229,14 @@
     <Content Include="Layouts\GSoft.Dynamite.Multilingualism\GSoft.Dynamite.Multilingualism.min.js">
       <DependentUpon>GSoft.Dynamite.Multilingualism.js</DependentUpon>
     </Content>
-    <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.en-US.resx" />
+    <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.en-US.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.fr-FR.resx" />
+    <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.fr-FR.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
