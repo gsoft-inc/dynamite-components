@@ -63,6 +63,8 @@ namespace GSoft.Dynamite.Navigation.SP.Events
 
                 var item = properties.ListItem;
 
+                // Be careful, if a permission error occurs, check your Farm Account configuration in the Security section in the Central Administration.
+                // The current user shouldn't be present in the Farm Account component. (Configure Service Accounts), should be dev\spsfarm
                 // Set Term driven page
                 navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
 
