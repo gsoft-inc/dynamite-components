@@ -1047,6 +1047,84 @@
             </param>
             <returns>The full field XML schema</returns>
         </member>
+        <member name="T:GSoft.Dynamite.Globalization.Variations.HierarchyCreationMode">
+            <summary>
+            The various variation hierarchy creation modes (the initialization behavior 
+            when you create new target labels)
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Globalization.Variations.HierarchyCreationMode.PublishingSitesAndAllPages">
+            <summary>
+            When the target variation label site hierarchy will be created,
+            all of the source label's publishing sites, variated lists and
+            all pages will be copied to the target.
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Globalization.Variations.HierarchyCreationMode.PublishingSitesOnly">
+            <summary>
+            When the target variation label site hierarchy will be created,
+            only the source label's publishing sites will be copied to the target.
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Globalization.Variations.HierarchyCreationMode.RootSitesOnly">
+            <summary>
+            When the target variation label site hierarchy will be created,
+            only the source label's root site will be copied.
+            </summary>
+        </member>
+        <member name="T:GSoft.Dynamite.Globalization.Variations.HierarchyCreationModeExtensions">
+            <summary>
+            Extensions for <see cref="T:GSoft.Dynamite.Globalization.Variations.HierarchyCreationMode"/>
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.Globalization.Variations.HierarchyCreationModeExtensions.ToListItemValueString(GSoft.Dynamite.Globalization.Variations.HierarchyCreationMode)">
+            <summary>
+            Extension method to easily extract the correct string value
+            from the various creation modes (as it should be set in the
+            label's list item in the variation labels list).
+            </summary>
+            <param name="self">The enum value we want to convert as string</param>
+            <returns>The string value that represents the hierarchy creation mode</returns>
+        </member>
+        <member name="T:GSoft.Dynamite.Lists.ListValidationInfo">
+            <summary>
+            ListValidationInfo object to hold a validation formula and a validation message
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.Lists.ListValidationInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.Lists.ListValidationInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.Lists.ListValidationInfo.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.Lists.ListValidationInfo"/> class.
+            </summary>
+            <param name="formula">The formula.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Lists.ListValidationInfo.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.Lists.ListValidationInfo"/> class.
+            </summary>
+            <param name="formula">The formula.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="P:GSoft.Dynamite.Lists.ListValidationInfo.ValidationFormula">
+            <summary>
+            Gets or sets the validation formula.
+            </summary>
+            <value>
+            The validation formula.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.Lists.ListValidationInfo.ValidationMessage">
+            <summary>
+            Gets or sets the validation message.
+            </summary>
+            <value>
+            The validation message.
+            </value>
+        </member>
         <member name="T:GSoft.Dynamite.Navigation.NavigationQueryParameters">
             <summary>
             Navigation query parameters.
@@ -3160,6 +3238,12 @@
             Synchronization type for the event receiver
             </summary>
         </member>
+        <member name="P:GSoft.Dynamite.Events.EventReceiverInfo.SequenceNumber">
+            <summary>
+            Gets or sets an integer that represents the relative sequence of the event.
+            Must be greater than zero and less than 65,536. 10000 by default
+            </summary>
+        </member>
         <member name="T:GSoft.Dynamite.ContentTypes.IContentTypeHelper">
             <summary>
             Helper for managing content types.
@@ -4723,44 +4807,75 @@
             Default constructor
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.CreateHierarchies">
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.IsAutomaticTargetPageCreation">
             <summary>
-            Gets or sets the create hierarchies flag
+            If true, when a new page is published at the source, then a new page 
+            will be automatically created in all target webs. This is the "Create
+            Everywhere" option under _layouts/15/VariationSettings.aspx.
+            If false, then the contributor will have to choose specifically which
+            target languages should get a copy of the content. This is the "Create
+            Selectively" option.
+            This will be mapped to the "EnableAutoSpawnPropertyName" property bag
+            value on the root folder of the variations relationships list.
+            This value is true by default (i.e. the first major version being
+            published will always lead to a draft appearing in all target webs).
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.EnableAutoSpawn">
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.IsRecreateDeletedTargetPage">
             <summary>
-            Enable ("true") or disable ("false") auto spawn
+            If true, when a source page is re-published after its target page was 
+            deleted, then the target page will be re-created.
+            If false, then re-publishing a source page will not cause previously
+            deleted target pages to get created.
+            This will be mapped to the "AutoSpawnStopAfterDeletePropertyName" property bag
+            value on the root folder of the variations relationships list.
+            This value is false by default (i.e. target page deletions become
+            permanent, regardless of subsequent source major version publish events).
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.AutoSpawnStopAfterDelete">
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.IsUpdateTargetPageWebParts">
             <summary>
-            Enable ("true") or disable ("false") auto spawn stop after delete
+            If true, changes to web parts on the source page will be propagated to their
+            corresponding "sister" web parts on the target page along with content updates.
+            If false, web parts on the target pages will be left alone during update
+            propagation.
+            This will be mapped to the "UpdateWebPartsPropertyName" property bag
+            value on the root folder of the variations relationships list.
+            This value is true by default (i.e. updates to web part properties will
+            be propagated whenever the source page updates get propagated).
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.UpdateWebParts">
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.IsCopyResourcesToTarget">
             <summary>
-            Enable ("true") or disable ("false") the web parts' update process
+            If true, new page variations will come with a copy of the resources used
+            on the original page.
+            If false, the target pages will refer to the original locations of their
+            source's resources.
+            This will be mapped to the "CopyResourcesPropertyName" property bag
+            value on the root folder of the variations relationships list.
+            This value is false by default and doesn't even appear in the
+            VariationsSettings page anymore in SharePoint 2013 (it used to
+            be available in SP2010).
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.CopyResources">
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.IsSendNotificationEmail">
             <summary>
-            Enable ("true") or disable ("false") the resources copy
+            If true, email notifications will be sent to site and page contacts when a new site
+            or page is created or when a page is updated by the variations system.
+            We initialize this value as false by default (through click programming, SharePoint usually
+            turns this on).
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.SendNotificationEmail">
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.SourceVariationTopLevelWebTemplate">
             <summary>
-            Enable ("true") or disable ("false") the email notification
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.SourceVarRootWebTemplate">
-            <summary>
-            The source web template ("CMSPUBLISHING#0")
+            The web template to use when creating the top level source web. 
+            Default is "CMSPUBLISHING#0".
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationSettingsInfo.Labels">
             <summary>
-            Supported language labels
+            Supported language labels. At least (and at most) one of these should be the 
+            source label (IsSource == true).
             </summary>
         </member>
         <member name="T:GSoft.Dynamite.Fields.Types.GuidFieldInfo">
@@ -5399,14 +5514,10 @@
             Enable attachments on the list
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Lists.ListInfo.ValidationFormula">
+        <member name="P:GSoft.Dynamite.Lists.ListInfo.ValidationSettings">
             <summary>
-            Gets or sets the validation formula.
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.Lists.ListInfo.ValidationMessage">
-            <summary>
-            Gets or sets the message to display when validation fails
+            Gets or sets the validation settings. Key is the locale, value is
+            a ListValidationInfo object containing the formula and the message.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Lists.ListInfo.DefaultViewFields">
@@ -6922,7 +7033,7 @@
             <param name="type">The receiver type.</param>
             <param name="className">Name of the class.</param>
         </member>
-        <member name="M:GSoft.Dynamite.Events.EventReceiverHelper.AddEventReceiverDefinition(Microsoft.SharePoint.SPContentType,Microsoft.SharePoint.SPEventReceiverType,System.String,System.String,Microsoft.SharePoint.SPEventReceiverSynchronization)">
+        <member name="M:GSoft.Dynamite.Events.EventReceiverHelper.AddEventReceiverDefinition(Microsoft.SharePoint.SPContentType,Microsoft.SharePoint.SPEventReceiverType,System.String,System.String,Microsoft.SharePoint.SPEventReceiverSynchronization,System.Int32)">
             <summary>
             Adds the event receiver definition to the content type.
             </summary>
@@ -6931,9 +7042,10 @@
             <param name="assemblyName">The assembly name.</param>
             <param name="className">Name of the class.</param>
             <param name="syncType">The synchronization type</param>
+            <param name="sequenceNumber">An integer that represents the relative sequence of the event</param>
             <returns>The event receiver definition</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Events.EventReceiverHelper.AddEventReceiverDefinition(Microsoft.SharePoint.SPList,Microsoft.SharePoint.SPEventReceiverType,System.String,System.String,Microsoft.SharePoint.SPEventReceiverSynchronization)">
+        <member name="M:GSoft.Dynamite.Events.EventReceiverHelper.AddEventReceiverDefinition(Microsoft.SharePoint.SPList,Microsoft.SharePoint.SPEventReceiverType,System.String,System.String,Microsoft.SharePoint.SPEventReceiverSynchronization,System.Int32)">
             <summary>
             Adds the event receiver definition to the list.
             </summary>
@@ -6942,6 +7054,7 @@
             <param name="assemblyName">The assembly name.</param>
             <param name="className">Name of the class.</param>
             <param name="syncType">The synchronization type</param>
+            <param name="sequenceNumber">An integer that represents the relative sequence of the event</param>
             <returns>The event receiver definition</returns>
         </member>
         <member name="T:GSoft.Dynamite.Navigation.NavigationHelper">
@@ -18103,19 +18216,9 @@
             The <see cref="T:GSoft.Dynamite.SPUrl"/>.
             </returns>
         </member>
-        <member name="T:GSoft.Dynamite.Globalization.Variations.CreationMode">
-            <summary>
-            The creation mode.
-            </summary>
-        </member>
-        <member name="F:GSoft.Dynamite.Globalization.Variations.CreationMode.PublishingSitesAndAllPages">
-            <summary>
-            The publishing sites and all pages creation mode.
-            </summary>
-        </member>
         <member name="T:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo">
             <summary>
-            A simple POCO that represent a variation label
+            A simple POCO that represent a variation label's definition
             </summary>
         </member>
         <member name="M:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.#ctor">
@@ -18131,22 +18234,26 @@
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.Title">
             <summary>
-            Gets or sets the title.
+            Gets or sets the title of the label. This determines the root-web-relative
+            URL of the top web in that label's site hierarchy.
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.FlagControlDisplayName">
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.DisplayName">
             <summary>
-            Gets or sets the flag control display name.
+            Gets or sets the "flag control display name" of this variation label.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.Language">
             <summary>
-            Gets or sets the language.
+            Gets or sets the language of the label's web (its CurrentUICulture, i.e. the MUI/Language pack culture).
+            This setting determines the language of the SharePoint UI.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.Locale">
             <summary>
-            Gets or sets the locale.
+            Gets or sets the locale of the label's web (its CurrentCulture, i.e. the regional settings).
+            This setting determines, among other things, the date and money formats that will be displayed
+            in the site.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.HierarchyCreationMode">
@@ -18156,34 +18263,45 @@
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.IsSource">
             <summary>
-            Gets or sets a value indicating whether is source.
+            If true, this variation label will be the source for all other labels.
+            Make sure you define only one source label. All other variations should be
+            target labels.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.Description">
             <summary>
-            Gets or sets the description.
+            Gets or sets the description of the variation label.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.TopWebUrl">
             <summary>
-            URL of the top PublishingWeb in the variations hierarchy
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.CustomTitleValue">
-            <summary>
-            Gets or sets the custom title value. This value will be displayed instead of the default title value of the variation label. 
-            If the property is not set, the default value of the variation label is displayed.
+            URL of the top PublishingWeb in the label's variations hierarchy.
+            Unless your site collection's root web is acting as the source label,
+            this will typically be the URL of a first-level sub-web.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.IsAutomaticUpdate">
             <summary>
             This is the "Page Update Behavior" option. In the variation wizard (at /_layouts/15/VariationLabelWizard.aspx)
-            there is an option for automatic update. Sadly, the Field in the list item is "NotificationMode". We decided to keep the UI name here because it is more meaningful.
+            there is an option for automatic update. Sadly, the Field in the list item is "NotificationMode". 
+            We decided to keep the UI name here because it is more meaningful.
+            When IsAutomaticUpdate == true, then each new major version publishing in the source label will lead to
+            a new draft (minor version) being added automatically to its associated variation target.
+            When IsAutomaticUpdate == true, then the contributors on the targets labels will only see a notification
+            that the source variation has been modified.
+            This setting should be ignored on source labels: it only makes sense to define it for target labels.
             </summary>
         </member>
-        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.CssClass">
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.LanguageSwitchCustomTitle">
             <summary>
-            Gets or Sets the CssClass property. Add a css class to the label.
+            Gets or Sets the LanguageSwitchCustomTitle property.
+            Defines the display name of the label when rendered in the language switcher control.
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Globalization.Variations.VariationLabelInfo.LanguageSwitchCustomCssClass">
+            <summary>
+            Gets or Sets the LanguageSwitchCustomCssClass property. Add a css class to the label
+            when rendered in the language switcher user control.
             </summary>
         </member>
         <member name="T:GSoft.Dynamite.WebParts.IBaseWebPart">

@@ -1,4 +1,5 @@
-﻿using GSoft.Dynamite.Globalization.Variations;
+﻿using System.Globalization;
+using GSoft.Dynamite.Globalization.Variations;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {
@@ -15,15 +16,15 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         {
             get
             {
+                var englishUsCulture = new CultureInfo("en-US");
                 return new VariationLabelInfo()
                 {
                     Title = "en",
+                    DisplayName = "Home",
                     Description = "English Variation Label",
-                    FlagControlDisplayName = "Home",
-                    HierarchyCreationMode = CreationMode.PublishingSitesAndAllPages,
                     IsSource = true,
-                    Language = "en-US",
-                    Locale = 1033
+                    Language = englishUsCulture,
+                    Locale = englishUsCulture
                 };
             }
         }
@@ -36,15 +37,15 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         {
             get
             {
+                var frenchFrCulture = new CultureInfo("fr-FR");
                 return new VariationLabelInfo()
                 {
                     Title = "fr",
+                    DisplayName = "Accueil",
                     Description = "Label de variante Français",
-                    FlagControlDisplayName = "Accueil",
-                    HierarchyCreationMode = CreationMode.PublishingSitesAndAllPages,
                     IsSource = false,
-                    Language = "fr-FR",
-                    Locale = 1036
+                    Language = frenchFrCulture,
+                    Locale = frenchFrCulture
                 };
             }
         }
