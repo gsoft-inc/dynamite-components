@@ -18,7 +18,6 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             {
                 return new VariationSettingsInfo()
                 {
-                    IsCopyResourcesToTarget = true,
                     IsUpdateTargetPageWebParts = false,
                     Labels = new List<VariationLabelInfo>()
                     {
@@ -39,7 +38,6 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             {
                 return new VariationSettingsInfo()
                 {
-                    IsCopyResourcesToTarget = true,
                     IsUpdateTargetPageWebParts = false,
                     Labels = new List<VariationLabelInfo>()
                     {
@@ -59,7 +57,6 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             {
                 return new VariationSettingsInfo()
                 {
-                    IsCopyResourcesToTarget = true,
                     IsUpdateTargetPageWebParts = false,
                     Labels = new List<VariationLabelInfo>()
                     {
