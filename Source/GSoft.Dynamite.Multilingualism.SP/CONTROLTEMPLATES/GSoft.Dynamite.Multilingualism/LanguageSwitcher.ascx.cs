@@ -136,7 +136,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         {
             MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(
                 SPContext.Current.Web,
-                delegate
+                () =>
                 {
                     var currentWebUrl = new Uri(SPContext.Current.Web.Url);
                     var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);
@@ -180,17 +180,17 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                             var cssClass = string.Empty;
 
                             // Gets a corresponding Variation Setting Info Object
-                            var variationSettingsInfo = variationSettingsInfos.Labels.Where(variation => variation.Title == label.Title).FirstOrDefault();
+                            var variationLabelInfo = variationSettingsInfos.Labels.Where(variation => variation.Title == label.Title).FirstOrDefault();
 
                             // Updates the title if custom title is set
-                            if (variationSettingsInfo != null)
+                            if (variationLabelInfo != null)
                             {
-                                if (!string.IsNullOrEmpty(variationSettingsInfo.CustomTitleValue))
+                                if (!string.IsNullOrEmpty(variationLabelInfo.LanguageSwitchCustomTitle))
                                 {
-                                    title = variationSettingsInfo.CustomTitleValue;
+                                    title = variationLabelInfo.LanguageSwitchCustomTitle;
                                 }
 
-                                cssClass = variationSettingsInfo.CssClass;
+                                cssClass = variationLabelInfo.LanguageSwitchCustomCssClass;
                             }
 
                             var itemVariationInfo = new

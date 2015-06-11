@@ -18,13 +18,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             {
                 return new VariationSettingsInfo()
                 {
-                    AutoSpawnStopAfterDelete = "true",
-                    CopyResources = "true",
-                    CreateHierarchies = "true",
-                    EnableAutoSpawn = "false",
-                    SourceVarRootWebTemplate = "CMSPUBLISHING#0",
-                    UpdateWebParts = "false",
-                    SendNotificationEmail = "false",
+                    IsUpdateTargetPageWebParts = false,
                     Labels = new List<VariationLabelInfo>()
                     {
                         MultilingualismVariationLabelInfos.EnglishLabel,
@@ -44,13 +38,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             {
                 return new VariationSettingsInfo()
                 {
-                    AutoSpawnStopAfterDelete = "true",
-                    CopyResources = "true",
-                    CreateHierarchies = "true",
-                    EnableAutoSpawn = "false",
-                    SourceVarRootWebTemplate = "CMSPUBLISHING#0",
-                    UpdateWebParts = "false",
-                    SendNotificationEmail = "false",
+                    IsUpdateTargetPageWebParts = false,
                     Labels = new List<VariationLabelInfo>()
                     {
                         MultilingualismVariationLabelInfos.EnglishLabel,
@@ -69,13 +57,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             {
                 return new VariationSettingsInfo()
                 {
-                    AutoSpawnStopAfterDelete = "true",
-                    CopyResources = "true",
-                    CreateHierarchies = "true",
-                    EnableAutoSpawn = "false",
-                    SourceVarRootWebTemplate = "CMSPUBLISHING#0",
-                    UpdateWebParts = "false",
-                    SendNotificationEmail = "false",
+                    IsUpdateTargetPageWebParts = false,
                     Labels = new List<VariationLabelInfo>()
                     {
                         MultilingualismVariationLabelInfos.FrenchLabel,
