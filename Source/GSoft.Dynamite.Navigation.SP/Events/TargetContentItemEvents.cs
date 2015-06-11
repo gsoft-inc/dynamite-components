@@ -1,5 +1,7 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using GSoft.Dynamite.Globalization.Variations;
+using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
 
@@ -22,20 +24,30 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
                 this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
-                var variationHelper = childScope.Resolve<IVariationHelper>();
-
-                var item = properties.ListItem;
-
-                // If the content is created at the source label, create the unique identifier
-                if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                try
                 {
-                    // Create term in other term sets
-                    navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
-                }
+                    var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
+                    var variationHelper = childScope.Resolve<IVariationHelper>();
 
-                this.EventFiringEnabled = true;
+                    var item = properties.ListItem;
+
+                    // If the content is created at the source label, create the unique identifier
+                    if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                    {
+                        // Create term in other term sets
+                        navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
+                    }
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
 
@@ -50,20 +62,30 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
                 this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
-                var variationHelper = childScope.Resolve<IVariationHelper>();
-
-                var item = properties.ListItem;
-
-                // If the content is created at the source label, sync the term
-                if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                try
                 {
-                    // Create term in other term sets
-                    navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
-                }
+                    var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
+                    var variationHelper = childScope.Resolve<IVariationHelper>();
 
-                this.EventFiringEnabled = true;
+                    var item = properties.ListItem;
+
+                    // If the content is created at the source label, sync the term
+                    if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                    {
+                        // Create term in other term sets
+                        navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
+                    }
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
 
@@ -78,20 +100,30 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
                 this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
-                var variationHelper = childScope.Resolve<IVariationHelper>();
-
-                var item = properties.ListItem;
-
-                // If the content is created at the source label, delete the term
-                if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                try
                 {
-                    // Set Term driven page
-                    navigationTermService.DeleteAssociatedPageTerm(properties.Web.Site, item);
-                }
+                    var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
+                    var variationHelper = childScope.Resolve<IVariationHelper>();
 
-                this.EventFiringEnabled = true;
+                    var item = properties.ListItem;
+
+                    // If the content is created at the source label, delete the term
+                    if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                    {
+                        // Set Term driven page
+                        navigationTermService.DeleteAssociatedPageTerm(properties.Web.Site, item);
+                    }
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
     }

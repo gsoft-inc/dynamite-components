@@ -1,6 +1,7 @@
 ﻿using System;
 using Autofac;
 using GSoft.Dynamite.Globalization.Variations;
+using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Taxonomy;
@@ -26,22 +27,32 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
                 this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
-                var variationHelper = childScope.Resolve<IVariationHelper>();
-
-                var item = properties.ListItem;
-
-                // Set Term driven page
-                navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
-
-                if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                try
                 {
-                    // Create term in other term sets
-                    navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
-                }
+                    var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
+                    var variationHelper = childScope.Resolve<IVariationHelper>();
 
-                this.EventFiringEnabled = true;
+                    var item = properties.ListItem;
+
+                    // Set Term driven page
+                    navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
+
+                    if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                    {
+                        // Create term in other term sets
+                        navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
+                    }
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
 
@@ -56,39 +67,59 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
                 this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
-                var variationHelper = childScope.Resolve<IVariationHelper>();
-                var navigationHelper = childScope.Resolve<INavigationHelper>();
-
-                var item = properties.ListItem;
-
-                // Be careful, if a permission error occurs, check your Farm Account configuration in the Security section in the Central Administration.
-                // The current user shouldn't be present in the Farm Account component. (Configure Service Accounts), should be dev\spsfarm
-                // Set Term driven page
-                navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
-
-                if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                try
                 {
-                    // Create term in other term sets
-                    navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
+                    var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
+                    var variationHelper = childScope.Resolve<IVariationHelper>();
+                    var navigationHelper = childScope.Resolve<INavigationHelper>();
+
+                    var item = properties.ListItem;
+
+                    if (item != null)
+                    {
+                        // Be careful, if a permission error occurs, check your Farm Account configuration in the Security section in the Central Administration.
+                        // The current user shouldn't be present in the Farm Account component. (Configure Service Accounts), should be dev\spsfarm
+                        // Set Term driven page
+                        navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, item);
+
+                        if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                        {
+                            // Create term in other term sets
+                            navigationTermService.SyncNavigationTerm(properties.Web.Site, item);
+                        }
+
+                        if (properties.BeforeProperties != null && properties.AfterProperties != null)
+                        {
+                            // Get Navigation value. It can be null if never setted.
+                            var beforeNavigationValue = properties.BeforeProperties[PublishingFieldInfos.Navigation.InternalName];
+                            var afterNavigationValue = properties.AfterProperties[PublishingFieldInfos.Navigation.InternalName];
+
+                            // Get the TaxonomyFieldValue, if the Navigation was never set, simply set it as null
+                            var before = (beforeNavigationValue != null && !string.IsNullOrEmpty(beforeNavigationValue.ToString())) ? new TaxonomyFieldValue(beforeNavigationValue.ToString()) : null;
+                            var after = (afterNavigationValue != null && !string.IsNullOrEmpty(beforeNavigationValue.ToString())) ? new TaxonomyFieldValue(afterNavigationValue.ToString()) : null;
+
+                            // Reset the previous term if different from the current term
+                            if (before != null && after != null && after.TermGuid != before.TermGuid)
+                            {
+                                navigationHelper.ResetTermDrivenPageToSimpleLinkUrl(item.Web.Site, new TermInfo() { Id = new Guid(before.TermGuid) });
+                            }
+                        }
+                    }
+                    else
+                    {
+                        logger.Error("TargetContentPageEvents.ItemUpdated failed because of NULL properties.ListItem instance.");
+                    }
                 }
-
-                // Get Navigation value. It can be null if never setted.
-                var beforeNavigationValue = properties.BeforeProperties[PublishingFieldInfos.Navigation.InternalName];
-                var afterNavigationValue = properties.AfterProperties[PublishingFieldInfos.Navigation.InternalName];
-
-                // Get the TaxonomyFieldValue, if the Navigation was never set, simply set it as null
-                var before = (beforeNavigationValue != null) ? new TaxonomyFieldValue(beforeNavigationValue.ToString()) : null;
-                var after = (afterNavigationValue != null) ? new TaxonomyFieldValue(afterNavigationValue.ToString()) : null;
-
-                // Reset the previous term if different from the current term
-                if (before != null && after != null && after.TermGuid != before.TermGuid)
+                catch (Exception e)
                 {
-                    navigationHelper.ResetTermDrivenPageToSimpleLinkUrl(item.Web.Site, new TermInfo() { Id = new Guid(before.TermGuid) });
+                    logger.Exception(e);
                 }
-
-                this.EventFiringEnabled = true;
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
 
@@ -103,13 +134,23 @@ namespace GSoft.Dynamite.Navigation.SP.Events
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
                 this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
+                try
+                {
+                    var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
 
-                // Set Term driven page
-                navigationTermService.DeleteAssociatedPageTerm(properties.Web.Site, properties.ListItem);
-
-                this.EventFiringEnabled = true;
+                    // Set Term driven page
+                    navigationTermService.DeleteAssociatedPageTerm(properties.Web.Site, properties.ListItem);
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
     }
