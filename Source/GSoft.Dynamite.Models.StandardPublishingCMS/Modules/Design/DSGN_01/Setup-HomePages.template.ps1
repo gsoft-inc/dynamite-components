@@ -5,15 +5,10 @@
 # Description	: Create page instances
 # -----------------------------------------------------------------------
 
-Write-Warning "Configuring home pages..."
+Write-Warning "Configuring home page on source label web..."
 
-# Activate features on all publishing sites (sources an targets)
-[[DSP_PublishingTargetRootWebUrls]] | Foreach-Object{
-
-	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_DSGN_HomePages]]
-}
-
+# Activate feature only on source label web (it will get variated automatically)
 [[DSP_PublishingSourceRootWebUrls]] | Foreach-Object{
 
-	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_DSGN_HomePages]]
+	Initialize-DSPFeature -Url $_ -Id [[DSP_CommonCMS_DSGN_HomePage]]
 }

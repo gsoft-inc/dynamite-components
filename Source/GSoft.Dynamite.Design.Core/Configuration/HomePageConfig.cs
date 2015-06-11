@@ -36,6 +36,10 @@ namespace GSoft.Dynamite.Design.Core.Configuration
             this.webPartHelper = webPartHelper;
         }
 
+        /// <summary>
+        /// Default home page configuration for english sites (or variation-enabled sites that have
+        /// english as their source variation label web)
+        /// </summary>
         private PageInfo HomePageEn
         {
             get
@@ -53,6 +57,10 @@ namespace GSoft.Dynamite.Design.Core.Configuration
             }
         }
 
+        /// <summary>
+        /// Default home page configuration for french sites (or variation-enabled sites that have
+        /// french as their source variation label web)
+        /// </summary>
         private PageInfo HomePageFr
         {
             get

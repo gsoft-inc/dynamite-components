@@ -136,7 +136,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
         {
             MultilingualismContainerProxy.Current.Resolve<ICatchallExceptionHandler>().Execute(
                 SPContext.Current.Web,
-                delegate
+                () =>
                 {
                     var currentWebUrl = new Uri(SPContext.Current.Web.Url);
                     var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);

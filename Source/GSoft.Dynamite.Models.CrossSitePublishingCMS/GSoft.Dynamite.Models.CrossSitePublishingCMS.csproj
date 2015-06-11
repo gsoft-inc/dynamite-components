@@ -51,7 +51,7 @@
     <None Include="Install-Model.template.ps1" />
     <None Include="Modules\Design\DSGN_01\Setup-JavascriptImports.template.ps1" />
     <None Include="Modules\Design\DSGN_01\Setup-MasterPage.template.ps1" />
-    <None Include="Modules\Design\DSGN_01\Setup-Pages.template.ps1" />
+    <None Include="Modules\Design\DSGN_01\Setup-HomePages.template.ps1" />
     <None Include="Modules\Design\DSGN_01\Setup-Theme.template.ps1" />
     <None Include="Modules\Design\Tokens.Design.Custom.ps1" />
     <None Include="Modules\Docs\DOC_01\Install-DOC01.ps1" />
