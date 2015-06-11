@@ -91,6 +91,7 @@
     <None Include="Modules\Publishing\PUB_01\Setup-Lists.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-MetadataFiltering.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.template.ps1" />
+    <None Include="Modules\Publishing\PUB_01\Setup-ReusableContent.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.template.ps1" />
     <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
     <None Include="Modules\Publishing\PUB_02\Setup-PageLayouts.template.ps1" />
