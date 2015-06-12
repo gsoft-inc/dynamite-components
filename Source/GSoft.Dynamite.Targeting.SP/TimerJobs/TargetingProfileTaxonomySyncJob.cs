@@ -10,9 +10,9 @@ using Microsoft.SharePoint.Administration;
 namespace GSoft.Dynamite.Targeting.SP.TimerJobs
 {
     /// <summary>
-    /// Taxonomy hierarchy creation timer job.
+    /// Targeting profile taxonomie synchronization job.
     /// </summary>
-    public class TaxonomyHierarchyJob : SPJobDefinition
+    public class TargetingProfileTaxonomySyncJob : SPJobDefinition
     {
         private ILogger logger;
         private ITargetingProfileConfig targetingConfiguration;
@@ -21,16 +21,16 @@ namespace GSoft.Dynamite.Targeting.SP.TimerJobs
         /// <summary>
         /// Default constructor
         /// </summary>
-        public TaxonomyHierarchyJob()
+        public TargetingProfileTaxonomySyncJob()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TaxonomyHierarchyJob"/> class.
+        /// Initializes a new instance of the <see cref="TargetingProfileTaxonomySyncJob"/> class.
         /// </summary>
         /// <param name="jobName">Name of the job.</param>
         /// <param name="webApplication">The web application.</param>
-        public TaxonomyHierarchyJob(string jobName, SPWebApplication webApplication)
+        public TargetingProfileTaxonomySyncJob(string jobName, SPWebApplication webApplication)
             : base(jobName, webApplication, null, SPJobLockType.Job)
         {
             this.Title = TargetingConstants.TargetingTimerJobName;
