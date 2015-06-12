@@ -41,7 +41,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// </returns>
         public DisplayTemplateInfo GetDisplayTemplateInfoByName(string name)
         {
-            return this.DisplayTemplates.Single(t => t.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+            return this.DisplayTemplates.Single(t => t.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

@@ -72,7 +72,7 @@ $Script = $CommandDirectory + '\Setup-ReusableContent.ps1'
 # =========   METADATA FILTERING   ========== #
 # =========================================== #
 
-$values = @{"Step: " = "#8 Configure metadata navigation for pages librairies"}
+$values = @{"Step: " = "#9 Configure metadata navigation for pages librairies"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-MetadataFiltering.ps1'

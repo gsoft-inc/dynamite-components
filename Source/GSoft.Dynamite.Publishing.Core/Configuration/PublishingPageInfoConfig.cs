@@ -128,7 +128,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// </returns>
         public PageInfo GetPageInfoByFileName(string fileName)
         {
-            return this.Pages.Single(p => p.FileName.Equals(fileName, StringComparison.InvariantCultureIgnoreCase));
+            return this.Pages.Single(p => p.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

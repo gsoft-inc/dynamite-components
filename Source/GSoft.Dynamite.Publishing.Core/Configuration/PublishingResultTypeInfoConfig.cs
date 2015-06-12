@@ -97,7 +97,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// </returns>
         public ResultTypeInfo GetResultTypeInfoByName(string name)
         {
-            return this.ResultTypes.Single(r => r.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+            return this.ResultTypes.Single(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

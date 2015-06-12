@@ -42,7 +42,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// </returns>
         public ManagedPropertyInfo GetManagedPropertyInfoByName(string managedPropertyName)
         {
-            return this.ManagedProperties.Single(m => m.Name.Equals(managedPropertyName, StringComparison.InvariantCultureIgnoreCase));
+            return this.ManagedProperties.Single(m => m.Name.Equals(managedPropertyName, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

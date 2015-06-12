@@ -116,7 +116,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// </returns>
         public WebPartInfo GetWebPartInfoByTitle(string title)
         {
-            return this.WebParts.Single(w => w.WebPart.Title.Equals(title, StringComparison.InvariantCultureIgnoreCase));
+            return this.WebParts.Single(w => w.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

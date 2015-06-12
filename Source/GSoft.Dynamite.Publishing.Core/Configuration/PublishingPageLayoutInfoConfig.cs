@@ -50,7 +50,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// </returns>
         public PageLayoutInfo GetPageLayoutByName(string name)
         {
-            return this.PageLayouts.Single(pageLayout => pageLayout.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+            return this.PageLayouts.Single(pageLayout => pageLayout.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

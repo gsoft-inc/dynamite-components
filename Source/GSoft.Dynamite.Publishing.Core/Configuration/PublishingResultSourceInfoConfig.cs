@@ -40,7 +40,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// </returns>
         public ResultSourceInfo GetResultSourceInfoByName(string name)
         {
-            return this.ResultSources.Single(r => r.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+            return this.ResultSources.Single(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
     }
 }
