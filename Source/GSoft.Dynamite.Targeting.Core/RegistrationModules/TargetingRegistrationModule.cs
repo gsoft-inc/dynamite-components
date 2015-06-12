@@ -20,12 +20,20 @@ namespace GSoft.Dynamite.Targeting.Core.RegistrationModules
         protected override void Load(ContainerBuilder builder)
         {
             // Configurations
-            builder.RegisterType<TargetingProfileConfig>().As<ITargetingProfileConfig>();
-            builder.RegisterType<TargetingProfileConfig>().Named<ITargetingProfileConfig>("targeting");
+            builder.RegisterType<TargetingFieldInfoConfig>()
+                .As<ITargetingFieldInfoConfig>()
+                .Named<ITargetingFieldInfoConfig>("targeting");
+            builder.RegisterType<TargetingContentTypeInfoConfig>()
+                .As<ITargetingContentTypeInfoConfig>()
+                .Named<ITargetingContentTypeInfoConfig>("targeting");
+            builder.RegisterType<TargetingProfileConfig>()
+                .As<ITargetingProfileConfig>()
+                .Named<ITargetingProfileConfig>("targeting");
 
             // Services
-            builder.RegisterType<TargetingProfileTaxonomySyncService>().As<ITargetingProfileTaxonomySyncService>();
-            builder.RegisterType<TargetingProfileTaxonomySyncService>().Named<ITargetingProfileTaxonomySyncService>("targeting");
+            builder.RegisterType<TargetingProfileTaxonomySyncService>()
+                .As<ITargetingProfileTaxonomySyncService>()
+                .Named<ITargetingProfileTaxonomySyncService>("targeting");
         }
     }
 }

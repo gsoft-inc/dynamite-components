@@ -118,7 +118,7 @@ namespace GSoft.Dynamite.Targeting.Core.Services
                                 foreach (
                                     var profile in
                                         changes.OfType<UserProfilePropertyValueChange>()
-                                            .Select(change => (UserProfile)change.ChangedProfile))
+                                            .Select(change => (Microsoft.Office.Server.UserProfiles.UserProfile)change.ChangedProfile))
                                 {
                                     this.SyncTaxonomyFields(
                                         site,

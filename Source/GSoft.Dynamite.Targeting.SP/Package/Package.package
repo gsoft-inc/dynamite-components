@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package dslVersion="1.0.0.0" 
-        Id="d97bc3e9-c18e-43da-916a-f36b9e4fe4e2" 
-        solutionId="d97bc3e9-c18e-43da-916a-f36b9e4fe4e2" 
-        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
-        name="GSoft.Dynamite.Targeting.SP"
-        sharePointProductVersion="15.0">
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d97bc3e9-c18e-43da-916a-f36b9e4fe4e2" solutionId="d97bc3e9-c18e-43da-916a-f36b9e4fe4e2" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Targeting.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="1ecfc4de-311f-4c3f-b2e8-1ac922c471f7" />
+  </features>
 </package>
