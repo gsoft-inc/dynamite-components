@@ -123,6 +123,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Targeting.Core", "GSoft.Dynamite.Targeting.Core\GSoft.Dynamite.Targeting.Core.csproj", "{2DEE436D-9594-4E5A-BC6C-19046EA3D82C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSoft.Dynamite.Targeting.SP", "GSoft.Dynamite.Targeting.SP\GSoft.Dynamite.Targeting.SP.csproj", "{A86BEFD4-BF85-45A5-B4D8-DDBB7EF95C5B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2DEE436D-9594-4E5A-BC6C-19046EA3D82C} = {2DEE436D-9594-4E5A-BC6C-19046EA3D82C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
