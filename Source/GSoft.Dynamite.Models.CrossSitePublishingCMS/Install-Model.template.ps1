@@ -84,6 +84,16 @@ try {
 	}
 	#endregion
 
+	#region ********** TARGETING MODULE ********** #
+	$EnableTargeting = $false
+	[System.Boolean]::TryParse("[[DSP_EnableTargeting]]", [ref]$EnableTargeting)
+	if($EnableTargeting)
+	{
+		#.\Modules\Targeting\TARGET_01\Install-TARGET01.ps1
+		.\Modules\Targeting\TARGET_02\Install-TARGET02.ps1
+	}
+	#endregion
+
 	#region ********** MIGRATION MODULE ********** #
 	# Notes: We need to import content after all content types were created
 	.\Modules\Migration\MIG_01\Install-MIG01.ps1
