@@ -186,6 +186,7 @@
     <None Include="Modules\Search\SRCH_03\Setup-Fields.template.ps1" />
     <None Include="Modules\Search\SRCH_03\Setup-SocialMetaTags.template.ps1" />
     <None Include="Modules\Search\Tokens.Search.Default.ps1" />
+    <None Include="Modules\Targeting\TARGET_01\Setup-Catalogs.template.ps1" />
     <None Include="Modules\Targeting\TARGET_01\Setup-EventReceivers.template.ps1" />
     <None Include="Modules\Targeting\TARGET_02\Install-TARGET02.ps1" />
     <None Include="Modules\Targeting\TARGET_02\Setup-TimerJobs.template.ps1" />

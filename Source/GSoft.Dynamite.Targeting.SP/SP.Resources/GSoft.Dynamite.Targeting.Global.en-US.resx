@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Feature_CrossSitePublishingCMS_Catalogs_Description" xml:space="preserve">
+    <value>Deploys content catalogs for Cross Site Publishing based CMS solutions</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Catalogs_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Catalogs</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_ContentTypes_Description" xml:space="preserve">
     <value>Creates content types for Cross Site Publishing based CMS solutions - Targeting Module</value>
   </data>

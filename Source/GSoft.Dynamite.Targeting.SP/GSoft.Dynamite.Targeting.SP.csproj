@@ -68,6 +68,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
     </Compile>
@@ -116,6 +119,9 @@
     <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
       <FeatureId>{10082010-79f5-4f06-88d1-6ff2d0817a7f}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.feature">
+      <FeatureId>{356798ed-3d83-47ae-baf2-8166200437b2}</FeatureId>
+    </None>
     <None Include="GSoft.Dynamite.Targeting.SP.nuspec" />
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -140,6 +146,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
     </Content>
     <Content Include="SP.Resources\GSoft.Dynamite.Targeting.Global.fr-FR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
