@@ -41,30 +41,5 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_ProfilePro
                 }
             }
         }
-
-        /// <summary>
-        /// Occurs when a Feature is deactivated.
-        /// </summary>
-        /// <param name="properties">An <see cref="T:Microsoft.SharePoint.SPFeatureReceiverProperties" /> object that represents the properties of the event.</param>
-        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-        {
-            var site = properties.Feature.Parent as SPSite;
-            if (site != null)
-            {
-                using (var scope = TargetingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
-                {
-                    var logger = scope.Resolve<ILogger>();
-
-                    // Remove profile properties
-                    var userProfilePropertyHelper = scope.Resolve<IUserProfilePropertyHelper>();
-                    var profileConfig = scope.Resolve<ITargetingProfileConfig>();
-                    foreach (var userProfilePropertyInfo in profileConfig.UserProfileProperties)
-                    {
-                        logger.Info("Removing profile property '{0}'", userProfilePropertyInfo.Name);
-                        userProfilePropertyHelper.RemoveProfileProperty(site, userProfilePropertyInfo);
-                    }
-                }
-            }
-        }
     }
 }
