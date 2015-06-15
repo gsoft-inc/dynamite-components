@@ -119,9 +119,13 @@
   </resheader>
   <data name="Feature_CrossSitePublishingCMS_Catalogs_Description" xml:space="preserve">
     <value>Deploys content catalogs for Cross Site Publishing based CMS solutions</value>
+  <data name="Feature_CrossSitePublishingCMS_ProfileProps_Description" xml:space="preserve">
+    <value>Adds/configures the user profile properties related to targeting.</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_Catalogs_Title" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Catalogs</value>
+  <data name="Feature_CrossSitePublishingCMS_ProfileProps_Title" xml:space="preserve">
+    <value>Targeting Profile Properties</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_ContentTypes_Description" xml:space="preserve">
     <value>Creates content types for Cross Site Publishing based CMS solutions - Targeting Module</value>

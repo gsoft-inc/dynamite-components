@@ -20,22 +20,22 @@ namespace GSoft.Dynamite.Targeting.Core.Services
         private const string MonitoredScopePrefix = "GSoft.Dynamite.Targeting.Core.Services.UserProfileTargetingService";
 
         private readonly ITaxonomyService taxonomyService;
-        private readonly IUserProfileHelper userProfileHelper;
+        private readonly IUserProfilePropertyHelper userProfilePropertyHelper;
         private readonly ILogger logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TargetingProfileTaxonomySyncService" /> class.
         /// </summary>
         /// <param name="taxonomyService">The taxonomy service.</param>
-        /// <param name="userProfileHelper">The user profile helper.</param>
+        /// <param name="userProfilePropertyHelper">The user profile property helper.</param>
         /// <param name="logger">The logger.</param>
         public TargetingProfileTaxonomySyncService(
             ITaxonomyService taxonomyService, 
-            IUserProfileHelper userProfileHelper,
+            IUserProfilePropertyHelper userProfilePropertyHelper,
             ILogger logger)
         {
             this.taxonomyService = taxonomyService;
-            this.userProfileHelper = userProfileHelper;
+            this.userProfilePropertyHelper = userProfilePropertyHelper;
             this.logger = logger;
         }
 
@@ -53,7 +53,7 @@ namespace GSoft.Dynamite.Targeting.Core.Services
                 // Get user profile objects
                 var context = SPServiceContext.GetContext(site);
                 var userProfileManager = new UserProfileManager(context);
-                var profileSubtypeProperties = this.userProfileHelper.GetProfileSubtypePropertyManager(site);
+                var profileSubtypeProperties = this.userProfilePropertyHelper.GetProfileSubtypePropertyManager(site);
                 var userProfile = userProfileManager.GetUserProfile(user.LoginName);
 
                 // For each property, update mapping

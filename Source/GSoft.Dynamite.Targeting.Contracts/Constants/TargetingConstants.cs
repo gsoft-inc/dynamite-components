@@ -8,7 +8,7 @@
         /// <summary>
         /// Targeting timer job name
         /// </summary>
-        public static readonly string TargetingTimerJobName = "Targeting (Gsoft.Dynamite)";
+        public static readonly string TargetingTimerJobName = "Gsoft.Dynamite - User Targeting";
 
         /// <summary>
         /// Targeting timer job description
