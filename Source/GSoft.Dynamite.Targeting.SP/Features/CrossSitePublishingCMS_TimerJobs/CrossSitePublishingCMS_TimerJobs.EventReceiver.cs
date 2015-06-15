@@ -1,9 +1,10 @@
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Autofac;
+using GSoft.Dynamite.Targeting.Contracts.Configuration;
 using GSoft.Dynamite.Targeting.SP.TimerJobs;
 using Microsoft.SharePoint;
-using Microsoft.SharePoint.Administration;
 
 namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_TimerJobs
 {
@@ -16,11 +17,11 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_TimerJobs
     [Guid("ed22afbc-1e9e-4e95-af78-eb6c62d6650f")]
     public class CrossSitePublishingCmsTimerJobsEventReceiver : SPFeatureReceiver
     {
-        private static SPSite CentralAdminSite
+        private static string JobName
         {
             get
             {
-                return SPAdministrationWebApplication.Local.Sites[0];
+                return typeof(TargetingProfileTaxonomySyncJob).FullName;
             }
         }
 
@@ -36,32 +37,21 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_TimerJobs
 
             if (site != null)
             {
-                if (CentralAdminSite.ID.Equals(site.ID))
+                // Delete if it already exists
+                DeleteTimerJobIfExists(site, JobName);
+
+                // Register timer job with scheduling
+                using (var scope = TargetingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var jobClassName = typeof(TargetingProfileTaxonomySyncJob).Name;
-
-                    // Delete if it already exists
-                    DeleteTimerJobIfExists(site, jobClassName);
-
-                    // Create timer job with scheduling
-                    var timerJob = new TargetingProfileTaxonomySyncJob(jobClassName, site.WebApplication)
+                    var config = scope.Resolve<ITargetingProfileConfig>();
+                    var timerJob = new TargetingProfileTaxonomySyncJob(JobName, site.WebApplication)
                     {
-                        Schedule = new SPDailySchedule
-                        {
-                            BeginMinute = 0, 
-                            EndMinute = 10, 
-                            BeginHour = 2, 
-                            EndHour = 2
-                        }
+                        Schedule = config.TimerJobSchedule
                     };
 
                     // Service accout for the application pool must be set
                     // http://technet.microsoft.com/en-us/library/ee513067.aspx
                     timerJob.Update();
-                }
-                else
-                {
-                    throw new SPException("This feature can only be activated on the central administration site collection.");
                 }
             }
         }
@@ -75,8 +65,7 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_TimerJobs
             var site = properties.Feature.Parent as SPSite;
             if (site != null)
             {
-                var jobClassName = typeof(TargetingProfileTaxonomySyncJob).Name;
-                DeleteTimerJobIfExists(site, jobClassName); 
+                DeleteTimerJobIfExists(site, JobName); 
             }
         }
 
@@ -84,10 +73,10 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_TimerJobs
         /// Delete a Timer Job
         /// </summary>
         /// <param name="site">The site collection.</param>
-        /// <param name="jobTitle">The timer job title.</param>
-        private static void DeleteTimerJobIfExists(SPSite site, string jobTitle)
+        /// <param name="jobName">The timer job name.</param>
+        private static void DeleteTimerJobIfExists(SPSite site, string jobName)
         {
-            foreach (var timerJob in site.WebApplication.JobDefinitions.Where(jobDef => jobDef.Name == jobTitle))
+            foreach (var timerJob in site.WebApplication.JobDefinitions.Where(jobDef => jobDef.Name == jobName))
             {
                 timerJob.Delete();
             }

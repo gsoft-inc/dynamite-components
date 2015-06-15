@@ -10,7 +10,7 @@ using Microsoft.SharePoint.Administration;
 namespace GSoft.Dynamite.Targeting.SP.TimerJobs
 {
     /// <summary>
-    /// Targeting profile taxonomie synchronization job.
+    /// Targeting profile taxonomy synchronization job.
     /// </summary>
     public class TargetingProfileTaxonomySyncJob : SPJobDefinition
     {

@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GSoft.Dynamite.Targeting.Contracts.Configuration;
 using GSoft.Dynamite.UserProfile;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Targeting.Core.Configuration
 {
@@ -12,6 +12,20 @@ namespace GSoft.Dynamite.Targeting.Core.Configuration
     /// </summary>
     public class TargetingProfileConfig : ITargetingProfileConfig
     {
+        /// <summary>
+        /// Gets the timer job schedule.
+        /// </summary>
+        /// <value>
+        /// The timer job schedule.
+        /// </value>
+        public SPDailySchedule TimerJobSchedule
+        {
+            get
+            {
+                return new SPDailySchedule { BeginMinute = 0, EndMinute = 10, BeginHour = 2, EndHour = 2 };
+            }
+        }
+
         /// <summary>
         /// Gets the user profile change timespan.
         /// </summary>
