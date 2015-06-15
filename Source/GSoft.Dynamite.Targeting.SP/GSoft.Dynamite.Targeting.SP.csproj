@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ProfileProps\CrossSitePublishingCMS_ProfileProps.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ProfileProps.feature</DependentUpon>
     </Compile>
