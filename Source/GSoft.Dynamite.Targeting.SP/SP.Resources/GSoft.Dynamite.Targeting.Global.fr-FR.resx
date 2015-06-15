@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Feature_CrossSitePublishingCMS_ProfileProps_Description" xml:space="preserve">
+    <value>Ajoute/configure les propriétés de profil qui ont rapport à la segmentation.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ProfileProps_Title" xml:space="preserve">
+    <value>Propriétés de profil de segmentation</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_TimerJobs_Description" xml:space="preserve">
     <value>Ajoute les timer jobs pour la configuration de segmentation.</value>
   </data>

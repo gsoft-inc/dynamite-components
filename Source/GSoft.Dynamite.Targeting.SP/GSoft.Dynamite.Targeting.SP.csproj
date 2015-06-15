@@ -50,6 +50,7 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10498\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Server.UserProfiles, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -66,6 +67,9 @@
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ProfileProps\CrossSitePublishingCMS_ProfileProps.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ProfileProps.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_TimerJobs\CrossSitePublishingCMS_TimerJobs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TimerJobs.feature</DependentUpon>
@@ -91,6 +95,9 @@
     <None Include="Features\CrossSitePublishingCMS_TimerJobs\CrossSitePublishingCMS_TimerJobs.feature">
       <FeatureId>{468595fb-18a9-4efe-9d14-0d9e9385901f}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_ProfileProps\CrossSitePublishingCMS_ProfileProps.feature">
+      <FeatureId>{71d9c303-2621-4ef7-852b-44b8a2020dce}</FeatureId>
+    </None>
     <None Include="GSoft.Dynamite.Targeting.SP.nuspec" />
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -104,6 +111,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Features\CrossSitePublishingCMS_ProfileProps\CrossSitePublishingCMS_ProfileProps.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ProfileProps.feature</DependentUpon>
+    </Content>
     <Content Include="SP.Resources\GSoft.Dynamite.Targeting.Global.fr-FR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GSoft.Dynamite.Targeting.Global.fr-FR.Designer.cs</LastGenOutput>
