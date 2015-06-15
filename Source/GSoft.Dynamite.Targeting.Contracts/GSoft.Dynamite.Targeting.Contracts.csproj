@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="Configuration\ITargetingContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\ITargetingFieldInfoConfig.cs" />
+    <Compile Include="Configuration\ITargetingResultSourceInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
