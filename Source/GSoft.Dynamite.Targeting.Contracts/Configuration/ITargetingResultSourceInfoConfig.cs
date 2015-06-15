@@ -9,7 +9,6 @@ namespace GSoft.Dynamite.Targeting.Contracts.Configuration
     /// </summary>
     public interface ITargetingResultSourceInfoConfig
     {
-
         /// <summary>
         /// Property that return all the result sources to create or configure in the navigation module
         /// </summary>
