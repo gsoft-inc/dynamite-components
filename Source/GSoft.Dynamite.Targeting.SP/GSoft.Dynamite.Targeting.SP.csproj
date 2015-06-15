@@ -50,6 +50,7 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10498\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -66,6 +67,18 @@
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_TimerJobs\CrossSitePublishingCMS_TimerJobs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TimerJobs.feature</DependentUpon>
@@ -91,6 +104,18 @@
     <None Include="Features\CrossSitePublishingCMS_TimerJobs\CrossSitePublishingCMS_TimerJobs.feature">
       <FeatureId>{468595fb-18a9-4efe-9d14-0d9e9385901f}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.feature">
+      <FeatureId>{7ddc5bae-5e24-491e-98f7-4c50248a94a4}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
+      <FeatureId>{478ebda5-7e50-4453-a508-2d1fed337b9f}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
+      <FeatureId>{f770d954-2805-4e5d-a2e5-d8eb7676515f}</FeatureId>
+    </None>
+    <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
+      <FeatureId>{10082010-79f5-4f06-88d1-6ff2d0817a7f}</FeatureId>
+    </None>
     <None Include="GSoft.Dynamite.Targeting.SP.nuspec" />
     <None Include="packages.config" />
     <None Include="Package\Package.package">
@@ -104,6 +129,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    </Content>
     <Content Include="SP.Resources\GSoft.Dynamite.Targeting.Global.fr-FR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GSoft.Dynamite.Targeting.Global.fr-FR.Designer.cs</LastGenOutput>

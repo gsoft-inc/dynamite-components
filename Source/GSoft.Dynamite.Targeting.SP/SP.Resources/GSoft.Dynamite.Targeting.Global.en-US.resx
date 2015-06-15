@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Description" xml:space="preserve">
+    <value>Creates content types for Cross Site Publishing based CMS solutions - Targeting Module</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Targeting Module - Content Types</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Description" xml:space="preserve">
+    <value>Deploys the event receivers for targeting module</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Event Receivers</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Fields_Description" xml:space="preserve">
+    <value>Creates fields for Cross Site Publishing based CMS solutions - Targeting Module</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Fields_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Targeting Module - Columns</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ResultSources_Description" xml:space="preserve">
+    <value>Deploys search result sources for Cross Site Publishing based CMS solutions - Targeting Module</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ResultSources_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS - Targeting Module - Result Sources</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_TimerJobs_Description" xml:space="preserve">
     <value>Adds timer jobs related to targeting configuration.</value>
   </data>

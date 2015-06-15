@@ -72,6 +72,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Configuration\TargetingContentTypeInfoConfig.cs" />
+    <Compile Include="Configuration\TargetingEventReceiverInfoConfig.cs" />
     <Compile Include="Configuration\TargetingFieldInfoConfig.cs" />
     <Compile Include="Configuration\TargetingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\TargetingProfileConfig.cs" />
