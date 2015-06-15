@@ -123,6 +123,30 @@
   <data name="Feature_CrossSitePublishingCMS_ProfileProps_Title" xml:space="preserve">
     <value>Propriétés de profil de segmentation</value>
   </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Description" xml:space="preserve">
+    <value>Crée les types de contenu du module de ciblage pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Title" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de ciblage - Types de contenus</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Description" xml:space="preserve">
+    <value>Créer les récépteurs d'événements pour le module de ciblage.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Title" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de ciblage - Récépteurs d'événements</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Fields_Description" xml:space="preserve">
+    <value>Crée les colonnes du module de ciblage pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_Fields_Title" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de ciblage - Colonnes</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ResultSources_Description" xml:space="preserve">
+    <value>Déploie les sources de résultats de recherche du module de ciblage pour une solution de type CMS utilisant la publication intersites.</value>
+  </data>
+  <data name="Feature_CrossSitePublishingCMS_ResultSources_Title" xml:space="preserve">
+    <value>Dynamite CMS de publication intersites - Module de ciblage - Sources de résultats</value>
+  </data>
   <data name="Feature_CrossSitePublishingCMS_TimerJobs_Description" xml:space="preserve">
     <value>Ajoute les timer jobs pour la configuration de segmentation.</value>
   </data>

@@ -36,10 +36,10 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CrossSitePublishingCMS_Resu
 
                     IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources;
 
-                    // Create navigation result sources
+                    // Create multilingualism result sources
                     foreach (var resultSource in resultSources)
                     {
-                        logger.Info("Create navigation result sources");
+                        logger.Info("Create multilingualism result sources");
                         searchHelper.EnsureResultSource(site, resultSource);
                     }
                 }

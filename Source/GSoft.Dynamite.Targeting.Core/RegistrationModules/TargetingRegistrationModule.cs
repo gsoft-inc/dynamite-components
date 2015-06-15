@@ -29,6 +29,12 @@ namespace GSoft.Dynamite.Targeting.Core.RegistrationModules
             builder.RegisterType<TargetingProfileConfig>()
                 .As<ITargetingProfileConfig>()
                 .Named<ITargetingProfileConfig>("targeting");
+            builder.RegisterType<TargetingResultSourceInfoConfig>()
+                .As<ITargetingResultSourceInfoConfig>()
+                .Named<ITargetingResultSourceInfoConfig>("targeting");
+            builder.RegisterType<TargetingEventReceiverInfoConfig>()
+                .As<ITargetingEventReceiverInfoConfig>()
+                .Named<ITargetingEventReceiverInfoConfig>("targeting");
 
             // Services
             builder.RegisterType<TargetingProfileTaxonomySyncService>()

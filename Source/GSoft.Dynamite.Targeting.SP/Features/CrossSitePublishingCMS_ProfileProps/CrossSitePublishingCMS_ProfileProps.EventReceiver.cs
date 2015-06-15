@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using Autofac;
+using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Targeting.Contracts.Configuration;
 using GSoft.Dynamite.UserProfile;
 using Microsoft.SharePoint;
@@ -27,12 +28,15 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_ProfilePro
             {
                 using (var scope = TargetingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
+                    var logger = scope.Resolve<ILogger>();
+
                     // Ensure profile properties
-                    var userProfileHelper = scope.Resolve<IUserProfileHelper>();
+                    var userProfilePropertyHelper = scope.Resolve<IUserProfilePropertyHelper>();
                     var profileConfig = scope.Resolve<ITargetingProfileConfig>();
                     foreach (var userProfilePropertyInfo in profileConfig.UserProfileProperties)
                     {
-                        userProfileHelper.EnsureProfileProperty(site, userProfilePropertyInfo);
+                        logger.Info("Ensuring profile property '{0}'", userProfilePropertyInfo.Name);
+                        userProfilePropertyHelper.EnsureProfileProperty(site, userProfilePropertyInfo);
                     }
                 }
             }
@@ -49,12 +53,15 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_ProfilePro
             {
                 using (var scope = TargetingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
+                    var logger = scope.Resolve<ILogger>();
+
                     // Remove profile properties
-                    var userProfileHelper = scope.Resolve<IUserProfileHelper>();
+                    var userProfilePropertyHelper = scope.Resolve<IUserProfilePropertyHelper>();
                     var profileConfig = scope.Resolve<ITargetingProfileConfig>();
                     foreach (var userProfilePropertyInfo in profileConfig.UserProfileProperties)
                     {
-                        userProfileHelper.RemoveProfileProperty(site, userProfilePropertyInfo);
+                        logger.Info("Removing profile property '{0}'", userProfilePropertyInfo.Name);
+                        userProfilePropertyHelper.RemoveProfileProperty(site, userProfilePropertyInfo);
                     }
                 }
             }

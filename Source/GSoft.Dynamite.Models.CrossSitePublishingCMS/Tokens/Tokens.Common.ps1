@@ -51,6 +51,12 @@
 . ./Modules/Search/Tokens.Search.Default.ps1
 
 # ******************************************
+# Targeting Module tokens
+# ******************************************
+. ./Modules/Targeting/Tokens.Targeting.Default.ps1
+. ./Modules/Targeting/Tokens.Targeting.Custom.ps1
+
+# ******************************************
 # Urls builder
 # ******************************************
 

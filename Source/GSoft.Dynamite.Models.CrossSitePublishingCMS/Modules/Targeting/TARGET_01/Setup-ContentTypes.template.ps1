@@ -8,4 +8,4 @@
 Write-Warning "Applying Content Types configuration..."
 
 # Activate feature on the root web on the authoring site collection
-Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CommonCMS_TARGET_ContentTypes]]
+Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_TARGET_ContentTypes]]

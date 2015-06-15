@@ -89,8 +89,9 @@ try {
 	[System.Boolean]::TryParse("[[DSP_EnableTargeting]]", [ref]$EnableTargeting)
 	if($EnableTargeting)
 	{
-		#.\Modules\Targeting\TARGET_01\Install-TARGET01.ps1
+		.\Modules\Targeting\TARGET_01\Install-TARGET01.ps1
 		.\Modules\Targeting\TARGET_02\Install-TARGET02.ps1
+		.\Modules\Targeting\TARGET_03\Install-TARGET03.ps1
 	}
 	#endregion
 
