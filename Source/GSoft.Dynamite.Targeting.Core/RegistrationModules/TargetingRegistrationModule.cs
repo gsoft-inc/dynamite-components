@@ -1,12 +1,13 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using GSoft.Dynamite.Targeting.Contracts.Configuration;
+using GSoft.Dynamite.Targeting.Contracts.Services;
 using GSoft.Dynamite.Targeting.Core.Configuration;
+using GSoft.Dynamite.Targeting.Core.Services;
 
 namespace GSoft.Dynamite.Targeting.Core.RegistrationModules
 {
     /// <summary>
-    /// <c>Autofac</c> registration module for the targeting module
+    /// Portal solution registration module for dependencies injection engine
     /// </summary>
     public class TargetingRegistrationModule : Module
     {
@@ -18,15 +19,21 @@ namespace GSoft.Dynamite.Targeting.Core.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
-            // Fields Configuration
+            // Configurations
             builder.RegisterType<TargetingFieldInfoConfig>()
                 .As<ITargetingFieldInfoConfig>()
                 .Named<ITargetingFieldInfoConfig>("targeting");
-
-            // Content Types Configuration
             builder.RegisterType<TargetingContentTypeInfoConfig>()
                 .As<ITargetingContentTypeInfoConfig>()
                 .Named<ITargetingContentTypeInfoConfig>("targeting");
+            builder.RegisterType<TargetingProfileConfig>()
+                .As<ITargetingProfileConfig>()
+                .Named<ITargetingProfileConfig>("targeting");
+
+            // Services
+            builder.RegisterType<TargetingProfileTaxonomySyncService>()
+                .As<ITargetingProfileTaxonomySyncService>()
+                .Named<ITargetingProfileTaxonomySyncService>("targeting");
         }
     }
 }

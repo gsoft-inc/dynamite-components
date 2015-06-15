@@ -1591,6 +1591,272 @@
             The child terms.
             </value>
         </member>
+        <member name="T:GSoft.Dynamite.UserProfile.IUserProfileHelper">
+            <summary>
+            User profile helper interface,
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfileHelper.GetUserProfileConfigManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the user profile configuration manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The user profile configuration manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfileHelper.GetCorePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the core property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The core property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfileHelper.GetProfileTypePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the profile type property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The profile type property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfileHelper.GetProfileSubtypePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the profile subtype property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The profile subtype property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfileHelper.EnsureProfileProperty(Microsoft.SharePoint.SPSite,GSoft.Dynamite.UserProfile.UserProfilePropertyInfo)">
+            <summary>
+            Ensures the profile property.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="userProfilePropertyInfo">The user profile property information.</param>
+            <returns>The user profile core property.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfileHelper.RemoveProfileProperty(Microsoft.SharePoint.SPSite,GSoft.Dynamite.UserProfile.UserProfilePropertyInfo)">
+            <summary>
+            Removes the profile property.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="userProfilePropertyInfo">The user profile property information.</param>
+            <returns>A boolean value if the property was removed or not.</returns>
+        </member>
+        <member name="T:GSoft.Dynamite.UserProfile.UserProfileHelper">
+            <summary>
+            User profile helper methods.
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfileHelper.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Taxonomy.ITaxonomyHelper,GSoft.Dynamite.Taxonomy.ISiteTaxonomyCacheManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.UserProfile.UserProfileHelper"/> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="taxonomyHelper">The taxonomy helper.</param>
+            <param name="siteTaxonomyCacheManager">The site taxonomy cache manager.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfileHelper.GetUserProfileConfigManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the user profile configuration manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The user profile configuration manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfileHelper.GetCorePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the core property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The core property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfileHelper.GetProfileTypePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the profile type property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The profile type property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfileHelper.GetProfileSubtypePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the profile subtype property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The profile subtype property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfileHelper.EnsureProfileProperty(Microsoft.SharePoint.SPSite,GSoft.Dynamite.UserProfile.UserProfilePropertyInfo)">
+            <summary>
+            Ensures the profile property.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="userProfilePropertyInfo">The user profile property information.</param>
+            <returns>The user profile core property.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfileHelper.RemoveProfileProperty(Microsoft.SharePoint.SPSite,GSoft.Dynamite.UserProfile.UserProfilePropertyInfo)">
+            <summary>
+            Removes the profile property.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="userProfilePropertyInfo">The user profile property information.</param>
+            <returns>A boolean value if the property was removed or not.</returns>
+        </member>
+        <member name="T:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo">
+            <summary>
+            User profile property information.
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="type">The type (PropertyDataType).</param>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.#ctor(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="type">The type (PropertyDataType).</param>
+            <param name="length">The length.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="type">The type (PropertyDataType).</param>
+            <param name="length">The length.</param>
+            <param name="isMultivalued">if set to <c>true</c> [is multivalued].</param>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.Length">
+            <summary>
+            Gets or sets the length.
+            </summary>
+            <value>
+            The length.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.PropertyDataType">
+            <summary>
+            Gets or sets the property data type (use PropertyDataType class).
+            </summary>
+            <value>
+            The property data type.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsMultivalued">
+            <summary>
+            Gets or sets a value indicating whether [is multivalued].
+            </summary>
+            <value>
+              <c>true</c> if [is multivalued]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>
+            The display name.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.DisplayNameLocalized">
+            <summary>
+            Gets or sets the localized display names (LCID and name key/value pairs).
+            </summary>
+            <value>
+            The localized display names.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.DescriptionLocalized">
+            <summary>
+            Gets or sets the localized descriptions (LCID and name key/value pairs).
+            </summary>
+            <value>
+            The localized descriptions.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsAlias">
+            <summary>
+            Gets or sets a value indicating whether [is alias].
+            </summary>
+            <value>
+              <c>true</c> if [is alias]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsSearchable">
+            <summary>
+            Gets or sets a value indicating whether [is searchable].
+            </summary>
+            <value>
+              <c>true</c> if [is searchable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsVisibleOnViewer">
+            <summary>
+            Gets or sets a value indicating whether [is visible on viewer].
+            </summary>
+            <value>
+              <c>true</c> if [is visible on viewer]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsVisibleOnEditor">
+            <summary>
+            Gets or sets a value indicating whether [is visible on editor].
+            </summary>
+            <value>
+              <c>true</c> if [is visible on editor]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsUserEditable">
+            <summary>
+            Gets or sets a value indicating whether [is user editable].
+            </summary>
+            <value>
+              <c>true</c> if [is user editable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsReplicable">
+            <summary>
+            Gets or sets a value indicating whether [is replicable].
+            </summary>
+            <value>
+              <c>true</c> if [is replicable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.Separator">
+            <summary>
+            Gets or sets the separator.
+            </summary>
+            <value>
+            The separator.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.TermSetInfo">
+            <summary>
+            Gets or sets the term set.
+            </summary>
+            <value>
+            The term set.
+            </value>
+        </member>
         <member name="T:GSoft.Dynamite.ValueTypes.Readers.BooleanValueReader">
             <summary>
             Reads bool-based field values
@@ -4827,8 +5093,8 @@
             deleted, then the target page will be re-created.
             If false, then re-publishing a source page will not cause previously
             deleted target pages to get created.
-            This will be mapped to the "AutoSpawnStopAfterDeletePropertyName" property bag
-            value on the root folder of the variations relationships list.
+            The OPPOSITE of this value will be mapped to the "AutoSpawnStopAfterDeletePropertyName" 
+            property bag value on the root folder of the variations relationships list.
             This value is false by default (i.e. target page deletions become
             permanent, regardless of subsequent source major version publish events).
             </summary>
@@ -9978,15 +10244,15 @@
             <param name="userName">The user name.</param>
             <returns>List of groups.</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Security.IUserHelper.GetUsersInGroup(Microsoft.SharePoint.SPGroup)">
+        <member name="M:GSoft.Dynamite.Security.IUserHelper.GetUsersInPrincipal(Microsoft.SharePoint.SPPrincipal)">
             <summary>
-            Gets the users in the SharePoint group.
-            This method will also check users in the active directory groups if any are in the SharePoint group.
+            Gets the users of the SharePoint principal.
+            This method will also check users in the active directory groups.
             </summary>
-            <param name="group">The SharePoint group.</param>
-            <returns>A list of the SPUsers in the SharePoint Group</returns>
+            <param name="principal">The SharePoint principal.</param>
+            <returns>A list of the SPUsers in the SharePoint principal</returns>
             <exception cref="T:System.ArgumentNullException">
-            group is null
+            Principal is null
             </exception>
         </member>
         <member name="M:GSoft.Dynamite.Security.IUserHelper.IsUserInGroup(Microsoft.SharePoint.SPUser,Microsoft.SharePoint.SPGroup)">
@@ -17473,17 +17739,6 @@
             <param name="userName">The user name.</param>
             <returns>List of groups.</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Security.UserHelper.GetUsersInGroup(Microsoft.SharePoint.SPGroup)">
-            <summary>
-            Gets the users in the SharePoint group.
-            This method will also check users in the active directory groups if any are in the SharePoint group.
-            </summary>
-            <param name="group">The SharePoint group.</param>
-            <returns>A list of the SPUsers in the SharePoint Group</returns>
-            <exception cref="T:System.ArgumentNullException">
-            group is null
-            </exception>
-        </member>
         <member name="M:GSoft.Dynamite.Security.UserHelper.IsUserInGroup(Microsoft.SharePoint.SPUser,Microsoft.SharePoint.SPGroup)">
             <summary>
             Determines whether The specified user is part of the specified SharePoint user group.
@@ -17494,6 +17749,17 @@
             <returns>True if the user is part of the specified group.</returns>
             <exception cref="T:System.ArgumentNullException">
             user or group is null
+            </exception>
+        </member>
+        <member name="M:GSoft.Dynamite.Security.UserHelper.GetUsersInPrincipal(Microsoft.SharePoint.SPPrincipal)">
+            <summary>
+            Gets the users of the SharePoint principal.
+            This method will also check users in the active directory groups.
+            </summary>
+            <param name="principal">The SharePoint principal.</param>
+            <returns>A list of the SPUsers in the SharePoint principal</returns>
+            <exception cref="T:System.ArgumentNullException">
+            Principal is null
             </exception>
         </member>
         <member name="T:GSoft.Dynamite.Utils.VersionContext">

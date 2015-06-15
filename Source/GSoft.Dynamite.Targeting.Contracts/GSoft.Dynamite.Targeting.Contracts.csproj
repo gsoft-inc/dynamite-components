@@ -42,7 +42,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10492\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10498\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -64,7 +64,10 @@
     <Compile Include="Configuration\ITargetingContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\ITargetingFieldInfoConfig.cs" />
     <Compile Include="Configuration\ITargetingResultSourceInfoConfig.cs" />
+    <Compile Include="Configuration\ITargetingProfileConfig.cs" />
+    <Compile Include="Constants\TargetingConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ITargetingProfileTaxonomySyncService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\GSoft.Dynamite.Portal.snk">
@@ -73,10 +76,7 @@
     <None Include="GSoft.Dynamite.Targeting.Contracts.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Constants\" />
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
