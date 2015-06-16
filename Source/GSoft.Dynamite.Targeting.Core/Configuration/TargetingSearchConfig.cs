@@ -7,9 +7,9 @@ using GSoft.Dynamite.Targeting.Contracts.Configuration;
 namespace GSoft.Dynamite.Targeting.Core.Configuration
 {
     /// <summary>
-    /// Search result sources configuration for the targeting module
+    /// Search configuration for the targeting module
     /// </summary>
-    public class TargetingResultSourceInfoConfig : ITargetingResultSourceInfoConfig
+    public class TargetingSearchConfig : ITargetingSearchConfig
     {
         /// <summary>
         /// Property that return all the result sources to create or configure in the targeting module

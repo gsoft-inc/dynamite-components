@@ -32,7 +32,7 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_ResultSour
                 {
                     var logger = featureScope.Resolve<ILogger>();
                     var searchHelper = featureScope.Resolve<ISearchHelper>();
-                    var baseResultSourceInfoConfig = featureScope.Resolve<ITargetingResultSourceInfoConfig>();
+                    var baseResultSourceInfoConfig = featureScope.Resolve<ITargetingSearchConfig>();
 
                     var resultSources = baseResultSourceInfoConfig.ResultSources;
 
@@ -60,7 +60,7 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_ResultSour
                 {
                     var logger = featureScope.Resolve<ILogger>();
                     var searchHelper = featureScope.Resolve<ISearchHelper>();
-                    var baseResultSourceInfoConfig = featureScope.Resolve<ITargetingResultSourceInfoConfig>();
+                    var baseResultSourceInfoConfig = featureScope.Resolve<ITargetingSearchConfig>();
 
                     var resultSources = baseResultSourceInfoConfig.ResultSources;
 

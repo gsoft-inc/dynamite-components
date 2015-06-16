@@ -5,9 +5,9 @@ using GSoft.Dynamite.Search;
 namespace GSoft.Dynamite.Targeting.Contracts.Configuration
 {
     /// <summary>
-    /// Result sources configuration for the targeting module
+    /// Search configuration for the targeting module
     /// </summary>
-    public interface ITargetingResultSourceInfoConfig
+    public interface ITargetingSearchConfig
     {
         /// <summary>
         /// Property that return all the result sources to create or configure in the navigation module

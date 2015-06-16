@@ -1,5 +1,5 @@
 ﻿# ----------------------------------------
-# TARGET 01: CREATE TARGETABLE CONTENT
+# TARGET 01: TARGETABLE CONTENT
 # ----------------------------------------
 
 param([string]$LogFolderPath)
@@ -12,33 +12,8 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
-# =========================================== #
-# =========   CATEGORIZE CONTENTS =========== #
-# =========================================== #
-
-$values = @{"Step: " = "#1 Setup Columns"}
+$values = @{"Step: " = "#1 Setup Content Targeting"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-Fields.ps1'
-& $Script
-
-$values = @{"Step: " = "#2 Setup Content Types"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
-& $Script
-
-$values = @{"Step: " = "#3 Setup Catalogs"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-Catalogs.ps1'
-& $Script
-
-# =========================================== #
-# ===========   EVENT RECEIVERS   =========== #
-# =========================================== #
-
-$values = @{"Step: " = "#4 Setup Event Receivers"}
-New-HeaderDrawing -Values $Values
-$Script = $CommandDirectory + '\Setup-EventReceivers.ps1'
+$Script = $CommandDirectory + '\Setup-ContentTargeting.ps1'
 & $Script

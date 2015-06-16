@@ -61,11 +61,8 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Configuration\ITargetingCatalogInfoConfig.cs" />
-    <Compile Include="Configuration\ITargetingContentTypeInfoConfig.cs" />
-    <Compile Include="Configuration\ITargetingEventReceiverInfoConfig.cs" />
-    <Compile Include="Configuration\ITargetingFieldInfoConfig.cs" />
-    <Compile Include="Configuration\ITargetingResultSourceInfoConfig.cs" />
+    <Compile Include="Configuration\ITargetingContentConfig.cs" />
+    <Compile Include="Configuration\ITargetingSearchConfig.cs" />
     <Compile Include="Configuration\ITargetingProfileConfig.cs" />
     <Compile Include="Constants\TargetingConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

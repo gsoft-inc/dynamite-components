@@ -117,44 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Feature_CrossSitePublishingCMS_Catalogs_Description" xml:space="preserve">
-    <value>Deploys content catalogs for Cross Site Publishing based CMS solutions</value>
-  <data name="Feature_CrossSitePublishingCMS_ProfileProps_Description" xml:space="preserve">
-    <value>Adds/configures the user profile properties related to targeting.</value>
+  <data name="Feature_XSP_Auth_ContentTargeting_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Authoring Content</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Catalogs_Title" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Catalogs</value>
-  <data name="Feature_CrossSitePublishingCMS_ProfileProps_Title" xml:space="preserve">
-    <value>Targeting Profile Properties</value>
+  <data name="Feature_XSP_Auth_ContentTargeting_Description" xml:space="preserve">
+    <value>Ensure content architecture (fields, content types, etc.) for the Cross Site Publishing Targeting Module in the authoring site.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Description" xml:space="preserve">
-    <value>Creates content types for Cross Site Publishing based CMS solutions - Targeting Module</value>
+  <data name="Feature_XSP_ProfileTargeting_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Profile</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Title" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Targeting Module - Content Types</value>
+  <data name="Feature_XSP_ProfileTargeting_Description" xml:space="preserve">
+    <value>Ensure user profile properties and sync timer job for content targeting.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Description" xml:space="preserve">
-    <value>Deploys the event receivers for targeting module</value>
+  <data name="Feature_XSP_Docs_ContentTargeting_Description" xml:space="preserve">
+    <value>Ensure content architecture (fields, content types, etc.) for the Cross Site Publishing Targeting Module in the document center site.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Title" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Event Receivers</value>
+  <data name="Feature_XSP_Docs_ContentTargeting_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Docs Content</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Fields_Description" xml:space="preserve">
-    <value>Creates fields for Cross Site Publishing based CMS solutions - Targeting Module</value>
+  <data name="Feature_XSP_SearchTargeting_Description" xml:space="preserve">
+    <value>Ensure search related configurations (result sources, etc.) for content targeting.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Fields_Title" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Targeting Module - Columns</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_ResultSources_Description" xml:space="preserve">
-    <value>Deploys search result sources for Cross Site Publishing based CMS solutions - Targeting Module</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_ResultSources_Title" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Targeting Module - Result Sources</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_TimerJobs_Description" xml:space="preserve">
-    <value>Adds timer jobs related to targeting configuration.</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_TimerJobs_Title" xml:space="preserve">
-    <value>Targeting Timer Jobs</value>
+  <data name="Feature_XSP_SearchTargeting_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Targeting Module - Search</value>
   </data>
 </root>

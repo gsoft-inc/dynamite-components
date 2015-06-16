@@ -71,11 +71,9 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Configuration\TargetingCatalogInfoConfig.cs" />
-    <Compile Include="Configuration\TargetingContentTypeInfoConfig.cs" />
-    <Compile Include="Configuration\TargetingEventReceiverInfoConfig.cs" />
-    <Compile Include="Configuration\TargetingFieldInfoConfig.cs" />
-    <Compile Include="Configuration\TargetingResultSourceInfoConfig.cs" />
+    <Compile Include="Configuration\DocsTargetingContentConfig.cs" />
+    <Compile Include="Configuration\AuthTargetingContentConfig.cs" />
+    <Compile Include="Configuration\TargetingSearchConfig.cs" />
     <Compile Include="Configuration\TargetingProfileConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationModules\TargetingRegistrationModule.cs" />
@@ -89,6 +87,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj">
+      <Project>{31680A5F-E76D-4501-9DFC-D67CE09863F1}</Project>
+      <Name>GSoft.Dynamite.Common.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
       <Project>{80D89ED1-4BB2-4020-B51B-97D3D376C36F}</Project>
       <Name>GSoft.Dynamite.Publishing.Contracts</Name>

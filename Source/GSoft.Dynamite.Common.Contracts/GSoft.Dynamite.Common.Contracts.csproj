@@ -67,6 +67,7 @@
     <Compile Include="Constants\CommonTermSetInfo.cs" />
     <Compile Include="Constants\CommonTermGroupInfo.cs" />
     <Compile Include="Constants\CommonFieldInfo.cs" />
+    <Compile Include="Constants\RegistrationNames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

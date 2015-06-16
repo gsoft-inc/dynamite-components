@@ -117,44 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Feature_CrossSitePublishingCMS_Catalogs_Description" xml:space="preserve">
-    <value>Déploie les catalogues du module de ciblage pour une solution de type CMS utilisant la publication intersites.</value>
-  <data name="Feature_CrossSitePublishingCMS_ProfileProps_Description" xml:space="preserve">
-    <value>Ajoute/configure les propriétés de profil qui ont rapport à la segmentation.</value>
+  <data name="Feature_XSP_Auth_ContentTargeting_Description" xml:space="preserve">
+    <value>Assure l'architecture de contenu (colonnes, types de contenu, etc.) pour le module de segmentation du site d'auteur dans le cadre Cross Site Publishing.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Catalogs_Title" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de ciblage - Catalogues</value>
-  <data name="Feature_CrossSitePublishingCMS_ProfileProps_Title" xml:space="preserve">
-    <value>Propriétés de profil de segmentation</value>
+  <data name="Feature_XSP_Auth_ContentTargeting_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Module de segmentation - Contenu d'auteur</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Description" xml:space="preserve">
-    <value>Crée les types de contenu du module de ciblage pour une solution de type CMS utilisant la publication intersites.</value>
+  <data name="Feature_XSP_Docs_ContentTargeting_Description" xml:space="preserve">
+    <value>Assure l'architecture de contenu (colonnes, types de contenu, etc.) pour le module de segmentation du site documentaire dans le cadre Cross Site Publishing.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ContentTypes_Title" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de ciblage - Types de contenus</value>
+  <data name="Feature_XSP_Docs_ContentTargeting_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Module de segmentation - Contenu documentaire</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Description" xml:space="preserve">
-    <value>Créer les récépteurs d'événements pour le module de ciblage.</value>
+  <data name="Feature_XSP_ProfileTargeting_Description" xml:space="preserve">
+    <value>Assure les propriétés de profil ainsi que la timer job de synchronisation.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_EventReceivers_Title" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de ciblage - Récépteurs d'événements</value>
+  <data name="Feature_XSP_ProfileTargeting_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Module de segmentation - Profil</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Fields_Description" xml:space="preserve">
-    <value>Crée les colonnes du module de ciblage pour une solution de type CMS utilisant la publication intersites.</value>
+  <data name="Feature_XSP_SearchTargeting_Description" xml:space="preserve">
+    <value>Assure les configurations reliées à la recherche pour la segmentation de contenu.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_Fields_Title" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de ciblage - Colonnes</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_ResultSources_Description" xml:space="preserve">
-    <value>Déploie les sources de résultats de recherche du module de ciblage pour une solution de type CMS utilisant la publication intersites.</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_ResultSources_Title" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de ciblage - Sources de résultats</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_TimerJobs_Description" xml:space="preserve">
-    <value>Ajoute les timer jobs pour la configuration de segmentation.</value>
-  </data>
-  <data name="Feature_CrossSitePublishingCMS_TimerJobs_Title" xml:space="preserve">
-    <value>Timer jobs de segmentation</value>
+  <data name="Feature_XSP_SearchTargeting_Title" xml:space="preserve">
+    <value>Dynamite Cross Site Publishing CMS -  Module de segmentation - Recherche</value>
   </data>
 </root>

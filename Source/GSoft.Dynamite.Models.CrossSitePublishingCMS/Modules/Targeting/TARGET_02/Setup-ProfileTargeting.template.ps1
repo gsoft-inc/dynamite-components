@@ -8,5 +8,5 @@
 Write-Warning "User profile property configuration..."
 
 # Activate feature on the root web on the authoring site collection
-Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_TARGET_ProfileProperties]]
+Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_TARGET_ProfileTargeting]]
 

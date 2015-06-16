@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using GSoft.Dynamite.Common.Contracts.Constants;
 using GSoft.Dynamite.Targeting.Contracts.Configuration;
 using GSoft.Dynamite.Targeting.Contracts.Services;
 using GSoft.Dynamite.Targeting.Core.Configuration;
@@ -20,29 +21,24 @@ namespace GSoft.Dynamite.Targeting.Core.RegistrationModules
         protected override void Load(ContainerBuilder builder)
         {
             // Configurations
-            builder.RegisterType<TargetingFieldInfoConfig>()
-                .As<ITargetingFieldInfoConfig>()
-                .Named<ITargetingFieldInfoConfig>("targeting");
-            builder.RegisterType<TargetingContentTypeInfoConfig>()
-                .As<ITargetingContentTypeInfoConfig>()
-                .Named<ITargetingContentTypeInfoConfig>("targeting");
+            builder.RegisterType<AuthTargetingContentConfig>()
+                .Named<ITargetingContentConfig>(RegistrationNames.Auth);
+
+            builder.RegisterType<DocsTargetingContentConfig>()
+                .Named<ITargetingContentConfig>(RegistrationNames.Docs);
+
             builder.RegisterType<TargetingProfileConfig>()
                 .As<ITargetingProfileConfig>()
-                .Named<ITargetingProfileConfig>("targeting");
-            builder.RegisterType<TargetingResultSourceInfoConfig>()
-                .As<ITargetingResultSourceInfoConfig>()
-                .Named<ITargetingResultSourceInfoConfig>("targeting");
-            builder.RegisterType<TargetingEventReceiverInfoConfig>()
-                .As<ITargetingEventReceiverInfoConfig>()
-                .Named<ITargetingEventReceiverInfoConfig>("targeting");
-            builder.RegisterType<TargetingCatalogInfoConfig>()
-                .As<ITargetingCatalogInfoConfig>()
-                .Named<ITargetingCatalogInfoConfig>("targeting");
+                .Named<ITargetingProfileConfig>(RegistrationNames.Targeting);
+
+            builder.RegisterType<TargetingSearchConfig>()
+                .As<ITargetingSearchConfig>()
+                .Named<ITargetingSearchConfig>(RegistrationNames.Targeting);
 
             // Services
             builder.RegisterType<TargetingProfileTaxonomySyncService>()
                 .As<ITargetingProfileTaxonomySyncService>()
-                .Named<ITargetingProfileTaxonomySyncService>("targeting");
+                .Named<ITargetingProfileTaxonomySyncService>(RegistrationNames.Targeting);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿# ----------------------------------------
-# TARGET 02: SYNC PROFILE PROPERTIES
+# TARGET 02: PROFILE TARGETING
 # ----------------------------------------
 
 param([string]$LogFolderPath)
@@ -12,14 +12,8 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
-$values = @{"Step: " = "#1 - Setup profile properties"}
+$values = @{"Step: " = "#1 - Setup profile targeting"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-ProfileProperties.ps1'
-& $Script
-
-$values = @{"Step: " = "#2 - Setup timer jobs"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-TimerJobs.ps1'
+$Script = $CommandDirectory + '\Setup-ProfileTargeting.ps1'
 & $Script

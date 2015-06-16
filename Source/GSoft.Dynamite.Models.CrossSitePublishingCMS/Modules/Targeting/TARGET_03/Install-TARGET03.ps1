@@ -1,5 +1,5 @@
 ﻿# ----------------------------------------
-# TARGET 03: VISUALIZE TARGETED CONTENT
+# TARGET 03: SEARCH TARGETING
 # ----------------------------------------
 
 param([string]$LogFolderPath)
@@ -12,12 +12,8 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $values = @{"User Story: " = $UserStory}
 New-HeaderDrawing -Values $Values
 
-# =========================================== #
-# =========	   RESULT SOURCES	 ============ #
-# =========================================== #
-
-$values = @{"Step: " = "#1 - Setup result sources"}
+$values = @{"Step: " = "#1 - Setup search targeting"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-ResultSources.ps1'
+$Script = $CommandDirectory + '\Setup-SearchTargeting.ps1'
 & $Script
