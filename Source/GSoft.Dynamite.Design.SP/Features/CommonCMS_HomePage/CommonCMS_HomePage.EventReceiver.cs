@@ -9,6 +9,7 @@ using GSoft.Dynamite.Design.Contracts.Configuration;
 using GSoft.Dynamite.Extensions;
 using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Folders;
+using GSoft.Dynamite.Globalization.Variations;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.TimerJobs;
@@ -74,11 +75,8 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePage
                     if (web.ID != web.Site.RootWeb.ID)
                     {
                         // Wait for variations to go through (so that the target home pages get created).
-                        // Launch all the timer jobs because we still haven't figured out the magic sequence yet.
-                        timerJobHelper.StartAndWaitForJob(site, "VariationsCreateHierarchies");
-                        timerJobHelper.StartAndWaitForJob(site, "VariationsSpawnSites");
-                        timerJobHelper.StartAndWaitForJob(site, "VariationsPropagatePage");
-                        timerJobHelper.StartAndWaitForJob(site, "VariationsPropagateListItem");
+                        timerJobHelper.StartAndWaitForJob(site, BuiltInVariationsTimerJobs.VariationsSpawnSites);        // required for new pages to get created
+                        timerJobHelper.StartAndWaitForJob(site, BuiltInVariationsTimerJobs.VariationsPropagatePage);     // required for page updates to get variated
 
                         // Update the target webs' home page URL
                         foreach (SPWeb firstLevelSubWeb in web.Site.RootWeb.Webs)
