@@ -76,7 +76,6 @@
     <Compile Include="Configuration\IPublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingResultTypeInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingReusableContentConfig.cs" />
-    <Compile Include="Configuration\IPublishingReusableContentInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingTaxonomyConfig.cs" />
     <Compile Include="Configuration\IPublishingListInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingWebPartInfoConfig.cs" />

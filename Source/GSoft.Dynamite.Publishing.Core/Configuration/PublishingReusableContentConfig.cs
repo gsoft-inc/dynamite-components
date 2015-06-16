@@ -12,7 +12,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// <summary>
     /// Class for the configuration of the Reusable Content information
     /// </summary>
-    public class PublishingReusableContentInfoConfig : IPublishingReusableContentInfoConfig
+    public class PublishingReusableContentConfig : IPublishingReusableContentConfig
     {
         /// <summary>
         /// A list of Reusable Content Info to Ensure in the Feature. Can be extended or overwrite via the dependency injection pattern.

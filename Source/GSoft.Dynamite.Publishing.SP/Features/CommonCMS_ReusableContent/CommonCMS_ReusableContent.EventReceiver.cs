@@ -29,9 +29,9 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_ReusableContent
             using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
             {
                 var reusableContentHelper = featureScope.Resolve<IReusableContentHelper>();
-                var reusableContentInfoConfig = featureScope.Resolve<IPublishingReusableContentInfoConfig>();
+                var reusableContentConfig = featureScope.Resolve<IPublishingReusableContentConfig>();
 
-                reusableContentHelper.EnsureReusableContent(site, reusableContentInfoConfig.ReusableContents);
+                reusableContentHelper.EnsureReusableContent(site, reusableContentConfig.ReusableContents);
             }
         }
     }

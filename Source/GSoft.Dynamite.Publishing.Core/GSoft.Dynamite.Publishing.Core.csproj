@@ -83,7 +83,7 @@
     <Compile Include="Configuration\PublishingPageLayoutInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\PublishingResultTypeInfoConfig.cs" />
-    <Compile Include="Configuration\PublishingReusableContentInfoConfig.cs" />
+    <Compile Include="Configuration\PublishingReusableContentConfig.cs" />
     <Compile Include="Configuration\PublishingTaxonomyConfig.cs" />
     <Compile Include="Configuration\PublishingWebPartInfoConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
