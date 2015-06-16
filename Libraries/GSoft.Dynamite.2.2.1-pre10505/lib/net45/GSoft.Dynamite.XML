@@ -1047,6 +1047,36 @@
             </param>
             <returns>The full field XML schema</returns>
         </member>
+        <member name="T:GSoft.Dynamite.Globalization.Variations.BuiltInVariationsTimerJobs">
+            <summary>
+            Constants to help document the different Variations timer jobs.
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Globalization.Variations.BuiltInVariationsTimerJobs.VariationsCreateHierarchies">
+            <summary>
+            Creates a complete variations hierarchy by provisioning all sites and pages from 
+            a source label to a newly created target label language.
+            By the time this timer job is complete, your target label item should have
+            the value HierarchyIsCreated = TRUE.
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Globalization.Variations.BuiltInVariationsTimerJobs.VariationsSpawnSites">
+            <summary>
+            A slight misnomer: this timer job takes care of creating variated sites AND newly
+            published pages in the target label sites.
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Globalization.Variations.BuiltInVariationsTimerJobs.VariationsPropagatePage">
+            <summary>
+            This timer job updates target pages when new versions are published (or force-updated)
+            at the source.
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Globalization.Variations.BuiltInVariationsTimerJobs.VariationsPropagateListItem">
+            <summary>
+            This job takes care of propagating list item updates.
+            </summary>
+        </member>
         <member name="T:GSoft.Dynamite.Globalization.Variations.HierarchyCreationMode">
             <summary>
             The various variation hierarchy creation modes (the initialization behavior 
@@ -1231,6 +1261,133 @@
               <c>true</c> if [include catalog items]; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="T:GSoft.Dynamite.ReusableContent.IReusableContentHelper">
+            <summary>
+            Contract on the Helper for the Reusable Content
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.IReusableContentHelper.GetByTitle(Microsoft.SharePoint.SPSite,System.String)">
+            <summary>
+            Gets the reusable content by title.
+            </summary>
+            <param name="site">The Site Collection.</param>
+            <param name="reusableContentTitle">The reusable content title.</param>
+            <returns>The reusable content</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.IReusableContentHelper.GetAllReusableContentTitles(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Method to get all available Reusable Content Titles
+            </summary>
+            <param name="site">The current Site collection context</param>
+            <returns>A list of string (reusable content title) or null.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.IReusableContentHelper.EnsureReusableContent(Microsoft.SharePoint.SPSite,System.Collections.Generic.IList{GSoft.Dynamite.ReusableContent.ReusableContentInfo})">
+            <summary>
+            Method to ensure (create if not exist) and update a reusable content in a specific site.
+            </summary>
+            <param name="site">The Site Collection to ensure the reusablec content</param>
+            <param name="reusableContents">The information on the reusable contents to ensure</param>
+        </member>
+        <member name="T:GSoft.Dynamite.ReusableContent.ReusableContentHelper">
+            <summary>
+            Helper class to work with Reusable Content.
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentHelper.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Lists.IListLocator,GSoft.Dynamite.Caml.ICamlBuilder)">
+            <summary>
+            Helper class constructor to work with Reusable Content.
+            </summary>
+            <param name="logger">The logger to log info and errors</param>
+            <param name="listLocator">List locator to find the ReusableContentList</param>
+            <param name="camlBuilder">Caml Builder for the query</param>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentHelper.GetByTitle(Microsoft.SharePoint.SPSite,System.String)">
+            <summary>
+            Gets the reusable content by title.
+            </summary>
+            <param name="site">The Site Collection.</param>
+            <param name="reusableContentTitle">The reusable content title.</param>
+            <returns>The reusable content</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentHelper.GetAllReusableContentTitles(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Method to get all available Reusable Content Titles
+            </summary>
+            <param name="site">The current Site collection context</param>
+            <returns>A list of string (reusable content title) or null.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentHelper.EnsureReusableContent(Microsoft.SharePoint.SPSite,System.Collections.Generic.IList{GSoft.Dynamite.ReusableContent.ReusableContentInfo})">
+            <summary>
+            Method to ensure (create if not exist) and update a reusable content in a specific site.
+            </summary>
+            <param name="site">The Site Collection to ensure the reusablec content</param>
+            <param name="reusableContents">The information on the reusable contents to ensure</param>
+        </member>
+        <member name="T:GSoft.Dynamite.ReusableContent.ReusableContentInfo">
+            <summary>
+            Information on a Reusable Content
+            </summary>
+            <remarks>
+            The pattern here is to fill the Filename and FolderInLayouts so the Helper can read a HTML file and fill the Content property with it.
+            </remarks>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentInfo.#ctor(System.String)">
+            <summary>
+            Simple constructor with only the title.
+            </summary>
+            <param name="title">The Title of the reusable content</param>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentInfo.#ctor(System.String,System.String,System.Boolean,System.Boolean,System.String,System.String)">
+            <summary>
+            Constructor with needed properties
+            </summary>
+            <param name="title">The title of the reusable content</param>
+            <param name="category">The category (choice)</param>
+            <param name="isAutomaticUpdate">Is the reusable content update automaticaly</param>
+            <param name="isShowInRibbon">Do we show the reusable content in the ribbon</param>
+            <param name="fileName">The filename of the html content</param>
+            <param name="folderInLayouts">The folder inside the Layouts hive</param>
+        </member>
+        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.Title">
+            <summary>
+            The Title of the Reusable Content. This is used as the key in the list.
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.Category">
+            <summary>
+            The Category of the Reusable Content. In SharePoint it is stored as a choice.
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.IsAutomaticUpdate">
+            <summary>
+            Does the Reusable Content update itself when the source is updated (true) or is it a copy of the html content (false).
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.IsShowInRibbon">
+            <summary>
+            Do we show the Reusable Content in the Ribbon Dropdown as available
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.Content">
+            <summary>
+            The HTML content of the Reusable Content
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.FileName">
+            <summary>
+            The filename of the reusable content HTML file. Eg: "footer.html"
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.FolderInLayouts">
+            <summary>
+            The folder inside the Layouts hive. Eg: "GSoft.Dynamite"
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.HTMLFilePath">
+            <summary>
+            The generated Path for the HTML file.
+            </summary>
+        </member>
         <member name="T:GSoft.Dynamite.Search.BestBetInfo">
             <summary>
             Best best definition (search promoted results)
@@ -1274,6 +1431,16 @@
             <summary>
             Whether, if unused, it should get automatically deleted.
             False by default.
+            </summary>
+        </member>
+        <member name="T:GSoft.Dynamite.Search.BuiltInRankingModels">
+            <summary>
+            Class to hold the IDs of the built-in ranking models
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInRankingModels.DefaultSearchModelId">
+            <summary>
+            Gets the Default Search Model ID.
             </summary>
         </member>
         <member name="T:GSoft.Dynamite.Search.IQueryRuleHelper">
@@ -1589,6 +1756,272 @@
             </summary>
             <value>
             The child terms.
+            </value>
+        </member>
+        <member name="T:GSoft.Dynamite.UserProfile.IUserProfilePropertyHelper">
+            <summary>
+            User profile property helper interface
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfilePropertyHelper.GetUserProfileConfigManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the user profile configuration manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The user profile configuration manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfilePropertyHelper.GetCorePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the core property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The core property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfilePropertyHelper.GetProfileTypePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the profile type property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The profile type property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfilePropertyHelper.GetProfileSubtypePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the profile subtype property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The profile subtype property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfilePropertyHelper.EnsureProfileProperty(Microsoft.SharePoint.SPSite,GSoft.Dynamite.UserProfile.UserProfilePropertyInfo)">
+            <summary>
+            Ensures the profile property.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="userProfilePropertyInfo">The user profile property information.</param>
+            <returns>The user profile core property.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.IUserProfilePropertyHelper.RemoveProfileProperty(Microsoft.SharePoint.SPSite,GSoft.Dynamite.UserProfile.UserProfilePropertyInfo)">
+            <summary>
+            Removes the profile property.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="userProfilePropertyInfo">The user profile property information.</param>
+            <returns>A boolean value if the property was removed or not.</returns>
+        </member>
+        <member name="T:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper">
+            <summary>
+            User profile property helper methods.
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Taxonomy.ITaxonomyHelper,GSoft.Dynamite.Taxonomy.ISiteTaxonomyCacheManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper"/> class.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="taxonomyHelper">The taxonomy helper.</param>
+            <param name="siteTaxonomyCacheManager">The site taxonomy cache manager.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper.GetUserProfileConfigManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the user profile configuration manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The user profile configuration manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper.GetCorePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the core property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The core property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper.GetProfileTypePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the profile type property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The profile type property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper.GetProfileSubtypePropertyManager(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Gets the profile subtype property manager.
+            </summary>
+            <param name="site">The site.</param>
+            <returns>The profile subtype property manager.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper.EnsureProfileProperty(Microsoft.SharePoint.SPSite,GSoft.Dynamite.UserProfile.UserProfilePropertyInfo)">
+            <summary>
+            Ensures the profile property.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="userProfilePropertyInfo">The user profile property information.</param>
+            <returns>The user profile core property.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyHelper.RemoveProfileProperty(Microsoft.SharePoint.SPSite,GSoft.Dynamite.UserProfile.UserProfilePropertyInfo)">
+            <summary>
+            Removes the profile property.
+            </summary>
+            <param name="site">The site.</param>
+            <param name="userProfilePropertyInfo">The user profile property information.</param>
+            <returns>A boolean value if the property was removed or not.</returns>
+        </member>
+        <member name="T:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo">
+            <summary>
+            User profile property information.
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="type">The type (PropertyDataType).</param>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.#ctor(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="type">The type (PropertyDataType).</param>
+            <param name="length">The length.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.#ctor(System.String,System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="type">The type (PropertyDataType).</param>
+            <param name="length">The length.</param>
+            <param name="isMultivalued">if set to <c>true</c> [is multivalued].</param>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.Length">
+            <summary>
+            Gets or sets the length.
+            </summary>
+            <value>
+            The length.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.PropertyDataType">
+            <summary>
+            Gets or sets the property data type (use PropertyDataType class).
+            </summary>
+            <value>
+            The property data type.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsMultivalued">
+            <summary>
+            Gets or sets a value indicating whether [is multivalued].
+            </summary>
+            <value>
+              <c>true</c> if [is multivalued]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>
+            The display name.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.DisplayNameLocalized">
+            <summary>
+            Gets or sets the localized display names (LCID and name key/value pairs).
+            </summary>
+            <value>
+            The localized display names.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.DescriptionLocalized">
+            <summary>
+            Gets or sets the localized descriptions (LCID and name key/value pairs).
+            </summary>
+            <value>
+            The localized descriptions.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsAlias">
+            <summary>
+            Gets or sets a value indicating whether [is alias].
+            </summary>
+            <value>
+              <c>true</c> if [is alias]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsSearchable">
+            <summary>
+            Gets or sets a value indicating whether [is searchable].
+            </summary>
+            <value>
+              <c>true</c> if [is searchable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsVisibleOnViewer">
+            <summary>
+            Gets or sets a value indicating whether [is visible on viewer].
+            </summary>
+            <value>
+              <c>true</c> if [is visible on viewer]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsVisibleOnEditor">
+            <summary>
+            Gets or sets a value indicating whether [is visible on editor].
+            </summary>
+            <value>
+              <c>true</c> if [is visible on editor]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsUserEditable">
+            <summary>
+            Gets or sets a value indicating whether [is user editable].
+            </summary>
+            <value>
+              <c>true</c> if [is user editable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsReplicable">
+            <summary>
+            Gets or sets a value indicating whether [is replicable].
+            </summary>
+            <value>
+              <c>true</c> if [is replicable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.Separator">
+            <summary>
+            Gets or sets the separator.
+            </summary>
+            <value>
+            The separator.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.TermSetInfo">
+            <summary>
+            Gets or sets the term set.
+            </summary>
+            <value>
+            The term set.
             </value>
         </member>
         <member name="T:GSoft.Dynamite.ValueTypes.Readers.BooleanValueReader">
@@ -4827,8 +5260,8 @@
             deleted, then the target page will be re-created.
             If false, then re-publishing a source page will not cause previously
             deleted target pages to get created.
-            This will be mapped to the "AutoSpawnStopAfterDeletePropertyName" property bag
-            value on the root folder of the variations relationships list.
+            The OPPOSITE of this value will be mapped to the "AutoSpawnStopAfterDeletePropertyName" 
+            property bag value on the root folder of the variations relationships list.
             This value is false by default (i.e. target page deletions become
             permanent, regardless of subsequent source major version publish events).
             </summary>
@@ -6222,7 +6655,12 @@
         </member>
         <member name="P:GSoft.Dynamite.Search.ResultSourceInfo.SortSettings">
             <summary>
-            The sorting setting by field. The Key corresponds the field name.
+            The sorting setting by field. The Key corresponds to the field name.
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.ResultSourceInfo.RankingModelId">
+            <summary>
+            Specifies the Ranking Model Id to be used (only taken into account if "Rank" is specified in the SortSettings)
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Search.ResultSourceInfo.UpdateMode">
@@ -8131,6 +8569,11 @@
             The OOTB SecondaryFileExtension managed property
             </summary>
         </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInManagedProperties.Rank">
+            <summary>
+            The OOTB Rank managed property
+            </summary>
+        </member>
         <member name="T:GSoft.Dynamite.Caml.CamlBuilder">
             <summary>
             CAML query builder, replacing the use of John Holiday's this.NET library.
@@ -9978,15 +10421,15 @@
             <param name="userName">The user name.</param>
             <returns>List of groups.</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Security.IUserHelper.GetUsersInGroup(Microsoft.SharePoint.SPGroup)">
+        <member name="M:GSoft.Dynamite.Security.IUserHelper.GetUsersInPrincipal(Microsoft.SharePoint.SPPrincipal)">
             <summary>
-            Gets the users in the SharePoint group.
-            This method will also check users in the active directory groups if any are in the SharePoint group.
+            Gets the users of the SharePoint principal.
+            This method will also check users in the active directory groups.
             </summary>
-            <param name="group">The SharePoint group.</param>
-            <returns>A list of the SPUsers in the SharePoint Group</returns>
+            <param name="principal">The SharePoint principal.</param>
+            <returns>A list of the SPUsers in the SharePoint principal</returns>
             <exception cref="T:System.ArgumentNullException">
-            group is null
+            Principal is null
             </exception>
         </member>
         <member name="M:GSoft.Dynamite.Security.IUserHelper.IsUserInGroup(Microsoft.SharePoint.SPUser,Microsoft.SharePoint.SPGroup)">
@@ -17473,17 +17916,6 @@
             <param name="userName">The user name.</param>
             <returns>List of groups.</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Security.UserHelper.GetUsersInGroup(Microsoft.SharePoint.SPGroup)">
-            <summary>
-            Gets the users in the SharePoint group.
-            This method will also check users in the active directory groups if any are in the SharePoint group.
-            </summary>
-            <param name="group">The SharePoint group.</param>
-            <returns>A list of the SPUsers in the SharePoint Group</returns>
-            <exception cref="T:System.ArgumentNullException">
-            group is null
-            </exception>
-        </member>
         <member name="M:GSoft.Dynamite.Security.UserHelper.IsUserInGroup(Microsoft.SharePoint.SPUser,Microsoft.SharePoint.SPGroup)">
             <summary>
             Determines whether The specified user is part of the specified SharePoint user group.
@@ -17494,6 +17926,17 @@
             <returns>True if the user is part of the specified group.</returns>
             <exception cref="T:System.ArgumentNullException">
             user or group is null
+            </exception>
+        </member>
+        <member name="M:GSoft.Dynamite.Security.UserHelper.GetUsersInPrincipal(Microsoft.SharePoint.SPPrincipal)">
+            <summary>
+            Gets the users of the SharePoint principal.
+            This method will also check users in the active directory groups.
+            </summary>
+            <param name="principal">The SharePoint principal.</param>
+            <returns>A list of the SPUsers in the SharePoint principal</returns>
+            <exception cref="T:System.ArgumentNullException">
+            Principal is null
             </exception>
         </member>
         <member name="T:GSoft.Dynamite.Utils.VersionContext">

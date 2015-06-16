@@ -12,6 +12,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Repositories
     /// <summary>
     /// The public reusable content repository interface
     /// </summary>
+    [Obsolete]
     public interface IReusableContentRepository : IRepository<ReusableHtmlContent>
     {
         /// <summary>

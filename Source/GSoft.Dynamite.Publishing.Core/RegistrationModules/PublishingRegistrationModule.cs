@@ -87,9 +87,8 @@ namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
             builder.RegisterType<PublishingMetadataNavigationSettingsConfig>().Named<IPublishingMetadataNavigationSettingsConfig>("publishing");
      
             // Reusable Content
-            builder.RegisterType<ReusableContentRepository>().As<IReusableContentRepository>();
-            builder.RegisterType<ReusableContentService>().As<IReusableContentService>();
-            builder.RegisterType<PublishingReusableContentConfig>().As<IPublishingReusableContentConfig>();
+            builder.RegisterType<PublishingReusableContentInfoConfig>().As<IPublishingReusableContentInfoConfig>();
+            builder.RegisterType<PublishingReusableContentInfoConfig>().Named<IPublishingReusableContentInfoConfig>("publishing");
 
             // WebPart
             builder.RegisterType<PublishingWebPartInfoConfig>().As<IPublishingWebPartInfoConfig>();

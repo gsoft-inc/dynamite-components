@@ -41,8 +41,8 @@
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10492\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10505\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
@@ -76,6 +76,7 @@
     <Compile Include="Configuration\IPublishingResultSourceInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingResultTypeInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingReusableContentConfig.cs" />
+    <Compile Include="Configuration\IPublishingReusableContentInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingTaxonomyConfig.cs" />
     <Compile Include="Configuration\IPublishingListInfoConfig.cs" />
     <Compile Include="Configuration\IPublishingWebPartInfoConfig.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Constants\PublishingResources.cs" />
     <Compile Include="Constants\PublishingResultSourceInfos.cs" />
     <Compile Include="Constants\PublishingResultTypeInfos.cs" />
+    <Compile Include="Constants\PublishingReusableContentInfos.cs" />
     <Compile Include="Constants\PublishingTermInfos.cs" />
     <Compile Include="Constants\PublishingTermSetInfos.cs" />
     <Compile Include="Constants\PublishingWebPartInfos.cs" />

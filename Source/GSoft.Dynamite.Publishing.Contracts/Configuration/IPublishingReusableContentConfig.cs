@@ -9,6 +9,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
     /// <summary>
     /// Interface for the configuration of the reusable contents.
     /// </summary>
+    [Obsolete]
     public interface IPublishingReusableContentConfig
     {
         /// <summary>

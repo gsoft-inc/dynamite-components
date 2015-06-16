@@ -18,6 +18,7 @@ namespace GSoft.Dynamite.Publishing.Core.Services
     /// <summary>
     /// The reusable content service class.
     /// </summary>
+    [Obsolete]
     public class ReusableContentService : IReusableContentService
     {
         /// <summary>

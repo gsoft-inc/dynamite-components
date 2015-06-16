@@ -11,6 +11,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Services
     /// <summary>
     /// The public reusable content service interface
     /// </summary>
+    [Obsolete]
     public interface IReusableContentService
     {
         /// <summary>

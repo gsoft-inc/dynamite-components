@@ -10,6 +10,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// <summary>
     /// Configuration sample for the reusable Content 
     /// </summary>
+    [Obsolete]
     public class PublishingReusableContentConfig : IPublishingReusableContentConfig
     {
         /// <summary>

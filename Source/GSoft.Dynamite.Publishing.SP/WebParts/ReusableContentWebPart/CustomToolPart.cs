@@ -2,6 +2,7 @@
 using Autofac;
 using GSoft.Dynamite.Publishing.Contracts.Entities;
 using GSoft.Dynamite.Publishing.Contracts.Services;
+using GSoft.Dynamite.ReusableContent;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.WebPartPages;
 
@@ -50,15 +51,13 @@ namespace GSoft.Dynamite.Publishing.SP.WebParts.ReusableContentWebPart
         {
             this.reusableContentWebPart = this.ParentToolPane.SelectedWebPart as ReusableContentWebPart;
 
-            var reusableContentService = PublishingContainerProxy.Current.Resolve<IReusableContentService>();
-            var web = SPContext.Current.Web;
+            var reusableContentHelper = PublishingContainerProxy.Current.Resolve<IReusableContentHelper>();
 
-            var reusableContents = reusableContentService.GetReusableContents(web);
+            var reusableContentTitles = reusableContentHelper.GetAllReusableContentTitles(SPContext.Current.Site);
 
-            foreach (var reusableHtmlContent in reusableContents)
+            foreach (var reusableHtmlContentTitle in reusableContentTitles)
             {
-                var reusableContent = reusableHtmlContent as ReusableHtmlContent;
-                this.reusableContents.Items.Add(reusableContent.Title);
+                this.reusableContents.Items.Add(reusableHtmlContentTitle);
             }
 
             // Default selection on an existing value

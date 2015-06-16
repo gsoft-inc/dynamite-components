@@ -18,6 +18,7 @@ namespace GSoft.Dynamite.Publishing.Core.Repositories
     /// <summary>
     /// The Repository to make transaction with Reusable Content list and item
     /// </summary>
+    [Obsolete]
     public class ReusableContentRepository : IReusableContentRepository
     {
         private readonly string ReusableHTML = "ReusableHtml";
