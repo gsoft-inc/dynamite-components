@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Services;
 using GSoft.Dynamite.ReusableContent;
 using Microsoft.SharePoint;
 

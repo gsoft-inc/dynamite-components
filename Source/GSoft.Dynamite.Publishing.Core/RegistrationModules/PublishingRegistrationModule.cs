@@ -5,11 +5,7 @@ using GSoft.Dynamite.Portal.Core.Resources;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Publishing.Contracts.Entities;
-using GSoft.Dynamite.Publishing.Contracts.Repositories;
-using GSoft.Dynamite.Publishing.Contracts.Services;
 using GSoft.Dynamite.Publishing.Core.Configuration;
-using GSoft.Dynamite.Publishing.Core.Repositories;
-using GSoft.Dynamite.Publishing.Core.Services;
 
 namespace GSoft.Dynamite.Publishing.Core.RegistrationModules
 {

@@ -2,7 +2,6 @@
 using System.Web.UI;
 using Autofac;
 using GSoft.Dynamite.Globalization;
-using GSoft.Dynamite.Publishing.Contracts.Services;
 using GSoft.Dynamite.ReusableContent;
 using Microsoft.SharePoint;
 
