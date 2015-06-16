@@ -1,6 +1,5 @@
 ﻿using System.Web.UI.WebControls;
 using Autofac;
-using GSoft.Dynamite.Publishing.Contracts.Entities;
 using GSoft.Dynamite.ReusableContent;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.WebPartPages;

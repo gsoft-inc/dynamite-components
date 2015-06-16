@@ -4,7 +4,6 @@ using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Portal.Core.Resources;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
-using GSoft.Dynamite.Publishing.Contracts.Entities;
 using GSoft.Dynamite.Publishing.Core.Configuration;
 
 namespace GSoft.Dynamite.Publishing.Core.RegistrationModules

@@ -96,7 +96,6 @@
     <Compile Include="Constants\PublishingTermInfos.cs" />
     <Compile Include="Constants\PublishingTermSetInfos.cs" />
     <Compile Include="Constants\PublishingWebPartInfos.cs" />
-    <Compile Include="Entities\ReusableHtmlContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\PublishingResourceLocatorConfig.cs" />
     <Compile Include="WebParts\IFilteredProductShowcaseWebPart.cs" />
