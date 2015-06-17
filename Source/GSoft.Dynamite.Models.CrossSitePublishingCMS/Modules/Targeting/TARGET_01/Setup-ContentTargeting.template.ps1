@@ -7,8 +7,16 @@
 
 Write-Warning "Applying content targeting configuration..."
 
-# Activate feature on the root web on the authoring site collection
-Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_TARGET_Auth_ContentTargeting]]
+# Activate feature on all the authoring source variation labels
+[[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object{
+	Initialize-DSPFeature -Url $_  -Id [[DSP_CrossSitePublishingCMS_TARGET_Auth_ContentTargeting]]
+}
+
+# Activate feature on all the authoring target variation labels
+[[DSP_AuthoringTargetRootWebUrls]] | Foreach-Object{
+
+	Initialize-DSPFeature -Url $_  -Id [[DSP_CrossSitePublishingCMS_TARGET_Auth_ContentTargeting]]
+}
 
 if(![string]::IsNullOrEmpty("[[DSP_PortalDocsSiteUrl]]"))
 {

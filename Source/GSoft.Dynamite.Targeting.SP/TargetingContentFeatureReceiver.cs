@@ -20,6 +20,14 @@ namespace GSoft.Dynamite.Targeting.SP
     /// </remarks>
     public abstract class TargetingContentFeatureReceiver : SPFeatureReceiver
     {
+        private ILogger logger;
+        private IFieldHelper fieldHelper;
+        private ICatalogHelper catalogHelper;
+        private ITargetingContentConfig config;
+        private IResourceLocator resourceLocator;
+        private IContentTypeHelper contentTypeHelper;
+        private IEventReceiverHelper eventReceiverHelper;
+
         /// <summary>
         /// Gets the name of the registration for the 'ITargetingContentConfig' implementation.
         /// </summary>
@@ -39,11 +47,15 @@ namespace GSoft.Dynamite.Targeting.SP
             {
                 using (var scope = TargetingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var config = scope.ResolveNamed<ITargetingContentConfig>(this.RegistrationName);
-                    EnsureFields(scope, config, web.Site);
-                    EnsureContentTypes(scope, config, web.Site);
-                    EnsureEventReceivers(scope, config, web.Site);
-                    EnsureCatalogs(scope, config, web);
+                    this.ResolveDependencies(scope);
+
+                    // Fields, content types and event receivers are ensure on the site collection level
+                    this.EnsureFields(web.Site);
+                    this.EnsureContentTypes(web.Site);
+                    this.EnsureEventReceivers(web.Site);
+
+                    // Catalogs are ensured on the web level
+                    this.EnsureCatalogs(web);
                 }
             }
         }
@@ -59,79 +71,90 @@ namespace GSoft.Dynamite.Targeting.SP
             {
                 using (var scope = TargetingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var config = scope.ResolveNamed<ITargetingContentConfig>(this.RegistrationName);
-                    RemoveEventReceivers(scope, config, web.Site);
+                    this.ResolveDependencies(scope);
+
+                    // Event receivers are removed on the site collection level
+                    this.RemoveEventReceivers(web.Site);
                 }
             }
         }
 
-        private static void EnsureFields(IComponentContext scope, ITargetingContentConfig config, SPSite site)
+        private void ResolveDependencies(IComponentContext scope)
+        {
+            this.logger = scope.Resolve<ILogger>();
+            this.fieldHelper = scope.Resolve<IFieldHelper>();
+            this.catalogHelper = scope.Resolve<ICatalogHelper>();
+            this.resourceLocator = scope.Resolve<IResourceLocator>();
+            this.contentTypeHelper = scope.Resolve<IContentTypeHelper>();
+            this.eventReceiverHelper = scope.Resolve<IEventReceiverHelper>();
+            this.config = scope.ResolveNamed<ITargetingContentConfig>(this.RegistrationName);
+        }
+
+        private void EnsureFields(SPSite site)
         {
             using (new Unsafe(site.RootWeb))
             {
-                var logger = scope.Resolve<ILogger>();
-                var fieldHelper = scope.Resolve<IFieldHelper>();
-
-                foreach (var field in config.Fields)
+                foreach (var field in this.config.Fields)
                 {
-                    logger.Info("Creating field '{0}' on URL '{1}'", field.InternalName, site.Url);
-                    fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                    this.logger.Info(
+                        "Creating field '{0}' on URL '{1}'", 
+                        field.InternalName, 
+                        site.Url);
+
+                    this.fieldHelper.EnsureField(site.RootWeb.Fields, field);
                 }
             }
         }
 
-        private static void EnsureContentTypes(IComponentContext scope, ITargetingContentConfig config, SPSite site)
+        private void EnsureContentTypes(SPSite site)
         {
-            var logger = scope.Resolve<ILogger>();
-            var resourceLocator = scope.Resolve<IResourceLocator>();
-            var contentTypeHelper = scope.Resolve<IContentTypeHelper>();
-
-            foreach (var contentType in config.ContentTypes)
+            foreach (var contentType in this.config.ContentTypes)
             {
-                logger.Info("Creating content type {0} on site {1}", resourceLocator.Find(contentType.DisplayNameResourceKey), site.Url);
-                contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
+                this.logger.Info(
+                    "Creating content type {0} on site {1}", 
+                    this.resourceLocator.Find(contentType.DisplayNameResourceKey), 
+                    site.Url);
+
+                this.contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
             }
         }
 
-        private static void EnsureEventReceivers(IComponentContext scope, ITargetingContentConfig config, SPSite site)
+        private void EnsureEventReceivers(SPSite site)
         {
-            var logger = scope.Resolve<ILogger>();
-            var resourceLocator = scope.Resolve<IResourceLocator>();
-            var eventReceiverHelper = scope.Resolve<IEventReceiverHelper>();
-
-            foreach (var eventReceiver in config.EventReceivers)
+            foreach (var eventReceiver in this.config.EventReceivers)
             {
+                this.logger.Info(
+                    "Provisioning event receiver for content type {0}",
+                    this.resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
+
                 eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
-                eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
-
-                logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
+                this.eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
             }
         }
 
-        private static void EnsureCatalogs(IComponentContext scope, ITargetingContentConfig config, SPWeb web)
+        private void EnsureCatalogs(SPWeb web)
         {
-            var logger = scope.Resolve<ILogger>();
-            var catalogHelper = scope.Resolve<ICatalogHelper>();
-
-            foreach (var catalog in config.Catalogs)
+            foreach (var catalog in this.config.Catalogs)
             {
-                logger.Info("Creating catalog {0} on web {1}", catalog.WebRelativeUrl, web.Url);
-                catalogHelper.EnsureCatalog(web, catalog);
+                this.logger.Info(
+                    "Creating catalog {0} on web {1}", 
+                    catalog.WebRelativeUrl, 
+                    web.Url);
+
+                this.catalogHelper.EnsureCatalog(web, catalog);
             }
         }
 
-        private static void RemoveEventReceivers(IComponentContext scope, ITargetingContentConfig config, SPSite site)
+        private void RemoveEventReceivers(SPSite site)
         {
-            var logger = scope.Resolve<ILogger>();
-            var resourceLocator = scope.Resolve<IResourceLocator>();
-            var eventReceiverHelper = scope.Resolve<IEventReceiverHelper>();
-
-            foreach (var eventReceiver in config.EventReceivers)
+            foreach (var eventReceiver in this.config.EventReceivers)
             {
+                this.logger.Info(
+                    "Deleting event receiver for content type {0}", 
+                    this.resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
+
                 eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
-                eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
-
-                logger.Info("Deleting event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
+                this.eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
             }
         }
     }
