@@ -37,12 +37,12 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                     var item = properties.ListItem;
 
                     // Set Term driven page
-                    navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, properties.ListItem);
+                    navigationTermService.SetTermDrivenPageForTerm(properties.ListItem);
 
                     if (variationHelper.IsCurrentWebSourceLabel(item.Web))
                     {
                         // Create term in other term sets
-                        navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
+                        navigationTermService.SyncNavigationTerm(properties.ListItem);
                     }
                 }
                 catch (Exception e)
@@ -82,12 +82,12 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                         // Be careful, if a permission error occurs, check your Farm Account configuration in the Security section in the Central Administration.
                         // The current user shouldn't be present in the Farm Account component. (Configure Service Accounts), should be dev\spsfarm
                         // Set Term driven page
-                        navigationTermService.SetTermDrivenPageForTerm(properties.Web.Site, item);
+                        navigationTermService.SetTermDrivenPageForTerm(item);
 
                         if (variationHelper.IsCurrentWebSourceLabel(item.Web))
                         {
                             // Create term in other term sets
-                            navigationTermService.SyncNavigationTerm(properties.Web.Site, item);
+                            navigationTermService.SyncNavigationTerm(item);
                         }
 
                         if (properties.BeforeProperties != null && properties.AfterProperties != null)
@@ -103,7 +103,7 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                             // Reset the previous term if different from the current term
                             if (before != null && after != null && after.TermGuid != before.TermGuid)
                             {
-                                navigationHelper.ResetTermDrivenPageToSimpleLinkUrl(item.Web.Site, new TermInfo() { Id = new Guid(before.TermGuid) });
+                                navigationHelper.ResetTermDrivenPageToSimpleLinkUrl(item.Web, new TermInfo() { Id = new Guid(before.TermGuid) });
                             }
                         }
                     }
@@ -141,7 +141,7 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                     var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
 
                     // Set Term driven page
-                    navigationTermService.DeleteAssociatedPageTerm(properties.Web.Site, properties.ListItem);
+                    navigationTermService.DeleteAssociatedPageTerm(properties.ListItem);
                 }
                 catch (Exception e)
                 {

@@ -430,16 +430,16 @@
             <param name="web">The SharePoint Web.</param>
             <param name="emailInformation">The email information.</param>
         </member>
-        <member name="M:GSoft.Dynamite.Email.IEmailHelper.EnableFailsafe(Microsoft.SharePoint.Administration.SPWebApplication,System.String)">
+        <member name="M:GSoft.Dynamite.Email.IEmailHelper.EnableRecipientOverride(Microsoft.SharePoint.Administration.SPWebApplication,System.String)">
             <summary>
-            Enables the email Failsafe for the specified web application.
-            When this Failsafe is Enabled, all emails send with this helper will only be send to the specified address clearing all original To, CC, and BCC addresses
+            Enables the email recipient override for the specified web application.
+            When recipient override is Enabled, all emails send with this helper will only be sent to the specified address clearing all original To, CC, and BCC addresses
             and a message will be added to the top of the email body listing the original To, CC, and BCC email addresses.
             </summary>
             <param name="webApplication">The web application.</param>
             <param name="emailAddress">
             The email address.
-            Setting this to an empty string will disable the Failsafe.
+            Setting this to an empty string will disable the recipient override.
             </param>
         </member>
         <member name="M:GSoft.Dynamite.Email.IEmailHelper.AddGroupMembersToRecipients(Microsoft.SharePoint.SPGroup,GSoft.Dynamite.Email.EmailInfo)">
@@ -450,19 +450,20 @@
             <param name="group">The SharePoint group.</param>
             <param name="emailInformation">The email information.</param>
         </member>
-        <member name="M:GSoft.Dynamite.Email.IEmailHelper.IsFailsafeEnabled(Microsoft.SharePoint.Administration.SPWebApplication)">
+        <member name="M:GSoft.Dynamite.Email.IEmailHelper.IsRecipientOverrideEnabled(Microsoft.SharePoint.Administration.SPWebApplication)">
             <summary>
-            Is the email Failsafe enabled.
+            Is the email recipient override enabled.
             </summary>
             <param name="webApplication">The web application to check.</param>
-            <returns>True if the Failsafe is activated for the specified web application.</returns>
+            <returns>True if the recipient override is activated for the specified web application.</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Email.EmailHelper.#ctor(GSoft.Dynamite.Security.IUserHelper,GSoft.Dynamite.Configuration.IPropertyBagHelper)">
+        <member name="M:GSoft.Dynamite.Email.EmailHelper.#ctor(GSoft.Dynamite.Security.IUserHelper,GSoft.Dynamite.Configuration.IPropertyBagHelper,GSoft.Dynamite.Logging.ILogger)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Email.EmailHelper"/> class.
             </summary>
             <param name="userHelper">The user helper.</param>
             <param name="propertyBagHelper">The property bag helper.</param>
+            <param name="logger">The logger.</param>
         </member>
         <member name="M:GSoft.Dynamite.Email.EmailHelper.SendEmail(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Email.EmailInfo)">
             <summary>
@@ -471,16 +472,16 @@
             <param name="web">The SharePoint Web.</param>
             <param name="emailInformation">The email information.</param>
         </member>
-        <member name="M:GSoft.Dynamite.Email.EmailHelper.EnableFailsafe(Microsoft.SharePoint.Administration.SPWebApplication,System.String)">
+        <member name="M:GSoft.Dynamite.Email.EmailHelper.EnableRecipientOverride(Microsoft.SharePoint.Administration.SPWebApplication,System.String)">
             <summary>
-            Enables the email Failsafe for the specified web application.
-            When this Failsafe is Enabled, all emails send with this helper will only be send to the specified address clearing all original To, CC, and BCC addresses
+            Enables the email recipient override for the specified web application.
+            When this recipient override is Enabled, all emails send with this helper will only be sent to the specified address clearing all original To, CC, and BCC addresses
             and a message will be added to the top of the email body listing the original To, CC, and BCC email addresses.
             </summary>
             <param name="webApplication">The web application.</param>
             <param name="emailAddress">
             The email address.
-            Setting this to an empty string will disable the Failsafe.
+            Setting this to an empty string will disable the recipient override.
             </param>
         </member>
         <member name="M:GSoft.Dynamite.Email.EmailHelper.AddGroupMembersToRecipients(Microsoft.SharePoint.SPGroup,GSoft.Dynamite.Email.EmailInfo)">
@@ -491,12 +492,12 @@
             <param name="group">The SharePoint group.</param>
             <param name="emailInformation">The email information.</param>
         </member>
-        <member name="M:GSoft.Dynamite.Email.EmailHelper.IsFailsafeEnabled(Microsoft.SharePoint.Administration.SPWebApplication)">
+        <member name="M:GSoft.Dynamite.Email.EmailHelper.IsRecipientOverrideEnabled(Microsoft.SharePoint.Administration.SPWebApplication)">
             <summary>
-            Is the email Failsafe enabled.
+            Is the email recipient override enabled.
             </summary>
             <param name="webApplication">The web application to check.</param>
-            <returns>True if the Failsafe is activated for the specified web application.</returns>
+            <returns>True if the override is activated for the specified web application.</returns>
         </member>
         <member name="T:GSoft.Dynamite.Email.EmailInfo">
             <summary>
@@ -1360,7 +1361,10 @@
             <summary>
             Method to ensure (create if not exist) and update a reusable content in a specific site.
             </summary>
-            <param name="site">The Site Collection to ensure the reusablec content</param>
+            <remarks>
+            Reusable Content exist in the same name list in the RootWeb of the Site Collection.
+            </remarks>
+            <param name="site">The Site Collection to ensure the reusable content</param>
             <param name="reusableContents">The information on the reusable contents to ensure</param>
         </member>
         <member name="T:GSoft.Dynamite.ReusableContent.ReusableContentInfo">
@@ -1504,12 +1508,35 @@
         </member>
         <member name="T:GSoft.Dynamite.Search.BuiltInRankingModels">
             <summary>
-            Class to hold the IDs of the built-in ranking models
+            Class to hold the IDs of the built-in ranking models. 
+            For more info, see : https://technet.microsoft.com/en-ca/library/dn169065.aspx
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Search.BuiltInRankingModels.DefaultSearchModelId">
             <summary>
-            Gets the Default Search Model ID.
+            Gets the Default Search Model ID. This ranking model is used for most general purposes query.
+            For example, it is used with the built-in result source "Local SharePoint Results".
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInRankingModels.O15DefaultSearchModelId">
+            <summary>
+            Gets the pre-August 2013 update default search model. This model is still available for backward compatibility.
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInRankingModels.O14DefaultSearchModelId">
+            <summary>
+            Gets the SharePoint 2010 default search model. This model is still available for backward compatibility.
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInRankingModels.PeopleSearchDefaultModelId">
+            <summary>
+            Gets the default ranking model for people search.
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Search.BuiltInRankingModels.PopularityRankingModelId">
+            <summary>
+            Gets the ranking model for a popularity based search. This model ranks a search result 
+            based on the number of times the item has been accessed.
             </summary>
         </member>
         <member name="T:GSoft.Dynamite.Search.IQueryRuleHelper">
@@ -6724,7 +6751,11 @@
         </member>
         <member name="P:GSoft.Dynamite.Search.ResultSourceInfo.SortSettings">
             <summary>
-            The sorting setting by field. The Key corresponds to the field name.
+            The sorting setting by field. The Key corresponds to the field name. SharePoint is supposed to use the Rank by default
+            to sort search results but, as experience showed, if you create a new Result Source but don't specify any sort settings nor ranking model,
+            all your search results will have the value 0 for their rank, and therefore, no valid sorting will be made. If you want to be sure of your
+            rank sorting, use the Rank managed property as the first Sort criteria (sorting Descending to display the most relevant results first),
+            and specify a ranking model in the RankingModelId property.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Search.ResultSourceInfo.RankingModelId">
@@ -7612,11 +7643,11 @@
             <param name="maxLength">The maximum length.</param>
             <returns>A friendly URL slug containing human readable characters.</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Navigation.INavigationHelper.SetTermDrivenPageSettings(Microsoft.SharePoint.SPSite,GSoft.Dynamite.Pages.TermDrivenPageSettingInfo)">
+        <member name="M:GSoft.Dynamite.Navigation.INavigationHelper.SetTermDrivenPageSettings(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Pages.TermDrivenPageSettingInfo)">
             <summary>
             Set term driven page settings in the term store
             </summary>
-            <param name="site">The site</param>
+            <param name="web">The web for which we want to change a term's target URL in its taxonomy navigation term set</param>
             <param name="termDrivenPageInfo">The term driven page setting info</param>
         </member>
         <member name="M:GSoft.Dynamite.Navigation.INavigationHelper.ResetWebNavigationToDefault(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Navigation.ManagedNavigationInfo)">
@@ -7626,12 +7657,12 @@
             <param name="web">The web</param>
             <param name="settings">The managed navigation settings. Set null if you want to keep the associated termset unchanged</param>
         </member>
-        <member name="M:GSoft.Dynamite.Navigation.INavigationHelper.ResetTermDrivenPageToSimpleLinkUrl(Microsoft.SharePoint.SPSite,GSoft.Dynamite.Taxonomy.TermInfo)">
+        <member name="M:GSoft.Dynamite.Navigation.INavigationHelper.ResetTermDrivenPageToSimpleLinkUrl(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Taxonomy.TermInfo)">
             <summary>
             Method to take a term configured as a term driven page to a simple link url.
             </summary>
-            <param name="site">The Site Collection</param>
-            <param name="termInfo">The term to reset</param>
+            <param name="web">The web for which we want to change a term's target URL in its taxonomy navigation term set</param>
+            <param name="termInfo">The metadata term to reset</param>
         </member>
         <member name="F:GSoft.Dynamite.Navigation.NavigationHelper.SystemTargetUrl">
             <summary>
@@ -7684,13 +7715,6 @@
             <param name="web">The web</param>
             <param name="settings">The managed navigation settings. Set null if you want to keep the associated termset unchanged</param>
         </member>
-        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.ResetTermDrivenPageToSimpleLinkUrl(Microsoft.SharePoint.SPSite,GSoft.Dynamite.Taxonomy.TermInfo)">
-            <summary>
-            Method to take a term configured as a term driven page to a simple link url.
-            </summary>
-            <param name="site">The Site Collection</param>
-            <param name="termInfo">The term to reset</param>
-        </member>
         <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.FindNavigationTermById(System.Collections.Generic.IEnumerable{Microsoft.SharePoint.Publishing.Navigation.NavigationTerm},System.Guid)">
             <summary>
             Gets the navigation term by identifier.
@@ -7721,12 +7745,19 @@
             <param name="maxLength">The maximum length.</param>
             <returns>A friendly URL slug containing human readable characters.</returns>
         </member>
-        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.SetTermDrivenPageSettings(Microsoft.SharePoint.SPSite,GSoft.Dynamite.Pages.TermDrivenPageSettingInfo)">
+        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.SetTermDrivenPageSettings(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Pages.TermDrivenPageSettingInfo)">
             <summary>
             Set term driven page settings in the term store
             </summary>
-            <param name="site">The site</param>
+            <param name="web">The web for which we want to change a term's target URL in its taxonomy navigation term set</param>
             <param name="termDrivenPageInfo">The term driven page setting info</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.ResetTermDrivenPageToSimpleLinkUrl(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Taxonomy.TermInfo)">
+            <summary>
+            Method to take a term configured as a term driven page to a simple link url.
+            </summary>
+            <param name="web">The web for which we want to change a term's target URL in its taxonomy navigation term set</param>
+            <param name="termInfo">The metadata term to reset</param>
         </member>
         <member name="T:GSoft.Dynamite.TimerJobs.TimerJobHelper">
             <summary>

@@ -62,16 +62,15 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             var pagesLib = web.GetPagesLibrary();
             foreach (SPListItem page in pagesLib.Items)
             {
-                this.SetTermDrivenPageForTerm(web.Site, page);
+                this.SetTermDrivenPageForTerm(page);
             }
         }
 
         /// <summary>
         /// Associate the current page to its navigation navigation via a term driven page url
         /// </summary>
-        /// <param name="site">The current site</param>
         /// <param name="item">The current page item</param>
-        public void SetTermDrivenPageForTerm(SPSite site, SPListItem item)
+        public void SetTermDrivenPageForTerm(SPListItem item)
         {
             if (item != null)
             {
@@ -87,7 +86,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         var termInfo = new TermInfo(new Guid(termValue.TermGuid), string.Empty, null);
                         var termDrivenpage = new TermDrivenPageSettingInfo(termInfo, pageUrl, null, null, null, false, false);
 
-                        this.navigationHelper.SetTermDrivenPageSettings(site, termDrivenpage);
+                        this.navigationHelper.SetTermDrivenPageSettings(item.Web, termDrivenpage);
                     }
                 }
             }
@@ -96,9 +95,8 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <summary>
         /// Sync the associated navigation taxonomy term with other navigation term sets for multilingual support
         /// </summary>
-        /// <param name="site">The current site</param>
         /// <param name="item">The current item</param>
-        public void SyncNavigationTerm(SPSite site, SPListItem item)
+        public void SyncNavigationTerm(SPListItem item)
         {
             if (item != null)
             {
@@ -117,7 +115,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         var webLanguage = item.Web.Locale.LCID;
 
                         // Get the current term associated with the page
-                        var term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
+                        var term = this.taxonomyService.GetTermForId(item.Web.Site, new Guid(termValue.TermGuid));
                         var termLabel = term.GetDefaultLabel(webLanguage);
                         var termStore = term.TermStore;
                         var isSyncAvailable = true;
@@ -245,9 +243,8 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <summary>
         /// Delete the term associated to a page if the page is deleted
         /// </summary>
-        /// <param name="site">The current site</param>
         /// <param name="item">The current page item</param>
-        public void DeleteAssociatedPageTerm(SPSite site, SPListItem item)
+        public void DeleteAssociatedPageTerm(SPListItem item)
         {
             if (item != null)
             {
@@ -260,7 +257,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
 
                     if (termValue != null)
                     {
-                        var term = this.taxonomyService.GetTermForId(site, new Guid(termValue.TermGuid));
+                        var term = this.taxonomyService.GetTermForId(item.Web.Site, new Guid(termValue.TermGuid));
                         var termLabel = term.GetDefaultLabel(webLanguage);
                         var termStore = term.TermStore;
 

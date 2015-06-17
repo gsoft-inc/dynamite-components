@@ -48,7 +48,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TermDrive
                             logger.Info("Setting term driven page {0} for term {1}", termDrivenSetting.CatalogTargetUrl, termDrivenSetting.TermSet.Label);
                         }
 
-                        navigationHelper.SetTermDrivenPageSettings(site, termDrivenSetting);
+                        navigationHelper.SetTermDrivenPageSettings(site.RootWeb, termDrivenSetting);
                     }
                 }
             }

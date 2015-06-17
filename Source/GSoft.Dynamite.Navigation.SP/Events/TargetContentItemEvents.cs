@@ -37,7 +37,7 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                     if (variationHelper.IsCurrentWebSourceLabel(item.Web))
                     {
                         // Create term in other term sets
-                        navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
+                        navigationTermService.SyncNavigationTerm(properties.ListItem);
                     }
                 }
                 catch (Exception e)
@@ -75,7 +75,7 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                     if (variationHelper.IsCurrentWebSourceLabel(item.Web))
                     {
                         // Create term in other term sets
-                        navigationTermService.SyncNavigationTerm(properties.Web.Site, properties.ListItem);
+                        navigationTermService.SyncNavigationTerm(properties.ListItem);
                     }
                 }
                 catch (Exception e)
@@ -113,7 +113,7 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                     if (variationHelper.IsCurrentWebSourceLabel(item.Web))
                     {
                         // Set Term driven page
-                        navigationTermService.DeleteAssociatedPageTerm(properties.Web.Site, item);
+                        navigationTermService.DeleteAssociatedPageTerm(item);
                     }
                 }
                 catch (Exception e)
