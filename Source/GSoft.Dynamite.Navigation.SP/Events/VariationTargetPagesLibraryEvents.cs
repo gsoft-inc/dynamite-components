@@ -31,13 +31,13 @@ namespace GSoft.Dynamite.Navigation.SP.Events
         {
             base.FieldUpdating(properties);
 
-            if (properties.Field.InternalName == PublishingFieldInfos.Navigation.InternalName)
+            if (properties.Field.InternalName == PublishingFieldInfos.Navigation.InternalName
+                && System.Diagnostics.Process.GetCurrentProcess().ProcessName.ToUpperInvariant().Contains("OWSTIMER"))
             {
                 // Prevent all updates to the navigation field definition.
-                // TODO: maybe be a bit smarter and block this field definition update
-                // only when the field is re-defined by Variations-related timer jobs.
-                // Right now, this is a bit dumb because it will break all OOTB click programming
-                // operations as well.
+                // We assume than any time a timer job attempts to modify our field definition
+                // (as a variations timer job would), we should prevent that change from
+                // being persisted.
                 properties.Status = SPEventReceiverStatus.CancelNoError;
             }
         }
