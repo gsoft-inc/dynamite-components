@@ -3,12 +3,16 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Events;
+using GSoft.Dynamite.Extensions;
 using GSoft.Dynamite.Globalization;
+using GSoft.Dynamite.Globalization.Variations;
+using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Publishing;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPagesEventReceivers
 {
@@ -36,6 +40,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
+                    var variationHelper = featureScope.Resolve<IVariationHelper>();
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
                     var navigationTermService = featureScope.Resolve<INavigationTermBuilderService>();
@@ -60,6 +65,35 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
 
                         eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
+                    }
+
+                    // Prevent Navigation field on target webs' Pages libraries from being re-mapped to the
+                    // source web's navigation term set every time a page variation gets propagated.
+                    // We want to keep the target-label-specific navigation term set connected to our list column.
+                    if (variationHelper.IsVariationsEnabled(site))
+                    {
+                        var variationLabels = variationHelper.GetVariationLabels(site);
+                        
+                        foreach (VariationLabel label in variationLabels)
+                        {
+                            if (!label.IsSource)
+                            {
+                                var variationTargetLabelWeb = site.AllWebs[label.Title];    // a variation label's title corresponds to its root-web-relative URL
+                                var pagesLibraryOnTargetLabelWeb = variationTargetLabelWeb.GetPagesLibrary();
+                                var webRelativeUrl = pagesLibraryOnTargetLabelWeb.RootFolder.Url;
+
+                                eventReceiverHelper.AddListEventReceiverDefinition(
+                                    variationTargetLabelWeb,
+                                    new EventReceiverInfo(
+                                        new ListInfo(webRelativeUrl, webRelativeUrl, webRelativeUrl),
+                                        SPEventReceiverType.FieldUpdating,
+                                        SPEventReceiverSynchronization.Synchronous)
+                                    {
+                                        AssemblyName = Assembly.GetExecutingAssembly().FullName,
+                                        ClassName = "GSoft.Dynamite.Navigation.SP.Events.VariationTargetPagesLibraryEvents"
+                                    });
+                            }
+                        }
                     }
                 }
             }

@@ -430,6 +430,18 @@
             <param name="web">The SharePoint Web.</param>
             <param name="emailInformation">The email information.</param>
         </member>
+        <member name="M:GSoft.Dynamite.Email.IEmailHelper.EnableFailsafe(Microsoft.SharePoint.Administration.SPWebApplication,System.String)">
+            <summary>
+            Enables the email Failsafe for the specified web application.
+            When this Failsafe is Enabled, all emails send with this helper will only be send to the specified address clearing all original To, CC, and BCC addresses
+            and a message will be added to the top of the email body listing the original To, CC, and BCC email addresses.
+            </summary>
+            <param name="webApplication">The web application.</param>
+            <param name="emailAddress">
+            The email address.
+            Setting this to an empty string will disable the Failsafe.
+            </param>
+        </member>
         <member name="M:GSoft.Dynamite.Email.IEmailHelper.AddGroupMembersToRecipients(Microsoft.SharePoint.SPGroup,GSoft.Dynamite.Email.EmailInfo)">
             <summary>
             Adds the group members (including AD group members) to the 'To' property of the email information.
@@ -438,11 +450,19 @@
             <param name="group">The SharePoint group.</param>
             <param name="emailInformation">The email information.</param>
         </member>
-        <member name="M:GSoft.Dynamite.Email.EmailHelper.#ctor(GSoft.Dynamite.Security.IUserHelper)">
+        <member name="M:GSoft.Dynamite.Email.IEmailHelper.IsFailsafeEnabled(Microsoft.SharePoint.Administration.SPWebApplication)">
+            <summary>
+            Is the email Failsafe enabled.
+            </summary>
+            <param name="webApplication">The web application to check.</param>
+            <returns>True if the Failsafe is activated for the specified web application.</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.Email.EmailHelper.#ctor(GSoft.Dynamite.Security.IUserHelper,GSoft.Dynamite.Configuration.IPropertyBagHelper)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Email.EmailHelper"/> class.
             </summary>
             <param name="userHelper">The user helper.</param>
+            <param name="propertyBagHelper">The property bag helper.</param>
         </member>
         <member name="M:GSoft.Dynamite.Email.EmailHelper.SendEmail(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Email.EmailInfo)">
             <summary>
@@ -451,6 +471,18 @@
             <param name="web">The SharePoint Web.</param>
             <param name="emailInformation">The email information.</param>
         </member>
+        <member name="M:GSoft.Dynamite.Email.EmailHelper.EnableFailsafe(Microsoft.SharePoint.Administration.SPWebApplication,System.String)">
+            <summary>
+            Enables the email Failsafe for the specified web application.
+            When this Failsafe is Enabled, all emails send with this helper will only be send to the specified address clearing all original To, CC, and BCC addresses
+            and a message will be added to the top of the email body listing the original To, CC, and BCC email addresses.
+            </summary>
+            <param name="webApplication">The web application.</param>
+            <param name="emailAddress">
+            The email address.
+            Setting this to an empty string will disable the Failsafe.
+            </param>
+        </member>
         <member name="M:GSoft.Dynamite.Email.EmailHelper.AddGroupMembersToRecipients(Microsoft.SharePoint.SPGroup,GSoft.Dynamite.Email.EmailInfo)">
             <summary>
             Adds the group members (including AD group members) to the 'To' property of the email information.
@@ -458,6 +490,13 @@
             </summary>
             <param name="group">The SharePoint group.</param>
             <param name="emailInformation">The email information.</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Email.EmailHelper.IsFailsafeEnabled(Microsoft.SharePoint.Administration.SPWebApplication)">
+            <summary>
+            Is the email Failsafe enabled.
+            </summary>
+            <param name="webApplication">The web application to check.</param>
+            <returns>True if the Failsafe is activated for the specified web application.</returns>
         </member>
         <member name="T:GSoft.Dynamite.Email.EmailInfo">
             <summary>
@@ -1293,13 +1332,14 @@
             Helper class to work with Reusable Content.
             </summary>
         </member>
-        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentHelper.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Lists.IListLocator,GSoft.Dynamite.Caml.ICamlBuilder)">
+        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentHelper.#ctor(GSoft.Dynamite.Logging.ILogger,GSoft.Dynamite.Lists.IListLocator,GSoft.Dynamite.Caml.ICamlBuilder,GSoft.Dynamite.Binding.ISharePointEntityBinder)">
             <summary>
             Helper class constructor to work with Reusable Content.
             </summary>
             <param name="logger">The logger to log info and errors</param>
             <param name="listLocator">List locator to find the ReusableContentList</param>
             <param name="camlBuilder">Caml Builder for the query</param>
+            <param name="binder">The entity binder</param>
         </member>
         <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentHelper.GetByTitle(Microsoft.SharePoint.SPSite,System.String)">
             <summary>
@@ -1331,11 +1371,45 @@
             The pattern here is to fill the Filename and FolderInLayouts so the Helper can read a HTML file and fill the Content property with it.
             </remarks>
         </member>
-        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentInfo.#ctor(System.String)">
+        <member name="T:GSoft.Dynamite.BaseEntity">
             <summary>
-            Simple constructor with only the title.
+            Base class for SPListItem-mapped entities.
+            Feed such entities to a <see cref="T:GSoft.Dynamite.Binding.ISharePointEntityBinder"/>
+            to map their properties to their corresponding SPListItem.
             </summary>
-            <param name="title">The Title of the reusable content</param>
+        </member>
+        <member name="P:GSoft.Dynamite.BaseEntity.Id">
+            <summary>
+            Item identifier within its list
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.BaseEntity.Title">
+            <summary>
+            Item title
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.BaseEntity.Created">
+            <summary>
+            Created date    
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.BaseEntity.Modified">
+            <summary>
+            Created date    
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.BaseEntity.ContentTypeName">
+            <summary>
+            Gets or sets the Content Type name associated
+            </summary>
+            <value>
+            The Content Type name associated.
+            </value>
+        </member>
+        <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentInfo.#ctor">
+            <summary>
+            Simple constructor.
+            </summary>
         </member>
         <member name="M:GSoft.Dynamite.ReusableContent.ReusableContentInfo.#ctor(System.String,System.String,System.Boolean,System.Boolean,System.String,System.String)">
             <summary>
@@ -1347,11 +1421,6 @@
             <param name="isShowInRibbon">Do we show the reusable content in the ribbon</param>
             <param name="fileName">The filename of the html content</param>
             <param name="folderInLayouts">The folder inside the Layouts hive</param>
-        </member>
-        <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.Title">
-            <summary>
-            The Title of the Reusable Content. This is used as the key in the list.
-            </summary>
         </member>
         <member name="P:GSoft.Dynamite.ReusableContent.ReusableContentInfo.Category">
             <summary>
@@ -7931,41 +8000,6 @@
             <summary>
             Element in a PublishedLinks list
             </summary>
-        </member>
-        <member name="T:GSoft.Dynamite.BaseEntity">
-            <summary>
-            Base class for SPListItem-mapped entities.
-            Feed such entities to a <see cref="T:GSoft.Dynamite.Binding.ISharePointEntityBinder"/>
-            to map their properties to their corresponding SPListItem.
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.BaseEntity.Id">
-            <summary>
-            Item identifier within its list
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.BaseEntity.Title">
-            <summary>
-            Item title
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.BaseEntity.Created">
-            <summary>
-            Created date    
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.BaseEntity.Modified">
-            <summary>
-            Created date    
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.BaseEntity.ContentTypeName">
-            <summary>
-            Gets or sets the Content Type name associated
-            </summary>
-            <value>
-            The Content Type name associated.
-            </value>
         </member>
         <member name="M:GSoft.Dynamite.Lists.Entities.PublishedLink.#ctor">
             <summary>
