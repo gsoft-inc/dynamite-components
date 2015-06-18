@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Migration.Contracts.Configuration;
-using GSoft.Dynamite.Migration.Contracts.Constants;
 using GSoft.Dynamite.Migration.Contracts.Resources;
 using GSoft.Dynamite.Migration.Core.Configuration;
 

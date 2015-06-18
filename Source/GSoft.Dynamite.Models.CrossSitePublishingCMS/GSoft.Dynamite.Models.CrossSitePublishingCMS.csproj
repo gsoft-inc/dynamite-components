@@ -186,6 +186,14 @@
     <None Include="Modules\Search\SRCH_03\Setup-Fields.template.ps1" />
     <None Include="Modules\Search\SRCH_03\Setup-SocialMetaTags.template.ps1" />
     <None Include="Modules\Search\Tokens.Search.Default.ps1" />
+    <None Include="Modules\Targeting\TARGET_02\Install-TARGET02.ps1" />
+    <None Include="Modules\Targeting\TARGET_02\Setup-ProfileTargeting.template.ps1" />
+    <None Include="Modules\Targeting\TARGET_01\Install-TARGET01.ps1" />
+    <None Include="Modules\Targeting\TARGET_01\Setup-ContentTargeting.template.ps1" />
+    <None Include="Modules\Targeting\TARGET_03\Install-TARGET03.ps1" />
+    <None Include="Modules\Targeting\TARGET_03\Setup-SearchTargeting.template.ps1" />
+    <None Include="Modules\Targeting\Tokens.Targeting.Custom.ps1" />
+    <None Include="Modules\Targeting\Tokens.Targeting.Default.ps1" />
     <None Include="Nuget\Install.ps1" />
     <None Include="Publish-DeploymentFolder.ps1" />
     <None Include="packages.config" />
@@ -209,7 +217,6 @@
     <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de nouvelles\Attachments\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
     <Folder Include="Modules\Social\" />
-    <Folder Include="Modules\Targeting\" />
     <Folder Include="Solutions\Packages\" />
   </ItemGroup>
   <ItemGroup>

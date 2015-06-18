@@ -31,7 +31,8 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         {
             return new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatableItem.ContentTypeId),
-                SPEventReceiverType.ItemAdded)
+                SPEventReceiverType.ItemAdded,
+                SPEventReceiverSynchronization.Synchronous)
             {
                 ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents"
             };
@@ -45,7 +46,8 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         {
             return new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatableItem.ContentTypeId),
-                SPEventReceiverType.ItemUpdated)
+                SPEventReceiverType.ItemUpdated,
+                SPEventReceiverSynchronization.Synchronous)
             {
                 ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents"
             };
