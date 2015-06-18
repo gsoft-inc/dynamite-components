@@ -127,7 +127,12 @@ namespace GSoft.Dynamite.Targeting.SP
                     "Provisioning event receiver for content type {0}",
                     this.resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 
-                eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
+                // If no assembly defined, assume it's in the executing assembly
+                if (string.IsNullOrEmpty(eventReceiver.AssemblyName))
+                {
+                    eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
+                }
+
                 this.eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
             }
         }
@@ -153,7 +158,12 @@ namespace GSoft.Dynamite.Targeting.SP
                     "Deleting event receiver for content type {0}", 
                     this.resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 
-                eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
+                // If no assembly defined, assume it's in the executing assembly
+                if (string.IsNullOrEmpty(eventReceiver.AssemblyName))
+                {
+                    eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
+                }
+
                 this.eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
             }
         }
