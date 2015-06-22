@@ -93,6 +93,7 @@
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-ReusableContent.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.template.ps1" />
+    <None Include="Modules\Publishing\PUB_01\Setup-Webs.template.ps1" />
     <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
     <None Include="Modules\Publishing\PUB_02\Setup-PageLayouts.template.ps1" />
     <None Include="Modules\Design\DSGN_01\Setup-HomePages.template.ps1" />
@@ -101,6 +102,7 @@
     <None Include="Nuget\Install.ps1" />
     <None Include="packages.config" />
     <None Include="Publish-DeploymentFolder.ps1" />
+    <Content Include="Modules\Publishing\PUB_01\Default\Default-Webs.template.xml" />
     <Content Include="Solutions\Custom\Custom-Solutions.template.xml" />
     <Content Include="Solutions\Default\Default-Solutions.template.xml" />
     <None Include="Solutions\Deploy-Solutions.template.ps1" />

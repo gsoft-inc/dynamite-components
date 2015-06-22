@@ -1,8 +1,8 @@
 ﻿# ----------------------------------------
 # PUB 01: CREATE, UPDATE AND DELETE AN ITEM
 # ----------------------------------------
-
-param([string]$LogFolderPath)
+# 
+param([string]$LogFolderPath,[bool]$Force=$false)
 
 $UserStory = "PUB01"
 
@@ -20,9 +20,22 @@ $values = @{"Step: " = "#1 Setup Sites"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Sites.ps1'
-& $Script -Force 
+if($Force)
+{
+	& $Script -Force
+}
+else
+{
+	& $Script
+} 
 
-$values = @{"Step: " = "#2 Setup Permissions"}
+$values = @{"Step: " = "#2 Setup Webs"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Webs.ps1'
+& $Script
+
+$values = @{"Step: " = "#3 Setup Permissions"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Permissions.ps1'
@@ -34,43 +47,43 @@ $Script = $CommandDirectory + '\Setup-Permissions.ps1'
 
 $CurrentNavigationFile = 'Current-NavigationTermGroup.xml'
 
-$values = @{"Step: " = "#3 Export Current Term Groups"}
+$values = @{"Step: " = "#4 Export Current Term Groups"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Export-TermGroups.ps1'
 & $Script -CurrentNavigationExportFile $CurrentNavigationFile
 
-$values = @{"Step: " = "#4 Remove Term Groups"}
+$values = @{"Step: " = "#5 Remove Term Groups"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Remove-TermGroups.ps1'
 & $Script 
 
-$values = @{"Step: " = "#5 Import Term Groups"}
+$values = @{"Step: " = "#6 Import Term Groups"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Import-TermGroups.ps1'
 & $Script -CurrentNavigationImportFile $CurrentNavigationFile
 
-$values = @{"Step: " = "#6 Setup Columns"}
+$values = @{"Step: " = "#7 Setup Columns"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Fields.ps1'
 & $Script
 
-$values = @{"Step: " = "#7 Setup Content Types"}
+$values = @{"Step: " = "#8 Setup Content Types"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
 & $Script 
 
-$values = @{"Step: " = "#8 Setup Pages Library"}
+$values = @{"Step: " = "#9 Setup Pages Library"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Lists.ps1'
 & $Script 
 
-$values = @{"Step: " = "#9 Setup Reusable Content"}
+$values = @{"Step: " = "#10 Setup Reusable Content"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-ReusableContent.ps1'
@@ -80,7 +93,7 @@ $Script = $CommandDirectory + '\Setup-ReusableContent.ps1'
 # =========   METADATA FILTERING   ========== #
 # =========================================== #
 
-$values = @{"Step: " = "#10 Configure metadata navigation for pages librairies"}
+$values = @{"Step: " = "#11 Configure metadata navigation for pages librairies"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-MetadataFiltering.ps1'

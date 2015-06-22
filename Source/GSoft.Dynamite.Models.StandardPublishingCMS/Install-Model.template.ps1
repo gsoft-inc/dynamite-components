@@ -1,10 +1,18 @@
 ﻿<#
 .SYNOPSIS
-    Installs the cross-site publishing model.
+    Installs the standard publishing CMS model.
     
 .DESCRIPTION
     Installs solution packages and modules for this model.
+
+.PARAMETER Force
+    Forces the recreation of the site collection.
+
 #>
+Param (
+        [Parameter(Mandatory=$false)]
+        [switch]$Force=$false
+)
 
 # ********** PRE-FLIGHT CHECK ********** #
 # Unblock files if they're from another computer
@@ -25,7 +33,10 @@ if (Test-Path -Path "$(Get-Location)\Solutions\Custom\Custom-Solutions.xml") {
 
 # Check if Sharegate is installed
 if ((Get-Module | where { $_.Name -eq "Sharegate" }).Count -ne 1) {
-    Write-Error -Message "Sharegate PowerShell module is not correctly installed."
+    Import-Module Sharegate
+    if ($? -eq $false) {
+        Write-Error -Message "Sharegate PowerShell module is not correctly installed. Check you $PSModulePath environment variable: it should point to 'C:\Program Files (x86)\Sharegate\'."
+    }
 }
 
 # TODO: Nice to have a check on which service locator is loaded into the GAC
@@ -37,7 +48,7 @@ New-HeaderDrawing -Values $header
 
 try {
     #region ********** PUBLISHING MODULE ********** #
-    .\Modules\Publishing\PUB_01\Install-PUB01.ps1
+    .\Modules\Publishing\PUB_01\Install-PUB01.ps1 -Force $Force
     .\Modules\Publishing\PUB_02\Install-PUB02.ps1
     #endregion
 
@@ -73,5 +84,3 @@ try {
     # ********** STOP LOGGING ********** #
     Stop-DSPLogging
 }
-
-

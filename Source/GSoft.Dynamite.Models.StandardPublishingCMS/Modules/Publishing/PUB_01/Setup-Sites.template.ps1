@@ -27,10 +27,10 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 if ($Force) {
 	# Remove the previous SharePoint structure
 	Remove-DSPStructure $ConfigurationFilePath
-}
 
-# Create the new SharePoint structure
-New-DSPStructure $ConfigurationFilePath
+	# Create the new SharePoint structure
+	New-DSPStructure $ConfigurationFilePath
+}
 
 # FIRST THING TO DO ONCE SITE COLLECTIONS ARE CREATED:
 # Configure Service Locator assembly name preference (if left un-initialized, the default FallbackServiceLocator will be used - 
@@ -57,6 +57,3 @@ if($IsMultilingual)
 	# Activate feature on the root web on the publishing site collection
 	Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
 }
-
-
-
