@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A86BEFD4-BF85-45A5-B4D8-DDBB7EF95C5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GSoft.Dynamite.Targeting.SP</RootNamespace>
+    <AssemblyName>GSoft.Dynamite.Targeting.SP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\GSoft.Dynamite.Portal.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10515\lib\net45\GSoft.Dynamite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.UserProfiles, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Features\XSP_Auth_ContentTargeting\XSP_Auth_ContentTargeting.EventReceiver.cs">
+      <DependentUpon>XSP_Auth_ContentTargeting.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\XSP_ProfileTargeting\XSP_ProfileTargeting.EventReceiver.cs">
+      <DependentUpon>XSP_ProfileTargeting.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\XSP_Docs_ContentTargeting\XSP_Docs_ContentTargeting.EventReceiver.cs">
+      <DependentUpon>XSP_Docs_ContentTargeting.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\XSP_SearchTargeting\XSP_SearchTargeting.EventReceiver.cs">
+      <DependentUpon>XSP_SearchTargeting.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SP.Resources\GSoft.Dynamite.Targeting.Global.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GSoft.Dynamite.Targeting.Global.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SP.Resources\GSoft.Dynamite.Targeting.Global.fr-FR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GSoft.Dynamite.Targeting.Global.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TargetingContainerProxy.cs" />
+    <Compile Include="TargetingContentFeatureReceiver.cs" />
+    <Compile Include="TimerJobs\TargetingProfileTaxonomySyncJob.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\GSoft.Dynamite.Portal.snk">
+      <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
+    </None>
+    <None Include="Features\XSP_ProfileTargeting\XSP_ProfileTargeting.feature">
+      <FeatureId>{71d9c303-2621-4ef7-852b-44b8a2020dce}</FeatureId>
+    </None>
+    <None Include="Features\XSP_Docs_ContentTargeting\XSP_Docs_ContentTargeting.feature">
+      <FeatureId>{478ebda5-7e50-4453-a508-2d1fed337b9f}</FeatureId>
+    </None>
+    <None Include="Features\XSP_SearchTargeting\XSP_SearchTargeting.feature">
+      <FeatureId>{f770d954-2805-4e5d-a2e5-d8eb7676515f}</FeatureId>
+    </None>
+    <None Include="Features\XSP_Auth_ContentTargeting\XSP_Auth_ContentTargeting.feature">
+      <FeatureId>{356798ed-3d83-47ae-baf2-8166200437b2}</FeatureId>
+    </None>
+    <None Include="GSoft.Dynamite.Targeting.SP.nuspec" />
+    <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{d97bc3e9-c18e-43da-916a-f36b9e4fe4e2}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="SP.Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bd66e1ef-75a6-411d-8eb5-c81022be3e50}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\XSP_ProfileTargeting\XSP_ProfileTargeting.Template.xml">
+      <DependentUpon>XSP_ProfileTargeting.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\XSP_Docs_ContentTargeting\XSP_Docs_ContentTargeting.Template.xml">
+      <DependentUpon>XSP_Docs_ContentTargeting.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\XSP_SearchTargeting\XSP_SearchTargeting.Template.xml">
+      <DependentUpon>XSP_SearchTargeting.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\XSP_Auth_ContentTargeting\XSP_Auth_ContentTargeting.Template.xml">
+      <DependentUpon>XSP_Auth_ContentTargeting.feature</DependentUpon>
+    </Content>
+    <Content Include="SP.Resources\GSoft.Dynamite.Targeting.Global.fr-FR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GSoft.Dynamite.Targeting.Global.fr-FR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj">
+      <Project>{31680a5f-e76d-4501-9dfc-d67ce09863f1}</Project>
+      <Name>GSoft.Dynamite.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Targeting.Contracts\GSoft.Dynamite.Targeting.Contracts.csproj">
+      <Project>{3DA88EC2-462F-413C-81CD-D9BF7838D7D9}</Project>
+      <Name>GSoft.Dynamite.Targeting.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SP.Resources\GSoft.Dynamite.Targeting.Global.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GSoft.Dynamite.Targeting.Global.en-US.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

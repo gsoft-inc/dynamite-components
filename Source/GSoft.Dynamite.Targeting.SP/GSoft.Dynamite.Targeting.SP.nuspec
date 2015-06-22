@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>GSoft.Dynamite.Targeting.SP</id>
+        <version>0.0.0</version>
+        <title>GSoft.Dynamite.Targeting.SP</title>
+        <authors>GSoft</authors>
+        <owners>GSoft</owners>
+        <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
+        <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>The closed-source reusable Targeting components and modules for SharePoint 2013.</description>
+        <releaseNotes></releaseNotes>
+        <copyright>Copyright 2014</copyright>
+        <tags>SharePoint</tags>
+    </metadata>
+    <files>
+        <file src="bin\Release\GSoft.Dynamite.Targeting.SP.wsp" target="tools" />
+    </files>
+</package>

@@ -36,7 +36,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_ResultSou
 
                     IList<ResultSourceInfo> resultSources = baseResultSourceInfoConfig.ResultSources;
 
-                    // Create result sources
+                    // Create navigation result sources
                     foreach (var resultSource in resultSources)
                     {
                         logger.Info("Create navigation result sources");
