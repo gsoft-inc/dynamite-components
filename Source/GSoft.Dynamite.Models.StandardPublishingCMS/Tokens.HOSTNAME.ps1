@@ -52,6 +52,11 @@ $DSP_PictureLibraryName = "Site Collection Images"
 $DSP_PortalAuthoringRootWebs = @('rh','com')
 
 # ******************************************
+# Taxonomy Configuration 
+# ******************************************
+$DSP_UseDefaultTermGroups = $true
+
+# ******************************************
 # Common Tokens
 # ******************************************
 . ./Tokens/Tokens.Common.ps1

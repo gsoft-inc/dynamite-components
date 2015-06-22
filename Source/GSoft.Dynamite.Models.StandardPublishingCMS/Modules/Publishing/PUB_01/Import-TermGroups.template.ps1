@@ -5,6 +5,14 @@
 # Description	: Import Portal Taxonomy
 # -----------------------------------------------------------------------
 
+# Define parameters
+Param (
+        [Parameter(Mandatory=$false)]
+        [string]$CurrentNavigationImportFile
+)
+
+$UseDefaultTermGroups = "[[DSP_UseDefaultTermGroups]]"
+
 # Define working directory
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -16,7 +24,11 @@ $CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfiguration
 
 $NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
 
-if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
+if(!$UseDefaultTermGroups && ![string]::IsNullOrEmpty($CurrentNavigationImportFile))
+{
+	$NavigationConfigurationFilePath = $CommandDirectory + "\" + $CurrentNavigationImportFile
+}
+elseif(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 {
 	$NavigationConfigurationFilePath = $CommandDirectory + ".\" + $CustomNavigationConfigurationFile
 }

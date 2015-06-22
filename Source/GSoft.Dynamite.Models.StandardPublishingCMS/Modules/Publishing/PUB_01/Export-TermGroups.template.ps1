@@ -5,6 +5,12 @@
 # Description	: Export Portal Taxonomy
 # -----------------------------------------------------------------------
 
+# Define parameters
+Param (
+        [Parameter(Mandatory=$false)]
+        [string]$CurrentNavigationExportFile
+)
+
 # Define working directory
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -16,7 +22,11 @@ $CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfiguration
 
 $NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
 
-if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
+if(![string]::IsNullOrEmpty($CurrentNavigationExportFile))
+{
+	$NavigationConfigurationFilePath = $CommandDirectory + "\" + $CurrentNavigationExportFile
+}
+elseif(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 {
 	$NavigationConfigurationFilePath = $CommandDirectory + ".\" + $CustomNavigationConfigurationFile
 }
