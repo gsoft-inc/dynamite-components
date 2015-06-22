@@ -33,7 +33,14 @@ $values = @{"Step: " = "#2 Setup Webs"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Webs.ps1'
-& $Script
+if($Force)
+{
+	& $Script -Force
+}
+else
+{
+	& $Script
+} 
 
 $values = @{"Step: " = "#3 Setup Permissions"}
 New-HeaderDrawing -Values $Values

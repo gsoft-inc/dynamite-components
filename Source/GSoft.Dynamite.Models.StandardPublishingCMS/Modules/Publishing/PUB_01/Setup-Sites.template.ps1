@@ -25,11 +25,30 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 }
 
 if ($Force) {
+
 	# Remove the previous SharePoint structure
 	Remove-DSPStructure $ConfigurationFilePath
 
 	# Create the new SharePoint structure
 	New-DSPStructure $ConfigurationFilePath
+
+	# Check Multilingual settings
+	$IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
+
+	if($IsMultilingual)
+	{
+		$values = @{"Step: " = "#1.1 Setup Sites Variations"}
+		New-HeaderDrawing -Values $Values
+
+		Write-Warning "Applying Site Variations configuration..."
+
+		# Activate feature on the root web on the publishing site collection
+		Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
+	}
+}
+else
+{
+	Write-Warning "'Force' parameter was not specified. Skipping creation..."
 }
 
 # FIRST THING TO DO ONCE SITE COLLECTIONS ARE CREATED:
@@ -42,18 +61,4 @@ if ([string]::IsNullOrEmpty($assemblyName) -eq $false)
 	Set-DSPWebProperty -Url "[[DSP_PortalPublishingSiteUrl]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
 	Set-DSPWebProperty -Url "[[DSP_PortalAuthoringSiteUrl]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
 	Set-DSPWebProperty -Url "[[DSP_PortalDocsSiteUrl]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
-}
-
-# Check Multilingual settings
-$IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
-
-if($IsMultilingual)
-{
-	$values = @{"Step: " = "#1.1 Setup Sites Variations"}
-	New-HeaderDrawing -Values $Values
-
-	Write-Warning "Applying Site Variations configuration..."
-
-	# Activate feature on the root web on the publishing site collection
-	Initialize-DSPFeature -Url [[DSP_PortalPublishingHostNamePath]]  -Id [[DSP_CommonCMS_LANG_CreateVariationsHierarchies]]
 }
