@@ -16,7 +16,7 @@ namespace GSoft.Dynamite.Targeting.Contracts.Configuration
         /// <value>
         /// The timer job schedule.
         /// </value>
-        SPDailySchedule TimerJobSchedule { get; }
+        SPSchedule TimerJobSchedule { get; }
 
         /// <summary>
         /// Gets the user profile change timespan.
