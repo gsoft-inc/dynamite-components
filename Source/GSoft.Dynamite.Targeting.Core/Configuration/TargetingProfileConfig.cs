@@ -18,7 +18,7 @@ namespace GSoft.Dynamite.Targeting.Core.Configuration
         /// <value>
         /// The timer job schedule.
         /// </value>
-        public SPDailySchedule TimerJobSchedule
+        public SPSchedule TimerJobSchedule
         {
             get
             {

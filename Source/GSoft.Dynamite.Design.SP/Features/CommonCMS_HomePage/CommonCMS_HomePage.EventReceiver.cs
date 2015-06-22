@@ -61,8 +61,6 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePage
                     var rootFolder = new FolderInfo();
                     var homePage = homePageConfig.GetHomePageInfoByCulture(web.Locale);
 
-                    FixHomePageNavigationFieldToBeNonRequiredEverywhere(web, homePage.PageLayout.AssociatedContentTypeId);
-
                     rootFolder.Pages.Add(homePage);
                     rootFolder.WelcomePage = homePage;
                     rootFolder.Locale = web.Locale; 
@@ -124,43 +122,6 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePage
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
 
                     folderHelper.ResetWelcomePageToDefault(web);
-                }
-            }
-        }
-
-        /// <summary>
-        /// It makes no sense for the home page to have a required Navigation field
-        /// (since it lives as the WelcomePage of its site).
-        /// </summary>
-        /// <param name="web">The current web</param>
-        /// <param name="homePageContentTypeId">The home page CT id</param>
-        private static void FixHomePageNavigationFieldToBeNonRequiredEverywhere(SPWeb web, SPContentTypeId homePageContentTypeId)
-        {
-            var siteCollection = web.Site;
-
-            var rootContentTypes = siteCollection.RootWeb.ContentTypes;
-
-            bool foundNavFieldInHomePageCT = false;
-
-            foreach (SPContentType ct in rootContentTypes)
-            {
-                if (ct.Id == homePageContentTypeId || ct.Id.IsChildOf(homePageContentTypeId))
-                {
-                    foreach (SPFieldLink f in ct.FieldLinks)
-                    {
-                        if (f.Id == PublishingFieldInfos.Navigation.Id)
-                        {
-                            f.Required = false;
-                            foundNavFieldInHomePageCT = true;
-                        }
-                    }
-
-                    if (foundNavFieldInHomePageCT)
-                    {
-                        // Update all child content types across all lists as well to make sure
-                        // the non-required Navigation field config gets propagated.
-                        ct.Update(true);
-                    }
                 }
             }
         }
