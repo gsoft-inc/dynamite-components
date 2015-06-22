@@ -11,6 +11,10 @@
 
 $DSP_DEFAULT_PortalSitesConfigurationFile = "./Default/Default-Sites.xml"
 
+#### WEBS
+
+$DSP_DEFAULT_PortalWebsConfigurationFile = "./Default/Default-Webs.xml"
+
 # ============================================
 # STEP 2: Categorize content
 # ============================================
