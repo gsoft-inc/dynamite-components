@@ -56,7 +56,7 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePage
                     featureDependencyActivator.EnsureFeatureActivation(homePageConfig as IFeatureDependencyConfig);
 
                     var pagesLibrary = web.GetPagesLibrary();
-
+                    
                     // Put home page in dummy folder
                     var rootFolder = new FolderInfo();
                     var homePage = homePageConfig.GetHomePageInfoByCulture(web.Locale);
@@ -64,6 +64,9 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePage
                     rootFolder.Pages.Add(homePage);
                     rootFolder.WelcomePage = homePage;
                     rootFolder.Locale = web.Locale; 
+
+                    // Make sure the HomePage CT on the Pages library doesn't have a required Navigation field
+                    FixHomePageNavigationFieldToBeNonRequired(pagesLibrary, homePage.PageLayout.AssociatedContentTypeId);
 
                     // Ensure the home page (this should be done on the variation source web)
                     folderHelper.EnsureFolderHierarchy(pagesLibrary, rootFolder);
@@ -88,11 +91,15 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePage
                                 // Ensure the content on the newly variated target home pages
                                 var targetRootFolder = new FolderInfo();
                                 var targetHomePage = homePageConfig.GetHomePageInfoByCulture(firstLevelSubWeb.Locale);
+
                                 targetHomePage.FileName = homePage.FileName;    // make sure that we use the same file name across all variated pairs (the source's filename)
 
                                 targetRootFolder.Pages.Add(targetHomePage);
                                 targetRootFolder.WelcomePage = targetHomePage;
                                 targetRootFolder.Locale = firstLevelSubWeb.Locale;
+
+                                // Make sure the HomePage CT on the Pages library doesn't have a required Navigation field
+                                FixHomePageNavigationFieldToBeNonRequired(pagesLibrary, homePage.PageLayout.AssociatedContentTypeId);
 
                                 // Ensure the home page info on the target web
                                 folderHelper.EnsureFolderHierarchy(firstLevelSubWeb.GetPagesLibrary(), targetRootFolder);
@@ -122,6 +129,40 @@ namespace GSoft.Dynamite.Design.SP.Features.CommonCMS_HomePage
                     var folderHelper = featureScope.Resolve<IFolderHelper>();
 
                     folderHelper.ResetWelcomePageToDefault(web);
+                }
+            }
+        }
+
+        /// <summary>
+        /// It makes no sense for the home page to have a required Navigation field
+        /// (since it lives as the WelcomePage of its site).
+        /// </summary>
+        /// <param name="list">The list in which we may need to update the HomePage content type</param>
+        /// <param name="homePageContentTypeId">The site content type identifier for the home page content type</param>
+        private static void FixHomePageNavigationFieldToBeNonRequired(SPList list, SPContentTypeId homePageContentTypeId)
+        {
+            var listContentTypes = list.ContentTypes;
+
+            bool foundNavFieldInHomePageCT = false;
+
+            foreach (SPContentType ct in listContentTypes)
+            {
+                if (ct.Id == homePageContentTypeId || ct.Parent.Id == homePageContentTypeId)
+                {
+                    foreach (SPFieldLink f in ct.FieldLinks)
+                    {
+                        if (f.Id == PublishingFieldInfos.Navigation.Id)
+                        {
+                            f.Required = false;
+                            foundNavFieldInHomePageCT = true;
+                        }
+                    }
+
+                    if (foundNavFieldInHomePageCT)
+                    {
+                        // Update the list CT only
+                        ct.Update();
+                    }
                 }
             }
         }
