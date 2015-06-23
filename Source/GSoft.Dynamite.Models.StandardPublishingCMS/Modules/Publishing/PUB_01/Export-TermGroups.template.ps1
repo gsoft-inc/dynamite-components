@@ -5,31 +5,19 @@
 # Description	: Export Portal Taxonomy
 # -----------------------------------------------------------------------
 
-# Define parameters
-Param (
-        [Parameter(Mandatory=$false)]
-        [string]$CurrentNavigationExportFile
-)
-
 # Define working directory
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
-# Configuration Files
-$DefaultNavigationConfigurationFile = "[[DSP_DEFAULT_PortalNavigationConfigurationFile]]"
-
-$CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfigurationFile]]"
-
-$NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
-
-if(![string]::IsNullOrEmpty($CurrentNavigationExportFile))
+#Prepare backup file
+$BackupFolder = "$CommandDirectory\termgroups-backups"
+if(!(Test-Path $BackupFolder)) 
 {
-	$NavigationConfigurationFilePath = $CommandDirectory + "\" + $CurrentNavigationExportFile
+	New-Item $BackupFolder -type directory
 }
-elseif(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
-{
-	$NavigationConfigurationFilePath = $CommandDirectory + ".\" + $CustomNavigationConfigurationFile
-}
+
+$DateStamp = (Get-Date -Format s) -replace ':', '.'
+$ExportFilePath = "$BackupFolder\termgroups-$DateStamp.xml"
 
 # Taxonomy Settings
 $DefautNavigationtermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
@@ -43,5 +31,31 @@ if(![string]::IsNullOrEmpty($CustomNavigationTermGroup))
 	$NavigationTermGroup = $CustomNavigationTermGroup
 }
 
+
+$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+if($site -eq $null)
+{
+	return
+}
+
+$taxonomySession = $site | Get-DSPTaxonomySession
+if($taxonomySession -eq $null)
+{
+	return
+}
+
+$termStore = $taxonomySession | Get-DSPTermStore -Default
+if($termStore -eq $null)
+{
+	return
+}
+
 # Portal Navigation Term Group
-Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingHostNamePath]]").TermStores[0].Groups[$NavigationTermGroup] -OutputFile $NavigationConfigurationFilePath
+if($termStore.Groups[$NavigationTermGroup] -ne $null)
+{
+	Export-SPTerms -Group $termStore.Groups[$NavigationTermGroup] -OutputFile $ExportFilePath
+}
+else
+{
+	Write-Warning "Term Group $NavigationTermGroup doesn't exist. No export done."
+}

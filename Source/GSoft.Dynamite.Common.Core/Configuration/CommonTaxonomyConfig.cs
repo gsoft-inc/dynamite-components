@@ -52,6 +52,17 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         }
 
         /// <summary>
+        /// Default TermSet to bind the Navigation Taxonomy field.
+        /// </summary>
+        public TermSetInfo DefaultNavigationTermSet
+        {
+            get
+            {
+                return CommonTermSetInfo.EnglishNavigation;
+            }
+        }
+
+        /// <summary>
         /// Gets the term group information by identifier from this configuration.
         /// </summary>
         /// <param name="id">The unique identifier of the term group.</param>

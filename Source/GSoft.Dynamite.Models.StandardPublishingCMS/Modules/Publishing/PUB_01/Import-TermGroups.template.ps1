@@ -5,33 +5,38 @@
 # Description	: Import Portal Taxonomy
 # -----------------------------------------------------------------------
 
-# Define parameters
-Param (
-        [Parameter(Mandatory=$false)]
-        [string]$CurrentNavigationImportFile
-)
-
-$UseDefaultTermGroups = "[[DSP_UseDefaultTermGroups]]"
-
 # Define working directory
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
 # Configuration Files
 $DefaultNavigationConfigurationFile = "[[DSP_DEFAULT_PortalNavigationConfigurationFile]]"
-
 $CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfigurationFile]]"
 
 $NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
 
-if(!$UseDefaultTermGroups && ![string]::IsNullOrEmpty($CurrentNavigationImportFile))
+if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 {
-	$NavigationConfigurationFilePath = $CommandDirectory + "\" + $CurrentNavigationImportFile
+	$NavigationConfigurationFilePath = $CommandDirectory + "\" + $CustomNavigationConfigurationFile
 }
-elseif(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
+
+$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+if($site -eq $null)
 {
-	$NavigationConfigurationFilePath = $CommandDirectory + ".\" + $CustomNavigationConfigurationFile
+	return
+}
+
+$taxonomySession = $site | Get-DSPTaxonomySession
+if($taxonomySession -eq $null)
+{
+	return
+}
+
+$termStore = $taxonomySession | Get-DSPTermStore -Default
+if($termStore -eq $null)
+{
+	return
 }
 
 # Portal Navigation Term Group
-Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingHostNamePath]]).TermStores[0] -InputFile $NavigationConfigurationFilePath
+Import-SPTerms -ParentTermStore $termStore -InputFile $NavigationConfigurationFilePath

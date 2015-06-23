@@ -38,13 +38,11 @@ $Script = $CommandDirectory + '\Setup-Permissions.ps1'
 # =========   CATEGORIZE CONTENTS =========== #
 # =========================================== #
 
-$CurrentNavigationFile = 'Current-NavigationTermGroup.xml'
-
 $values = @{"Step: " = "#4 Export Current Term Groups"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Export-TermGroups.ps1'
-& $Script -CurrentNavigationExportFile $CurrentNavigationFile
+& $Script
 
 $values = @{"Step: " = "#5 Remove Term Groups"}
 New-HeaderDrawing -Values $Values
@@ -56,7 +54,7 @@ $values = @{"Step: " = "#6 Import Term Groups"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Import-TermGroups.ps1'
-& $Script -CurrentNavigationImportFile $CurrentNavigationFile
+& $Script
 
 $values = @{"Step: " = "#7 Setup Columns"}
 New-HeaderDrawing -Values $Values
