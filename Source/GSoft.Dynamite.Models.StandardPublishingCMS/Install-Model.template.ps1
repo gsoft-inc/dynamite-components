@@ -8,10 +8,16 @@
 .PARAMETER Force
     Forces the recreation of the site collection.
 
+.PARAMETER IgnoreWebs
+    If specified, ignores the subsites creation step in the installation
+
 #>
 Param (
-        [Parameter(Mandatory=$false)]
-        [switch]$Force=$false
+        [Parameter(Mandatory=$true,ParameterSetName='Default')]
+        [switch]$Force=$false,
+
+        [Parameter(Mandatory=$false,ParameterSetName='Default')]
+        [switch]$IgnoreWebs=$false
 )
 
 # ********** PRE-FLIGHT CHECK ********** #
@@ -48,7 +54,7 @@ New-HeaderDrawing -Values $header
 
 try {
     #region ********** PUBLISHING MODULE ********** #
-    .\Modules\Publishing\PUB_01\Install-PUB01.ps1 -Force $Force
+    .\Modules\Publishing\PUB_01\Install-PUB01.ps1 -Force $Force -IgnoreWebs $IgnoreWebs
     .\Modules\Publishing\PUB_02\Install-PUB02.ps1
     #endregion
 

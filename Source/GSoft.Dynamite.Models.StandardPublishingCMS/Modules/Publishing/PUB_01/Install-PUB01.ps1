@@ -2,7 +2,7 @@
 # PUB 01: CREATE, UPDATE AND DELETE AN ITEM
 # ----------------------------------------
 # 
-param([string]$LogFolderPath,[bool]$Force=$false)
+param([string]$LogFolderPath,[bool]$Force=$false,[bool]$IgnoreWebs=$false)
 
 $UserStory = "PUB01"
 
@@ -20,27 +20,13 @@ $values = @{"Step: " = "#1 Setup Sites"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Sites.ps1'
-if($Force)
-{
-	& $Script -Force
-}
-else
-{
-	& $Script
-} 
+& $Script -Force:$Force -IgnoreWebs:$IgnoreWebs
 
 $values = @{"Step: " = "#2 Setup Webs"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Webs.ps1'
-if($Force)
-{
-	& $Script -Force
-}
-else
-{
-	& $Script
-} 
+& $Script -Force:$Force -IgnoreWebs:$IgnoreWebs
 
 $values = @{"Step: " = "#3 Setup Permissions"}
 New-HeaderDrawing -Values $Values
