@@ -62,8 +62,8 @@ if ($Force) {
 				}
 
 				# Run the timer job for webs creation
-				$webApplication = Get-SPWebApplication "[[DSP_PortalWebAppUrl]]"
-				Wait-SPTimerJob -Name "VariationsSpawnSites" -WebApplication $webApplication
+				$Site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+				Wait-SPTimerJob -Name "VariationsSpawnSites" -Site $Site
 
 				$AuthoringUrlsByLabels = [[DSP_AuthoringUrlsByLabels]]
 
