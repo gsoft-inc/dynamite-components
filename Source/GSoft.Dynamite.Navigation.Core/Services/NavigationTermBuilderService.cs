@@ -110,14 +110,20 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                     {
                         var currentWeb = item.Web;
                         var publishingWeb = PublishingWeb.GetPublishingWeb(currentWeb);
+
+                        // Get the web-specific navigation settings
+                        var webNavigationSettings = new WebNavigationSettings(currentWeb);
+                        var taxonomySession = new TaxonomySession(currentWeb.Site);
+                        var termStore = taxonomySession.TermStores[webNavigationSettings.GlobalNavigation.TermStoreId];
+                        var termSet = termStore.GetTermSet(webNavigationSettings.GlobalNavigation.TermSetId);
+
                         var isSourceVariationWeb = this.variationHelper.IsCurrentWebSourceLabel(currentWeb);
                         var peerNavigationTermSets = new List<Guid>();
                         var webLanguage = item.Web.Locale.LCID;
 
                         // Get the current term associated with the page
-                        var term = this.taxonomyService.GetTermForId(item.Web.Site, new Guid(termValue.TermGuid));
+                        var term = termSet.GetTerm(new Guid(termValue.TermGuid));
                         var termLabel = term.GetDefaultLabel(webLanguage);
-                        var termStore = term.TermStore;
                         var isSyncAvailable = true;
 
                         // In XSP scenario we can't use the associated navigation term sets according to variations because we work in the authoring site and not in the publishing site 
@@ -153,9 +159,9 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                     var peerSite = new SPSite(peerWebUrl);
                                     var peerWeb = peerSite.OpenWeb();
 
-                                    var webNavigationSettings = TaxonomyNavigation.GetWebNavigationSettings(peerWeb);
+                                    var peerWebNavigationSettings = TaxonomyNavigation.GetWebNavigationSettings(peerWeb);
 
-                                    if (webNavigationSettings != null)
+                                    if (peerWebNavigationSettings != null)
                                     {
                                         // Add peer term sets Id
                                         peerNavigationTermSets.Add(webNavigationSettings.GlobalNavigation.TermSetId);
@@ -169,16 +175,16 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                             foreach (var termSetId in peerNavigationTermSets)
                             {
                                 // Open the peer term set
-                                var termSet = termStore.GetTermSet(termSetId);
+                                var peerTermSet = termStore.GetTermSet(termSetId);
                                 var termExists = false;
 
                                 // Check if the current term is already resued in the peer term set
                                 if (term.IsReused)
                                 {
-                                    var reusedTerm = term.ReusedTerms.FirstOrDefault(t => t.TermSet.Id.Equals(termSet.Id));
+                                    var reusedTerm = term.ReusedTerms.FirstOrDefault(t => t.TermSet.Id.Equals(peerTermSet.Id));
                                     if (reusedTerm == null)
                                     {
-                                        this.logger.Warn("The term {0} with id {1} already exists in the term set with name {2} and id {3}", termLabel, term.Id, termSet.Name, termSet.Id);
+                                        this.logger.Warn("The term {0} with id {1} already exists in the term set with name {2} and id {3}", termLabel, term.Id, peerTermSet.Name, peerTermSet.Id);
                                         termExists = true;
                                     }
                                 }
@@ -197,7 +203,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                             if (parentTerm.IsReused)
                                             {
                                                 // Get the reuse in the peer term set. Note that it can exist only one reuse of a term in a term set (FirstOrDefault)
-                                                var reusedTerm = parentTerm.ReusedTerms.FirstOrDefault(t => t.TermSet.Id.Equals(termSet.Id));
+                                                var reusedTerm = parentTerm.ReusedTerms.FirstOrDefault(t => t.TermSet.Id.Equals(peerTermSet.Id));
 
                                                 if (reusedTerm != null)
                                                 {
@@ -212,13 +218,13 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                                 }
                                                 else
                                                 {
-                                                    this.logger.Warn("The parent term {0} of the term {1} was not found in the term set {2}", parentTermlabel, term.Id, termSet.Name);
+                                                    this.logger.Warn("The parent term {0} of the term {1} was not found in the term set {2}", parentTermlabel, term.Id, peerTermSet.Name);
                                                 }
                                             }
                                             else
                                             {
                                                 // Don't try to recreate the same parent hierarchy here. Too much assumptions about what the user really wants here. In doubt don't do anything
-                                                this.logger.Warn("Unable to reuse the term {0}. The parent term {1} of the term {2} is not reused in the peer term set {3}. ", termLabel, parentTermlabel, term.Id, termSet.Name);
+                                                this.logger.Warn("Unable to reuse the term {0}. The parent term {1} of the term {2} is not reused in the peer term set {3}. ", termLabel, parentTermlabel, term.Id, peerTermSet.Name);
                                             }
                                         }
                                     }
@@ -227,7 +233,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                         if (isSourceVariationWeb)
                                         {
                                             // Pin the term at root of peer term set (same reasons as above)
-                                            termSet.ReuseTermWithPinning(term);
+                                            peerTermSet.ReuseTermWithPinning(term);
                                         }
                                     }
 
