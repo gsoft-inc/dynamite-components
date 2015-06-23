@@ -65,6 +65,35 @@ if ($Force) {
 				$Site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
 				Wait-SPTimerJob -Name "VariationsSpawnSites" -Site $Site
 
+				# Get variation target labels
+				$TargetLabels = {[[DSP_VariationsTargetLabels]]}.Invoke()
+				$TargetLabels.Remove("[[DSP_SourceLabel]]")
+
+				# Test if all webs have a peer variation web created
+				# ALL webs must have a variation peer for ALL target labels. Throws an error otherwise.
+				$Webs | Foreach-Object {
+
+					# Need to get the updated web with variations settings
+					$CurrentSourceWeb = Get-SPWeb $_.Url
+					$CurrentSourceWebUrl = $CurrentSourceWeb.Url
+
+					$TargetLabels | ForEach-Object {
+
+						Write-Host "Test variation peer URL for web '$CurrentSourceWebUrl' for label $_..." -NoNewline							
+
+						$Web = Get-VariationPeerWeb -SourceWeb $CurrentSourceWeb -Label $_					
+						if ($Web -eq $null)
+						{
+							Write-Host -ForegroundColor red "error!"
+							Write-Error "The variation peer web for '$CurrentSourceWebUrl' doesn't exist! Aborting deployment..."
+						}
+						else
+						{
+							Write-Host -ForegroundColor green "OK!"
+						}
+					}	
+				}
+
 				$AuthoringUrlsByLabels = [[DSP_AuthoringUrlsByLabels]]
 
 				# Update webs properties for target labels
