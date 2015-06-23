@@ -13,7 +13,7 @@
 
 #>
 Param (
-        [Parameter(Mandatory=$true,ParameterSetName='Default')]
+        [Parameter(Mandatory=$false,ParameterSetName='Default')]
         [switch]$Force=$false,
 
         [Parameter(Mandatory=$false,ParameterSetName='Default')]
