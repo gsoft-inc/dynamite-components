@@ -26,6 +26,11 @@ namespace GSoft.Dynamite.Common.Contracts.Configuration
         IList<TermSetInfo> TermSetInfos { get; }
 
         /// <summary>
+        /// Default TermSet to bind the Navigation Taxonomy field.
+        /// </summary>
+        TermSetInfo DefaultNavigationTermSet { get; }
+
+        /// <summary>
         /// Gets the term group information by identifier from this configuration.
         /// </summary>
         /// <param name="id">The unique identifier of the term group.</param>

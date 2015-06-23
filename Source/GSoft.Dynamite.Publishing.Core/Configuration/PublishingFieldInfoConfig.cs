@@ -60,7 +60,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 // By default, use the first defined navigation term set info as the
                 // field term set mapping.
                 var fieldInfo = PublishingFieldInfos.Navigation;
-                fieldInfo.TermStoreMapping = new TaxonomyContext(CommonTermSetInfo.EnglishNavigation);
+                fieldInfo.TermStoreMapping = new TaxonomyContext(this.commonTaxonomyConfig.DefaultNavigationTermSet);
 
                 return fieldInfo;
             }
