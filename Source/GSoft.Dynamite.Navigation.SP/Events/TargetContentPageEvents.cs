@@ -108,7 +108,7 @@ namespace GSoft.Dynamite.Navigation.SP.Events
 
                                 // Get the TaxonomyFieldValue, if the Navigation was never set, simply set it as null
                                 var before = (beforeNavigationValue != null && !string.IsNullOrEmpty(beforeNavigationValue.ToString())) ? new TaxonomyFieldValue(beforeNavigationValue.ToString()) : null;
-                                var after = (afterNavigationValue != null && !string.IsNullOrEmpty(beforeNavigationValue.ToString())) ? new TaxonomyFieldValue(afterNavigationValue.ToString()) : null;
+                                var after = (afterNavigationValue != null && !string.IsNullOrEmpty(afterNavigationValue.ToString())) ? new TaxonomyFieldValue(afterNavigationValue.ToString()) : null;
 
                                 // Reset the previous term if different from the current term
                                 if (before != null && after != null && after.TermGuid != before.TermGuid)
