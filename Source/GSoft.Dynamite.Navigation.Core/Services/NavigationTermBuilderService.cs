@@ -118,7 +118,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         var termSet = termStore.GetTermSet(webNavigationSettings.GlobalNavigation.TermSetId);
 
                         var isSourceVariationWeb = this.variationHelper.IsCurrentWebSourceLabel(currentWeb);
-                        var peerNavigationTermSets = new List<Guid>();
+                        var peerNavigationTermSetIds = new List<Guid>();
                         var webLanguage = item.Web.Locale.LCID;
 
                         // Get the current term associated with the page
@@ -164,7 +164,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                     if (peerWebNavigationSettings != null)
                                     {
                                         // Add peer term sets Id
-                                        peerNavigationTermSets.Add(webNavigationSettings.GlobalNavigation.TermSetId);
+                                        peerNavigationTermSetIds.Add(peerWebNavigationSettings.GlobalNavigation.TermSetId);
                                     }
 
                                     peerWeb.Dispose();
@@ -172,7 +172,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                 }
                             }
 
-                            foreach (var termSetId in peerNavigationTermSets)
+                            foreach (var termSetId in peerNavigationTermSetIds)
                             {
                                 // Open the peer term set
                                 var peerTermSet = termStore.GetTermSet(termSetId);
@@ -181,8 +181,8 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                 // Check if the current term is already resued in the peer term set
                                 if (term.IsReused)
                                 {
-                                    var reusedTerm = term.ReusedTerms.FirstOrDefault(t => t.TermSet.Id.Equals(peerTermSet.Id));
-                                    if (reusedTerm == null)
+                                    var reusedTermInPeerTermSet = term.ReusedTerms.FirstOrDefault(t => t.TermSet.Id.Equals(peerTermSet.Id));
+                                    if (reusedTermInPeerTermSet != null)
                                     {
                                         this.logger.Warn("The term {0} with id {1} already exists in the term set with name {2} and id {3}", termLabel, term.Id, peerTermSet.Name, peerTermSet.Id);
                                         termExists = true;
