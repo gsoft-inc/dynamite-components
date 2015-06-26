@@ -42,7 +42,6 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Lists
                     // Activate feature dependencies defined in this configuration
                     featureDependencyActivator.EnsureFeatureActivation(baseListInfos as IFeatureDependencyConfig);
 
-
                     var logger = featureScope.Resolve<ILogger>();
 
                     // Create lists
