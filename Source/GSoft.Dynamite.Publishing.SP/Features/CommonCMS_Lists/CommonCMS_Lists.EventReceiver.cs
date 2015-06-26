@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using Autofac;
+using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
@@ -30,6 +31,17 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_Lists
                 {
                     var listHelper = featureScope.Resolve<IListHelper>();
                     var baseListInfos = featureScope.Resolve<IPublishingListInfoConfig>().Lists;
+
+                    // Resolve feature dependency activator
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    var featureDependencyActivator =
+                        featureScope.Resolve<IFeatureDependencyActivator>(
+                            new TypedParameter(typeof(SPSite), web.Site),
+                            new TypedParameter(typeof(SPWeb), web));
+
+                    // Activate feature dependencies defined in this configuration
+                    featureDependencyActivator.EnsureFeatureActivation(baseListInfos as IFeatureDependencyConfig);
+
 
                     var logger = featureScope.Resolve<ILogger>();
 
