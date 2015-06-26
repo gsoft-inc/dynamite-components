@@ -67,6 +67,9 @@ function Wait-VariationSyncTimerJob {
 }
 
 
+# Chech Restore ACL inheritance token
+$RestoreAclInheritance = [System.Convert]::ToBoolean("[[DSP_RestoreAclInheritance]]")
+
 # ******************************************
 # Configure folder to URL mappings
 # ******************************************
@@ -115,8 +118,12 @@ $mappingKeys | ForEach-Object {
     $fromFolder = Get-FullPath -Path $_
     $toUrl = $DSP_MigrationFolderMappings[$_]
 
-    # Fix ACLs before importing data
-    & $AclScript -folderPath $fromFolder
+    if ($RestoreAclInheritance)
+    {
+        Write-Warning "Restore ACL inheritance on folder '$fromFolder'..."
+        # Fix ACLs before importing data
+        & $AclScript -folderPath $fromFolder
+    }
 
     if ($_.ToUpperInvariant().Contains("SOURCE")) {
 
@@ -147,8 +154,12 @@ if($IsMultilingual) {
         $FromFolder = Get-FullPath -Path $_
         $ToUrl = $DSP_MigrationFolderMappings[$_]
 
-        # Fix ACLs before importing data
-        & $AclScript -folderPath $FromFolder
+        if ($RestoreAclInheritance)
+        {
+            Write-Warning "Restore ACL inheritance on folder '$fromFolder'..."
+            # Fix ACLs before importing data
+            & $AclScript -folderPath $fromFolder
+        }
 
         # Get target label language to determine what association key display name to use
         $IndexOfTargetLanguage = $FromFolder.LastIndexOf("\") + 1
