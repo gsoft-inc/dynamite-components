@@ -17,7 +17,10 @@ Param (
         [switch]$Force=$false,
 
         [Parameter(Mandatory=$false,ParameterSetName='Default')]
-        [switch]$IgnoreWebs=$false
+        [switch]$IgnoreWebs=$false,
+
+        [Parameter(Mandatory=$false,ParameterSetName='Default')]
+        [switch]$IncludeContent=$false
 )
 
 # ********** PRE-FLIGHT CHECK ********** #
@@ -76,6 +79,13 @@ try {
         .\Modules\Multilingualism\LANG_02\Install-LANG02.ps1
         .\Modules\Multilingualism\LANG_01\Install-LANG01.ps1
         .\Modules\Multilingualism\LANG_03\Install-LANG03.ps1
+    }
+    #endregion
+
+    #region ********** MIGRATION MODULE ********** #
+    if($IncludeContent)
+    {
+        .\Modules\Migration\MIG_01\Install-MIG01.ps1
     }
     #endregion
 

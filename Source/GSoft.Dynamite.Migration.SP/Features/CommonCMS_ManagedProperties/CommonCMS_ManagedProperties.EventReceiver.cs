@@ -6,7 +6,7 @@ using GSoft.Dynamite.Migration.Contracts.Configuration;
 using GSoft.Dynamite.Search;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Migration.SP.Features.CrossSitePublishingCMS_ManagedProperties
+namespace GSoft.Dynamite.Migration.SP.Features.CommonCMS_ManagedProperties
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -15,7 +15,7 @@ namespace GSoft.Dynamite.Migration.SP.Features.CrossSitePublishingCMS_ManagedPro
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
     [Guid("89cbcc01-fe7b-4ae5-b2f9-1efb86a5fc2d")]
-    public class CrossSitePublishingCMS_ManagedPropertiesEventReceiver : SPFeatureReceiver
+    public class CommonCMS_ManagedPropertiesEventReceiver : SPFeatureReceiver
     {
         /// <summary>
         /// Ensures ALL search managed properties got from modules configurations

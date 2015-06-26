@@ -1,11 +1,11 @@
 using System.Runtime.InteropServices;
 using Autofac;
-using GSoft.Dynamite.Fields;
+using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Migration.Contracts.Configuration;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Migration.SP.Features.CrossSitePublishingCMS_Fields
+namespace GSoft.Dynamite.Migration.SP.Features.CommonCMS_ContentTypes
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -13,11 +13,11 @@ namespace GSoft.Dynamite.Migration.SP.Features.CrossSitePublishingCMS_Fields
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-    [Guid("a38203e2-762d-4379-8c2a-fab5dc426817")]
-    public class CrossSitePublishingCMS_FieldsEventReceiver : SPFeatureReceiver
+    [Guid("2c752030-db72-4040-a4f8-f9d8a87f924d")]
+    public class CommonCMS_ContentTypesEventReceiver : SPFeatureReceiver
     {
         /// <summary>
-        /// Ensure fields for the document management module
+        /// Ensures content types for the document management module
         /// </summary>
         /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
@@ -28,16 +28,15 @@ namespace GSoft.Dynamite.Migration.SP.Features.CrossSitePublishingCMS_Fields
             {
                 using (var featureScope = MigrationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
-                    var fieldHelper = featureScope.Resolve<IFieldHelper>();
-                    var baseFieldInfoConfig = featureScope.Resolve<IMigrationFieldInfoConfig>();
-                    var baseFields = baseFieldInfoConfig.Fields;
+                    var contentTypeHelper = featureScope.Resolve<IContentTypeHelper>();
+                    var baseContentTypeConfig = featureScope.Resolve<IMigrationContentTypeInfoConfig>();
+                    var baseContentTypes = baseContentTypeConfig.ContentTypes;
                     var logger = featureScope.Resolve<ILogger>();
 
-                    // Create base Fields
-                    foreach (BaseFieldInfo field in baseFields)
+                    foreach (var contentType in baseContentTypes)
                     {
-                        logger.Info("Creating field {0} in site {1}", field.InternalName, site.Url);
-                        fieldHelper.EnsureField(site.RootWeb.Fields, field);
+                        logger.Info("Creating content type {0} in site {1}", contentType.ContentTypeId, site.Url);
+                        contentTypeHelper.EnsureContentType(site.RootWeb.ContentTypes, contentType);
                     }
                 }
             }

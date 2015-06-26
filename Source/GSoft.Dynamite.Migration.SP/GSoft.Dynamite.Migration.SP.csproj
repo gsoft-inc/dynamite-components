@@ -69,14 +69,14 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="MigrationContainerProxy.cs" />
-    <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_ManagedProperties.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_ManagedProperties\CommonCMS_ManagedProperties.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ManagedProperties.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,13 +84,13 @@
     <None Include="..\GSoft.Dynamite.Portal.snk">
       <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
+    <None Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.feature">
       <FeatureId>{4ab42785-c039-47b7-8eb0-4c87efbacda6}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.feature">
+    <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
       <FeatureId>{26b8ca2f-e015-4d75-9838-c4c81e6a4c6e}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.feature">
+    <None Include="Features\CommonCMS_ManagedProperties\CommonCMS_ManagedProperties.feature">
       <FeatureId>{23ddae7a-7821-4169-a90c-36323c42b78f}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Migration.SP.nuspec" />
@@ -120,14 +120,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.Template.xml">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_ManagedProperties\CrossSitePublishingCMS_ManagedProperties.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_ManagedProperties.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_ManagedProperties\CommonCMS_ManagedProperties.Template.xml">
+      <DependentUpon>CommonCMS_ManagedProperties.feature</DependentUpon>
     </Content>
     <Content Include="SP.Resources\GSoft.Dynamite.Migration.Global.en-US.resx" />
   </ItemGroup>
