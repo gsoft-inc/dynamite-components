@@ -39,7 +39,7 @@
       <file src="..\GSoft.Dynamite.Search.SP\bin\$configuration$\GSoft.Dynamite.Search.SP.wsp" target="tools\Solutions\WSP" />
       <file src="..\GSoft.Dynamite.Migration.SP\bin\$configuration$\GSoft.Dynamite.Migration.SP.wsp" target="tools\Solutions\WSP" />
       <file src="..\GSoft.Dynamite.Targeting.SP\bin\$configuration$\GSoft.Dynamite.Targeting.SP.wsp" target="tools\Solutions\WSP" />
-      <file src="..\GSoft.Dynamite.Targeting.SP\bin\$configuration$\GSoft.Dynamite.Social.SP.wsp" target="tools\Solutions\WSP" />
+      <file src="..\GSoft.Dynamite.Social.SP\bin\$configuration$\GSoft.Dynamite.Social.SP.wsp" target="tools\Solutions\WSP" />
       <file src="Nuget\Install.ps1" target="tools\Install.ps1" />
     </files>
 </package>
