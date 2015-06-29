@@ -2,6 +2,7 @@
 using GSoft.Dynamite.Common.Contracts.Constants;
 using GSoft.Dynamite.Social.Contracts.Configuration;
 using GSoft.Dynamite.Social.Core.Configuration;
+using GSoft.Dynamite.Social.Core.Repositories;
 
 namespace GSoft.Dynamite.Social.Core.RegistrationModules
 {
@@ -18,7 +19,10 @@ namespace GSoft.Dynamite.Social.Core.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
-            // Fields
+            // Repositories
+            builder.RegisterType<DiscussionRepository>();
+
+            // Configurations
             builder.RegisterType<SocialDiscussionsConfig>().As<ISocialDiscussionsConfig>();
             builder.RegisterType<SocialDiscussionsConfig>().Named<ISocialDiscussionsConfig>(RegistrationNames.Social);
         }
