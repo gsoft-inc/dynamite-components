@@ -84,6 +84,15 @@ try {
 	}
 	#endregion
 
+	#region ********** SOCIAL MODULE ********** #
+	$EnableSocial = $false
+	[System.Boolean]::TryParse("[[DSP_EnableSocialModule]]", [ref]$EnableSocial)
+	if($EnableSocial)
+	{
+		.\Modules\Social\SOCIAL_01\Install-SOCIAL01.ps1
+	}
+	#endregion
+
 	#region ********** TARGETING MODULE ********** #
 	$EnableTargeting = $false
 	[System.Boolean]::TryParse("[[DSP_EnableTargeting]]", [ref]$EnableTargeting)

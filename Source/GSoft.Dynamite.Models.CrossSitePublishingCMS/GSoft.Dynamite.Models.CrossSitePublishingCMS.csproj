@@ -186,6 +186,10 @@
     <None Include="Modules\Search\SRCH_03\Setup-Fields.template.ps1" />
     <None Include="Modules\Search\SRCH_03\Setup-SocialMetaTags.template.ps1" />
     <None Include="Modules\Search\Tokens.Search.Default.ps1" />
+    <None Include="Modules\Social\SOCIAL_01\Install-SOCIAL01.ps1" />
+    <None Include="Modules\Social\SOCIAL_01\Setup-Lists.template.ps1" />
+    <None Include="Modules\Social\Tokens.Social.Custom.ps1" />
+    <None Include="Modules\Social\Tokens.Social.Default.ps1" />
     <None Include="Modules\Targeting\TARGET_02\Install-TARGET02.ps1" />
     <None Include="Modules\Targeting\TARGET_02\Setup-ProfileTargeting.template.ps1" />
     <None Include="Modules\Targeting\TARGET_01\Install-TARGET01.ps1" />
@@ -216,7 +220,6 @@
     <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de contenu\Attachments\" />
     <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de nouvelles\Attachments\" />
     <Folder Include="Modules\Publishing\PUB_01\Custom\" />
-    <Folder Include="Modules\Social\" />
     <Folder Include="Solutions\Packages\" />
   </ItemGroup>
   <ItemGroup>
