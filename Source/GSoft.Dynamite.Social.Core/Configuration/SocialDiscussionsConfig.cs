@@ -26,6 +26,7 @@ namespace GSoft.Dynamite.Social.Core.Configuration
                     SocialResources.DiscussionsListTitle, 
                     SocialResources.DiscussionsListDescription)
                     {
+                        ResourceFileName = SocialResources.Global,
                         ListTemplateInfo = BuiltInListTemplates.DiscussionsList
                     };
             }
