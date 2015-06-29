@@ -7,4 +7,4 @@
 # TARGETING MODULE FEATURES
 # ============================================
 
-$DSP_CommonCMS_SOCIAL_DiscussionListsFeatureId = "4912f001-2728-46fd-8317-5de64fefc06e"
+$DSP_CommonCMS_SOCIAL_DiscussionListsFeatureId = "9d709451-de45-4ecb-a411-3a667b9abfbe"
