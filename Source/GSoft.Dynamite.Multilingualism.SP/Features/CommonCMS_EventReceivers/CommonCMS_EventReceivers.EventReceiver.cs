@@ -38,7 +38,12 @@ namespace GSoft.Dynamite.Multilingualism.SP.Features.CommonCMS_EventReceivers
 
                     foreach (var eventReceiver in baseEventReceivers)
                     {
-                        eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
+                        // If no assembly defined, assume it's in the executing assembly
+                        if (string.IsNullOrEmpty(eventReceiver.AssemblyName))
+                        {
+                            eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
+                        }
+
                         eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
 
                         logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
