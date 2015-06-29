@@ -57,6 +57,13 @@
 . ./Modules/Targeting/Tokens.Targeting.Custom.ps1
 
 # ******************************************
+# Social Module tokens
+# ******************************************
+. ./Modules/Social/Tokens.Social.Default.ps1
+. ./Modules/Social/Tokens.Social.Custom.ps1
+
+
+# ******************************************
 # Urls builder
 # ******************************************
 
