@@ -41,10 +41,12 @@ function Get-FullPath {
 function Get-CustomPropertyMappings {
     param(
 		[Parameter(Mandatory=$true)]
-        [string]$PropertyDisplayName)
+        [string]$PropertyDisplayName,
 
-    # Custom property mapping settings
-	$MappingSettings = New-MappingSettings 
+        [Parameter(Mandatory=$true)]
+        $MappingSettings
+        
+    )
 
 	# Remove default keys
 	Remove-PropertyMapping -MappingSettings $MappingSettings -Destination Title | Out-Null
@@ -52,6 +54,24 @@ function Get-CustomPropertyMappings {
 
 	# Add custom keys
 	Set-PropertyMapping -MappingSettings $MappingSettings -Source $PropertyDisplayName -Destination $PropertyDisplayName -Key | Out-Null
+
+    return $MappingSettings
+}
+
+function Get-CustomContentTypeMappings {
+    param(
+		[Parameter(Mandatory=$true)]
+        [hashtable]$ContentTypesMappings,
+
+        [Parameter(Mandatory=$true)]
+        $MappingSettings       
+    )
+
+    # Build content types mappings
+    $ContentTypesMappings.Keys | ForEach-Object {
+    
+        $MappingSettings = Set-ContentTypeMapping -MappingSettings $MappingSettings -Source $ContentTypesMappings.Get_Item($_) -Destination $_
+    }
 
     return $MappingSettings
 }
@@ -70,7 +90,6 @@ function Wait-VariationSyncTimerJob {
 	Start-Sleep -Seconds 15
 }
 
-
 # Chech Restore ACL inheritance token
 $RestoreAclInheritance = [System.Convert]::ToBoolean("[[DSP_RestoreAclInheritance]]")
 
@@ -81,6 +100,7 @@ $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 $SourceLabel ="[[DSP_SourceLabel]]"
 $DSP_MigrationFolderMappings = [[DSP_MigrationFolderMappings]]
 $DSP_MigrationAssociationKeys = [[DSP_MigrationAssociationKeys]]
+$DSP_MigrationContentTypeMappings = [[DSP_MigrationContentTypeMappings]]
 
 # If not already defined, create default folder to URL mappings
 if($DSP_MigrationFolderMappings -eq $null) {
@@ -131,8 +151,17 @@ $mappingKeys | ForEach-Object {
 
     if ($_.ToUpperInvariant().Contains("SOURCE")) {
 
-		# Configure mapping settings
-	    $MappingSettings = Get-CustomPropertyMappings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
+        # Custom property mapping settings
+	    $MappingSettings = New-MappingSettings 
+
+		# Configure mapping settings for keys
+	    $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
+
+        # Configure mappings settings for content types
+        if ($DSP_MigrationContentTypeMappings.Count -gt 0)
+        {
+            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationContentTypeMappings
+        }
 
 		# Configure property settings
 		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataSourceMappings]]"
@@ -178,8 +207,17 @@ if($IsMultilingual) {
         $IndexOfTargetLanguage = $FromFolder.LastIndexOf("\") + 1
         $TargetLabelLanguage = $FromFolder.Substring($IndexOfTargetLanguage)
 
+        # Custom property mapping settings
+	    $MappingSettings = New-MappingSettings
+
 		# Configure mapping settings
-	    $MappingSettings = Get-CustomPropertyMappings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
+	    $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
+
+        # Configure mappings settings for content types
+        if ($DSP_MigrationContentTypeMappings.Count -gt 0)
+        {
+            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationContentTypeMappings
+        }
 
 		# Configure property settings
 		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataTargetMappings]]"

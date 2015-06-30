@@ -33,6 +33,11 @@ if ((Get-Variable -Name "DSP_MigrationAssociationKeys" -ErrorAction Ignore) -eq 
 		'fr' = 'Clef d''association de contenu'; }"
 }
 
+# If the DSP_MigrationContentTypeMappings hasn't been set, initialize and default to use the content association key
+if ((Get-Variable -Name "DSP_MigrationContentTypeMappings" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationContentTypeMappings = "[Ordered]@{}"
+}
+
 # ============================================
 # MIGRATION MODULE FEATURES
 # ============================================
