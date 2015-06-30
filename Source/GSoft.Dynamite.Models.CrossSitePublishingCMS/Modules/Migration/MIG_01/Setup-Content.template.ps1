@@ -101,6 +101,7 @@ $SourceLabel ="[[DSP_SourceLabel]]"
 $DSP_MigrationFolderMappings = [[DSP_MigrationFolderMappings]]
 $DSP_MigrationAssociationKeys = [[DSP_MigrationAssociationKeys]]
 $DSP_MigrationContentTypeMappings = [[DSP_MigrationContentTypeMappings]]
+$DSP_MigrationThreadNumber = [[DSP_MigrationThreadNumber]]
 
 # If not already defined, create default folder to URL mappings
 if($DSP_MigrationFolderMappings -eq $null) {
@@ -167,9 +168,9 @@ $mappingKeys | ForEach-Object {
 		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataSourceMappings]]"
 		$DSP_MigrationDataMappingsName = "[[DSP_MigrationDataSourceMappingsName]]"
 
-        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName
+        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
     } else {
-        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath 
+        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
     }
 }
 
@@ -224,6 +225,6 @@ if($IsMultilingual) {
 		$DSP_MigrationDataMappingsName = "[[DSP_MigrationDataTargetMappingsName]]"
 
 		# Import data
-        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName
+        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
     }
 }
