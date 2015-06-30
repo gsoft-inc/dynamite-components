@@ -96,15 +96,28 @@ namespace GSoft.Dynamite.Social.SP
         /// <summary>
         /// Method to get a single discussion by its Id
         /// </summary>
-        /// <param name="id">The discussion id.</param>
+        /// <param name="idString">The discussion id.</param>
         /// <returns>
         /// A single discussion
         /// </returns>
-        public Discussion GetDiscussionById(string id)
+        public Discussion GetDiscussionById(string idString)
         {
-            var guid = Guid.Parse(id);
+            var id = int.Parse(idString);
             var repository = SocialContainerProxy.Current.Resolve<DiscussionRepository>();
-            return repository.GetByUniqueId(SPContext.Current.Web, guid);
+            return repository.GetById(SPContext.Current.Web, id);
+        }
+
+        /// <summary>
+        /// Gets the discussion by title.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <returns>
+        /// A discussion object.
+        /// </returns>
+        public Discussion GetDiscussionByTitle(string title)
+        {
+            var repository = SocialContainerProxy.Current.Resolve<DiscussionRepository>();
+            return repository.GetByTitle(SPContext.Current.Web, title);
         }
 
         /// <summary>

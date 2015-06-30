@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Caml;
+using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Social.Contracts.Configuration;
@@ -226,23 +227,50 @@ namespace GSoft.Dynamite.Social.Core.Repositories
         /// Gets the discussion by unique identifier.
         /// </summary>
         /// <param name="web">The web.</param>
-        /// <param name="uniqueId">The unique identifier.</param>
+        /// <param name="id">The unique identifier.</param>
         /// <returns>
         /// The association discussion.
         /// </returns>
-        public Discussion GetByUniqueId(SPWeb web, Guid uniqueId)
+        public Discussion GetById(SPWeb web, int id)
         {
-            // Get discussion by unique id
+            // Get discussion by id
             var list = this.listLocator.GetByUrl(web, this.config.DiscussionListInfo.WebRelativeUrl);
-            var caml = this.camlBuilder.Where(this.camlBuilder.Equal(this.camlBuilder.FieldRef("ID"), this.camlBuilder.Value("Lookup", uniqueId.ToString("D"))));
+            var item = list.GetItemById(id);
+            if (item != null)
+            {
+                this.logger.Info("DiscussionRepository.GetById: Discussion with id '{0}' found.", id);
+                var discussion = this.binder.Get<Discussion>(item);
+                discussion.ParentListId = item.ParentList.ID.ToString("D");
+                discussion.UserPermissions = this.GetCurrentUserPermissionsOnItem(web, item);
+                discussion.Replies = this.GetReplies(web, discussion.Id).ToArray();
+                return discussion;
+            }
+
+            return new Discussion() { UserPermissions = this.GetCurrentUserPermissionsOnList(web) };
+        }
+
+        /// <summary>
+        /// Gets the by title.
+        /// </summary>
+        /// <param name="web">The web.</param>
+        /// <param name="title">The title.</param>
+        /// <returns>The discussion.</returns>
+        public Discussion GetByTitle(SPWeb web, string title)
+        {
+            // Get discussion by title
+            var list = this.listLocator.GetByUrl(web, this.config.DiscussionListInfo.WebRelativeUrl);
+            var caml = this.camlBuilder.Where(
+                this.camlBuilder.Equal(
+                    this.camlBuilder.FieldRef(BuiltInFields.Title.InternalName), 
+                    this.camlBuilder.Value("Text", title)));
+
             var query = new SPQuery() { Query = caml, ViewAttributes = "Scope='RecursiveAll'", RowLimit = 1 };
             var items = list.GetItems(query);
             if (items.Count == 1)
             {
-                this.logger.Info("DiscussionRepository.GetByUniqueId: Discussion with unique id '{0:B}' found.", uniqueId);
+                this.logger.Info("DiscussionRepository.GetByTitle: Discussion with title '{0}' found.", title);
                 var item = items[0];
                 var discussion = this.binder.Get<Discussion>(item);
-                discussion.IsLiked = discussion.LikedBy != null && discussion.LikedBy.Any(x => x.Id == SPContext.Current.Web.CurrentUser.ID);
                 discussion.ParentListId = item.ParentList.ID.ToString("D");
                 discussion.UserPermissions = this.GetCurrentUserPermissionsOnItem(web, item);
                 discussion.Replies = this.GetReplies(web, discussion.Id).ToArray();

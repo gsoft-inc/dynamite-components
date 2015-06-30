@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using GSoft.Dynamite.Binding;
-using GSoft.Dynamite.ValueTypes;
 
 namespace GSoft.Dynamite.Social.Core.Entities
 {
@@ -9,17 +8,37 @@ namespace GSoft.Dynamite.Social.Core.Entities
     /// Discussion object for the web service
     /// </summary>
     [DataContract]
-    public class Discussion : BaseEntity
+    public class Discussion
     {
         /// <summary>
-        /// Gets or sets the association identifier.
+        /// Item identifier within its list
+        /// </summary>
+        [DataMember(Name = "id")]
+        [Property("ID", BindingType = BindingType.ReadOnly)]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Item title
+        /// </summary>
+        [DataMember(Name = "title")]
+        [Property]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Created date
+        /// </summary>
+        [DataMember(Name = "created")]
+        [Property(BindingType = BindingType.ReadOnly)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// Gets or sets the parent list identifier.
         /// </summary>
         /// <value>
-        /// The association identifier.
+        /// The parent list identifier.
         /// </value>
-        [DataMember(Name = "associationId")]
-        [Property("AgropurPageAssociationKey")]
-        public string AssociationId { get; set; }
+        [DataMember(Name = "parentListId")]
+        public string ParentListId { get; set; }
 
         /// <summary>
         /// Gets or sets the modified date time.
@@ -29,7 +48,7 @@ namespace GSoft.Dynamite.Social.Core.Entities
         /// </value>
         [DataMember(Name = "modified")]
         [Property("DiscussionLastUpdated", BindingType = BindingType.ReadOnly)]
-        public new DateTime Modified { get; set; }
+        public DateTime Modified { get; set; }
 
         /// <summary>
         /// Gets or sets the author.
@@ -78,41 +97,5 @@ namespace GSoft.Dynamite.Social.Core.Entities
         /// </value>
         [DataMember(Name = "userPermissions")]
         public string[] UserPermissions { get; set; }
-
-        /// <summary>
-        /// Gets or sets the likes count.
-        /// </summary>
-        /// <value>
-        /// The likes count.
-        /// </value>
-        [Property]
-        [DataMember(Name = "likesCount")]
-        public double LikesCount { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether [is liked by current user].
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if [is liked by current user]; otherwise, <c>false</c>.
-        /// </value>
-        [DataMember(Name = "isLiked")]
-        public bool IsLiked { get; set; }
-
-        /// <summary>
-        /// Gets or sets the users who like the item.
-        /// </summary>
-        /// <value>
-        /// The users who like the item.
-        /// </value>
-        public UserValue[] LikedBy { get; set; }
-
-        /// <summary>
-        /// Gets or sets the parent list identifier.
-        /// </summary>
-        /// <value>
-        /// The parent list identifier.
-        /// </value>
-        [DataMember(Name = "parentListId")]
-        public string ParentListId { get; set; }
     }
 }

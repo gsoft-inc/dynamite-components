@@ -9,7 +9,7 @@ namespace GSoft.Dynamite.Social.SP
     /// <summary>
     /// The interface of a discussion board web service
     /// </summary>
-    [ServiceContract(Namespace = "http:www.agropur.com", Name = "DiscussionBoardService")]
+    [ServiceContract(Namespace = "http:www.gsoft.com", Name = "DiscussionService")]
     public interface IDiscussionService
     {
         /// <summary>
@@ -28,6 +28,14 @@ namespace GSoft.Dynamite.Social.SP
         /// </returns>
         [OperationContract, WebGet(UriTemplate = "/Discussions/ById?id={id}", ResponseFormat = WebMessageFormat.Json)]
         Discussion GetDiscussionById(string id);
+
+        /// <summary>
+        /// Gets the discussion by title.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <returns>A discussion object.</returns>
+        [OperationContract, WebGet(UriTemplate = "/Discussions/ByTitle?title={title}", ResponseFormat = WebMessageFormat.Json)]
+        Discussion GetDiscussionByTitle(string title);
 
         /// <summary>
         /// Method to get all Reply to a discussion
