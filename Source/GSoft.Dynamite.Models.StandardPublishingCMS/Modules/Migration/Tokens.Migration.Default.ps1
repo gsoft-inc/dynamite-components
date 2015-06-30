@@ -33,6 +33,16 @@ if ((Get-Variable -Name "DSP_MigrationAssociationKeys" -ErrorAction Ignore) -eq 
 		'fr' = 'Clef d''association de contenu'; }"
 }
 
+# If the DSP_MigrationContentTypeMappings hasn't been set, initialize the default to use an empty hashtable
+if ((Get-Variable -Name "DSP_MigrationContentTypeMappings" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationContentTypeMappings = "[Ordered]@{}"
+}
+
+# If the DSP_MigrationThreadNumber hasn't been set, initialize the default to 5
+if ((Get-Variable -Name "DSP_MigrationThreadNumber" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationThreadNumber = "5"
+}
+
 # ============================================
 # MIGRATION MODULE FEATURES
 # ============================================

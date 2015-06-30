@@ -41,10 +41,12 @@ function Get-FullPath {
 function Get-CustomPropertyMappings {
     param(
 		[Parameter(Mandatory=$true)]
-        [string]$PropertyDisplayName)
+        [string]$PropertyDisplayName,
 
-    # Custom property mapping settings
-	$MappingSettings = New-MappingSettings 
+        [Parameter(Mandatory=$true)]
+        $MappingSettings
+        
+    )
 
 	# Remove default keys
 	Remove-PropertyMapping -MappingSettings $MappingSettings -Destination Title | Out-Null
@@ -56,6 +58,24 @@ function Get-CustomPropertyMappings {
     return $MappingSettings
 }
 
+function Get-CustomContentTypeMappings {
+    param(
+		[Parameter(Mandatory=$true)]
+        [hashtable]$ContentTypesMappings,
+
+        [Parameter(Mandatory=$true)]
+        $MappingSettings       
+    )
+
+    # Build content types mappings
+    $ContentTypesMappings.Keys | ForEach-Object {
+    
+        $MappingSettings = Set-ContentTypeMapping -MappingSettings $MappingSettings -Source $ContentTypesMappings.Get_Item($_) -Destination $_
+    }
+
+    return $MappingSettings
+}
+
 function Wait-VariationSyncTimerJob {
 
 	# We don't need to sync manually items because we force the "Approved" status which automatically fires variations event receiver 
@@ -63,9 +83,12 @@ function Wait-VariationSyncTimerJob {
 	$Site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
 	Write-Warning "Waiting for 'VariationsPropagateListItem' timer job to finish..."
 	Wait-SPTimerJob -Name "VariationsPropagateListItem" -Site $Site
+
+	# Sync pages with timer job
+	Write-Warning "Waiting for 'VariationsPropagatePage' timer job to finish..."
+	Wait-SPTimerJob -Name "VariationsPropagatePage" -Site $Site
 	Start-Sleep -Seconds 15
 }
-
 
 # Chech Restore ACL inheritance token
 $RestoreAclInheritance = [System.Convert]::ToBoolean("[[DSP_RestoreAclInheritance]]")
@@ -77,6 +100,8 @@ $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 $SourceLabel ="[[DSP_SourceLabel]]"
 $DSP_MigrationFolderMappings = [[DSP_MigrationFolderMappings]]
 $DSP_MigrationAssociationKeys = [[DSP_MigrationAssociationKeys]]
+$DSP_MigrationContentTypeMappings = [[DSP_MigrationContentTypeMappings]]
+$DSP_MigrationThreadNumber = [[DSP_MigrationThreadNumber]]
 
 # If not already defined, create default folder to URL mappings
 if($DSP_MigrationFolderMappings -eq $null) {
@@ -127,16 +152,25 @@ $mappingKeys | ForEach-Object {
 
     if ($_.ToUpperInvariant().Contains("SOURCE")) {
 
-		# Configure mapping settings
-	    $MappingSettings = Get-CustomPropertyMappings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
+        # Custom property mapping settings
+	    $MappingSettings = New-MappingSettings 
+
+		# Configure mapping settings for keys
+	    $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
+
+        # Configure mappings settings for content types
+        if ($DSP_MigrationContentTypeMappings.Count -gt 0)
+        {
+            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationContentTypeMappings
+        }
 
 		# Configure property settings
 		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataSourceMappings]]"
 		$DSP_MigrationDataMappingsName = "[[DSP_MigrationDataSourceMappingsName]]"
 
-        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName
+        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
     } else {
-        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath 
+        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
     }
 }
 
@@ -147,6 +181,15 @@ if($IsMultilingual) {
 
     # Wait for variations to sync data to target label(s)
     Wait-VariationSyncTimerJob
+
+    # Execute intermediate steps if specified
+    $DSP_MigrationDataIntermediateScript = "[[DSP_MigrationDataIntermediateScript]]"
+    $IntermediateScript = Get-FullPath -Path $DSP_MigrationDataIntermediateScript
+    if (Test-Path $IntermediateScript)
+    {
+        Write-Warning "Executing intermediate script '$IntermediateScript'..."
+        & $IntermediateScript
+    }
 
     # Defines mappings keys for variation targets
     $TargetMappingKeys = $DSP_MigrationFolderMappings.Keys | where { $_.ToUpperInvariant().Contains("TARGETS") }
@@ -165,14 +208,23 @@ if($IsMultilingual) {
         $IndexOfTargetLanguage = $FromFolder.LastIndexOf("\") + 1
         $TargetLabelLanguage = $FromFolder.Substring($IndexOfTargetLanguage)
 
+        # Custom property mapping settings
+	    $MappingSettings = New-MappingSettings
+
 		# Configure mapping settings
-	    $MappingSettings = Get-CustomPropertyMappings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
+	    $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
+
+        # Configure mappings settings for content types
+        if ($DSP_MigrationContentTypeMappings.Count -gt 0)
+        {
+            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationContentTypeMappings
+        }
 
 		# Configure property settings
 		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataTargetMappings]]"
 		$DSP_MigrationDataMappingsName = "[[DSP_MigrationDataTargetMappingsName]]"
 
 		# Import data
-        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName
+        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
     }
 }

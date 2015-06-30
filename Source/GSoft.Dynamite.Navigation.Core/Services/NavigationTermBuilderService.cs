@@ -15,6 +15,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
 using Microsoft.SharePoint.Publishing.Navigation;
 using Microsoft.SharePoint.Taxonomy;
+using Microsoft.SharePoint.Utilities;
 
 namespace GSoft.Dynamite.Navigation.Core.Services
 {
@@ -82,7 +83,8 @@ namespace GSoft.Dynamite.Navigation.Core.Services
 
                     if (termValue != null)
                     {
-                        var pageUrl = "~site/" + item.Url;
+                        var itemUrl = new SPUrl(item.Web, item.Url);
+                        var pageUrl = SPUtility.ConcatUrls("~sitecollection/", itemUrl.AbsoluteUrl.AbsolutePath);
                         var termInfo = new TermInfo(new Guid(termValue.TermGuid), string.Empty, null);
                         var termDrivenpage = new TermDrivenPageSettingInfo(termInfo, pageUrl, null, null, null, false, false);
 
