@@ -51,11 +51,11 @@ if($termStore -eq $null)
 }
 
 # Portal Navigation Term Group
-if($termStore.Groups[$NavigationTermGroup] -ne $null)
+Try
 {
-	Export-SPTerms -Group $termStore.Groups[$NavigationTermGroup] -OutputFile $ExportFilePath
+    Export-SPTerms -Group $termStore.Groups[$NavigationTermGroup] -OutputFile $ExportFilePath -ErrorAction Stop
 }
-else
+Catch
 {
-	Write-Warning "Term Group $NavigationTermGroup doesn't exist. No export done."
+    Write-Warning "$_ No export done."
 }

@@ -52,6 +52,6 @@ if($IsMultilingual)
 		}
 	}
 
-	$site = Get-SPWebApplication "[[DSP_PortalPublishingHostNamePath]]"
+	$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
 	Wait-SPTimerJob -Name "VariationsSpawnSites" -Site $site
 }
