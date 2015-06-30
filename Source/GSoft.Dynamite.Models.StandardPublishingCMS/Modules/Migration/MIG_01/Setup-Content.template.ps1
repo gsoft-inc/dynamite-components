@@ -63,6 +63,10 @@ function Wait-VariationSyncTimerJob {
 	$Site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
 	Write-Warning "Waiting for 'VariationsPropagateListItem' timer job to finish..."
 	Wait-SPTimerJob -Name "VariationsPropagateListItem" -Site $Site
+
+	# Sync pages with timer job
+	Write-Warning "Waiting for 'VariationsPropagatePage' timer job to finish..."
+	Wait-SPTimerJob -Name "VariationsPropagatePage" -Site $Site
 	Start-Sleep -Seconds 15
 }
 
@@ -147,6 +151,15 @@ if($IsMultilingual) {
 
     # Wait for variations to sync data to target label(s)
     Wait-VariationSyncTimerJob
+
+    # Execute intermediate steps if specified
+    $DSP_MigrationDataIntermediateScript = "[[DSP_MigrationDataIntermediateScript]]"
+    $IntermediateScript = Get-FullPath -Path $DSP_MigrationDataIntermediateScript
+    if (Test-Path $IntermediateScript)
+    {
+        Write-Warning "Executing intermediate script '$IntermediateScript'..."
+        & $IntermediateScript
+    }
 
     # Defines mappings keys for variation targets
     $TargetMappingKeys = $DSP_MigrationFolderMappings.Keys | where { $_.ToUpperInvariant().Contains("TARGETS") }
