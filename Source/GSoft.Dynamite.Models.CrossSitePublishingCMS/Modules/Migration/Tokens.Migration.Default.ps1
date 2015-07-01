@@ -33,9 +33,14 @@ if ((Get-Variable -Name "DSP_MigrationAssociationKeys" -ErrorAction Ignore) -eq 
 		'fr' = 'Clef d''association de contenu'; }"
 }
 
-# If the DSP_MigrationContentTypeMappings hasn't been set, initialize the default to use an empty hashtable
-if ((Get-Variable -Name "DSP_MigrationContentTypeMappings" -ErrorAction Ignore) -eq $null) { 
-	$DSP_MigrationContentTypeMappings = "[Ordered]@{}"
+# If the DSP_MigrationSourceContentTypeMappings hasn't been set, initialize the default to use an empty hashtable
+if ((Get-Variable -Name "DSP_MigrationSourceContentTypeMappings" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationSourceContentTypeMappings = "[Ordered]@{}"
+}
+
+# If the DSP_MigrationTargetContentTypeMappings hasn't been set, initialize the default to use an empty hashtable
+if ((Get-Variable -Name "DSP_MigrationTargetContentTypeMappings" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationTargetContentTypeMappings = "[Ordered]@{}"
 }
 
 # If the DSP_MigrationThreadNumber hasn't been set, initialize the default to 5
