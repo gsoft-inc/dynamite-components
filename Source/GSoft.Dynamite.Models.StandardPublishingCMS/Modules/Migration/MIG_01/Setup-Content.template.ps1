@@ -44,8 +44,7 @@ function Get-CustomPropertyMappings {
         [string]$PropertyDisplayName,
 
         [Parameter(Mandatory=$true)]
-        $MappingSettings
-        
+        $MappingSettings       
     )
 
 	# Remove default keys
@@ -70,7 +69,7 @@ function Get-CustomContentTypeMappings {
     # Build content types mappings
     $ContentTypesMappings.Keys | ForEach-Object {
     
-        $MappingSettings = Set-ContentTypeMapping -MappingSettings $MappingSettings -Source $ContentTypesMappings.Get_Item($_) -Destination $_
+        $MappingSettings = Set-ContentTypeMapping -MappingSettings $MappingSettings -Source $_ -Destination $ContentTypesMappings.Get_Item($_)
     }
 
     return $MappingSettings
@@ -100,7 +99,12 @@ $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 $SourceLabel ="[[DSP_SourceLabel]]"
 $DSP_MigrationFolderMappings = [[DSP_MigrationFolderMappings]]
 $DSP_MigrationAssociationKeys = [[DSP_MigrationAssociationKeys]]
-$DSP_MigrationContentTypeMappings = [[DSP_MigrationContentTypeMappings]]
+
+# Content Types
+$DSP_MigrationSourceContentTypeMappings = [[DSP_MigrationSourceContentTypeMappings]]
+$DSP_MigrationTargetContentTypeMappings = [[DSP_MigrationTargetContentTypeMappings]]
+
+# Multithreading configuration
 $DSP_MigrationThreadNumber = [[DSP_MigrationThreadNumber]]
 
 # If not already defined, create default folder to URL mappings
@@ -159,9 +163,9 @@ $mappingKeys | ForEach-Object {
 	    $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
 
         # Configure mappings settings for content types
-        if ($DSP_MigrationContentTypeMappings.Count -gt 0)
+        if ($DSP_MigrationSourceContentTypeMappings.Count -gt 0)
         {
-            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationContentTypeMappings
+            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationSourceContentTypeMappings
         }
 
 		# Configure property settings
@@ -215,9 +219,9 @@ if($IsMultilingual) {
 	    $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
 
         # Configure mappings settings for content types
-        if ($DSP_MigrationContentTypeMappings.Count -gt 0)
+        if ($DSP_MigrationTargetContentTypeMappings.Count -gt 0)
         {
-            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationContentTypeMappings
+            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationTargetContentTypeMappings
         }
 
 		# Configure property settings
@@ -228,3 +232,22 @@ if($IsMultilingual) {
         Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
     }
 }
+
+$values = @{"Migration" = "Summary"}
+New-HeaderDrawing -Values $Values
+
+# Migration summary
+Write-Host -ForegroundColor Green "-----------------------------------------------------------------------------------"
+Write-Host -ForegroundColor Green "Successes" 
+Write-Host -ForegroundColor Green "-----------------------------------------------------------------------------------"
+Find-DSPExcelFiles -Folder $LogFolderPath -Columns "Status" -Patterns "Success" -WorksheetName Data
+
+Write-Host -ForegroundColor Yellow "-----------------------------------------------------------------------------------"
+Write-Host -ForegroundColor Yellow "Warnings" 
+Write-Host -ForegroundColor Yellow "-----------------------------------------------------------------------------------"
+Find-DSPExcelFiles -Folder $LogFolderPath -Columns "Status" -Patterns "Warning" -WorksheetName Data
+
+Write-Host -ForegroundColor Red "-----------------------------------------------------------------------------------"
+Write-Host -ForegroundColor Red "Errors" 
+Write-Host -ForegroundColor Red "-----------------------------------------------------------------------------------"
+Find-DSPExcelFiles -Folder $LogFolderPath -Columns "Status" -Patterns "Error" -WorksheetName Data
