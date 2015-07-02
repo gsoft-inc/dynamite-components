@@ -20,7 +20,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CommonCMS_ManagedNavigation
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
     [Guid("e2483563-7707-4666-a394-64af9f62d2e1")]
-    public class CrossSitePublishingCMS_ManagedNavigationEventReceiver : SPFeatureReceiver
+    public class CommonCMS_ManagedNavigationEventReceiver : SPFeatureReceiver
     {
         /// <summary>
         /// Feature activated event
@@ -47,42 +47,9 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CommonCMS_ManagedNavigation
                     {
                         if (setting.AssociatedLanguage.Equals(new CultureInfo((int)web.Language)) || setting.AssociatedLanguage.Equals(web.Locale))
                         {
-                            logger.Info("Configuring managed navigation for web {0}", web.Url);
-
                             // Set the web settings
                             navigationHelper.SetWebNavigationSettings(web, setting);
-
-                            // The problem with this code is each navigation column on lists is set. This setting was already done
-                            // on the publishing module. With this code, we cannot use specified termset on a list.
-                            // Look for the DynamiteNavigation field on any relevant list on the web
-                            var navListFieldsOnCurrentWeb = new Dictionary<string, SPField>();
-                            foreach (SPList list in web.Lists)
-                            {
-                                var navField = fieldLocator.GetFieldById(list.Fields, PublishingFieldInfos.Navigation.Id);
-
-                                if (navField != null)
-                                {
-                                    navListFieldsOnCurrentWeb.Add(list.Title, navField);
-                                }
-                            }
-
-                            // Update the fields afterwards because updating them while looping on the SPListCollection
-                            // will blow up (can't execute while enumerating).
-                            foreach (string listTitle in navListFieldsOnCurrentWeb.Keys)
-                            {
-                                logger.Info(
-                                    "Configuring managed navigation term set {0} (id:{1}) for field DynamiteNavigation on list {2}",
-                                    setting.TermSet.Label,
-                                    setting.TermSet.Id,
-                                    listTitle);
-                                var navField = navListFieldsOnCurrentWeb[listTitle];
-
-                                // We assume that everybody wants their lists' DynamiteNavigation fields
-                                // to be bound by default to the same term set as their parent web.
-                                var asTaxoField = navField as TaxonomyField;
-                                asTaxoField.TermSetId = setting.TermSet.Id;
-                                asTaxoField.Update();
-                            }
+                            this.EnsureNavigationListColumnMappingRecursive(web, setting, logger, navigationHelper, fieldLocator);
                         }
                     }
                 }
@@ -117,6 +84,49 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CommonCMS_ManagedNavigation
                         }
                     }                              
                 }
+            }
+        }
+
+        private void EnsureNavigationListColumnMappingRecursive(SPWeb web, ManagedNavigationInfo navigationSetting, ILogger logger, INavigationHelper navigationHelper, IFieldLocator fieldLocator)
+        {
+            logger.Info("Configuring managed navigation for web {0}", web.Url);
+
+            // The problem with this code is each navigation column on lists is set. This setting was already done
+            // on the publishing module. With this code, we cannot use specified termset on a list.
+            // Look for the DynamiteNavigation field on any relevant list on the web
+            var navListFieldsOnCurrentWeb = new Dictionary<string, SPField>();
+            foreach (SPList list in web.Lists)
+            {
+                var navField = fieldLocator.GetFieldById(list.Fields, PublishingFieldInfos.Navigation.Id);
+
+                if (navField != null)
+                {
+                    navListFieldsOnCurrentWeb.Add(list.Title, navField);
+                }
+            }
+
+            // Update the fields afterwards because updating them while looping on the SPListCollection
+            // will blow up (can't execute while enumerating).
+            foreach (string listTitle in navListFieldsOnCurrentWeb.Keys)
+            {
+                logger.Info(
+                    "Configuring managed navigation term set {0} (id:{1}) for field DynamiteNavigation on list {2}",
+                    navigationSetting.TermSet.Label,
+                    navigationSetting.TermSet.Id,
+                    listTitle);
+                var navField = navListFieldsOnCurrentWeb[listTitle];
+
+                // We assume that everybody wants their lists' DynamiteNavigation fields
+                // to be bound by default to the same term set as their parent web.
+                var asTaxoField = navField as TaxonomyField;
+                asTaxoField.TermSetId = navigationSetting.TermSet.Id;
+                asTaxoField.Update();
+            }
+
+            // Recurse into all subwebs
+            foreach (SPWeb subweb in web.Webs)
+            {
+                this.EnsureNavigationListColumnMappingRecursive(subweb, navigationSetting, logger, navigationHelper, fieldLocator);
             }
         }
     }
