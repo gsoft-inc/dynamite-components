@@ -91,7 +91,10 @@
     <None Include="Modules\Multilingualism\LANG_03\Setup-LanguageSwitcher.template.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
+    <None Include="Modules\Navigation\NAV_01\Export-TermGroups.template.ps1" />
+    <None Include="Modules\Navigation\NAV_01\Import-TermGroups.template.ps1" />
     <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
+    <None Include="Modules\Navigation\NAV_01\Remove-TermGroups.template.ps1" />
     <None Include="Modules\Navigation\NAV_01\Setup-ManagedNavigation.template.ps1" />
     <None Include="Modules\Navigation\NAV_05\Install-NAV05.ps1" />
     <None Include="Modules\Navigation\NAV_05\Setup-EventReceivers.template.ps1" />
@@ -121,6 +124,7 @@
     <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image8.jpg" />
     <Content Include="Modules\Migration\MIG_01\Default\Multilingual\Root\Site Collection Images\Documents\Image9.jpg" />
     <Content Include="Modules\Migration\MIG_01\README.txt" />
+    <Content Include="Modules\Navigation\NAV_01\Default\Default-KeywordsTermGroup.template.xml" />
     <Content Include="Modules\Publishing\PUB_01\Default\Default-NavigationTermGroup.template.xml" />
     <Content Include="Modules\Publishing\PUB_01\Default\Default-Permissions.template.xml" />
     <Content Include="Modules\Publishing\PUB_01\Default\Default-Sites.template.xml" />
@@ -141,6 +145,9 @@
     <None Include="Modules\Design\DSGN_01\Setup-HomePages.template.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
+    <None Include="Modules\Search\SRCH_02\Install-SRCH02.ps1" />
+    <None Include="Modules\Search\SRCH_02\Setup-Control.template.ps1" />
+    <None Include="Modules\Search\SRCH_02\Setup-PropertyBag.template.ps1" />
     <None Include="Nuget\Install.ps1" />
     <None Include="packages.config" />
     <None Include="Publish-DeploymentFolder.ps1" />
@@ -161,7 +168,6 @@
     <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Source\News Pages\Attachments\" />
     <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de contenu\Attachments\" />
     <Folder Include="Modules\Migration\MIG_01\Default\Multilingual\Targets\fr\Pages de nouvelles\Attachments\" />
-    <Folder Include="Modules\Navigation\NAV_01\Default\" />
     <Folder Include="Solutions\Packages\" />
   </ItemGroup>
   <ItemGroup>
