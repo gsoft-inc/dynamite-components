@@ -114,7 +114,8 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         var publishingWeb = PublishingWeb.GetPublishingWeb(currentWeb);
 
                         // Get the web-specific navigation settings
-                        var webNavigationSettings = new WebNavigationSettings(currentWeb);
+                        SPWeb webWithReturnedSettings = null;
+                        var webNavigationSettings = FindTaxonomyWebNavigationSettingsInWebOrInParents(currentWeb, out webWithReturnedSettings);
                         var taxonomySession = new TaxonomySession(currentWeb.Site);
                         var termStore = taxonomySession.TermStores[webNavigationSettings.GlobalNavigation.TermStoreId];
                         var termSet = termStore.GetTermSet(webNavigationSettings.GlobalNavigation.TermSetId);
@@ -132,10 +133,9 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         // (a different managed navigation setting can be used between publishing and authoring)
                         // The only case when the sync is possible is when the navigation of the current web uses the term set acts
                         // as navigation classification term set for the content. Else, it's mean we are on an authoring site.
-                        var currentWebNavigationSettings = TaxonomyNavigation.GetWebNavigationSettings(currentWeb);
-                        if (currentWebNavigationSettings != null)
+                        if (webNavigationSettings != null)
                         {
-                            var currentWebNavigationTermSetId = currentWebNavigationSettings.GlobalNavigation.TermSetId;
+                            var currentWebNavigationTermSetId = webNavigationSettings.GlobalNavigation.TermSetId;
 
                             var navigationField = item.Fields.GetFieldByInternalName(itemNavigationFieldName) as TaxonomyField;
 
@@ -161,7 +161,8 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                     var peerSite = new SPSite(peerWebUrl);
                                     var peerWeb = peerSite.OpenWeb();
 
-                                    var peerWebNavigationSettings = TaxonomyNavigation.GetWebNavigationSettings(peerWeb);
+                                    SPWeb peerParentWithReturnedSettings = null;
+                                    var peerWebNavigationSettings = FindTaxonomyWebNavigationSettingsInWebOrInParents(peerWeb, out peerParentWithReturnedSettings);
 
                                     if (peerWebNavigationSettings != null)
                                     {
@@ -194,50 +195,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                 // Check if the current term is under a parent one
                                 if (!termExists)
                                 {
-                                    if (!term.IsRoot)
-                                    {
-                                        // Check if the parent is reused in the peer term set
-                                        var parentTerm = term.Parent;
-                                        var parentTermlabel = parentTerm.GetDefaultLabel(webLanguage);
-
-                                        if (parentTerm != null)
-                                        {
-                                            if (parentTerm.IsReused)
-                                            {
-                                                // Get the reuse in the peer term set. Note that it can exist only one reuse of a term in a term set (FirstOrDefault)
-                                                var reusedTerm = parentTerm.ReusedTerms.FirstOrDefault(t => t.TermSet.Id.Equals(peerTermSet.Id));
-
-                                                if (reusedTerm != null)
-                                                {
-                                                    if (isSourceVariationWeb)
-                                                    {
-                                                        // Pin the term in peer term sets
-                                                        // We use a pin instead of reuse to reproduce the behavior of the SharePoint variations system. One term set acts as source term set with more targets term sets. We have this information with associated variations webs.
-                                                        // If you are creating a term in a peer term set, that's mean you are creating an orphan page which doesn't need to be synced with the source term set (like varaitions do)
-                                                        // A pin is also useful for deleting scenarios (see DeleteAssociatedPageTerm method). Pin = hard link between terms
-                                                        reusedTerm.ReuseTermWithPinning(term);
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    this.logger.Warn("The parent term {0} of the term {1} was not found in the term set {2}", parentTermlabel, term.Id, peerTermSet.Name);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                // Don't try to recreate the same parent hierarchy here. Too much assumptions about what the user really wants here. In doubt don't do anything
-                                                this.logger.Warn("Unable to reuse the term {0}. The parent term {1} of the term {2} is not reused in the peer term set {3}. ", termLabel, parentTermlabel, term.Id, peerTermSet.Name);
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        if (isSourceVariationWeb)
-                                        {
-                                            // Pin the term at root of peer term set (same reasons as above)
-                                            peerTermSet.ReuseTermWithPinning(term);
-                                        }
-                                    }
+                                    this.EnsureRecursiveSyncToTargetTermSet(term, peerTermSet, webLanguage, isSourceVariationWeb, null);
 
                                     termStore.CommitAll();
                                 }
@@ -289,6 +247,74 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                             termStore.CommitAll();
                         }
                     }
+                }
+            }
+        }
+
+        private static WebNavigationSettings FindTaxonomyWebNavigationSettingsInWebOrInParents(SPWeb web, out SPWeb webWithNavigationSettings)
+        {
+            var currentWebNavSettings = new WebNavigationSettings(web);
+            webWithNavigationSettings = web;
+
+            if (currentWebNavSettings.GlobalNavigation.Source == StandardNavigationSource.InheritFromParentWeb
+                && web.ParentWeb != null)
+            {
+                // current web inherits its settings from its parent, so we gotta look upwards to the parent webs
+                // recursively until we find a match
+                return FindTaxonomyWebNavigationSettingsInWebOrInParents(web.ParentWeb, out webWithNavigationSettings);
+            }
+
+            return currentWebNavSettings;
+        }
+
+        private void EnsureRecursiveSyncToTargetTermSet(Term term, TermSet peerTermSet, int webLanguage, bool isSourceVariationWeb, Term childToEnsure)
+        {
+            if (!term.IsRoot)
+            {
+                // Check if the parent is reused in the peer term set
+                var parentTerm = term.Parent;
+                var parentTermlabel = parentTerm.GetDefaultLabel(webLanguage);
+
+                if (parentTerm != null)
+                {
+                    if (parentTerm.IsReused)
+                    {
+                        // Get the reuse in the peer term set. Note that it can exist only one reuse of a term in a term set (FirstOrDefault)
+                        var reusedParentTerm = parentTerm.ReusedTerms.FirstOrDefault(t => t.TermSet.Id.Equals(peerTermSet.Id));
+
+                        if (reusedParentTerm != null)
+                        {
+                            if (isSourceVariationWeb)
+                            {
+                                // This may be the termination point of the "down" recursing from parent-to-child-to-grandchild
+                                // Pin the term in peer term sets (under the already re-used parent)!
+                                // We use a pin instead of reuse to reproduce the behavior of the SharePoint variations system. One term set acts as source term set with more targets term sets. We have this information with associated variations webs.
+                                // If you are creating a term in a peer term set, that's mean you are creating an orphan page which doesn't need to be synced with the source term set (like varaitions do)
+                                // A pin is also useful for deleting scenarios (see DeleteAssociatedPageTerm method). Pin = hard link between terms
+                                reusedParentTerm.ReuseTermWithPinning(term);
+                            }
+                        }
+                        else
+                        {
+                            this.logger.Warn("The parent term {0} of the term {1} was not found in the term set {2}", parentTermlabel, term.Id, peerTermSet.Name);
+                        }
+                    }
+                    else
+                    {
+                        // Our parent term isn't re=used, so we need to recurse "up" to reach a parent we can pin instead.
+                        // Pinning the parent will bring the term we want to our target term set as well (since pinning 
+                        // acts as a full-child-hierarchy reuse).
+                        this.EnsureRecursiveSyncToTargetTermSet(parentTerm, peerTermSet, webLanguage, isSourceVariationWeb, term);
+                    }
+                }
+            }
+            else
+            {
+                if (isSourceVariationWeb)
+                {
+                    // Pin the term at root of peer term set (same reasons as above, will bring along all child terms 
+                    // to the target term set)
+                    peerTermSet.ReuseTermWithPinning(term);
                 }
             }
         }
