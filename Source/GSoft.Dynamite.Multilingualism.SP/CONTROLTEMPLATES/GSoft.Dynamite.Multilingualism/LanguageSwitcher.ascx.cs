@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using Autofac;
@@ -146,6 +147,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                             var labels = this.VariationsHelper.GetVariationLabels(currentWebUrl, true);
                             var currentUrl = HttpContext.Current.Request.Url;
                             var variationSettingsInfos = this.MultilingualismVariationsConfig.VariationSettings();
+                            bool isPerfectPeerPageMatch = false;
 
                             var formattedLabels = new List<dynamic>();
 
@@ -175,13 +177,43 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
 
                                         // Default SharePoint Page
                                         default:
-                                            itemUrl = this.VariationNavigationHelper.GetPeerPageUrl(elevatedWeb, currentUrl, variationLabel);
+                                            try
+                                            {
+                                                // First try for a perfect variation peer match
+                                                itemUrl = new Uri(Variations.GetPeerUrl(elevatedWeb, currentUrl.AbsolutePath, label.Title), UriKind.Relative);
+                                                
+                                                // Sometime we won't get an ArgOutOfRange exception, but still we didn't get a perfect match.
+                                                // In those cases, the target web's ~site url is returned.
+                                                if (itemUrl.ToString() != new Uri(label.TopWebUrl).AbsolutePath)
+                                                {
+                                                    isPerfectPeerPageMatch = true;
+                                                }
+
+                                                // Special case for home page
+                                                if (SPContext.Current.ListItem != null
+                                                && elevatedWeb.RootFolder.WelcomePage == SPContext.Current.ListItem.Url)
+                                                {
+                                                    var peerHomePageUrl = Regex.Replace(itemUrl.OriginalString, @"\/Pages\/.*", string.Empty);
+                                                    itemUrl = new Uri(peerHomePageUrl, UriKind.Relative);
+                                                    isPerfectPeerPageMatch = true;
+                                                }
+                                            }
+                                            catch (ArgumentOutOfRangeException)
+                                            {
+                                                // Second, use the VariationNavHelper's "smart" logic to make a best guess at what the peer URL is.
+                                                // This should work for mosts _layouts, subweb and list view URLs. 
+                                                itemUrl = this.VariationNavigationHelper.GetPeerPageUrl(elevatedWeb, currentUrl, variationLabel);
+                                            }
+
                                             break;
                                     }
 
                                     // Gets the default title value of the variation label
                                     var title = Languages.TwoLetterISOLanguageNameToFullName(label.Title);
-                                    var cssClass = string.Empty;
+
+                                    // Use a CSS class to help us hide the language switch if we didn't get a perfect match
+                                    var labelCssClass = string.Empty;
+                                    var linkCssClass = isPerfectPeerPageMatch ? string.Empty : "not-perfect-variation-peer-page-match ";
 
                                     // Gets a corresponding Variation Setting Info Object
                                     var variationLabelInfo = variationSettingsInfos.Labels.FirstOrDefault(variation => variation.Title == label.Title);
@@ -194,14 +226,15 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                                             title = variationLabelInfo.LanguageSwitchCustomTitle;
                                         }
 
-                                        cssClass = variationLabelInfo.LanguageSwitchCustomCssClass;
+                                        labelCssClass += variationLabelInfo.LanguageSwitchCustomCssClass;
                                     }
 
                                     var itemVariationInfo = new
                                     {
                                         Title = title,
                                         Url = itemUrl,
-                                        CssClass = cssClass
+                                        CssClass = labelCssClass,
+                                        LinkCssClass = linkCssClass
                                     };
 
                                     formattedLabels.Add(itemVariationInfo);
