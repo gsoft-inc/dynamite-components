@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,5 +25,13 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         /// <param name="title">The title of the web part.</param>
         /// <returns>The web part information</returns>
         WebPartInfo GetWebPartInfoByTitle(string title);
+
+        /// <summary>
+        /// Gets the web part information by title and culture.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <param name="culture">The culture.</param>
+        /// <returns>The web part information.</returns>
+        WebPartInfo GetWebPartInfoByTitle(string title, CultureInfo culture);
     }
 }
