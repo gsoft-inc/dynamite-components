@@ -143,11 +143,13 @@
     <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />
     <None Include="Modules\Publishing\PUB_02\Setup-PageLayouts.template.ps1" />
     <None Include="Modules\Design\DSGN_01\Setup-HomePages.template.ps1" />
+    <None Include="Modules\Publishing\PUB_02\Setup-ResultSources.template.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Modules\Search\SRCH_02\Install-SRCH02.ps1" />
     <None Include="Modules\Search\SRCH_02\Setup-Control.template.ps1" />
     <None Include="Modules\Search\SRCH_02\Setup-PropertyBag.template.ps1" />
+    <None Include="Modules\Search\Tokens.Search.Default.ps1" />
     <None Include="Nuget\Install.ps1" />
     <None Include="packages.config" />
     <None Include="Publish-DeploymentFolder.ps1" />
