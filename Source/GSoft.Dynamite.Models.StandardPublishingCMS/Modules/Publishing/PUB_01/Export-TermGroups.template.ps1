@@ -17,9 +17,11 @@ if(!(Test-Path $BackupFolder))
 }
 
 $DateStamp = (Get-Date -Format s) -replace ':', '.'
-$ExportFilePath = "$BackupFolder\termgroups-$DateStamp.xml"
+$ExportFilePath = "$BackupFolder\termgroup-navigation-$DateStamp.xml"
 
 # Taxonomy Settings
+$TermStoreName = "[[DSP_TermStoreName]]"
+
 $DefautNavigationtermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
 
 $CustomNavigationTermGroup = "[[DSP_CUSTOM_PortalNavigationTermGroup]]"
@@ -30,7 +32,6 @@ if(![string]::IsNullOrEmpty($CustomNavigationTermGroup))
 {
 	$NavigationTermGroup = $CustomNavigationTermGroup
 }
-
 
 $site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
 if($site -eq $null)
@@ -44,7 +45,13 @@ if($taxonomySession -eq $null)
 	return
 }
 
-$termStore = $taxonomySession | Get-DSPTermStore -Default
+$termStore = $null
+if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) {
+    $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
+} else {
+    $termStore = $taxonomySession | Get-DSPTermStore -Default
+}
+
 if($termStore -eq $null)
 {
 	return

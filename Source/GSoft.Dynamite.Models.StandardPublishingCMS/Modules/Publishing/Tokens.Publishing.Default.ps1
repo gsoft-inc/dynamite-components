@@ -20,9 +20,7 @@ $DSP_DEFAULT_PortalWebsConfigurationFile = "./Default/Default-Webs.xml"
 # ============================================
 
 #### TAXONOMY
-
 $DSP_DEFAULT_PortalNavigationConfigurationFile = "./Default/Default-NavigationTermGroup.xml"
-
 $DSP_DEFAULT_PortalNavigationTermGroup = "Portal - Navigation"
 
 # ============================================

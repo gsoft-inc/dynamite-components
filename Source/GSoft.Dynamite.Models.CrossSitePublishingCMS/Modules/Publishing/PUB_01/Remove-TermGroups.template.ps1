@@ -10,6 +10,8 @@ $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
 # Taxonomy Settings
+$TermStoreName = "[[DSP_TermStoreName]]"
+
 $DefautNavigationtermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
 $DefautRestrictedtermGroup = "[[DSP_DEFAULT_PortalRestrictedTermGroup]]"
 
@@ -29,5 +31,30 @@ if(![string]::IsNullOrEmpty($CustomRestrictedTermGroup))
 	$RestrictedTermGroup = $CustomRestrictedTermGroup
 }
 
-Remove-DSPTermGroup -GroupName "$RestrictedTermGroup"
-Remove-DSPTermGroup -GroupName "$NavigationTermGroup"
+# Open taxonomy session on correct term store
+$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+if($site -eq $null)
+{
+	return
+}
+
+$taxonomySession = $site | Get-DSPTaxonomySession
+if($taxonomySession -eq $null)
+{
+	return
+}
+
+$termStore = $null
+if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) {
+    $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
+} else {
+    $termStore = $taxonomySession | Get-DSPTermStore -Default
+}
+
+if($termStore -eq $null)
+{
+	return
+}
+
+Remove-DSPTermGroup -TermStore $termStore -GroupName "$RestrictedTermGroup"
+Remove-DSPTermGroup -TermStore $termStore -GroupName "$NavigationTermGroup"

@@ -16,9 +16,7 @@ $DSP_DEFAULT_PortalSitesConfigurationFile = "./Default/Default-Sites.xml"
 # ============================================
 
 #### TAXONOMY
-
 $DSP_DEFAULT_PortalNavigationConfigurationFile = "./Default/Default-NavigationTermGroup.xml"
-
 $DSP_DEFAULT_PortalNavigationTermGroup = "Portal - Navigation"
 
 # ============================================
