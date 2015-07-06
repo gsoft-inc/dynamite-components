@@ -121,6 +121,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
                 return this.WebParts.SingleOrDefault(
                         webPartInfo => webPartInfo.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase) && webPartInfo.Culture.LCID.Equals(culture.LCID)); 
             }
+
             return this.WebParts.SingleOrDefault(
                         webPartInfo => webPartInfo.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase)); 
         }

@@ -132,6 +132,7 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             {
                 return this.Pages.SingleOrDefault(page => page.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase) && page.Culture.LCID.Equals(culture.LCID)); 
             }
+
             return this.Pages.SingleOrDefault(page => page.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase)); 
         }
 
