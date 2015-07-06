@@ -6675,6 +6675,11 @@
             The values to be assigned to the page when its created.
             </summary>
         </member>
+        <member name="P:GSoft.Dynamite.Pages.PageInfo.Culture">
+            <summary>
+            The culture of the Page.
+            </summary>
+        </member>
         <member name="T:GSoft.Dynamite.Pages.PageLayoutInfo">
             <summary>
             Definition of a page layout info
@@ -7318,6 +7323,11 @@
         <member name="P:GSoft.Dynamite.WebParts.WebPartInfo.WebPart">
             <summary>
             The WebPart object that should be provisioned
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.WebParts.WebPartInfo.Culture">
+            <summary>
+            The culture of the webpart.
             </summary>
         </member>
         <member name="T:GSoft.Dynamite.Utils.CatchallExceptionHandler">

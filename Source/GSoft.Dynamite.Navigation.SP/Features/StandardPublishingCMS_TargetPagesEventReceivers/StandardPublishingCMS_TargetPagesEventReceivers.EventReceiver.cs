@@ -82,16 +82,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                                 var pagesLibraryOnTargetLabelWeb = variationTargetLabelWeb.GetPagesLibrary();
                                 var webRelativeUrl = pagesLibraryOnTargetLabelWeb.RootFolder.Url;
 
-                                eventReceiverHelper.AddListEventReceiverDefinition(
-                                    variationTargetLabelWeb,
-                                    new EventReceiverInfo(
-                                        new ListInfo(webRelativeUrl, webRelativeUrl, webRelativeUrl),
-                                        SPEventReceiverType.FieldUpdating,
-                                        SPEventReceiverSynchronization.Synchronous)
-                                    {
-                                        AssemblyName = Assembly.GetExecutingAssembly().FullName,
-                                        ClassName = "GSoft.Dynamite.Navigation.SP.Events.VariationTargetPagesLibraryEvents"
-                                    });
+                                ApplyEventReceiverToAllSubWebListsRecursively(eventReceiverHelper, variationTargetLabelWeb, webRelativeUrl);
                             }
                         }
                     }
@@ -138,6 +129,25 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                         eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
                     }
                 }
+            }
+        }
+
+        private static void ApplyEventReceiverToAllSubWebListsRecursively(IEventReceiverHelper eventReceiverHelper, SPWeb variationTargetLabelWeb, string webRelativeUrl)
+        {
+            eventReceiverHelper.AddListEventReceiverDefinition(
+                variationTargetLabelWeb,
+                new EventReceiverInfo(
+                    new ListInfo(webRelativeUrl, webRelativeUrl, webRelativeUrl),
+                    SPEventReceiverType.FieldUpdating,
+                    SPEventReceiverSynchronization.Synchronous)
+                {
+                    AssemblyName = Assembly.GetExecutingAssembly().FullName,
+                    ClassName = "GSoft.Dynamite.Navigation.SP.Events.VariationTargetPagesLibraryEvents"
+                });
+
+            foreach (SPWeb subWeb in variationTargetLabelWeb.Webs)
+            {
+                ApplyEventReceiverToAllSubWebListsRecursively(eventReceiverHelper, subWeb, webRelativeUrl);
             }
         }
     }

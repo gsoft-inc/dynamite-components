@@ -16,7 +16,7 @@
 <asp:PlaceHolder ID="Placeholder" runat="server">
     <asp:Repeater ID="LabelsRepeater" runat="server">
         <ItemTemplate>
-            <a class="ms-promotedActionButton language-switcher-link" title="<%# DataBinder.Eval(Container.DataItem, "Title") %>" href="<%# DataBinder.Eval(Container.DataItem, "Url") %>">
+            <a class="ms-promotedActionButton language-switcher-link <%# DataBinder.Eval(Container.DataItem, "LinkCssClass") %>" title="<%# DataBinder.Eval(Container.DataItem, "Title") %>" href="<%# DataBinder.Eval(Container.DataItem, "Url") %>">
                 <span style="height:16px;width:16px;position:relative;display:inline-block;overflow:hidden;" class="s4-clust ms-promotedActionButton-icon">
                     <img src="/_layouts/15/images/spcommon.png?rev=23" alt="Follow" style="position: absolute; left: -177px; top: -174px;">
                 </span>
