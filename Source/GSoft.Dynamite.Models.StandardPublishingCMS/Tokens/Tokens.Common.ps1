@@ -48,7 +48,7 @@
 # ******************************************
 # Search Module tokens
 # ******************************************
-#. ./Modules/Search/Tokens.Search.Default.ps1
+. ./Modules/Search/Tokens.Search.Default.ps1
 
 # ******************************************
 # Urls builder
