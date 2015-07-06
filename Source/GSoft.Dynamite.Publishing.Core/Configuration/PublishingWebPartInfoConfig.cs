@@ -116,8 +116,13 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// <returns>The web part information.</returns>
         public WebPartInfo GetWebPartInfoByTitle(string title, CultureInfo culture)
         {
+            if (culture != null)
+            {
+                return this.WebParts.SingleOrDefault(
+                        webPartInfo => webPartInfo.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase) && webPartInfo.Culture.LCID.Equals(culture.LCID)); 
+            }
             return this.WebParts.SingleOrDefault(
-                webPartInfo => webPartInfo.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase) && webPartInfo.Culture.LCID.Equals(culture.LCID));
+                        webPartInfo => webPartInfo.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase)); 
         }
 
         /// <summary>

@@ -128,7 +128,11 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         /// <returns>The page information.</returns>
         public PageInfo GetPageInfoByFileName(string fileName, CultureInfo culture)
         {
-            return this.Pages.SingleOrDefault(page => page.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase) && page.Culture.LCID.Equals(culture.LCID));
+            if (culture != null)
+            {
+                return this.Pages.SingleOrDefault(page => page.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase) && page.Culture.LCID.Equals(culture.LCID)); 
+            }
+            return this.Pages.SingleOrDefault(page => page.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase)); 
         }
 
         /// <summary>
