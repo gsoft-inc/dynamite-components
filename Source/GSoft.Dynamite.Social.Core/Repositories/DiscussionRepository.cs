@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Caml;
+using GSoft.Dynamite.Collections;
 using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
@@ -93,7 +94,7 @@ namespace GSoft.Dynamite.Social.Core.Repositories
             var query = new SPQuery()
             {
                 Folder = folder.Folder,
-                Query = this.camlBuilder.OrderBy(this.camlBuilder.FieldRef("Created", CamlEnums.SortType.Ascending))
+                Query = this.camlBuilder.OrderBy(this.camlBuilder.FieldRef("Created", CamlEnums.SortType.Descending))
             };
 
             // Get each reply and fill in the user object
@@ -297,7 +298,7 @@ namespace GSoft.Dynamite.Social.Core.Repositories
                 LoginName = user.LoginName
             };
         }
-
+        
         private string[] GetCurrentUserPermissionsOnItem(SPWeb web, SPListItem item)
         {
             var permissions = new List<string>();
@@ -305,9 +306,10 @@ namespace GSoft.Dynamite.Social.Core.Repositories
             {
                 permissions.Add("Edit");
 
+                // If users have permissions to edit all items or
                 // if user should only have edit permissions on their own items
                 var list = this.listLocator.GetByUrl(web, this.config.DiscussionListInfo.WebRelativeUrl);
-                if (list.WriteSecurity == 2)
+                if ((list.WriteSecurity == 1) || (list.WriteSecurity == 2))
                 {
                     var currentUserLogin = SPContext.Current.Web.CurrentUser.LoginName;
                     var authorUserLogin = new SPFieldUserValue(list.ParentWeb, item[SPBuiltInFieldId.Author].ToString()).User.LoginName;
