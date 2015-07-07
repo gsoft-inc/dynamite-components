@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,5 +26,13 @@ namespace GSoft.Dynamite.Publishing.Contracts.Configuration
         /// <param name="fileName">The file name of the page without the file extension.</param>
         /// <returns>The page information</returns>
         PageInfo GetPageInfoByFileName(string fileName);
+
+        /// <summary>
+        /// Gets the name of the page information by file and culture.
+        /// </summary>
+        /// <param name="fileName">The name of the file</param>
+        /// <param name="culture">The culture.</param>
+        /// <returns>The page information.</returns>
+        PageInfo GetPageInfoByFileName(string fileName, CultureInfo culture);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
@@ -108,15 +109,31 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         }
 
         /// <summary>
-        /// Gets the web part information by title from this configuration.
+        /// Gets the web part information by title and culture.
         /// </summary>
-        /// <param name="title">The title of the web part.</param>
-        /// <returns>
-        /// The web part information
-        /// </returns>
+        /// <param name="title">The title.</param>
+        /// <param name="culture">The culture.</param>
+        /// <returns>The web part information.</returns>
+        public WebPartInfo GetWebPartInfoByTitle(string title, CultureInfo culture)
+        {
+            if (culture != null)
+            {
+                return this.WebParts.SingleOrDefault(
+                        webPartInfo => webPartInfo.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase) && webPartInfo.Culture.LCID.Equals(culture.LCID)); 
+            }
+
+            return this.WebParts.SingleOrDefault(
+                        webPartInfo => webPartInfo.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase)); 
+        }
+
+        /// <summary>
+        /// Gets the web part information by title.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <returns>The web part information.</returns>
         public WebPartInfo GetWebPartInfoByTitle(string title)
         {
-            return this.WebParts.Single(w => w.WebPart.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+            return this.GetWebPartInfoByTitle(title, null);
         }
     }
 }

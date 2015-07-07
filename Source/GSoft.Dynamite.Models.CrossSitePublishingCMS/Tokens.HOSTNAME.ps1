@@ -33,6 +33,11 @@ $DSP_GoogleAnalyticsUA = "UA-XXXXXXXX"
 $DSP_EnableSEOFields = $false
 
 # ******************************************
+# Taxonomy Configuration 
+# ******************************************
+$DSP_TermStoreName = "Managed Metadata Service"
+
+# ******************************************
 # Multilingualism Configuration 
 # ******************************************
 $DSP_IsMultilingual = $true

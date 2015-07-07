@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,15 +121,29 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
         }
 
         /// <summary>
-        /// Gets the page information by file name from this configuration.
+        /// Gets the name of the page information by file and culture.
         /// </summary>
-        /// <param name="fileName">The file name of the page without the ASPX extension.</param>
-        /// <returns>
-        /// The page information
-        /// </returns>
+        /// <param name="fileName">The name of the file</param>
+        /// <param name="culture">The culture.</param>
+        /// <returns>The page information.</returns>
+        public PageInfo GetPageInfoByFileName(string fileName, CultureInfo culture)
+        {
+            if (culture != null)
+            {
+                return this.Pages.SingleOrDefault(page => page.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase) && page.Culture.LCID.Equals(culture.LCID)); 
+            }
+
+            return this.Pages.SingleOrDefault(page => page.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase)); 
+        }
+
+        /// <summary>
+        /// Gets the name of the page information by file
+        /// </summary>
+        /// <param name="fileName">The name of the file</param>
+        /// <returns>The page information.</returns>
         public PageInfo GetPageInfoByFileName(string fileName)
         {
-            return this.Pages.Single(p => p.FileName.Equals(fileName, StringComparison.OrdinalIgnoreCase));
+            return this.GetPageInfoByFileName(fileName, null);
         }
     }
 }

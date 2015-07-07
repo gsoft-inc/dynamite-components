@@ -1,4 +1,4 @@
-﻿<#
+﻿    <#
 .SYNOPSIS
     Installs the standard publishing CMS model.
     
@@ -81,6 +81,11 @@ try {
         .\Modules\Multilingualism\LANG_03\Install-LANG03.ps1
     }
     #endregion
+
+    #region ********** SEARCH MODULE ********** #
+	.\Modules\Search\SRCH_02\Install-SRCH02.ps1
+
+	#endregion
 
     #region ********** MIGRATION MODULE ********** #
     if($IncludeContent)

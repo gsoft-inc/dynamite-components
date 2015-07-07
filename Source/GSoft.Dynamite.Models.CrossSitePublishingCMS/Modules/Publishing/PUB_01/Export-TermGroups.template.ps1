@@ -9,6 +9,17 @@
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
+#Prepare backup file
+$BackupFolder = "$CommandDirectory\termgroups-backups"
+if(!(Test-Path $BackupFolder)) 
+{
+	New-Item $BackupFolder -type directory
+}
+
+$DateStamp = (Get-Date -Format s) -replace ':', '.'
+$NavExportFilePath = "$BackupFolder\termgroup-navigation-$DateStamp.xml"
+$RestrictedExportFilePath = "$BackupFolder\termgroup-restricted-$DateStamp.xml"
+
 # Configuration Files
 $DefaultNavigationConfigurationFile = "[[DSP_DEFAULT_PortalNavigationConfigurationFile]]"
 $DefaultRestrictedConfigurationFile = "[[DSP_DEFAULT_PortalRestrictedConfigurationFile]]"
@@ -30,6 +41,8 @@ if(![string]::IsNullOrEmpty($CustomRestrictedConfigurationFile))
 }
 
 # Taxonomy Settings
+$TermStoreName = "[[DSP_TermStoreName]]"
+
 $DefautNavigationtermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
 $DefautRestrictedtermGroup = "[[DSP_DEFAULT_PortalRestrictedTermGroup]]"
 
@@ -49,8 +62,46 @@ if(![string]::IsNullOrEmpty($CustomRestrictedTermGroup))
 	$RestrictedTermGroup = $CustomRestrictedTermGroup
 }
 
+$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+if($site -eq $null)
+{
+	return
+}
+
+$taxonomySession = $site | Get-DSPTaxonomySession
+if($taxonomySession -eq $null)
+{
+	return
+}
+
+$termStore = $null
+if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) {
+    $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
+} else {
+    $termStore = $taxonomySession | Get-DSPTermStore -Default
+}
+
+if($termStore -eq $null)
+{
+	return
+}
+
 # Portal Navigation Term Group
-Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingSiteUrl]]").TermStores[0].Groups[$NavigationTermGroup] -OutputFile $NavigationConfigurationFilePath
+Try
+{
+    Export-SPTerms -Group $termStore.Groups[$NavigationTermGroup] -OutputFile $NavExportFilePath -ErrorAction Stop
+}
+Catch
+{
+    Write-Warning "$_ No export done for navigation term group."
+}
 
 # Portal Restricted Term Group
-Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingSiteUrl]]").TermStores[0].Groups[$RestrictedTermGroup] -OutputFile $RestrictedConfigurationFilePath
+Try
+{
+    Export-SPTerms -Group $termStore.Groups[$RestrictedTermGroup] -OutputFile $RestrictedExportFilePath -ErrorAction Stop
+}
+Catch
+{
+    Write-Warning "$_ No export done for restricted term group."
+}
