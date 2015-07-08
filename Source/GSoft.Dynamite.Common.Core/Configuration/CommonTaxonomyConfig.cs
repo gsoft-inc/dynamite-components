@@ -71,11 +71,20 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         {
             get
             {
+                var navTermGroup = this.GetTermGroupInfoById(CommonTermGroupInfo.Navigation.Id);
+
+                var navEn = CommonTermSetInfo.EnglishNavigation;
+                navEn.Group = navTermGroup;
+                var navFr = CommonTermSetInfo.FrenchNavigation;
+                navFr.Group = navTermGroup;
+                var navCtrls = CommonTermSetInfo.NavigationControls;
+                navCtrls.Group = navTermGroup;
+
                 return new List<TermSetInfo>
                 {
-                    CommonTermSetInfo.EnglishNavigation,
-                    CommonTermSetInfo.FrenchNavigation,
-                    CommonTermSetInfo.NavigationControls
+                    navEn,
+                    navFr,
+                    navCtrls
                 };
             }
         }
@@ -87,7 +96,7 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         {
             get
             {
-                return CommonTermSetInfo.EnglishNavigation;
+                return this.GetTermSetInfoById(CommonTermSetInfo.EnglishNavigation.Id);
             }
         }
 
