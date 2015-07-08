@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Linq;
 using GSoft.Dynamite.Binding;
 using GSoft.Dynamite.Caml;
-using GSoft.Dynamite.Collections;
 using GSoft.Dynamite.Fields.Constants;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
