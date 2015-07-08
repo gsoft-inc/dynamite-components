@@ -59,5 +59,10 @@
         /// The targeting registration module name
         /// </summary>
         public static readonly string Targeting = "targeting";
+
+        /// <summary>
+        /// The social registration module name
+        /// </summary>
+        public static readonly string Social = "social";
     }
 }
