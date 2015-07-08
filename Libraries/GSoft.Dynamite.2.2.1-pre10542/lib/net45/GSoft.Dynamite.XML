@@ -1200,6 +1200,12 @@
             Navigation query parameters.
             </summary>
         </member>
+        <member name="P:GSoft.Dynamite.Navigation.NavigationQueryParameters.TermStoreId">
+            <summary>
+            ID of the term store where we'll find your restricted term set.
+            If left empty, we'll assume you're using the DefaultSiteCollectionTermStore.
+            </summary>
+        </member>
         <member name="P:GSoft.Dynamite.Navigation.NavigationQueryParameters.RestrictedTermSetId">
             <summary>
             Gets or sets the restricted term set identifier.
@@ -1743,6 +1749,92 @@
             <param name="contextWeb">The SPWeb context.</param>
             <returns>A query rule collection.</returns>
         </member>
+        <member name="T:GSoft.Dynamite.Sites.IWebContext">
+            <summary>
+            Minimal information about the current web
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.IWebContext.WebId">
+            <summary>
+            Unique ID of the site
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.IWebContext.WebAbsoluteUrl">
+            <summary>
+            Absolute URL of the site
+            </summary>
+        </member>
+        <member name="T:GSoft.Dynamite.Sites.WebContext">
+            <summary>
+            Minimal information about the current web
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.Sites.WebContext.#ctor(Microsoft.SharePoint.SPWeb)">
+            <summary>
+            Creates a new site collection context from a SharePoint site
+            collection object
+            </summary>
+            <param name="web">The current site</param>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.WebContext.WebId">
+            <summary>
+            Unique ID of the site
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.WebContext.WebAbsoluteUrl">
+            <summary>
+            Absolute URL of the site
+            </summary>
+        </member>
+        <member name="T:GSoft.Dynamite.Sites.SiteCollectionContext">
+            <summary>
+            Minimal information about the current site collection
+            </summary>
+        </member>
+        <member name="T:GSoft.Dynamite.Sites.ISiteCollectionContext">
+            <summary>
+            Minimal information about the current site collection
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.ISiteCollectionContext.SiteId">
+            <summary>
+            Unique ID of the site collecton
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.ISiteCollectionContext.SiteAbsoluteUrl">
+            <summary>
+            Default zone absolute URL of the site collection
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.ISiteCollectionContext.ContextTermStore">
+            <summary>
+            The metadata of the default term store connected to the
+            site collection.
+            </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.Sites.SiteCollectionContext.#ctor(Microsoft.SharePoint.SPSite)">
+            <summary>
+            Creates a new site collection context from a SharePoint site
+            collection object
+            </summary>
+            <param name="site">The current site</param>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.SiteCollectionContext.SiteId">
+            <summary>
+            Unique ID of the site collecton
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.SiteCollectionContext.SiteAbsoluteUrl">
+            <summary>
+            Absolute URL of the site collection
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Sites.SiteCollectionContext.ContextTermStore">
+            <summary>
+            The metadata of the default term store connected to the
+            site collection.
+            </summary>
+        </member>
         <member name="T:GSoft.Dynamite.Taxonomy.SimpleLinkTermInfo">
             <summary>
             Definition of a taxonomy term used as a simple link navigation node
@@ -2096,6 +2188,15 @@
             </summary>
             <value>
               <c>true</c> if [is user editable]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.DefaultPrivacy">
+            <summary>
+            Gets or sets the default privacy. In other words, who can see the information. For a user profile
+            property to be crawled, the privacy needs to be set to public.
+            </summary>
+            <value>
+            The default privacy.
             </value>
         </member>
         <member name="P:GSoft.Dynamite.UserProfile.UserProfilePropertyInfo.IsReplicable">
@@ -4796,20 +4897,11 @@
             <param name="termSet">Metadata about the term set driving navigation</param>
             <param name="language">The current language being configured</param>
         </member>
-        <member name="M:GSoft.Dynamite.Navigation.ManagedNavigationInfo.#ctor(GSoft.Dynamite.Taxonomy.TermSetInfo,GSoft.Dynamite.Taxonomy.TermGroupInfo,System.Globalization.CultureInfo)">
+        <member name="M:GSoft.Dynamite.Navigation.ManagedNavigationInfo.#ctor(GSoft.Dynamite.Taxonomy.TermSetInfo,System.Globalization.CultureInfo,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Initializes a new <see cref="T:GSoft.Dynamite.Navigation.ManagedNavigationInfo"/> instance
             </summary>
             <param name="termSet">Metadata about the term set driving navigation</param>
-            <param name="termGroup">Metadata about the parent group of the term set driving navigation</param>
-            <param name="language">The current language being configured</param>
-        </member>
-        <member name="M:GSoft.Dynamite.Navigation.ManagedNavigationInfo.#ctor(GSoft.Dynamite.Taxonomy.TermSetInfo,GSoft.Dynamite.Taxonomy.TermGroupInfo,System.Globalization.CultureInfo,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new <see cref="T:GSoft.Dynamite.Navigation.ManagedNavigationInfo"/> instance
-            </summary>
-            <param name="termSet">Metadata about the term set driving navigation</param>
-            <param name="termGroup">Metadata about the parent group of the term set driving navigation</param>
             <param name="language">The current language being configured</param>
             <param name="addNewPagesToNavigation">Whether new pages should be added to navigation term set automatically</param>
             <param name="createFriendlyUrlsForNewsPages">Whether catalog-type pages (such as news items) should use friendly URLs</param>
@@ -4842,14 +4934,6 @@
             </summary>
             <value>
             The name of the term set.
-            </value>
-        </member>
-        <member name="P:GSoft.Dynamite.Navigation.ManagedNavigationInfo.TermGroup">
-            <summary>
-            Gets or sets the name of the term group.
-            </summary>
-            <value>
-            The name of the term group.
             </value>
         </member>
         <member name="P:GSoft.Dynamite.Navigation.ManagedNavigationInfo.PreserveTaggingOnTermSet">
@@ -6959,12 +7043,12 @@
         </member>
         <member name="P:GSoft.Dynamite.Taxonomy.TermStoreInfo.Id">
             <summary>
-            Id of the group
+            Id of the term store
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Taxonomy.TermStoreInfo.Name">
             <summary>
-            Name of the group
+            Name of the term store
             </summary>
         </member>
         <member name="T:GSoft.Dynamite.Taxonomy.TermGroupInfo">
@@ -7012,6 +7096,7 @@
         <member name="P:GSoft.Dynamite.Taxonomy.TermGroupInfo.TermStore">
             <summary>
             Parent term store definition.
+            If this value is null, assume that we are using the DefaultSiteCollectionTermStore.
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Taxonomy.TermGroupInfo.IsSiteCollectionSpecificTermGroup">
@@ -7066,6 +7151,24 @@
             term set objects
             </summary>
             <param name="sharePointTermSet">The SharePoint taxonomy term set</param>
+        </member>
+        <member name="M:GSoft.Dynamite.Taxonomy.TermSetInfo.ResolveParentGroup(Microsoft.SharePoint.Taxonomy.TaxonomySession,Microsoft.SharePoint.SPSite)">
+            <summary>
+            Given a site collection and a taxonomy session, fetches the parent term group
+            for the current term set.
+            </summary>
+            <param name="currentSession">The current taxonomy session</param>
+            <param name="currentSite">
+            The current site collection - used to resolve the site-collection-specific term group whenever the parent TermGroupInfo on the current TermSetInfo is null.
+            </param>
+            <returns>The SharePoint taxonomy term group</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.Taxonomy.TermSetInfo.ResolveParentTermStore(Microsoft.SharePoint.Taxonomy.TaxonomySession)">
+            <summary>
+            Given a taxonomy session, fetches the parent term store for the current term set.
+            </summary>
+            <param name="currentSession">The current taxonomy session</param>
+            <returns>The SharePoint managed metadata service instance</returns>
         </member>
         <member name="P:GSoft.Dynamite.Taxonomy.TermSetInfo.Id">
             <summary>
@@ -7706,12 +7809,11 @@
             System custom property for the catalog target url for child terms
             </summary>
         </member>
-        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.#ctor(GSoft.Dynamite.Taxonomy.ITaxonomyService,GSoft.Dynamite.Taxonomy.ITaxonomyHelper,GSoft.Dynamite.Logging.ILogger)">
+        <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.#ctor(GSoft.Dynamite.Taxonomy.ITaxonomyService,GSoft.Dynamite.Logging.ILogger)">
             <summary>
             Initializes a new instance of the <see cref="T:GSoft.Dynamite.Navigation.NavigationHelper"/> class.
             </summary>
             <param name="taxonomyService">The taxonomy service.</param>
-            <param name="taxonomyHelper">The taxonomy helper.</param>
             <param name="logger">Logging utility</param>
         </member>
         <member name="M:GSoft.Dynamite.Navigation.NavigationHelper.SetWebNavigationSettings(Microsoft.SharePoint.SPWeb,GSoft.Dynamite.Navigation.ManagedNavigationInfo)">
@@ -14581,23 +14683,21 @@
             The ChildScopeFactory interface.
             </summary>
         </member>
-        <member name="M:GSoft.Dynamite.ServiceLocator.IChildScopeFactory.GetChildLifetimeScope(Autofac.ILifetimeScope,System.String,System.String)">
+        <member name="M:GSoft.Dynamite.ServiceLocator.IChildScopeFactory.GetChildLifetimeScope(Autofac.ILifetimeScope,System.String,System.String,System.Action{Autofac.ContainerBuilder})">
             <summary>
-            The get Child life time scope.
+            Creates a new child scope or returns an existing child scope.
             </summary>
-            <param name="parentScope">
-            The parent scope.
-            </param>
+            <param name="parentScope">The current parent container.</param>
             <param name="scopeKindTag">
             A tag to identify this kind of scope so it can be reused to share objects 
             through fancy registration extensions (e.g. InstancePerSPSite, InstancePerSPWeb)
             </param>
-            <param name="childScopeKey">
-            The child scope's id, a per-container unique key.
+            <param name="childScopeKey">A key to uniquely identify this scope within the container.</param>
+            <param name="childSpecificConfigurationAction">
+            An Autofac configuration action the will be run upon creation of the child scope 
+            (i.e. container registrations specific to the new child scope)
             </param>
-            <returns>
-            The <see cref="T:Autofac.ILifetimeScope"/>.
-            </returns>
+            <returns>The child scope for the uniquely identified resource</returns>
         </member>
         <member name="T:GSoft.Dynamite.ServiceLocator.ChildScopeFactory">
             <summary>
@@ -14610,7 +14710,7 @@
             long as their parent root container
             </summary>
         </member>
-        <member name="M:GSoft.Dynamite.ServiceLocator.ChildScopeFactory.GetChildLifetimeScope(Autofac.ILifetimeScope,System.String,System.String)">
+        <member name="M:GSoft.Dynamite.ServiceLocator.ChildScopeFactory.GetChildLifetimeScope(Autofac.ILifetimeScope,System.String,System.String,System.Action{Autofac.ContainerBuilder})">
             <summary>
             Creates a new child scope or returns an existing child scope.
             </summary>
@@ -14620,6 +14720,10 @@
             through fancy registration extensions (e.g. InstancePerSPSite, InstancePerSPWeb)
             </param>
             <param name="childScopeKey">A key to uniquely identify this scope within the container.</param>
+            <param name="childSpecificConfigurationAction">
+            An Autofac configuration action the will be run upon creation of the child scope 
+            (i.e. container registrations specific to the new child scope)
+            </param>
             <returns>The child scope for the uniquely identified resource</returns>
         </member>
         <member name="T:GSoft.Dynamite.ServiceLocator.SharePointContainerProvider">
@@ -15382,6 +15486,19 @@
             <param name="termSetName">The term set name</param>
             <returns>A list of taxonomy values</returns>
         </member>
+        <member name="M:GSoft.Dynamite.Taxonomy.ITaxonomyService.GetTermPathFromRootToTerm(Microsoft.SharePoint.SPSite,System.Guid,System.Guid,System.Guid,System.Boolean)">
+            <summary>
+            Get all parent terms from source term to root term in the term set
+            </summary>
+            <param name="site">The current site collection.</param>
+            <param name="termStoreId">The parent term store</param>
+            <param name="termSetId">The term set id.</param>
+            <param name="termId">The term.</param>
+            <param name="parentFirst">if set to <c>true</c>, includes the [parent first].</param>
+            <returns>
+            List of terms.
+            </returns>
+        </member>
         <member name="M:GSoft.Dynamite.Taxonomy.ITaxonomyService.GetTermPathFromRootToTerm(Microsoft.SharePoint.SPSite,System.Guid,System.Guid,System.Boolean)">
             <summary>
             Get all parent terms from source term to root term in the term set
@@ -15711,6 +15828,19 @@
             <param name="termSetName">The name of the term set containing the term</param>
             <param name="id">The GUID of the term to get.</param>
             <returns>The term</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.Taxonomy.MonitoredTaxonomyService.GetTermPathFromRootToTerm(Microsoft.SharePoint.SPSite,System.Guid,System.Guid,System.Guid,System.Boolean)">
+            <summary>
+            Get all parent terms from source term to root term in the term set
+            </summary>
+            <param name="site">The current site collection.</param>
+            <param name="termStoreId">The parent term store</param>
+            <param name="termSetId">The term set id.</param>
+            <param name="termId">The term.</param>
+            <param name="parentFirst">if set to <c>true</c>, includes the [parent first].</param>
+            <returns>
+            List of terms.
+            </returns>
         </member>
         <member name="M:GSoft.Dynamite.Taxonomy.MonitoredTaxonomyService.GetTermPathFromRootToTerm(Microsoft.SharePoint.SPSite,System.Guid,System.Guid,System.Boolean)">
             <summary>
@@ -16239,6 +16369,19 @@
             <param name="termStore">The term store.</param>
             <param name="groupName">The term set group name, in the term store's default working language.</param>
             <returns>The term set group</returns>
+        </member>
+        <member name="M:GSoft.Dynamite.Taxonomy.TaxonomyService.GetTermPathFromRootToTerm(Microsoft.SharePoint.SPSite,System.Guid,System.Guid,System.Guid,System.Boolean)">
+            <summary>
+            Get all parent terms from a source term to root term in the term set.
+            </summary>
+            <param name="site">The current site collection.</param>
+            <param name="termStoreId">The parent term store</param>
+            <param name="termSetId">The term set id.</param>
+            <param name="termId">The term.</param>
+            <param name="parentFirst">if set to <c>true</c>, includes the [parent first].</param>
+            <returns>
+            List of terms.
+            </returns>
         </member>
         <member name="M:GSoft.Dynamite.Taxonomy.TaxonomyService.GetTermPathFromRootToTerm(Microsoft.SharePoint.SPSite,System.Guid,System.Guid,System.Boolean)">
             <summary>

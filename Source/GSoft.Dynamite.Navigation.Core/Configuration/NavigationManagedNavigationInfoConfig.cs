@@ -45,7 +45,6 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             {
                 return new ManagedNavigationInfo(
                     this.commonTaxonomyConfig.GetTermSetInfoById(CommonTermSetInfo.EnglishNavigation.Id),
-                    this.commonTaxonomyConfig.GetTermGroupInfoById(CommonTermGroupInfo.Navigation.Id),
                     new CultureInfo(1033));
             }
         }
@@ -56,7 +55,6 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             {
                 return new ManagedNavigationInfo(
                     this.commonTaxonomyConfig.GetTermSetInfoById(CommonTermSetInfo.FrenchNavigation.Id),
-                    this.commonTaxonomyConfig.GetTermGroupInfoById(CommonTermGroupInfo.Navigation.Id),
                     new CultureInfo(1036));
             }
         }

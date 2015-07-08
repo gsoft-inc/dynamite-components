@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Common.Contracts.Constants;
+using GSoft.Dynamite.Configuration;
+using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Sites;
 using GSoft.Dynamite.Taxonomy;
 
 namespace GSoft.Dynamite.Common.Core.Configuration
@@ -13,6 +16,28 @@ namespace GSoft.Dynamite.Common.Core.Configuration
     public class CommonTaxonomyConfig : ICommonTaxonomyConfig
     {
         /// <summary>
+        /// Creates a new instance of <see cref="CommonTaxonomyConfig"/>
+        /// </summary>
+        /// <param name="siteContext">Minimal information about the current ambient web</param>
+        public CommonTaxonomyConfig(ISiteCollectionContext siteContext)
+        {
+            this.TermStoreInfo = siteContext.ContextTermStore;
+        }
+
+        /// <summary>
+        /// Current term store. Usually determined through the DefaultSiteCollectionTermStore, which depends on
+        /// you having setup your Managed Metadata Service Connection's properties to set it as the 'Default storage
+        /// location for column specific term sets'. Alternatively, if you need to support many term stores in your
+        /// farm, you can always initialize the root web's property bag with a value for the key 'TermStoreName' - 
+        /// that specific term store will then be used.
+        /// </summary>
+        public TermStoreInfo TermStoreInfo
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
         /// Gets the term group information.
         /// </summary>
         /// <value>
@@ -22,12 +47,16 @@ namespace GSoft.Dynamite.Common.Core.Configuration
         {
             get
             {
-                return new List<TermGroupInfo>
+                var termGroups = new List<TermGroupInfo>
                 {
                     CommonTermGroupInfo.Navigation, 
                     CommonTermGroupInfo.Restricted,
                     CommonTermGroupInfo.Keywords
                 };
+
+                // Hook up the ambient default term store to each group (determined through ISiteCollectionContext)
+                termGroups.ForEach(tg => tg.TermStore = this.TermStoreInfo);
+                return termGroups;
             }
         }
 
