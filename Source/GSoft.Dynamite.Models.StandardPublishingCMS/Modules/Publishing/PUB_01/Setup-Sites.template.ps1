@@ -50,6 +50,15 @@ if ([string]::IsNullOrEmpty($assemblyName) -eq $false)
 	Set-DSPWebProperty -Url "[[DSP_PortalDocsSiteUrl]]" -Key "ServiceLocatorAssemblyName" -Value $assemblyName
 }
 
+# Store the term store name in the root web property bags
+$termStoreName = "[[DSP_TermStoreName]]"
+if ([string]::IsNullOrEmpty($termStoreName) -eq $false)
+{
+	Set-DSPWebProperty -Url "[[DSP_PortalPublishingSiteUrl]]" -Key "TermStoreName" -Value $termStoreName
+	Set-DSPWebProperty -Url "[[DSP_PortalAuthoringSiteUrl]]" -Key "TermStoreName" -Value $termStoreName
+	Set-DSPWebProperty -Url "[[DSP_PortalDocsSiteUrl]]" -Key "TermStoreName" -Value $termStoreName
+}
+
 # Check Multilingual settings
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 

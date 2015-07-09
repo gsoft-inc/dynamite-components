@@ -1,0 +1,21 @@
+﻿<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>GSoft.Dynamite.Social.SP</id>
+        <version>0.0.0</version>
+        <title>GSoft.Dynamite.Social.SP</title>
+        <authors>GSoft</authors>
+        <owners>GSoft</owners>
+        <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
+        <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>The closed-source reusable Social components and modules for SharePoint 2013.</description>
+        <releaseNotes></releaseNotes>
+        <copyright>Copyright 2015</copyright>
+        <tags>SharePoint</tags>
+    </metadata>
+    <files>
+        <file src="bin\Release\GSoft.Dynamite.Social.SP.wsp" target="tools" />
+    </files>
+</package>

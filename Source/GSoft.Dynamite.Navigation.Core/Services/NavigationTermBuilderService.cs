@@ -10,6 +10,7 @@ using GSoft.Dynamite.Navigation.Contracts.Services;
 using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.Sites;
 using GSoft.Dynamite.Taxonomy;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
@@ -38,7 +39,12 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <param name="navigationHelper">The navigation helper</param>
         /// <param name="variationHelper">The variation helper</param>
         /// <param name="publishingFieldConfig">The publishing field info objects</param>
-        public NavigationTermBuilderService(ILogger logger, ITaxonomyService taxonomyService, INavigationHelper navigationHelper, IVariationHelper variationHelper, IPublishingFieldInfoConfig publishingFieldConfig)
+        public NavigationTermBuilderService(
+            ILogger logger, 
+            ITaxonomyService taxonomyService, 
+            INavigationHelper navigationHelper, 
+            IVariationHelper variationHelper, 
+            IPublishingFieldInfoConfig publishingFieldConfig)
         {
             this.taxonomyService = taxonomyService;
             this.navigationHelper = navigationHelper;
@@ -83,9 +89,17 @@ namespace GSoft.Dynamite.Navigation.Core.Services
 
                     if (termValue != null)
                     {
+                        TaxonomyField taxoFieldOnList = (TaxonomyField)item.ParentList.Fields[PublishingFieldInfos.Navigation.Id];
+                        var termSetId = taxoFieldOnList.TermSetId;
+                        var termStoreId = taxoFieldOnList.SspId;
+
+                        var session = new TaxonomySession(item.Web.Site);
+                        var termStore = session.TermStores[termStoreId];
+                        var termSet = termStore.GetTermSet(termSetId);
+
                         var itemUrl = new SPUrl(item.Web, item.Url);
                         var pageUrl = SPUtility.ConcatUrls("~sitecollection/", itemUrl.AbsoluteUrl.AbsolutePath);
-                        var termInfo = new TermInfo(new Guid(termValue.TermGuid), string.Empty, null);
+                        var termInfo = new TermInfo(new Guid(termValue.TermGuid), termValue.Label, new TermSetInfo(termSet));
                         var termDrivenpage = new TermDrivenPageSettingInfo(termInfo, pageUrl, null, null, null, false, false);
 
                         this.navigationHelper.SetTermDrivenPageSettings(item.Web, termDrivenpage);

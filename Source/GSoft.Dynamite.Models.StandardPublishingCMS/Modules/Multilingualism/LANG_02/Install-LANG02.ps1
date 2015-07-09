@@ -24,9 +24,8 @@ New-HeaderDrawing -Values $Values
 $Script = $CommandDirectory + '\Setup-ContentTypes.ps1'
 & $Script
 
-# This event receiver seems to break Pages lib variations. Without it, everything works fine.
-#$values = @{"Step: " = "#3 Setup Event Receivers"}
-#New-HeaderDrawing -Values $Values
-#
-#$Script = $CommandDirectory + '\Setup-EventReceivers.ps1'
-#& $Script
+$values = @{"Step: " = "#3 Setup Event Receivers"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-EventReceivers.ps1'
+& $Script
