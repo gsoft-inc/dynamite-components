@@ -9,6 +9,8 @@ using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Social.Contracts.Configuration;
 using GSoft.Dynamite.Social.Core.Entities;
+using GSoft.Dynamite.ValueTypes;
+
 using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
@@ -280,19 +282,13 @@ namespace GSoft.Dynamite.Social.Core.Repositories
             return new Discussion() { UserPermissions = this.GetCurrentUserPermissionsOnList(web) };
         }
 
-        private static DiscussionUser GetUserByFieldValue(string fieldValue)
+        private static UserValue GetUserByFieldValue(string fieldValue)
         {
             var user = new SPFieldUserValue(SPContext.Current.Web, fieldValue).User;
-            var serviceContext = SPServiceContext.GetContext(SPContext.Current.Site);
-            var userProfileManager = new UserProfileManager(serviceContext);
-            var profile = userProfileManager.GetUserProfile(user.LoginName);
-            var pictureUrl = profile[PropertyConstants.PictureUrl].Value.ToString();
-
-            return new DiscussionUser()
+            return new UserValue()
             {
                 Id = user.ID,
                 Email = user.Email,
-                PictureUrl = pictureUrl,
                 DisplayName = user.Name,
                 LoginName = user.LoginName
             };

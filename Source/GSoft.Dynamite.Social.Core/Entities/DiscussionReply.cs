@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using GSoft.Dynamite.Binding;
+using GSoft.Dynamite.ValueTypes;
 
 namespace GSoft.Dynamite.Social.Core.Entities
 {
@@ -36,6 +37,6 @@ namespace GSoft.Dynamite.Social.Core.Entities
         /// The author user.
         /// </value>
         [DataMember(Name = "authorUser")]
-        public DiscussionUser AuthorUser { get; set; }
+        public UserValue AuthorUser { get; set; }
     }
 }
