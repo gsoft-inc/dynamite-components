@@ -90,6 +90,7 @@ try {
     #region ********** MIGRATION MODULE ********** #
     if($IncludeContent)
     {
+        iisreset
         .\Modules\Migration\MIG_01\Install-MIG01.ps1
     }
     #endregion
