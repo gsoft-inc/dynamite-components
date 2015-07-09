@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0900d263-4fc0-4907-b75a-96faffda2db3" solutionId="0900d263-4fc0-4907-b75a-96faffda2db3" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Social.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Social.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Social.Core\GSoft.Dynamite.Social.Core.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Social.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Social.Contracts\GSoft.Dynamite.Social.Contracts.csproj" />
+  </assemblies>
+  <features>
+    <featureReference itemId="7a181c8d-c3df-45a9-9965-7c2ae10777d5" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="d31ecc0e-95ff-4ede-80d6-95ac69b5daa4" />
+    <projectItemReference itemId="2090dfd0-5ca3-4051-96ab-cf03cedba8d7" />
+  </projectItems>
+</package>

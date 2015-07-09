@@ -41,30 +41,5 @@ namespace GSoft.Dynamite.Migration.SP.Features.CommonCMS_ManagedProperties
                }
            }
        }
-
-       /// <summary>
-       /// Removes ALL search managed properties got from modules configurations
-       /// </summary>
-       /// <param name="properties">The event properties</param>
-       public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
-       {
-           var site = properties.Feature.Parent as SPSite;
-
-           if (site != null)
-           {
-               using (var featureScope = MigrationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
-               {
-                   var searchHelper = featureScope.Resolve<ISearchHelper>();
-                   var managedProperties = featureScope.Resolve<IConsolidatedManagedPropertyConfig>().ManagedProperties;
-                   var logger = featureScope.Resolve<ILogger>();
-
-                   foreach (var managedProperty in managedProperties)
-                   {
-                       logger.Info("Deleting search managed property {0}", managedProperty.Name);
-                       searchHelper.DeleteManagedProperty(site, managedProperty);
-                   }
-               }
-           }
-       }
     }
 }

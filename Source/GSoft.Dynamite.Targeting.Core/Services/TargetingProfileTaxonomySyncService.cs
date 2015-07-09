@@ -61,7 +61,13 @@ namespace GSoft.Dynamite.Targeting.Core.Services
                 {
                     var targetPropertyName = mapping.Value;
                     var targetSubtypeProp = profileSubtypeProperties.GetPropertyByName(targetPropertyName);
-                    this.SyncTaxonomyFields(site, userProfile, mapping, targetSubtypeProp.CoreProperty.TermSet.Id, user.ParentWeb);
+                    this.SyncTaxonomyFields(
+                        site, 
+                        userProfile, 
+                        mapping, 
+                        targetSubtypeProp.CoreProperty.TermSet.TermStore.Id, 
+                        targetSubtypeProp.CoreProperty.TermSet.Id, 
+                        user.ParentWeb);
                 }
             }
         }
@@ -124,6 +130,7 @@ namespace GSoft.Dynamite.Targeting.Core.Services
                                         site,
                                         profile,
                                         mapping,
+                                        targetSubtypeProp.CoreProperty.TermSet.TermStore.Id,
                                         targetSubtypeProp.CoreProperty.TermSet.Id);
                                 }
                             }
@@ -157,16 +164,18 @@ namespace GSoft.Dynamite.Targeting.Core.Services
             SPSite site,
             Microsoft.Office.Server.UserProfiles.UserProfile userProfile,
             KeyValuePair<string, string> mapping,
+            Guid termStoreId,
             Guid termSetId)
         {
             Action<Microsoft.Office.Server.UserProfiles.UserProfile> commitAction = (x) => x.Commit();
-            this.SyncTaxonomyFields(site, userProfile, mapping, termSetId, commitAction);
+            this.SyncTaxonomyFields(site, userProfile, mapping, termStoreId, termSetId, commitAction);
         }
 
         private void SyncTaxonomyFields(
             SPSite site,
             Microsoft.Office.Server.UserProfiles.UserProfile userProfile,
-            KeyValuePair<string, string> mapping,
+            KeyValuePair<string, string> mapping, 
+            Guid termStoreId,
             Guid termSetId,
             SPWeb updateWeb)
         {
@@ -177,13 +186,14 @@ namespace GSoft.Dynamite.Targeting.Core.Services
                 updateWeb.AllowUnsafeUpdates = false;
             };
 
-            this.SyncTaxonomyFields(site, userProfile, mapping, termSetId, commitAction);
+            this.SyncTaxonomyFields(site, userProfile, mapping, termStoreId, termSetId, commitAction);
         }
 
         private void SyncTaxonomyFields(
             SPSite site,
             Microsoft.Office.Server.UserProfiles.UserProfile userProfile,
             KeyValuePair<string, string> mapping,
+            Guid termStoreId,
             Guid termSetId,
             Action<Microsoft.Office.Server.UserProfiles.UserProfile> commitAction)
         {
@@ -196,7 +206,7 @@ namespace GSoft.Dynamite.Targeting.Core.Services
                 targetPropertyValue.Clear();
 
                 // Get all terms and update the property with the values
-                var branchTerms = this.taxonomyService.GetTermPathFromRootToTerm(site, termSetId, originalValue[0].Id, false);
+                var branchTerms = this.taxonomyService.GetTermPathFromRootToTerm(site, termStoreId, termSetId, originalValue[0].Id, false);
                 branchTerms.ToList().ForEach(term => targetPropertyValue.AddTaxonomyTerm(term));
             }
             else

@@ -10,6 +10,15 @@ namespace GSoft.Dynamite.Common.Contracts.Configuration
     public interface ICommonTaxonomyConfig
     {
         /// <summary>
+        /// Current term store. Usually determined through the DefaultSiteCollectionTermStore, which depends on
+        /// you having setup your Managed Metadata Service Connection's properties to set it as the 'Default storage
+        /// location for column specific term sets'. Alternatively, if you need to support many term stores in your
+        /// farm, you can always initialize the root web's property bag with a value for the key 'TermStoreName' - 
+        /// that specific term store will then be used.
+        /// </summary>
+        TermStoreInfo TermStoreInfo { get; }
+
+        /// <summary>
         /// Gets the term group information.
         /// </summary>
         /// <value>
