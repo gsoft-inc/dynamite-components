@@ -63,7 +63,7 @@ if (-not (Test-Path $DestinationPath))
 
 	# Copy most contents of current "Scripts" folder to Deployment folder (powershell scripts, .template files, folder structure, etc.)
 	Write-Verbose "Copying custom scripts and configuration from current folder (source: $CustomDefinitionsPath)... "
-	Copy-DSPFiles $CustomDefinitionsPath $DestinationPath -Match @("*.ps1","*.template.*", "*.xlsx","*.jpg","*.jpeg","*.png","*.sgt", "README*") -Exclude "Publish-DeploymentFolder.ps1"
+	Copy-DSPFiles $CustomDefinitionsPath $DestinationPath -Match @("*.ps1","*.template.*", "*.xlsx","*.jpg","*.jpeg","*.png","*.sgt", "README*","*.dll") -Exclude "Publish-DeploymentFolder.ps1"
 
 	# Copy all WSP files
 	$WspDestinationPath = Join-Path $DestinationPath "Solutions"
