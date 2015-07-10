@@ -121,7 +121,8 @@
     <None Include="Modules\Publishing\PUB_01\Remove-TermGroups.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-EventReceivers.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-MetadataFiltering.template.ps1" />
-    <None Include="Modules\Publishing\PUB_01\Setup-ReusableContent.template.ps1" />
+    <None Include="Modules\Publishing\PUB_04\Install-PUB04.ps1" />
+    <None Include="Modules\Publishing\PUB_04\Setup-ReusableContent.template.ps1" />
     <None Include="Modules\Publishing\PUB_02\Setup-Lists.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_03\Install-LANG03.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />

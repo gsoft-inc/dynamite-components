@@ -137,7 +137,8 @@
     <None Include="Modules\Publishing\PUB_01\Setup-Lists.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-MetadataFiltering.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Permissions.template.ps1" />
-    <None Include="Modules\Publishing\PUB_01\Setup-ReusableContent.template.ps1" />
+    <None Include="Modules\Publishing\PUB_04\Install-PUB04.ps1" />
+    <None Include="Modules\Publishing\PUB_04\Setup-ReusableContent.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Sites.template.ps1" />
     <None Include="Modules\Publishing\PUB_01\Setup-Webs.template.ps1" />
     <None Include="Modules\Publishing\PUB_02\Install-PUB02.ps1" />

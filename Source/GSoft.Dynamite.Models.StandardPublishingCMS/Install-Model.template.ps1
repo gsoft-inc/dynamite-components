@@ -93,6 +93,10 @@ try {
         iisreset
         .\Modules\Migration\MIG_01\Install-MIG01.ps1
     }
+
+    # Very important to import reusable contents after solution content to allow a control of the ID sequence
+    .\Modules\Publishing\PUB_04\Install-PUB04.ps1
+
     #endregion
 
     #region ********** POST DEPLOYMENT SCRIPTS ********** #
