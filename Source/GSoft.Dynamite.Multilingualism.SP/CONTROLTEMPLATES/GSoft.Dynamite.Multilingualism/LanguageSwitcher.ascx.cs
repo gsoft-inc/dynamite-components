@@ -20,6 +20,8 @@ using GSoft.Dynamite.Utils;
 using Microsoft.Office.Server.Search.WebControls;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
+using Microsoft.SharePoint.Publishing.Navigation;
+using Microsoft.SharePoint.Utilities;
 
 namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Multilingualism
 {
@@ -179,8 +181,45 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                                         default:
                                             try
                                             {
+                                                PublishingWeb publishingWeb = PublishingWeb.GetPublishingWeb(elevatedWeb);
+                                                var peerWebUrls = publishingWeb.VariationPublishingWebUrls;
+
+                                                // only keep the peer web under the target variation label that we want
+                                                var peerWebUrl = peerWebUrls.Cast<string>().SingleOrDefault(p => p.StartsWith(label.TopWebUrl));    
+
                                                 // First try for a perfect variation peer match
                                                 itemUrl = new Uri(Variations.GetPeerUrl(elevatedWeb, currentUrl.AbsolutePath, label.Title), UriKind.Relative);
+
+                                                // If we get a physical URL back, it's worth a shot trying to resolve the corresponding friendly URL
+                                                if (itemUrl.ToString().EndsWith(".aspx") && !string.IsNullOrEmpty(peerWebUrl))
+                                                {
+                                                    using (SPSite site = new SPSite(peerWebUrl))
+                                                    {
+                                                        using (SPWeb peerWeb = site.OpenWeb())
+                                                        {
+                                                            PublishingWeb peerPublishingWeb = PublishingWeb.GetPublishingWeb(peerWeb);
+                                                            PublishingPage peerPublishingPage = peerPublishingWeb.GetPublishingPage(itemUrl.ToString());
+
+                                                            if (peerPublishingPage != null)
+                                                            {
+                                                                IList<NavigationTerm> navTermsPointingToPeerPage = TaxonomyNavigation.GetFriendlyUrlsForListItem(peerPublishingPage.ListItem, true);
+
+                                                                if (navTermsPointingToPeerPage.Count > 0)
+                                                                {
+                                                                    NavigationTerm navigationTermPointingToPeerPage = navTermsPointingToPeerPage[0];
+                                                                    string fullFriendlyUrl = navigationTermPointingToPeerPage.GetWebRelativeFriendlyUrl();
+
+                                                                    // We got lucky and resolved a proper friendly Url of our peer page, even if Variations.GetPeerUrl
+                                                                    // failed terribly at doing the same thing.
+                                                                    // Note that all friendly URLs are TopWeb-relative.
+                                                                    var itemUrlAsString = SPUtility.ConcatUrls(label.TopWebUrl, fullFriendlyUrl);
+
+                                                                    itemUrl = new Uri(new Uri(itemUrlAsString).AbsolutePath, UriKind.Relative);
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                                 
                                                 // Sometime we won't get an ArgOutOfRange exception, but still we didn't get a perfect match.
                                                 // In those cases, the target web's ~site url is returned.

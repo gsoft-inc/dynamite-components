@@ -39,15 +39,15 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
                     var multilingualismFieldConfig = childScope.Resolve<IMultilingualismFieldInfoConfig>();
 
                     // Set source association unique identifier
-                    item = contentAssociationHelper.SetSourceGuid(item, multilingualismFieldConfig.GetFieldById(MultilingualismFieldInfos.ContentAssociationKey.Id).InternalName);
+                    item = contentAssociationHelper.SetSourceGuid(item, MultilingualismFieldInfos.ContentAssociationKey.InternalName);
 
                     // Set the translation language for the detected language managed property
-                    item = contentAssociationHelper.SetTranslationLanguage(item, multilingualismFieldConfig.GetFieldById(MultilingualismFieldInfos.ItemLanguage.Id).InternalName);
+                    item = contentAssociationHelper.SetTranslationLanguage(item, MultilingualismFieldInfos.ItemLanguage.InternalName);
 
                     // Set source item creator/author since the variation system
                     // overwrites the created by value
                     // TODO when comes the LifeCycle Module
-                    item.SystemUpdate();
+                    item.Update();
                 }
                 catch (Exception e)
                 {
@@ -76,18 +76,18 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
                 try
                 {
                     // Refetch item to avoid save conflicts
-                    var item = properties.ListItem.ParentList.GetItemById(properties.ListItem.ID);
+                    var item = properties.ListItem;
 
                     var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
                     var multilingualismFieldConfig = childScope.Resolve<IMultilingualismFieldInfoConfig>();
 
                     // Set source association unique identifier
-                    item = contentAssociationHelper.SetSourceGuid(item, multilingualismFieldConfig.GetFieldById(MultilingualismFieldInfos.ContentAssociationKey.Id).InternalName);
+                    item = contentAssociationHelper.SetSourceGuid(item, MultilingualismFieldInfos.ContentAssociationKey.InternalName);
 
                     // Set the translation language for the detected language managed property
-                    item = contentAssociationHelper.SetTranslationLanguage(item, multilingualismFieldConfig.GetFieldById(MultilingualismFieldInfos.ItemLanguage.Id).InternalName);
+                    item = contentAssociationHelper.SetTranslationLanguage(item, MultilingualismFieldInfos.ItemLanguage.InternalName);
 
-                    item.SystemUpdate();
+                    item.Update();
                 }
                 catch (Exception e)
                 {
