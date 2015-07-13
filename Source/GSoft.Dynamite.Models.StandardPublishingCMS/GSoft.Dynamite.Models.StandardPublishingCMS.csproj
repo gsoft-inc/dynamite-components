@@ -79,6 +79,7 @@
     <None Include="Modules\Migration\MIG_01\Setup-ContentTypes.template.ps1" />
     <None Include="Modules\Migration\MIG_01\Setup-Fields.template.ps1" />
     <None Include="Modules\Migration\MIG_01\Setup-ManagedProperties.template.ps1" />
+    <None Include="Modules\Migration\MIG_01\Setup-WelcomePages.template.ps1" />
     <None Include="Modules\Migration\Tokens.Migration.Custom.ps1" />
     <None Include="Modules\Migration\Tokens.Migration.Default.ps1" />
     <None Include="Modules\Multilingualism\LANG_01\Adjust-VariationsTimerJob.template.ps1" />
