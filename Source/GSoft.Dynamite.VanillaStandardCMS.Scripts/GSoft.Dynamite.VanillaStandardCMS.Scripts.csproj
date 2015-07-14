@@ -46,15 +46,19 @@
     <None Include="Install-Model.template.ps1" />
     <None Include="Modules\Design\Tokens.Design.Custom.ps1" />
     <None Include="Modules\Design\Tokens.Design.Default.ps1" />
+    <None Include="Modules\Migration\Tokens.Migration.Custom.ps1" />
+    <None Include="Modules\Migration\Tokens.Migration.Default.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Default.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
+    <None Include="Modules\Search\Tokens.Search.Default.ps1" />
     <None Include="packages.config" />
     <None Include="Publish-DeploymentFolder.ps1" />
     <None Include="Tokens.FRANCK-VM2013.ps1" />
+    <None Include="Tokens.sp2013tao.ps1" />
     <None Include="Tokens.VMSPPHIL.ps1" />
     <None Include="Tokens.SVD1100SHRP03.ps1" />
   </ItemGroup>
