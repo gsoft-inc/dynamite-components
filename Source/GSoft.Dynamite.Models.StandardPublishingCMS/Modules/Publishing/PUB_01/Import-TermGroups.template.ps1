@@ -20,7 +20,7 @@ if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 	$NavigationConfigurationFilePath = $CommandDirectory + "\" + $CustomNavigationConfigurationFile
 }
 
-$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+$site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
 if($site -eq $null)
 {
 	return

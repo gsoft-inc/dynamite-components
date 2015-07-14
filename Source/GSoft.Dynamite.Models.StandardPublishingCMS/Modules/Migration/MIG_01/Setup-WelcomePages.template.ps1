@@ -23,7 +23,7 @@ function Strip-Accents {
     return $afterStrip
 }
 
-$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+$site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
 
 $site.AllWebs | ForEach-Object {
     $currentWeb = $_

@@ -62,7 +62,7 @@ if ($Force) {
                 }
 
                 # Run the timer job for webs creation
-                $Site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+                $Site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
                 Wait-SPTimerJob -Name "VariationsSpawnSites" -Site $Site
 
                 # Get variation target labels
