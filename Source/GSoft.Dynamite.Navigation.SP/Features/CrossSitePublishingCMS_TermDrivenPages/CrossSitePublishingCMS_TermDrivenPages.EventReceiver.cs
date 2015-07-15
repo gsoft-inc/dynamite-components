@@ -23,9 +23,9 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TermDrive
         /// <param name="properties">The event properties</param>
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            var site = properties.Feature.Parent as SPSite;
+            var web = properties.Feature.Parent as SPWeb;
 
-            if (site != null)
+            if (web != null)
             {
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
@@ -34,7 +34,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TermDrive
 
                     var baseTermDrivenPageSettingsInfoConfig = featureScope.Resolve<INavigationTermDrivenPageSettingsInfoConfig>();
 
-                    IList<TermDrivenPageSettingInfo> termDrivenPageSettingInfos = baseTermDrivenPageSettingsInfoConfig.TermDrivenPageSettingInfos;
+                    var termDrivenPageSettingInfos = baseTermDrivenPageSettingsInfoConfig.TermDrivenPageSettingInfos;
 
                     // Set term driven pages
                     foreach (var termDrivenSetting in termDrivenPageSettingInfos)
@@ -48,7 +48,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TermDrive
                             logger.Info("Setting term driven page {0} for term {1}", termDrivenSetting.CatalogTargetUrl, termDrivenSetting.TermSet.Label);
                         }
 
-                        navigationHelper.SetTermDrivenPageSettings(site.RootWeb, termDrivenSetting);
+                        navigationHelper.SetTermDrivenPageSettings(web, termDrivenSetting);
                     }
                 }
             }
