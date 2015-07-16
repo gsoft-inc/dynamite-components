@@ -886,6 +886,14 @@
             Gets or sets a value indicating whether to propagate the changes done to this definition to the lists that implement the field.
             </summary>
         </member>
+        <member name="P:GSoft.Dynamite.Fields.BaseFieldInfo.JsLink">
+            <summary>
+            Gets or sets the javascript rendering link.
+            </summary>
+            <value>
+            The javascript rendering link.
+            </value>
+        </member>
         <member name="M:GSoft.Dynamite.Fields.BaseFieldInfoWithValueType`1.#ctor">
             <summary>
             Default constructor
