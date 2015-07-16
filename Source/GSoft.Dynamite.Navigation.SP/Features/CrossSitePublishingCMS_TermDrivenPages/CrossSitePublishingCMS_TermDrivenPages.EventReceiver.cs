@@ -1,9 +1,8 @@
-using System.Collections.Generic;
+using System;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Pages;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TermDrivenPages
@@ -14,8 +13,8 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TermDrive
     /// <remarks>
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
-    [Guid("5c004e26-0775-4fea-bf77-f6edbabbb6ff")]
-    public class Feature1EventReceiver : SPFeatureReceiver
+    [Guid("e34110a4-5d07-47dc-9f96-769aaa0b9b29")]
+    public class CrossSitePublishingCMS_TermDrivenPagesEventReceiver : SPFeatureReceiver
     {
         /// <summary>
         /// Sets the term driven pages settings for taxonomy navigation terms
