@@ -46,7 +46,7 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 [[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object {
 
     # Create the new SharePoint Web structure
-    $Webs = Import-DSPWebStructure -InputFileName $ConfigurationFilePath -ParentUrl $_ -Overwrite:$Force
+    $Webs = Import-DSPWebStructure -InputFileName $ConfigurationFilePath -ParentUrl $_
 }	
 
 # Check Multilingual settings
