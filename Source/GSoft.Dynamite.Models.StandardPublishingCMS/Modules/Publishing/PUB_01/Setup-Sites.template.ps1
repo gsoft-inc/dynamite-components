@@ -24,17 +24,24 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 	$ConfigurationFilePath = $CommandDirectory + ".\" + $CustomConfigurationFile
 }
 
-if ($Force) {
+# Check if site collection exists
+$SiteCollection = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]" -ErrorAction SilentlyContinue
+$SiteCollectionCreated = ($SiteCollection -ne $null)
 
+if($Force) {
 	# Remove the previous SharePoint structure
 	Remove-DSPStructure $ConfigurationFilePath
 
-	# Create the new SharePoint structure
+    # Create the new SharePoint structure
+	New-DSPStructure $ConfigurationFilePath
+}
+elseif(-not $SiteCollectionCreated) {
+    # Create the new SharePoint structure
 	New-DSPStructure $ConfigurationFilePath
 }
 else
 {
-	Write-Warning "'Force' parameter was not specified. Skipping creation..."
+	Write-Warning "Site Collection exists and 'Force' parameter was not specified. Skipping creation..."
 }
 
 
