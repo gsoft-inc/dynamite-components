@@ -26,7 +26,7 @@ $values = @{"Step: " = "#2 Setup Webs"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Webs.ps1'
-& $Script -Force:$Force -IgnoreWebs:$IgnoreWebs
+& $Script -IgnoreWebs:$IgnoreWebs
 
 $values = @{"Step: " = "#3 Setup Permissions"}
 New-HeaderDrawing -Values $Values
