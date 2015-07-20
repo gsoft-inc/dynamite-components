@@ -7,5 +7,8 @@
 
 Write-Warning "Applying Event Receivers configuration..."
 
+# Activate feature on the root web on the authoring site collection
+Initialize-DSPFeature -Url [[DSP_PortalAuthoringSiteUrl]]  -Id [[DSP_CommonCMS_LANG_EventReceivers]]
+
 # Activate feature on the root web on the publishing site collection
 Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CommonCMS_LANG_EventReceivers]]

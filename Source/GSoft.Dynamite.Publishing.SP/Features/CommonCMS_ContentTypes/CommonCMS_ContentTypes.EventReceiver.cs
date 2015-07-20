@@ -15,7 +15,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_ContentTypes
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
     [Guid("9448f2f7-011f-4104-a38e-492fba043a2f")]
-    public class Publishing_ContentTypesEventReceiver : SPFeatureReceiver
+    public class PublishingContentTypesEventReceiver : SPFeatureReceiver
     {
         /// <summary>
         /// Feature activated event
