@@ -28,14 +28,14 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 $SiteCollection = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]" -ErrorAction SilentlyContinue
 $SiteCollectionCreated = ($SiteCollection -ne $null)
 
-if($Force) {
+if ($Force) {
 	# Remove the previous SharePoint structure
 	Remove-DSPStructure $ConfigurationFilePath
 
     # Create the new SharePoint structure
 	New-DSPStructure $ConfigurationFilePath
 }
-elseif(-not $SiteCollectionCreated) {
+elseif (-not $SiteCollectionCreated) {
     # Create the new SharePoint structure
 	New-DSPStructure $ConfigurationFilePath
 }
