@@ -15,28 +15,36 @@ $CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfiguration
 
 $NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
 
-if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
+if (![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 {
 	$NavigationConfigurationFilePath = $CommandDirectory + "\" + $CustomNavigationConfigurationFile
 }
 
 $site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
-if($site -eq $null)
+if ($site -eq $null)
 {
 	return
 }
 
 $taxonomySession = $site | Get-DSPTaxonomySession
-if($taxonomySession -eq $null)
+if ($taxonomySession -eq $null)
 {
 	return
 }
 
 $termStore = $taxonomySession | Get-DSPTermStore -Default
-if($termStore -eq $null)
+if ($termStore -eq $null)
 {
 	return
 }
 
 # Portal Navigation Term Group
-Import-SPTerms -ParentTermStore $termStore -InputFile $NavigationConfigurationFilePath
+Try
+{
+    Import-SPTerms -ParentTermStore $termStore -InputFile $NavigationConfigurationFilePath -ErrorAction Stop
+    Write-Host "Import successful."
+}
+Catch
+{
+    Write-Warning "$_ No import done."
+}
