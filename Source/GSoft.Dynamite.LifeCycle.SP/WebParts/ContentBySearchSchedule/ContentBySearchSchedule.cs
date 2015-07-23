@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -97,7 +98,13 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
             {
                 var baseUri = new Uri(SPContext.Current.Site.Url);
                 var requestUri = new Uri(baseUri, HttpContext.Current.Request.RawUrl);
-                HttpContext.Current.Server.TransferRequest(string.Format("{0}?requestUrl={1}", SPContext.Current.Site.FileNotFoundUrl, requestUri));
+                var errorPageUrl = string.Format(
+                    CultureInfo.InvariantCulture,
+                    "{0}?requestUrl={1}",
+                    SPContext.Current.Site.FileNotFoundUrl,
+                    requestUri);
+
+                SPUtility.Redirect(errorPageUrl, SPRedirectFlags.Default, this.Context);
             }
             else
             {
