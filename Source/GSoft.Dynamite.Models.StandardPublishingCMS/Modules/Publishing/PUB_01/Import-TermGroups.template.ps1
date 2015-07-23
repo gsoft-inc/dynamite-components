@@ -33,17 +33,16 @@ if ($taxonomySession -eq $null)
 	return
 }
 
-$termStore = $taxonomySession | Get-DSPTermStore -Default
-if ($termStore -eq $null)
-{
-	return
-}
-
 $termStore = $null
 if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) {
     $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
 } else {
     $termStore = $taxonomySession | Get-DSPTermStore -Default
+}
+
+if ($termStore -eq $null)
+{
+	return
 }
 
 # Portal Navigation Term Group
