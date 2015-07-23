@@ -249,6 +249,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
 
                                     // Gets the default title value of the variation label
                                     var title = Languages.TwoLetterISOLanguageNameToFullName(label.Title);
+                                    var twoLetterLanguage = label.Title;
 
                                     // Use a CSS class to help us hide the language switch if we didn't get a perfect match
                                     var labelCssClass = string.Empty;
@@ -273,7 +274,8 @@ namespace GSoft.Dynamite.Multilingualism.SP.CONTROLTEMPLATES.GSoft.Dynamite.Mult
                                         Title = title,
                                         Url = itemUrl,
                                         CssClass = labelCssClass,
-                                        LinkCssClass = linkCssClass
+                                        LinkCssClass = linkCssClass,
+                                        TwoLetterLanguage = twoLetterLanguage
                                     };
 
                                     formattedLabels.Add(itemVariationInfo);
