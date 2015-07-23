@@ -12,6 +12,7 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 # Configuration Files
 $DefaultNavigationConfigurationFile = "[[DSP_DEFAULT_PortalNavigationConfigurationFile]]"
 $CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfigurationFile]]"
+$TermStoreName = "[[DSP_TermStoreName]]"
 
 $NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
 
@@ -36,6 +37,13 @@ $termStore = $taxonomySession | Get-DSPTermStore -Default
 if ($termStore -eq $null)
 {
 	return
+}
+
+$termStore = $null
+if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) {
+    $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
+} else {
+    $termStore = $taxonomySession | Get-DSPTermStore -Default
 }
 
 # Portal Navigation Term Group
