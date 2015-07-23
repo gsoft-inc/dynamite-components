@@ -53,5 +53,5 @@ Try
 }
 Catch
 {
-    Write-Warning "$_ No import done."
+    Write-Warning "There was an error in importing Navigation term group. $_"
 }
