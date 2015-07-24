@@ -1,5 +1,4 @@
-﻿# If the DSP_MigrationFolderMappings hasn't been set, initialize and default to null
-if ((Get-Variable -Name "DSP_MigrationFolderMappings" -ErrorAction Ignore) -eq $null) { $DSP_MigrationFolderMappings = "`$null" }
+﻿# --------------------------------------- COMMON PARAMETERS ------------------------------------------------------- #
 
 # If the DSP_MigrationDataConfigurationScript hasn't been set, initialize and default
 if ((Get-Variable -Name "DSP_MigrationDataConfigurationScript" -ErrorAction Ignore) -eq $null) { 
@@ -46,6 +45,28 @@ if ((Get-Variable -Name "DSP_MigrationTargetContentTypeMappings" -ErrorAction Ig
 # If the DSP_MigrationThreadNumber hasn't been set, initialize the default to 5
 if ((Get-Variable -Name "DSP_MigrationThreadNumber" -ErrorAction Ignore) -eq $null) { 
 	$DSP_MigrationThreadNumber = "5"
+}
+
+# --------------------------------------- EXCEL DATA SOURCE --------------------------------------------------------- #
+
+# If the DSP_MigrationFolderMappings hasn't been set, initialize and default to null
+if ((Get-Variable -Name "DSP_MigrationFolderMappings" -ErrorAction Ignore) -eq $null) { $DSP_MigrationFolderMappings = "`$null" }
+
+# --------------------------------------- SITE DATA SOURCE ---------------------------------------------------------- #
+
+# If the DSP_MigrationSourceSiteMapping hasn't been set, initialize the empty hashtable
+if ((Get-Variable -Name "DSP_MigrationSourceSiteMapping" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationSourceSiteMapping = "[Ordered]@{}"
+}
+
+# If the DSP_MigrationTargetSiteMappings hasn't been set, initialize the empty hashtable
+if ((Get-Variable -Name "DSP_MigrationTargetSiteMappings" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationTargetSiteMappings = "[Ordered]@{}"
+}
+
+# If the DSP_MigrationListNames hasn't been set, initialize the empty hashtable
+if ((Get-Variable -Name "DSP_MigrationListNames" -ErrorAction Ignore) -eq $null) { 
+	$DSP_MigrationListNames = "@('Pages','Documents','Images')"
 }
 
 # ============================================

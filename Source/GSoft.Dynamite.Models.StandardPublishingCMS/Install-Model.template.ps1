@@ -19,8 +19,11 @@ Param (
         [Parameter(Mandatory=$false,ParameterSetName='Default')]
         [switch]$IgnoreWebs=$false,
 
-        [Parameter(Mandatory=$false,ParameterSetName='Default')]
-        [switch]$IncludeContent=$false
+        [Parameter(Mandatory=$false,ParameterSetName='FromExcel')]
+        [switch]$IncludeContentFromExcel=$false,
+
+        [Parameter(Mandatory=$false,ParameterSetName='FromSite')]
+        [switch]$IncludeContentFromExistingSite=$false
 )
 
 # ********** PRE-FLIGHT CHECK ********** #
@@ -88,10 +91,14 @@ try {
 	#endregion
 
     #region ********** MIGRATION MODULE ********** #
-    if($IncludeContent)
+    if ($IncludeContentFromExcel)
     {
-        iisreset
-        .\Modules\Migration\MIG_01\Install-MIG01.ps1
+        .\Modules\Migration\MIG_01\Install-MIG01.ps1 -FromExcel
+    }
+
+    if ($IncludeContentFromExistingSite)
+    {
+        .\Modules\Migration\MIG_01\Install-MIG01.ps1 -FromSite
     }
 
     # Very important to import reusable contents after solution content to allow a control of the ID sequence

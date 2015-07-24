@@ -5,7 +5,16 @@
 # Description	: Import Content into SharePoint
 # -----------------------------------------------------------------------
 
-param([string]$LogFolderPath)
+Param
+(
+    [string]$LogFolderPath,
+
+    [Parameter(Mandatory=$false, ParameterSetName = "ExcelRepository")]
+    [switch]$FromExcel,
+
+    [Parameter(Mandatory=$false, ParameterSetName = "SiteRepository")]
+    [switch]$FromSite
+)
 
 $0 = $myInvocation.MyCommand.Definition
 $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
@@ -14,10 +23,6 @@ if ([string]::IsNullOrEmpty($LogFolderPath))
 {
 	$LogFolderPath = $CommandDirectory
 }
-
-# Script to fix file ACLs for bug fix with Sharegate import
-$AclScript = $CommandDirectory + "\Restore-AclInheritance.ps1" 
-
 
 # ******************************************
 # Local utility methods
@@ -89,15 +94,11 @@ function Wait-VariationSyncTimerJob {
 	Start-Sleep -Seconds 15
 }
 
-# Chech Restore ACL inheritance token
-$RestoreAclInheritance = [System.Convert]::ToBoolean("[[DSP_RestoreAclInheritance]]")
-
 # ******************************************
-# Configure folder to URL mappings
+# Configure common parameters
 # ******************************************
 $IsMultilingual = [System.Convert]::ToBoolean("[[DSP_IsMultilingual]]")
 $SourceLabel ="[[DSP_SourceLabel]]"
-$DSP_MigrationFolderMappings = [[DSP_MigrationFolderMappings]]
 $DSP_MigrationAssociationKeys = [[DSP_MigrationAssociationKeys]]
 
 # Content Types
@@ -107,54 +108,102 @@ $DSP_MigrationTargetContentTypeMappings = [[DSP_MigrationTargetContentTypeMappin
 # Multithreading configuration
 $DSP_MigrationThreadNumber = [[DSP_MigrationThreadNumber]]
 
-# If not already defined, create default folder to URL mappings
-if($DSP_MigrationFolderMappings -eq $null) {
-    $DSP_MigrationFolderMappings = [Ordered]@{ ".\Default\Default (english only)" = "[[DSP_PortalAuthoringSiteUrl]]" }
+# ******************************************
+# Import from Excel
+# ******************************************
+if ($FromExcel.IsPresent)
+{
+    # Chech Restore ACL inheritance token
+    $RestoreAclInheritance = [System.Convert]::ToBoolean("[[DSP_RestoreAclInheritance]]")
+    
+    $DSP_MigrationFolderMappings = [[DSP_MigrationFolderMappings]]
 
-    # If the solution is multilingual then the source folder corresponds to the default variation label folder
-    if ($IsMultilingual) {
-	    $DSP_MigrationFolderMappings = [Ordered]@{ 
-        ".\Default\Multilingual\Root" = "[[DSP_PortalAuthoringSiteUrl]]";
-        ".\Default\Multilingual\Source" = "[[DSP_PortalAuthoringSiteUrl]]/[[DSP_SourceLabel]]" }
+    # If not already defined, create default folder to URL mappings
+    if($DSP_MigrationFolderMappings -eq $null) {
+        $DSP_MigrationFolderMappings = [Ordered]@{ ".\Default\Default (english only)" = "[[DSP_PortalAuthoringSiteUrl]]" }
 
-        [[DSP_VariationsTargetLabels]] |  Foreach-Object {
-            if ($_ -ne "[[DSP_SourceLabel]]") {
-                $FromFolder = (".\Default\Multilingual\Targets\" + $_)
-                $ToUrl = ("[[DSP_PortalAuthoringSiteUrl]]/" + $_)
+        # If the solution is multilingual then the source folder corresponds to the default variation label folder
+        if ($IsMultilingual) {
+	        $DSP_MigrationFolderMappings = [Ordered]@{ 
+            ".\Default\Multilingual\Root" = "[[DSP_PortalAuthoringSiteUrl]]";
+            ".\Default\Multilingual\Source" = "[[DSP_PortalAuthoringSiteUrl]]/[[DSP_SourceLabel]]" }
+
+            [[DSP_VariationsTargetLabels]] |  Foreach-Object {
+                if ($_ -ne "[[DSP_SourceLabel]]") {
+                    $FromFolder = (".\Default\Multilingual\Targets\" + $_)
+                    $ToUrl = ("[[DSP_PortalAuthoringSiteUrl]]/" + $_)
                 
-                $DSP_MigrationFolderMappings.Add($FromFolder, $ToUrl)
+                    $DSP_MigrationFolderMappings.Add($FromFolder, $ToUrl)
+                }
             }
+        }
+    }
+
+    # ******************************************
+    # Configure migration data before import
+    # ******************************************
+    $DSP_MigrationDataConfigurationScript = "[[DSP_MigrationDataConfigurationScript]]"
+    $DSP_MigrationFolderMappings.Keys | ForEach-Object {
+        $Folder = Get-FullPath -Path $_
+        $ConfigurationScript = Get-FullPath -Path $DSP_MigrationDataConfigurationScript
+        & $ConfigurationScript -FolderPath $Folder
+    }
+
+    # ******************************************
+    # Import "non-variation" data
+    # ******************************************
+    # Defines mappings keys for "non-variation" content and variation targets
+    $mappingKeys = $DSP_MigrationFolderMappings.Keys | where { -not $_.ToUpperInvariant().Contains("TARGETS") }
+    $mappingKeys | ForEach-Object {
+        $fromFolder = Get-FullPath -Path $_
+        $toUrl = $DSP_MigrationFolderMappings[$_]
+
+        if ($RestoreAclInheritance)
+        {
+            # Script to fix file ACLs for bug fix with Sharegate import
+            $AclScript = $CommandDirectory + "\Restore-AclInheritance.ps1" 
+
+            Write-Warning "Restore ACL inheritance on folder '$fromFolder'..."
+            # Fix ACLs before importing data
+            & $AclScript -folderPath $fromFolder
+        }
+
+        if ($_.ToUpperInvariant().Contains("SOURCE")) {
+
+            # Custom property mapping settings
+	        $MappingSettings = New-MappingSettings 
+
+		    # Configure mapping settings for keys
+	        $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
+
+            # Configure mappings settings for content types
+            if ($DSP_MigrationSourceContentTypeMappings.Count -gt 0)
+            {
+                $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationSourceContentTypeMappings
+            }
+
+		    # Configure property settings
+		    $DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataSourceMappings]]"
+		    $DSP_MigrationDataMappingsName = "[[DSP_MigrationDataSourceMappingsName]]"
+
+            Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
+        } else {
+            Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
         }
     }
 }
 
 # ******************************************
-# Configure migration data before import
+# Import from existing site
 # ******************************************
-$DSP_MigrationDataConfigurationScript = "[[DSP_MigrationDataConfigurationScript]]"
-$DSP_MigrationFolderMappings.Keys | ForEach-Object {
-    $Folder = Get-FullPath -Path $_
-    $ConfigurationScript = Get-FullPath -Path $DSP_MigrationDataConfigurationScript
-    & $ConfigurationScript -FolderPath $Folder
-}
+if ($FromSite.IsPresent)
+{
+    $DSP_MigrationSourceSiteMappings = [[DSP_MigrationSourceSiteMapping]]
 
-# ******************************************
-# Import "non-variation" data
-# ******************************************
-# Defines mappings keys for "non-variation" content and variation targets
-$mappingKeys = $DSP_MigrationFolderMappings.Keys | where { -not $_.ToUpperInvariant().Contains("TARGETS") }
-$mappingKeys | ForEach-Object {
-    $fromFolder = Get-FullPath -Path $_
-    $toUrl = $DSP_MigrationFolderMappings[$_]
-
-    if ($RestoreAclInheritance)
+    if ($DSP_MigrationSourceSiteMappings.Count -gt 0)
     {
-        Write-Warning "Restore ACL inheritance on folder '$fromFolder'..."
-        # Fix ACLs before importing data
-        & $AclScript -folderPath $fromFolder
-    }
-
-    if ($_.ToUpperInvariant().Contains("SOURCE")) {
+        # Get List Names 
+        $ListNames = [[DSP_MigrationListNames]]
 
         # Custom property mapping settings
 	    $MappingSettings = New-MappingSettings 
@@ -172,9 +221,14 @@ $mappingKeys | ForEach-Object {
 		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataSourceMappings]]"
 		$DSP_MigrationDataMappingsName = "[[DSP_MigrationDataSourceMappingsName]]"
 
-        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
-    } else {
-        Import-DSPData -FromFolder $fromFolder -ToUrl $toUrl -LogFolder $LogFolderPath -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
+        $DSP_MigrationSourceSiteMappings.Keys | ForEach-Object {
+
+            Copy-DSPData -FromUrl $_ -ToUrl $DSP_MigrationSourceSiteMappings.Get_Item($_) -ListNames $ListNames -IncludeChildren -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
+        }
+    }
+    else
+    {
+        Write-Warning "No source site mapping found. Check your token file and set the 'DSP_MigrationSourceSiteMapping' variable"
     }
 }
 
@@ -195,41 +249,80 @@ if($IsMultilingual) {
         & $IntermediateScript
     }
 
-    # Defines mappings keys for variation targets
-    $TargetMappingKeys = $DSP_MigrationFolderMappings.Keys | where { $_.ToUpperInvariant().Contains("TARGETS") }
-    $TargetMappingKeys | ForEach-Object {
-        $FromFolder = Get-FullPath -Path $_
-        $ToUrl = $DSP_MigrationFolderMappings[$_]
+    if ($FromExcel.IsPresent)
+    {
+        # Defines mappings keys for variation targets
+        $TargetMappingKeys = $DSP_MigrationFolderMappings.Keys | where { $_.ToUpperInvariant().Contains("TARGETS") }
+        $TargetMappingKeys | ForEach-Object {
+            $FromFolder = Get-FullPath -Path $_
+            $ToUrl = $DSP_MigrationFolderMappings[$_]
 
-        if ($RestoreAclInheritance)
-        {
-            Write-Warning "Restore ACL inheritance on folder '$fromFolder'..."
-            # Fix ACLs before importing data
-            & $AclScript -folderPath $fromFolder
+            if ($RestoreAclInheritance)
+            {
+                Write-Warning "Restore ACL inheritance on folder '$fromFolder'..."
+                # Fix ACLs before importing data
+                & $AclScript -folderPath $fromFolder
+            }
+
+            # Get target label language to determine what association key display name to use
+            $IndexOfTargetLanguage = $FromFolder.LastIndexOf("\") + 1
+            $TargetLabelLanguage = $FromFolder.Substring($IndexOfTargetLanguage)
+
+            # Custom property mapping settings
+	        $MappingSettings = New-MappingSettings
+
+		    # Configure mapping settings
+	        $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
+
+            # Configure mappings settings for content types
+            if ($DSP_MigrationTargetContentTypeMappings.Count -gt 0)
+            {
+                $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationTargetContentTypeMappings
+            }
+
+		    # Configure property settings
+		    $DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataTargetMappings]]"
+		    $DSP_MigrationDataMappingsName = "[[DSP_MigrationDataTargetMappingsName]]"
+
+		    # Import data
+            Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
         }
+    }
 
-        # Get target label language to determine what association key display name to use
-        $IndexOfTargetLanguage = $FromFolder.LastIndexOf("\") + 1
-        $TargetLabelLanguage = $FromFolder.Substring($IndexOfTargetLanguage)
+    if ($FromSite.IsPresent)
+    {
+        $DSP_MigrationTargetSiteMappings = [[DSP_MigrationTargetSiteMappings]]
 
-        # Custom property mapping settings
-	    $MappingSettings = New-MappingSettings
-
-		# Configure mapping settings
-	    $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$TargetLabelLanguage]
-
-        # Configure mappings settings for content types
-        if ($DSP_MigrationTargetContentTypeMappings.Count -gt 0)
+        if ($DSP_MigrationTargetSiteMappings.Count -gt 0)
         {
-            $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationTargetContentTypeMappings
+            # Get List Names 
+            $ListNames = [[DSP_MigrationListNames]]
+
+            # Custom property mapping settings
+	        $MappingSettings = New-MappingSettings 
+
+		    # Configure mapping settings for keys
+	        $MappingSettings = Get-CustomPropertyMappings -MappingSetting $MappingSettings -PropertyDisplayName $DSP_MigrationAssociationKeys[$SourceLabel]
+
+            # Configure mappings settings for content types
+            if ($DSP_MigrationTargetContentTypeMappings.Count -gt 0)
+            {
+                $MappingSettings = Get-CustomContentTypeMappings -MappingSetting $MappingSettings -ContentTypesMappings $DSP_MigrationTargetContentTypeMappings
+            }
+
+		    # Configure property settings
+		    $DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataTargetMappings]]"
+		    $DSP_MigrationDataMappingsName = "[[DSP_MigrationDataTargetMappingsName]]"
+
+            $DSP_MigrationTargetSiteMappings.Keys | ForEach-Object {
+
+                Copy-DSPData -FromUrl $_ -ToUrl $DSP_MigrationTargetSiteMappings.Get_Item($_) -ListNames  $ListNames -IncludeChildren -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
+            }
         }
-
-		# Configure property settings
-		$DSP_MigrationDataMappingsFile = Get-FullPath -Path "[[DSP_MigrationDataTargetMappings]]"
-		$DSP_MigrationDataMappingsName = "[[DSP_MigrationDataTargetMappingsName]]"
-
-		# Import data
-        Import-DSPData -FromFolder $FromFolder -ToUrl $ToUrl -LogFolder $LogFolderPath -MappingSettings $MappingSettings -PropertyTemplateFile $DSP_MigrationDataMappingsFile -TemplateName $DSP_MigrationDataMappingsName -ThreadNumberPerWeb $DSP_MigrationThreadNumber -ThreadNumberPerList $DSP_MigrationThreadNumber
+        else
+        {
+            Write-Warning "No targets site mappings found. Check your token file and set the 'DSP_MigrationTargetSiteMappings' variable"
+        }
     }
 }
 
