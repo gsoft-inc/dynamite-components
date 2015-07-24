@@ -18,19 +18,19 @@ $CustomNavigationTermGroup = "[[DSP_CUSTOM_PortalNavigationTermGroup]]"
 
 $NavigationTermGroup = $DefautNavigationtermGroup
 
-if(![string]::IsNullOrEmpty($CustomNavigationTermGroup))
+if (![string]::IsNullOrEmpty($CustomNavigationTermGroup))
 {
 	$NavigationTermGroup = $CustomNavigationTermGroup
 }
 
 $site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
-if($site -eq $null)
+if ($site -eq $null)
 {
 	return
 }
 
 $taxonomySession = $site | Get-DSPTaxonomySession
-if($taxonomySession -eq $null)
+if ($taxonomySession -eq $null)
 {
 	return
 }
@@ -42,7 +42,7 @@ if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[
     $termStore = $taxonomySession | Get-DSPTermStore -Default
 }
 
-if($termStore -eq $null)
+if ($termStore -eq $null)
 {
 	return
 }

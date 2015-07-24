@@ -11,7 +11,7 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 
 #Prepare backup file
 $BackupFolder = "$CommandDirectory\termgroups-backups"
-if(!(Test-Path $BackupFolder)) 
+if (!(Test-Path $BackupFolder)) 
 {
 	New-Item $BackupFolder -type directory
 }
@@ -28,19 +28,19 @@ $CustomNavigationTermGroup = "[[DSP_CUSTOM_PortalNavigationTermGroup]]"
 
 $NavigationTermGroup = $DefautNavigationtermGroup
 
-if(![string]::IsNullOrEmpty($CustomNavigationTermGroup))
+if (![string]::IsNullOrEmpty($CustomNavigationTermGroup))
 {
 	$NavigationTermGroup = $CustomNavigationTermGroup
 }
 
 $site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
-if($site -eq $null)
+if ($site -eq $null)
 {
 	return
 }
 
 $taxonomySession = $site | Get-DSPTaxonomySession
-if($taxonomySession -eq $null)
+if ($taxonomySession -eq $null)
 {
 	return
 }
@@ -52,7 +52,7 @@ if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[
     $termStore = $taxonomySession | Get-DSPTermStore -Default
 }
 
-if($termStore -eq $null)
+if ($termStore -eq $null)
 {
 	return
 }
@@ -60,7 +60,15 @@ if($termStore -eq $null)
 # Portal Navigation Term Group
 Try
 {
-    Export-SPTerms -Group $termStore.Groups[$NavigationTermGroup] -OutputFile $ExportFilePath -ErrorAction Stop
+    if ($termStore.Groups[$NavigationTermGroup] -ne $null)
+    {
+        Export-SPTerms -Group $termStore.Groups[$NavigationTermGroup] -OutputFile $ExportFilePath -ErrorAction Stop
+        Write-Host "Export successful."
+    }
+    else
+    {
+        Write-Warning "Navigation term group $NavigationTermGroup doesn't exist. No export done."
+    }
 }
 Catch
 {

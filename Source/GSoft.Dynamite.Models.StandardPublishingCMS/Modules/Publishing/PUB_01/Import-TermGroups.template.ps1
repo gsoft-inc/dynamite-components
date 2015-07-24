@@ -12,31 +12,46 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 # Configuration Files
 $DefaultNavigationConfigurationFile = "[[DSP_DEFAULT_PortalNavigationConfigurationFile]]"
 $CustomNavigationConfigurationFile = "[[DSP_CUSTOM_PortalNavigationConfigurationFile]]"
+$TermStoreName = "[[DSP_TermStoreName]]"
 
 $NavigationConfigurationFilePath = $CommandDirectory + ".\" + $DefaultNavigationConfigurationFile
 
-if(![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
+if (![string]::IsNullOrEmpty($CustomNavigationConfigurationFile))
 {
 	$NavigationConfigurationFilePath = $CommandDirectory + "\" + $CustomNavigationConfigurationFile
 }
 
 $site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
-if($site -eq $null)
+if ($site -eq $null)
 {
 	return
 }
 
 $taxonomySession = $site | Get-DSPTaxonomySession
-if($taxonomySession -eq $null)
+if ($taxonomySession -eq $null)
 {
 	return
 }
 
-$termStore = $taxonomySession | Get-DSPTermStore -Default
-if($termStore -eq $null)
+$termStore = $null
+if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) {
+    $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
+} else {
+    $termStore = $taxonomySession | Get-DSPTermStore -Default
+}
+
+if ($termStore -eq $null)
 {
 	return
 }
 
 # Portal Navigation Term Group
-Import-SPTerms -ParentTermStore $termStore -InputFile $NavigationConfigurationFilePath
+Try
+{
+    Import-SPTerms -ParentTermStore $termStore -InputFile $NavigationConfigurationFilePath -ErrorAction Stop
+    Write-Host "Import successful."
+}
+Catch
+{
+    Write-Warning "There was an error in importing Navigation term group. $_"
+}
