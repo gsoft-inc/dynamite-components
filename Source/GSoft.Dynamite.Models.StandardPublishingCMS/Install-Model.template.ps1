@@ -13,16 +13,22 @@
 
 #>
 Param (
-        [Parameter(Mandatory=$false,ParameterSetName='Default')]
+        [Parameter(Mandatory=$false)]
+		[Parameter(ParameterSetName='Default')]
         [switch]$Force=$false,
 
-        [Parameter(Mandatory=$false,ParameterSetName='Default')]
+        [Parameter(Mandatory=$false)]
+		[Parameter(ParameterSetName='Default')]
         [switch]$IgnoreWebs=$false,
 
-        [Parameter(Mandatory=$false,ParameterSetName='FromExcel')]
+        [Parameter(Mandatory=$false)]
+		[Parameter(ParameterSetName='FromExcel')]
+		[Parameter(ParameterSetName='Default')]
         [switch]$IncludeContentFromExcel=$false,
 
-        [Parameter(Mandatory=$false,ParameterSetName='FromSite')]
+        [Parameter(Mandatory=$false)]
+		[Parameter(ParameterSetName='FromSite')]
+		[Parameter(ParameterSetName='Default')]
         [switch]$IncludeContentFromExistingSite=$false
 )
 
