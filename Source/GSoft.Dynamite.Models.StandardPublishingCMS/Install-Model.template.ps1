@@ -29,7 +29,10 @@ Param (
         [Parameter(Mandatory=$false)]
 		[Parameter(ParameterSetName='FromSite')]
 		[Parameter(ParameterSetName='Default')]
-        [switch]$IncludeContentFromExistingSite=$false
+        [switch]$IncludeContentFromExistingSite=$false,
+
+        [Parameter(Mandatory=$false)]
+        [switch]$SkipSearchConfig=$false
 )
 
 # ********** PRE-FLIGHT CHECK ********** #
@@ -99,12 +102,12 @@ try {
     #region ********** MIGRATION MODULE ********** #
     if ($IncludeContentFromExcel)
     {
-        .\Modules\Migration\MIG_01\Install-MIG01.ps1 -FromExcel
+        .\Modules\Migration\MIG_01\Install-MIG01.ps1 -FromExcel -SkipSearchConfig:$SkipSearchConfig
     }
 
     if ($IncludeContentFromExistingSite)
     {
-        .\Modules\Migration\MIG_01\Install-MIG01.ps1 -FromSite
+        .\Modules\Migration\MIG_01\Install-MIG01.ps1 -FromSite -SkipSearchConfig:$SkipSearchConfig
     }
 
     # Very important to import reusable contents after solution content to allow a control of the ID sequence
