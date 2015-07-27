@@ -177,4 +177,10 @@
   <data name="Field_ItemLanguage_Name" xml:space="preserve">
     <value>Langue de l'élément</value>
   </data>
+  <data name="Feature_CommonCMS_SyncLists_Description" xml:space="preserve">
+    <value>Synchronise les listes du site courant vers les destinations de variations. L'activation de cette fonctionnalité lance la timer job "Variations Propagate Sites and Lists Timer Job" et attend qu'elle soit terminée.</value>
+  </data>
+  <data name="Feature_CommonCMS_SyncLists_Name" xml:space="preserve">
+    <value>Dynamite CMS de base - Module de multilinguisme - Synchronisation des listes</value>
+  </data>
 </root>

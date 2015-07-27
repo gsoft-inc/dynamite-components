@@ -177,4 +177,10 @@
   <data name="Field_ItemLanguage_Name" xml:space="preserve">
     <value>Item Language</value>
   </data>
+  <data name="Feature_CommonCMS_SyncLists_Description" xml:space="preserve">
+    <value>Synchronize the current web's lists to target variations sites - Activating this feature will launch the timer job "Variations Propagate Sites and Lists Timer Job" and waits for it to end.</value>
+  </data>
+  <data name="Feature_CommonCMS_SyncLists_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Multilingualism Module - Lists Synchronization</value>
+  </data>
 </root>

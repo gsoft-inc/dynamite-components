@@ -6162,6 +6162,13 @@
             If this property is filled in, the 'ensure' method will write the list ID in a property with the related key in the web property bag
             </summary>
         </member>
+        <member name="P:GSoft.Dynamite.Lists.ListInfo.IsSynced">
+            <summary>
+            Indicates whether or not the list will be variations-synced.
+            By default, a ListInfo will not be synced while a CatalogInfo
+            will be synced.
+            </summary>
+        </member>
         <member name="M:GSoft.Dynamite.Catalogs.CatalogInfo.#ctor">
             <summary>
             Default constructor for serialization purposes
@@ -6196,11 +6203,6 @@
         <member name="P:GSoft.Dynamite.Catalogs.CatalogInfo.IsAnonymous">
             <summary>
             Specifies if the catalog must be anonymous
-            </summary>
-        </member>
-        <member name="P:GSoft.Dynamite.Catalogs.CatalogInfo.IsSynced">
-            <summary>
-            Indicates whether or not the catalog will be variations-synced
             </summary>
         </member>
         <member name="T:GSoft.Dynamite.Folders.FolderInfo">

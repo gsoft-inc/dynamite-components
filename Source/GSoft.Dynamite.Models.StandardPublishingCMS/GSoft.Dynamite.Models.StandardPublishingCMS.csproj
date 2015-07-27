@@ -85,6 +85,7 @@
     <None Include="Modules\Multilingualism\LANG_01\Adjust-VariationsTimerJob.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_01\Install-LANG01.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Install-LANG02.ps1" />
+    <None Include="Modules\Multilingualism\LANG_02\Setup-ListSync.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-ContentTypes.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-EventReceivers.template.ps1" />
     <None Include="Modules\Multilingualism\LANG_02\Setup-Fields.template.ps1" />

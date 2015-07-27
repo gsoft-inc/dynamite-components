@@ -29,3 +29,9 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-EventReceivers.ps1'
 & $Script
+
+$values = @{"Step: " = "#4 Setup List Variations Sync"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-ListSync.ps1'
+& $Script

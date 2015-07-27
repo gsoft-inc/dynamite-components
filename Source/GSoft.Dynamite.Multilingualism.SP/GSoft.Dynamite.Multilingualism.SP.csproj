@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10570\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10571\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -90,7 +90,11 @@
       <DependentUpon>LanguageSwitcher.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\TranslatableItemEvents.cs" />
+    <Compile Include="Events\VariationTargetListEvents.cs" />
     <Compile Include="Events\TranslatablePageEvents.cs" />
+    <Compile Include="Features\CommonCMS_SyncLists\CommonCMS_SyncLists.EventReceiver.cs">
+      <DependentUpon>CommonCMS_SyncLists.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.EventReceiver.cs">
       <DependentUpon>CommonCMS_SyncWeb.feature</DependentUpon>
     </Compile>
@@ -151,6 +155,9 @@
     </None>
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
       <FeatureId>{737c538d-0636-458e-83b7-31d1a962e20a}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_SyncLists\CommonCMS_SyncLists.feature">
+      <FeatureId>{a12d38ab-f3b5-41a8-bd74-16381e3cb8b1}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Multilingualism.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
@@ -217,6 +224,9 @@
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CommonCMS_SyncLists\CommonCMS_SyncLists.Template.xml">
+      <DependentUpon>CommonCMS_SyncLists.feature</DependentUpon>
     </Content>
     <Content Include="Images\GSoft.Dynamite.Multilingualism.SP\logo-32x32-Ling.png" />
     <Content Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.css">
