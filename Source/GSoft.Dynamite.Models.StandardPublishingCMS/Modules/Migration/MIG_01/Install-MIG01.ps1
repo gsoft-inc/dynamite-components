@@ -21,7 +21,7 @@ Param
     [switch]$ImportSource,
 
     [Parameter(Mandatory=$false)]
-    [switch]$ImportTargets  
+    [switch]$ImportTargets,
 
     [switch]$SkipSearchConfig
 )
