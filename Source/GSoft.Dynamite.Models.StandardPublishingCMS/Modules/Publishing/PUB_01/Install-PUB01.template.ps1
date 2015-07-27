@@ -23,7 +23,10 @@ function Prompt-ForOverwriteNavigationTermGroup {
     $no = New-Object System.Management.Automation.Host.ChoiceDescription "&No", "Retains the current state of the Navigation term group."
     $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
 
-    $choice = $host.ui.PromptForChoice($title, $message, $options, 0)
+    $choice = 0
+    if ($ConfirmPreference -ne "None") {
+        $choice = $host.ui.PromptForChoice($title, $message, $options, 0)
+    }
 
     switch ($choice)
     {
