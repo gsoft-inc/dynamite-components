@@ -22,6 +22,8 @@ Param
 
     [Parameter(Mandatory=$false)]
     [switch]$ImportTargets  
+
+    [switch]$SkipSearchConfig
 )
 
 $UserStory = "MIG01"
@@ -68,5 +70,9 @@ $Script = $CommandDirectory + '\Setup-WelcomePages.ps1'
 $values = @{"Step: " = "#5 Setup Search Managed Properties"}
 New-HeaderDrawing -Values $Values
 
-$Script = $CommandDirectory + '\Setup-ManagedProperties.ps1'
-& $Script $LogFolderPath
+if (-not $SkipSearchConfig) {
+    $Script = $CommandDirectory + '\Setup-ManagedProperties.ps1'
+    & $Script $LogFolderPath
+} else {
+    Write-Warning "Skipped search config & crawls..."
+}
