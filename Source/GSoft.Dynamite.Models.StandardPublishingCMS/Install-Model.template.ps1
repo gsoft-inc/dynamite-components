@@ -100,15 +100,16 @@ try {
     if ($IncludeContentFromExcel)
     {
         .\Modules\Migration\MIG_01\Install-MIG01.ps1 -FromExcel
+
+        # Very important to import reusable contents after solution content in order to keep the ID sequence
+        .\Modules\Publishing\PUB_04\Install-PUB04.ps1
     }
 
     if ($IncludeContentFromExistingSite)
     {
         .\Modules\Migration\MIG_01\Install-MIG01.ps1 -FromSite
+        .\Modules\Publishing\PUB_04\Install-PUB04.ps1
     }
-
-    # Very important to import reusable contents after solution content to allow a control of the ID sequence
-    .\Modules\Publishing\PUB_04\Install-PUB04.ps1
 
     #endregion
 

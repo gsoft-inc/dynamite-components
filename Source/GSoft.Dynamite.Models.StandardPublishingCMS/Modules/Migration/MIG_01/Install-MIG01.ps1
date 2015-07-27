@@ -2,15 +2,26 @@
 # MIG 01: IMPORT CONTENT
 # ----------------------------------------
 
+[CmdletBinding(DefaultParameterSetName="ExcelRepository")]
+
 Param
 (
+    [Parameter(Mandatory=$false)]
     [string]$LogFolderPath,
 
-    [Parameter(Mandatory=$false, ParameterSetName = "ExcelRepository")]
-    [switch]$FromExcel,
+    [Parameter(Mandatory=$false)]
+    [Parameter(ParameterSetName = "ExcelRepository")]
+    [switch]$FromExcel=$true,
 
-    [Parameter(Mandatory=$false, ParameterSetName = "SiteRepository")]
-    [switch]$FromSite
+    [Parameter(Mandatory=$false)]
+    [Parameter(ParameterSetName = "SiteRepository")]
+    [switch]$FromSite,
+
+    [Parameter(Mandatory=$false)]
+    [switch]$ImportSource,
+
+    [Parameter(Mandatory=$false)]
+    [switch]$ImportTargets  
 )
 
 $UserStory = "MIG01"
@@ -39,13 +50,13 @@ New-HeaderDrawing -Values $Values
 if ($FromExcel.IsPresent)
 {
     $Script = $CommandDirectory + '\Setup-Content.ps1'
-    Invoke-Expression "& `"$Script`" -FromExcel"
+    Invoke-Expression "& `"$Script`" -FromExcel -ImportSource:`$$ImportSource  -ImportTargets:`$$ImportTargets"
 }
 
 if ($FromSite.IsPresent)
 {
     $Script = $CommandDirectory + '\Setup-Content.ps1'
-    Invoke-Expression "& `"$Script`" -FromSite"
+    Invoke-Expression "& `"$Script`" -FromSite -ImportSource:`$$ImportSource  -ImportTargets:`$$ImportTargets"
 }
 
 $values = @{"Step: " = "#4 Fix Welcome Pages (to avoid conflicts between web URLs and taxonomy friendly URLs)"}
