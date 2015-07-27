@@ -12,6 +12,7 @@
     If specified, ignores the subsites creation step in the installation
 
 #>
+[CmdletBinding(DefaultParametersetName="Default")]
 Param (
         [Parameter(Mandatory=$false)]
 		[Parameter(ParameterSetName='Default')]
