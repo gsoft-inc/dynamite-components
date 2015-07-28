@@ -27,6 +27,7 @@ namespace GSoft.Dynamite.Social.Core.Configuration
                     SocialResources.DiscussionsListDescription)
                     {
                         ResourceFileName = SocialResources.Global,
+                        WriteSecurity = WriteSecurityOptions.OwnerOnly,
                         ListTemplateInfo = BuiltInListTemplates.DiscussionsList
                     };
             }

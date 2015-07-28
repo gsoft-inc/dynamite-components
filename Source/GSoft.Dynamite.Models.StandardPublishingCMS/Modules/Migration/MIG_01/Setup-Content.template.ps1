@@ -96,7 +96,7 @@ function Wait-VariationSyncTimerJob {
 
 	# We don't need to sync manually items because we force the "Approved" status which automatically fires variations event receiver 
 	# Sync item with timer job
-	$Site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+	$Site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
 	Write-Warning "Waiting for 'VariationsPropagateListItem' timer job to finish..."
 	Wait-SPTimerJob -Name "VariationsPropagateListItem" -Site $Site
 

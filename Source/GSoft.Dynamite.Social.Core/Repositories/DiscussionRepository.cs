@@ -10,8 +10,6 @@ using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Social.Contracts.Configuration;
 using GSoft.Dynamite.Social.Core.Entities;
 using GSoft.Dynamite.ValueTypes;
-
-using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 

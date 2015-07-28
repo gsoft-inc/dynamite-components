@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Catalogs;
+using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
@@ -33,9 +34,18 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_Catalogs
                     var catalogHelper = featureScope.Resolve<ICatalogHelper>();
                     var baseCatalogInfoConfig = featureScope.Resolve<IPublishingCatalogInfoConfig>();
 
-                    var baseCatalogs = baseCatalogInfoConfig.Catalogs as List<CatalogInfo>;
-                    
+                    // Resolve feature dependency activator
+                    // Note: Need to pass the site and web objects to support site and web scoped features.
+                    var featureDependencyActivator =
+                        featureScope.Resolve<IFeatureDependencyActivator>(
+                            new TypedParameter(typeof(SPSite), web.Site),
+                            new TypedParameter(typeof(SPWeb), web));
+
+                    // Activate feature dependencies defined in this configuration
+                    featureDependencyActivator.EnsureFeatureActivation(baseCatalogInfoConfig as IFeatureDependencyConfig);
+
                     // Create catalogs
+                    var baseCatalogs = baseCatalogInfoConfig.Catalogs as List<CatalogInfo>;
                     foreach (var catalog in baseCatalogs)
                     {
                         logger.Info("Creating catalog {0} on web {1}", catalog.WebRelativeUrl, web.Url);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,7 @@ using GSoft.Dynamite.LifeCycle.Contracts.Controls;
 using GSoft.Dynamite.LifeCycle.Contracts.WebParts;
 using Microsoft.Office.Server.Search.WebControls;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint.WebControls;
 using Microsoft.SharePoint.WebPartPages;
 
@@ -94,7 +96,15 @@ namespace GSoft.Dynamite.LifeCycle.SP.WebParts.ContentBySearchSchedule
         {
             if (this.GetNumResults() < 1 && this.Is404Enable && SPContext.Current.FormContext.FormMode == SPControlMode.Display)
             {
-                HttpContext.Current.Server.TransferRequest(string.Format("{0}?url={1}", SPContext.Current.Site.FileNotFoundUrl, HttpContext.Current.Request.RawUrl));
+                var baseUri = new Uri(SPContext.Current.Site.Url);
+                var requestUri = new Uri(baseUri, HttpContext.Current.Request.RawUrl);
+                var errorPageUrl = string.Format(
+                    CultureInfo.InvariantCulture,
+                    "{0}?requestUrl={1}",
+                    SPContext.Current.Site.FileNotFoundUrl,
+                    requestUri);
+
+                SPUtility.Redirect(errorPageUrl, SPRedirectFlags.Default, this.Context);
             }
             else
             {
