@@ -122,7 +122,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
                 this._logger.Info(
                     "ContentAssociation.SetTranslationLanguage: Set item language to '{0}' on item '{1}' in web '{2}'.",
                     item[fieldInternalName],
-                    item.Title,
+                    item.Name,
                     item.Web.Url);
             }
 
