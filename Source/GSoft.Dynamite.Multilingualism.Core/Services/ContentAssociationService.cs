@@ -116,7 +116,9 @@ namespace GSoft.Dynamite.Multilingualism.Core.Services
             if (item.Fields.ContainsField(fieldInternalName))
             {
                 // Use the ll-cc format to match with the search token {Site.Locale}
-                string locale = new CultureInfo((int)item.Web.Language).Name;                 
+                // It's better to use the locale of the site (Regional settings) instead of the Language because in the case where the locale is different,
+                // it's preferable to use the locale (especially for unsupported languages)
+                string locale = item.Web.Locale.Name;                 
                 item[fieldInternalName] = locale;
                 
                 this._logger.Info(
