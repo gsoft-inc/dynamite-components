@@ -31,8 +31,8 @@
 # ******************************************
 # Docs Module tokens
 # ******************************************
-#. ./Modules/Docs/Tokens.Docs.Default.ps1
-#. ./Modules/Docs/Tokens.Docs.Custom.ps1
+. ./Modules/Docs/Tokens.Docs.Default.ps1
+. ./Modules/Docs/Tokens.Docs.Custom.ps1
 
 # ******************************************
 # Migration Module tokens

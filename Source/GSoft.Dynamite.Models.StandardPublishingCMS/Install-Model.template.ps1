@@ -79,6 +79,10 @@ try {
     .\Modules\Navigation\NAV_05\Install-NAV05.ps1
     #endregion
 
+    #region ********** DOCUMENT MANAGEMENT MODULE ********** #
+	.\Modules\Docs\DOC_01\Install-DOC01.ps1
+	#endregion
+
     #region ********** DESIGN MODULE ********** #
     .\Modules\Design\DSGN_01\Install-DSGN01.ps1
     #endregion
