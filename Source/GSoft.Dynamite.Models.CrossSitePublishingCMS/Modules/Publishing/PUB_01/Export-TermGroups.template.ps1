@@ -62,7 +62,7 @@ if(![string]::IsNullOrEmpty($CustomRestrictedTermGroup))
 	$RestrictedTermGroup = $CustomRestrictedTermGroup
 }
 
-$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+$site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
 if($site -eq $null)
 {
 	return

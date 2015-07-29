@@ -82,6 +82,9 @@
     <Compile Include="Features\CommonCMS_NavigationEventReceivers\CommonCMS_NavigationEventReceivers.EventReceiver.cs">
       <DependentUpon>CommonCMS_NavigationEventReceivers.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
+    </Compile>
     <Compile Include="SP.ControlTemplates\GSoft.Dynamite.Navigation\MainMenu.ascx.cs">
       <DependentUpon>MainMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -132,8 +135,8 @@
     <Compile Include="Features\CrossSitePublishingCMS_TargetItemsEventReceivers\CrossSitePublishingCMS_TargetItemsEventReceivers.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_TargetItemsEventReceivers.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
+    <Compile Include="Features\CrossSitePublishingCMS_TermDrivenPages_Obsolete\CrossSitePublishingCMS_TermDrivenPages_Obsolete.EventReceiver.cs">
+      <DependentUpon>CrossSitePublishingCMS_TermDrivenPages_Obsolete.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\StandardPublishingCMS_TargetPagesEventReceivers\StandardPublishingCMS_TargetPagesEventReceivers.EventReceiver.cs">
       <DependentUpon>StandardPublishingCMS_TargetPagesEventReceivers.feature</DependentUpon>
@@ -151,10 +154,13 @@
     <None Include="Features\CommonCMS_NavigationEventReceivers\CommonCMS_NavigationEventReceivers.feature">
       <FeatureId>{9870da7d-d224-45ee-81a6-2a747ee5181f}</FeatureId>
     </None>
+    <None Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.feature">
+      <FeatureId>{489f1b3f-a9ed-4edd-830f-2d2c728cb0e7}</FeatureId>
+    </None>
     <None Include="SP.ControlTemplates\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{99ffa066-2c05-44c1-81f5-18f45cad9bbe}</SharePointProjectItemId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.feature">
+    <None Include="Features\CrossSitePublishingCMS_TermDrivenPages_Obsolete\CrossSitePublishingCMS_TermDrivenPages_Obsolete.feature">
       <FeatureId>{16096bf5-7f38-4c53-a63b-a82b19e63af6}</FeatureId>
     </None>
     <None Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.feature">
@@ -240,10 +246,13 @@
     <Content Include="Features\CommonCMS_NavigationEventReceivers\CommonCMS_NavigationEventReceivers.Template.xml">
       <DependentUpon>CommonCMS_NavigationEventReceivers.feature</DependentUpon>
     </Content>
-    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Navigation\MainMenu.ascx" />
-    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Navigation\NavigationControl.ascx" />
     <Content Include="Features\CrossSitePublishingCMS_TermDrivenPages\CrossSitePublishingCMS_TermDrivenPages.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_TermDrivenPages.feature</DependentUpon>
+    </Content>
+    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Navigation\MainMenu.ascx" />
+    <Content Include="SP.ControlTemplates\GSoft.Dynamite.Navigation\NavigationControl.ascx" />
+    <Content Include="Features\CrossSitePublishingCMS_TermDrivenPages_Obsolete\CrossSitePublishingCMS_TermDrivenPages_Obsolete.Template.xml">
+      <DependentUpon>CrossSitePublishingCMS_TermDrivenPages_Obsolete.feature</DependentUpon>
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>

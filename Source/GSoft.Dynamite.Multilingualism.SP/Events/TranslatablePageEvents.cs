@@ -17,6 +17,11 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
     /// </summary>
     public class TranslatablePageEvents : SPItemEventReceiver
     {
+        // Even though these events are ASYNC and we typically shouldn't care about their sequence,
+        // we still care about avoiding overlap between multiple threads processing these events in parallel.
+        // We use this lock to ensure these events are always executed in a sequence instead of simultaneously.
+        private static object eventLock = new object();
+
         /// <summary>
         /// Asynchronous After event that occurs after a new item has been added to its containing object.
         /// Be careful, on a document library like pages library, ItemAdded NOT FIRING on the "New document" option on the ribbon. Use ItemUpdated instead
@@ -24,38 +29,41 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
         /// <param name="properties">Event properties</param>
         public override void ItemAdded(SPItemEventProperties properties)
         {
-            base.ItemAdded(properties);
-
-            using (var childScope = MultilingualismContainerProxy.BeginWebLifetimeScope(properties.Web))
+            lock (eventLock)
             {
-                this.EventFiringEnabled = false;
-                var logger = childScope.Resolve<ILogger>();
+                base.ItemAdded(properties);
 
-                try
+                using (var childScope = MultilingualismContainerProxy.BeginWebLifetimeScope(properties.Web))
                 {
-                    var item = properties.ListItem;
+                    this.EventFiringEnabled = false;
+                    var logger = childScope.Resolve<ILogger>();
 
-                    var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
-                    var multilingualismFieldConfig = childScope.Resolve<IMultilingualismFieldInfoConfig>();
+                    try
+                    {
+                        var item = properties.ListItem;
 
-                    // Set source association unique identifier
-                    item = contentAssociationHelper.SetSourceGuid(item, MultilingualismFieldInfos.ContentAssociationKey.InternalName);
+                        var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
+                        var multilingualismFieldConfig = childScope.Resolve<IMultilingualismFieldInfoConfig>();
 
-                    // Set the translation language for the detected language managed property
-                    item = contentAssociationHelper.SetTranslationLanguage(item, MultilingualismFieldInfos.ItemLanguage.InternalName);
+                        // Set source association unique identifier
+                        item = contentAssociationHelper.SetSourceGuid(item, MultilingualismFieldInfos.ContentAssociationKey.InternalName);
 
-                    // Set source item creator/author since the variation system
-                    // overwrites the created by value
-                    // TODO when comes the LifeCycle Module
-                    item.Update();
-                }
-                catch (Exception e)
-                {
-                    logger.Exception(e);
-                }
-                finally
-                {
-                    this.EventFiringEnabled = true;
+                        // Set the translation language for the detected language managed property
+                        item = contentAssociationHelper.SetTranslationLanguage(item, MultilingualismFieldInfos.ItemLanguage.InternalName);
+
+                        // Set source item creator/author since the variation system
+                        // overwrites the created by value
+                        // TODO when comes the LifeCycle Module
+                        item.Update();
+                    }
+                    catch (Exception e)
+                    {
+                        logger.Exception(e);
+                    }
+                    finally
+                    {
+                        this.EventFiringEnabled = true;
+                    }
                 }
             }
         }
@@ -66,36 +74,39 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
         /// <param name="properties">An <see cref="T:Microsoft.SharePoint.SPItemEventProperties" /> object that represents properties of the event handler.</param>
         public override void ItemUpdated(SPItemEventProperties properties)
         {
-            base.ItemUpdated(properties);
-
-            using (var childScope = MultilingualismContainerProxy.BeginWebLifetimeScope(properties.Web))
+            lock (eventLock)
             {
-                this.EventFiringEnabled = false;
-                var logger = childScope.Resolve<ILogger>();
+                base.ItemUpdated(properties);
 
-                try
+                using (var childScope = MultilingualismContainerProxy.BeginWebLifetimeScope(properties.Web))
                 {
-                    // Refetch item to avoid save conflicts
-                    var item = properties.ListItem;
+                    this.EventFiringEnabled = false;
+                    var logger = childScope.Resolve<ILogger>();
 
-                    var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
-                    var multilingualismFieldConfig = childScope.Resolve<IMultilingualismFieldInfoConfig>();
+                    try
+                    {
+                        // Refetch item to avoid save conflicts
+                        var item = properties.ListItem;
 
-                    // Set source association unique identifier
-                    item = contentAssociationHelper.SetSourceGuid(item, MultilingualismFieldInfos.ContentAssociationKey.InternalName);
+                        var contentAssociationHelper = childScope.Resolve<IContentAssocationService>();
+                        var multilingualismFieldConfig = childScope.Resolve<IMultilingualismFieldInfoConfig>();
 
-                    // Set the translation language for the detected language managed property
-                    item = contentAssociationHelper.SetTranslationLanguage(item, MultilingualismFieldInfos.ItemLanguage.InternalName);
+                        // Set source association unique identifier
+                        item = contentAssociationHelper.SetSourceGuid(item, MultilingualismFieldInfos.ContentAssociationKey.InternalName);
 
-                    item.Update();
-                }
-                catch (Exception e)
-                {
-                    logger.Exception(e);
-                }
-                finally
-                {
-                    this.EventFiringEnabled = true;
+                        // Set the translation language for the detected language managed property
+                        item = contentAssociationHelper.SetTranslationLanguage(item, MultilingualismFieldInfos.ItemLanguage.InternalName);
+
+                        item.Update();
+                    }
+                    catch (Exception e)
+                    {
+                        logger.Exception(e);
+                    }
+                    finally
+                    {
+                        this.EventFiringEnabled = true;
+                    }
                 }
             }
         }

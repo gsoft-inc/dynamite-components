@@ -32,7 +32,7 @@ if(![string]::IsNullOrEmpty($CustomRestrictedTermGroup))
 }
 
 # Open taxonomy session on correct term store
-$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+$site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
 if($site -eq $null)
 {
 	return

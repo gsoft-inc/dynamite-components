@@ -14,7 +14,7 @@ Write-Warning "Applying Catalogs Synchronization..."
 }
 
 # Sync lists with timer job
-$site = Get-SPSite "[[DSP_PortalPublishingHostNamePath]]"
+$site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
 Wait-SPTimerJob -Name "VariationsSpawnSites" -Site $site
 Write-Warning "Waiting for 'VariationsSpawnSites' timer job to finish..."
 Start-Sleep -Seconds 60

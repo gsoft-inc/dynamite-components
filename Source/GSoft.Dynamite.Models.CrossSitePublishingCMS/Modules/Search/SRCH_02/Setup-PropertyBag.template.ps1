@@ -10,5 +10,9 @@ $GoogleAnalyticsKeyValue = "[[DSP_GoogleAnalyticsUA]]"
 
 if(![string]::IsNullOrEmpty($GoogleAnalyticsKeyValue))
 {
+	$values = @{"Step: " = "#1 Setup Property Bags"}
+	New-HeaderDrawing -Values $Values
+
+	Write-Warning "Settting Google Analytics key to property bag..."
 	Set-DSPWebProperty -Url [[DSP_PortalPublishingSiteUrl]] -Key $GoogleAnalyticsKey -Value $GoogleAnalyticsKeyValue
 }
