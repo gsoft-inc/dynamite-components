@@ -5,8 +5,13 @@
 # Description	: Add the control containing the Google Id Tracker in the additional page head
 # -----------------------------------------------------------------------
 
-Write-Warning "Applying Control configuration..."
-
 $DefaultGoogleTrackerFeatureId = "[[DSP_CrossSitePublishingCMS_SRCH_GoogleAnalyticsTracking]]"
 
-Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id $DefaultGoogleTrackerFeatureId
+if(![string]::IsNullOrEmpty("[[DSP_GoogleAnalyticsUA]]"))
+{
+	$values = @{"Step: " = "#2 Enable the feature"}
+	New-HeaderDrawing -Values $Values
+
+	Write-Warning "Applying Control configuration..."
+	Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id $DefaultGoogleTrackerFeatureId
+}
