@@ -14,7 +14,7 @@ New-HeaderDrawing -Values $Values
 # ============================================= #
 # =========  SEARCH RESULT SOURCES   ========== #
 # ============================================= #
-$values = @{"Step: " = "#1 Create Search Result Sources";"User Story: " = $UserStory}
+$values = @{"Step: " = "#1 Create Search Result Sources"}
 New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-ResultSources.ps1'
@@ -29,3 +29,23 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-PageLayouts.ps1'
 & $Script -Force
+
+# ==================================== #
+# ========  PAGE INSTANCES   ========= #
+# ==================================== #
+
+$values = @{"Step: " = "#3 Create Page Instances"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-Pages.ps1'
+& $Script -Force
+
+# ==================================== #
+# =======  DISPLAY TEMPLATES ========= #
+# ==================================== #
+
+$values = @{"Step: " = "#4 Create Display Templates"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-DisplayTemplates.ps1'
+& $Script
