@@ -59,14 +59,11 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// <returns>The event receiver info</returns>
         public EventReceiverInfo TargetContentPageItemAdded()
         {
-            return new EventReceiverInfo(
+            var eventReceiver = new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.BrowsablePage.ContentTypeId),
-                SPEventReceiverType.ItemAdded,
-                SPEventReceiverSynchronization.Synchronous)
-                {
-                    ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents",
-                    SequenceNumber = 10000
-                };
+                SPEventReceiverType.ItemAdded) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents" };
+
+            return eventReceiver;
         }
 
         /// <summary>
@@ -75,14 +72,11 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// <returns>The event receiver info</returns>
         public EventReceiverInfo TargetContentPageUpdated()
         {
-            return new EventReceiverInfo(
+            var eventReceiver = new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.BrowsablePage.ContentTypeId),
-                SPEventReceiverType.ItemUpdated,
-                SPEventReceiverSynchronization.Synchronous)
-                {
-                    ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents",
-                    SequenceNumber = 10001
-                };
+                SPEventReceiverType.ItemUpdated) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents" };
+
+            return eventReceiver;
         }
 
         /// <summary>
@@ -91,13 +85,11 @@ namespace GSoft.Dynamite.Navigation.Contracts.Constants
         /// <returns>The event receiver info</returns>
         public EventReceiverInfo TargetContentPageDeleting()
         {
-            return new EventReceiverInfo(
+            var eventReceiver = new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.BrowsablePage.ContentTypeId),
-                SPEventReceiverType.ItemDeleting)
-                {
-                    ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents",
-                    SequenceNumber = 10002
-                };
+                SPEventReceiverType.ItemDeleting) { ClassName = "GSoft.Dynamite.Navigation.SP.Events.TargetContentPageEvents" };
+
+            return eventReceiver;
         }
 
         #endregion

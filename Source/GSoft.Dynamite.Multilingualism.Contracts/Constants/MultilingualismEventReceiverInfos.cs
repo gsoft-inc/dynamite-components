@@ -65,11 +65,9 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         {
             return new EventReceiverInfo(
                 this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatablePage.ContentTypeId),
-                SPEventReceiverType.ItemAdded,
-                SPEventReceiverSynchronization.Synchronous)
+                SPEventReceiverType.ItemAdded)
             {
-                ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatablePageEvents",
-                SequenceNumber = 10003
+                ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatablePageEvents"
             };
         }
 
@@ -86,8 +84,7 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
                 SPEventReceiverType.ItemUpdated,
                 SPEventReceiverSynchronization.Synchronous)
             {
-                ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatablePageEvents",
-                SequenceNumber = 10004
+                ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatablePageEvents"
             };
         }
 
