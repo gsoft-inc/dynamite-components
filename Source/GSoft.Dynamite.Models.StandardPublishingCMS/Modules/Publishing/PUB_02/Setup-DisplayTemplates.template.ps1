@@ -5,8 +5,12 @@
 # Description	: Create display templates
 # -----------------------------------------------------------------------
 
-Write-Warning "Applying Display Templates configuration..."
+# TODO: Setup-DisplayTemplates activates a CrossSitePublishingCMS feature, which makes little to no sense.
+# Figure out a way to refactor this into a CommonCMS feature or do these setup steps only as part of
+# your plugin project.
 
-# Activate feature on the root web on the publishing site collection
-Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_DisplayTemplates]]
+#Write-Warning "Applying Display Templates configuration..."
+
+## Activate feature on the root web on the publishing site collection
+#Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_DisplayTemplates]]
 

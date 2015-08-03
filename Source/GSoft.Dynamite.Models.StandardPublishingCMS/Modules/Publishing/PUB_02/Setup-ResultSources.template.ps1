@@ -5,12 +5,16 @@
 # Description	: Create search result sources
 # -----------------------------------------------------------------------
 
-Write-Warning "Applying Result Sources configuration..."
+# TODO: Setup-ResultSources activates a CrossSitePublishingCMS feature, which makes little to no sense.
+# Figure out a way to refactor this into a CommonCMS feature or do these setup steps only as part of
+# your plugin project.
 
-# Activate feature on the root web on the publishing site collection
-Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_ResultSources]]
+#Write-Warning "Applying Result Sources configuration..."
 
-Write-Warning "Opening up the search REST API to anonymous users..."
+## Activate feature on the root web on the publishing site collection
+#Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_ResultSources]]
 
-Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_SearchRESTAnonymous]]
+#Write-Warning "Opening up the search REST API to anonymous users..."
+
+#Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_PUB_SearchRESTAnonymous]]
 
