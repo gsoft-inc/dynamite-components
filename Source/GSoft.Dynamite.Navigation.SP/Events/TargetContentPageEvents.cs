@@ -43,13 +43,20 @@ namespace GSoft.Dynamite.Navigation.SP.Events
 
                         var item = properties.ListItem;
 
-                        // Set Term driven page
-                        navigationTermService.SetTermDrivenPageForTerm(properties.ListItem);
-
-                        if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                        if (item != null)
                         {
-                            // Create term in other term sets
-                            navigationTermService.SyncNavigationTerm(properties.ListItem);
+                            // Set Term driven page
+                            navigationTermService.SetTermDrivenPageForTerm(item);
+
+                            if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                            {
+                                // Create term in other term sets
+                                navigationTermService.SyncNavigationTerm(properties.ListItem);
+                            }
+                        }
+                        else
+                        {
+                            logger.Warn("TargetContentPageEvents.ItemAdded: failed because of NULL properties.ListItem instance.");
                         }
                     }
                     catch (Exception e)
