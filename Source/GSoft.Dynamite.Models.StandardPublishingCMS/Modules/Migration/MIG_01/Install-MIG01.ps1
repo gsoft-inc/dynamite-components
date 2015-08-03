@@ -61,13 +61,7 @@ if ($FromSite.IsPresent)
     Invoke-Expression "& `"$Script`" -FromSite -ImportSource:`$$ImportSource  -ImportTargets:`$$ImportTargets"
 }
 
-$values = @{"Step: " = "#4 Fix Welcome Pages (to avoid conflicts between web URLs and taxonomy friendly URLs)"}
-New-HeaderDrawing -Values $Values
-
-$Script = $CommandDirectory + '\Setup-WelcomePages.ps1'
-& $Script $LogFolderPath
-
-$values = @{"Step: " = "#5 Setup Search Managed Properties"}
+$values = @{"Step: " = "#4 Setup Search Managed Properties"}
 New-HeaderDrawing -Values $Values
 
 if (-not $SkipSearchConfig) {
