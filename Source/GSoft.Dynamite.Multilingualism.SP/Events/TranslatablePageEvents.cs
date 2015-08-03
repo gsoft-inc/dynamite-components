@@ -54,7 +54,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
                         // Set source item creator/author since the variation system
                         // overwrites the created by value
                         // TODO when comes the LifeCycle Module
-                        item.Update();
+                        item.SystemUpdate();
                     }
                     catch (Exception e)
                     {
@@ -97,7 +97,7 @@ namespace GSoft.Dynamite.Multilingualism.SP.Events
                         // Set the translation language for the detected language managed property
                         item = contentAssociationHelper.SetTranslationLanguage(item, MultilingualismFieldInfos.ItemLanguage.InternalName);
 
-                        item.Update();
+                        item.SystemUpdate();
                     }
                     catch (Exception e)
                     {
