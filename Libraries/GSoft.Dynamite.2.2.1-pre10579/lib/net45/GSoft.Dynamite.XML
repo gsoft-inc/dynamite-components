@@ -11651,7 +11651,12 @@
         </member>
         <member name="F:GSoft.Dynamite.Fields.Constants.CalendarFields.EndDateName">
             <summary>
-            EndDate field internal name
+            EndDate field internal name (this one is hidden by default)
+            </summary>
+        </member>
+        <member name="F:GSoft.Dynamite.Fields.Constants.CalendarFields.EndDateVisibleName">
+            <summary>
+            EndDate: Date and time field to display the end date (this one is visible by default).
             </summary>
         </member>
         <member name="F:GSoft.Dynamite.Fields.Constants.CalendarFields.LocationName">
@@ -11741,7 +11746,12 @@
         </member>
         <member name="P:GSoft.Dynamite.Fields.Constants.CalendarFields.EndDate">
             <summary>
-            EndDate field info (OOTB type = DateTime, format = DateTime)
+            EndDate field info (this one is hidden by default) (OOTB type = DateTime, format = DateTime)
+            </summary>
+        </member>
+        <member name="P:GSoft.Dynamite.Fields.Constants.CalendarFields.EndDateVisible">
+            <summary>
+            End date field info (this one is visible by default) (OOTB type = DateTime, format = DateTime)
             </summary>
         </member>
         <member name="P:GSoft.Dynamite.Fields.Constants.CalendarFields.Location">
