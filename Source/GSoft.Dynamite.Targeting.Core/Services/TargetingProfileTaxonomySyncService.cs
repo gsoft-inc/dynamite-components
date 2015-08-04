@@ -106,7 +106,7 @@ namespace GSoft.Dynamite.Targeting.Core.Services
                         if (targetSubtypeProp.CoreProperty.TermSet != null
                             && srcSubtypeProp.CoreProperty.TermSet != null)
                         {
-                            if (targetSubtypeProp.CoreProperty.IsMultivalued == true)
+                            if (targetSubtypeProp.CoreProperty.IsMultivalued)
                             {
                                 // Get some subset of changes to a user profile since last 24h hours
                                 var startDate = DateTime.UtcNow.Subtract(TimeSpan.FromDays(1));
@@ -116,8 +116,8 @@ namespace GSoft.Dynamite.Targeting.Core.Services
                                 changeQuery.SingleValueProperty = true;
                                 changeQuery.MultiValueProperty = true;
                                 changeQuery.Update = true;
-                                changeQuery.Add = false;
-                                changeQuery.Delete = false;
+                                changeQuery.Add = true;
+                                changeQuery.Delete = true;
                                 changeQuery.UpdateMetadata = true;
 
                                 var changes = userProfileManager.GetChanges(changeQuery);

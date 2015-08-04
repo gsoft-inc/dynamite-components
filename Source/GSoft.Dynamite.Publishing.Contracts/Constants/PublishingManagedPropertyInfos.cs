@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GSoft.Dynamite.Search.Enums;
 using Microsoft.Office.Server.Search.Administration;
 using ManagedPropertyInfo = GSoft.Dynamite.Search.ManagedPropertyInfo;
 
@@ -27,13 +28,13 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     {
                         { "ows_taxid_DynamiteNavigation", 1 }
                     },
-                    RespectPriority = true,
-                    Searchable = true,
                     Queryable = true,
+                    Searchable = true,
                     Retrievable = true,
-                    HasMultipleValues = true,
+                    RespectPriority = true,
                     SafeForAnonymous = true,
-                    OverwriteIfAlreadyExists = false
+                    HasMultipleValues = true,
+                    UpdateBehavior = ManagedPropertyUpdateBehavior.NoChangesIfAlreadyExists
                 };
             }
         } 
