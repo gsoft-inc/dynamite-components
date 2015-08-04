@@ -2,7 +2,11 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="7dd4d08d-0eeb-4ced-a5d3-4309e10c7668" solutionId="7dd4d08d-0eeb-4ced-a5d3-4309e10c7668" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Docs.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <assemblies>
     <projectOutputAssembly location="GSoft.Dynamite.Docs.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Docs.Contracts\GSoft.Dynamite.Docs.Contracts.csproj" />
-    <projectOutputAssembly location="GSoft.Dynamite.Docs.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Docs.Core\GSoft.Dynamite.Docs.Core.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Docs.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Docs.Core\GSoft.Dynamite.Docs.Core.csproj">
+      <safeControls>
+        <safeControl assemblyName="GSoft.Dynamite.Docs.Core.dll" namespaceName="GSoft.Dynamite.Docs.Core" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
   </assemblies>
   <features>
     <featureReference itemId="af76eb89-446e-4e5f-8253-48695b9762fa" />

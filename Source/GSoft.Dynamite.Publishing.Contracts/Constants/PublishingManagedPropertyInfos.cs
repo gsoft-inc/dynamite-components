@@ -34,7 +34,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     RespectPriority = true,
                     SafeForAnonymous = true,
                     HasMultipleValues = true,
-                    UpdateBehavior = ManagedPropertyUpdateBehavior.NoChangesIfAlreadyExists
+                    UpdateBehavior = ManagedPropertyUpdateBehavior.OverwriteIfAlreadyExists
                 };
             }
         } 
