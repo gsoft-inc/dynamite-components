@@ -63,7 +63,7 @@ $DSP_PublishingTargetRootWebUrls = "@("
 # If no publishing URL is specified, take the portal web app URL instead
 $DSP_PortalPublishingSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalPublishingHostNamePath)) { $DSP_PortalWebAppUrl } else { $DSP_PortalPublishingHostNamePath }
 $DSP_PortalAuthoringSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalAuthoringHostNamePath)) { $DSP_PortalPublishingSiteUrl } else { $DSP_PortalAuthoringHostNamePath }
-$DSP_PortalDocsSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalDocsHostNamePath)) { $DSP_PortalWebAppUrl } else { $DSP_PortalDocsHostNamePath }
+$DSP_PortalDocsSiteUrl = if ([string]::IsNullOrEmpty($DSP_PortalDocsHostNamePath)) { $DSP_PortalPublishingSiteUrl } else { $DSP_PortalDocsHostNamePath }
 
 # Hash table of site url mappings between Authoring and Publishing
 $DSP_CrossSiteMappings = "@{"
