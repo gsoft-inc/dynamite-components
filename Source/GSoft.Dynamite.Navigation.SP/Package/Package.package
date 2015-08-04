@@ -2,7 +2,11 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="32e09919-4bf5-4f69-88b9-d38f260f42d5" solutionId="32e09919-4bf5-4f69-88b9-d38f260f42d5" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Navigation.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <assemblies>
     <projectOutputAssembly location="GSoft.Dynamite.Navigation.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Navigation.Contracts\GSoft.Dynamite.Navigation.Contracts.csproj" />
-    <projectOutputAssembly location="GSoft.Dynamite.Navigation.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Navigation.Core\GSoft.Dynamite.Navigation.Core.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Navigation.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Navigation.Core\GSoft.Dynamite.Navigation.Core.csproj">
+      <safeControls>
+        <safeControl assemblyName="GSoft.Dynamite.Navigation.Core.dll" namespaceName="GSoft.Dynamite.Navigation.Core" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
   </assemblies>
   <features>
     <featureReference itemId="16096bf5-7f38-4c53-a63b-a82b19e63af6" />
