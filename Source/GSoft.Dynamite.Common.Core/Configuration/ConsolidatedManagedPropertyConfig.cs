@@ -35,6 +35,10 @@ namespace GSoft.Dynamite.Common.Core.Configuration
                     managedProperties.AddRange(configuration.ManagedProperties);
                 }
 
+                // Reverse the order of the managed properties so that
+                // the latest definitions are treated last (overrides the base definitions).
+                managedProperties.Reverse();
+
                 return managedProperties;
             }
         }
