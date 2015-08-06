@@ -33,6 +33,8 @@ $CommandDirectory = [System.IO.Path]::GetDirectoryName($0)
 $DefaultConfigurationFile = "[[DSP_DEFAULT_PortalWebsConfigurationFile]]"
 $CustomConfigurationFile = "[[DSP_CUSTOM_PortalWebsConfigurationFile]]"
 
+$UpdateWelcomePages =  [System.Convert]::ToBoolean("[[DSP_UpdateWebsWelcomePage]]")
+
 $ConfigurationFilePath = $CommandDirectory + ".\" + $DefaultConfigurationFile
 
 if(![string]::IsNullOrEmpty($CustomConfigurationFile))
@@ -46,7 +48,7 @@ if(![string]::IsNullOrEmpty($CustomConfigurationFile))
 [[DSP_AuthoringSourceRootWebUrls]] | Foreach-Object {
 
     # Create the new SharePoint Web structure
-    $Webs = Import-DSPWebStructure -InputFileName $ConfigurationFilePath -ParentUrl $_
+    $Webs = Import-DSPWebStructure -InputFileName $ConfigurationFilePath -ParentUrl $_ -UpdateWelcomePages:$UpdateWelcomePages
 }	
 
 # Check Multilingual settings
@@ -101,6 +103,6 @@ if($IsMultilingual)
     # Update webs properties for target labels
     $AuthoringUrlsByLabels.Keys | Foreach-Object {
 
-        Import-DSPWebStructure -InputFileName $ConfigurationFilePath -ParentUrl $_ -VariationLabel $AuthoringUrlsByLabels.get_Item($_)
+        Import-DSPWebStructure -InputFileName $ConfigurationFilePath -ParentUrl $_ -VariationLabel $AuthoringUrlsByLabels.get_Item($_) -UpdateWelcomePages:$UpdateWelcomePages
     }
 }

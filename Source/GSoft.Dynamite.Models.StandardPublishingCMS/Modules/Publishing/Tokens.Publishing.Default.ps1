@@ -15,6 +15,10 @@ $DSP_DEFAULT_PortalSitesConfigurationFile = "./Default/Default-Sites.xml"
 
 $DSP_DEFAULT_PortalWebsConfigurationFile = "./Default/Default-Webs.xml"
 
+if ((Get-Variable -Name "DSP_UpdateWebsWelcomePage" -ErrorAction Ignore) -eq $null) { 
+	$DSP_UpdateWebsWelcomePage = $false
+}
+
 # ============================================
 # STEP 2: Categorize content
 # ============================================
