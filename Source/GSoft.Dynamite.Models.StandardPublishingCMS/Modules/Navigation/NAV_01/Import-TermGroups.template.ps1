@@ -18,8 +18,43 @@ $KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $DefaultKeywordsConf
 
 if(![string]::IsNullOrEmpty($CustomKeywordsConfigurationFile))
 {
-	$KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $CustomKeywordsConfigurationFile
+    $KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $CustomKeywordsConfigurationFile
 }
 
-# Portal Keywords Term Group
-Import-SPTerms -ParentTermStore (Get-SPTaxonomySession -Site [[DSP_PortalPublishingSiteUrl]]).TermStores[0] -InputFile $KeywordsConfigurationFilePath
+$site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
+if ($site -eq $null)
+{
+    return
+}
+
+$taxonomySession = $site | Get-DSPTaxonomySession
+if ($taxonomySession -eq $null)
+{
+    return
+}
+
+$termStore = $null
+if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) 
+{
+    $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
+} 
+else 
+{
+    $termStore = $taxonomySession | Get-DSPTermStore -Default
+}
+
+if ($termStore -eq $null)
+{
+    return
+}
+
+# Portal Navigation Term Group
+Try
+{
+    Import-SPTerms -ParentTermStore $termStore -InputFile $KeywordsConfigurationFilePath -ErrorAction Stop
+    Write-Host "Import successful."
+}
+Catch
+{
+    Write-Warning "There was an error in importing Menu term group. $_"
+}

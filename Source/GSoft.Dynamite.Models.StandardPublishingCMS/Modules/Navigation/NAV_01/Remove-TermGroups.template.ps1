@@ -18,7 +18,31 @@ $KeywordsTermGroup = $DefautKeywordstermGroup
 
 if(![string]::IsNullOrEmpty($CustomKeywordsTermGroup))
 {
-	$KeywordsTermGroup = $CustomKeywordsTermGroup
+    $KeywordsTermGroup = $CustomKeywordsTermGroup
 }
 
-Remove-DSPTermGroup -GroupName "$KeywordsTermGroup"
+$site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
+if ($site -eq $null)
+{
+    return
+}
+
+$taxonomySession = $site | Get-DSPTaxonomySession
+if ($taxonomySession -eq $null)
+{
+    return
+}
+
+$termStore = $null
+if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) {
+    $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
+} else {
+    $termStore = $taxonomySession | Get-DSPTermStore -Default
+}
+
+if ($termStore -eq $null)
+{
+    return
+}
+
+Remove-DSPTermGroup -TermStore $termStore -GroupName "$KeywordsTermGroup"

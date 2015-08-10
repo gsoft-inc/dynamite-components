@@ -18,7 +18,7 @@ $KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $DefaultKeywordsConf
 
 if(![string]::IsNullOrEmpty($CustomKeywordsConfigurationFile))
 {
-	$KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $CustomKeywordsConfigurationFile
+    $KeywordsConfigurationFilePath = $CommandDirectory + ".\" + $CustomKeywordsConfigurationFile
 }
 
 # Taxonomy Settings
@@ -30,13 +30,48 @@ $KeywordsTermGroup = $DefautKeywordstermGroup
 
 if(![string]::IsNullOrEmpty($CustomKeywordsTermGroup))
 {
-	$KeywordsTermGroup = $CustomKeywordsTermGroup
+    $KeywordsTermGroup = $CustomKeywordsTermGroup
 }
 
-# Portal Keywords Term Group
+$site = Get-SPSite "[[DSP_PortalPublishingSiteUrl]]"
+if ($site -eq $null)
+{
+    return
+}
+
+$taxonomySession = $site | Get-DSPTaxonomySession
+if ($taxonomySession -eq $null)
+{
+    return
+}
+
+$termStore = $null
+if (![string]::IsNullOrEmpty($TermStoreName) -and !$TermStoreName.StartsWith("[[")) 
+{
+    $termStore = $taxonomySession | Get-DSPTermStore -Name $TermStoreName
+} 
+else 
+{
+    $termStore = $taxonomySession | Get-DSPTermStore -Default
+}
+
+if ($termStore -eq $null)
+{
+    return
+}
+
+# Export Navigation Term Group
 Try
 {
-    Export-SPTerms -Group (Get-SPTaxonomySession -Site "[[DSP_PortalPublishingSiteUrl]]").TermStores[0].Groups[$KeywordsTermGroup] -OutputFile $KeywordsConfigurationFilePath
+    if ($termStore.Groups[$KeywordsTermGroup] -ne $null)
+    {
+        Export-SPTerms -Group $termStore.Groups[$KeywordsTermGroup] -OutputFile $ExportFilePath -ErrorAction Stop
+        Write-Host "Export successful."
+    }
+    else
+    {
+        Write-Warning "Navigation term group $KeywordsTermGroup doesn't exist. No export done."
+    }	
 }
 Catch
 {
