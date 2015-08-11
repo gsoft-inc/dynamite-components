@@ -9,6 +9,7 @@ using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Publishing.Navigation;
 using Microsoft.SharePoint.Taxonomy;
 
 namespace GSoft.Dynamite.Navigation.SP.Features.CommonCMS_ManagedNavigation
@@ -126,6 +127,15 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CommonCMS_ManagedNavigation
             // Recurse into all subwebs
             foreach (SPWeb subweb in web.Webs)
             {
+                // By default all sub-webs will inherit their ManagedNavigationSettings from their parent.
+                // However, we still need to propagate the auxilliary managed navigation options for automatic
+                // navigation term and friendly URL creation.
+                var subWebNavigationSettings = new WebNavigationSettings(subweb);
+                subWebNavigationSettings.AddNewPagesToNavigation = navigationSetting.AddNewPagesToNavigation;
+                subWebNavigationSettings.CreateFriendlyUrlsForNewPages = navigationSetting.CreateFriendlyUrlsForNewsPages;
+                subWebNavigationSettings.Update();
+
+                // Then go through the sub-webs' lists recursively to tweak their Navigation list column term set mappings
                 this.EnsureNavigationListColumnMappingRecursive(subweb, navigationSetting, logger, navigationHelper, fieldLocator);
             }
         }
