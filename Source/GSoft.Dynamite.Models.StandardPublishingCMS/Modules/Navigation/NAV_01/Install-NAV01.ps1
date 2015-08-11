@@ -2,7 +2,7 @@
 # NAV_01: BROWSE INTRANET
 # ----------------------------------------
 
-param([string]$LogFolderPath)
+param([string]$LogFolderPath, [switch]$Force)
 
 $UserStory = "NAV01"
 
