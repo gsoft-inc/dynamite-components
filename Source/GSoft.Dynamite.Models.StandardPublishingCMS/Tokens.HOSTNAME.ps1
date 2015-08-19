@@ -30,6 +30,7 @@ $DSP_SearchServiceApplicationName = "Search Service Application"
 $DSP_SearchContentSourceName = "Local SharePoint sites"
 $DSP_GoogleAnalyticsUA = "UA-XXXXXXXX"
 $DSP_EnableSEOFields = $false
+$DSP_ExcludeAspxFromSearchIndex = $false
 
 # ******************************************
 # Taxonomy Configuration 

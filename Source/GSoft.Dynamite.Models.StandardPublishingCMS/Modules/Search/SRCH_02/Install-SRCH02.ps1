@@ -31,3 +31,13 @@ New-HeaderDrawing -Values $Values
 
 $Script = $CommandDirectory + '\Setup-Control.ps1'
 & $Script
+
+# =============================== #
+# =======   CRAW RULES   ======== #
+# =============================== #
+
+$values = @{"Step: " = "#3 Set Craw Rules"}
+New-HeaderDrawing -Values $Values
+
+$Script = $CommandDirectory + '\Setup-CrawlRules.ps1'
+& $Script
