@@ -26,5 +26,13 @@ namespace GSoft.Dynamite.Targeting.Contracts.Services
         /// <param name="changeStartDate">The start date for which to include user changes.</param>
         /// <param name="mappings">The taxonomy property mappings.  The key is the source property name. The value is the destination property name.</param>
         void SyncTaxonomyFieldsForChangedUsers(SPSite site, DateTime changeStartDate, IDictionary<string, string> mappings);
+
+        /// <summary>
+        /// Synchronizes the taxonomy fields from specified mappings for users with empty target fields.
+        /// The source property will build the destination property taxonomy tree.
+        /// </summary>
+        /// <param name="site">The site.</param>
+        /// <param name="mappings">The mappings.</param>
+        void SyncTaxonomyFieldsForEmptyTargetFields(SPSite site, IDictionary<string, string> mappings);
     }
 }
