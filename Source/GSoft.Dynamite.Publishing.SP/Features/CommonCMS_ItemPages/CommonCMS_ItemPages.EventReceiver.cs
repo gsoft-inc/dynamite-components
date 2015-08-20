@@ -10,7 +10,7 @@ using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ItemPages
+namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_ItemPages
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.

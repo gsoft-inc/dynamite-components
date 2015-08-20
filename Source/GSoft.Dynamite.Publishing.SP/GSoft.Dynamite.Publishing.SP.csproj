@@ -118,8 +118,8 @@
     <Compile Include="Features\CommonCMS_Lists\CommonCMS_Lists.EventReceiver.cs">
       <DependentUpon>CommonCMS_Lists.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_ItemPages.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_ItemPages\CommonCMS_ItemPages.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ItemPages.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_Catalogs\CrossSitePublishingCMS_Catalogs.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_Catalogs.feature</DependentUpon>
@@ -189,7 +189,7 @@
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
       <FeatureId>{740401de-77f4-4e5e-8ef5-7ac745b1600d}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.feature">
+    <None Include="Features\CommonCMS_ItemPages\CommonCMS_ItemPages.feature">
       <FeatureId>{32341c87-bf6e-4fb5-a67a-58eacd99f905}</FeatureId>
     </None>
     <None Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.feature">
@@ -335,8 +335,8 @@
     <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_ItemPages\CrossSitePublishingCMS_ItemPages.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_ItemPages.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_ItemPages\CommonCMS_ItemPages.Template.xml">
+      <DependentUpon>CommonCMS_ItemPages.feature</DependentUpon>
     </Content>
     <Content Include="Features\CommonCMS_PageLayouts\CommonCMS_PageLayouts.Template.xml">
       <DependentUpon>CommonCMS_PageLayouts.feature</DependentUpon>

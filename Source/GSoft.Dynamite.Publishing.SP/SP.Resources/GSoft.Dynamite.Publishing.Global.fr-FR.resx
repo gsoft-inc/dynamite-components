@@ -225,11 +225,11 @@
   <data name="Feature_CommonCMS_PageLayouts_Name" xml:space="preserve">
     <value>Dynamite CMS de base - Module de publication - Gabarit de pages</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ItemPages_Desc" xml:space="preserve">
-    <value>Déploie les modèles de pages du module de publication pour une solution de type CMS utilisant la publication intersites.</value>
+  <data name="Feature_CommonCMS_ItemPages_Desc" xml:space="preserve">
+    <value>Déploie les modèles de pages du module de publication pour une solution de type CMS stamdard.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ItemPages_Name" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de publication - Modèles de page d'éléments</value>
+  <data name="Feature_CommonCMS_ItemPages_Name" xml:space="preserve">
+    <value>Dynamite CMS de base - Module de publication - Modèles de page d'éléments</value>
   </data>
   <data name="PageLayout_CatalogItemPageLayout_Desc" xml:space="preserve">
     <value>Gabarit de page pour un élément provenant d'un catalogue</value>

@@ -225,11 +225,11 @@
   <data name="Feature_CommonCMS_PageLayouts_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Publishing Module - Page Layouts</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ItemPages_Desc" xml:space="preserve">
-    <value>Deploys item page templates for Cross Site Publishing based CMS solutions</value>
+  <data name="Feature_CommonCMS_ItemPages_Desc" xml:space="preserve">
+    <value>Deploys item page templates for Common based CMS solutions</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ItemPages_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Item Page Templates</value>
+  <data name="Feature_CommonCMS_ItemPages_Name" xml:space="preserve">
+    <value>Dynamite Coomon CMS - Publishing Module - Item Page Templates</value>
   </data>
   <data name="PageLayout_CatalogItemPageLayout_Desc" xml:space="preserve">
     <value>Catalog Item Page Layout</value>

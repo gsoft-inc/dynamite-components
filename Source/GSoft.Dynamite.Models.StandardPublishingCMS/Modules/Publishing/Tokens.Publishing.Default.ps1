@@ -50,9 +50,9 @@ $DSP_CommonCMS_PUB_PageLayouts = "374b7569-9e11-4ecd-8771-da59be52141e"
 # TODO: if we really need to activate CrossSite-related stuff as part of your StandardCMS, do it in your own 
 # plugin-project scripts of figure out a way to generalize this into a CommonCMS feature. 
 #$DSP_CrossSitePublishingCMS_PUB_ResultSources = "8d99c11b-135e-48e3-ad8f-e04e06d8b654"
-#$DSP_CrossSitePublishingCMS_PUB_ItemPages = "c0dbca2d-b477-4d91-bb55-b342f6458221"
 #$DSP_CrossSitePublishingCMS_PUB_DisplayTemplates = "d96b6f0d-8536-4367-bf3f-4a4a9fa286cb"
 #$DSP_CrossSitePublishingCMS_PUB_SearchRESTAnonymous = "c172bf31-e0dc-4fcf-b96c-0d0cc0aa3aed"
+$DSP_CommonCMS_PUB_ItemPages = "c0dbca2d-b477-4d91-bb55-b342f6458221"
 $DSP_StandardPublishingCMS_PUB_MetadataNavigation = "20b34b37-095a-437a-a5ab-65af7616da8f"
 $DSP_CommonCMS_LANG_CreateVariationsHierarchies = "50213452-1d24-4eae-b915-9ade611bbeb5"
 $DSP_CommonCMS_PUB_ReusableContent = "0aef5aef-bd7d-44ed-936f-91354b6d4e52"
