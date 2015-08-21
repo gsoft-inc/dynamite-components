@@ -7,7 +7,7 @@ using GSoft.Dynamite.Search;
 using GSoft.Dynamite.Utils;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSources
+namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_ResultSources
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -16,7 +16,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_ResultSou
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
     [Guid("c6ad3235-45eb-4993-b21c-1d6a90a4f343")]
-    public class CrossSitePublishingCMS_ResultSourcesEventReceiver : SPFeatureReceiver
+    public class CommonCMS_ResultSourcesEventReceiver : SPFeatureReceiver
     {
         /// <summary>
         /// Event handler when the feature is activated

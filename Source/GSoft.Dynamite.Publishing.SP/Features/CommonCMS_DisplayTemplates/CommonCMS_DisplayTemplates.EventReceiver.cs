@@ -6,7 +6,7 @@ using GSoft.Dynamite.Features;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using Microsoft.SharePoint;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTemplates
+namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_DisplayTemplates
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -15,7 +15,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_DisplayTe
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
     [Guid("f2fa3e0c-78cc-4953-9352-dbc752a33642")]
-    public class CrossSitePublishingCMS_DisplayTemplatesEventReceiver : SPFeatureReceiver
+    public class CommonCMS_DisplayTemplatesEventReceiver : SPFeatureReceiver
     {
         /// <summary>
         /// Feature activated event

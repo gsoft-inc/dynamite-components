@@ -8,7 +8,7 @@ using GSoft.Dynamite.Lists.Constants;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 
-namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRESTAnonymous
+namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_SearchRESTAnonymous
 {
     /// <summary>
     /// This class handles events raised during feature activation, deactivation, installation, uninstallation, and upgrade.
@@ -17,7 +17,7 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CrossSitePublishingCMS_SearchRES
     /// The GUID attached to this class may be used during packaging and should not be modified.
     /// </remarks>
     [Guid("91a67c8d-3b14-4242-ba33-199f25cc98ff")]
-    public class CrossSitePublishingCMS_SearchRESTAnonymousEventReceiver : SPFeatureReceiver
+    public class CommonCMS_SearchRESTAnonymousEventReceiver : SPFeatureReceiver
     {
         private readonly string data = @"<QueryPropertiesTemplate xmlns=""http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08"" xmlns:i=""http://www.w3.org/2001/XMLSchema-instance"">
     <QueryProperties i:type=""KeywordQueryProperties"">
