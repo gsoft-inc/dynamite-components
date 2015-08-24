@@ -73,6 +73,84 @@ namespace GSoft.Dynamite.Targeting.Core.Services
         }
 
         /// <summary>
+        /// Synchronizes the taxonomy fields from specified mappings for users with empty target fields.
+        /// The source property will build the destination property taxonomy tree.
+        /// </summary>
+        /// <param name="site">The site.</param>
+        /// <param name="mappings">The mappings.</param>
+        public void SyncTaxonomyFieldsForEmptyTargetFields(SPSite site, IDictionary<string, string> mappings)
+        {
+            using (new SPMonitoredScope(string.Format(CultureInfo.InvariantCulture, "{0}::{1}", MonitoredScopePrefix, "SyncTaxonomyFieldsForChangedUsers")))
+            {
+                // Get user profile objects
+                var context = SPServiceContext.GetContext(site);
+                var userProfileManager = new UserProfileManager(context);
+                var profileSubtypeManager = ProfileSubtypeManager.Get(context);
+                var profileSubtype =
+                    profileSubtypeManager.GetProfileSubtype(
+                        ProfileSubtypeManager.GetDefaultProfileName(ProfileType.User));
+                var profileSubtypeProperties = profileSubtype.Properties;
+
+                // For each property, update mapping
+                foreach (var mapping in mappings)
+                {
+                    var sourcePropertyName = mapping.Key;
+                    var targetPropertyName = mapping.Value;
+
+                    var srcSubtypeProp = profileSubtypeProperties.GetPropertyByName(sourcePropertyName);
+                    var targetSubtypeProp = profileSubtypeProperties.GetPropertyByName(targetPropertyName);
+
+                    if (srcSubtypeProp != null && targetSubtypeProp != null)
+                    {
+                        if (targetSubtypeProp.CoreProperty.TermSet != null
+                            && srcSubtypeProp.CoreProperty.TermSet != null)
+                        {
+                            if (targetSubtypeProp.CoreProperty.IsMultivalued)
+                            {
+                                // Get the profiles with empty target fields and sync them
+                                var profilesToModifyEnumerator = userProfileManager.GetEnumerator();
+                                while (profilesToModifyEnumerator.MoveNext())
+                                {
+                                    var profile = profilesToModifyEnumerator.Current as Microsoft.Office.Server.UserProfiles.UserProfile;
+
+                                    if (profile != null && profile[mapping.Value].Value == null)
+                                    {
+                                        this.SyncTaxonomyFields(
+                                        site,
+                                        profile,
+                                        mapping,
+                                        targetSubtypeProp.CoreProperty.TermSet.TermStore.Id,
+                                        targetSubtypeProp.CoreProperty.TermSet.Id);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                this.logger.Error(
+                                    string.Format(
+                                        CultureInfo.InvariantCulture,
+                                        @"UserProfileTargetingService.SyncTaxonomyFieldsForChangedUsers: The target property {0} is not set as multi valued. Please set this target property as multi valued",
+                                        targetPropertyName));
+                            }
+                        }
+                        else
+                        {
+                            this.logger.Error(
+                                @"UserProfileTargetingService.SyncTaxonomyFieldsForChangedUsers: 
+                            Some properties have wrong TermSet configuration. Please review user properties taxonomy settings.");
+                        }
+                    }
+                    else
+                    {
+                        this.logger.Error(
+                            @"UserProfileTargetingService.SyncTaxonomyFieldsForChangedUsers: 
+                        One or more user properties specified in the configuration list doesn't exists in the user profile property schema!");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Synchronizes the taxonomy fields from specified mappings for changed user profile in the last specified window of time.
         /// The source property will build the destination property taxonomy tree.
         /// </summary>

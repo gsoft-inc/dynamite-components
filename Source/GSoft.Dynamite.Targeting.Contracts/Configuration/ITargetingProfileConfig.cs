@@ -11,6 +11,14 @@ namespace GSoft.Dynamite.Targeting.Contracts.Configuration
     public interface ITargetingProfileConfig
     {
         /// <summary>
+        /// Gets the name of the timer job.
+        /// </summary>
+        /// <value>
+        /// The name of the timer job.
+        /// </value>
+        string TimerJobName { get; }
+
+        /// <summary>
         /// Gets the timer job schedule.
         /// </summary>
         /// <value>

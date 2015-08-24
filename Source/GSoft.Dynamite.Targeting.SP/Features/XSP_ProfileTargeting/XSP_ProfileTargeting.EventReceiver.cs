@@ -4,9 +4,9 @@ using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Targeting.Contracts.Configuration;
-using GSoft.Dynamite.Targeting.SP.TimerJobs;
 using GSoft.Dynamite.UserProfile;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Administration;
 
 namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_ProfileProps
 {
@@ -19,14 +19,6 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_ProfilePro
     [Guid("2d1e793b-50e7-47ba-b801-465acb2d713a")]
     public class CrossSitePublishingCmsProfilePropsEventReceiver : SPFeatureReceiver
     {
-        private static string TimerJobName
-        {
-            get
-            {
-                return typeof(TargetingProfileTaxonomySyncJob).FullName;
-            }
-        }
-
         /// <summary>
         /// Occurs after a Feature is activated.
         /// </summary>
@@ -58,14 +50,17 @@ namespace GSoft.Dynamite.Targeting.SP.Features.CrossSitePublishingCMS_ProfilePro
 
         private void EnsureProfileSyncTimerJob(ILifetimeScope scope, ITargetingProfileConfig config, SPSite site)
         {
+            var timerJobName = config.TimerJobName;
+
             // Delete if it already exists
-            DeleteTimerJobIfExists(site, TimerJobName);
+            DeleteTimerJobIfExists(site, timerJobName);
 
             // Register timer job with scheduling
-            var timerJob = new TargetingProfileTaxonomySyncJob(TimerJobName, site.WebApplication)
-            {
-                Schedule = config.TimerJobSchedule
-            };
+            var timerJob = scope.Resolve<SPJobDefinition>(
+                new TypedParameter(typeof(string), timerJobName),
+                new TypedParameter(typeof(SPWebApplication), site.WebApplication));
+
+            timerJob.Schedule = config.TimerJobSchedule;
 
             // Service accout for the application pool must be set
             // http://technet.microsoft.com/en-us/library/ee513067.aspx
