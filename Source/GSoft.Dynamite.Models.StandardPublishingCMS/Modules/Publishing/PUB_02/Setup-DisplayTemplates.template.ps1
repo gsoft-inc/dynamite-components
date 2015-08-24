@@ -7,5 +7,5 @@
 
 Write-Warning "Applying Display Templates configuration..."
 
-## Activate feature on the root web on the publishing site collection
+# Activate feature on the root web on the publishing site collection
 Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CommonCMS_PUB_DisplayTemplates]]
