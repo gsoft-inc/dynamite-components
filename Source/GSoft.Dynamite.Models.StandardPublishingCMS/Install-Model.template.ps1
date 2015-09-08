@@ -75,7 +75,7 @@ try {
     #endregion
 
     #region ********** NAVIGATION MODULE ********** #
-    .\Modules\Navigation\NAV_01\Install-NAV01.ps1
+    .\Modules\Navigation\NAV_01\Install-NAV01.ps1 -Force:$Force
     .\Modules\Navigation\NAV_05\Install-NAV05.ps1
     #endregion
 

@@ -99,7 +99,7 @@
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\NAV_01\Export-TermGroups.template.ps1" />
     <None Include="Modules\Navigation\NAV_01\Import-TermGroups.template.ps1" />
-    <None Include="Modules\Navigation\NAV_01\Install-NAV01.ps1" />
+    <None Include="Modules\Navigation\NAV_01\Install-NAV01.template.ps1" />
     <None Include="Modules\Navigation\NAV_01\Remove-TermGroups.template.ps1" />
     <None Include="Modules\Navigation\NAV_01\Setup-ManagedNavigation.template.ps1" />
     <None Include="Modules\Navigation\NAV_05\Install-NAV05.ps1" />
