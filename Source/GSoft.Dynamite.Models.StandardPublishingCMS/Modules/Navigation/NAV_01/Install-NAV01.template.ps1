@@ -43,8 +43,8 @@ function Prompt-ForOverwriteKeywordsTermGroup {
 
 function Check-KeywordsTermGroupExists {
     $TermStoreName = "[[DSP_TermStoreName]]"
-    $DefaultKeywordsTermGroup = "[[DSP_DEFAULT_PortalKeywordsConfigurationFile]]"
-    $CustomKeywordsTermGroup = "[[DSP_CUSTOM_PortalKeywordsConfigurationFile]]"
+    $DefaultKeywordsTermGroup = "[[DSP_DEFAULT_PortalKeywordsTermGroup]]"
+    $CustomKeywordsTermGroup = "[[DSP_CUSTOM_PortalKeywordsTermGroup]]"
 
     $KeywordsTermGroup = $DefaultKeywordsTermGroup
 
