@@ -101,7 +101,6 @@ try {
 
     #region ********** SEARCH MODULE ********** #
 	.\Modules\Search\SRCH_02\Install-SRCH02.ps1
-    .\Modules\Search\SRCH_03\Install-SRCH03.ps1
 
 	#endregion
 
