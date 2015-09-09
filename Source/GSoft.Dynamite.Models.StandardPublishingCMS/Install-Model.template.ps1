@@ -75,7 +75,7 @@ try {
     #endregion
 
     #region ********** NAVIGATION MODULE ********** #
-    .\Modules\Navigation\NAV_01\Install-NAV01.ps1
+    .\Modules\Navigation\NAV_01\Install-NAV01.ps1 -Force:$Force
     .\Modules\Navigation\NAV_05\Install-NAV05.ps1
     #endregion
 
@@ -101,6 +101,7 @@ try {
 
     #region ********** SEARCH MODULE ********** #
 	.\Modules\Search\SRCH_02\Install-SRCH02.ps1
+    .\Modules\Search\SRCH_03\Install-SRCH03.ps1
 
 	#endregion
 

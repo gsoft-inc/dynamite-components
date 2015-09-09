@@ -48,7 +48,7 @@
     </Reference>
     <Reference Include="GSoft.Dynamite, Version=15.0.0.0, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10587\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.1-pre10598\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -108,7 +108,7 @@
     <None Include="Artefacts\SocialMetaTags\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{c2cbffbb-1520-42f7-814e-c1de06d92fc7}</SharePointProjectItemId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_SocialMetaTags\CrossSitePublishingCMS_SocialMetaTags.feature">
+    <None Include="Features\CommonCMS_SocialMetaTags\CommonCMS_SocialMetaTags.feature">
       <FeatureId>{97e572e3-9df5-4590-bd09-f982765c7166}</FeatureId>
     </None>
     <None Include="SP.CONTROLTEMPLATES\SharePointProjectItem.spdata">
@@ -162,8 +162,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Features\CrossSitePublishingCMS_SocialMetaTags\CrossSitePublishingCMS_SocialMetaTags.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_SocialMetaTags.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_SocialMetaTags\CommonCMS_SocialMetaTags.Template.xml">
+      <DependentUpon>CommonCMS_SocialMetaTags.feature</DependentUpon>
     </Content>
     <Content Include="SP.CONTROLTEMPLATES\GSoft.Dynamite.Search\OGMetaTags.ascx" />
     <Content Include="SP.CONTROLTEMPLATES\GSoft.Dynamite.Search\SchemaOrgMetaTags.ascx" />

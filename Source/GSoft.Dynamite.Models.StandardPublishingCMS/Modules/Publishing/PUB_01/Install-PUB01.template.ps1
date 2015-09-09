@@ -43,10 +43,10 @@ function Prompt-ForOverwriteNavigationTermGroup {
 
 function Check-NavigationTermGroupExists {
     $TermStoreName = "[[DSP_TermStoreName]]"
-    $DefaultNavigationtermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
+    $DefaultNavigationTermGroup = "[[DSP_DEFAULT_PortalNavigationTermGroup]]"
     $CustomNavigationTermGroup = "[[DSP_CUSTOM_PortalNavigationTermGroup]]"
 
-    $NavigationTermGroup = $DefaultNavigationtermGroup
+    $NavigationTermGroup = $DefaultNavigationTermGroup
 
     if(![string]::IsNullOrEmpty($CustomNavigationTermGroup))
     {

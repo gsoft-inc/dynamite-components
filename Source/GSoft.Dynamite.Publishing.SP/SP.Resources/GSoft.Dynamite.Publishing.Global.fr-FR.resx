@@ -361,7 +361,7 @@
     <value>SVP inserer un titre de contenu reutilisable.</value>
   </data>
   <data name="ReusableContent_NoReusableContentFound" xml:space="preserve">
-    <value>Le contenu reutilisable que vous rechercher est introuvable.</value>
+    <value>Le contenu reutilisable que vous recherchez est introuvable.</value>
   </data>
   <data name="Feature_CommonCMS_ReusableContent_Desc" xml:space="preserve">
     <value>Deploie la Web Part et le User Control de contenu reutilisable en plus de creer les contenus enregistres</value>

@@ -18371,6 +18371,15 @@
             <param name="owner">The Owner key. Only one modification should have that owner</param>
             <remarks>All SPWebConfigModification Owner should be UNIQUE !</remarks>
         </member>
+        <member name="M:GSoft.Dynamite.Configuration.IWebConfigModificationHelper.RemoveExistingModificationsFromOwner(Microsoft.SharePoint.Administration.SPWebApplication,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Method to remove all existing WebConfig Modifications for the listed owners.
+            By Design, owner should be unique per WebConfig modification so we can remove duplicates.
+            </summary>
+            <param name="webApplication">The current Web Application</param>
+            <param name="owners">A list of owners for which we want to remove modifications.</param>
+            <remarks>All SPWebConfigModification Owner should be UNIQUE !</remarks>
+        </member>
         <member name="T:GSoft.Dynamite.Configuration.WebConfigModificationHelper">
             <summary>
             Helper class to add, clean, remove WebConfig modifications programmatically
@@ -18392,7 +18401,30 @@
             </summary>
             <param name="webApplication">The current Web Application</param>
             <param name="owner">The Owner key. Only one modification should have that owner</param>
+            <remarks>
+            All SPWebConfigModification Owner should be UNIQUE !
+            </remarks>
+        </member>
+        <member name="M:GSoft.Dynamite.Configuration.WebConfigModificationHelper.RemoveExistingModificationsFromOwner(Microsoft.SharePoint.Administration.SPWebApplication,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Method to remove all existing WebConfig Modifications for the listed owners.
+            By Design, owner should be unique per WebConfig modification so we can remove duplicates.
+            </summary>
+            <param name="webApplication">The current Web Application</param>
+            <param name="owners">A list of owners for which we want to remove modifications.</param>
             <remarks>All SPWebConfigModification Owner should be UNIQUE !</remarks>
+        </member>
+        <member name="M:GSoft.Dynamite.Configuration.WebConfigModificationHelper.WaitForWebConfigPropagation(Microsoft.SharePoint.Administration.SPFarm)">
+            <summary>
+            Waits for web configuration propagation.
+            When there are multiple front-end Web servers in the
+            SharePoint farm, we need to wait for the timer job that
+            performs the Web.config modifications to complete before
+            continuing. Otherwise, we may encounter the following error
+            (e.g. when applying Web.config changes from two different
+            features in rapid succession): "A web configuration modification operation is already running."
+            </summary>
+            <param name="farm">The SharePoint farm.</param>
         </member>
         <member name="M:GSoft.Dynamite.Configuration.WebConfigModificationHelper.IsJobRunning(Microsoft.SharePoint.Administration.SPFarm,System.String)">
             <summary>
