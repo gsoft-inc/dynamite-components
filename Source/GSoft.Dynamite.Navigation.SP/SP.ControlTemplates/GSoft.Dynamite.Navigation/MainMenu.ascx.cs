@@ -45,7 +45,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                     NodeMatchingSettings = new NavigationNodeMatchingSettings()
                     {
                         IncludeCatalogItems = true,
-                        RestrictToReachableTargetItems = true
+                        RestrictToReachableTargetItems = true,
                     },
                     SearchSettings = new NavigationSearchSettings()
                     {
@@ -68,7 +68,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                                 CultureInfo.InvariantCulture,
                                 "{0}:{1}",
                                 MultilingualismManagedPropertyInfos.ItemLanguage.Name,
-                                SPContext.Current.Web.Locale.TwoLetterISOLanguageName),
+                                SPContext.Current.Web.Locale.Name),
 
                             // Filter items on occurence link location (featured in) main menu
                             string.Format(
@@ -82,7 +82,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                             string.Format(
                                 CultureInfo.InvariantCulture, 
                                 "{0}:{1}*", 
-                                BuiltInManagedProperties.ContentTypeId, 
+                                BuiltInManagedProperties.ContentTypeId.Name, 
                                 PublishingContentTypeInfos.TargetContentItem.ContentTypeId)
                         },
                         CatalogItemFilters = new List<string>
@@ -90,7 +90,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                             string.Format(
                                 CultureInfo.InvariantCulture, 
                                 "{0}:{1}*", 
-                                BuiltInManagedProperties.ContentTypeId, 
+                                BuiltInManagedProperties.ContentTypeId.Name, 
                                 PublishingContentTypeInfos.CatalogContentItem.ContentTypeId)
                         }
                     }
