@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Autofac;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
-using GSoft.Dynamite.Publishing.Contracts.Services;
+using GSoft.Dynamite.ReusableContent;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_ReusableContent
@@ -26,20 +26,12 @@ namespace GSoft.Dynamite.Publishing.SP.Features.CommonCMS_ReusableContent
         {
             var site = properties.Feature.Parent as SPSite;
 
-            // Create all the base reusable content items and insert them into the Reusable Content library on the root web
-            using (var web = site.OpenWeb())
+            using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
             {
-                using (var featureScope = PublishingContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
-                {
-                    var service = featureScope.Resolve<IReusableContentService>();
-                    var reusableContentConfig = featureScope.Resolve<IPublishingReusableContentConfig>();
+                var reusableContentHelper = featureScope.Resolve<IReusableContentHelper>();
+                var reusableContentConfig = featureScope.Resolve<IPublishingReusableContentConfig>();
 
-                    // Create each reusable content from file
-                    foreach (var name in reusableContentConfig.ReusableContentNames)
-                    {
-                        service.CreateReusableContent(web, name, reusableContentConfig.Category, reusableContentConfig.RelativePath, false);
-                    }
-                }
+                reusableContentHelper.EnsureReusableContent(site, reusableContentConfig.ReusableContents);
             }
         }
     }

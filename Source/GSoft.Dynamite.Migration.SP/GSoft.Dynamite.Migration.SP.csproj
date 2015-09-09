@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6409E99-8086-402E-AE5B-A6ABFEE35D34}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GSoft.Dynamite.Migration.SP</RootNamespace>
+    <AssemblyName>GSoft.Dynamite.Migration.SP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\GSoft.Dynamite.Portal.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="GSoft.Dynamite, Version=3.0.0.265, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.3.0.0.265\lib\net45\GSoft.Dynamite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="MigrationContainerProxy.cs" />
+    <Compile Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CommonCMS_ManagedProperties\CommonCMS_ManagedProperties.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ManagedProperties.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\GSoft.Dynamite.Portal.snk">
+      <Link>Properties\GSoft.Dynamite.Portal.snk</Link>
+    </None>
+    <None Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.feature">
+      <FeatureId>{4ab42785-c039-47b7-8eb0-4c87efbacda6}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
+      <FeatureId>{26b8ca2f-e015-4d75-9838-c4c81e6a4c6e}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_ManagedProperties\CommonCMS_ManagedProperties.feature">
+      <FeatureId>{23ddae7a-7821-4169-a90c-36323c42b78f}</FeatureId>
+    </None>
+    <None Include="GSoft.Dynamite.Migration.SP.nuspec" />
+    <None Include="packages.config" />
+    <None Include="Package\Package.package">
+      <PackageId>{df4260d0-f152-4afb-b814-1d60b5bdc26f}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="SP.Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{808b614d-1256-4a80-8ce2-9b0b116135ae}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSoft.Dynamite.Common.Contracts\GSoft.Dynamite.Common.Contracts.csproj">
+      <Project>{31680a5f-e76d-4501-9dfc-d67ce09863f1}</Project>
+      <Name>GSoft.Dynamite.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Migration.Contracts\GSoft.Dynamite.Migration.Contracts.csproj">
+      <Project>{CFFD1AAB-48E5-4019-BB84-CCAE430353BB}</Project>
+      <Name>GSoft.Dynamite.Migration.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
+      <Project>{80D89ED1-4BB2-4020-B51B-97D3D376C36F}</Project>
+      <Name>GSoft.Dynamite.Publishing.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.Template.xml">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CommonCMS_ManagedProperties\CommonCMS_ManagedProperties.Template.xml">
+      <DependentUpon>CommonCMS_ManagedProperties.feature</DependentUpon>
+    </Content>
+    <Content Include="SP.Resources\GSoft.Dynamite.Migration.Global.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SP.Resources\GSoft.Dynamite.Migration.Global.fr-FR.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

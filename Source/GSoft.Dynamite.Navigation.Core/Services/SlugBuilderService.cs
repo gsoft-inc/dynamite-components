@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using GSoft.Dynamite.Logging;
+using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Services;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Publishing;
@@ -14,28 +16,28 @@ namespace GSoft.Dynamite.Navigation.Core.Services
     /// </summary>
     public class SlugBuilderService : ISlugBuilderService
     {
-        private readonly ILogger _logger;
-        private readonly INavigationHelper _navigationHelper;
-        private readonly NavigationFieldInfos _navigationFieldInfos;
-        private readonly PublishingFieldInfos publishingFieldInfos;
+        private readonly ILogger logger;
+        private readonly INavigationHelper navigationHelper;
+        private readonly INavigationFieldInfoConfig navigationFieldConfig;
+        private readonly IPublishingFieldInfoConfig publishingFieldConfig;
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="SlugBuilderService"/> class.
         /// </summary>
-        /// <param name="logger">The logger</param>
-        /// <param name="navigationHelper">The navigation helper</param>
-        /// <param name="navigationFieldInfos">The field info objects configuration</param>
-        /// <param name="publishingFieldInfos">The publishing field information.</param>
+        /// <param name="logger">The logger.</param>
+        /// <param name="navigationHelper">The navigation helper.</param>
+        /// <param name="navigationFieldConfig">The navigation field configuration.</param>
+        /// <param name="publishingFieldConfig">The publishing field configuration.</param>
         public SlugBuilderService(
             ILogger logger, 
             INavigationHelper navigationHelper, 
-            NavigationFieldInfos navigationFieldInfos,
-            PublishingFieldInfos publishingFieldInfos)
+            INavigationFieldInfoConfig navigationFieldConfig,
+            IPublishingFieldInfoConfig publishingFieldConfig)
         {
-            this._logger = logger;
-            this._navigationHelper = navigationHelper;
-            this._navigationFieldInfos = navigationFieldInfos;
-            this.publishingFieldInfos = publishingFieldInfos;
+            this.logger = logger;
+            this.navigationHelper = navigationHelper;
+            this.navigationFieldConfig = navigationFieldConfig;
+            this.publishingFieldConfig = publishingFieldConfig;
         }
 
         /// <summary>
@@ -44,15 +46,15 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// <param name="item">The item.</param>
         public void SetFriendlyUrlSlug(SPListItem item)
         {
-            var itemDateFieldName = this.publishingFieldInfos.PublishingStartDate().InternalName;
-            var dateSlugFieldName = this._navigationFieldInfos.DateSlug().InternalName;
-            var titleSlugFieldName = this._navigationFieldInfos.TitleSlug().InternalName;
+            var itemDateFieldName = this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.PublishingStartDate.Id).InternalName;
+            var dateSlugFieldName = this.navigationFieldConfig.GetFieldById(NavigationFieldInfos.DateSlug.Id).InternalName;
+            var titleSlugFieldName = this.navigationFieldConfig.GetFieldById(NavigationFieldInfos.TitleSlug.Id).InternalName;
 
             // Generate title slug
             if (item.Fields.ContainsField(titleSlugFieldName))
             {
-                item[titleSlugFieldName] = this._navigationHelper.GenerateFriendlyUrlSlug(item.Title);
-                this._logger.Info(
+                item[titleSlugFieldName] = this.navigationHelper.GenerateFriendlyUrlSlug(item.Title);
+                this.logger.Info(
                     "ContentAssociation.SetFriendlyUrlSlug: Set title slug '{0}' on item '{1}' in web '{2}'.",
                     item[titleSlugFieldName],
                     item.Title,
@@ -63,7 +65,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             if (item.Fields.ContainsField(dateSlugFieldName) && item.Fields.ContainsField(itemDateFieldName))
             {
                 item[dateSlugFieldName] = GetFriendlyUrlDate(item, itemDateFieldName);
-                this._logger.Info(
+                this.logger.Info(
                     "ContentAssociation.SetFriendlyUrlSlug: Set date slug '{0}' on item '{1}' in web '{2}'.",
                     item[dateSlugFieldName],
                     item.Title,

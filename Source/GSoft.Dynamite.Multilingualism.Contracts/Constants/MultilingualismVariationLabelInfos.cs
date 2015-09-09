@@ -1,46 +1,53 @@
-﻿using GSoft.Dynamite.Globalization.Variations;
+﻿using System.Globalization;
+using GSoft.Dynamite.Globalization.Variations;
 
 namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
 {
     /// <summary>
     /// Defines SharePoint variations labels
     /// </summary>
-    public class MultilingualismVariationLabelInfos
+    public static class MultilingualismVariationLabelInfos
     {
         /// <summary>
         /// The english variation label definition
         /// </summary>
         /// <returns>The label info</returns>
-        public VariationLabelInfo EnglishLabel()
+        public static VariationLabelInfo EnglishLabel
         {
-            return new VariationLabelInfo()
+            get
             {
-                Title = "en",
-                Description = "English Variation Label",
-                FlagControlDisplayName = "Home",
-                HierarchyCreationMode = CreationMode.PublishingSitesAndAllPages,
-                IsSource = true,
-                Language = "en-US",
-                Locale = 1033
-            };
+                var englishUsCulture = new CultureInfo("en-US");
+                return new VariationLabelInfo()
+                {
+                    Title = "en",
+                    DisplayName = "Home",
+                    Description = "English Variation Label",
+                    IsSource = true,
+                    Language = englishUsCulture,
+                    Locale = englishUsCulture
+                };
+            }
         }
 
         /// <summary>
         /// The french variation label definition
         /// </summary>
         /// <returns>The label info</returns>
-        public VariationLabelInfo FrenchLabel()
+        public static VariationLabelInfo FrenchLabel
         {
-            return new VariationLabelInfo()
+            get
             {
-                Title = "fr",
-                Description = "Label de variante Français",
-                FlagControlDisplayName = "Accueil",
-                HierarchyCreationMode = CreationMode.PublishingSitesAndAllPages,
-                IsSource = false,
-                Language = "fr-FR",
-                Locale = 1036
-            };
+                var frenchFrCulture = new CultureInfo("fr-FR");
+                return new VariationLabelInfo()
+                {
+                    Title = "fr",
+                    DisplayName = "Accueil",
+                    Description = "Label de variante Français",
+                    IsSource = false,
+                    Language = frenchFrCulture,
+                    Locale = frenchFrCulture
+                };
+            }
         }
     }
 }

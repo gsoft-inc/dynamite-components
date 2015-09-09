@@ -8,7 +8,7 @@
         <owners>GSoft</owners>
         <licenseUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
-        <iconUrl>https://avatars3.githubusercontent.com/u/5606578?s=140</iconUrl>
+        <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Closed-source reusable components and modules for SharePoint 2013 based on the Dynamite (2013) toolkit</description>
         <releaseNotes></releaseNotes>
@@ -37,6 +37,9 @@
       <file src="..\GSoft.Dynamite.Docs.SP\bin\$configuration$\GSoft.Dynamite.Docs.SP.wsp" target="tools\Solutions\WSP" />
       <file src="..\GSoft.Dynamite.LifeCycle.SP\bin\$configuration$\GSoft.Dynamite.LifeCycle.SP.wsp" target="tools\Solutions\WSP" />
       <file src="..\GSoft.Dynamite.Search.SP\bin\$configuration$\GSoft.Dynamite.Search.SP.wsp" target="tools\Solutions\WSP" />
+      <file src="..\GSoft.Dynamite.Migration.SP\bin\$configuration$\GSoft.Dynamite.Migration.SP.wsp" target="tools\Solutions\WSP" />
+      <file src="..\GSoft.Dynamite.Targeting.SP\bin\$configuration$\GSoft.Dynamite.Targeting.SP.wsp" target="tools\Solutions\WSP" />
+      <file src="..\GSoft.Dynamite.Social.SP\bin\$configuration$\GSoft.Dynamite.Social.SP.wsp" target="tools\Solutions\WSP" />
       <file src="Nuget\Install.ps1" target="tools\Install.ps1" />
     </files>
 </package>

@@ -2,7 +2,11 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="52a58289-27ce-4705-ac67-9a4c05ba9558" solutionId="52a58289-27ce-4705-ac67-9a4c05ba9558" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Multilingualism.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <assemblies>
     <projectOutputAssembly location="GSoft.Dynamite.Multilingualism.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Multilingualism.Contracts\GSoft.Dynamite.Multilingualism.Contracts.csproj" />
-    <projectOutputAssembly location="GSoft.Dynamite.Multilingualism.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Multilingualism.Core\GSoft.Dynamite.Multilingualism.Core.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Multilingualism.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Multilingualism.Core\GSoft.Dynamite.Multilingualism.Core.csproj">
+      <safeControls>
+        <safeControl assemblyName="GSoft.Dynamite.Multilingualism.Core.dll" namespaceName="GSoft.Dynamite.Multilingualism.Core" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
   </assemblies>
   <features>
     <featureReference itemId="0edab4c6-dc30-4e56-9478-230e3a582255" />
@@ -13,6 +17,7 @@
     <featureReference itemId="2b7a1022-bf45-46d4-a48a-e871264e8abf" />
     <featureReference itemId="f1802c45-cdce-4b07-9f86-9574f16b0c12" />
     <featureReference itemId="737c538d-0636-458e-83b7-31d1a962e20a" />
+    <featureReference itemId="a12d38ab-f3b5-41a8-bd74-16381e3cb8b1" />
   </features>
   <projectItems>
     <projectItemReference itemId="9f95b340-1d15-4e98-a355-0060a268159e" />

@@ -2,7 +2,7 @@
 using System.Web.UI;
 using Autofac;
 using GSoft.Dynamite.Globalization;
-using GSoft.Dynamite.Publishing.Contracts.Services;
+using GSoft.Dynamite.ReusableContent;
 using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Publishing.SP.CONTROLTEMPLATES.GSoft.Dynamite.Publishing
@@ -42,13 +42,12 @@ namespace GSoft.Dynamite.Publishing.SP.CONTROLTEMPLATES.GSoft.Dynamite.Publishin
         protected void Page_Load(object sender, EventArgs e)
         {
             var resourceLocator = PublishingContainerProxy.Current.Resolve<IResourceLocator>();
-            var reusableContentService = PublishingContainerProxy.Current.Resolve<IReusableContentService>();
-            var web = SPContext.Current.Web.Site.RootWeb;
+            var reusableContentHelper = PublishingContainerProxy.Current.Resolve<IReusableContentHelper>();
 
             if (!string.IsNullOrEmpty(this.ReusableContentTitle))
             {
                 // Get the proper reusable content
-                var reusableContent = reusableContentService.GetByTitle(web, this.ReusableContentTitle);
+                var reusableContent = reusableContentHelper.GetByTitle(SPContext.Current.Site, this.ReusableContentTitle);
                 this.ReusableContentValue = reusableContent != null ? reusableContent.Content : resourceLocator.Find("ReusableContent_NoReusableContentFound");
             }
             else

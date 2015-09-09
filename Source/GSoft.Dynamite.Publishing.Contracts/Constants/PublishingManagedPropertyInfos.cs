@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GSoft.Dynamite.Search.Enums;
 using Microsoft.Office.Server.Search.Administration;
 using ManagedPropertyInfo = GSoft.Dynamite.Search.ManagedPropertyInfo;
 
@@ -7,23 +8,41 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// <summary>
     /// Search managed properties for the publishing module
     /// </summary>
-    public class PublishingManagedPropertyInfos
+    public static class PublishingManagedPropertyInfos
     {
         /// <summary>
-        /// The navigation managed property name
+        /// Gets the navigation taxonomy managed property.
         /// </summary>
-        public ManagedPropertyInfo Navigation
+        /// <value>
+        /// The managed property information.
+        /// </value>
+        public static ManagedPropertyInfo Navigation
         {
             get
             {
-                return new ManagedPropertyInfo("owstaxIdDynamiteNavigation", ManagedDataType.Text);
+                return new ManagedPropertyInfo(
+                    "owstaxIdDynamiteNavigation",
+                    ManagedDataType.Text)
+                {
+                    CrawledProperties = new Dictionary<string, int>()
+                    {
+                        { "ows_taxid_DynamiteNavigation", 1 }
+                    },
+                    Queryable = true,
+                    Searchable = true,
+                    Retrievable = true,
+                    RespectPriority = true,
+                    SafeForAnonymous = true,
+                    HasMultipleValues = true,
+                    UpdateBehavior = ManagedPropertyUpdateBehavior.OverwriteIfAlreadyExists
+                };
             }
-        }
+        } 
 
         /// <summary>
         /// The navigation text managed property
         /// </summary>
-        public ManagedPropertyInfo NavigationText
+        public static ManagedPropertyInfo NavigationText
         {
             get
             {
@@ -44,7 +63,7 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// <summary>
         /// The summary text managed property
         /// </summary>
-        public ManagedPropertyInfo Summary
+        public static ManagedPropertyInfo Summary
         {
             get
             {
@@ -60,64 +79,5 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
                     };
                 }
         } 
-
-        #region SharePoint builtin Managed Properties
-
-        /// <summary>
-        /// The OOTB ListItemId managed property
-        /// </summary>
-        public ManagedPropertyInfo ListItemId 
-        {
-            get
-            {
-                return new ManagedPropertyInfo("ListItemID", ManagedDataType.Text);
-            }
-        } 
-
-        /// <summary>
-        /// The OOTB ContentTypeId managed property
-        /// </summary>
-        public ManagedPropertyInfo ContentTypeId
-        {
-            get
-            {
-                return new ManagedPropertyInfo("ContentTypeId", ManagedDataType.Text);
-            }
-        } 
-
-        /// <summary>
-        /// The OOTB Title managed property
-        /// </summary>
-        public ManagedPropertyInfo Title
-        {
-            get
-            {
-                return new ManagedPropertyInfo("Title", ManagedDataType.Text);
-            }
-        } 
-
-        /// <summary>
-        /// The OOTB PublishingPageContent managed property
-        /// </summary>
-        public ManagedPropertyInfo PublishingPageContent
-        {
-            get
-            {
-                return new ManagedPropertyInfo("PublishingPageContentOWSHTML", ManagedDataType.Text);
-            }
-        }
-
-        /// <summary>
-        /// The OOTB PublishingImage managed property
-        /// </summary>
-        public ManagedPropertyInfo PublishingImage
-        {
-            get
-            {
-                return new ManagedPropertyInfo("PublishingImage", ManagedDataType.Text);
-            }
-        }
-
-        #endregion
     }
 }

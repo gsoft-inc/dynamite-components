@@ -48,6 +48,11 @@ try {
 	.\Modules\Navigation\NAV_05\Install-NAV05.ps1
 	#endregion
 
+	#region ********** DOCUMENT MANAGEMENT MODULE ********** #
+	.\Modules\Docs\DOC_01\Install-DOC01.ps1
+	.\Modules\Docs\DOC_02\Install-DOC02.ps1
+	#endregion
+
 	#region ********** LIFE CYCLE MODULE ********** #
 	.\Modules\Lifecycle\LFCL_01\Install-LFCL01.ps1
 	#endregion
@@ -79,10 +84,32 @@ try {
 	}
 	#endregion
 
-	#region ********** DOCUMENT MANAGEMENT MODULE ********** #
+	#region ********** SOCIAL MODULE ********** #
+	$EnableSocial = $false
+	[System.Boolean]::TryParse("[[DSP_EnableSocialModule]]", [ref]$EnableSocial)
+	if($EnableSocial)
+	{
+		.\Modules\Social\SOCIAL_01\Install-SOCIAL01.ps1
+	}
+	#endregion
+
+	#region ********** TARGETING MODULE ********** #
+	$EnableTargeting = $false
+	[System.Boolean]::TryParse("[[DSP_EnableTargeting]]", [ref]$EnableTargeting)
+	if($EnableTargeting)
+	{
+		.\Modules\Targeting\TARGET_01\Install-TARGET01.ps1
+		.\Modules\Targeting\TARGET_02\Install-TARGET02.ps1
+		.\Modules\Targeting\TARGET_03\Install-TARGET03.ps1
+	}
+	#endregion
+
+	#region ********** MIGRATION MODULE ********** #
 	# Notes: We need to import content after all content types were created
-	.\Modules\Docs\DOC_01\Install-DOC01.ps1
-	.\Modules\Docs\DOC_02\Install-DOC02.ps1
+	.\Modules\Migration\MIG_01\Install-MIG01.ps1
+
+    # Very important to import reusable contents after solution content to allow a control of the ID sequence
+    .\Modules\Publishing\PUB_04\Install-PUB04.ps1
 	#endregion
 
 	#region ********** POST DEPLOYMENT SCRIPTS ********** #

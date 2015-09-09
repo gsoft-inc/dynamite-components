@@ -34,13 +34,13 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="GSoft.Dynamite, Version=2.2.0.264, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+    <Reference Include="GSoft.Dynamite, Version=3.0.0.265, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.0.264\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.3.0.0.265\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,6 +61,8 @@
     <None Include="Modules\Docs\Tokens.Docs.Custom.ps1" />
     <None Include="Modules\Docs\Tokens.Docs.Default.ps1" />
     <None Include="Modules\Lifecycle\Tokens.LifeCycle.Default.ps1" />
+    <None Include="Modules\Migration\Tokens.Migration.Custom.ps1" />
+    <None Include="Modules\Migration\Tokens.Migration.Default.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Custom.ps1" />
     <None Include="Modules\Multilingualism\Tokens.Multilingualism.Default.ps1" />
     <None Include="Modules\Navigation\Tokens.Navigation.Custom.ps1" />
@@ -68,8 +70,15 @@
     <None Include="Modules\Publishing\Tokens.Publishing.Custom.ps1" />
     <None Include="Modules\Publishing\Tokens.Publishing.Default.ps1" />
     <None Include="Modules\Search\Tokens.Search.Default.ps1" />
+    <None Include="Modules\Social\Tokens.Social.Custom.ps1" />
+    <None Include="Modules\Social\Tokens.Social.Default.ps1" />
+    <None Include="Modules\Targeting\Tokens.Targeting.Custom.ps1" />
+    <None Include="Modules\Targeting\Tokens.Targeting.Default.ps1" />
     <None Include="packages.config" />
     <None Include="Publish-DeploymentFolder.ps1" />
+    <None Include="Tokens.FRANCK-VM2013.ps1" />
+    <None Include="Tokens.VMSPPHIL.ps1" />
+    <None Include="Tokens.SVD1100SHRP03.ps1" />
     <None Include="Tokens.sp2013-yohan.ps1" />
     <None Include="Tokens.sp2013tao.ps1" />
   </ItemGroup>

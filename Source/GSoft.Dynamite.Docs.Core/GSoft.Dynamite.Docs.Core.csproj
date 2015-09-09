@@ -40,13 +40,14 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="GSoft.Dynamite, Version=2.2.0.264, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+    <Reference Include="GSoft.Dynamite, Version=3.0.0.265, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.0.264\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.3.0.0.265\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -63,7 +64,7 @@
     <Compile Include="Configuration\DocsContentTypeInfoConfig.cs" />
     <Compile Include="Configuration\DocsFieldInfoConfig.cs" />
     <Compile Include="Configuration\DocsImageRenditionInfoConfig.cs" />
-    <Compile Include="Configuration\DocsManagedPropertyInfosConfig.cs" />
+    <Compile Include="Configuration\DocsListInfoConfig.cs" />
     <Compile Include="RegistrationModules\DocsRegistrationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +78,10 @@
     <ProjectReference Include="..\GSoft.Dynamite.Docs.Contracts\GSoft.Dynamite.Docs.Contracts.csproj">
       <Project>{b35ace7c-9459-4726-b1ff-9fb627815d13}</Project>
       <Name>GSoft.Dynamite.Docs.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSoft.Dynamite.Migration.Contracts\GSoft.Dynamite.Migration.Contracts.csproj">
+      <Project>{CFFD1AAB-48E5-4019-BB84-CCAE430353BB}</Project>
+      <Name>GSoft.Dynamite.Migration.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\GSoft.Dynamite.Publishing.Contracts\GSoft.Dynamite.Publishing.Contracts.csproj">
       <Project>{80d89ed1-4bb2-4020-b51b-97d3d376c36f}</Project>

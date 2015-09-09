@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
+using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Navigation.Contracts.Services;
 using Microsoft.SharePoint;
 
@@ -16,16 +18,27 @@ namespace GSoft.Dynamite.Navigation.SP.Events
         public override void ItemAdded(SPItemEventProperties properties)
         {
             base.ItemAdded(properties);
-            this.EventFiringEnabled = false;
 
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
-                var slugService = childScope.Resolve<ISlugBuilderService>();
+                this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                // Set slugs
-                slugService.SetFriendlyUrlSlug(properties.ListItem);
+                try
+                {
+                    var slugService = childScope.Resolve<ISlugBuilderService>();
 
-                this.EventFiringEnabled = true;
+                    // Set slugs
+                    slugService.SetFriendlyUrlSlug(properties.ListItem);
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
 
@@ -36,15 +49,26 @@ namespace GSoft.Dynamite.Navigation.SP.Events
         public override void ItemUpdated(SPItemEventProperties properties)
         {
             base.ItemUpdated(properties);
-            this.EventFiringEnabled = false;
             using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
-                var slugService = childScope.Resolve<ISlugBuilderService>();
+                this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                // Set slugs
-                slugService.SetFriendlyUrlSlug(properties.ListItem);
+                try
+                {
+                    var slugService = childScope.Resolve<ISlugBuilderService>();
 
-                this.EventFiringEnabled = true;
+                    // Set slugs
+                    slugService.SetFriendlyUrlSlug(properties.ListItem);
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
     }

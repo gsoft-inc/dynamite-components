@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
@@ -11,24 +14,24 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
     /// </summary>
     public class NavigationContentTypeInfoConfig : INavigationContentTypeInfoConfig
     {
-        private readonly PublishingContentTypeInfos _basePublishingContentTypeInfos;
-        private readonly NavigationFieldInfos _basenavigationFieldInfos;
-        private readonly PublishingFieldInfos basePublishingFieldInfos;
+        private readonly IPublishingContentTypeInfoConfig publishingContentTypeConfig;
+        private readonly INavigationFieldInfoConfig navigationFieldConfig;
+        private readonly IPublishingFieldInfoConfig publishingFieldConfig;
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="NavigationContentTypeInfoConfig"/> class.
         /// </summary>
-        /// <param name="basePublishingContentTypeInfos">The content type info objects configuration</param>
-        /// <param name="baseMultilingualismFieldInfos">The fields info objects configuration</param>
-        /// <param name="basePublishingFieldInfos">The base publishing field information.</param>
+        /// <param name="publishingContentTypeConfig">The publishing content type configuration.</param>
+        /// <param name="navigationFieldConfig">The navigation field configuration.</param>
+        /// <param name="publishingFieldConfig">The publishing field configuration.</param>
         public NavigationContentTypeInfoConfig(
-            PublishingContentTypeInfos basePublishingContentTypeInfos,
-            NavigationFieldInfos baseMultilingualismFieldInfos,
-            PublishingFieldInfos basePublishingFieldInfos)
+            IPublishingContentTypeInfoConfig publishingContentTypeConfig,
+            INavigationFieldInfoConfig navigationFieldConfig,
+            IPublishingFieldInfoConfig publishingFieldConfig)
         {
-            this._basePublishingContentTypeInfos = basePublishingContentTypeInfos;
-            this._basenavigationFieldInfos = baseMultilingualismFieldInfos;
-            this.basePublishingFieldInfos = basePublishingFieldInfos;
+            this.publishingContentTypeConfig = publishingContentTypeConfig;
+            this.navigationFieldConfig = navigationFieldConfig;
+            this.publishingFieldConfig = publishingFieldConfig;
         }
 
         /// <summary>
@@ -38,38 +41,50 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
         {
             get
             {
-                var baseContentTypes = new List<ContentTypeInfo>();
-
                 // Get the Browsable Item & Page
-                var browsableItem = this._basePublishingContentTypeInfos.BrowsableItem();
-                var browsablePage = this._basePublishingContentTypeInfos.BrowsablePage();
+                var browsableItem = this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.BrowsableItem.ContentTypeId);
+                var browsablePage = this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.BrowsablePage.ContentTypeId);
                 
                 // Adding the Date Slug field
-                browsableItem.Fields.Add(this._basenavigationFieldInfos.DateSlug());
-                browsablePage.Fields.Add(this._basenavigationFieldInfos.DateSlug());
+                browsableItem.Fields.Add(this.navigationFieldConfig.GetFieldById(NavigationFieldInfos.DateSlug.Id));
+                browsablePage.Fields.Add(this.navigationFieldConfig.GetFieldById(NavigationFieldInfos.DateSlug.Id));
 
                 // Adding the Title Slug field
-                browsableItem.Fields.Add(this._basenavigationFieldInfos.TitleSlug());
-                browsablePage.Fields.Add(this._basenavigationFieldInfos.TitleSlug());
+                browsableItem.Fields.Add(this.navigationFieldConfig.GetFieldById(NavigationFieldInfos.TitleSlug.Id));
+                browsablePage.Fields.Add(this.navigationFieldConfig.GetFieldById(NavigationFieldInfos.TitleSlug.Id));
 
                 // Adds the field Occurrence Link Location in the content type
-                browsableItem.Fields.Add(this._basenavigationFieldInfos.OccurrenceLinkLocation());
-                browsablePage.Fields.Add(this._basenavigationFieldInfos.OccurrenceLinkLocation());
+                browsableItem.Fields.Add(this.navigationFieldConfig.GetFieldById(NavigationFieldInfos.OccurrenceLinkLocation.Id));
+                browsablePage.Fields.Add(this.navigationFieldConfig.GetFieldById(NavigationFieldInfos.OccurrenceLinkLocation.Id));
 
                 // Gets the Catalog Item & Page
-                var catalogItem = this._basePublishingContentTypeInfos.CatalogContentItem();
-                var catalogPage = this._basePublishingContentTypeInfos.CatalogContentPage();
+                var catalogItem = this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.CatalogContentItem.ContentTypeId);
+                var catalogPage = this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.CatalogContentPage.ContentTypeId);
 
                 // Adding the Publishing Start Date field
-                catalogItem.Fields.Add(this.basePublishingFieldInfos.PublishingStartDate());
+                catalogItem.Fields.Add(this.publishingFieldConfig.GetFieldById(PublishingFieldInfos.PublishingStartDate.Id));
 
-                baseContentTypes.Add(browsableItem);
-                baseContentTypes.Add(browsablePage);
-                baseContentTypes.Add(catalogItem);
-                baseContentTypes.Add(catalogPage);
-
-                return baseContentTypes;
+                // Return the content types.
+                return new List<ContentTypeInfo>()
+                {
+                    browsableItem,
+                    browsablePage,
+                    catalogItem,
+                    catalogPage
+                };
             }
+        }
+
+        /// <summary>
+        /// Gets the content type from the ContentTypes property where the id of that content type is passed by parameter.
+        /// </summary>
+        /// <param name="contentTypeId">The unique identifier of the content type we are looking for.</param>
+        /// <returns>
+        /// The content type information.
+        /// </returns>
+        public ContentTypeInfo GetContentTypeById(SPContentTypeId contentTypeId)
+        {
+            return this.ContentTypes.Single(c => c.ContentTypeId.Equals(contentTypeId));
         }
     }
 }

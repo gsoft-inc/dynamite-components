@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d97bc3e9-c18e-43da-916a-f36b9e4fe4e2" solutionId="d97bc3e9-c18e-43da-916a-f36b9e4fe4e2" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Targeting.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="GSoft.Dynamite.Targeting.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Targeting.Contracts\GSoft.Dynamite.Targeting.Contracts.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Targeting.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Targeting.Core\GSoft.Dynamite.Targeting.Core.csproj">
+      <safeControls>
+        <safeControl assemblyName="GSoft.Dynamite.Targeting.Core.dll" namespaceName="GSoft.Dynamite.Targeting.Core" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
+  </assemblies>
+  <features>
+    <featureReference itemId="71d9c303-2621-4ef7-852b-44b8a2020dce" />
+    <featureReference itemId="478ebda5-7e50-4453-a508-2d1fed337b9f" />
+    <featureReference itemId="f770d954-2805-4e5d-a2e5-d8eb7676515f" />
+    <featureReference itemId="356798ed-3d83-47ae-baf2-8166200437b2" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="bd66e1ef-75a6-411d-8eb5-c81022be3e50" />
+  </projectItems>
+</package>

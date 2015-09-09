@@ -1,4 +1,5 @@
 ﻿using GSoft.Dynamite.Events;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using Microsoft.SharePoint;
 
@@ -9,15 +10,15 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
     /// </summary>
     public class MultilingualismEventReceiverInfos
     {
-        private readonly PublishingContentTypeInfos publishingContentTypeInfos;
+        private readonly IPublishingContentTypeInfoConfig publishingContentTypeConfig;
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        /// <param name="publishingContentTypeInfos">The content types settings form the publishing module</param>
-        public MultilingualismEventReceiverInfos(PublishingContentTypeInfos publishingContentTypeInfos)
+        /// <param name="publishingContentTypeConfig">The content types settings form the publishing module</param>
+        public MultilingualismEventReceiverInfos(IPublishingContentTypeInfoConfig publishingContentTypeConfig)
         {
-            this.publishingContentTypeInfos = publishingContentTypeInfos;
+            this.publishingContentTypeConfig = publishingContentTypeConfig;
         }
 
         #region Translatable Item events
@@ -29,8 +30,12 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         public EventReceiverInfo TranslatableItemEventAdded()
         {
             return new EventReceiverInfo(
-                this.publishingContentTypeInfos.TranslatableItem(),
-                SPEventReceiverType.ItemAdded);
+                this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatableItem.ContentTypeId),
+                SPEventReceiverType.ItemAdded,
+                SPEventReceiverSynchronization.Synchronous)
+            {
+                ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents"
+            };
         }
 
         /// <summary>
@@ -40,8 +45,12 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         public EventReceiverInfo TranslatableItemEventUpdated()
         {
             return new EventReceiverInfo(
-                this.publishingContentTypeInfos.TranslatableItem(),
-                SPEventReceiverType.ItemUpdated);
+                this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatableItem.ContentTypeId),
+                SPEventReceiverType.ItemUpdated,
+                SPEventReceiverSynchronization.Synchronous)
+            {
+                ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatableItemEvents"
+            };
         }
 
         #endregion
@@ -52,11 +61,16 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
         /// The item added event for the translatable page content type
         /// </summary>
         /// <returns>The event receiver info</returns>
-        public EventReceiverInfo TranslatablePageEventAddded()
+        public EventReceiverInfo TranslatablePageEventAdded()
         {
             return new EventReceiverInfo(
-                this.publishingContentTypeInfos.TranslatablePage(),
-                SPEventReceiverType.ItemAdded);
+                this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatablePage.ContentTypeId),
+                SPEventReceiverType.ItemAdded,
+                SPEventReceiverSynchronization.Synchronous)
+            {
+                ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatablePageEvents",
+                SequenceNumber = 10003
+            };
         }
 
         /// <summary>
@@ -68,9 +82,13 @@ namespace GSoft.Dynamite.Multilingualism.Contracts.Constants
             // To avoid save conflicts, page events must be synchronous because of the method EnsurePage (PageHelper) which fires the ItemUpdated event.
             // When a page is added (by UI or by code) the fired event is the ItemUpdated event. The ItemAdded event is fired when page metadata have been filled.
             return new EventReceiverInfo(
-                this.publishingContentTypeInfos.TranslatablePage(),
+                this.publishingContentTypeConfig.GetContentTypeById(PublishingContentTypeInfos.TranslatablePage.ContentTypeId),
                 SPEventReceiverType.ItemUpdated,
-                SPEventReceiverSynchronization.Synchronous);
+                SPEventReceiverSynchronization.Synchronous)
+            {
+                ClassName = "GSoft.Dynamite.Multilingualism.SP.Events.TranslatablePageEvents",
+                SequenceNumber = 10004
+            };
         }
 
         #endregion

@@ -1,8 +1,8 @@
 ﻿# ============================================
-# NAVIGTION MODULE FEATURES
+# NAVIGATION MODULE FEATURES
 # ============================================
 
-$DSP_CrossSitePublishingCMS_NAV_TermDrivenPages ="ffaf71c4-38dc-4be8-a9b1-2b4dc5b46efe"
+$DSP_CrossSitePublishingCMS_NAV_TermDrivenPages ="e17c1d18-9460-4554-9989-ca6d23f91b71"
 $DSP_CrossSitePublishingCMS_NAV_Fields ="4bb03ca2-9ec0-4517-ab1a-3f2b330e7dfc"
 $DSP_CrossSitePublishingCMS_NAV_ContentTypes = "f8b4b1f8-26c2-4354-9a3e-3de3b8f0503d"
 $DSP_CrossSitePublishingCMS_NAV_BrowsableItemsEventReceivers = "058ded79-ba45-4a4f-a0ba-8a3d3592edcd"
@@ -14,6 +14,7 @@ $DSP_CrossSitePublishingCMS_NAV_ContentPagesList = "4003b794-a3a7-4103-a1d7-8d90
 $DSP_CrossSitePublishingCMS_NAV_Catalogs = "53e769f6-346a-4967-b072-f6a278da76d6"
 
 $DSP_CommonCMS_NAV_TaxonomyManagedNavigation = "b7b200a2-6d16-4f33-aeae-80cd1ae1474b"
+$DSP_CommonCMS_NAV_EventReceivers = "e878ec56-dce6-4010-b885-a1c834979b51"
 
 $DSP_DEFAULT_CrossSitePublishingCMS_NAV_NavigationControl = "bafb71d3-882d-43c0-b635-b5394b3d67eb"
 

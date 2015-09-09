@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using GSoft.Dynamite.ContentTypes;
 using GSoft.Dynamite.Folders;
+using GSoft.Dynamite.Pages;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 
@@ -11,15 +13,15 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
     /// </summary>
     public class PublishingFolderInfoConfig : IPublishingFolderInfoConfig
     {
-        private readonly PublishingFolderInfos folderInfos;
+        private readonly IPublishingPageInfoConfig publishingPageInfoConfig;
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="PublishingFolderInfoConfig"/> class.
         /// </summary>
-        /// <param name="folderInfos">The folder info objects configuration</param>
-        public PublishingFolderInfoConfig(PublishingFolderInfos folderInfos)
+        /// <param name="publishingPageInfoConfig">The publishing page information configuration.</param>
+        public PublishingFolderInfoConfig(IPublishingPageInfoConfig publishingPageInfoConfig)
         {
-            this.folderInfos = folderInfos;
+            this.publishingPageInfoConfig = publishingPageInfoConfig;
         }
 
         /// <summary>
@@ -31,9 +33,52 @@ namespace GSoft.Dynamite.Publishing.Core.Configuration
             {
                 return new List<FolderInfo>()
                 {
-                    this.folderInfos.ItemPageTemplates(),
-                    this.folderInfos.CategoryPageTemplates()
+                    this.ItemPageTemplates,
+                    this.CategoryPageTemplates,
                 };
+            }
+        }
+
+        /// <summary>
+        /// Gets the item page templates.
+        /// </summary>
+        /// <value>
+        /// The item page templates.
+        /// </value>
+        public FolderInfo ItemPageTemplates
+        {
+            get
+            {
+                var folder = PublishingFolderInfos.ItemPageTemplates;
+
+                folder.Pages = new List<PageInfo>()
+                {
+                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.TargetItemPageTemplate.FileName),
+                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogItemPageTemplate.FileName),
+                };
+
+                return folder;
+            }
+        }
+
+        /// <summary>
+        /// Gets the category page templates.
+        /// </summary>
+        /// <value>
+        /// The category page templates.
+        /// </value>
+        public FolderInfo CategoryPageTemplates
+        {
+            get
+            {
+                var folder = PublishingFolderInfos.ItemPageTemplates;
+
+                folder.Pages = new List<PageInfo>()
+                {
+                    this.publishingPageInfoConfig.GetPageInfoByFileName(PublishingPageInfos.CatalogCategoryItemsPageTemplate.FileName)
+                };
+
+                return folder;
             }
         }
     }

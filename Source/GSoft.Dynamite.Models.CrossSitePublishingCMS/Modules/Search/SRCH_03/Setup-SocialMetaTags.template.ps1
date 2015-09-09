@@ -9,4 +9,4 @@ Write-Warning "Initializing feature..."
 
 # Activate feature on the root web on the publishing site collection
 
-Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishingCMS_SRCH_SocialMetaTags]]
+Initialize-DSPFeature -Url [[DSP_PortalPublishingSiteUrl]]  -Id [[DSP_CrossSitePublishing_SRCH_SocialMetaTags]]

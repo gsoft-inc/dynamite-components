@@ -46,9 +46,9 @@
       <Private>True</Private>
       <HintPath>..\..\Libraries\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="GSoft.Dynamite, Version=2.2.0.264, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
+    <Reference Include="GSoft.Dynamite, Version=3.0.0.265, Culture=neutral, PublicKeyToken=5f6f0b0f2b7999e5, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Libraries\GSoft.Dynamite.2.2.0.264\lib\net45\GSoft.Dynamite.dll</HintPath>
+      <HintPath>..\..\Libraries\GSoft.Dynamite.3.0.0.265\lib\net45\GSoft.Dynamite.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -58,7 +58,7 @@
     <Reference Include="Microsoft.SharePoint.Taxonomy, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\Libraries\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -90,20 +90,25 @@
       <DependentUpon>LanguageSwitcher.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Events\TranslatableItemEvents.cs" />
+    <Compile Include="Events\VariationTargetListEvents.cs" />
+    <Compile Include="Events\TranslatablePageEvents.cs" />
+    <Compile Include="Features\CommonCMS_SyncLists\CommonCMS_SyncLists.EventReceiver.cs">
+      <DependentUpon>CommonCMS_SyncLists.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.EventReceiver.cs">
       <DependentUpon>CommonCMS_SyncWeb.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CommonCMS_VariationsHierarchies\CommonCMS_VariationsHierarchies.EventReceiver.cs">
       <DependentUpon>CommonCMS_VariationsHierarchies.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.EventReceiver.cs">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_EventReceivers\CommonCMS_EventReceivers.EventReceiver.cs">
+      <DependentUpon>CommonCMS_EventReceivers.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.EventReceiver.cs">
-      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    <Compile Include="Features\CommonCMS_Fields\CommonCMS_Fields.EventReceiver.cs">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.EventReceiver.cs">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
@@ -136,20 +141,23 @@
     <None Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.feature">
       <FeatureId>{7afac8fc-db08-45b6-a809-710ef968c434}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_LanguageSwitcher\CrossSitePublishingCMS_LanguageSwitcher.feature">
+    <None Include="Features\CommonCMS_LanguageSwitcher\CommonCMS_LanguageSwitcher.feature">
       <FeatureId>{058d4a42-7b65-40a4-8067-b83113f6644d}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.feature">
+    <None Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.feature">
       <FeatureId>{1a372bcd-f963-4376-8daa-20f04367c6b3}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.feature">
+    <None Include="Features\CommonCMS_Fields\CommonCMS_Fields.feature">
       <FeatureId>{2b7a1022-bf45-46d4-a48a-e871264e8abf}</FeatureId>
     </None>
-    <None Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.feature">
+    <None Include="Features\CommonCMS_EventReceivers\CommonCMS_EventReceivers.feature">
       <FeatureId>{f1802c45-cdce-4b07-9f86-9574f16b0c12}</FeatureId>
     </None>
     <None Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.feature">
       <FeatureId>{737c538d-0636-458e-83b7-31d1a962e20a}</FeatureId>
+    </None>
+    <None Include="Features\CommonCMS_SyncLists\CommonCMS_SyncLists.feature">
+      <FeatureId>{a12d38ab-f3b5-41a8-bd74-16381e3cb8b1}</FeatureId>
     </None>
     <None Include="GSoft.Dynamite.Multilingualism.SP.nuspec" />
     <None Include="Images\SharePointProjectItem.spdata">
@@ -202,20 +210,23 @@
     <Content Include="Features\CommonCMS_SyncWeb\CommonCMS_SyncWeb.Template.xml">
       <DependentUpon>CommonCMS_SyncWeb.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_LanguageSwitcher\CrossSitePublishingCMS_LanguageSwitcher.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_LanguageSwitcher.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_LanguageSwitcher\CommonCMS_LanguageSwitcher.Template.xml">
+      <DependentUpon>CommonCMS_LanguageSwitcher.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_ContentTypes\CrossSitePublishingCMS_ContentTypes.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_ContentTypes.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_ContentTypes\CommonCMS_ContentTypes.Template.xml">
+      <DependentUpon>CommonCMS_ContentTypes.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_Fields\CrossSitePublishingCMS_Fields.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_Fields.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_Fields\CommonCMS_Fields.Template.xml">
+      <DependentUpon>CommonCMS_Fields.feature</DependentUpon>
     </Content>
-    <Content Include="Features\CrossSitePublishingCMS_EventReceivers\CrossSitePublishingCMS_EventReceivers.Template.xml">
-      <DependentUpon>CrossSitePublishingCMS_EventReceivers.feature</DependentUpon>
+    <Content Include="Features\CommonCMS_EventReceivers\CommonCMS_EventReceivers.Template.xml">
+      <DependentUpon>CommonCMS_EventReceivers.feature</DependentUpon>
     </Content>
     <Content Include="Features\CrossSitePublishingCMS_ResultSources\CrossSitePublishingCMS_ResultSources.Template.xml">
       <DependentUpon>CrossSitePublishingCMS_ResultSources.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\CommonCMS_SyncLists\CommonCMS_SyncLists.Template.xml">
+      <DependentUpon>CommonCMS_SyncLists.feature</DependentUpon>
     </Content>
     <Content Include="Images\GSoft.Dynamite.Multilingualism.SP\logo-32x32-Ling.png" />
     <Content Include="Layouts\GSoft.Dynamite.Multilingualism\CSS\GSoft.Dynamite.Multilingualism.css">
@@ -228,10 +239,14 @@
     <Content Include="Layouts\GSoft.Dynamite.Multilingualism\GSoft.Dynamite.Multilingualism.min.js">
       <DependentUpon>GSoft.Dynamite.Multilingualism.js</DependentUpon>
     </Content>
-    <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.en-US.resx" />
+    <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.en-US.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.fr-FR.resx" />
+    <Content Include="Resources\GSoft.Dynamite.Multilingualism.Global.fr-FR.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

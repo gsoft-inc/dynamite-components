@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Model  		  : Cross Site Publishing CMS
+ File         : Setup-Sites.xml.template
+ Description	: Base SharePoint sites structure configuration file    
+-->
+<WebApplication Url="[[DSP_PortalWebAppUrl]]">
+  <!-- Be careful for the relative path ! Empty means root and there is no "/" at start and end -->
+  <Site Name="Publishing Site" HostNamePath="[[DSP_PortalPublishingHostNamePath]]" RelativePath="" IsAnonymous="True"  OwnerAlias="[[DSP_PortalAdmin]]" Language="[[DSP_PortalDefaultLanguage]]" Template="BLANKINTERNET#0" ContentDatabase="[[DSP_PortalDatabaseName]]">
+  </Site>
+</WebApplication>

@@ -29,7 +29,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         });
     };
 
-}(GSoft.Dynamite.Search = GSoft.Dynamite.Search || {}, jq110));
+}(GSoft.Dynamite.Search = GSoft.Dynamite.Search || {}, jq111));
 
 // Filtered Product Showcase
 // It's a Javascript oriented webpart that query a REST service to receive Items and showcase them
@@ -43,8 +43,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
     FilteredProductShowcase.ViewModel = null;
 
     FilteredProductShowcase.Initialize = function (searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel, callbacks) {
-        var viewModel = this;
-        $(document).ready(function (viewModel) {
+        $(document).ready(function () {
             FilteredProductShowcase.ViewModel = new ShowcaseViewModel(searchQuery, selectProperties, filterDefinitions, itemKnockoutTemplate, itemJavaScriptViewModel, callbacks);
             ko.applyBindings(FilteredProductShowcase.ViewModel, $(".showcase")[0]);
             FilteredProductShowcase.ViewModel.ExecuteSearchQuery();
@@ -100,7 +99,10 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         _.each(self.FilterDefinitions, function (filterDefinition) {
             if (filterDefinition.JavaScriptViewModelFilterType && filterDefinition.Property) {
                 // Try to eval the ViewModel type and create an instance.
+                var filterViewModel;
+
                 try {
+                    /* jshint evil: true */
                     filterViewModel = eval(filterDefinition.JavaScriptViewModelFilterType);
                 } catch (e) {
                     console.log("[Product Showcase Filter] The type '" + filterDefinition.JavaScriptViewModelFilterType + "' couldn't be resolved. Error Msg: " + e.message);
@@ -144,6 +146,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                 // Build the result item
                 var itemViewModel = null;
 
+                /* jshint evil: true */
                 try {
                     itemViewModel = eval(self.ItemJavaScriptViewModel);
                 } catch (e) {
@@ -162,11 +165,8 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
 
                     // Get the property value
                     var propertyValue = _.where(result.Cells.results, { Key: propertyName });
-                    if (propertyValue != null && propertyValue.length > 0 && propertyValue[0].Value != undefined && typeof (item[propertyName]) === "function") {
+                    if (propertyValue !== null && propertyValue.length > 0 && propertyValue[0].Value !== undefined && typeof (item[propertyName]) === "function") {
                         item[propertyName](propertyValue[0].Value);
-                    }
-                    else {
-                        //console.log("[Search REST API] No value found for property with name '" + propertyName + "'.");
                     }
                 });
 
@@ -178,6 +178,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
             // SuccessCallback
             self.ReloadGrid(self.FilteredItems().length);
 
+            /* jshint evil: true */
             if (self.Callbacks) {
                 if (self.Callbacks.lazyLoadingTitle) { eval(self.Callbacks.lazyLoadingTitle)(self.LazyLoadingTitle); }
                 if (self.Callbacks.lazyLoadingVisible) { eval(self.Callbacks.lazyLoadingVisible)(self.LazyLoadingVisible, self.FilteredItems().length); }
@@ -185,20 +186,21 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
                 if (self.Callbacks.filtersTitle) { eval(self.Callbacks.filtersTitle)(self.FiltersTitle); }
                 if (self.Callbacks.filtersResetLabel) { eval(self.Callbacks.filtersResetLabel)(self.FiltersResetLabel); }
             }
-        }
+        };
 
         self.OnQueryError = function (msg) {
             console.log("[Search REST API] Error with the API Request.");
             console.log(msg);
-        }
+        };
 
         // Reset Each Filters
         self.ResetFilters = function () {
             _.each(self.Filters(), function (filter) {
                 filter.Reset();
             });
-        }
+        };
 
+        /* jshint evil: true */
         self.LazyLoadingClick = function () {
             if (self.Callbacks) {
                 if (self.Callbacks.lazyLoadingClickCallback) { eval(self.Callbacks.lazyLoadingClickCallback)(self.NbFilteredItems); }
@@ -214,7 +216,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         };
     }
 
-}(GSoft.Dynamite.FilteredProductShowcase = GSoft.Dynamite.FilteredProductShowcase || {}, jq110));
+}(GSoft.Dynamite.FilteredProductShowcase = GSoft.Dynamite.FilteredProductShowcase || {}, jq111));
 
 // Tabs Module 
 // The method creates a tabs navigation. 
@@ -288,7 +290,7 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         }
 
         // change current
-        this.current = index != undefined ? index : this.Options.start >= 0 && this.Options.start < this.items.length ? this.Options.start : 0;
+        this.current = index !== undefined ? index : this.Options.start >= 0 && this.Options.start < this.items.length ? this.Options.start : 0;
         this.tabs[this.current].className = 'tab-current';
         this.items[this.current].className = 'content-current';
     };
@@ -301,5 +303,5 @@ window.GSoft.Dynamite = window.GSoft.Dynamite || {};
         }
         return a;
     }
-}(GSoft.Dynamite.Tabs = GSoft.Dynamite.Tabs || {}, jq110));
+}(GSoft.Dynamite.Tabs = GSoft.Dynamite.Tabs || {}, jq111));
 

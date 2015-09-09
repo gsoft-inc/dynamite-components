@@ -15,19 +15,11 @@ New-HeaderDrawing -Values $Values
 # =============================== #
 # =========   PROPERTY BAGS   ========== #
 # =============================== #
-
-$values = @{"Step: " = "#1 Setup Property Bags"}
-New-HeaderDrawing -Values $Values
-
 $Script = $CommandDirectory + '\Setup-PropertyBag.ps1'
 & $Script 
 
 # =============================== #
 # =========   FEATURES   ========== #
 # =============================== #
-
-$values = @{"Step: " = "#2 Enable the feature"}
-New-HeaderDrawing -Values $Values
-
 $Script = $CommandDirectory + '\Setup-Control.ps1'
 & $Script

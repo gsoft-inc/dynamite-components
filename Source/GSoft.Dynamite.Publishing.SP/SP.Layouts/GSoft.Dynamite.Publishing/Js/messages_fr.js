@@ -2,7 +2,7 @@
  * Translated default messages for the jQuery validation plugin.
  * Locale: FR (French; français)
  */
-jq110.extend(jq110.validator.messages, {
+jq111.extend(jq111.validator.messages, {
 	required: "Ce champ est obligatoire.",
 	remote: "Veuillez corriger ce champ.",
 	email: "Veuillez fournir une adresse électronique valide.",
@@ -14,15 +14,15 @@ jq110.extend(jq110.validator.messages, {
 	creditcard: "Veuillez fournir un numéro de carte de crédit valide.",
 	equalTo: "Veuillez fournir encore la même valeur.",
 	extension: "Veuillez fournir une valeur avec une extension valide.",
-	maxlength: jq110.validator.format("Veuillez fournir au plus {0} caractères."),
-	minlength: jq110.validator.format("Veuillez fournir au moins {0} caractères."),
-	rangelength: jq110.validator.format("Veuillez fournir une valeur qui contient entre {0} et {1} caractères."),
-	range: jq110.validator.format("Veuillez fournir une valeur entre {0} et {1}."),
-	max: jq110.validator.format("Veuillez fournir une valeur inférieure ou égale à {0}."),
-	min: jq110.validator.format("Veuillez fournir une valeur supérieure ou égale à {0}."),
-	maxWords: jq110.validator.format("Veuillez fournir au plus {0} mots."),
-	minWords: jq110.validator.format("Veuillez fournir au moins {0} mots."),
-	rangeWords: jq110.validator.format("Veuillez fournir entre {0} et {1} mots."),
+	maxlength: jq111.validator.format("Veuillez fournir au plus {0} caractères."),
+	minlength: jq111.validator.format("Veuillez fournir au moins {0} caractères."),
+	rangelength: jq111.validator.format("Veuillez fournir une valeur qui contient entre {0} et {1} caractères."),
+	range: jq111.validator.format("Veuillez fournir une valeur entre {0} et {1}."),
+	max: jq111.validator.format("Veuillez fournir une valeur inférieure ou égale à {0}."),
+	min: jq111.validator.format("Veuillez fournir une valeur supérieure ou égale à {0}."),
+	maxWords: jq111.validator.format("Veuillez fournir au plus {0} mots."),
+	minWords: jq111.validator.format("Veuillez fournir au moins {0} mots."),
+	rangeWords: jq111.validator.format("Veuillez fournir entre {0} et {1} mots."),
 	letterswithbasicpunc: "Veuillez fournir seulement des lettres et des signes de ponctuation.",
 	alphanumeric: "Veuillez fournir seulement des lettres, nombres, espaces et soulignages.",
 	lettersonly: "Veuillez fournir seulement des lettres.",
@@ -35,7 +35,7 @@ jq110.extend(jq110.validator.messages, {
 	phoneUS: "Veuillez fournir un numéro de téléphone valide.",
 	phoneUK: "Veuillez fournir un numéro de téléphone valide.",
 	mobileUK: "Veuillez fournir un numéro de téléphone mobile valide.",
-	strippedminlength: jq110.validator.format("Veuillez fournir au moins {0} caractères."),
+	strippedminlength: jq111.validator.format("Veuillez fournir au moins {0} caractères."),
 	email2: "Veuillez fournir une adresse électronique valide.",
 	url2: "Veuillez fournir une adresse URL valide.",
 	creditcardtypes: "Veuillez fournir un numéro de carte de crédit valide.",

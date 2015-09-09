@@ -213,11 +213,11 @@
   <data name="List_NewsPages_Name" xml:space="preserve">
     <value>Pages de nouvelles</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ResultSources_Desc" xml:space="preserve">
-    <value>Déploie les sources de résultats de recherche du module de publication pour une solution de type CMS utilisant la publication intersites.</value>
+  <data name="Feature_CommonCMS_ResultSources_Desc" xml:space="preserve">
+    <value>Déploie les sources de résultats de recherche du module de publication pour une solution de type CMS.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ResultSources_Name" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de publication - Sources de résultats</value>
+  <data name="Feature_CommonCMS_ResultSources_Name" xml:space="preserve">
+    <value>Dynamite CMS de base - Module de publication - Sources de résultats</value>
   </data>
   <data name="Feature_CommonCMS_PageLayouts_Desc" xml:space="preserve">
     <value>Déploie les gabarits de pages du module de publication pour une solution de type CMS générique</value>
@@ -225,11 +225,11 @@
   <data name="Feature_CommonCMS_PageLayouts_Name" xml:space="preserve">
     <value>Dynamite CMS de base - Module de publication - Gabarit de pages</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ItemPages_Desc" xml:space="preserve">
-    <value>Déploie les modèles de pages du module de publication pour une solution de type CMS utilisant la publication intersites.</value>
+  <data name="Feature_CommonCMS_ItemPages_Desc" xml:space="preserve">
+    <value>Déploie les modèles de pages du module de publication pour une solution de type CMS stamdard.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ItemPages_Name" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de publication - Modèles de page d'éléments</value>
+  <data name="Feature_CommonCMS_ItemPages_Name" xml:space="preserve">
+    <value>Dynamite CMS de base - Module de publication - Modèles de page d'éléments</value>
   </data>
   <data name="PageLayout_CatalogItemPageLayout_Desc" xml:space="preserve">
     <value>Gabarit de page pour un élément provenant d'un catalogue</value>
@@ -243,11 +243,11 @@
   <data name="PageLayout_TargetItemPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page pour un élément de contenu</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_DisplayTemplates_Desc" xml:space="preserve">
-    <value>Déploie les modèles d'affichage des résultats de recherche du module de publication pour une solution de type CMS utilisant la publication intersites.</value>
+  <data name="Feature_CommonCMS_DisplayTemplates_Desc" xml:space="preserve">
+    <value>Déploie les modèles d'affichage des résultats de recherche du module de publication pour une solution de type CMS.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_DisplayTemplates_Name" xml:space="preserve">
-    <value>Dynamite CMS de publication intersites - Module de publication - Modèles d'affichage des résultats de recherche</value>
+  <data name="Feature_CommonCMS_DisplayTemplates_Name" xml:space="preserve">
+    <value>Dynamite CMS de base- Module de publication - Modèles d'affichage des résultats de recherche</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_ResultTypes_Desc" xml:space="preserve">
     <value>Déploie les types de résultats de recherche du module de publication pour une solution de type CMS utilisant la publication intersites.</value>
@@ -351,17 +351,17 @@
   <data name="PageLayout_OneColumnThreeTabsPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page offrant une large colonne et trois sections</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_SearchRESTAnonymous_Desc" xml:space="preserve">
+  <data name="Feature_CommonCMS_SearchRESTAnonymous_Desc" xml:space="preserve">
     <value>Active le service de recherche REST pour les utilisateurs anonymes.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_SearchRESTAnonymous_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Search REST API Anonymous</value>
+  <data name="Feature_CommonCMS_SearchRESTAnonymous_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Search REST API Anonymous</value>
   </data>
   <data name="ReusableContent_InsertAReusableContentTitle" xml:space="preserve">
     <value>SVP inserer un titre de contenu reutilisable.</value>
   </data>
   <data name="ReusableContent_NoReusableContentFound" xml:space="preserve">
-    <value>Le contenu reutilisable que vous rechercher est introuvable.</value>
+    <value>Le contenu reutilisable que vous recherchez est introuvable.</value>
   </data>
   <data name="Feature_CommonCMS_ReusableContent_Desc" xml:space="preserve">
     <value>Deploie la Web Part et le User Control de contenu reutilisable en plus de creer les contenus enregistres</value>
@@ -410,5 +410,41 @@
   </data>
   <data name="PageLayout_BootsrapTwoColumnsPageLayout_Name" xml:space="preserve">
     <value>Gabarit de page Bootstrap avec 2 colonnes</value>
+  </data>
+  <data name="PageLayout_BootsrapTwoColumnsLeftSlimSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Créé une colonne de 1/5 de largeur à gauche et une colonne de 4/5 de largeur droite.</value>
+  </data>
+  <data name="PageLayout_BootsrapTwoColumnsLeftSlimSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une petite colonne à gauche</value>
+  </data>
+  <data name="PageLayout_BootsrapOneColumnPageLayout_Desc" xml:space="preserve">
+    <value>Crée 1 colonne</value>
+  </data>
+  <data name="PageLayout_BootsrapOneColumnPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec 1 colonne</value>
+  </data>
+  <data name="PageLayout_BootstrapFourColumnsPageLayout_Desc" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec quatre colonnes égale</value>
+  </data>
+  <data name="PageLayout_BootstrapFourColumnsPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec quatre colonnes égale</value>
+  </data>
+  <data name="PageLayout_BootstrapLeftSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne à gauche</value>
+  </data>
+  <data name="PageLayout_BootstrapLeftSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne à gauche</value>
+  </data>
+  <data name="PageLayout_BootstrapRightSlimSidebarPageLayout_Desc" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne mince à droite</value>
+  </data>
+  <data name="PageLayout_BootstrapRightSlimSidebarPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec une colonne mince à droite</value>
+  </data>
+  <data name="PageLayout_BootstrapThreeColumnsPageLayout_Desc" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec trois colonnes égale</value>
+  </data>
+  <data name="PageLayout_BootstrapThreeColumnsPageLayout_Name" xml:space="preserve">
+    <value>Gabarit de page Bootstrap avec trois colonnes égale</value>
   </data>
 </root>

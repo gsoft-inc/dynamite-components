@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using GSoft.Dynamite.Logging;
 using GSoft.Dynamite.Search.Contracts.Services;
 using Microsoft.SharePoint;
 
@@ -21,16 +22,27 @@ namespace GSoft.Dynamite.Search.SP.Events
         public override void ItemAdded(SPItemEventProperties properties)
         {
             base.ItemAdded(properties);
-            this.EventFiringEnabled = false;
 
             using (var childScope = SearchContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
-                var browserTitleService = childScope.Resolve<IBrowserTitleBuilderService>();
+                this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                // Set slugs
-                browserTitleService.SetBrowserTitle(properties.Web, properties.ListItem);
+                try
+                {
+                    var browserTitleService = childScope.Resolve<IBrowserTitleBuilderService>();
 
-                this.EventFiringEnabled = true;
+                    // Set slugs
+                    browserTitleService.SetBrowserTitle(properties.Web, properties.ListItem);
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
 
@@ -42,14 +54,27 @@ namespace GSoft.Dynamite.Search.SP.Events
         {
             base.ItemUpdated(properties);
             this.EventFiringEnabled = false;
+
             using (var childScope = SearchContainerProxy.BeginWebLifetimeScope(properties.Web))
             {
-                var browserTitleService = childScope.Resolve<IBrowserTitleBuilderService>();
+                this.EventFiringEnabled = false;
+                var logger = childScope.Resolve<ILogger>();
 
-                // Set slugs
-                browserTitleService.SetBrowserTitle(properties.Web, properties.ListItem);
+                try
+                {
+                    var browserTitleService = childScope.Resolve<IBrowserTitleBuilderService>();
 
-                this.EventFiringEnabled = true;
+                    // Set slugs
+                    browserTitleService.SetBrowserTitle(properties.Web, properties.ListItem);
+                }
+                catch (Exception e)
+                {
+                    logger.Exception(e);
+                }
+                finally
+                {
+                    this.EventFiringEnabled = true;
+                }
             }
         }
     }

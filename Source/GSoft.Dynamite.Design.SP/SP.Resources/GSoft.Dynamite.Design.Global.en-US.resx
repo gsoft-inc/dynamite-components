@@ -123,6 +123,12 @@
   <data name="Feature_CommonCMS_Bootstrap_Name" xml:space="preserve">
     <value>Dynamite CMS - Design Module - Bootstrap Integration</value>
   </data>
+  <data name="Feature_CommonCMS_HomePages_Desc" xml:space="preserve">
+    <value>Creates home page in the Pages library for the web</value>
+  </data>
+  <data name="Feature_CommonCMS_HomePages_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Home Page</value>
+  </data>
   <data name="Feature_CommonCMS_MasterPage_Description" xml:space="preserve">
     <value>Set the masterpage for publishing sites</value>
   </data>

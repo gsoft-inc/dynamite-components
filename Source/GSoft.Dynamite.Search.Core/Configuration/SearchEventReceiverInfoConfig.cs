@@ -14,17 +14,6 @@ namespace GSoft.Dynamite.Search.Core.Configuration
     /// </summary>
     public class SearchEventReceiverInfoConfig : ISearchEventReceiverInfoConfig
     {
-        private readonly SearchEventReceiverInfos searchEventReceiverInfos;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="searchEventReceiverInfos">The event receivers info objects configuration</param>
-        public SearchEventReceiverInfoConfig(SearchEventReceiverInfos searchEventReceiverInfos)
-        {
-            this.searchEventReceiverInfos = searchEventReceiverInfos;
-        }
-
         /// <summary>
         /// Property that return all the event receivers to create or configure in the search module
         /// </summary>

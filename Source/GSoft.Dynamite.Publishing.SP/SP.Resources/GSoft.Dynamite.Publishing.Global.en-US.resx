@@ -216,8 +216,8 @@
   <data name="Feature_CrossSitePublishingCMS_ResultSources_Desc" xml:space="preserve">
     <value>Deploys search result sources for Cross Site Publishing based CMS solutions</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ResultSources_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Result Sources</value>
+  <data name="Feature_CommonCMS_ResultSources_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Result Sources</value>
   </data>
   <data name="Feature_CommonCMS_PageLayouts_Desc" xml:space="preserve">
     <value>Deploys page layouts for common CMS solutions</value>
@@ -225,11 +225,11 @@
   <data name="Feature_CommonCMS_PageLayouts_Name" xml:space="preserve">
     <value>Dynamite Common CMS - Publishing Module - Page Layouts</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ItemPages_Desc" xml:space="preserve">
-    <value>Deploys item page templates for Cross Site Publishing based CMS solutions</value>
+  <data name="Feature_CommonCMS_ItemPages_Desc" xml:space="preserve">
+    <value>Deploys item page templates for Common based CMS solutions</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ItemPages_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Item Page Templates</value>
+  <data name="Feature_CommonCMS_ItemPages_Name" xml:space="preserve">
+    <value>Dynamite Coomon CMS - Publishing Module - Item Page Templates</value>
   </data>
   <data name="PageLayout_CatalogItemPageLayout_Desc" xml:space="preserve">
     <value>Catalog Item Page Layout</value>
@@ -243,14 +243,14 @@
   <data name="PageLayout_TargetItemPageLayout_Name" xml:space="preserve">
     <value>Target Item Page Layout</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_DisplayTemplates_Desc" xml:space="preserve">
+  <data name="Feature_CommonCMS_DisplayTemplates_Desc" xml:space="preserve">
     <value>Deploys search display templates for Cross Site Publishing based CMS solutions</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_DisplayTemplates_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Search Display Templates</value>
+  <data name="Feature_CommonCMS_DisplayTemplates_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Search Display Templates</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_ResultTypes_Desc" xml:space="preserve">
-    <value>Deploys search result types for Cross Site Publishing based CMS solutions</value>
+  <data name="Feature_CommonCMS_ResultSources_Desc" xml:space="preserve">
+    <value>Deploys search result types for Common based CMS solutions</value>
   </data>
   <data name="Feature_CrossSitePublishingCMS_ResultTypes_Name" xml:space="preserve">
     <value>Dynamite Cross Site Publishing CMS - Publishing Module - Result Types</value>
@@ -351,11 +351,11 @@
   <data name="PageLayout_OneColumnThreeTabsPageLayout_Name" xml:space="preserve">
     <value>One Column with Three Tabs</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_SearchRESTAnonymous_Desc" xml:space="preserve">
+  <data name="Feature_CommonCMS_SearchRESTAnonymous_Desc" xml:space="preserve">
     <value>Enable the Search REST API for anonymous users.</value>
   </data>
-  <data name="Feature_CrossSitePublishingCMS_SearchRESTAnonymous_Name" xml:space="preserve">
-    <value>Dynamite Cross Site Publishing CMS - Publishing Module - Search REST API Anonymous</value>
+  <data name="Feature_CommonCMS_SearchRESTAnonymous_Name" xml:space="preserve">
+    <value>Dynamite Common CMS - Publishing Module - Search REST API Anonymous</value>
   </data>
   <data name="ReusableContent_InsertAReusableContentTitle" xml:space="preserve">
     <value>Please insert a reusable content title.</value>
@@ -415,6 +415,36 @@
     <value>Create a 2 columns with the same width page layout</value>
   </data>
   <data name="PageLayout_BootsrapTwoColumnsPageLayout_Name" xml:space="preserve">
-    <value>Bootstrap two columsn Page Layout</value>
+    <value>Bootstrap two columns Page Layout</value>
+  </data>
+  <data name="PageLayout_BootsrapOneColumnPageLayout_Desc" xml:space="preserve">
+    <value>Create a single column page lazout</value>
+  </data>
+  <data name="PageLayout_BootsrapOneColumnPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap single column Page Layout</value>
+  </data>
+  <data name="PageLayout_BootstrapFourColumnsPageLayout_Desc" xml:space="preserve">
+    <value>A bootstrap page layout with four equal columns and a full width header.</value>
+  </data>
+  <data name="PageLayout_BootstrapFourColumnsPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap Four Equal Columns Page Layout</value>
+  </data>
+  <data name="PageLayout_BootstrapLeftSidebarPageLayout_Desc" xml:space="preserve">
+    <value>A bootstrap page layout with a left sidebar and a full width header.</value>
+  </data>
+  <data name="PageLayout_BootstrapLeftSidebarPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap Left Sidebar Page Layout</value>
+  </data>
+  <data name="PageLayout_BootstrapRightSlimSidebarPageLayout_Desc" xml:space="preserve">
+    <value>A bootstrap page layout with a slim right sidebar and a full width header.</value>
+  </data>
+  <data name="PageLayout_BootstrapRightSlimSidebarPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap Right Slim Sidebar</value>
+  </data>
+  <data name="PageLayout_BootstrapThreeColumnsPageLayout_Desc" xml:space="preserve">
+    <value>A bootstrap page layout with three equal columns and a full width header.</value>
+  </data>
+  <data name="PageLayout_BootstrapThreeColumnsPageLayout_Name" xml:space="preserve">
+    <value>Bootstrap Three Equal Columns Page Layout</value>
   </data>
 </root>

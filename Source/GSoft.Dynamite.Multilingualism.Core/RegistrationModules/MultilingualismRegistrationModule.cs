@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using GSoft.Dynamite.Common.Contracts.Configuration;
 using GSoft.Dynamite.Globalization;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
@@ -27,13 +28,7 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
             builder.RegisterType<MultilingualismResourceLocatorConfig>().As<IResourceLocatorConfig>();
 
             // Configuration Values
-            builder.RegisterType<MultilingualismFieldInfos>();
-            builder.RegisterType<MultilingualismVariationLabelInfos>();
-            builder.RegisterType<MultilingualismVariationSettingsInfos>();
             builder.RegisterType<MultilingualismEventReceiverInfos>();
-            builder.RegisterType<MultilingualismManagedPropertyInfos>();
-            builder.RegisterType<MultilingualismTermSetInfos>();
-            builder.RegisterType<MultilingualismResultSourceInfos>();
                       
             // Variations Configuration
             builder.RegisterType<MultilingualismVariationsConfig>().As<IMultilingualismVariationsConfig>();
@@ -50,9 +45,10 @@ namespace GSoft.Dynamite.Multilingualism.Core.RegistrationModules
 
             // Event Receivers
             builder.RegisterType<MultilingualismEventReceiverInfoConfig>().As<IMultilingualismEventReceiverInfoConfig>();
+            builder.RegisterType<MultilingualismEventReceiverInfoConfig>().Named<IMultilingualismEventReceiverInfoConfig>("multilingualism");
 
             // Managed Properties
-            builder.RegisterType<MultilingualismManagedPropertyInfoConfig>().As<ICommonManagedPropertyInfosConfig>();
+            builder.RegisterType<MultilingualismManagedPropertyInfoConfig>().As<ICommonManagedPropertyConfig>();
 
             // Result Sources
             builder.RegisterType<MultilingualismResultSourceInfoConfig>().As<IMultilingualismResultSourceInfoConfig>();

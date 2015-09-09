@@ -2,11 +2,16 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="dd124f7b-0e79-46eb-b312-f17819d6db5f" solutionId="dd124f7b-0e79-46eb-b312-f17819d6db5f" resetWebServer="false" sharePointProductVersion="15.0" name="GSoft.Dynamite.Design.SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <assemblies>
     <projectOutputAssembly location="GSoft.Dynamite.Design.Contracts.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Design.Contracts\GSoft.Dynamite.Design.Contracts.csproj" />
-    <projectOutputAssembly location="GSoft.Dynamite.Design.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Design.Core\GSoft.Dynamite.Design.Core.csproj" />
+    <projectOutputAssembly location="GSoft.Dynamite.Design.Core.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\GSoft.Dynamite.Design.Core\GSoft.Dynamite.Design.Core.csproj">
+      <safeControls>
+        <safeControl assemblyName="GSoft.Dynamite.Design.Core.dll" namespaceName="GSoft.Dynamite.Design.Core" typeName="*" isSafeAgainstScript="false" />
+      </safeControls>
+    </projectOutputAssembly>
   </assemblies>
   <features>
     <featureReference itemId="2e693525-42f6-4680-b8b5-f3c895a09509" />
     <featureReference itemId="d29b8f2f-93ee-440d-aef2-31aaa434746b" />
+    <featureReference itemId="fccfce5d-704d-42a2-a3b9-54a1b5feae62" />
   </features>
   <projectItems>
     <projectItemReference itemId="1dafcbf2-9a8d-4229-a1f8-f7e9ec61b63c" />

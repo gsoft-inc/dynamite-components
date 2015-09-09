@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
@@ -34,27 +35,25 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
-                    var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
-                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
                     // Add only Target Item events
-                    baseEventReceivers.Clear();
+                    var targetItemEventReceivers = new List<EventReceiverInfo>();
 
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemUpdated());
-                    baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
+                    targetItemEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
+                    targetItemEventReceivers.Add(eventReceiversInfos.TargetContentItemItemUpdated());
+                    targetItemEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
 
-                    foreach (var eventReceiver in baseEventReceivers)
+                    foreach (var eventReceiver in targetItemEventReceivers)
                     {
                         logger.Info("Provisioning event receiver for content type {0}", resourceLocator.Find(eventReceiver.ContentType.DisplayNameResourceKey));
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
 
-                        eventReceiverHelper.AddEventReceiverDefinition(site, eventReceiver);
+                        eventReceiverHelper.AddContentTypeEventReceiverDefinition(site, eventReceiver);
                     }
                 }
             }
@@ -73,16 +72,13 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
                 using (var featureScope = NavigationContainerProxy.BeginFeatureLifetimeScope(properties.Feature))
                 {
                     var eventReceiverHelper = featureScope.Resolve<IEventReceiverHelper>();
-                    var baseReceiversConfig = featureScope.Resolve<INavigationEventReceiverInfoConfig>();
-                    var baseEventReceivers = baseReceiversConfig.EventReceivers;
                     var resourceLocator = featureScope.Resolve<IResourceLocator>();
                     var logger = featureScope.Resolve<ILogger>();
 
                     var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
 
                     // Add only Target Item events
-                    baseEventReceivers.Clear();
-
+                    var baseEventReceivers = new List<EventReceiverInfo>();
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemAdded());
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemUpdated());
                     baseEventReceivers.Add(eventReceiversInfos.TargetContentItemItemDeleted());
@@ -93,7 +89,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.CrossSitePublishingCMS_TargetIte
 
                         eventReceiver.AssemblyName = Assembly.GetExecutingAssembly().FullName;
 
-                        eventReceiverHelper.DeleteEventReceiverDefinition(site, eventReceiver);
+                        eventReceiverHelper.DeleteContentTypeEventReceiverDefinition(site, eventReceiver);
                     }
                 }
             }

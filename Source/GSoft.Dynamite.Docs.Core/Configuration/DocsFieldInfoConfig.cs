@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.Docs.Contracts.Configuration;
-using GSoft.Dynamite.Docs.Contracts.Constants;
 using GSoft.Dynamite.Fields;
 
 namespace GSoft.Dynamite.Docs.Core.Configuration
@@ -10,17 +11,6 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
     /// </summary>
     public class DocsFieldInfoConfig : IDocsFieldInfoConfig
     {
-        private readonly DocsFieldInfos docsFieldInfos;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="docsFieldInfos">The field definitions from the multilingualism module</param>
-        public DocsFieldInfoConfig(DocsFieldInfos docsFieldInfos)
-        {
-            this.docsFieldInfos = docsFieldInfos;
-        }
-
         /// <summary>
         /// Property that return all the fields to create or configure in the document management module
         /// </summary>
@@ -28,11 +18,20 @@ namespace GSoft.Dynamite.Docs.Core.Configuration
         {
             get
             {
-                return new List<BaseFieldInfo>()
-                {
-                    this.docsFieldInfos.InternalId()
-                };
+                return new List<BaseFieldInfo>();
             }
+        }
+
+        /// <summary>
+        /// Gets the field from the Fields property where the id of that field is passed by parameter.
+        /// </summary>
+        /// <param name="fieldId">The unique identifier of the field we are looking for.</param>
+        /// <returns>
+        /// The field information.
+        /// </returns>
+        public BaseFieldInfo GetFieldById(Guid fieldId)
+        {
+            return this.Fields.Single(f => f.Id.Equals(fieldId));
         }
     }
 }

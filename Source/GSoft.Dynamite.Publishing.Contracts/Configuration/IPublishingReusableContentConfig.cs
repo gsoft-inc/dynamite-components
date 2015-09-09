@@ -3,27 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GSoft.Dynamite.ReusableContent;
 
 namespace GSoft.Dynamite.Publishing.Contracts.Configuration
 {
     /// <summary>
-    /// Interface for the configuration of the reusable contents.
+    /// Contract for the configuration of the Reusable Content information
     /// </summary>
     public interface IPublishingReusableContentConfig
     {
         /// <summary>
-        /// Property that return all the names (key) and filename (both are the same) for all the reusable content to create
+        /// A list of Reusable Content info
         /// </summary>
-        IList<string> ReusableContentNames { get; }
-
-        /// <summary>
-        /// The category of the Reusable Content
-        /// </summary>
-        string Category { get; }
-
-        /// <summary>
-        /// The Relative path from /Layouts
-        /// </summary>
-        string RelativePath { get; }
+        IList<ReusableContentInfo> ReusableContents { get; }
     }
 }

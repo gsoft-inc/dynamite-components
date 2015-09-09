@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using GSoft.Dynamite.Fields;
 using GSoft.Dynamite.Multilingualism.Contracts.Configuration;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
@@ -10,17 +12,6 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
     /// </summary>
     public class MultilingualismFieldInfoConfig : IMultilingualismFieldInfoConfig
     {
-        private readonly MultilingualismFieldInfos baseMultilingualismFieldInfos;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="baseMultilingualismFieldInfos">The fields info for multilingualism</param>
-        public MultilingualismFieldInfoConfig(MultilingualismFieldInfos baseMultilingualismFieldInfos)
-        {
-            this.baseMultilingualismFieldInfos = baseMultilingualismFieldInfos;
-        }
-
         /// <summary>
         /// Property to return the fields needed for the solution
         /// </summary>
@@ -31,12 +22,24 @@ namespace GSoft.Dynamite.Multilingualism.Core.Configuration
                 // Get the base publishing field info 
                 var baseFieldInfo = new List<BaseFieldInfo>
                 {
-                    this.baseMultilingualismFieldInfos.ContentAssociationKey(),
-                    this.baseMultilingualismFieldInfos.ItemLanguage()
+                    MultilingualismFieldInfos.ContentAssociationKey,
+                    MultilingualismFieldInfos.ItemLanguage
                 };
 
                 return baseFieldInfo;
             }
+        }
+
+        /// <summary>
+        /// Gets the field from the Fields property where the id of that field is passed by parameter.
+        /// </summary>
+        /// <param name="fieldId">The unique identifier of the field we are looking for.</param>
+        /// <returns>
+        /// The field information.
+        /// </returns>
+        public BaseFieldInfo GetFieldById(Guid fieldId)
+        {
+            return this.Fields.Single(f => f.Id.Equals(fieldId));
         }
     }
 }

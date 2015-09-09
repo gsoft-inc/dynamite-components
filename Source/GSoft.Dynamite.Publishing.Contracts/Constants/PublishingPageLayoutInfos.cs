@@ -5,32 +5,24 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
     /// <summary>
     /// Page layouts definitions for the publishing module
     /// </summary>
-    public class PublishingPageLayoutInfos
+    public static class PublishingPageLayoutInfos
     {
-        private readonly PublishingContentTypeInfos publishingContentTypeInfos;
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        /// <param name="publishingContentTypeInfos">The page layouts info objects configuration</param>
-        public PublishingPageLayoutInfos(PublishingContentTypeInfos publishingContentTypeInfos)
-        {
-            this.publishingContentTypeInfos = publishingContentTypeInfos;
-        }
-
         #region Target Item Page Layout
 
         /// <summary>
         /// The target item page layout
         /// </summary>
         /// <returns>The page layout info</returns>
-        public PageLayoutInfo TargetItemPageLayout()
+        public static PageLayoutInfo TargetItemPageLayout
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "TargetItemPageLayout.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "TargetItemPageLayout.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
         #endregion
 
@@ -40,13 +32,16 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// The catalog item page layout
         /// </summary>
         /// <returns>The page layout info</returns>
-        public PageLayoutInfo CatalogItemPageLayout()
+        public static PageLayoutInfo CatalogItemPageLayout
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "CatalogItemPageLayout.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "CatalogItemPageLayout.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
         #endregion
 
@@ -56,13 +51,16 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// The catalog category page layout
         /// </summary>
         /// <returns>The page layout info</returns>
-        public PageLayoutInfo CatalogCategoryItemsPageLayout()
+        public static PageLayoutInfo CatalogCategoryItemsPageLayout
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "CatalogCategoryPageTemplate.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "CatalogCategoryPageTemplate.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
         #endregion
 
@@ -72,78 +70,192 @@ namespace GSoft.Dynamite.Publishing.Contracts.Constants
         /// The right sidebar generic page layout
         /// </summary>
         /// <returns>The page layout info</returns>
-        public PageLayoutInfo RightSidebar()
+        public static PageLayoutInfo RightSidebar
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "RightSidebar.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "RightSidebar.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
 
         /// <summary>
         /// The right sidebar generic page layout using Bootstrap
         /// </summary>
         /// <returns>The page layout info</returns>
-        public PageLayoutInfo BootstrapRightSidebar()
+        public static PageLayoutInfo BootstrapRightSidebar
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "BootstrapRightSidebar.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapRightSidebar.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
 
         /// <summary>
         /// The two columns generic page layout using Bootstrap
         /// </summary>
         /// <returns>The page layout info</returns>
-        public PageLayoutInfo BootstrapTwoColumns()
+        public static PageLayoutInfo BootstrapTwoColumns
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "BootstrapTwoColumns.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapTwoColumns.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The one column generic page layout using Bootstrap
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapOneColumn
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapOneColumn.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The left slim sidebar generic page layout using Bootstrap
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapLeftSlimSidebar
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapLeftSlimSidebar.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The Bootstrap Three Equal Columns Page Layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapThreeColumns
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapThreeColumns.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The Bootstrap Four Equal Columns Page Layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapFourColumns
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapFourColumns.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The Bootstrap Left Sidebar Page Layout
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapLeftSidebar
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapLeftSidebar.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
+        }
+
+        /// <summary>
+        /// The Bootstrap Right Slim Sidebar
+        /// </summary>
+        /// <returns>The page layout info</returns>
+        public static PageLayoutInfo BootstrapRightSlimSidebar
+        {
+            get
+            {
+                return new PageLayoutInfo()
+                {
+                    Name = "BootstrapRightSlimSidebar.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
 
         /// <summary>
         /// A layout with a single column body and an header section
         /// </summary>
         /// <returns>The Page Layout Info</returns>
-        public PageLayoutInfo OneColunmWithHeader()
+        public static PageLayoutInfo OneColunmWithHeader
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "OneColumnWithHeader.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "OneColumnWithHeader.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
 
         /// <summary>
         /// A layout with a single column body with three different sections and an header section with the navigation
         /// </summary>
         /// <returns>The Page Layout Info</returns>
-        public PageLayoutInfo OneColunmWithThreeTabs()
+        public static PageLayoutInfo OneColunmWithThreeTabs
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "OneColumnWithThreeTabs.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "OneColumnWithThreeTabs.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
 
         /// <summary>
         /// A layout with two columns and one large column.
         /// </summary>
         /// <returns>The Page Layout Info</returns>
-        public PageLayoutInfo TwoColumnsAndOneColumn()
+        public static PageLayoutInfo TwoColumnsAndOneColumn
         {
-            return new PageLayoutInfo()
+            get
             {
-                Name = "TwoColumnsOneColumn.aspx",
-                AssociatedContentTypeId = this.publishingContentTypeInfos.DefaultPage().ContentTypeId
-            };
+                return new PageLayoutInfo()
+                {
+                    Name = "TwoColumnsOneColumn.aspx",
+                    AssociatedContentTypeId = PublishingContentTypeInfos.DefaultPage.ContentTypeId
+                };
+            }
         }
         #endregion
     }

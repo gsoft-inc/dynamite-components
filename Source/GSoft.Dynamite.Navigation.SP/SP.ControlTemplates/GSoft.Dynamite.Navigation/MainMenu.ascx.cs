@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using Autofac;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Multilingualism.Contracts.Constants;
 using GSoft.Dynamite.Navigation.Contracts.Constants;
-using GSoft.Dynamite.Navigation.Contracts.Services;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
 using GSoft.Dynamite.Publishing.Contracts.Constants;
 using GSoft.Dynamite.Search;
 using Microsoft.SharePoint;
@@ -33,33 +35,31 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
 
             using (var scope = NavigationContainerProxy.BeginWebLifetimeScope(SPContext.Current.Web))
             {
-                var publishingManagedPropertyInfos = scope.Resolve<PublishingManagedPropertyInfos>();
-                var navigationManagedPropertyInfos = scope.Resolve<NavigationManagedPropertyInfos>();
-                var multilingualismManagedPropertyInfos = scope.Resolve<MultilingualismManagedPropertyInfos>();
-                var publishingContentTypeInfos = scope.Resolve<PublishingContentTypeInfos>();
                 var navigationService = scope.Resolve<INavigationService>();
-                var navigationResultSourceInfos = scope.Resolve<NavigationResultSourceInfos>();
+                var publishingFieldInfoConfig = scope.Resolve<IPublishingFieldInfoConfig>();
+
+                var navigationField = publishingFieldInfoConfig.GetFieldById(PublishingFieldInfos.Navigation.Id) as TaxonomyFieldInfo;
 
                 var queryParameters = new NavigationQueryParameters()
                 {
                     NodeMatchingSettings = new NavigationNodeMatchingSettings()
                     {
                         IncludeCatalogItems = true,
-                        RestrictToReachableTargetItems = true
+                        RestrictToReachableTargetItems = true,
                     },
                     SearchSettings = new NavigationSearchSettings()
                     {
-                        NavigationManagedPropertyName = publishingManagedPropertyInfos.Navigation.Name,
-                        ResultSourceName = navigationResultSourceInfos.AllMenuItems().Name,
-                        SelectedProperties = new[] 
+                        NavigationManagedPropertyName = navigationField.OWSTaxIdManagedPropertyInfo.Name,
+                        ResultSourceName = NavigationResultSourceInfos.AllMenuItems.Name,
+                        SelectedProperties = new List<string>
                         { 
                             // These properties are required for the generation of the friendly URL
-                            publishingManagedPropertyInfos.Navigation.Name, 
-                            BuiltInManagedProperties.Url, 
-                            BuiltInManagedProperties.SiteUrl, 
-                            BuiltInManagedProperties.ListId                                           
+                            navigationField.OWSTaxIdManagedPropertyInfo.Name, 
+                            BuiltInManagedProperties.Url.Name, 
+                            BuiltInManagedProperties.SiteUrl.Name, 
+                            BuiltInManagedProperties.ListId.Name                                           
                         },
-                        GlobalFilters = new[]
+                        GlobalFilters = new List<string>
                         {
                             // Use the Locale of the web instead of the Language because when we implement unsupported languages as Inuktitut, 
                             // the variation label language is en-US.
@@ -67,31 +67,31 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                             string.Format(
                                 CultureInfo.InvariantCulture,
                                 "{0}:{1}",
-                                multilingualismManagedPropertyInfos.ItemLanguage.Name,
-                                SPContext.Current.Web.Locale.TwoLetterISOLanguageName),
+                                MultilingualismManagedPropertyInfos.ItemLanguage.Name,
+                                SPContext.Current.Web.Locale.Name),
 
                             // Filter items on occurence link location (featured in) main menu
                             string.Format(
                                 CultureInfo.InvariantCulture,
                                 "{0}:{1}",
-                                navigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
+                                NavigationManagedPropertyInfos.OccurrenceLinkLocationManagedPropertyText.Name,
                                 "Main Menu")
                         },
-                        TargetItemFilters = new[]
+                        TargetItemFilters = new List<string>
                         {
                             string.Format(
                                 CultureInfo.InvariantCulture, 
                                 "{0}:{1}*", 
-                                BuiltInManagedProperties.ContentTypeId, 
-                                publishingContentTypeInfos.TargetContentItem().ContentTypeId)
+                                BuiltInManagedProperties.ContentTypeId.Name, 
+                                PublishingContentTypeInfos.TargetContentItem.ContentTypeId)
                         },
-                        CatalogItemFilters = new[]
+                        CatalogItemFilters = new List<string>
                         {
                             string.Format(
                                 CultureInfo.InvariantCulture, 
                                 "{0}:{1}*", 
-                                BuiltInManagedProperties.ContentTypeId, 
-                                publishingContentTypeInfos.CatalogContentItem().ContentTypeId)
+                                BuiltInManagedProperties.ContentTypeId.Name, 
+                                PublishingContentTypeInfos.CatalogContentItem.ContentTypeId)
                         }
                     }
                 };

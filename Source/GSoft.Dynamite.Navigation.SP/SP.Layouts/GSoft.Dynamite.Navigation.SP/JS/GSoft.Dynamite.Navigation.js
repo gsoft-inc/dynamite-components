@@ -19,13 +19,13 @@ window.Dynamite = window.Dynamite || {};
                 
             // Fix menu padding
             $(window).bind("load", function () {
-                var level2 = $("ul.main-menu-level-2")
+                var level2 = $("ul.main-menu-level-2");
                 var space = level2.width() - 1;
                 var taken = 0;
 
                 _.each(level2.children("li"), function (li) {
                     taken += ($(li)[0].getBoundingClientRect().width);
-                })
+                });
 
                 //var padding = (space - taken) / (level2.children("li").length * 2);
                 //level2.find("a.main-menu-level-2").css("padding-left", padding + "px").css("padding-right", padding + "px");
@@ -101,7 +101,7 @@ window.Dynamite = window.Dynamite || {};
 
             var currentNode = _.find(self.Nodes(), function (node) {
                 return node.IsNodeInCurrentBranch();
-            })
+            });
 
             if (currentNode) {
                 return currentNode.ChildNodes();
@@ -131,7 +131,11 @@ window.Dynamite = window.Dynamite || {};
             var isCurrentNode = self.IsCurrentNode() ? "current-node" : "";
             var isNodeInCurrentBranch = self.IsNodeInCurrentBranch() ? "node-in-current-branch" : "";
             var is2Columns = self.ChildNodes2().length > 0 ? "main-menu-2-col" : "";
-            var isChildNodes = self.ChildNodes().length > 0 ? "main-menu-dropdown" : "";
+            var isChildNodes;
+            if (self.Level() == 1) {
+                isChildNodes = self.ChildNodes().length > 0 ? "main-menu-dropdown" : "";
+            }
+
             return [level, isCurrentNode, isNodeInCurrentBranch, is2Columns, isChildNodes].join(" ");
         });
 
@@ -181,4 +185,4 @@ window.Dynamite = window.Dynamite || {};
         }
     }
 
-}(Dynamite.MainMenu = Dynamite.MainMenu || {}, jq110));
+}(Dynamite.MainMenu = Dynamite.MainMenu || {}, jq111));

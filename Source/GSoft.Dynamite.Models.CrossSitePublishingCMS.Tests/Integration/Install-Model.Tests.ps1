@@ -9,22 +9,22 @@ $publishDest = "..\..\..\Deployment"
  
 Describe "Install-Model.ps1" {
 
-	# Test utility functions
+    # Test utility functions
 
-	function New-TokenFile {
+    function New-TokenFile {
         param ($fileName, $contents)
 
         $tokenFile = $sutFolderPath + "\Tokens." + $fileName + ".ps1"
         New-Item -Path $tokenFile -ItemType file -Value $contents -Force
-	}
+    }
 
-	function Remove-TokenFile {
+    function Remove-TokenFile {
         param ($fileName)
         $filter = "Tokens." + $fileName + ".ps1"
-		Get-ChildItem -Path $sutFolderPath -Filter $filter | Remove-Item -Force -Recurse
-	}
+        Get-ChildItem -Path $sutFolderPath -Filter $filter | Remove-Item -Force -Recurse
+    }
 
-	function Remove-Sut {
-		Get-ChildItem -Path $sutPath | Remove-Item -Force -Recurse
-	}
+    function Remove-Sut {
+        Get-ChildItem -Path $sutPath | Remove-Item -Force -Recurse
+    }
 }

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using GSoft.Dynamite.Fields.Types;
 using GSoft.Dynamite.Lists;
 using GSoft.Dynamite.Navigation.Contracts.Configuration;
-using GSoft.Dynamite.Navigation.Contracts.Constants;
+using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
 
 namespace GSoft.Dynamite.Navigation.Core.Configuration
 {
@@ -10,15 +12,20 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
     /// </summary>
     public class NavigationListInfosConfig : INavigationListInfosConfig
     {
-        private readonly NavigationListInfos navigationListInfos;
+        private readonly IPublishingCatalogInfoConfig publishingCatalogInfoConfig;
+        private readonly IPublishingListInfoConfig publishingListInfoConfig;
 
         /// <summary>
-        /// Default constructor
+        /// Initializes a new instance of the <see cref="NavigationListInfosConfig"/> class.
         /// </summary>
-        /// <param name="navigationListInfos">The list info objects configuration</param>
-        public NavigationListInfosConfig(NavigationListInfos navigationListInfos)
+        /// <param name="publishingCatalogInfoConfig">The publishing catalog configuration.</param>
+        /// <param name="publishingListInfoConfig">The publishing list configuration.</param>
+        public NavigationListInfosConfig(
+            IPublishingCatalogInfoConfig publishingCatalogInfoConfig,
+            IPublishingListInfoConfig publishingListInfoConfig)
         {
-            this.navigationListInfos = navigationListInfos;
+            this.publishingCatalogInfoConfig = publishingCatalogInfoConfig;
+            this.publishingListInfoConfig = publishingListInfoConfig;
         }
 
         /// <summary>
@@ -31,10 +38,47 @@ namespace GSoft.Dynamite.Navigation.Core.Configuration
             {
                 return new List<ListInfo>()
                 {
-                    this.navigationListInfos.ContentPages,
-                    this.navigationListInfos.PagesLibrary
+                    this.ContentPages,
+                    this.PagesLibrary
                 };
             }          
+        }
+
+        private ListInfo ContentPages
+        {
+            get
+            {
+                // Page editors can create terms directly in the form so find the navigation field and set CreateValuesInEditForm to true.
+                var list = this.publishingCatalogInfoConfig.GetCatalogInfoByWebRelativeUrl(PublishingCatalogInfos.ContentPages.WebRelativeUrl);
+                foreach (var field in list.FieldDefinitions)
+                {
+                    if (field.Id.Equals(PublishingFieldInfos.Navigation.Id))
+                    {
+                        (field as TaxonomyFieldInfo).CreateValuesInEditForm = true;
+                    }
+                }
+
+                return list;
+            }
+        }
+
+        private ListInfo PagesLibrary
+        {
+            get
+            {
+                // Page editors can create terms directly in the form so find the navigation field and set CreateValuesInEditForm to true.
+                // By default, Navigation Term Set must be set to IsOpenForTermCreation = True
+                var list = this.publishingListInfoConfig.GetListInfoByWebRelativeUrl(PublishingListInfos.PagesLibrary.WebRelativeUrl);
+                foreach (var field in list.FieldDefinitions)
+                {
+                    if (field.Id.Equals(PublishingFieldInfos.Navigation.Id))
+                    {
+                        (field as TaxonomyFieldInfo).CreateValuesInEditForm = true;
+                    }
+                }
+
+                return list;
+            }
         }
     }
 }

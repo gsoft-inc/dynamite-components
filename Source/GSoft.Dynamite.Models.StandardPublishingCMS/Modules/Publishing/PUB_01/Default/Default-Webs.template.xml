@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright		: GSoft @2014
+ Model  		  : Standard Publishing CMS
+ File         : Setup-Webs.xml.template
+ Description	: Base SharePoint subsites structure configuration file    
+-->
+<Configuration>
+  <Web Name="Ressources Humaines" Path="rh" Template="BLANKINTERNET#2" Language="1036" Label="fr">
+    <Variations>
+      <TargetWeb Name="Human Resources" Path="hr" Language="1033" Label="en" />
+    </Variations>
+  </Web>
+  <Web Name="Communications" Path="com" Template="BLANKINTERNET#2">
+    <Variations>
+      <TargetWeb Name="Communications" Path="com" Language="1033" Label="en" />
+    </Variations>
+  </Web>
+</Configuration>

@@ -1,0 +1,47 @@
+﻿{
+    "output": "Warning",
+    "runOnSave": false,
+    "runOnBuild": false,
+    "cancelBuild": false,
+    "ignore": [
+        "JSHint.js",
+        "\\bin",
+        "\\pkg",
+        "\\SP.Layouts\\GSoft.Dynamite.Publishing\\js\\jquery.validate.min.js",
+        "\\SP.Layouts\\GSoft.Dynamite.Publishing\\js\\GSoft.Dynamite.Publishing.min.js"
+    ],
+    "options": {
+        "predef": {
+            "define": false,
+            "ko": false,
+            "window": false,
+            "namespace": false,
+            "g": false,
+            "gsoft": false,
+            "GSoft": false,
+            "SP": false,
+            "Srch": false,
+            "_spPageContextInfo": false,
+            "jq111": false,
+            "$": false,
+            "moment": false,
+            "_":  false,
+            "$registerResourceDictionary": false,
+            "$getItemValue": false,
+            "AddPostRenderCallback": false,
+            "ExecuteOrDelayUntilScriptLoaded": false,
+            "MSOWebPartPageFormName":  false
+        },
+        "unused": true,
+        "undef": true,
+        "bitwise": true,
+        "browser": true,
+        "curly": true,
+        "jquery": true,
+        "noarg": true,
+        "noempty": true,
+        "nonew": true,
+        "devel": true,
+        "forin": true
+    }
+}

@@ -17,9 +17,13 @@ namespace GSoft.Dynamite.Design.Core.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
-            // Variations Configuration
+            // Design Configuration
             builder.RegisterType<DesignConfig>().As<IDesignConfig>();
             builder.RegisterType<DesignConfig>().Named<IDesignConfig>("design");
+
+            // Home page instances
+            builder.RegisterType<HomePageConfig>().As<IHomePageConfig>();
+            builder.RegisterType<HomePageConfig>().Named<IHomePageConfig>("design");
         }
     }
 }

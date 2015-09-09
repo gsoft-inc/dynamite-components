@@ -4,44 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GSoft.Dynamite.Publishing.Contracts.Configuration;
+using GSoft.Dynamite.Publishing.Contracts.Constants;
+using GSoft.Dynamite.ReusableContent;
 
 namespace GSoft.Dynamite.Publishing.Core.Configuration
 {
     /// <summary>
-    /// Configuration sample for the reusable Content 
+    /// Class for the configuration of the Reusable Content information
     /// </summary>
     public class PublishingReusableContentConfig : IPublishingReusableContentConfig
     {
         /// <summary>
-        /// List of all the filename and keys of the reusable content
+        /// A list of Reusable Content Info to Ensure in the Feature. Can be extended or overwrite via the dependency injection pattern.
         /// </summary>
-        public IList<string> ReusableContentNames
+        public IList<ReusableContentInfo> ReusableContents
         {
             get
             {
-                return new List<string>();
-            }
-        }
-
-        /// <summary>
-        /// The category of the Reusable Content
-        /// </summary>
-        public string Category
-        {
-            get
-            {
-                return "Home";
-            }
-        }
-
-        /// <summary>
-        /// The Relative path from /Layouts
-        /// </summary>
-        public string RelativePath
-        {
-            get
-            {
-                return "GSoft.Dynamite/Html";
+                return new List<ReusableContentInfo>() 
+                {
+                    PublishingReusableContentInfos.HelloWorld
+                };
             }
         }
     }
