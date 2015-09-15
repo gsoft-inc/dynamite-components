@@ -8,13 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("GSoft")]
 [assembly: AssemblyProduct("Dynamite-Components")]
-[assembly: AssemblyCopyright("GSoft - Dynamite Components - Copyright © 2014")]
+[assembly: AssemblyCopyright("GSoft - Dynamite Components - Copyright © 2015")]
 [assembly: AssemblyTrademark("Dynamite")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 [assembly: CLSCompliant(false)]
-
-[assembly: AssemblyVersion("15.0.0.0")]
-[assembly: AssemblyFileVersion("15.0.0.0")]
-[assembly: AssemblyInformationalVersion("Release 15.0.0.0")]
