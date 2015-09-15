@@ -84,7 +84,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                                 CultureInfo.InvariantCulture,
                                 "{0}:{1}",
                                 MultilingualismManagedPropertyInfos.ItemLanguage.Name,
-                                SPContext.Current.Web.Locale.TwoLetterISOLanguageName),
+                                SPContext.Current.Web.Locale.Name),
 
                             // Filter items on occurence link location (featured in)
                             string.Format(
