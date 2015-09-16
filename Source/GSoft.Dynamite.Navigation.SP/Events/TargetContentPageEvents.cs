@@ -153,23 +153,11 @@ namespace GSoft.Dynamite.Navigation.SP.Events
 
                 using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
                 {
-                    this.EventFiringEnabled = false;
                     var logger = childScope.Resolve<ILogger>();
 
-                    try
+                    if (properties.ListItem != null)
                     {
-                        var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
-
-                        // Set Term driven page
-                        navigationTermService.DeleteAssociatedPageTerm(properties.ListItem);
-                    }
-                    catch (Exception e)
-                    {
-                        logger.Exception(e);
-                    }
-                    finally
-                    {
-                        this.EventFiringEnabled = true;
+                        logger.Info("Page at URL {0} was deleted. If a navigation term was associated with the page, you might need to delete it manually.", properties.ListItem.Url);
                     }
                 }
             }

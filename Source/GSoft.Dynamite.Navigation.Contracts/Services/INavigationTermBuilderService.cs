@@ -1,4 +1,5 @@
-﻿using Microsoft.SharePoint;
+﻿using System;
+using Microsoft.SharePoint;
 
 namespace GSoft.Dynamite.Navigation.Contracts.Services
 {
@@ -24,6 +25,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Services
         /// Deletes the term associated to a page if the page is deleted
         /// </summary>
         /// <param name="item">The current page item</param>
+        [Obsolete("Deleting terms upon item or page deletion is considered overzealous and potentially harmful. Before v3.0.2, this method's implementation would cause tons of Orphaned Terms because it didn't check for reuses and would delete source terms.")]
         void DeleteAssociatedPageTerm(SPListItem item);
 
         /// <summary>
