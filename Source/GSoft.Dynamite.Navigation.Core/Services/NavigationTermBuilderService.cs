@@ -224,6 +224,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// Delete the term associated to a page if the page is deleted
         /// </summary>
         /// <param name="item">The current page item</param>
+        [Obsolete("Deleting terms upon item or page deletion is considered overzealous and potentially harmful. Before v3.0.2, this method's implementation would cause tons of Orphaned Terms because it didn't check for reuses and would delete source terms.")]
         public void DeleteAssociatedPageTerm(SPListItem item)
         {
             if (item != null)
@@ -241,22 +242,27 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         var termLabel = term.GetDefaultLabel(webLanguage);
                         var termStore = term.TermStore;
 
-                        // If the term has children we don't do anything to avoid mistakes (accidently ruining a contributor's entire navigation hierarchy, for instance)
+                        // 1) Pinned term behavior 
+                        // If the term is the source for pinning then all pinned terms will be deleted automatically in target term sets. By default SharePoint doesn't care about children
+                        // and the whole branch will be deleted (That's why we check before)
+                        // However, if the term is not the source, it will be deleted only in the target term set, not in the source one
+                        // 2) Reused term behavior
+                        // If the term is the source for reusing then all reused terms in target term sets WON'T BE removed
+                        // However, those terms will be placed into the Sytem group in the "Orphaned Terms" term set. When they are here, it is not possible to delete them
+                        // If the term is not the source, it will be deleted only in the target term set, not in the source one
+                        // 3) If the term has children we don't do anything to avoid mistakes (accidently ruining a contributor's entire navigation hierarchy, for instance)
                         if (term.TermsCount > 0)
                         {
-                            this.logger.Warn("Unable to delete the term {0} with id {1}: the term has children. Delete all children before deleting this term", termLabel, term.Id);
+                            this.logger.Warn("Unable to delete the term {0} with id {1}: the term has children. Delete all children before deleting this term.", termLabel, term.Id);
                         }
-                        else
+                        else if (term.IsReused || term.IsPinned || term.SourceTerm != null || term.ReusedTerms.Count > 0)
                         {
-                            // Pinned term behavior 
-                            // If the term is the source for pinning then all pinned terms will be deleted automatically in target term sets. By default SharePoint doesn't care about children
-                            // and the whole branch will be deleted (That's why we check before)
-                            // However, if the term is not the source, it will be deleted only in the target term set, not in the source one
-
-                            // Reused term behavior
-                            // If the term is the source for reusing then all reused terms in target term sets WON'T BE removed
-                            // However, those terms will be placed into the Sytem group in the "Orphaned Terms" term set. When they are here, it is not possible to delete them
-                            // If the term is not the source, it will be deleted only in the target term set, not in the source one
+                            string reuseWarnFormat = "Unable to delete the term {0} with id {1}: the term has reuses. Deleting this term would cause (undeletable) "
+                                + "Orphaned Terms (rendering this term GUID unusable in the future). Delete all reuses before deleting this term.";
+                            this.logger.Warn(reuseWarnFormat, termLabel, term.Id);
+                        }
+                        else if (term.IsSourceTerm && !term.IsReused)
+                        {
                             term.Delete();
                             termStore.CommitAll();
                         }
