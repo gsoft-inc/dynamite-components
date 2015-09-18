@@ -98,7 +98,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                             string.Format(
                                 CultureInfo.InvariantCulture, 
                                 "{0}:{1}*", 
-                                BuiltInManagedProperties.ContentTypeId, 
+                                BuiltInManagedProperties.ContentTypeId.Name, 
                                 PublishingContentTypeInfos.TargetContentItem.ContentTypeId)
                         },
                         CatalogItemFilters = new List<string>
@@ -106,7 +106,7 @@ namespace GSoft.Dynamite.Navigation.SP.CONTROLTEMPLATES.GSoft.Dynamite.Navigatio
                             string.Format(
                                 CultureInfo.InvariantCulture, 
                                 "{0}:{1}*", 
-                                BuiltInManagedProperties.ContentTypeId, 
+                                BuiltInManagedProperties.ContentTypeId.Name, 
                                 PublishingContentTypeInfos.CatalogContentItem.ContentTypeId)
                         }
                     }
