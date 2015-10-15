@@ -43,15 +43,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
                     var logger = featureScope.Resolve<ILogger>();
                     var variationHelper = featureScope.Resolve<IVariationHelper>();
 
-                    var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();
-                    var navigationTermService = featureScope.Resolve<INavigationTermBuilderService>();
-
-                    // Fix any pages that are no longer properly mapped to their term.
-                    // This is in the case where the term set was updated using PowerShell clearing all term driven page settings.
-                    foreach (SPWeb web in site.AllWebs)
-                    {
-                        navigationTermService.SetTermDrivenPageForTerms(web);
-                    }                   
+                    var eventReceiversInfos = featureScope.Resolve<NavigationEventReceiverInfos>();           
 
                     // Add only Browsable Page events
                     var targetContentPageEventReceivers = new List<EventReceiverInfo>();
@@ -151,7 +143,7 @@ namespace GSoft.Dynamite.Navigation.SP.Features.StandardPublishingCMS_TargetPage
             catch (Exception e)
             {
                 logger.Error(
-                    "Failed to apply subweb Pages library FieldUpdate event receiver on subweb {0} at Url {1}."
+                    "Failed to apply subweb Pages library FieldUpdated event receiver on subweb {0} at Url {1}."
                     + " Moving on to try to apply config to further subwebs' Pages library anyway. Exception: {2}",
                     variationTargetLabelWeb.ID,
                     variationTargetLabelWeb.Url,
