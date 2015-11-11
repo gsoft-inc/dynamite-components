@@ -323,6 +323,72 @@ function Remove-DSPWeb {
 
 <#
     .SYNOPSIS
+        Get a list of SPWeb objects
+    
+    .DESCRIPTION
+        If -Recurse is specified, all subwebs are retrieved
+    --------------------------------------------------------------------------------------
+    Module 'Dynamite.PowerShell.Toolkit'
+    by: GSoft, Team Dynamite.
+    > GSoft & Dynamite : http://www.gsoft.com
+    > Dynamite Github : https://github.com/GSoft-SharePoint/Dynamite-PowerShell-Toolkit
+    > Documentation : https://github.com/GSoft-SharePoint/Dynamite-PowerShell-Toolkit/wiki
+    --------------------------------------------------------------------------------------
+        
+    .PARAMETER WebUrl
+        The source web url
+
+    .PARAMETER Recurse
+        Get all subsites recursively
+
+    .EXAMPLE
+            PS C:\> Get-DSPWeb -WebUrl "http://<site>/sites/test/" -Recurse 
+
+    .LINK
+    GSoft, Team Dynamite on Github
+    > https://github.com/GSoft-SharePoint
+    
+    Dynamite PowerShell Toolkit on Github
+    > https://github.com/GSoft-SharePoint/Dynamite-PowerShell-Toolkit
+    
+    Documentation
+    > https://github.com/GSoft-SharePoint/Dynamite-PowerShell-Toolkit/wiki
+    
+#>
+function Get-DSPWeb {
+
+    [CmdletBinding()]
+    Param
+    (
+        [Parameter(Mandatory=$true)]
+        [string]$WebUrl,
+
+        [Parameter(Mandatory=$false)]
+        [switch]$Recurse
+    )
+
+    $Web = Get-SPWeb -Identity $WebUrl
+
+    if ($Web)
+    {
+        if($Recurse)
+        {
+            $Web.Webs | ForEach-Object {
+        
+                Get-DSPWeb -WebUrl $_.Url -Recurse:$Recurse
+            }
+        }
+    }
+
+	# For C# developers, PowerShell treats every non-captured object (i.e. one that isn’t assigned to a variable) as return value.
+	# http://manski.net/2013/03/powershell-functions-for-the-uninitiated-c-programmer/
+	# So at the end of the function, all webs will be returned in an array of objects, where the first element will be the deepest web. 
+	# You could reverse the array if you want by manipulating the cmdlet output [array]::Reverse()
+	return $Web
+}
+
+<#
+    .SYNOPSIS
         Export a SharePoint web structure as XML. 
     
     .DESCRIPTION
