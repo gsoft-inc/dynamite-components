@@ -6086,9 +6086,19 @@
         <member name="P:GSoft.Dynamite.Lists.ListInfo.DraftVisibilityType">
             <summary>
             Gets or sets the type of the draft visibility.
+            The draft visibility type Approver requires Moderation to be enabled.
+            The draft visibility type Author requires Moderation or minor versions to be enabled.
             </summary>
             <value>
             The type of the draft visibility.
+            </value>
+        </member>
+        <member name="P:GSoft.Dynamite.Lists.ListInfo.IsModerationEnabled">
+            <summary>
+            Gets or sets a value indicating whether this list has moderation enabled.
+            </summary>
+            <value>
+            <c>true</c> if this list has moderation enabled; otherwise, <c>false</c>.
             </value>
         </member>
         <member name="P:GSoft.Dynamite.Lists.ListInfo.IsVersioningEnabled">
@@ -18368,7 +18378,7 @@
             By Design, owner should be unique so we can remove duplicates.
             </summary>
             <param name="webApplication">The current Web Application</param>
-            <param name="owner">The Owner key. Only one modification should have that owner</param>
+            <param name="ownerOfModificationToRemove">The Owner key. Only one modification should have that owner</param>
             <remarks>All SPWebConfigModification Owner should be UNIQUE !</remarks>
         </member>
         <member name="M:GSoft.Dynamite.Configuration.IWebConfigModificationHelper.RemoveExistingModificationsFromOwner(Microsoft.SharePoint.Administration.SPWebApplication,System.Collections.Generic.IList{System.String})">
@@ -18377,13 +18387,19 @@
             By Design, owner should be unique per WebConfig modification so we can remove duplicates.
             </summary>
             <param name="webApplication">The current Web Application</param>
-            <param name="owners">A list of owners for which we want to remove modifications.</param>
+            <param name="ownersOfModificationsToRemove">A list of owners for which we want to remove modifications.</param>
             <remarks>All SPWebConfigModification Owner should be UNIQUE !</remarks>
         </member>
         <member name="T:GSoft.Dynamite.Configuration.WebConfigModificationHelper">
             <summary>
             Helper class to add, clean, remove WebConfig modifications programmatically
             </summary>
+        </member>
+        <member name="M:GSoft.Dynamite.Configuration.WebConfigModificationHelper.#ctor(GSoft.Dynamite.Logging.ILogger)">
+            <summary>
+            Creates a new instance of <see cref="T:GSoft.Dynamite.Configuration.WebConfigModificationHelper"/>
+            </summary>
+            <param name="logger">Logging utility</param>
         </member>
         <member name="M:GSoft.Dynamite.Configuration.WebConfigModificationHelper.AddAndCleanWebConfigModification(Microsoft.SharePoint.Administration.SPWebApplication,System.Collections.ObjectModel.Collection{Microsoft.SharePoint.Administration.SPWebConfigModification})">
             <summary>
@@ -18400,7 +18416,7 @@
             By Design, owner should be unique so we can remove duplicates.
             </summary>
             <param name="webApplication">The current Web Application</param>
-            <param name="owner">The Owner key. Only one modification should have that owner</param>
+            <param name="ownerOfModificationToRemove">The Owner key. Only one modification should have that owner</param>
             <remarks>
             All SPWebConfigModification Owner should be UNIQUE !
             </remarks>
@@ -18411,7 +18427,7 @@
             By Design, owner should be unique per WebConfig modification so we can remove duplicates.
             </summary>
             <param name="webApplication">The current Web Application</param>
-            <param name="owners">A list of owners for which we want to remove modifications.</param>
+            <param name="ownersOfModificationsToRemove">A list of owners for which we want to remove modifications.</param>
             <remarks>All SPWebConfigModification Owner should be UNIQUE !</remarks>
         </member>
         <member name="M:GSoft.Dynamite.Configuration.WebConfigModificationHelper.WaitForWebConfigPropagation(Microsoft.SharePoint.Administration.SPFarm)">
