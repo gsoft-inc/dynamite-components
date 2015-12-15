@@ -209,7 +209,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                 // Check if the current term is under a parent one
                                 if (!termExists)
                                 {
-                                    this.EnsureRecursiveSyncToTargetTermSet(term, peerTermSet, webLanguage, isSourceVariationWeb, null);
+                                    this.EnsureRecursiveSyncToTargetTermSet(term, peerTermSet, webLanguage, isSourceVariationWeb);
 
                                     termStore.CommitAll();
                                 }
@@ -224,7 +224,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
         /// Delete the term associated to a page if the page is deleted
         /// </summary>
         /// <param name="item">The current page item</param>
-        [Obsolete("Deleting terms upon item or page deletion is considered overzealous and potentially harmful. Before v3.0.2, this method's implementation would cause tons of Orphaned Terms because it didn't check for reuses and would delete source terms.")]
+        ////[Obsolete("Deleting terms upon item or page deletion is considered overzealous and potentially harmful. Before v3.0.2, this method's implementation would cause tons of Orphaned Terms because it didn't check for reuses and would delete source terms. Right now it's only still around to compensate for the OOTB implementation which causes similar eregious Orphaned Terms.")]
         public void DeleteAssociatedPageTerm(SPListItem item)
         {
             if (item != null)
@@ -238,12 +238,15 @@ namespace GSoft.Dynamite.Navigation.Core.Services
 
                     if (termValue != null)
                     {
-                        // TODO: We get no guarantees of correct parent term set here: we should use the ambient web (or top level parent web's) 
-                        // navigation settings to figure out the correct navigation term set to fetch the term from.
-                        var term = this.taxonomyService.GetTermForId(item.Web.Site, new Guid(termValue.TermGuid));
+                        // Use the ambient web (or top level parent web's) navigation settings to figure out the correct 
+                        // navigation term set to fetch the term from.
+                        SPWeb webWithNavSettings = null;
+                        var webNavSettings = FindTaxonomyWebNavigationSettingsInWebOrInParents(item.Web, out webWithNavSettings);
+                        var taxonomySession = new TaxonomySession(item.Web.Site);
+                        var termStore = taxonomySession.TermStores[webNavSettings.GlobalNavigation.TermStoreId];
+                        var termSet = termStore.GetTermSet(webNavSettings.GlobalNavigation.TermSetId);
+                        var term = termSet.GetTerm(new Guid(termValue.TermGuid));
                         var termLabel = term.GetDefaultLabel(webLanguage);
-                        var termStore = term.TermStore;
-                        var termSet = term.TermSet;
 
                         // Default OOTB behavior when page is deleted: The PagesListCPVEventReceiver calls FriendlyUrlEventReceiver.ItemDeleted, which will
                         // 1) if related navigation term has children, term will not be deleted (only changed to SimpleLink mode with blank target URL)
@@ -252,15 +255,11 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                         // In other words: in case 3), the OOTB event receivers will cause Orphaned Terms by deleting source terms without making sure to clean up
                         // the reuses and/or pins beforehand. This sucks because the GUID of Orphaned Terms cannot be used again from that point on.
                         //
-                        // Our goal is to pre-empt the ItemDeleted event recever by deleting the Navigation term's reuses/pins (if they don't have any children of their own)
+                        // Our goal is to pre-empt the ItemDeleted event recever by deleting the Navigation term's reuses (if they don't have any children of their own)
                         // before the OOTB event has a chance to run and cause mayhem and tons of Orphaned Terms.
-                        //
-                        // TODO: currently this only handles term re-uses gracefully, but not Pinned terms. We probably shouldn't be messing with pinned terms anyway 
-                        // (since deleting/pinning only works when you interact with the top-level parent term in the pinned hierarchy)... maybe only handle the 1-level-deep
-                        // pinning non-hierarchy/reuse...
                         if (term.TermsCount > 0)
                         {
-                            this.logger.Warn("Unable to delete the term {0} with id {1}: the term has children. Delete all children before deleting this term.", termLabel, term.Id);
+                            this.logger.Info("Unable to delete the term {0} with id {1}: the term has children. Delete all children before deleting this term.", termLabel, term.Id);
                         }
                         else if (term.IsSourceTerm && term.IsReused)
                         {
@@ -269,10 +268,18 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                             {
                                 if (termReuse.TermsCount > 0)
                                 {
-                                    this.logger.Warn("Unable to delete the term {0} with id {1}: one of the term's reuses/pins has children. Delete all children of that term reuse/pin within termset {2} before deleting this term.", termLabel, term.Id, termReuse.TermSet.Name);
+                                    this.logger.Warn("Unable to delete the term {0} with id {1}: one of the term's reuses/pins has children. Delete all children of that term reuse within termset {2} before deleting this term.", termLabel, term.Id, termReuse.TermSet.Name);
                                     return;
                                 }
 
+                                if (termReuse.IsPinned && !termReuse.IsPinnedRoot)
+                                {
+                                    this.logger.Warn("Unable to delete the term {0} with id {1}: one of the term's reuses/pins is a pin but not a pin root (within term set {2}). We'll let the OOTB event receiver cause the orphan term, too bad. Avoid pinned terms in favor of reuses, if you can.", termLabel, term.Id, termReuse.TermSet.Name);
+                                    return;
+                                }
+
+                                // Either a childless reuse or pin root: deleting should be allowed (only in those two cases - leaf term re-use deletion has minimal impact and 
+                                // only root-pin terms can be deleted without causing orphaned terms).
                                 termReuse.Delete();
                                 this.logger.Info("Deleting reuse of term {0} with id {1} from term set {2}.", termLabel, term.Id, termReuse.TermSet.Name);
                             }
@@ -311,7 +318,7 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             return currentWebNavSettings;
         }
 
-        private void EnsureRecursiveSyncToTargetTermSet(Term term, TermSet peerTermSet, int webLanguage, bool isSourceVariationWeb, Term childToEnsure)
+        private void EnsureRecursiveSyncToTargetTermSet(Term term, TermSet peerTermSet, int webLanguage, bool isSourceVariationWeb)
         {
             if (!term.IsRoot)
             {
@@ -331,17 +338,11 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                             if (isSourceVariationWeb)
                             {
                                 // This may be the termination point of the "down" recursing from parent-to-child-to-grandchild
-                                // Pin the term in peer term sets (under the already re-used parent)!
-                                // We use a pin instead of reuse to reproduce the behavior of the SharePoint variations system. One term set acts as source term set with more targets term sets. We have this information with associated variations webs.
-                                // If you are creating a term in a peer term set, that's mean you are creating an orphan page which doesn't need to be synced with the source term set (like varaitions do)
-                                // A pin is also useful for deleting scenarios (see DeleteAssociatedPageTerm method). Pin = hard link between terms
-                                //
-                                // TODO: Pinning by default is a problem. This prevent both hierarchies from evolving slightly independendly - which is the usual case.
-                                // Instead, we should ensure a full parent-to-grandchildren re-use hierarchy (so that we get the benefits of hierarchy sync that comes with pinning,
+                                // Ensure a full parent-to-grandchildren re-use hierarchy (so that we get the benefits of hierarchy sync that comes with pinning,
                                 // without the drawback of having the target hierarchy entirely stuck to the source hierarchy).
                                 // Pinning is also a problem because deleting a single child term on the source hierarchy will cause orphaned terms at the destination pinned hierarhcy.
                                 // Looks like pinning is/was broken by design (depending on whether that has been patched already in more recent CUs than the old-ish version I'm running now).
-                                reusedParentTerm.ReuseTermWithPinning(term);
+                                var newlyReusedPeer = reusedParentTerm.ReuseTerm(term, true);   // Using "true" as second argument sync the entire branch of child terms
                             }
                         }
                         else
@@ -351,10 +352,11 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                     }
                     else
                     {
-                        // Our parent term isn't re=used, so we need to recurse "up" to reach a parent we can pin instead.
-                        // Pinning the parent will bring the term we want to our target term set as well (since pinning 
-                        // acts as a full-child-hierarchy reuse).
-                        this.EnsureRecursiveSyncToTargetTermSet(parentTerm, peerTermSet, webLanguage, isSourceVariationWeb, term);
+                        // Our parent term isn't re=used, so we need to recurse "up" to reach a parent we can re-use from instead.
+                        // Re-using from the topmost parent we can find (or term set) will let us go down the parent-to-grandchildren chain 
+                        // to do a pseudo-pinning operation (but just a full-child-herarchy of synced up re-uses, not a rigid unchangeable 
+                        // pinned hierarchy)
+                        this.EnsureRecursiveSyncToTargetTermSet(parentTerm, peerTermSet, webLanguage, isSourceVariationWeb);
                     }
                 }
             }
@@ -362,9 +364,9 @@ namespace GSoft.Dynamite.Navigation.Core.Services
             {
                 if (isSourceVariationWeb)
                 {
-                    // Pin the term at root of peer term set (same reasons as above, will bring along all child terms 
+                    // Pseudo-pin the term at root of peer term set (same reasons as above, will bring along all child terms 
                     // to the target term set)
-                    peerTermSet.ReuseTermWithPinning(term);
+                    var newlyReusedRootTerm = peerTermSet.ReuseTerm(term, true);
                 }
             }
         }
