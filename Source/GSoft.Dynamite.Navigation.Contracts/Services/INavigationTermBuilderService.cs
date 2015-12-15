@@ -25,7 +25,7 @@ namespace GSoft.Dynamite.Navigation.Contracts.Services
         /// Deletes the term associated to a page if the page is deleted
         /// </summary>
         /// <param name="item">The current page item</param>
-        [Obsolete("Deleting terms upon item or page deletion is considered overzealous and potentially harmful. Before v3.0.2, this method's implementation would cause tons of Orphaned Terms because it didn't check for reuses and would delete source terms.")]
+        ////[Obsolete("Deleting terms upon item or page deletion is considered overzealous and potentially harmful. Before v3.0.2, this method's implementation would cause tons of Orphaned Terms because it didn't check for reuses and would delete source terms. Right now it's only still around to compensate for the OOTB implementation which causes similar eregious Orphaned Terms.")]
         void DeleteAssociatedPageTerm(SPListItem item);
 
         /// <summary>
