@@ -154,10 +154,17 @@ namespace GSoft.Dynamite.Navigation.SP.Events
                 using (var childScope = NavigationContainerProxy.BeginWebLifetimeScope(properties.Web))
                 {
                     var logger = childScope.Resolve<ILogger>();
+                    var variationHelper = childScope.Resolve<IVariationHelper>();
+                    var navigationTermService = childScope.Resolve<INavigationTermBuilderService>();
+                    var item = properties.ListItem;
 
-                    if (properties.ListItem != null)
+                    if (item != null)
                     {
-                        logger.Info("Page at URL {0} was deleted. If a navigation term was associated with the page, you might need to delete it manually.", properties.ListItem.Url);
+                        if (variationHelper.IsCurrentWebSourceLabel(item.Web))
+                        {
+                            navigationTermService.DeleteAssociatedPageTerm(item);
+                        }
+                        ////logger.Info("Page at URL {0} was deleted. If a navigation term was associated with the page, you might need to delete it manually.", properties.ListItem.Url);
                     }
                 }
             }

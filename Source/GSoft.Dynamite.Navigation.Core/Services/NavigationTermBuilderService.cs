@@ -238,32 +238,56 @@ namespace GSoft.Dynamite.Navigation.Core.Services
 
                     if (termValue != null)
                     {
+                        // TODO: We get no guarantees of correct parent term set here: we should use the ambient web (or top level parent web's) 
+                        // navigation settings to figure out the correct navigation term set to fetch the term from.
                         var term = this.taxonomyService.GetTermForId(item.Web.Site, new Guid(termValue.TermGuid));
                         var termLabel = term.GetDefaultLabel(webLanguage);
                         var termStore = term.TermStore;
+                        var termSet = term.TermSet;
 
-                        // 1) Pinned term behavior 
-                        // If the term is the source for pinning then all pinned terms will be deleted automatically in target term sets. By default SharePoint doesn't care about children
-                        // and the whole branch will be deleted (That's why we check before)
-                        // However, if the term is not the source, it will be deleted only in the target term set, not in the source one
-                        // 2) Reused term behavior
-                        // If the term is the source for reusing then all reused terms in target term sets WON'T BE removed
-                        // However, those terms will be placed into the Sytem group in the "Orphaned Terms" term set. When they are here, it is not possible to delete them
-                        // If the term is not the source, it will be deleted only in the target term set, not in the source one
-                        // 3) If the term has children we don't do anything to avoid mistakes (accidently ruining a contributor's entire navigation hierarchy, for instance)
+                        // Default OOTB behavior when page is deleted: The PagesListCPVEventReceiver calls FriendlyUrlEventReceiver.ItemDeleted, which will
+                        // 1) if related navigation term has children, term will not be deleted (only changed to SimpleLink mode with blank target URL)
+                        // 2) if related navigation term is a term reuse/pin, term reuse/pin will not be deleted (only changed to SimpleLink mode with blank target URL)
+                        // 3) any other case, term will be deleted (which might be unfortunate in the case that the term was a SourceTerm for other reuses and/or pins)
+                        // In other words: in case 3), the OOTB event receivers will cause Orphaned Terms by deleting source terms without making sure to clean up
+                        // the reuses and/or pins beforehand. This sucks because the GUID of Orphaned Terms cannot be used again from that point on.
+                        //
+                        // Our goal is to pre-empt the ItemDeleted event recever by deleting the Navigation term's reuses/pins (if they don't have any children of their own)
+                        // before the OOTB event has a chance to run and cause mayhem and tons of Orphaned Terms.
+                        //
+                        // TODO: currently this only handles term re-uses gracefully, but not Pinned terms. We probably shouldn't be messing with pinned terms anyway 
+                        // (since deleting/pinning only works when you interact with the top-level parent term in the pinned hierarchy)... maybe only handle the 1-level-deep
+                        // pinning non-hierarchy/reuse...
                         if (term.TermsCount > 0)
                         {
                             this.logger.Warn("Unable to delete the term {0} with id {1}: the term has children. Delete all children before deleting this term.", termLabel, term.Id);
                         }
-                        else if (term.IsReused || term.IsPinned || term.SourceTerm != null || term.ReusedTerms.Count > 0)
+                        else if (term.IsSourceTerm && term.IsReused)
                         {
-                            string reuseWarnFormat = "Unable to delete the term {0} with id {1}: the term has reuses. Deleting this term would cause (undeletable) "
-                                + "Orphaned Terms (rendering this term GUID unusable in the future). Delete all reuses before deleting this term.";
-                            this.logger.Warn(reuseWarnFormat, termLabel, term.Id);
+                            // Term has no children but has re-uses: gotta get rid of those pins/reuses before attempting to delete
+                            foreach (var termReuse in term.ReusedTerms)
+                            {
+                                if (termReuse.TermsCount > 0)
+                                {
+                                    this.logger.Warn("Unable to delete the term {0} with id {1}: one of the term's reuses/pins has children. Delete all children of that term reuse/pin within termset {2} before deleting this term.", termLabel, term.Id, termReuse.TermSet.Name);
+                                    return;
+                                }
+
+                                termReuse.Delete();
+                                this.logger.Info("Deleting reuse of term {0} with id {1} from term set {2}.", termLabel, term.Id, termReuse.TermSet.Name);
+                            }
+
+                            // Re-fetch source term before attempting to delete it because its instance is now stale (we just delete all of its reuses and pins)
+                            term = term.TermSet.GetTerm(term.Id);
+                            term.Delete();
+                            this.logger.Info("Deleting term {0} with id {1} from term set {2} (now that all its pins/reuses were childless and got deleted).", termLabel, term.Id, term.TermSet.Name);
+                            termStore.CommitAll();
                         }
                         else if (term.IsSourceTerm && !term.IsReused)
                         {
+                            // Term has no children and no re-uses: DELETE IT!
                             term.Delete();
+                            this.logger.Info("Deleting term {0} with id {1} from term set {2} (because it is childless and has no pins/reuses).", termLabel, term.Id, term.TermSet.Name);
                             termStore.CommitAll();
                         }
                     }
@@ -311,6 +335,12 @@ namespace GSoft.Dynamite.Navigation.Core.Services
                                 // We use a pin instead of reuse to reproduce the behavior of the SharePoint variations system. One term set acts as source term set with more targets term sets. We have this information with associated variations webs.
                                 // If you are creating a term in a peer term set, that's mean you are creating an orphan page which doesn't need to be synced with the source term set (like varaitions do)
                                 // A pin is also useful for deleting scenarios (see DeleteAssociatedPageTerm method). Pin = hard link between terms
+                                //
+                                // TODO: Pinning by default is a problem. This prevent both hierarchies from evolving slightly independendly - which is the usual case.
+                                // Instead, we should ensure a full parent-to-grandchildren re-use hierarchy (so that we get the benefits of hierarchy sync that comes with pinning,
+                                // without the drawback of having the target hierarchy entirely stuck to the source hierarchy).
+                                // Pinning is also a problem because deleting a single child term on the source hierarchy will cause orphaned terms at the destination pinned hierarhcy.
+                                // Looks like pinning is/was broken by design (depending on whether that has been patched already in more recent CUs than the old-ish version I'm running now).
                                 reusedParentTerm.ReuseTermWithPinning(term);
                             }
                         }
