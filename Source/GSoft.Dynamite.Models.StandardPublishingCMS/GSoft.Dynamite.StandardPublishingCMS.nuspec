@@ -29,7 +29,6 @@
     <file src="Execute-PostDeploymentScript.ps1" target="content" />
     <file src="Tokens.HOSTNAME.ps1" target="content" />
     <file src="README.txt" target="content" />
-    <file src="..\..\LICENSE" target="tools" />
     <file src="..\..\Libraries\Lapointe.SharePoint.PowerShell.wsp" target="tools\Solutions\WSP" />
     <file src="..\..\Libraries\LICENSE-Lapointe.SharePoint.PowerShell.md" target="tools\Solutions\WSP" />
     <file src="..\GSoft.Dynamite.Publishing.SP\bin\$configuration$\GSoft.Dynamite.Publishing.SP.wsp" target="tools\Solutions\WSP" />
