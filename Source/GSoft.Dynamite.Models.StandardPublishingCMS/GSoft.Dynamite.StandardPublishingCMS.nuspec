@@ -10,9 +10,9 @@
     <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
     <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Closed-source reusable components and modules for SharePoint 2013 based on the Dynamite (2013) toolkit</description>
+    <description>GSoft.Dynamite.Components - StandardPublishingCMS Model - A complete and extensible recipe (PowerShell scripts and WSP packages) to setup a full SharePoint 2013 (on-prem) website or intranet based on the Standard/Classic Publishing architecture</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright 2014</copyright>
+    <copyright>Copyright 2016</copyright>
     <tags>SharePoint</tags>
     <dependencies>
       <dependency id="GSoft.Dynamite.SP" />
@@ -29,7 +29,9 @@
     <file src="Execute-PostDeploymentScript.ps1" target="content" />
     <file src="Tokens.HOSTNAME.ps1" target="content" />
     <file src="README.txt" target="content" />
+    <file src="..\..\LICENSE" target="content" />
     <file src="..\..\Libraries\Lapointe.SharePoint.PowerShell.wsp" target="tools\Solutions\WSP" />
+    <file src="..\..\Libraries\LICENSE-Lapointe.SharePoint.PowerShell.md" target="tools\Solutions\WSP" />
     <file src="..\GSoft.Dynamite.Publishing.SP\bin\$configuration$\GSoft.Dynamite.Publishing.SP.wsp" target="tools\Solutions\WSP" />
     <file src="..\GSoft.Dynamite.Multilingualism.SP\bin\$configuration$\GSoft.Dynamite.Multilingualism.SP.wsp" target="tools\Solutions\WSP" />
     <file src="..\GSoft.Dynamite.Design.SP\bin\$configuration$\GSoft.Dynamite.Design.SP.wsp" target="tools\Solutions\WSP" />

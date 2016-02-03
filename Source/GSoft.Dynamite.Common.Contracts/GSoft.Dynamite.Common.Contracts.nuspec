@@ -10,9 +10,9 @@
         <projectUrl>https://github.com/GSoft-SharePoint/Dynamite/</projectUrl>
         <iconUrl>https://avatars3.githubusercontent.com/u/5606578?s=140</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Interfaces for all modules in the Dynamite.Components schema</description>
+        <description>GSoft.Dynamite.Components - Contract interfaces shared by all modules in the Components solution</description>
         <releaseNotes></releaseNotes>
-        <copyright>Copyright 2014</copyright>
+        <copyright>Copyright 2016</copyright>
         <tags>SharePoint</tags>
         <dependencies>
             <dependency id="GSoft.Dynamite" />

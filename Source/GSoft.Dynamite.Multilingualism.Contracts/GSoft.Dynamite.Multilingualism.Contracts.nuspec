@@ -10,9 +10,9 @@
         <projectUrl>https://github.com/GSoft-SharePoint/Dynamite/</projectUrl>
         <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Interfaces for the Multilingualism Module in the Dynamite.Components schema</description>
+        <description>GSoft.Dynamite.Components - Contract interfaces and POCOs to help configure the Multilingualism module of the Components solution</description>
         <releaseNotes></releaseNotes>
-        <copyright>Copyright 2014</copyright>
+        <copyright>Copyright 2016</copyright>
         <tags>SharePoint</tags>
         <dependencies>
             <dependency id="GSoft.Dynamite" />
