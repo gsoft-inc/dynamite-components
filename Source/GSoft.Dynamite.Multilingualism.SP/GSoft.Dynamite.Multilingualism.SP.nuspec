@@ -10,9 +10,9 @@
     <projectUrl>https://github.com/GSoft-SharePoint/Dynamite-Components/</projectUrl>
     <iconUrl>http://www.gsoft.com/support/img/dynamite-logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>The closed-source reusable Multilingualism components and modules for SharePoint 2013.</description>
+    <description>GSoft.Dynamite.Components - A full-trust farm solution (WSP package) to help provision the Multilingualism module of the Components solution</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright 2014</copyright>
+    <copyright>Copyright 2016</copyright>
     <tags>SharePoint</tags>
   </metadata>
   <files>

@@ -8,7 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution items", ".solutio
 		fxcop.Debug.FxCop = fxcop.Debug.FxCop
 		fxcop.Release.FxCop = fxcop.Release.FxCop
 		GSoft.Dynamite.Portal.snk = GSoft.Dynamite.Portal.snk
+		..\LICENSE = ..\LICENSE
+		..\Libraries\LICENSE-Lapointe.SharePoint.PowerShell.md = ..\Libraries\LICENSE-Lapointe.SharePoint.PowerShell.md
 		nuget.config = nuget.config
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{ADC8FCFE-4BA8-4209-B623-F44BB30D1F45}"
