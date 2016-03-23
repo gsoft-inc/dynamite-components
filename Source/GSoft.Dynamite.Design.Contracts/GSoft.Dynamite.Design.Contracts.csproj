@@ -60,6 +60,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Configuration\IBaseCssConfig.cs" />
     <Compile Include="Configuration\IDesignConfig.cs" />
     <Compile Include="Configuration\IHomePageConfig.cs" />
     <Compile Include="Constants\DesignInfos.cs" />
