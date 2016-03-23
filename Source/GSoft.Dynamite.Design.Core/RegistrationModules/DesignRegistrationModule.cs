@@ -17,6 +17,10 @@ namespace GSoft.Dynamite.Design.Core.RegistrationModules
         /// </param>
         protected override void Load(ContainerBuilder builder)
         {
+            // Base CSS Configuration
+            builder.RegisterType<BaseCssConfig>().As<IBaseCssConfig>();
+            builder.RegisterType<BaseCssConfig>().Named<IBaseCssConfig>("design");
+
             // Design Configuration
             builder.RegisterType<DesignConfig>().As<IDesignConfig>();
             builder.RegisterType<DesignConfig>().Named<IDesignConfig>("design");
