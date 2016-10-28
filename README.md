@@ -38,7 +38,7 @@ The simpler of the two models. Based on the Classic Publishing features of Share
 * Taxonomy navigation
 * Variations 
 
-Start by creating an empty class library project in Visual Studio, then install the `GSoft.Dynamite.StandardPublishingCMS` NuGet package.
+Start by creating an empty class library project in Visual Studio (e.g. `Company.MyProject.SetupScripts`), then install the `GSoft.Dynamite.StandardPublishingCMS` NuGet package.
 
 A few scripts will be created for you, along with configuration files arranged in a folder hierarchy.
 
@@ -73,7 +73,7 @@ You should choose this option only if you require de-centralized content publica
 
 > The main drawback of cross-site publishing is the wait time (i.e. the delay due to search indexing) that the users - stuck in their tiny authoring site - need to tolerate before their content finally appears in the publishing site.
 
-The developer workflow is the same as the `StandardPublishingCMS`:
+The developer workflow is the same as the `StandardPublishingCMS`. In an empty project `Company.MyProject.SetupScripts`, install the `CrossSitePublishingCMS` NuGet package then:
 
 1. Customize your tokens, input XML and scripts
 2. Prepare a `\Deployment` folder with `.\Publish-DeploymentFolder.ps1`
@@ -84,8 +84,9 @@ The developer workflow is the same as the `StandardPublishingCMS`:
 
 > GSOFT devs: refer to the [Nunavik parks website](http://www.nunavikparks.ca/en) project which is based on the `CrossSitePublishingCMS`
 
+
 Module Contract NuGet Packages
-=====================
+==============================
 
 If you wish to customize your `StandardPublishingCMS` or your `CrossSitePublishingCMS` setup sequence, beyond adjusting the default Tokens, PowerShell and XML (for term store and site hierarchy initialization), you will need to implement specific contracts and register some Autofac modules to apply these configuration overrides.
 
@@ -121,4 +122,72 @@ The various Dynamite-Components C# extension points are exposed through the foll
     * Extensible migration framework configuration
 
 
+How to extend/replace/configure the Dynamite-Components modules
+===============================================================
 
+Dynamite-Components is a provisioning framework. It provides extension points (in the form of C# contract interfaces to implement) to customize the `StandardPublishingCMS` and `CrossSitePublishingCMS` provisioning models.
+
+Start by creating your own Service Locator project (e.g. `Company.MyProject.ServiceLocator`). Make sure you use the `*.ServiceLocator` postfix to end you project assemble name. In our example, once deployed to the GAC, the file `Company.MyProject.ServiceLocator.dll` should be in the `GAC_MSIL` folder.
+
+Take care to implement the `ISharePointServiceLocatorAccessor` interface while building your own `SharePointServiceLocator`:
+
+```
+public class MyProjectContainer : ISharePointServiceLocatorAccessor
+{
+    private const string AppName = "Company.Project";
+
+    private static ISharePointServiceLocator SingletonLocatorInstance = new SharePointServiceLocator(AppName);
+
+    public ISharePointServiceLocator ServiceLocatorInstance 
+    {
+        get
+        {
+            return SingletonLocatorInstance;
+        }
+    }
+
+    public static ILifetimeScope BeginLifetimeScope()
+    {
+        return SingletonLocatorInstance.BeginLifetimeScope();
+    }
+
+    public static ILifetimeScope BeginLifetimeScope(SPFeature feature)
+    {
+        return SingletonLocatorInstance.BeginLifetimeScope(feature);
+    }
+
+    public static ILifetimeScope BeginLifetimeScope(SPWeb web)
+    {
+        return InnerServiceLocator.BeginLifetimeScope(web);
+    }
+}
+```
+
+Next, in your project `Company.MyProject.SetupScripts` make sure that you configure your token variable `$DSP_ServiceLocatorAssemblyName` to `"Company.MyProject.ServiceLocator"`.
+
+### The great GAC-assembly scanning voodoo logic that makes this all work
+ 
+Provisioning process goes like this:
+ 
+1. You start the PowerShell `Install-Model.ps1` process
+2. A feature from the PUB module is activated (i.e. a SharePoint feature event receiver defined in the `GSoft.Dynamite.Publishing.SP` project is activated)
+3. Within feature activation code, a the PUB module's `AddOnProvidedServiceLocator` is used to resolve a particular configuration component (e.g. we want to resolve the `IPublishingFieldsConfig` to determine which site columns to provision)
+4. **MAGIC BIT #1**: the `AddOnProvidedServiceLocator` looks in the current `SPWeb`'s property bag, then in the root web's property bag, then up in the web application property bag for the key "ServiceLocatorAssemblyName" to determine what the filename of the DLL holding the `Company.Project.ServiceLocator` class is.
+    * i.e. your `Company.Project` is an "add-on" to the Dynamite-Components framework
+5. The GAC is scanned for this assembly file name, the DLL is loaded and then scanned to find the class implementing `ISharePointServiceLocatorAccessor`
+6. Your own `MyProjectContainer` is found and used to resolve the `IPublishingFieldsConfig` interface
+7. **MAGIC BIT #2**: Attempting an interface resolution on the `MyProjectContainer` triggers the 2nd GAC assembly scan. This is now the regular `SharePointServiceLocator` GAC-scanning process where all assemblies matching your container's `AppName` (i.e. all DLLs starting with `Company.MyProject`) will be loaded and scanned for Autofac registration modules.
+8. Maybe you defined an Autofac registration module that registers your own custom `FieldConfig` that enhances the basic Dynamite-Components like so:
+
+```
+// Somewhere in your own Autofac registration module's .Load method
+builder.Register(c => new FieldConfig(c.ResolveNamed<IPublishingFieldInfoConfig>("publishing")))
+    .As<IPublishingFieldInfoConfig>()
+    .Named<IPublishingFieldInfoConfig>("MyProject");
+```
+
+> Note how the `FieldConfig` customized for `MyProject` take the default IPublishingFieldsConfig (which can be resolved as a named instance through the keywork "publishing") as a parameter to its constructor. Injecting your own class with the base definitions allows you to extend the original list instead of replacing it entirely.
+
+9. Finally, your custom `FieldConfig` "plug-in" is used to provision your customized list of fields. 
+ 
+Whew, we made it!
