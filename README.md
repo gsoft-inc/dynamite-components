@@ -186,8 +186,48 @@ builder.Register(c => new FieldConfig(c.ResolveNamed<IPublishingFieldInfoConfig>
     .Named<IPublishingFieldInfoConfig>("MyProject");
 ```
 
+For completeness' sake, here is an example `FieldConfig`:
+```
+public class FieldConfig : IPublishingFieldInfoConfig
+{
+    private IPublishingFieldInfoConfig publishingFieldInfoConfig;
+
+    public FieldConfig(IPublishingFieldInfoConfig publishingFieldInfoConfig)
+    {
+        // keep a reference on the default list of
+        // fields configured by Dynamite-Components
+        this.publishingFieldInfoConfig = publishingFieldInfoConfig;
+    }
+
+    /// Returns the updated fields configuration we want to apply to our site
+    public IList<BaseFieldInfo> Fields
+    {
+        get 
+        {
+            var baseFields = this.publishingFieldInfoConfig.Fields;
+
+            // Add our own fields
+            baseFields.Add(MyPageFields.RightSidebarHtmlContent);
+            baseFields.Add(MyPageFields.ContextualMenuTopLevel);
+            baseFields.Add(MyPageFields.CanonicalUrl);
+
+            // Return enhanced list of fields to be provisioned
+            // by a feature part of the GSoft.Dynamite.Publishing.SP
+            // solution package WSP
+            return baseFields;
+        }
+    }
+
+    // A bit of boilerplate
+    public BaseFieldInfo GetFieldById(Guid fieldId)
+    {
+        return this.publishingFieldInfoConfig.GetFieldById(fieldId);
+    }
+}
+```
+
 > Note how the `FieldConfig` customized for `MyProject` take the default IPublishingFieldsConfig (which can be resolved as a named instance through the keywork "publishing") as a parameter to its constructor. Injecting your own class with the base definitions allows you to extend the original list instead of replacing it entirely.
 
-9. Finally, your custom `FieldConfig` "plug-in" is used to provision your customized list of fields. 
- 
+Finally, your custom `FieldConfig` "plug-in" is used to provision your customized list of fields. You've successfully overriden Dynamite-Components' default `IPublishingFieldsConfig`.
+
 Whew, we made it!
