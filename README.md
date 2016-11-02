@@ -1,15 +1,19 @@
 Dynamite-Components
 ===================
 
-Reusable components and modules for SharePoint 2013 based on the Dynamite (2013) toolkit
+Reusable components and modules for SharePoint 2013 (on-premise) based on the Dynamite (2013) toolkit
 
 * [NuGet Feeds](#nuget-feeds)
 * [Model NuGet Packages](#model-nuget-packages) - The provisioning recipes
 * [Module Contract NuGet Packages](#module-contract-nuget-packages) - Configuration and plug-in hooks for the components being provisioned by the models
+* [How to extend/replace/configure the Dynamite-Components modules](#how-to-extendreplaceconfigure-the-dynamite-components-modules)
+* [Extra Background and Project Philosophy](#extra-background-and-project-philosophy)
 
-> **New to GSoft-SharePoint's Dynamite?** Head to the core [Dynamite project readme] to learn the basics first.
+> **New to GSoft-SharePoint's Dynamite?** Head to the core [Dynamite project readme](https://github.com/GSoft-SharePoint/Dynamite) to learn the basics first.
 
-> For some extra background (in French) about Dynamite and the modular approach behind Dynamite-Components, please refer to [GSOFT's dev practices guide g.gsoft.com](http://g.gsoft.com/sharepoint/intro).
+> For some more background (in French) about Dynamite and the modular approach behind Dynamite-Components, please refer to [GSOFT's dev practices guide g.gsoft.com](http://g.gsoft.com/sharepoint/intro). 
+> 
+> Look at the [last section in this README](#extra-background-and-project-philosophy) for links to extra documentation that lies within GSOFT's intranet.
 
 
 NuGet Feeds
@@ -24,10 +28,11 @@ Pre-release builds [are available from a separate feed](https://github.com/GSoft
 
 Beyond the foundational `GSoft.Dynamite` and `GSoft.Dynamite.SP` NuGet packages, a great number of NuGet packages are available from the feed that are related to the Dynamite-Components project.
 
+
 Model NuGet Packages
 ====================
 
-Dynamite-Components' models are A-to-Z-automated SharePoint configuration recipes, driven by PowerShell scripts and extensible through an architecture Autofac registration modules.
+Dynamite-Components' models are A-to-Z-automated SharePoint (on-premise) configuration recipes, driven by PowerShell scripts and extensible through an architecture composed of Autofac registration modules.
 
 ## 1. `GSoft.Dynamite.StandardPublishingCMS` - A Classic SharePoint Publishing Model
 
@@ -175,8 +180,9 @@ Provisioning process goes like this:
 4. **MAGIC BIT #1**: the `AddOnProvidedServiceLocator` looks in the current `SPWeb`'s property bag, then in the root web's property bag, then up in the web application property bag for the key "ServiceLocatorAssemblyName" to determine what the filename of the DLL holding the `Company.Project.ServiceLocator` class is.
     * i.e. your `Company.Project` is an "add-on" to the Dynamite-Components framework
 5. The GAC is scanned for this assembly file name, the DLL is loaded and then scanned to find the class implementing `ISharePointServiceLocatorAccessor`
+    * once scanned and loaded from the GAC, your `Company.Project.ServiceLocator` is used as root container for service location within all of Dynamite-Components' modules
 6. Your own `MyProjectContainer` is found and used to resolve the `IPublishingFieldsConfig` interface
-7. **MAGIC BIT #2**: Attempting an interface resolution on the `MyProjectContainer` triggers the 2nd GAC assembly scan. This is now the regular `SharePointServiceLocator` GAC-scanning process where all assemblies matching your container's `AppName` (i.e. all DLLs starting with `Company.MyProject`) will be loaded and scanned for Autofac registration modules.
+7. **MAGIC BIT #2**: Attempting an interface resolution on the `MyProjectContainer` triggers the 2nd GAC assembly scan. This is now the regular `SharePointServiceLocator` GAC-scanning process (see [here in Dynamite wiki](https://github.com/GSoft-SharePoint/Dynamite#a-dependency-injection--service-location) for description) where all assemblies matching your container's `AppName` (i.e. all DLLs starting with `Company.MyProject`) will be loaded and scanned for Autofac registration modules.
 8. Maybe you defined an Autofac registration module that registers your own custom `FieldConfig` that enhances the basic Dynamite-Components like so:
 
 ```
@@ -231,3 +237,33 @@ public class FieldConfig : IPublishingFieldInfoConfig
 Finally, your custom `FieldConfig` "plug-in" is used to provision your customized list of fields. You've successfully overriden Dynamite-Components' default `IPublishingFieldsConfig`.
 
 Whew, we made it!
+
+
+Extra Background and Project Philosophy
+========================================
+If you are a GSOFT dev, you will find lots of (more or less) old documentation on the GSOFT intranet that gives more background about the philosophy behind Dynamite-Components.
+
+We saw ourselves repeating the same SharePoint intranet and portal implementation project after project, so Dynamite-Components was an attempt to factor out the re-usable parts to accelerate the delivery of corporate intranet and portal projects for GSOFT's clients.
+
+Taking a look at the background documentation can be helpful in understanding:
+
+* The meaning behind the shorthand "PUB_01" and "NAV_02" story modules: ["Matrice des besoins - offre de service"](https://gsoft.sharepoint.com/sites/Sharepoint/Documents%20partages/Matrice_Besoins_Offre_de_service_SharePoint.xlsx?d=w540e160e792243a09ed191a0f5bd6a81)
+    - The same user stories come up again and again in corporate intranet contexts. So Dynamite-Components breaks up its features along user-level stories that can easily be organized in a product backlog (for **repeatable** planning and estimation purposes).
+    - Here's a [Template for Requirements Gathering](https://gsoft.sharepoint.com/sites/Sharepoint/Documents%20partages/TEMPLATE-Requirements_Gathering.xlsx?d=web505be3fe0d4b82b6a8979526bb2d78) following the "PUB_01", "NAV_02", etc. modular user story structure.
+
+> ### A reusable product backlog - The real power behind Dynamite-Components' modularity
+> 
+> When you're estimating the effort required to fill customer needs, it's helpful to always be speaking the same language - thus we came up with this "common" Dynamite-Components backlog that can be reused across projects.
+> 
+> The common backlog's user stories follow the same structure as the Dynamite-Components Models' setup sequence:
+> * e.g. you analyse your customer's requirements for publishing pages and/or list items as part of the "PUB_01" story in your backlog, then you will find a PowerShell script `Install-PUB01.ps1` which takes care of provisionning those components related to the "PUB_01" user story.
+> * within each story's provisioning sequence, many features are typically activated: their provisioning behavior can be adjusted through the [extension and replacement mechanisms explained above](#how-to-extendreplaceconfigure-the-dynamite-components-modules)
+> * this approach gives you the advantage of **easy traceability from each component in your code to a user story in your backlog**
+ 
+* Some VISIO diagrams explaining visually how Models (e.g. `StandardPublishingCMS` and `CrossSitePublishingCMS`) and Modules (e.g. `Publishing`, `Navigation`, `Search`, etc.) are related: [Dynamite_Building_Blocks.vsdx](https://gsoft.sharepoint.com/sites/Sharepoint/Documents%20partages/Dynamite_Building_Blocks.vsdx?d=w4c753a0770e84f5683429ce68d92b34d)
+
+Some more documentation is also available:
+
+* [Root intranet documents folder for Dynamite projects](https://gsoft.sharepoint.com/sites/Sharepoint/Documents%20partages/Forms/AllItems.aspx)
+* [A re-usable, bilingual service offer for On-premise (and off!) SharePoint projects](https://gsoft.sharepoint.com/sites/Sharepoint/Documents%20partages/Forms/AllItems.aspx?RootFolder=%2Fsites%2FSharepoint%2FDocuments%20partages%2FOffre%20de%20service%20SharePoint&FolderCTID=0x0120004F1E88516646B944B88652804F6BE7AC&View=%7BD91CFA7C-A6EC-4FD4-8DFA-74D5C8DDB1C8%7D)
+* [Franck Cornu's ebook - a methodology guide for completing a successful SharePoint project analysis (in French)](http://pages.gsoft.com/ebook-reussir-son-analyse-sharepoint/?_ga=1.38746275.1416510166.1382649140)
